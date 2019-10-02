@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body{
+		margin:auto;
+		text-align:center;
+	}
+	
+	/** 타이틀 **/
+	div#mainTitle{
+		width:500px;
+		border-bottom:3px solid rgb(5,135,94);
+		border-left:15px solid rgb(5,135,94);
+		display:inline-block;
+	
+		
+	}
+	div#mainTitle>span{
+		font-size:30pt;
+		font-weight:bold;
+		font-family:"나눔스퀘어라운드";
+		text-align:left;
+		/* margin:0px 0px 0px 40px; */
+		
+	}
+	
+	/** 왼쪽 nav **/
+	
+	#leftNav{
+		border:1px solid red;
+		display:inline-block;
+		float:left;
+		text-decoration:none;		
+		color:rgb(34,34,34);
+	}
+	div#leftNav>ul{
+		list-style-type:none;;		
+		color:rgb(5,135,94);
+	}
+	
+	/** 중앙 concert contents **/
+	div#concertInfo{
+		border:1px solid red;
+		width:800px;
+		height:300px;
+		margin:auto;
+	}
+	div#concertInfo>a{
+		float:left;
+		padding:8px;
+	}
+	div#concertInfo>div{
+		border:1px solid green;
+		width:550px;
+		height:280px;
+		margin-top:7px;
+		float:left;
+	}
+	div#concertInfo>div>h2{
+		text-align:left;
+		margin-left:10px;
+	}
+	div#concertInfo>div>#hideSpace{
+		border:1px solid gray;
+		width:550px;
+		height:130px;
+	}
+	div#concertInfo>div>#textSpace{
+		text-align:left;
+		margin-left:10px;
+	}
+	div#concertInfo>div>#textSpace>div>a{
+		display:inline-block;
+		border:1px solid gray;
+		margin:-10px 20px 0px 0px;
+		float:right;
+	}
+	div#concertInfo>div>#textSpace>div>div{
+	border:1px solid gray;
+	}
+	div#concertInfo>div>#textSpace>div>span{
+	border:1px solid gray;
+	}
+	
+	
+</style>
+</head>
+<body>
+	<img src="http://localhost:9090/madang/images/concert_main.png">
+	<div id="leftNav">
+		<ul>
+			<li>공연</li>
+			<li>공연일정</li>
+			<li>객석안내</li>
+		</ul>
+	</div>
+	<div id="mainTitle"><span>공연</span></div>
+	<div>2019.10.02 (수) 오늘의 공연입니다.</div>
+	
+	<button type="button">이미지보기</button>
+	<button type="button">텍스트보기</button>
+	
+	<div id="concertInfo">
+		<a href=#><img src="http://localhost:9090/madang/images/20190711113234P.gif"></a>
+		<div>
+			<h2><a href="#">SIDance2019-울티마&nbsp;베스&nbsp;</a></h2>
+			<div id="hideSpace">
+				<span>빈공간</span>
+			</div>
+			<div id="textSpace">
+				<div>
+					<div>베토벤 홀  <span>|</span>  2019.10.02(수) ~ 2019.10.03(목)</div>
+					<span>R석 8만원 / S석 6만원 / A석 4만원 / B석 2만원</span>
+					
+					<a href="#">예매</a>
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<div id="concertInfo">
+		<a href=#><img src="http://localhost:9090/madang/images/20190711113234P.gif"></a>
+		<div>
+			<h2><a href="#">SIDance2019-울티마&nbsp;베스&nbsp;</a></h2>
+			<div id="hideSpace">
+				<span>빈공간</span>
+			</div>
+			<div id="textSpace">
+				<div>
+					<div>베토벤 홀  <span>|</span>  2019.10.02(수) ~ 2019.10.03(목)</div>
+					
+					<div>R석 8만원 / S석 6만원 / A석 4만원 / B석 2만원</div>
+					
+					<a href="#">예매</a>
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>
