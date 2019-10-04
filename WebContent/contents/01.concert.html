@@ -6,44 +6,58 @@
 <style>
 	body{
 		margin:auto;
-		text-align:center;
+		/* text-align:center; */
 	}
 	
-	/** 타이틀 **/
+	/** 타이틀 & 공연날짜 **/
 	div#mainTitle{
 		width:500px;
 		border-bottom:3px solid rgb(5,135,94);
 		border-left:15px solid rgb(5,135,94);
 		display:inline-block;
-	
-		
-	}
-	div#mainTitle>span{
+		margin:100px 0px 0px 0px;
 		font-size:30pt;
 		font-weight:bold;
 		font-family:"나눔스퀘어라운드";
 		text-align:left;
-		/* margin:0px 0px 0px 40px; */
+	}
+	div#dateInfo{
+		display:inline-block;
+		margin:30px 0px 50px 20px;
 		
 	}
 	
 	/** 왼쪽 nav **/
 	
 	#leftNav{
-		border:1px solid red;
+		width:180px;
+		margin:180px -20px 0px 350px;
+		padding-right:30px;
 		display:inline-block;
 		float:left;
 		text-decoration:none;		
 		color:rgb(34,34,34);
 	}
 	div#leftNav>ul{
+		border-right:1px solid #9b9b9b;
+		text-align:center;
 		list-style-type:none;;		
 		color:rgb(5,135,94);
 	}
+	div#leftNav>ul>li:nth-child(1) {
+		font-size:20pt;
+		font-style: bold;
+		margin-bottom:10px;
+		margin-right:20px;
+	}
+	
+	div#leftNav>ul>li>a{
+		text-decoration: none;
+	}
+	
 	
 	/** 중앙 concert contents **/
 	div#concertInfo{
-		border:1px solid red;
 		width:800px;
 		height:300px;
 		margin:auto;
@@ -52,8 +66,13 @@
 		float:left;
 		padding:8px;
 	}
+	
+	div#concertInfo>a>img{
+		width:220px; height:280px;
+	}
+	
 	div#concertInfo>div{
-		border:1px solid green;
+		border-bottom:1px solid green;
 		width:550px;
 		height:280px;
 		margin-top:7px;
@@ -61,10 +80,15 @@
 	}
 	div#concertInfo>div>h2{
 		text-align:left;
+		
+		color:black;
 		margin-left:10px;
 	}
+	div#concertInfo>div>h2>a{
+		text-decoration: none;
+	}
+	
 	div#concertInfo>div>#hideSpace{
-		border:1px solid gray;
 		width:550px;
 		height:130px;
 	}
@@ -74,41 +98,56 @@
 	}
 	div#concertInfo>div>#textSpace>div>a{
 		display:inline-block;
-		border:1px solid gray;
-		margin:-10px 20px 0px 0px;
+		color:#e5002c;
+		border:1px solid #e5002c;
+		text-decoration:none;
+		margin:-10px 20px 0px -30px;
+		padding:5px 30px 5px 30px;
+		border-radius: 5px;
 		float:right;
+		
 	}
-	div#concertInfo>div>#textSpace>div>div{
+		
+	div#concertInfo>div>#textSpace>div>a:hover{
+	 
+	  background-color: #e5002c;
+	  color:white;
+	}
+		
+		
+/* 	div#concertInfo>div>#textSpace>div>div{
 	border:1px solid gray;
 	}
 	div#concertInfo>div>#textSpace>div>span{
 	border:1px solid gray;
-	}
+	} */
+	
+	
 	
 	
 </style>
 </head>
 <body>
-	<img src="http://localhost:9090/madang/images/concert_main.png">
+	<img src="http://localhost:9090/madang/images/concert_main/concert_main.png">
 	<div id="leftNav">
 		<ul>
-			<li>공연</li>
-			<li>공연일정</li>
-			<li>객석안내</li>
+			<li><a href="#">공연</a></li>
+			<li><a href="#">공연일정</a></li>
+			<li><a href="#">객석안내</a></li>
 		</ul>
 	</div>
-	<div id="mainTitle"><span>공연</span></div>
-	<div>2019.10.02 (수) 오늘의 공연입니다.</div>
+	<div id="mainTitle">&nbsp&nbsp공연</div><br>
+	<div id="dateInfo">2019.10.02 (수) 오늘의 공연입니다.</div>
 	
 	<button type="button">이미지보기</button>
 	<button type="button">텍스트보기</button>
 	
 	<div id="concertInfo">
-		<a href=#><img src="http://localhost:9090/madang/images/20190711113234P.gif"></a>
+		<a href=#><img src="http://localhost:9090/madang/images/concert_main/20190823151229P.gif"></a>
 		<div>
 			<h2><a href="#">SIDance2019-울티마&nbsp;베스&nbsp;</a></h2>
 			<div id="hideSpace">
-				<span>빈공간</span>
+				<span></span>
 			</div>
 			<div id="textSpace">
 				<div>
@@ -123,11 +162,11 @@
 		</div>
 	</div>
 	<div id="concertInfo">
-		<a href=#><img src="http://localhost:9090/madang/images/20190711113234P.gif"></a>
+		<a href=#><img src="http://localhost:9090/madang/images/concert_main/20190711113234P.gif"></a>
 		<div>
 			<h2><a href="#">SIDance2019-울티마&nbsp;베스&nbsp;</a></h2>
 			<div id="hideSpace">
-				<span>빈공간</span>
+				<span></span>
 			</div>
 			<div id="textSpace">
 				<div>
