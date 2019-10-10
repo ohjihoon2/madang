@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	*{
+		/* border:1px solid blue; */
+	}
+	
+	
 	body{
 		margin:auto;
 		/* text-align:center; */
@@ -31,7 +36,7 @@
 	
 	#left_nav{
 		width:180px;
-		margin:180px -20px 0px 350px;
+		margin:180px -20px 0px 200px;
 		padding-right:30px;
 		display:inline-block;
 		float:left;
@@ -58,10 +63,15 @@
 	/** 중앙 concert contents **/
 	div#concert_info{
 		border:1px solid purple;
-		width:900px;
+		width:1000px;
 		height:340px;
 		margin:auto;
-		margin-top:30px;
+		margin-top:100px;
+	}
+	
+	#Infoimg{
+		width: 250px;
+		heigh: 200px;
 	}
 	div#concert_info>a{
 		float:left;
@@ -69,22 +79,20 @@
 	}
 	
 	div#concert_info>a>img#Info_img{
-		border:1px solid purple;
-		width:260px; height:320px;
+		width:260px; 
+		height:300px;
 	}
 	
-	div#concert_info>div{
-		border:1px solid purple;
-		width:620px;
-		height:310px;
-		margin-top:7px;
-		float:left;
+	#content_right{
+		width:900px;
+		height:300px;
+		margin:7px 0px 0px 100px;
 	}
+	
 	div#concert_info>div>h2{
 		text-align:left;
-		
 		color:black;
-		margin-left:10px;
+		margin-left:300px;
 	}
 	div#concert_info>div>h2>a{
 		text-decoration: none;
@@ -109,14 +117,23 @@
 		float:right;
 		
 	}
-	div#concert_info>div>div#content_right>table>th{
+	div#concert_info>div>div#content_right>table{
 		border:1px solid red;
+		margin:0px 0px 20px 200px;
+		text-align: left;
+	}
+	th{
+		width:100px;
 	}
 		
 	div#concert_info>div>#text_space>div>a:hover{
 	 
 	  background-color: #e5002c;
 	  color:white;
+	}
+	
+	#content_image{
+		width:1000px;
 	}
 </style>
 </head>
@@ -178,6 +195,9 @@
 						<td>02-580-1300</td>
 					</tr>
 				</table>
+			</div>
+			<div>
+				<img src="http://localhost:9090/madang/images/concert_main/20190831163401061.gif" id="content_image">
 			</div>
 		</div>
 	</div>
