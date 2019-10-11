@@ -138,12 +138,21 @@ ul.dept02 li a:hover {
 <body>
 
 	<div>
+<<<<<<< HEAD
 		<a href="#"><img src="http://localhost:9090/madang02/images/index_logo.png"></a>
 	</div>
 	
 	<div id="header_nav">
 		<nav>
 			<li><a href="#"><img src="http://localhost:9090/madang02/images/search.png"></a></li>
+=======
+		<a href="#"><img src="http://localhost:9090/madang/images/index_logo.png"></a>
+	</div>
+	
+	<div id="header_nav">
+		<nav>
+			<li><a href="#"><img src="http://localhost:9090/madang/images/search.png"></a></li>
+>>>>>>> branch 'master' of https://github.com/ohjihoon2/madang.git
 			<li><a href="#">로그인</a></li>
 			<li><a href="#">회원가입</a></li>
 			<li><a href="#">마이페이지</a></li>
