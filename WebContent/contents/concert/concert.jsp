@@ -70,7 +70,7 @@
 	}
 	
 	div#concert_info>a>img{
-		width:220px; height:280px;
+		width:220px; height:270px;
 	}
 	
 	div#concert_info>div{
@@ -135,8 +135,8 @@
 	<img src="http://localhost:9090/madang/images/concert_main/concert_main.png">
 	<div id="left_nav">
 		<ul>
-			<li><a href="concert.html">공연</a></li>
-			<li><a href="concert.html">공연일정</a></li>
+			<li><a href="concert.jsp">공연</a></li>
+			<li><a href="concert.jsp">공연일정</a></li>
 			<li><a href="#">객석안내</a></li>
 		</ul>
 	</div>
@@ -147,9 +147,9 @@
 	<button type="button">텍스트보기</button>
 	
 	<div id="concert_info">
-		<a href="concert_detail.html"><img src="http://localhost:9090/madang/images/concert_main/20190823151229P.gif"></a>
+		<a href="concert_detail.jsp"><img src="http://localhost:9090/madang/images/concert_main/20190823151229P.gif"></a>
 		<div>
-			<h2><a href="concert_detail.html">SIDance2019-울티마&nbsp;베스&nbsp;</a></h2>
+			<h2><a href="concert_detail.jsp">SIDance2019-울티마&nbsp;베스&nbsp;</a></h2>
 			<div id="hide_space">
 				<span></span>
 			</div>
@@ -157,31 +157,24 @@
 				<div>
 					<div>베토벤 홀  <span>|</span>  2019.10.02(수) ~ 2019.10.03(목)</div>
 					<span>R석 8만원 / S석 6만원 / A석 4만원 / B석 2만원</span>
-					
 					<a href="#">예매</a>
-					
 				</div>
-				
 			</div>
 		</div>
 	</div>
 	<div id="concert_info">
-		<a href=#><img src="http://localhost:9090/madang/images/concert_main/20190711113234P.gif"></a>
+		<a href="concert_detail.jsp"><img src="http://localhost:9090/madang/images/concert_main/20190711113234P.gif"></a>
 		<div>
-			<h2><a href="#">SIDance2019-울티마&nbsp;베스&nbsp;</a></h2>
+			<h2><a href="concert_detail.jsp">SIDance2019-울티마&nbsp;베스&nbsp;</a></h2>
 			<div id="hide_space">
 				<span></span>
 			</div>
 			<div id="text_space">
 				<div>
 					<div>베토벤 홀  <span>|</span>  2019.10.02(수) ~ 2019.10.03(목)</div>
-					
-					<div>R석 8만원 / S석 6만원 / A석 4만원 / B석 2만원</div>
-					
+					<span>R석 8만원 / S석 6만원 / A석 4만원 / B석 2만원</span>
 					<a href="#">예매</a>
-					
 				</div>
-				
 			</div>
 		</div>
 	</div>
