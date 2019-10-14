@@ -1,0 +1,290 @@
+/*헤더*/
+
+* {
+	font-family: "나눔스퀘어라운드";
+}
+
+header {
+	border-top: 1px solid #05875e;
+	margin-top: 0px;
+	/* border:1px solid green; */
+	/* width:1400px; */
+	margin: auto;
+	height:300px;
+	
+}
+
+header > div:first-child { /* 로고 이미지 영역 */
+	/* border:1px solid red; */
+	display: inline-block;
+	padding-left: 55px;
+}
+header > div > a > img { /* 로고 이미지 */
+	width: 240px; height: 80px;
+	margin-top: 2px;
+}
+header > div > nav img { /* 검색 이미지 */
+	width: 20px; height: 20px;
+	margin-bottom: -5px;
+	opacity: 0.5;
+}
+body>div>nav img:hover {
+	opacity: 0.6;
+}
+header > div#header_nav { /* 검색 로그인~고객센터 영역 */
+	/* border:1px solid blue; */
+	display: inline-block;
+	/* float:right; */
+	/* margin-left:1500px; */
+	margin: -20px 0px 0px 1450px;
+}
+header > div#header_nav li { /* 검색 로그인~고객센터 리스트 */
+	/* border:1px solid green; */
+	list-style-type: none;
+	display: inline-block;
+}
+header > div#header_nav li a { /* 검색 로그인~고객센터 글자 */
+	border-right: 1px solid gray;
+	padding: 0px 10px 0px 6px;
+	text-decoration: none;
+	color: gray;
+}
+header > div#header_nav li a:hover {
+	color: #282828;
+}
+header > div#header_nav li:first-child a { /* 검색 글자..? */
+	border-right: none;
+}
+header > div#header_nav li:last-child a { /* 검색 로그인~고객센터 마지막 글자 */
+	border-right: none;
+}
+
+div.container{
+	width:100%;
+	height:100px;
+}
+
+ul.dept01 { /* 헤더 메뉴바 전체 영역 */
+	border-bottom: 1px solid #9b9b9b;
+	text-align: center;
+	margin: auto;
+	padding: 30px 0px 0px 0px;
+	width: 100%;
+}
+ul.dept01 > li { /* 헤더 메뉴바 리스트 */
+	/* border:1px solid blue; */
+	display: inline-block;
+	margin: 10px 40px 0px 40px;
+	position: relative;
+	
+}
+ul.dept01 > li > a { /* 헤더 메뉴바 글자 */
+	color: #05875e;
+	display: block;
+	font-size: 22pt;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 15px 14px;
+	transition: 0.3s linear;
+}
+ul.dept01 > li:hover {
+	/* background: #126d9b; */
+}
+ul.dept02 { /* 상세메뉴 내려오는거 */
+	padding:0px;
+	border-bottom: 5px solid #05875e;
+	display: none;
+	position: absolute;
+	width: 200px;
+	text-align:left;
+}
+ul.dept02 li { /* 상세메뉴 내려온거 각 리스트 */
+	border-top: 1px solid #444;
+	display: block;
+}
+ul.dept02 li:first-child {
+	border-top: none;
+}
+ul.dept02 li a { /* 상세 메뉴 */
+	background: rgb(255,255,255);
+	display: block;
+	padding: 10px 14px;
+	text-decoration: none;
+	color: #282828;
+	font-weight: bold;
+}
+ul.dept02 li a:hover {
+	background: #9b9b9b;
+	color: white;
+	font-weight: bold;
+}
+/* nav .fa.fa-angle-down { margin-left: 6px; } */
+
+
+
+
+
+/*메인페이지*/
+/*전체설정*/
+	*{
+		font-family:"나눔스퀘어라운드";
+		padding:0px;
+		margin:0px;
+
+	}
+	div#main_page{
+		margin:auto;
+		text-align:center;
+		height:2500px;
+		
+	}
+	div#main_content{ /*공연/전시~퀵메뉴*/
+		display:inline-block;
+		margin:auto;
+		width:1000px;
+	}
+/*공연, 전시 */	
+	div#main_content div#main_announce {
+		text-align:center;
+		margin-top:50px;
+		margin-bottom:70px;
+	}
+	
+	div#main_content div#main_announce section:first-child{
+		margin-bottom:50px;
+		
+	}
+	
+ 	div#main_content div#main_announce section h1{
+		text-align:left;
+		padding-left:25%;
+		margin-bottom:10px;
+		
+	}
+
+	div#main_content div#main_announce section article img{  /*포스터 이미지 파일의 사이즈는 동일하게 맞출 것. 공연이든 전시이든 */
+		height:350px;
+	}
+
+	
+	
+/*티켓알림(예정작), 이벤트   		Q.요소들이 흐트러지지않고 창이 줄어들면 그냥 보이지 않게 하는 법?*/	
+
+	div#main_page div#main_content div:nth-child(2) section article:first-child button{
+		display:inline-block;
+		border:none;
+		width:300px;
+		height:40px;
+		margin:0px 10px 0px 10px;
+		background-color:rgb(5,135,94);
+		color:white;
+		font-size:18pt;
+		font-weight:bold;
+		text-align:center;
+	}
+
+	div#main_page div#main_content div:nth-child(2) section article:nth-child(2) {
+		margin-top:30px;
+		margin-bottom:50px;
+		overflow:hidden;
+	}
+
+	div#main_page div#main_content div:nth-child(2) section article:nth-child(2) div{
+
+		display:inline-block;
+		margin:0px 10px 0px 10px;
+	}
+	div#main_page div#main_content div:nth-child(2) section article:nth-child(2) div img{
+		width:300px;
+		margin-bottom:10px;
+	}
+
+	
+/*하단 5개 퀵메뉴*/	
+
+	div#main_page div#main_content >div:last-child section {
+		
+		width:100%;
+		padding: 10px 40px 10px 40px;
+		display:inline-block;
+		border-top:1px solid green;
+		border-bottom:1px solid green;
+		
+	}
+	div#main_page div#main_content div:last-child article{
+		display:inline-block;
+		text-align:center;
+		margin:0px 20px 0px 20px;
+		}
+	div#main_page div#main_content div:last-child article img{
+		display:block;
+		height:50px;
+	}
+	div#main_page div#main_content div:last-child article span{
+		color:rgb(5,135,94);
+	}
+	
+	
+	/*로그인*/
+	*{
+		font-family:"나눔스퀘어라운드";
+		padding:0px;
+		margin:0px;
+
+	}
+
+
+
+  	 h1.page_title{  /*'로그인'이 표시되는 바*/
+      width:700px;
+      border-bottom:3px solid rgb(5,135,94);
+      border-left:15px solid rgb(5,135,94);
+      display:inline-block;
+      margin:100px 0px 50px 0px;
+      font-size:30pt;
+      font-weight:bold;
+      font-family:"나눔스퀘어라운드";
+      text-align:left;
+   }
+   
+   
+   /*로그인 페이지 컨텐츠*/
+   div#login {
+   width:1000px;
+   height:500px;
+   	margin:auto;
+   	text-align:center;
+   }
+      /*로그인 페이지의 폼 내부 디자인*/
+   div#login form input{
+   		display:inline-block;
+   		width:400px;
+   		height:25px;
+   		margin:15px 30px 0px 30px;
+   		padding:5px;
+   }
+   
+   div#login form button{
+   		background-color:rgb(5,135,94);
+   		color:white;
+   		width:400px;
+   		height:40px;
+   		border:none;
+   		margin-top:30px;
+   }
+   
+   div#login> section{
+   display:inline-block;
+   	margin:15px 0px 10px 0px;
+   	width:400px;
+   	height:35px;
+   	text-align:right;
+   }
+   /*로그인 버튼 하단 내용*/
+   div#login> section span{
+ 	color: rgb(155,155,155);
+	}  
+	div#login> section div{ /*하단 내용들의 간격*/
+		height:10px;
+	} 
+	
