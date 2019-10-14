@@ -36,16 +36,16 @@
 				  <!-- The slideshow -->
 				  <div class="carousel-inner">
 				    <div class="carousel-item active"> <!-- ))이미지 삽입  크기는 여기의 width&height 혹은 위의 css에서 해결-->
-				     <a href="#"><img src="http://localhost:9090/images/main/main_FarewellMyConcubine.png" alt="FarewellMyConcubine" ></a>  <!-- ))alt 말풍선 같은거? -->
+				     <a href="#"><img src="http://localhost:9090/images/mainpage/main_FarewellMyConcubine.png" alt="FarewellMyConcubine" ></a>  <!-- ))alt 말풍선 같은거? -->
 				    </div>
 				    <div class="carousel-item">
-				      <a href="#"><img src="http://localhost:9090/images/main/main_SAC_CUBE2019.JPG" alt="SAC_CUBE2019"></a> 
+				      <a href="#"><img src="http://localhost:9090/images/mainpage/main_SAC_CUBE2019.JPG" alt="SAC_CUBE2019"></a> 
 				    </div>
 				    <div class="carousel-item">
-				      <a href="#"><img src="http://localhost:9090/images/main/main_TheStoryOfOldCouple.JPG" alt="TheStoryOfOldCouple" ></a> 
+				      <a href="#"><img src="http://localhost:9090/images/mainpage/main_TheStoryOfOldCouple.JPG" alt="TheStoryOfOldCouple" ></a> 
 				    </div>
 				    <div class="carousel-item">
-				      <a href="#"><img src="http://localhost:9090/images/main/main_TracesOfBlackSand.JPG" alt="TracesOfBlackSand" ></a> 
+				      <a href="#"><img src="http://localhost:9090/images/mainpage/main_TracesOfBlackSand.JPG" alt="TracesOfBlackSand" ></a> 
 				    </div>
 				  </div>
 				  
@@ -64,18 +64,18 @@
 			<section>
 				<h1>공연</h1>
 				<article>
-					<img src="http://localhost:9090/images/main/poster_37309.gif">
-					<img src="http://localhost:9090/images/main/poster_37309.gif">
-					<img src="http://localhost:9090/images/main/poster_37309.gif">
+					<img src="http://localhost:9090/images/mainpage/poster_37309.gif">
+					<img src="http://localhost:9090/images/mainpage/poster_37309.gif">
+					<img src="http://localhost:9090/images/mainpage/poster_37309.gif">
 				</article>
 			</section>
 			
 			<section>
 				<h1>전시</h1>
 				<article>
-					<img src="http://localhost:9090/images/main/poster_38632.gif">
-					<img src="http://localhost:9090/images/main/poster_38632.gif">
-					<img src="http://localhost:9090/images/main/poster_38632.gif">
+					<img src="http://localhost:9090/images/mainpage/poster_38632.gif">
+					<img src="http://localhost:9090/images/mainpage/poster_38632.gif">
+					<img src="http://localhost:9090/images/mainpage/poster_38632.gif">
 				</article>
 			</section>
 		</div>
@@ -87,19 +87,19 @@
 				</article>
 				<article>
 					<div>
-						<img src="http://localhost:9090/images/main/eventThumb_02.gif">
+						<img src="http://localhost:9090/images/mainpage/eventThumb_02.gif">
 						<br>
 						<span><a href="#">국립오페라단 《호프만의 이야기》 미리보기</a></span>
 						<span><br>이벤트 기간 ㅣ 2019.09.24(화) ~ 10.07(월)<br>담첨자 발표 ㅣ 2019.10.09(수)</span>
 					</div>
 					<div>
-						<img src="http://localhost:9090/images/main/eventThumb_02.gif">
+						<img src="http://localhost:9090/images/mainpage/eventThumb_02.gif">
 						<br>
 						<span><a href="#">국립오페라단 《호프만의 이야기》 미리보기</a></span>
 						<span><br>이벤트 기간 ㅣ 2019.09.24(화) ~ 10.07(월)<br>담첨자 발표 ㅣ 2019.10.09(수)</span>
 					</div>
 					<div>
-						<img src="http://localhost:9090/images/main/eventThumb_02.gif">
+						<img src="http://localhost:9090/images/mainpage/eventThumb_02.gif">
 						<br>
 						<span><a href="#">국립오페라단 《호프만의 이야기》 미리보기</a></span>
 						<span><br>이벤트 기간 ㅣ 2019.09.24(화) ~ 10.07(월)<br>담첨자 발표 ㅣ 2019.10.09(수)</span>
@@ -110,11 +110,11 @@
 		</div>
 		<div>
 			<section>
-				<article><a href='#'><img src="http://localhost:9090/images/main/icon_map.png"><span>오시는길</span></a></article>
-				<article><a href='#'><img src="http://localhost:9090/images/main/icon_map.png"><span>오시는길</span></a></article>
-				<article><a href='#'><img src="http://localhost:9090/images/main/icon_map.png"><span>오시는길</span></a></article>
-				<article><a href='#'><img src="http://localhost:9090/images/main/icon_map.png"><span>오시는길</span></a></article>
-				<article><a href='#'><img src="http://localhost:9090/images/main/icon_map.png"><span>오시는길</span></a></article>
+				<article><a href='#'><img src="http://localhost:9090/images/mainpage/icon_map.png"><span>오시는길</span></a></article>
+				<article><a href='#'><img src="http://localhost:9090/images/mainpage/icon_map.png"><span>오시는길</span></a></article>
+				<article><a href='#'><img src="http://localhost:9090/images/mainpage/icon_map.png"><span>오시는길</span></a></article>
+				<article><a href='#'><img src="http://localhost:9090/images/mainpage/icon_map.png"><span>오시는길</span></a></article>
+				<article><a href='#'><img src="http://localhost:9090/images/mainpage/icon_map.png"><span>오시는길</span></a></article>
 				
 			</section>
 		</div>
