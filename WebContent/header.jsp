@@ -48,31 +48,31 @@ body > div > nav img { /* 검색 이미지 */
 body>div>nav img:hover {
 	opacity: 0.6;
 }
-body > div#header_nav { /* 검색 로그인~고객센터 영역 */
+body > div.header_nav { /* 검색 로그인~고객센터 영역 */
 	/* border:1px solid blue; */
 	display: inline-block;
 	/* float:right; */
 	/* margin-left:1500px; */
 	margin: -20px 0px 0px 1500px;
 }
-body > div#header_nav li { /* 검색 로그인~고객센터 리스트 */
+body > div.header_nav li { /* 검색 로그인~고객센터 리스트 */
 	/* border:1px solid green; */
 	list-style-type: none;
 	display: inline-block;
 }
-body > div#header_nav li a { /* 검색 로그인~고객센터 글자 */
+body > div.header_nav li a { /* 검색 로그인~고객센터 글자 */
 	border-right: 1px solid gray;
 	padding: 0px 10px 0px 6px;
 	text-decoration: none;
 	color: gray;
 }
-body > div#header_nav li a:hover {
+body > div.header_nav li a:hover {
 	color: #282828;
 }
-body > div#header_nav li:first-child a { /* 검색 글자..? */
+body > div.header_nav li:first-child a { /* 검색 글자..? */
 	border-right: none;
 }
-body > div#header_nav li:last-child a { /* 검색 로그인~고객센터 마지막 글자 */
+body > div.header_nav li:last-child a { /* 검색 로그인~고객센터 마지막 글자 */
 	border-right: none;
 }
 
@@ -112,12 +112,13 @@ ul.dept02 { /* 상세메뉴 내려오는거 */
 ul.dept02 li { /* 상세메뉴 내려온거 각 리스트 */
 	border-top: 1px solid #444;
 	display: block;
+	background: white;
 }
 ul.dept02 li:first-child {
 	border-top: none;
 }
 ul.dept02 li a { /* 상세 메뉴 */
-	background: rgb(255,255,255);
+	/* background: #9b9b9b; */
 	display: block;
 	padding: 10px 14px;
 	text-decoration: none;
@@ -138,21 +139,12 @@ ul.dept02 li a:hover {
 <body>
 
 	<div>
-<<<<<<< HEAD
-		<a href="#"><img src="http://localhost:9090/madang02/images/index_logo.png"></a>
+		<a href="#"><img src="http://localhost:9090/MyJSP/images/index_logo.png"></a>
 	</div>
 	
-	<div id="header_nav">
+	<div class="header_nav">
 		<nav>
-			<li><a href="#"><img src="http://localhost:9090/madang02/images/search.png"></a></li>
-=======
-		<a href="#"><img src="http://localhost:9090/madang/images/index_logo.png"></a>
-	</div>
-	
-	<div id="header_nav">
-		<nav>
-			<li><a href="#"><img src="http://localhost:9090/madang/images/search.png"></a></li>
->>>>>>> branch 'master' of https://github.com/ohjihoon2/madang.git
+			<li><a href="#"><img src="http://localhost:9090/MyJSP/images/search.png"></a></li>
 			<li><a href="#">로그인</a></li>
 			<li><a href="#">회원가입</a></li>
 			<li><a href="#">마이페이지</a></li>
