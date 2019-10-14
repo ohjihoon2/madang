@@ -69,11 +69,23 @@
 	}
 	
 	/** 중앙 concert contents **/
+	.concert_button{
+		width:80%;
+		text-align:center;
+		margin: 20px 0px 20px -40px;
+	}
+	
+	.btn_hall{
+		background:rgb(155,155,155);
+		padding:10px;
+		color:white;
+	}
 	div.concert_info{
 		width:1000px;
 		height:300px;
 		margin:auto;
 	}
+	
 	div.concert_info>a{
 		float:left;
 		padding:8px;
@@ -142,20 +154,19 @@
 </head>
 <body>
 	<jsp:include page="../../header.jsp"/>
-	<img src="http://localhost:9090/madang/images/concert_main/concert_main.png">
+	<img src="http://localhost:9090/madang/images/concert_main/people-2590551_1920_1.jpg">
 	<div id="left_nav">
 		<ul>
 			<li><a href="concert.jsp">공연</a></li>
-			<li><a href="concert.jsp" style="color:rgb(5,135,94)">공연일정</a></li>
-			<li><a href="concert_seat.jsp">객석안내</a></li>
+			<li><a href="concert.jsp">공연일정</a></li>
+			<li><a href="concert_seat.jsp" style="color:rgb(5,135,94)">객석안내</a></li>
 		</ul>
 	</div>
-	<div id="main_title">&nbsp&nbsp공연</div><br>
-	<div id="date_info">2019.10.02 (수) 오늘의 공연입니다.</div>
-	
-	<button type="button">이미지보기</button>
-	<button type="button">텍스트보기</button>
-	
+	<div id="main_title">&nbsp;&nbsp; 예술의 마당 소극장 </div><br>
+	<div class="concert_button">
+		<button type="button" class="btn_hall">베토벤홀</button>
+		<button type="button" class="btn_hall">모짜르트홀</button>
+	</div>
 	<div class="concert_info">
 		<a href="concert_detail.jsp"><img src="http://localhost:9090/madang/images/concert_main/20190823151229P.gif"></a>
 		<div>
