@@ -140,7 +140,7 @@ ul.dept02 li a:hover {
 <body>
 
 	<div>
-		<a href="mainpage.jsp"><img src="http://localhost:9090/images/index_logo.png"></a>
+		<a href="http://localhost:9090/mainpage.jsp"><img src="http://localhost:9090/images/index_logo.png"></a>
 	</div>
 	
 	<div class="header_nav">
