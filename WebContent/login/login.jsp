@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://localhost:9090/madang02/css/madangcss.css">
+<link rel="stylesheet" href="http://localhost:9090/css/madangcss.css">
 
 
 </head>

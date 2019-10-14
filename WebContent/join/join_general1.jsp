@@ -45,7 +45,6 @@
 		/*이용약관 보여지는 곳*/
 	div#join_general1 div#join_general1_paper article{
 		display:inline-block;
-		border:1px solid blue;
 		overflow:scroll;
 		height:100px;
 		width:700px;

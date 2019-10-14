@@ -10,7 +10,6 @@
 		font-family:"나눔스퀘어라운드";
 		padding:0px;
 		margin:0px;
-		border:1px solid red;
 	}
 	
 	div.page_contents{
@@ -44,7 +43,6 @@
 	}
 	div#join_business1 div#join_business1_paper article{
 		display:inline-block;
-		border:1px solid blue;
 		overflow:scroll;
 		height:100px;
 		width:700px;
