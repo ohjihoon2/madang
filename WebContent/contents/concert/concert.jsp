@@ -142,7 +142,7 @@
 </head>
 <body>
 	<jsp:include page="../../header.jsp"/>
-	<img src="http://localhost:9090/madang/images/concert_main/concert_main.png">
+	<img src="http://localhost:9090/images/concert_main/concert_main.png">
 	<div id="left_nav">
 		<ul>
 			<li><a href="concert.jsp">공연</a></li>
@@ -157,7 +157,7 @@
 	<button type="button">텍스트보기</button>
 	
 	<div class="concert_info">
-		<a href="concert_detail.jsp"><img src="http://localhost:9090/madang/images/concert_main/20190823151229P.gif"></a>
+		<a href="concert_detail.jsp"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif"></a>
 		<div>
 			<h2><a href="concert_detail.jsp">2019 연극 <늙은 부부이야기></a></h2>
 			<div id="hide_space">
@@ -173,7 +173,7 @@
 		</div>
 	</div>
 	<div class="concert_info">
-		<a href="concert_detail.jsp"><img src="http://localhost:9090/madang/images/concert_main/20190711113234P.gif"></a>
+		<a href="concert_detail.jsp"><img src="http://localhost:9090/images/concert_main/20190711113234P.gif"></a>
 		<div>
 			<h2><a href="concert_detail.jsp">SIDance2019-울티마&nbsp;베스&nbsp;</a></h2>
 			<div id="hide_space">

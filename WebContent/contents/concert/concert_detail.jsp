@@ -154,7 +154,7 @@
 </head>
 <body>
 	<jsp:include page="../../header.jsp"/>
-	<img src="http://localhost:9090/madang/images/concert_main/concert_main.png">
+	<img src="http://localhost:9090/images/concert_main/concert_main.png">
 	<div id="left_nav">
 		<ul>
 			<li><a href="concert.jsp">공연</a></li>
@@ -163,7 +163,7 @@
 		</ul>
 	</div>
 	<div class="concert_info">
-		<a href=#><img src="http://localhost:9090/madang/images/concert_main/20190823151229P.gif" class="Info_img"></a>
+		<a href=#><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="Info_img"></a>
 		<div>
 			<h2>2019 연극 <늙은 부부이야기></h2>
 			<div id="content_right">
@@ -214,7 +214,7 @@
 				<a href="#">예매하기</a>
 			</div>
 			<div>
-				<img src="http://localhost:9090/madang/images/concert_main/20190831163401061.gif" id="content_image">
+				<img src="http://localhost:9090/images/concert_main/20190831163401061.gif" id="content_image">
 			</div>
 		</div>
 	</div>
