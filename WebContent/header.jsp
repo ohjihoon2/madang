@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="http://localhost:9090/MyJSP/jquery/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/jquery/jquery-3.4.1.min.js"></script>
 <script>
 $(document).ready(function(){
 	$('nav li').hover(
@@ -140,12 +140,12 @@ ul.dept02 li a:hover {
 <body>
 
 	<div>
-		<a href="#"><img src="http://localhost:9090/MyJSP/images/index_logo.png"></a>
+		<a href="#"><img src="http://localhost:9090/images/index_logo.png"></a>
 	</div>
 	
 	<div class="header_nav">
 		<nav>
-			<li><a href="#"><img src="http://localhost:9090/MyJSP/images/search.png"></a></li>
+			<li><a href="#"><img src="http://localhost:9090/images/search.png"></a></li>
 			<li><a href="#">로그인</a></li>
 			<li><a href="#">회원가입</a></li>
 			<li><a href="#">마이페이지</a></li>
