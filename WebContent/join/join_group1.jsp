@@ -31,42 +31,47 @@
    }
    
  /*대관자 전용_ 이용약관 동의*/  
-	div#join_business1>form div#join_business1_paper{
+	div#join_group1>form div#join_group1_paper{
 		text-align:center;
 	}
-    div#join_business1 h2{
+    div#join_group1 h2{
     	padding:0px 0px 10px 30px;
     }
-	div#join_business1 div#join_business1_paper h3{
+	div#join_group1 div#join_group1_paper h3{
 		text-align:left;
 		padding:10px 0px 0px 80px;
+		margin:10px 0px 5px 0px;
 	}
-	div#join_business1 div#join_business1_paper article{
+	div#join_group1 div#join_group1_paper article{
 		display:inline-block;
 		overflow:scroll;
 		height:100px;
 		width:700px;
 		text-align:left;
-		margin-left:60px;
+		border:1px solid rgb(155,155,155);
 	}
-	div#join_business1 div#join_business1_paper div{
+	div#join_group1 div#join_group1_paper div{
 		text-align:right;	
 		padding-right:50px;
+		margin-top:10px;
 	}
 	
-  /*이전, 다음 버튼*/
-  	div#join_business1 div.joinbtn{
+  /*이전, 다음 버튼 (joinbtn클래스)*/
+	div.joinbtn{
+		
   		text-align:right;
   		padding-top:50px;
   	}
-   	div#join_business1 div:last-child button:first-child{
+   	div.joinbtn button#join_prv{
+   		font-size:14pt;
    		background-color:rgb(155,155,155);
  		width:150px;
  		height:50px;
  		color:rgb(255,255,255);
  		border:none;
    	}   	
-   	div#join_business1 div:last-child button:last-child{
+   	div.joinbtn button#join_next{
+   		font-size:14pt;
    		background-color:rgb(5,135,94);
  		width:150px;
  		height:50px;
@@ -78,11 +83,11 @@
 </head>
 <body>
 <jsp:include page="../header.jsp"/>
-<div id="join_business1" class="page_contents">
+<div id="join_group1" class="page_contents">
 <h1 class="page_title">회원가입 - 대관자 전용</h1>
-<form action="#" method="post" name="join_business1_form">
+<form action="#" method="post" name="join_group1_form">
 <h2><span style="color:rgb(5,135,94)">●</span> 이용약관</h2>
-<div id=join_business1_paper>
+<div id=join_group1_paper>
 		<h3>예술의 마당 이용약관 동의(필수)</h3>
 		<article>
 			<strong>제 1장 총칙</strong>
@@ -179,8 +184,8 @@
 	</div>
 	</form>
 		<div class="joinbtn">
-		<button type="button" id="join_prv">이전으로</button>
-		<button type="button" id="join_next">다음으로</button>
+		<a href="join0.jsp"><button type="button" id="join_prv">이전으로</button></a>
+		<a href="join_group2.jsp"><button type="button" id="join_next">다음으로</button></a>
 		</div>
 		
 </div>

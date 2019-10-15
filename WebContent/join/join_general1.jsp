@@ -49,6 +49,7 @@
 		height:100px;
 		width:700px;
 		text-align:left;
+		border:1px solid rgb(155,155,155);
 	}
 	div#join_general1 div#join_general1_paper div{
 		text-align:right;	
@@ -62,6 +63,7 @@
 	}
  	div#join_general1>form div#join_general1_table table{
  		display:inline-block;
+ 		
 		
  	}
  	div#join_general1>form div#join_general1_table table th{
@@ -99,6 +101,7 @@
   		padding-top:50px;
   	}
    	div.joinbtn button#join_prv{
+   	font-size:14pt;
    		background-color:rgb(155,155,155);
  		width:150px;
  		height:50px;
@@ -106,6 +109,7 @@
  		border:none;
    	}   	
    	div.joinbtn button#join_next{
+   	font-size:14pt;
    		background-color:rgb(5,135,94);
  		width:150px;
  		height:50px;
@@ -228,7 +232,7 @@
 		</table>
 		</form>
 		<div class="joinbtn">
-		<a href="../mainpage.jsp"><button type="button" id="join_prv">이전으로</button></a>
+		<a href="join0.jsp"><button type="button" id="join_prv">이전으로</button></a>
 		<a href="join_general2.jsp"><button type="button" id="join_next">다음으로</button></a>
 		</div>
 		

@@ -32,16 +32,16 @@
 		
 /*회원정보 입력폼 공통사항*/		
 	
-	div#join_general2 form ul{	
+	div#join_group2 form ul{	
 		width:700px;
 		margin:auto;
 		list-style-type:none;
 		}
-	div#join_general2 form li{
+	div#join_group2 form li{
 		padding:5px 0px 5px 0px;
 		margin:10px 0px 5px 0px;
 		}
-	div#join_general2 label{
+	div#join_group2 label{
 		display:inline-block;
 		font-size:13.5pt;
 		
@@ -50,43 +50,31 @@
 		}
 	
 /*회원정보 입력폼 css*/	
-	div#join_general2 input[type=text], input[type=password]{
+	div#join_group2 input[type=text], input[type=password]{
 		width:250px;/*))li기준*/
 		padding:5px 5px 5px 20px; /*))텍스트 필드 안의 여백. 단 사이즈도 증가한다!((사방으로!))*/
 		}
 
-	div#join_general2 li:nth-child(6)>input[type=text]{
+	div#join_group2 li:nth-child(5)>input[type=text]{
 		width:15%;
 	}
-	div#join_general2 li:nth-child(6)>select{
+	div#join_group2 li:nth-child(5)>select{
 		width:20%;
 		padding: 5px;
 	}
-		
-	div#join_general2 li:nth-child(8)>div{
-		display:inline-block;
-	}
-	div#join_general2 li:nth-child(8) div:nth-child(2){
-		width:30%;
-	}
-	div#join_general2 li:nth-child(8) div:nth-child(3){
-		width:50%;
-	}
-	div#join_general2 li:nth-child(8) div:nth-child(3) input[type=text]{
-		width:20%;
-		padding: 5px 5px 5px 10px;
-	}
-		
-	div#join_general2 li:nth-child(8) div:nth-child(3) select{
-		border-radius:5px;
-		display:inline-block;
-		width:20%;
-		padding:5px;
+	
+	/*연락처 입력폼*/
+	div#join_group2 li:nth-child(6) input[type=text],
+	div#join_group2 li:nth-child(11) input[type=text],
+	div#join_group2 li:nth-child(12) input[type=text]
+	{
+
+		width:100px;
 	}
 		
 
 /*회원정보 입력폼 안의 버튼*/	
-	div#join_general2 button{
+	div#join_group2 button{
 			width:100px;
 			height:30px;
 			padding:3px;
@@ -123,13 +111,13 @@
 <body>
 <jsp:include page="../header.jsp"/>
 
-<div id="join_general2" class="page_contents">
+<div id="join_group2" class="page_contents">
 <h1 class="page_title">회원가입</h1>
 <h2><span style="color:rgb(5,135,94)">●</span> 회원 정보 입력</h2>
-	<form action="#" method="post" name="join_geral2_form">
+	<form action="#" method="post" name="join_group2_form">
 		<ul>
 			<li>
-				<label>아이디</label>
+				<label>담당자 아이디</label>
 				<input type="text" name="id">
 				<button type="button">중복확인</button>
 			</li>
@@ -143,17 +131,11 @@
 				*같은 패스워드를 입력하세요 <!-- 일치하면 "일치합니다"라고 변경될 예정 -->
 			</li>			
 			<li>
-				<label>이름</label>
+				<label>담당자 이름</label>
 				<input type="text" name="name">
 			</li>
-			
 			<li>
-				<label>성별</label>
-				<input type="radio" name="gender">남자
-				<input type="radio" name="gender">여자
-			</li>
-			<li>
-				<label>이메일</label>
+				<label>담당자 이메일</label>
 				<input type="text" name="email1">
 				@<input type="text" name="email2">
 				<select name="email3">
@@ -164,24 +146,53 @@
 				</select>
 			</li>
 			<li>
+				<label>담당자 연락처</label>
+				<input type="text" name="phon1">
+				<span> - </span>
+				<input type="text" name="phon2">
+				<span> - </span>
+				<input type="text" name="phon3">
+			</li>
+			<br>
+			<li>
+				<label>회사명</label>
+				<input type="text" name="group_name">
+			</li>
+			<li>
+				<label>대표자명</label>
+				<input type="text" name="group_boss">
+			</li>
+			<li>
+				<label>사업자번호('-'제외)</label>
+				<input type="text" name="group_reg_num">
+				<button type="button">중복확인</button>
+			</li>
+			<li>
+				<label>대표번호</label>
+				<input type="text" name="group_phon1">
+				<span> - </span>
+				<input type="text" name="group_phon2">
+				<span> - </span>
+				<input type="text" name="group_phon3">
+			</li>
+			<li>
+				<label>팩스번호</label>
+				<input type="text" name="fax_phon1">
+				<span> - </span>
+				<input type="text" name="fax_phon2">
+				<span> - </span>
+				<input type="text" name="fax_phon3">
+			</li>					
+			<li>
 				<label>주소</label>
 				<input type="text" name="addr">
 				<button type="button">주소찾기</button>
 			</li>	
-			<li>
-				<label>이메일 수신여부(선택) </label>
-				<input type="radio" name="email_accept" value="Y">예
-				<input type="radio" name="email_accept" value="N">아니오
-			</li>
-			<li>
-				<label>SMS 수신여부(선택) </label>
-				<input type="radio" name="sms_accept" value="Y">예
-				<input type="radio" name="sms_accept" value="N">아니오
-			</li>		
+				
 		</ul>
 	</form>
 	<div class="joinbtn">
-		<a href="join_general1.jsp"><button type="button" id="join_prv">이전으로</button></a>
+		<a href="join_group1.jsp"><button type="button" id="join_prv">이전으로</button></a>
 		<a href="join3.jsp"><button type="button" id="join_next">다음으로</button></a>
 	</div>
 </div>	

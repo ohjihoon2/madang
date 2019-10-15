@@ -146,8 +146,8 @@ ul.dept02 li a:hover {
 	<div class="header_nav">
 		<nav>
 			<li><a href="#"><img src="http://localhost:9090/images/search.png"></a></li>
-			<li><a href="#">로그인</a></li>
-			<li><a href="#">회원가입</a></li>
+			<li><a href="http://localhost:9090/login/login.jsp">로그인</a></li>
+			<li><a href="http://localhost:9090/join/join0.jsp">회원가입</a></li>
 			<li><a href="#">마이페이지</a></li>
 			<li><a href="#">고객센터</a></li>
 		</nav>

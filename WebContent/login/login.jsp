@@ -12,7 +12,6 @@
 <body>
 <jsp:include page="../header.jsp"/>
 
-	
 <div id="login">
 	<h1 class="page_title">로그인</h1>
 	<div>
@@ -27,8 +26,7 @@
 		<section>
 			<a href="#"><span>아이디/패스워드 찾기</span></a>
 			<div> </div>
-			<a href="#"><span>대관 회원가입</span></a>
-			<a href="#"><span>회원가입</span></a>
+			<a href="http://localhost:9090/join/join0.jsp"><span>회원가입</span></a>
 		</section>
 	</div>
 

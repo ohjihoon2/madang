@@ -161,10 +161,11 @@
    	text-align:right;
    }
    /*로그인 버튼 하단 내용*/
-   div#login> section span{
- 	color: rgb(155,155,155);
+   div#login> div section div{
+   border:1px solid red;
+ 	display:inline-block;
+ 	width:160px;
+ 	heigth:100px;
 	}  
-	div#login> section div{ /*하단 내용들의 간격*/
-		height:10px;
-	} 
+
 	
