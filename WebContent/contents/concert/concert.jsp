@@ -45,10 +45,13 @@
 		color:rgb(34,34,34);
 	}
 	div#left_nav>ul{
-		border-right:1px solid #9b9b9b;
+		border-right:2px solid #9b9b9b;
 		text-align:center;
 		list-style-type:none;;		
 	}
+	div#left_nav>ul>li{
+      height:50px;
+   }
 	div#left_nav>ul>li:nth-child(1) {
 		font-size:20pt;
 		font-style: bold;
@@ -147,7 +150,7 @@
 		<ul>
 			<li><a href="concert.jsp">공연</a></li>
 			<li><a href="concert.jsp" style="color:rgb(5,135,94)">공연일정</a></li>
-			<li><a href="concert_seat.jsp">객석안내</a></li>
+			<li><a href="concert_seat_beethoven.jsp">객석안내</a></li>
 		</ul>
 	</div>
 	<div id="main_title">&nbsp&nbsp공연</div><br>
