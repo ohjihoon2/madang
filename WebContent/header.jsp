@@ -109,6 +109,7 @@ ul.dept02 { /* 상세메뉴 내려오는거 */
 	position: absolute;
 	width: 200px;
 	text-align:left;
+	z-index:1;
 }
 ul.dept02 li { /* 상세메뉴 내려온거 각 리스트 */
 	border-top: 1px solid #444;
