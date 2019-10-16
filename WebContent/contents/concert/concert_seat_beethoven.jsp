@@ -45,10 +45,13 @@
 		color:rgb(34,34,34);
 	}
 	div#left_nav>ul{
-		border-right:1px solid #9b9b9b;
+		border-right:2px solid #9b9b9b;
 		text-align:center;
 		list-style-type:none;;		
 	}
+	div#left_nav>ul>li{
+      height:50px;
+   }
 	div#left_nav>ul>li:nth-child(1) {
 		font-size:20pt;
 		font-style: bold;
