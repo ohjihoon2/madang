@@ -65,14 +65,12 @@ div#left_nav>ul>li>a {
 
 /** 중앙 concert contents **/
 div#qaa_table {
-	/* border:1px solid red; */
 	width:850px;
 	margin-top:40px;
-	
 }
 
 div#qaa_table table {
-	width:90%;
+	width:100%;
 	border-right:none;
 	border-left:none;
 }
@@ -86,23 +84,32 @@ div#qaa_table table, div#qaa_table tr, div#qaa_table td {
 div#qaa_table tr > th, div#qaa_table tr > td {
 	font-size:14pt;
 	padding:8px;
+	text-align:center;
+}
+
+div#qaa_table tr > td:nth-child(1) { /* 각 행 1열 */
+	width:20%;
+}
+
+div#qaa_table tr > td:nth-child(2) { /* 각 행 2열 */
+	text-align:left;
 }
 
 div#qaa_table tr > th, div#qaa_table tr:nth-child(1) td { /* 제목 */
 	font-weight:bold;
 }
 
-div#qaa_table tr > th, div#qaa_table tr:nth-child(2) td,
-div#qaa_table tr > th, div#qaa_table tr:nth-child(4) td { /* 내용, 답변 */
-	height:300px;
+div#qaa_table tr > th, div#qaa_table tr:nth-child(3) td,
+div#qaa_table tr > th, div#qaa_table tr:nth-child(5) td { /* 내용, 답변 */
+	height:250px;
 	vertical-align:top;
 }
 
-div#qaa_table tr > th, div#qaa_table tr:nth-child(4) { /* 답변 행 */
+div#qaa_table tr > th, div#qaa_table tr:nth-child(5) { /* 답변 행 */
 	border-top:10px double #9b9b9b;
 }
 
-div#qaa_table button { /* 목록 버튼 */
+div#qaa_table div#qaa_content_btn button { /* 목록 버튼 */
 	margin-top:40px;
 	width:50px; height:40px;
 	font-size:13pt;
@@ -112,14 +119,13 @@ div#qaa_table button { /* 목록 버튼 */
 
 div#qaa_table div {
 	text-align:center;
-	width:90%;
 	margin:0px;
 }
 
 </style>
 </head>
 <body>
-	<jsp:include page="../../header.jsp" />
+	<jsp:include page="../header.jsp" />
 	<div>
 		<div id="left_nav">
 			<ul>
@@ -134,20 +140,28 @@ div#qaa_table div {
 		<div id="qaa_table">
 			<table border=1>
 				<tr>
-					<td>제목 어쩌구</td>
+					<td>제목</td>
+					<td>어쩌구</td>
 				</tr>
 				<tr>
-					<td>내용 저쩌구</td>
+					<td>날짜</td>
+					<td>2019-10-16</td>
+				</tr>
+				<tr>
+					<td>내용</td>
+					<td>저쩌구</td>
 				</tr>
 				<tr>
 					<td>첨부파일</td>
+					<td>이름</td>
 				</tr>
 				<tr>
-					<td>답변내용</td>
+					<td>답변</td>
+					<td>네네</td>
 				</tr>
 			</table>
-			<div>
-				<a href="cs_qaa.jsp"><button type="button" id="qaa_write">목록</button></a>
+			<div id="qaa_content_btn">
+				<a href="cs_qaa.jsp"><button type="button">목록</button></a>
 			</div>
 		</div>
 		

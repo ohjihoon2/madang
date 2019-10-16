@@ -71,7 +71,7 @@ div#qaa_table {
 }
 
 div#qaa_table table {
-	width:90%;
+	width:100%;
 	border-right:none;
 	border-left:none;
 }
@@ -109,13 +109,12 @@ div#qaa_table button { /* 작성 버튼 */
 	border-radius:10px;
 	background:lightgray;
 	float:right;
-	margin-right:90px;
 }
 
 </style>
 </head>
 <body>
-	<jsp:include page="../../header.jsp" />
+	<jsp:include page="../header.jsp" />
 	<div>
 		<div id="left_nav">
 			<ul>

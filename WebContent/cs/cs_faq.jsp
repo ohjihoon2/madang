@@ -1,11 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src=""></script>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("span:last-child").click(function(){
+			var fid=$(this).attr("id");
+			
+			$("div#"+fid).slideToggle();
+		});
+	});
+</script>
 <style>
 * {
 	font-family: "나눔스퀘어라운드";
@@ -75,13 +85,13 @@ div#faq_list li {
 	/* border:1px solid green; */
 	margin:5px;
 	list-style-type:none;
-	width:90%;
+	/* width:90%; */
 }
 
 div#faq_list li span.faq_list_category { /* 카테고리 */
 	border-right:1px dashed #9b9b9b;
 	display:inline-block;
-	font-size:14pt;
+	font-size:13pt;
 	font-weight:bold;
 	width:10%;
 	padding:8px;
@@ -91,16 +101,16 @@ div#faq_list li span.faq_list_category { /* 카테고리 */
 div#faq_list li span.faq_list_title { /* 제목 */
 	/* border:1px solid yellow; */
 	display:inline-block;
-	font-size:14pt;
+	font-size:13pt;
 	padding:8px;
 }
 
-div#faq_list li span.faq_list_title a {
+div#faq_list li span.faq_list_title {
 	color:black;
 	text-decoration:none;
 }
 
-div#faq_list li span.faq_list_title a:hover {
+div#faq_list li span.faq_list_title:hover {
 	text-decoration:underline;
 	color:#323232;
 }
@@ -110,44 +120,11 @@ div#faq_list li > div:first-child { /* 카테고리+제목 */
 }
 
 div.faq_slide {	/* 내용 */
-	border:1px solid cyan;
+	border:1px dotted lightgray;
 	width:87.4%; height:100px;
 	margin-left:12.4%;
 	display:none;
 }
-
-/* div#faq_table table {
-	width:90%;
-	border-right:none;
-	border-left:none;
-}
-
-div#faq_table table, div#faq_table tr, div#faq_table td {
-	border-collapse: collapse;
-	border-top: 1px solid gray;
-	border-bottom: 1px solid gray;
-}
-
-div#faq_table tr > td {
-	font-size:13pt;
-	padding:15px;
-}
-
-div#faq_table tr> td > a {
-	text-decoration: none;
-	color:black;
-}
-
-div#faq_table tr> td > a:hover {
-	text-decoration:underline;
-	color:#323232;
-}
-
-div#faq_table tr> td:first-child { //각 행 1열: 카테고리
-	text-align:center;
-	font-weight:bold;
-	width:18%;
-} */
 
 div#faq_search {
 	/* border:1px solid cyan; */
@@ -176,7 +153,7 @@ div#faq_search img:hover {
 </style>
 </head>
 <body>
-	<jsp:include page="../../header.jsp" />
+	<jsp:include page="../header.jsp" />
 	<div>
 		<div id="left_nav">
 			<ul>
@@ -195,68 +172,41 @@ div#faq_search img:hover {
 				<li>
 					<div>
 						<span class="faq_list_category">공연</span>
-						<span class="faq_list_title"><a href="#">공연시간에 늦어도 입장할 수 있나요?</a></span>
+						<span class="faq_list_title" id="f1">공연시간에 늦어도 입장할 수 있나요?</span>
 					</div>
-					<div class="faq_slide">1</div>
+					<div class="faq_slide" id="f1">1</div>
 				</li>
 				<li>
 					<div>
 						<span class="faq_list_category">전시</span>
-						<span class="faq_list_title"><a href="#">전시장 안에서 촬영이 가능한가요?</a></span>
+						<span class="faq_list_title" id="f2">전시장 안에서 촬영이 가능한가요?</span>
 					</div>
-					<div class="faq_slide">2</div>
+					<div class="faq_slide" id="f2">2</div>
 				</li>
 				<li>
 					<div>
 						<span class="faq_list_category">예매</span>
-						<span class="faq_list_title"><a href="#">회원이 아니어도 티켓 예매가 가능한가요?</a></span>
+						<span class="faq_list_title" id="f3">회원이 아니어도 티켓 예매가 가능한가요?</span>
 					</div>
-					<div class="faq_slide">3</div>
+					<div class="faq_slide" id="f3">3</div>
 				</li>
 				<li>
 					<div>
 						<span class="faq_list_category">환불/취소</span>
-						<span class="faq_list_title"><a href="#">티켓 예매 취소 후 환불은 어떻게 되나요?</a></span>
+						<span class="faq_list_title" id="f4">티켓 예매 취소 후 환불은 어떻게 되나요?</span>
 					</div>
-					<div class="faq_slide">4</div>
+					<div class="faq_slide" id="f4">4</div>
 				</li>
 				<li>
 					<div>
 						<span class="faq_list_category">사이트</span>
-						<span class="faq_list_title"><a href="#">아이디, 비밀번호를 잊어버렸어요.</a></span>
+						<span class="faq_list_title" id="f5">아이디, 비밀번호를 잊어버렸어요.</span>
 					</div>
-					<div class="faq_slide">5</div>
+					<div class="faq_slide" id="f5">5</div>
 				</li>
 			</ul>
 		
 		</div>
-		
-		<!-- <div id="faq_table">
-			<table border=1>
-				<tr>
-					<td>공연</td>
-					<td><a href="#">공연시간에 늦어도 입장할 수 있나요?</a></td>
-				</tr>
-				<tr>
-					<td>전시</td>
-					<td><a href="#">전시장 안에서 촬영이 가능한가요?</a></td>
-				</tr>
-				<tr>
-					<td>예매</td>
-					<td><a href="#">회원이 아니어도 티켓 예매가 가능한가요?</a></td>
-				</tr>
-				<tr>
-					<td>환불/취소</td>
-					<td><a href="#">티켓 예매 취소 후 환불은 어떻게 되나요?</a></td>
-				</tr>
-				<tr>
-					<td>사이트</td>
-					<td><a href="#">아이디, 비밀번호를 잊어버렸어요.</a></td>
-				</tr>
-				
-			</table>
-		</div> -->
-		
 		
 		<div id="faq_search">
 			<input type="text" name="faq_search" placeholder="검색어를 입력해주세요">

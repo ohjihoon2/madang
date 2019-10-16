@@ -64,31 +64,30 @@ div#left_nav>ul>li>a {
 }
 
 /** 중앙 concert contents **/
-div#qaa_wirte_table {
-	/* border:1px solid red; */
-	width:850px; /* height:600px; */
+div#qaa_table {
+	width:850px;
 	margin-top:40px;
 }
 
-div#qaa_wirte_table table {
-	width:90%;
+div#qaa_table table {
+	width:100%;
 	border-right:none;
 	border-left:none;
 }
 
-div#qaa_wirte_table table, div#qaa_wirte_table tr, div#qaa_wirte_table td {
+div#qaa_table table, div#qaa_table tr, div#qaa_table td {
 	border-collapse: collapse;
 	border-top: 1px solid gray;
 	border-bottom: 1px solid gray;
 }
 
-div#qaa_wirte_table tr > th, div#qaa_wirte_table tr > td {
-	font-size:14pt;
+div#qaa_table tr > th, div#qaa_table tr > td {
+	font-size:13pt;
 	padding:8px;
 	text-align:center;
 }
 
-div#qaa_wirte_table tr > td:nth-child(2) { /* 각 행 2열: */
+div#qaa_table tr > td:nth-child(2) { /* 각 행 2열: */
 	text-align:left;
 }
 
@@ -96,44 +95,44 @@ input#qaa_title { /* 제목 입력칸 */
 	height:25px; width:95%;
 	border:1px solid lightgray;
 	border-radius:10px;
+	font-size:12pt;
+	padding-left:5px;
 }
 
 textarea#qaa_content { /* 내용 입력칸 */
 	height:200px; width:95%;
 	border:1px solid lightgray;
+	font-size:12pt;
 	border-radius:10px;
 	overflow:scroll;
+	padding:5px;
 }
 
-div#qaa_wirte_table tr:last-child span {
+div#qaa_table tr:last-child span {
 	display:inline-block;
 	color:#ccc;
 	font-size:10pt;
 	margin-top:3px;
 }
 
-div#qaa_wirte_table button { /* 목록 버튼 */
+div#qaa_table div#qaa_write_btn button { /* 버튼 */
 	margin-top:40px;
 	width:50px; height:40px;
 	font-size:13pt;
 	border-radius:10px;
 	background:lightgray;
-	/* float:right; */
-	/* margin-right:90px; */
 	margin-right:10px;
-	
 }
 
-div#qaa_wirte_table div {
+div#qaa_table div {
 	text-align:center;
-	width:90%;
 	margin:0px;
 }
 
 </style>
 </head>
 <body>
-	<jsp:include page="../../header.jsp" />
+	<jsp:include page="../header.jsp" />
 	<div>
 		<div id="left_nav">
 			<ul>
@@ -145,7 +144,7 @@ div#qaa_wirte_table div {
 
 		<div id="main_title">Q&A 1:1 상담</div>
 		
-		<div id="qaa_wirte_table">
+		<div id="qaa_table">
 			<form action="#" method="get" name="qaa_write_form">
 				<table border=1>
 					<tr>
@@ -164,9 +163,9 @@ div#qaa_wirte_table div {
 						</td>
 					</tr>
 				</table>
-				<div>
+				<div id="qaa_write_btn">
 					<button type="button" id="qaa_write">등록</button>
-					<a href="cs_qaa.jsp"><button type="button" id="qaa_write">목록</button></a>
+					<a href="cs_qaa.jsp"><button type="button">목록</button></a>
 				</div>
 			</form>
 		</div>
