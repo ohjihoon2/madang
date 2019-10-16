@@ -5,127 +5,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style>
-	
-	*{
-		font-family:"나눔스퀘어라운드";
-		padding:0px;
-		margin:0px;
+<link rel="stylesheet" href="http://localhost:9090/css/madangcss.css">
 
-	}
-	h1.page_title{
-      width:700px;
-      border-bottom:3px solid rgb(5,135,94);
-      border-left:15px solid rgb(5,135,94);
-      display:inline-block;
-      margin:100px 0px 50px 0px;
-      font-size:30pt;
-      font-weight:bold;
-      text-align:left;
-   }
-   div.page_contents{
-	
-		width:1000px;
-		height:1500px;
-		margin:auto;
-	}
-		
-/*회원정보 입력폼 공통사항*/		
-	
-	div#join_general2 form ul{	
-		width:700px;
-		margin:auto;
-		list-style-type:none;
-		}
-	div#join_general2 form li{
-		padding:5px 0px 5px 0px;
-		margin:10px 0px 5px 0px;
-		}
-	div#join_general2 label{
-		display:inline-block;
-		font-size:13.5pt;
-		
-		width:180px;
-		padding:5px 0px 5px 30px; /*))전체 사이즈가 늘어난다!=>전체 사이즈 수정 100px->70px*/
-		}
-	
-/*회원정보 입력폼 css*/	
-	div#join_general2 input[type=text], input[type=password]{
-		width:250px;/*))li기준*/
-		padding:5px 5px 5px 20px; /*))텍스트 필드 안의 여백. 단 사이즈도 증가한다!((사방으로!))*/
-		}
-
-	div#join_general2 li:nth-child(6)>input[type=text]{
-		width:15%;
-	}
-	div#join_general2 li:nth-child(6)>select{
-		width:20%;
-		padding: 5px;
-	}
-		
-	div#join_general2 li:nth-child(8)>div{
-		display:inline-block;
-	}
-	div#join_general2 li:nth-child(8) div:nth-child(2){
-		width:30%;
-	}
-	div#join_general2 li:nth-child(8) div:nth-child(3){
-		width:50%;
-	}
-	div#join_general2 li:nth-child(8) div:nth-child(3) input[type=text]{
-		width:20%;
-		padding: 5px 5px 5px 10px;
-	}
-		
-	div#join_general2 li:nth-child(8) div:nth-child(3) select{
-		border-radius:5px;
-		display:inline-block;
-		width:20%;
-		padding:5px;
-	}
-		
-
-/*회원정보 입력폼 안의 버튼*/	
-	div#join_general2 button{
-			width:100px;
-			height:30px;
-			padding:3px;
-			background:mediumseagreen;
-			color:white;
-			font-weight:bold;
-			font-size:10pt;
-			border:none;
-		}
-  /*이전, 다음 버튼 (joinbtn클래스)*/
-	div.joinbtn{
-		
-  		text-align:right;
-  		padding-top:50px;
-  	}
-   	div.joinbtn button#join_prv{
-   		font-size:14pt;
-   		background-color:rgb(155,155,155);
- 		width:150px;
- 		height:50px;
- 		color:rgb(255,255,255);
- 		border:none;
-   	}   	
-   	div.joinbtn button#join_next{
-   		font-size:14pt;
-   		background-color:rgb(5,135,94);
- 		width:150px;
- 		height:50px;
- 		color:rgb(255,255,255);
- 		border:none;
-   	}
-</style>
 </head>
 <body>
 <jsp:include page="../header.jsp"/>
 
 <div id="join_general2" class="page_contents">
 <h1 class="page_title">회원가입</h1>
-<h2><span style="color:rgb(5,135,94)">●</span> 회원 정보 입력</h2>
+<h2><span class="page_title">●</span> 회원 정보 입력</h2>
 	<form action="#" method="post" name="join_geral2_form">
 		<ul>
 			<li>
@@ -181,8 +69,8 @@
 		</ul>
 	</form>
 	<div class="joinbtn">
-		<a href="join_general1.jsp"><button type="button" id="join_prv">이전으로</button></a>
-		<a href="join3.jsp"><button type="button" id="join_next">다음으로</button></a>
+		<a href="join_general1.jsp"><button type="button" class="join_prv">이전으로</button></a>
+		<a href="join3.jsp"><button type="button" class="join_next">다음으로</button></a>
 	</div>
 </div>	
 </body>

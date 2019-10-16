@@ -1,17 +1,30 @@
-
-* {
-	font-family: "나눔스퀘어라운드";
-}
-
-
-/*****************메인페이지  mainpage.jsp************************/
-/*전체설정*/
 	*{
 		font-family:"나눔스퀘어라운드";
 		padding:0px;
 		margin:0px;
-
 	}
+	
+	div.page_contents{
+	
+		width:1000px;
+		height:1500px;
+		margin:auto;
+	}
+	
+	 h1.page_title{
+      width:700px;
+      border-bottom:3px solid rgb(5,135,94);
+      border-left:15px solid rgb(5,135,94);
+      display:inline-block;
+      margin:100px 0px 50px 0px;
+      font-size:30pt;
+      font-weight:bold;
+      text-align:left;
+   }
+
+/*****************메인페이지  mainpage.jsp************************/
+/*전체설정*/
+
 	div#main_page{
 		margin:auto;
 		text-align:center;
@@ -106,35 +119,8 @@
 	
 	
 /*****************로그인  login> login.jsp************************/
-	*{
-		font-family:"나눔스퀘어라운드";
-		padding:0px;
-		margin:0px;
-
-	}
 
 
-
-  	 h1.page_title{  /*'로그인'이 표시되는 바*/
-      width:700px;
-      border-bottom:3px solid rgb(5,135,94);
-      border-left:15px solid rgb(5,135,94);
-      display:inline-block;
-      margin:100px 0px 50px 0px;
-      font-size:30pt;
-      font-weight:bold;
-      font-family:"나눔스퀘어라운드";
-      text-align:left;
-   }
-   
-   
-   /*로그인 페이지 컨텐츠*/
-   div#login {
-   width:1000px;
-   height:500px;
-   	margin:auto;
-   	text-align:center;
-   }
       /*로그인 페이지의 폼 내부 디자인*/
    div#login form input{
    		display:inline-block;
@@ -168,4 +154,284 @@
  	heigth:100px;
 	}  
 
+/*****************회원가입  ************************/	
+/*********회원가입 join>join0.jsp **************/	
+   div#join0 div:last-child{
+   	margin-top:20px;
+   	text-align:center;
+   	border:1px solid red;
+   	width:930px;
+   	
+   }
+
+    /*이전, 다음 버튼 (joinbtn클래스)*/ 	
+   	div#join0 div:last-child a button{
+   		font-size:20pt;
+   		background-color:rgb(5,135,94);
+ 		width:250px;
+ 		height:150px;
+ 		color:rgb(255,255,255);
+ 		border:none;
+ 		margin:0px 100px 0px 100px;
+   	}
+   	
+   	
+/*********회원가입 join>join_general1.jsp **************/	
+   	 /*일반이용자_ 이용약관 동의*/  
+	div#join_general1>form div#join_general1_paper{
+		text-align:center;
+	}
+    div#join_general1 h2{
+    	padding:0px 0px 10px 30px;
+    }
+	div#join_general1 div#join_general1_paper h3{
+		text-align:left;
+		padding:10px 0px 10px 80px;
+		margin:10px 0px 5px 0px;
+	}
+		/*이용약관 보여지는 곳*/
+	div#join_general1 div#join_general1_paper article{
+		display:inline-block;
+		overflow:scroll;
+		height:100px;
+		width:700px;
+		text-align:left;
+		border:1px solid rgb(155,155,155);
+	}
+	div#join_general1 div#join_general1_paper div{
+		text-align:right;	
+		padding-right:50px;
+		margin-top:10px;
+	}
 	
+/*연락처 입력폼*/
+	div#join_general1>form div#join_general1_table {
+		text-align:center;
+	}
+ 	div#join_general1>form div#join_general1_table table{
+ 		display:inline-block;
+ 		
+		
+ 	}
+ 	div#join_general1>form div#join_general1_table table th{
+ 		width:100px;
+ 		height:40px;
+ 		text-align:left;
+ 	}
+ 	div#join_general1>form div#join_general1_table table tr{
+ 		text-align:left;
+ 	}
+ 	
+ 	div#join_general1>form div#join_general1_table table tr:nth-child(1) input{
+ 		width:200px;
+ 		height:30px;
+ 	}
+ 	div#join_general1>form div#join_general1_table table tr:nth-child(1) button{
+ 		background-color:rgb(5,135,94);
+ 		width:150px;
+ 		height:30px;
+ 		color:rgb(255,255,255);
+ 		border:none;
+ 	}
+  	div#join_general1>form div#join_general1_table table tr:nth-child(2) input,
+   	div#join_general1>form div#join_general1_table table tr:nth-child(2) select{
+  		width:105px;
+  		height:30px;
+  	}
+   	div#join_general1>form div#join_general1_table table tr:nth-child(3) input{
+   		width:355px;
+   		height:30px;
+   	}
+/*기타 공통 부분*/	
+  /*이전, 다음 버튼 (joinbtn클래스)*/
+	div.joinbtn{
+		
+  		text-align:right;
+  		padding-top:50px;
+  	}
+   	div.joinbtn button.join_prv{
+   		font-size:14pt;
+   		background-color:rgb(155,155,155);
+ 		width:150px;
+ 		height:50px;
+ 		color:rgb(255,255,255);
+ 		border:none;
+   	}   	
+   	div.joinbtn button.join_next{
+   		font-size:14pt;
+   		background-color:rgb(5,135,94);
+ 		width:150px;
+ 		height:50px;
+ 		color:rgb(255,255,255);
+ 		border:none;
+   	}
+   	h2>span.font_circle{
+   	 color:rgb(5,135,94)
+   	 }
+   	 
+/*********회원가입 join>join_general2.jsp **************/	
+		/*회원정보 입력폼 공통사항*/	 
+ 	div#join_general2 form ul{	
+		width:700px;
+		margin:auto;
+		list-style-type:none;
+		}
+	div#join_general2 form li{
+		padding:5px 0px 5px 0px;
+		margin:10px 0px 5px 0px;
+		}
+	div#join_general2 label{
+		display:inline-block;
+		font-size:13.5pt;
+		
+		width:180px;
+		padding:5px 0px 5px 30px; /*))전체 사이즈가 늘어난다!=>전체 사이즈 수정 100px->70px*/
+		}
+	
+/*회원정보 입력폼 css*/	
+	div#join_general2 input[type=text], input[type=password]{
+		width:250px;/*))li기준*/
+		padding:5px 5px 5px 20px; /*))텍스트 필드 안의 여백. 단 사이즈도 증가한다!((사방으로!))*/
+		}
+
+	div#join_general2 li:nth-child(6)>input[type=text]{
+		width:15%;
+	}
+	div#join_general2 li:nth-child(6)>select{
+		width:20%;
+		padding: 5px;
+	}
+		
+	div#join_general2 li:nth-child(8)>div{
+		display:inline-block;
+	}
+	div#join_general2 li:nth-child(8) div:nth-child(2){
+		width:30%;
+	}
+	div#join_general2 li:nth-child(8) div:nth-child(3){
+		width:50%;
+	}
+	div#join_general2 li:nth-child(8) div:nth-child(3) input[type=text]{
+		width:20%;
+		padding: 5px 5px 5px 10px;
+	}
+		
+	div#join_general2 li:nth-child(8) div:nth-child(3) select{
+		border-radius:5px;
+		display:inline-block;
+		width:20%;
+		padding:5px;
+	}
+		
+
+/*회원정보 입력폼 안의 버튼*/	
+	div#join_general2 form button{
+			width:100px;
+			height:30px;
+			padding:3px;
+			background:rgb(5,135,94);
+			color:white;
+			font-weight:bold;
+			font-size:10pt;
+			border:none;
+		}
+   	 
+ /*********회원가입 join>join_group1.jsp **************/	
+ /*대관자 전용_ 이용약관 동의*/  
+	div#join_group1>form div#join_group1_paper{
+		text-align:center;
+	}
+    div#join_group1 h2{
+    	padding:0px 0px 10px 30px;
+    }
+	div#join_group1 div#join_group1_paper h3{
+		text-align:left;
+		padding:10px 0px 0px 80px;
+		margin:10px 0px 5px 0px;
+	}
+	div#join_group1 div#join_group1_paper article{
+		display:inline-block;
+		overflow:scroll;
+		height:100px;
+		width:700px;
+		text-align:left;
+		border:1px solid rgb(155,155,155);
+	}
+	div#join_group1 div#join_group1_paper div{
+		text-align:right;	
+		padding-right:50px;
+		margin-top:10px;
+	}
+ /*********회원가입 join>join_group2.jsp **************/
+ /*회원정보 입력폼 공통사항*/		
+	
+	div#join_group2 form ul{	
+		width:700px;
+		margin:auto;
+		list-style-type:none;
+		}
+	div#join_group2 form li{
+		padding:5px 0px 5px 0px;
+		margin:10px 0px 5px 0px;
+		}
+	div#join_group2 label{
+		display:inline-block;
+		font-size:13.5pt;
+		
+		width:180px;
+		padding:5px 0px 5px 30px; /*))전체 사이즈가 늘어난다!=>전체 사이즈 수정 100px->70px*/
+		}
+	
+/*회원정보 입력폼 css*/	
+	div#join_group2 input[type=text], input[type=password]{
+		width:250px;/*))li기준*/
+		padding:5px 5px 5px 20px; /*))텍스트 필드 안의 여백. 단 사이즈도 증가한다!((사방으로!))*/
+		}
+
+	div#join_group2 li:nth-child(5)>input[type=text]{
+		width:15%;
+	}
+	div#join_group2 li:nth-child(5)>select{
+		width:20%;
+		padding: 5px;
+	}
+	
+	/*연락처 입력폼*/
+	div#join_group2 li:nth-child(6) input[type=text],
+	div#join_group2 li:nth-child(11) input[type=text],
+	div#join_group2 li:nth-child(12) input[type=text]
+	{
+
+		width:100px;
+	}
+		
+
+/*회원정보 입력폼 안의 버튼*/	
+	div#join_group2 form button{
+			width:100px;
+			height:30px;
+			padding:3px;
+			background:rgb(5,135,94);
+			color:white;
+			font-weight:bold;
+			font-size:10pt;
+			border:none;
+		}
+ /*********회원가입 join>join3.jsp **************/
+   div#join3 div:last-child{
+   	margin-top:20px;
+   	text-align:center;
+   	border:1px solid red;
+   	width:930px;
+   }
+
+    /*이전, 다음 버튼 (joinbtn클래스)*/ 	
+   	div#join3 div:last-child a button{
+   		font-size:14pt;
+   		background-color:rgb(5,135,94);
+ 		width:200px;
+ 		height:60px;
+ 		color:rgb(255,255,255);
+ 		border:none;
+ 		margin:0px 100px 0px 100px;
+   	}

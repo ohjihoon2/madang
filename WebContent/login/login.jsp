@@ -12,7 +12,7 @@
 <body>
 <jsp:include page="../header.jsp"/>
 
-<div id="login">
+<div id="login" class="page_contents">
 	<h1 class="page_title">로그인</h1>
 	<div>
 		<form action="#" method="get" name="loginform">

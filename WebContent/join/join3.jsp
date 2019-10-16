@@ -5,50 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style>
-	*{
-		font-family:"나눔스퀘어라운드";
-		padding:0px;
-		margin:0px;
-	}
-	
-	div.page_contents{
-	
-		width:1000px;
-		height:1500px;
-		margin:auto;
-	}
-	
-	h1.page_title{
-      width:700px;
-      border-bottom:3px solid rgb(5,135,94);
-      border-left:15px solid rgb(5,135,94);
-      display:inline-block;
-      margin:100px 0px 50px 0px;
-      font-size:30pt;
-      font-weight:bold;
-      text-align:left;
-   }
-   
-   
-   div#join3 div:last-child{
-   	margin-top:20px;
-   	text-align:center;
-   	border:1px solid red;
-   	width:930px;
-   }
-
-    /*이전, 다음 버튼 (joinbtn클래스)*/ 	
-   	div#join3 div:last-child a button{
-   		font-size:14pt;
-   		background-color:rgb(5,135,94);
- 		width:200px;
- 		height:60px;
- 		color:rgb(255,255,255);
- 		border:none;
- 		margin:0px 100px 0px 100px;
-   	}
-</style>
+<link rel="stylesheet" href="http://localhost:9090/css/madangcss.css">
 </head>
 <body>
 <jsp:include page="../header.jsp"/>

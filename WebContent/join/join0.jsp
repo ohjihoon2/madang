@@ -5,51 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style>
-	*{
-		font-family:"나눔스퀘어라운드";
-		padding:0px;
-		margin:0px;
-	}
-	
-	div.page_contents{
-	
-		width:1000px;
-		height:1500px;
-		margin:auto;
-	}
-	
-	h1.page_title{
-      width:700px;
-      border-bottom:3px solid rgb(5,135,94);
-      border-left:15px solid rgb(5,135,94);
-      display:inline-block;
-      margin:100px 0px 50px 0px;
-      font-size:30pt;
-      font-weight:bold;
-      text-align:left;
-   }
-   
-   
-   div#join0 div:last-child{
-   	margin-top:20px;
-   	text-align:center;
-   	border:1px solid red;
-   	width:930px;
-   	
-   }
-
-    /*이전, 다음 버튼 (joinbtn클래스)*/ 	
-   	div#join0 div:last-child a button{
-   		font-size:20pt;
-   		background-color:rgb(5,135,94);
- 		width:250px;
- 		height:150px;
- 		color:rgb(255,255,255);
- 		border:none;
- 		margin:0px 100px 0px 100px;
-   	}
-</style>
+<link rel="stylesheet" href="http://localhost:9090/css/madangcss.css">
 </head>
 <body>
 <!-- 일반회원과 대관자 회원 분기점 -->
@@ -60,7 +16,7 @@
 	
 	</div>
 	<div>
-		<a href="join_general1.jsp"><button type="button">일 반 개 인 회 원<br> </button></a>
+		<a href="join_general1.jsp"><button type="button">일 반 개 인 회 원</button></a>
 		<a href="join_group1.jsp"><button type="button">법 인 / 단 체 회 원<br>(학교,기업,기관)</button></a>
 	</div>
 </body>
