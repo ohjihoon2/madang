@@ -65,8 +65,7 @@ div#left_nav>ul>li>a {
 
 /** 중앙 concert contents **/
 div#qaa_table {
-	/* border:1px solid red; */
-	width:850px; /* height:600px; */
+	width:850px;
 	margin-top:40px;
 }
 
@@ -88,33 +87,52 @@ div#qaa_table tr > th, div#qaa_table tr > td {
 	text-align:center;
 }
 
-div#qaa_table tr > td:nth-child(2) { /* 각 행 2열: 제목 */
+div#qaa_table tr > td:nth-child(2) { /* 각 행 2열: */
 	text-align:left;
 }
 
-div#qaa_table tr > td:nth-child(2) > a {
-	text-decoration: none;
-	color:black;
+input#qaa_title { /* 제목 입력칸 */
+	height:25px; width:95%;
+	border:1px solid lightgray;
+	border-radius:10px;
+	font-size:12pt;
+	padding-left:5px;
 }
 
-div#qaa_table tr > td:nth-child(2) > a:hover {
-	text-decoration:underline;
-	color:#323232;
+textarea#qaa_content { /* 내용 입력칸 */
+	height:200px; width:95%;
+	border:1px solid lightgray;
+	font-size:12pt;
+	border-radius:10px;
+	overflow:scroll;
+	padding:5px;
 }
 
-div#qaa_table button { /* 작성 버튼 */
+div#qaa_table tr:last-child span {
+	display:inline-block;
+	color:#ccc;
+	font-size:10pt;
+	margin-top:3px;
+}
+
+div#qaa_table div#qaa_write_btn button { /* 버튼 */
 	margin-top:40px;
 	width:50px; height:40px;
 	font-size:13pt;
 	border-radius:10px;
 	background:lightgray;
-	float:right;
+	margin-right:10px;
+}
+
+div#qaa_table div {
+	text-align:center;
+	margin:0px;
 }
 
 </style>
 </head>
 <body>
-	<jsp:include page="../header.jsp" />
+	<jsp:include page="../../header.jsp" />
 	<div>
 		<div id="left_nav">
 			<ul>
@@ -127,28 +145,29 @@ div#qaa_table button { /* 작성 버튼 */
 		<div id="main_title">Q&A 1:1 상담</div>
 		
 		<div id="qaa_table">
-			<table border=1>
-				<tr>
-					<th>번호</th>
-					<th>제목</th>
-					<th>날짜</th>
-					<th>답변여부</th>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td><a href="cs_qaa_content.jsp">예매 후 좌석변경이 가능한가요?</a></td>
-					<td>2019-09-29</td>
-					<td>Y</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td><a href="#">개천절에 전시 관람</a></td>
-					<td>2019-10-01</td>
-					<td>N</td>
-				</tr>
-			</table>
-			
-			<a href="cs_qaa_write.jsp"><button type="button" id="qaa_write">작성</button></a>
+			<form action="#" method="get" name="qaa_write_form">
+				<table border=1>
+					<tr>
+						<td>제목</td>
+						<td><input type="text" name="qaa_title" id="qaa_title"></td>
+					</tr>
+					<tr>
+						<td>내용</td>
+						<td><textarea name="qaa_content" id="qaa_content"></textarea></td>
+					</tr>
+					<tr>
+						<td>첨부파일</td>
+						<td>
+							<input type="file"><br>
+							<span>필요한 경우 파일을 첨부해주세요.</span>
+						</td>
+					</tr>
+				</table>
+				<div id="qaa_write_btn">
+					<button type="button" id="qaa_write">등록</button>
+					<a href="cs_qaa.jsp"><button type="button">목록</button></a>
+				</div>
+			</form>
 		</div>
 		
 	</div>

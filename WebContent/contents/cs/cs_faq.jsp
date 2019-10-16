@@ -153,7 +153,7 @@ div#faq_search img:hover {
 </style>
 </head>
 <body>
-	<jsp:include page="../header.jsp" />
+	<jsp:include page="../../header.jsp" />
 	<div>
 		<div id="left_nav">
 			<ul>

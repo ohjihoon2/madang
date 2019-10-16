@@ -87,41 +87,34 @@ div#qaa_table tr > th, div#qaa_table tr > td {
 	text-align:center;
 }
 
-div#qaa_table tr > td:nth-child(2) { /* 각 행 2열: */
+div#qaa_table tr > td:nth-child(1) { /* 각 행 1열 */
+	width:20%;
+}
+
+div#qaa_table tr > td:nth-child(2) { /* 각 행 2열 */
 	text-align:left;
 }
 
-input#qaa_title { /* 제목 입력칸 */
-	height:25px; width:95%;
-	border:1px solid lightgray;
-	border-radius:10px;
-	font-size:12pt;
-	padding-left:5px;
+div#qaa_table tr > th, div#qaa_table tr:nth-child(1) td { /* 제목 */
+	font-weight:bold;
 }
 
-textarea#qaa_content { /* 내용 입력칸 */
-	height:200px; width:95%;
-	border:1px solid lightgray;
-	font-size:12pt;
-	border-radius:10px;
-	overflow:scroll;
-	padding:5px;
+div#qaa_table tr > th, div#qaa_table tr:nth-child(3) td,
+div#qaa_table tr > th, div#qaa_table tr:nth-child(5) td { /* 내용, 답변 */
+	height:250px;
+	vertical-align:top;
 }
 
-div#qaa_table tr:last-child span {
-	display:inline-block;
-	color:#ccc;
-	font-size:10pt;
-	margin-top:3px;
+div#qaa_table tr > th, div#qaa_table tr:nth-child(5) { /* 답변 행 */
+	border-top:10px double #9b9b9b;
 }
 
-div#qaa_table div#qaa_write_btn button { /* 버튼 */
+div#qaa_table div#qaa_content_btn button { /* 목록 버튼 */
 	margin-top:40px;
 	width:50px; height:40px;
 	font-size:13pt;
 	border-radius:10px;
 	background:lightgray;
-	margin-right:10px;
 }
 
 div#qaa_table div {
@@ -132,7 +125,7 @@ div#qaa_table div {
 </style>
 </head>
 <body>
-	<jsp:include page="../header.jsp" />
+	<jsp:include page="../../header.jsp" />
 	<div>
 		<div id="left_nav">
 			<ul>
@@ -145,29 +138,31 @@ div#qaa_table div {
 		<div id="main_title">Q&A 1:1 상담</div>
 		
 		<div id="qaa_table">
-			<form action="#" method="get" name="qaa_write_form">
-				<table border=1>
-					<tr>
-						<td>제목</td>
-						<td><input type="text" name="qaa_title" id="qaa_title"></td>
-					</tr>
-					<tr>
-						<td>내용</td>
-						<td><textarea name="qaa_content" id="qaa_content"></textarea></td>
-					</tr>
-					<tr>
-						<td>첨부파일</td>
-						<td>
-							<input type="file"><br>
-							<span>필요한 경우 파일을 첨부해주세요.</span>
-						</td>
-					</tr>
-				</table>
-				<div id="qaa_write_btn">
-					<button type="button" id="qaa_write">등록</button>
-					<a href="cs_qaa.jsp"><button type="button">목록</button></a>
-				</div>
-			</form>
+			<table border=1>
+				<tr>
+					<td>제목</td>
+					<td>어쩌구</td>
+				</tr>
+				<tr>
+					<td>날짜</td>
+					<td>2019-10-16</td>
+				</tr>
+				<tr>
+					<td>내용</td>
+					<td>저쩌구</td>
+				</tr>
+				<tr>
+					<td>첨부파일</td>
+					<td>이름</td>
+				</tr>
+				<tr>
+					<td>답변</td>
+					<td>네네</td>
+				</tr>
+			</table>
+			<div id="qaa_content_btn">
+				<a href="cs_qaa.jsp"><button type="button">목록</button></a>
+			</div>
 		</div>
 		
 	</div>

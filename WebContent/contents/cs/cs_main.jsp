@@ -102,7 +102,7 @@ div.qaa_icon > a >  div:last-child { /* FAQ 설명, Q&A 설명 */
 </style>
 </head>
 <body>
-	<jsp:include page="../header.jsp" />
+	<jsp:include page="../../header.jsp" />
 	<div>
 		<div id="left_nav">
 			<ul>

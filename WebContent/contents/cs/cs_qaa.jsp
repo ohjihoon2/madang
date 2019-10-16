@@ -65,7 +65,8 @@ div#left_nav>ul>li>a {
 
 /** 중앙 concert contents **/
 div#qaa_table {
-	width:850px;
+	/* border:1px solid red; */
+	width:850px; /* height:600px; */
 	margin-top:40px;
 }
 
@@ -82,50 +83,38 @@ div#qaa_table table, div#qaa_table tr, div#qaa_table td {
 }
 
 div#qaa_table tr > th, div#qaa_table tr > td {
-	font-size:14pt;
+	font-size:13pt;
 	padding:8px;
 	text-align:center;
 }
 
-div#qaa_table tr > td:nth-child(1) { /* 각 행 1열 */
-	width:20%;
-}
-
-div#qaa_table tr > td:nth-child(2) { /* 각 행 2열 */
+div#qaa_table tr > td:nth-child(2) { /* 각 행 2열: 제목 */
 	text-align:left;
 }
 
-div#qaa_table tr > th, div#qaa_table tr:nth-child(1) td { /* 제목 */
-	font-weight:bold;
+div#qaa_table tr > td:nth-child(2) > a {
+	text-decoration: none;
+	color:black;
 }
 
-div#qaa_table tr > th, div#qaa_table tr:nth-child(3) td,
-div#qaa_table tr > th, div#qaa_table tr:nth-child(5) td { /* 내용, 답변 */
-	height:250px;
-	vertical-align:top;
+div#qaa_table tr > td:nth-child(2) > a:hover {
+	text-decoration:underline;
+	color:#323232;
 }
 
-div#qaa_table tr > th, div#qaa_table tr:nth-child(5) { /* 답변 행 */
-	border-top:10px double #9b9b9b;
-}
-
-div#qaa_table div#qaa_content_btn button { /* 목록 버튼 */
+div#qaa_table button { /* 작성 버튼 */
 	margin-top:40px;
 	width:50px; height:40px;
 	font-size:13pt;
 	border-radius:10px;
 	background:lightgray;
-}
-
-div#qaa_table div {
-	text-align:center;
-	margin:0px;
+	float:right;
 }
 
 </style>
 </head>
 <body>
-	<jsp:include page="../header.jsp" />
+	<jsp:include page="../../header.jsp" />
 	<div>
 		<div id="left_nav">
 			<ul>
@@ -140,29 +129,26 @@ div#qaa_table div {
 		<div id="qaa_table">
 			<table border=1>
 				<tr>
-					<td>제목</td>
-					<td>어쩌구</td>
+					<th>번호</th>
+					<th>제목</th>
+					<th>날짜</th>
+					<th>답변여부</th>
 				</tr>
 				<tr>
-					<td>날짜</td>
-					<td>2019-10-16</td>
+					<td>1</td>
+					<td><a href="cs_qaa_content.jsp">예매 후 좌석변경이 가능한가요?</a></td>
+					<td>2019-09-29</td>
+					<td>Y</td>
 				</tr>
 				<tr>
-					<td>내용</td>
-					<td>저쩌구</td>
-				</tr>
-				<tr>
-					<td>첨부파일</td>
-					<td>이름</td>
-				</tr>
-				<tr>
-					<td>답변</td>
-					<td>네네</td>
+					<td>2</td>
+					<td><a href="#">개천절에 전시 관람</a></td>
+					<td>2019-10-01</td>
+					<td>N</td>
 				</tr>
 			</table>
-			<div id="qaa_content_btn">
-				<a href="cs_qaa.jsp"><button type="button">목록</button></a>
-			</div>
+			
+			<a href="cs_qaa_write.jsp"><button type="button" id="qaa_write">작성</button></a>
 		</div>
 		
 	</div>
