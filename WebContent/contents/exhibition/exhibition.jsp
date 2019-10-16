@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	
 	*{
 		font-family:"나눔스퀘어라운드";
 		padding:0px;
@@ -72,6 +73,11 @@
 	}
 	
 	/** 중앙 exhibition contents **/
+	.exhibition_area{
+		width:1000px;
+		height:3000px;
+		margin:auto;
+	}
 	.exhibition_info_today{
 		width:1000px;
 		height:450px;
@@ -97,9 +103,62 @@
 		
 	}
 	
+	div.last_exhibition_info{
+		width:1000px;
+		height:300px;
+		margin:auto;
+	}
+	.last_exhibition_info_content{
+		display:inline-block;	
+		width:470px;
+		height:200px;
+	}
+	div.last_exhibition_info_content>a{
+		float:left;
+		padding:8px;
+	}
 	
+	div.last_exhibition_info_content>a>img{
+		width:150px; height:170px;
+	}
 	
+	div.last_exhibition_info_content>div{
+		width:300px;
+		height:170px;
+		margin-top:7px;
+		float:left;
+		
+	}
+	div.last_exhibition_info_content>div>h3{
+		text-align:left;
+		color:black;
+		margin-left:10px;
+	}
+	div.last_exhibition_info_content>div>h3>a{
+		text-decoration: none;
+	}
 	
+	div.last_exhibition_info_content>div>#hide_space{
+		width:200px;
+		height:100px;
+	}
+	div.last_exhibition_info_content>div>#text_space{
+		text-align:left;
+		margin-left:10px;
+	}
+	
+	.last_exhibition_text{
+		display:inline-block;
+		font-size:15pt;
+		font-weight:bold;
+		padding:40px 0px 40px 0px;
+	}
+	
+	.last_exhibition_year{
+		display:inline-block;
+		font-size:15pt;
+		padding:40px 0px 40px 0px;
+	}
 </style>
 </head>
 <body>
@@ -109,7 +168,7 @@
 		<ul>
 			<li><a href="exhibition.jsp">전시</a></li>
 			<li><a href="exhibition.jsp" style="color:rgb(5,135,94)">전시일정</a></li>
-			<li><a href="concert_seat_beethoven.jsp">전시안내</a></li>
+			<li><a href="concert_seat_beethoven.jsp">전시장안내</a></li>
 		</ul>
 	</div>
 	<div id="main_title">&nbsp&nbsp전시</div><br>
@@ -118,55 +177,124 @@
 	<button type="button">이미지보기</button>
 	<button type="button">텍스트보기</button>
 	<br>
-	<div class="exhibition_info_today">
-		<div class="exhibition_info">
-			<div class="exhibition_info_count">
-				<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif"></a>
-				<div class="exhibition_info_text">
-					<h4><a href="#">2019 연극 <늙은 부부이야기></a></h4><br>
-					<div>
-						<div>한가람미술관	</div>
-						<span>2019.10.02(수) ~ 2019.10.29(화)</span><br>
-						<a href="#">현장판매</a>
+	<div class="exhibition_area">
+		<div class="exhibition_info_today">
+			<div class="exhibition_info">
+				<div class="exhibition_info_count">
+					<a href="exhibition_detail.jsp"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif"></a>
+					<div class="exhibition_info_text">
+						<h4><a href="exhibition_detail.jsp">2019 연극 <늙은 부부이야기></a></h4><br>
+						<div>
+							<div>한가람미술관	</div>
+							<span>2019.10.02(수) ~ 2019.10.29(화)</span><br>
+							<a href="#">현장판매</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="exhibition_info">
+				<div class="exhibition_info_count">
+					<a href="exhibition_detail.jsp"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif"></a>
+					<div class="exhibition_info_text">
+						<h4><a href="exhibition_detail.jsp">2019 연극 <늙은 부부이야기></a></h4><br>
+						<div>
+							<div>한가람미술관	</div>
+							<span>2019.10.02(수) ~ 2019.10.29(화)</span><br>
+							<a href="#">현장판매</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="exhibition_info">
+				<div class="exhibition_info_count">
+					<a href="exhibition_detail.jsp"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif"></a>
+					<div class="exhibition_info_text">
+						<h4><a href="exhibition_detail.jsp">2019 연극 <늙은 부부이야기></a></h4><br>
+						<div>
+							<div>한가람미술관	</div>
+							<span>2019.10.02(수) ~ 2019.10.29(화)</span><br>
+							<a href="#">현장판매</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="exhibition_info">
+				<div class="exhibition_info_count">
+					<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif"></a>
+					<div class="exhibition_info_text">
+						<h4><a href="#">2019 연극 <늙은 부부이야기></a></h4><br>
+						<div>
+							<div>한가람미술관	</div>
+							<span>2019.10.02(수) ~ 2019.10.29(화)</span><br>
+							<a href="#">현장판매</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="exhibition_info">
-			<div class="exhibition_info_count">
-				<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif"></a>
-				<div class="exhibition_info_text">
-					<h4><a href="#">2019 연극 <늙은 부부이야기></a></h4><br>
+		<div class="last_exhibition">
+			<span class="last_exhibition_text">지난전시</span><br>
+			<hr>
+			<span class="last_exhibition_year">2019</span><br>
+			<div class="last_exhibition_info">
+				<div class="last_exhibition_info_content">
+					<a href="exhibition_detail.jsp"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif"></a>
 					<div>
-						<div>한가람미술관	</div>
-						<span>2019.10.02(수) ~ 2019.10.29(화)</span><br>
-						<a href="#">현장판매</a>
+						<h3><a href="exhibition_detail.jsp">2019 연극 <늙은 부부이야기></a></h3>
+						<div id="hide_space">
+							<span></span>
+						</div>
+						<div id="text_space">
+							<div>
+								<div>서울서예박물관 상설전시실 (3층)</div>
+								<span>2019.10.08(화) ~ 2019.10.15(화)</span>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="exhibition_info">
-			<div class="exhibition_info_count">
-				<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif"></a>
-				<div class="exhibition_info_text">
-					<h4><a href="#">2019 연극 <늙은 부부이야기></a></h4><br>
+				<div class="last_exhibition_info_content">
+					<a href="exhibition_detail.jsp"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif"></a>
 					<div>
-						<div>한가람미술관	</div>
-						<span>2019.10.02(수) ~ 2019.10.29(화)</span><br>
-						<a href="#">현장판매</a>
+						<h3><a href="exhibition_detail.jsp">2019 연극 <늙은 부부이야기></a></h3>
+						<div id="hide_space">
+							<span></span>
+						</div>
+						<div id="text_space">
+							<div>
+								<div>서울서예박물관 상설전시실 (3층)</div>
+								<span>2019.10.08(화) ~ 2019.10.15(화)</span>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="exhibition_info">
-			<div class="exhibition_info_count">
-				<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif"></a>
-				<div class="exhibition_info_text">
-					<h4><a href="#">2019 연극 <늙은 부부이야기></a></h4><br>
+				<div class="last_exhibition_info_content">
+					<a href="exhibition_detail.jsp"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif"></a>
 					<div>
-						<div>한가람미술관	</div>
-						<span>2019.10.02(수) ~ 2019.10.29(화)</span><br>
-						<a href="#">현장판매</a>
+						<h3><a href="exhibition_detail.jsp">2019 연극 <늙은 부부이야기></a></h3>
+						<div id="hide_space">
+							<span></span>
+						</div>
+						<div id="text_space">
+							<div>
+								<div>서울서예박물관 상설전시실 (3층)</div>
+								<span>2019.10.08(화) ~ 2019.10.15(화)</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="last_exhibition_info_content">
+					<a href="exhibition_detail.jsp"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif"></a>
+					<div>
+						<h3><a href="exhibition_detail.jsp">2019 연극 <늙은 부부이야기></a></h3>
+						<div id="hide_space">
+							<span></span>
+						</div>
+						<div id="text_space">
+							<div>
+								<div>서울서예박물관 상설전시실 (3층)</div>
+								<span>2019.10.08(화) ~ 2019.10.15(화)</span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
