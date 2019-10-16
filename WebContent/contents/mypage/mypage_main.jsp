@@ -64,7 +64,7 @@ div#left_nav>ul>li>a {
 }
 
 /** 중앙 concert contents **/
-div.modi_icon, div.reserv_icon, div.bmark_icon { /* 버튼 */
+div.mod_icon, div.reserv_icon, div.bmark_icon { /* 버튼 */
 	border:2px solid #9b9b9b;
 	/* background: lightgray; */
 	width:600px; height:130px;
@@ -75,7 +75,7 @@ div.modi_icon, div.reserv_icon, div.bmark_icon { /* 버튼 */
 	border-radius:20px;
 }
 
-div.modi_icon > a > div:first-child,
+div.mod_icon > a > div:first-child,
 div.reserv_icon > a > div:first-child,
 div.bmark_icon > a > div:first-child { /* 제목 */
 	border-right:1px dashed #9b9b9b;
@@ -88,7 +88,7 @@ div.bmark_icon > a > div:first-child { /* 제목 */
 	color:black;
 }
 
-div.modi_icon > a >  div:last-child,
+div.mod_icon > a >  div:last-child,
 div.reserv_icon > a >  div:last-child,
 div.bmark_icon > a > div:last-child { /* 설명 */
 	/* border:1px solid blue; */
@@ -101,7 +101,7 @@ div.bmark_icon > a > div:last-child { /* 설명 */
 	color:black;
 }
 
-div.modi_icon > a >  div:last-child span,
+div.mod_icon > a >  div:last-child span,
 div.reserv_icon > a >  div:last-child span {
 	font-size:14px;
 	color:#9b9b9b;
@@ -111,12 +111,12 @@ div.reserv_icon > a >  div:last-child span {
 </style>
 </head>
 <body>
-	<jsp:include page="../header.jsp" />
+	<jsp:include page="../../header.jsp" />
 	<div>
 		<div id="left_nav">
 			<ul>
 				<li><a style="color: rgb(5, 135, 94)" href="mypage_main.jsp">마이페이지</a></li>
-				<li><a href="#">회원정보 수정</a></li>
+				<li><a href="mypage_mod_gen.jsp">회원정보 수정</a></li>
 				<li><a href="#">예매내역 확인</a></li>
 				<li><a href="#">찜한 공연/전시</a></li>
 			</ul>
@@ -124,8 +124,8 @@ div.reserv_icon > a >  div:last-child span {
 
 		<div id="main_title">마이페이지</div>
 		
-		<div class="modi_icon">
-			<a href="#">
+		<div class="mod_icon">
+			<a href="mypage_mod_gen.jsp">
 				<div>
 					<p><br><br>회원정보 수정</p>
 				</div>
