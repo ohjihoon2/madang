@@ -168,7 +168,7 @@
 		<ul>
 			<li><a href="exhibition.jsp">전시</a></li>
 			<li><a href="exhibition.jsp" style="color:rgb(5,135,94)">전시일정</a></li>
-			<li><a href="concert_seat_beethoven.jsp">전시장안내</a></li>
+			<li><a href="exhibition_view_picasso.jsp">전시장안내</a></li>
 		</ul>
 	</div>
 	<div id="main_title">&nbsp&nbsp전시</div><br>

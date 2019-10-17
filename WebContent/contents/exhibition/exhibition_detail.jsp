@@ -75,47 +75,47 @@
 	}
 	
 	/** 중앙 concert contents **/
-	div.concert_info{
+	div.exhibition_detail_info{
 		width:1000px;
 		height:400px;
 		margin:auto;
 		margin-top:100px;
 	}
 	
-	div.concert_info>a{
+	div.exhibition_detail_info>a{
 		float:left;
 		padding:8px;
 	}
 	
-	div.concert_info>a>img.Info_img{
+	div.exhibition_detail_info>a>img.Info_img{
 		width:270px; 
 		height:330px;
 	}
 	
-	#content_right{
+	#exhibition_detail_right{
 		width:900px;
 		height:300px;
 		margin:7px 0px 0px 100px;
 	}
 	
-	div.concert_info>div>h2{
+	div.exhibition_detail_info>div>h2{
 		text-align:left;
 		color:black;
 		margin:50px 0px 0px 350px;
 	}
-	div.concert_info>div>h2>a{
+	div.exhibition_detail_info>div>h2>a{
 		text-decoration: none;
 	}
 	
-	div.concert_info>div>#hide_space{
+	div.exhibition_detail_info>div>#hide_space{
 		width:550px;
 		height:130px;
 	}
-	div.concert_info>div>#text_space{
+	div.exhibition_detail_info>div>#text_space{
 		text-align:left;
 		margin-left:10px;
 	}
-	div.concert_info>div>#text_space>div>a{
+	div.exhibition_detail_info>div>#text_space>div>a{
 		display:inline-block;	
 		color:#e5002c;
 		border:1px solid #e5002c;
@@ -126,11 +126,11 @@
 		float:right;
 		
 	}
-	div.concert_info>div>div#content_right>table{
+	div.exhibition_detail_info>div>div#exhibition_detail_right>table{
 		margin:30px 0px 20px 250px;
 		text-align: left;
 	}
-	div.concert_info>div>div#content_right>a{
+	div.exhibition_detail_info>div>div#exhibition_detail_right>a{
 		display:inline-block;
 		background:#e5002c;
 		color:white;
@@ -144,7 +144,7 @@
 		width:100px;
 	}
 		
-	div.concert_info>div>#text_space>div>a:hover{
+	div.exhibition_detail_info>div>#text_space>div>a:hover{
 	 
 	  background-color: #e5002c;
 	  color:white;
@@ -183,11 +183,11 @@
 			<li><a href="concert_seat_beethoven.jsp">전시장안내</a></li>
 		</ul>
 	</div>
-	<div class="concert_info">
+	<div class="exhibition_detail_info">
 		<a href=#><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="Info_img"></a>
 		<div>
 			<h2>2019 연극 <늙은 부부이야기></h2>
-			<div id="content_right">
+			<div id="exhibition_detail_right">
 				<table>
 					<tr>
 						<th scope="row">기간</th>

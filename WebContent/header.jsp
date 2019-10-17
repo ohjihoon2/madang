@@ -159,7 +159,7 @@ ul.dept02 li a:hover {
 			<ul class="dept01">
 			
 				<li class="concert">
-					<a href="#">공연<i class='fa fa-angle-down'></i></a>
+					<a href="http://localhost:9090/contents/concert/concert.jsp">공연<i class='fa fa-angle-down'></i></a>
 					 <ul class="dept02">
 						<li><a href="http://localhost:9090/contents/concert/concert.jsp">공연일정</a></li>
 						<li><a href="#">- 예매</a></li>
@@ -170,14 +170,14 @@ ul.dept02 li a:hover {
 				</li>
 				
 				<li class="exhibition">
-					<a href="#"> 전시 <i class='fa fa-angle-down'></i></a>
+					<a href="http://localhost:9090/contents/exhibition/exhibition.jsp"> 전시 <i class='fa fa-angle-down'></i></a>
 					<ul class="dept02">
 						<li><a href="http://localhost:9090/contents/exhibition/exhibition.jsp">전시일정</a></li>
 						<li><a href="#">- 예매</a></li>
-						<li><a href="#">전시장안내</a></li>
-						<li><a href="#">- 피카소관</a></li>
-						<li><a href="#">- 다빈치관</a></li>
-						<li><a href="#">- 오지훈특별관</a></li>
+						<li><a href="http://localhost:9090/contents/exhibition/exhibition_view_picasso.jsp">전시장안내</a></li>
+						<li><a href="http://localhost:9090/contents/exhibition/exhibition_view_picasso.jsp">- 피카소관</a></li>
+						<li><a href="http://localhost:9090/contents/exhibition/exhibition_view_davinci.jsp">- 다빈치관</a></li>
+						<li><a href="http://localhost:9090/contents/exhibition/exhibition_view_jihoon.jsp">- 오지훈특별관</a></li>
 					</ul>
 				</li>
 				
