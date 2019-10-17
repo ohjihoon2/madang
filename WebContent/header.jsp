@@ -161,18 +161,18 @@ ul.dept02 li a:hover {
 				<li class="concert">
 					<a href="#">공연<i class='fa fa-angle-down'></i></a>
 					 <ul class="dept02">
-						<li><a href="#">공연일정</a></li>
+						<li><a href="http://localhost:9090/contents/concert/concert.jsp">공연일정</a></li>
 						<li><a href="#">- 예매</a></li>
-						<li><a href="#">객석안내</a></li>
-						<li><a href="#">- 베토벤홀</a></li>
-						<li><a href="#">- 모짜르트홀</a></li>
+						<li><a href="http://localhost:9090/contents/concert/concert_seat_beethoven.jsp">객석안내</a></li>
+						<li><a href="http://localhost:9090/contents/concert/concert_seat_beethoven.jsp">- 베토벤홀</a></li>
+						<li><a href="http://localhost:9090/contents/concert/concert_seat_mozart.jsp">- 모짜르트홀</a></li>
 					</ul>
 				</li>
 				
 				<li class="exhibition">
 					<a href="#"> 전시 <i class='fa fa-angle-down'></i></a>
 					<ul class="dept02">
-						<li><a href="#">전시일정</a></li>
+						<li><a href="http://localhost:9090/contents/exhibition/exhibition.jsp">전시일정</a></li>
 						<li><a href="#">- 예매</a></li>
 						<li><a href="#">전시장안내</a></li>
 						<li><a href="#">- 피카소관</a></li>
