@@ -5,130 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style>
-* {
-	font-family: "나눔스퀘어라운드";
-	padding: 0px;
-	margin: 0px;
-}
+<link rel="stylesheet" href="http://localhost:9090/css/mypage.css"/>
 
-body, div {
-	margin: auto;
-	/* text-align:center; */
-}
-
-/** 타이틀 **/
-div#main_title {
-	width: 900px;
-	border-bottom: 3px solid rgb(5, 135, 94);
-	border-left: 15px solid rgb(5, 135, 94);
-	display: inline-block;
-	margin: 100px 0px 0px 70px;
-	font-size: 30pt;
-	font-weight: bold;
-	font-family: "나눔스퀘어라운드";
-	text-align: left;
-}
-
-/** 왼쪽 nav **/
-#left_nav {
-	width: 180px;
-	margin: 180px -20px 0px 200px;
-	padding-right: 30px;
-	display: inline-block;
-	float: left;
-	text-decoration: none;
-	color: rgb(34, 34, 34);
-}
-
-div#left_nav>ul {
-	border-right:2px solid #9b9b9b; 
-	text-align: center;
-	list-style-type: none;;
-	color: rgb(5, 135, 94);
-}
-
-div#left_nav>ul>li{
-	height:50px;
-}
-
-div#left_nav>ul>li:nth-child(1) {
-	font-size: 20pt;
-	font-style: bold;
-	margin-bottom: 10px;
-	margin-right: 20px;
-}
-
-div#left_nav>ul>li>a {
-	text-decoration: none;
-}
-
-/** 중앙 concert contents **/
-div.ticket_box_2 {
-	/* border:1px solid blue; */
-	width:850px;
-	margin-top:40px;
-}
-
-div.ticket_box_2 table {
-	width:100%;
-	border-right:none;
-	border-left:none;
-	font-size:18px;
-}
-
-div.ticket_box_2 table, div.ticket_box_2 tr, div.ticket_box_2 td {
-	border-collapse: collapse;
-	border-top: 1px solid gray;
-	border-bottom: 1px solid gray;
-	padding:8px;
-}
-
-div.ticket_box_2 table tr td:nth-child(3) { /* 중간 라인 */
-	border-left:1pt solid gray;
-}
-
-div.ticket_box_2 table tr td:nth-child(1),
-div.ticket_box_2 table tr td:nth-child(3) {
-	text-align:center;
-	font-weight:bold;
-	width:20%;
-}
-
-div.ticket_box_2 table tr td:nth-child(4) {
-	width:30%;
-}
-
-div.out_box {
-	border:1px solid #9b9b9b;
-	width:810px; height:200px;
-	padding:20px;
-	margin-top:50px;
-	margin-bottom:20px;
-	font-size:13pt;
-}
-
-div.out_cfm { /* 확인 체크 */
-	/* border:1px solid blue; */
-	width:38%;
-	margin-bottom:10px;
-}
-
-body > div > div:last-child button { /* 버튼 */
-	margin-top:40px;
-	width:80px; height:40px;
-	font-size:13pt;
-	border-radius:10px;
-	background:lightgray;
-	margin-right:10px;
-}
-
-body > div > div:last-child {
-	text-align:center;
-	margin:0px;
-}
-
-</style>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />
@@ -191,7 +69,7 @@ body > div > div:last-child {
 			<input type="checkbox" id="out2"> 안내사항을 모두 확인하였으며, 이에 동의합니다.
 		</div>
 		
-		<div>
+		<div class="button">
 			<button type="button" id="out_btn">예매취소</button>
 			<a href="mypage_reserv_details.jsp"><button type="button" id="out_btn">취소</button></a>
 		</div>

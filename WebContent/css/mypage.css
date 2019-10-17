@@ -1,0 +1,337 @@
+/* 
+<link rel="stylesheet" href="http://localhost:9090/css/mypage.css"/>
+ */
+
+/** 전체 */
+* {
+	font-family: "나눔스퀘어라운드";
+	padding: 0px;
+	margin: 0px;
+}
+
+body, div {
+	margin: auto;
+	/* text-align:center; */
+}
+
+
+/** 타이틀 **/
+div#main_title {
+	width: 900px;
+	border-bottom: 3px solid rgb(5, 135, 94);
+	border-left: 15px solid rgb(5, 135, 94);
+	display: inline-block;
+	margin: 100px 0px 0px 70px;
+	font-size: 30pt;
+	font-weight: bold;
+	font-family: "나눔스퀘어라운드";
+	text-align: left;
+}
+
+
+/** 왼쪽 nav **/
+#left_nav {
+	width: 180px;
+	margin: 180px -20px 0px 200px;
+	padding-right: 30px;
+	display: inline-block;
+	float: left;
+	text-decoration: none;
+	color: rgb(34, 34, 34);
+}
+
+div#left_nav>ul {
+	border-right:2px solid #9b9b9b; 
+	text-align: center;
+	list-style-type: none;;
+	color: rgb(5, 135, 94);
+}
+
+div#left_nav>ul>li{
+	height:50px;
+}
+
+div#left_nav>ul>li:nth-child(1) {
+	font-size: 20pt;
+	font-style: bold;
+	margin-bottom: 10px;
+	margin-right: 20px;
+}
+
+div#left_nav>ul>li>a {
+	text-decoration: none;
+}
+
+
+/** 중앙 concert contents **/
+
+
+/** 메인 */
+div.mod_icon, div.reserv_icon, div.bmark_icon { /* 버튼 */
+	border:2px solid #9b9b9b;
+	width:600px; height:130px;
+	margin:auto;
+	margin-top:60px;
+	text-align:left;
+	padding:0px;
+	border-radius:20px;
+}
+
+div.mod_icon > a > div:first-child,
+div.reserv_icon > a > div:first-child,
+div.bmark_icon > a > div:first-child { /* 제목 */
+	border-right:1px dashed #9b9b9b;
+	display:inline-block;
+	width:25%; height:130px;
+	padding:0px 40px 0px 20px;
+	font-weight:bold;
+	font-size:18pt;
+	vertical-align: middle;
+	color:black;
+}
+
+div.mod_icon > a >  div:last-child,
+div.reserv_icon > a >  div:last-child,
+div.bmark_icon > a > div:last-child { /* 설명 */
+	display:inline-block;
+	height:130px;
+	font-size:14pt;
+	position:relative;
+	left:15px;
+	vertical-align: middle;
+	color:black;
+}
+
+div.mod_icon > a >  div:last-child span,
+div.reserv_icon > a >  div:last-child span {
+	font-size:14px;
+	color:#9b9b9b;
+}
+
+
+/** 정보수정 */
+div#mypage_table {
+	width:850px;
+	margin-top:40px;
+}
+
+div#mypage_table table {
+	width:90%;
+	border-right:none;
+	border-left:none;
+}
+
+div#mypage_table table, div#mypage_table tr, div#mypage_table td {
+	border-collapse: collapse;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+}
+
+div#mypage_table tr > th, div#mypage_table tr > td {
+	font-size:13pt;
+	padding:8px;
+	text-align:center;
+}
+
+div#mypage_table tr > td:nth-child(1) { /* 각 행 1열 */
+	padding:3px 20px 3px 20px;
+	width:100px;
+}
+
+div#mypage_table tr > td.left {
+	text-align:left;
+	font-size:12pt;
+}
+
+div#mypage_table tr > td:nth-child(2) { /* 각 행 2열: */
+	text-align:left;
+	padding-left:20px;
+}
+
+
+table input {
+	height:25px;
+	border:1px solid lightgray;
+	border-radius:10px;
+	font-size:12pt;
+	padding-left:5px;
+}
+
+
+input#phone1, input#phone2, input#phone3,
+input#cphone1, input#cphone2, input#cphone3,
+input#pax1, input#pax2, input#pax3,
+input#cpax1, input#cpax2, input#cpax3 {
+	width:20%;
+}
+
+input#email1, input#email2 {
+	width:30%;
+}
+
+
+select#comp, select#email3 {
+	width:22%; height:26px;
+	border-radius:10px;
+	margin-left:6px;
+	font-size:12pt;
+}
+
+
+input#addr {
+	width:70%;
+}
+
+button#addr_btn {
+	width:90px; height:26px;
+	font-size:12pt;
+	border-radius:10px;
+	background:lightgray;
+	margin-left:6px;
+}
+
+/* div#mypage_table > form > tr:nth-child(8) > td > input { 성별 radio 왜안먹어
+	margin:20px;
+	width:30%;
+} */
+
+
+div.out_box { /* 회원탈퇴 유의사항, 예매취소 유의사항 */
+	border:1px solid #9b9b9b;
+	width:700px; height:200px;
+	/* width:810px; height:200px; */
+	padding:20px;
+	margin-top:50px;
+	margin-bottom:20px;
+	font-size:13pt;
+}
+
+
+/** 예매내역
+0 list 6열,
+1 details 2열,
+2 details 4열 cc 4열,
+3 details 포스터 옆 2열
+*/
+
+div.ticket_box_0,
+div.ticket_box_3,
+div.ticket_box_2,
+div.ticket_box_1 {
+	width:850px;
+	margin-top:40px;
+}
+
+div.ticket_box_0 table,
+div.ticket_box_3 table, /* 공연정보 */
+div.ticket_box_2 table, /* 결제내역 1 */
+div.ticket_box_1 table /* 결제내역 2 */ {
+	width:100%;
+	border-right:none;
+	border-left:none;
+	font-size:18px;
+}
+
+div.ticket_box_0 table, div.ticket_box_0 th, div.ticket_box_0 tr, div.ticket_box_0 td,
+div.ticket_box_3 table, div.ticket_box_3 th, div.ticket_box_3 tr, div.ticket_box_3 td,
+div.ticket_box_2 table, div.ticket_box_2 tr, div.ticket_box_2 td,
+div.ticket_box_1 table, div.ticket_box_1 th, div.ticket_box_1 tr, div.ticket_box_1 td {
+	border-collapse: collapse;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+	padding:8px;
+	text-align:center;
+}
+
+div.ticket_box_2 table, div.ticket_box_2 tr, div.ticket_box_2 td,
+div.ticket_box_1 table, div.ticket_box_1 th, div.ticket_box_1 tr, div.ticket_box_1 td {
+	text-align:left;
+}
+
+
+div.ticket_box_0 table td.rnum a { /* 예매번호 */
+	text-decoration:none;
+	color:black;
+}
+
+div.ticket_box_0 table td.rnum a:hover {
+	text-decoration:underline;
+}
+
+div.ticket_box_3 table tr td:nth-child(1),
+div.ticket_box_1 table tr td:nth-child(1) {
+	text-align:center;
+	font-weight:bold;
+	width:20%;
+}
+
+div.ticket_box_2 table tr td:nth-child(3) { /* 중간 라인 */
+	border-left:1pt solid gray;
+}
+
+div.ticket_box_2 table tr td:nth-child(1),
+div.ticket_box_2 table tr td:nth-child(3) {
+	text-align:center;
+	font-weight:bold;
+	width:20%;
+}
+
+div.ticket_box_2 table tr td:nth-child(4) {
+	width:30%;
+}
+
+div.ticket_box_3 div#poster {
+	border:1px solid gray;
+	display:inline-block;
+	width:230px; height:265px;
+	float:left;
+	margin-left:25px;
+	margin-right:60px;
+}
+
+div.ticket_box_3 > table {
+	width:500px;
+	float:left;
+}
+
+div.clear {
+	clear:both;
+}
+
+
+/** 하단 */
+
+
+/** 동의 체크 */
+
+div.mem_mod_agr { /* 정보수정 개인 수신여부 */
+	width:90%;
+	margin-top:20px;
+}
+
+div.out_cfm /* 회원탈퇴 확인 */,
+div.out_cfm /* 예매취소 확인 */ {
+	/* border:1px solid blue; */
+	width:38%;
+	margin-bottom:10px;
+}
+
+
+/** 버튼 */
+
+
+/* 정보수정 개인 그룹 회원탈퇴 예매상세 */
+div.button button {
+	margin-top:40px;
+	width:80px; height:40px;
+	font-size:13pt;
+	border-radius:10px;
+	background:lightgray;
+	margin-right:10px;
+}
+
+div.button {
+	text-align:center;
+	/* margin-left:-50px; */
+	margin:0px;
+}
