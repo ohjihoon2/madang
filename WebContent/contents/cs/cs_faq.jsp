@@ -6,6 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="http://localhost:9090/css/cs.css"/>
+
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <script>
 	$(document).ready(function(){
@@ -16,141 +18,7 @@
 		});
 	});
 </script>
-<style>
-* {
-	font-family: "나눔스퀘어라운드";
-	padding: 0px;
-	margin: 0px;
-}
 
-body, div {
-	margin: auto;
-	/* text-align:center; */
-}
-
-/** 타이틀 **/
-div#main_title {
-	width: 900px;
-	border-bottom: 3px solid rgb(5, 135, 94);
-	border-left: 15px solid rgb(5, 135, 94);
-	display: inline-block;
-	margin: 100px 0px 0px 70px;
-	font-size: 30pt;
-	font-weight: bold;
-	font-family: "나눔스퀘어라운드";
-	text-align: left;
-}
-
-/** 왼쪽 nav **/
-#left_nav {
-	width: 180px;
-	margin: 180px -20px 0px 200px;
-	padding-right: 30px;
-	display: inline-block;
-	float: left;
-	text-decoration: none;
-	color: rgb(34, 34, 34);
-}
-
-div#left_nav>ul {
-	border-right:2px solid #9b9b9b;
-	text-align: center;
-	list-style-type: none;;
-	color: rgb(5, 135, 94);
-}
-
-div#left_nav>ul>li{
-	height:50px;
-}
-
-div#left_nav>ul>li:nth-child(1) {
-	font-size: 20pt;
-	font-style: bold;
-	margin-bottom: 10px;
-	margin-right: 20px;
-}
-
-div#left_nav>ul>li>a {
-	text-decoration: none;
-}
-
-/** 중앙 concert contents **/
-div#faq_list {
-	/* border:1px solid red; */
-	width:850px; /* height:600px; */
-	margin-top:40px;
-}
-
-div#faq_list li {
-	/* border:1px solid green; */
-	margin:5px;
-	list-style-type:none;
-	/* width:90%; */
-}
-
-div#faq_list li span.faq_list_category { /* 카테고리 */
-	border-right:1px dashed #9b9b9b;
-	display:inline-block;
-	font-size:13pt;
-	font-weight:bold;
-	width:10%;
-	padding:8px;
-	text-align:center;
-}
-
-div#faq_list li span.faq_list_title { /* 제목 */
-	/* border:1px solid yellow; */
-	display:inline-block;
-	font-size:13pt;
-	padding:8px;
-}
-
-div#faq_list li span.faq_list_title {
-	color:black;
-	text-decoration:none;
-}
-
-div#faq_list li span.faq_list_title:hover {
-	text-decoration:underline;
-	color:#323232;
-}
-
-div#faq_list li > div:first-child { /* 카테고리+제목 */
-	border:1px solid #9b9b9b;
-}
-
-div.faq_slide {	/* 내용 */
-	border:1px dotted lightgray;
-	width:87.4%; height:100px;
-	margin-left:12.4%;
-	display:none;
-}
-
-div#faq_search {
-	/* border:1px solid cyan; */
-	margin-top:50px;
-	text-align:center;
-}
-
-div#faq_search input { /* 검색 입력창 */
-	border-radius:10px;
-	width:300px; height:30px;
-	margin-right:15px;
-	font-size:12pt;
-	padding-left:5px;
-}
-
-div#faq_search img { /* 검색 이미지 */
-	width: 20px; height: 20px;
-	margin-bottom: -5px;
-	opacity: 0.5;
-}
-
-div#faq_search img:hover {
-	opacity: 0.6;
-}
-
-</style>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />
