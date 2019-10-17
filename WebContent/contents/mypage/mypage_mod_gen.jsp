@@ -165,7 +165,7 @@ div.mem_mod_agr { /* 수신동의 */
 			<ul>
 				<li><a style="color: rgb(5, 135, 94)" href="mypage_main.jsp">마이페이지</a></li>
 				<li><a style="color: rgb(5, 135, 94)" href="mypage_mod_gen.jsp">회원정보 수정</a></li>
-				<li><a href="#">예매내역 확인</a></li>
+				<li><a href="mypage_reserv_list.jsp">예매내역 확인</a></li>
 				<li><a href="#">찜한 공연/전시</a></li>
 			</ul>
 		</div>
