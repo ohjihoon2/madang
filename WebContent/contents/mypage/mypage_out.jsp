@@ -64,7 +64,7 @@ div#left_nav>ul>li>a {
 }
 
 /** 중앙 concert contents **/
-div.mem_out_box {
+div.out_box {
 	border:1px solid #9b9b9b;
 	width:700px; height:200px;
 	padding:20px;
@@ -73,7 +73,7 @@ div.mem_out_box {
 	font-size:13pt;
 }
 
-div.mem_out_cfm { /* 확인 체크 */
+div.out_cfm { /* 확인 체크 */
 	/* border:1px solid blue; */
 	width:38%;
 	margin-bottom:10px;
@@ -101,15 +101,15 @@ body > div > div:last-child {
 		<div id="left_nav">
 			<ul>
 				<li><a style="color: rgb(5, 135, 94)" href="mypage_main.jsp">마이페이지</a></li>
-				<li><a href="mypage_mod_gen.jsp">회원정보 수정</a></li>
-				<li><a style="color: rgb(5, 135, 94)" href="#">예매내역 확인</a></li>
+				<li><a style="color: rgb(5, 135, 94)" href="mypage_mod_gen.jsp">회원정보 수정</a></li>
+				<li><a href="#">예매내역 확인</a></li>
 				<li><a href="#">찜한 공연/전시</a></li>
 			</ul>
 		</div>
 
 		<div id="main_title">회원탈퇴</div>
 		
-		<div class="mem_out_box">
+		<div class="out_box">
 			<h2>예술의 마당 회원 탈퇴</h2>
 			회원 탈퇴 전 안내사항을 꼭 확인해주세요.
 			<br><br>
@@ -119,15 +119,15 @@ body > div > div:last-child {
 			<br>탈퇴 후에는 본인의 게시물임을 확인할 방법이 없어 임의로 삭제해 드릴 수 없습니다.
 		</div>
 		
-		<div class="mem_out_cfm">
+		<div class="out_cfm">
 			<input type="checkbox" id="out1"> 탈퇴 후 개인의 데이터를 복구할 수 없으며, 남아있는 게시물을 삭제할 수 없습니다.
 		</div>
-		<div  class="mem_out_cfm">
+		<div  class="out_cfm">
 			<input type="checkbox" id="out2"> 안내사항을 모두 확인하였으며, 이에 동의합니다.
 		</div>
 		
 		<div>
-			<button type="button" id="mem_out_btn">탈퇴</button>
+			<button type="button" id="out_btn">탈퇴</button>
 			<a href="mypage_mod_gen.jsp"><button type="button">취소</button></a>
 		</div>
 

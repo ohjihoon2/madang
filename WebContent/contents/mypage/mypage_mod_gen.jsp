@@ -98,7 +98,7 @@ div#mypage_table tr > td:nth-child(2) { /* 각 행 2열: */
 }
 
 table input {
-	height:25px; width:60%;
+	height:25px;
 	border:1px solid lightgray;
 	border-radius:10px;
 	font-size:12pt;
@@ -120,12 +120,10 @@ select#comp, select#email3 {
 	font-size:12pt;
 }
 
-input#gender {
-	border:1px solid red;
-	display:inline-block;
-	text-align:left;
-	padding:0px;
-}
+/* div#mypage_table > form > tr:nth-child(8) > td > input { 성별 radio 왜안먹어
+	margin:20px;
+	width:30%;
+} */
 
 input#addr {
 	width:70%;
