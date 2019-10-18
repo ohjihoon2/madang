@@ -17,6 +17,7 @@
 		width:1000px;
 		height:1500px;
 		margin:auto;
+		
 	}
 	
 	h1.page_title{
@@ -68,22 +69,29 @@
 		color: rgb(155,155,155);
 	}
 /*대관신청 아래 폼*/
-
-	divrental_request div.page_contents  h2{
-		border:1px soild red;
+	div#rental_request div.page_contents h2{
+		text-align:left;
+		margin-bottom:20px;
 	}
+
 	div#rental_request div.page_contents section{
 		text-align:center;
+		padding:50px 0px 50px 0px;		
 	}
 
 	div#rental_request div.page_contents section table{
 		display : inline-block;
-		border:1px solid red;
+
 	}
 	div#rental_request div.page_contents section table th{
 		width:200px;
+		border-right:1px solid rgb(155,155,155);
 	}
-
+	div#rental_request div.page_contents section table td{
+		width:400px;
+		padding:20px 0px 20px 0px;
+	
+	}
 	
 /*신청서 제출안내 폼*/	
 
@@ -97,7 +105,7 @@
    		font-size:15pt;
 	}
 	div#rental_request div.page_contents section article{
-		border:1px solid red;
+		padding-top:10px;
 		display:inline-block;
 		text-align:left;
 	}
@@ -129,8 +137,10 @@
 			<table>
 				<tr>
 					<th>신청서식</th>
-					<td>2019_베토벤홀_대관신청서.hwp</td> <!-- 파일링크예정 -->
-					<td>2019_피카소관_대관신청서.hwp</td>
+					<td>
+					2019_베토벤홀_대관신청서.hwp <!-- 파일링크예정 -->
+					<br>2019_피카소관_대관신청서.hwp
+					</td>
 				</tr>
 				<tr>
 					<th>담당자</th>

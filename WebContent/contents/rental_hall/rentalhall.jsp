@@ -131,7 +131,8 @@
 						<div><a href="#">대관규약서 다운로드</a><!-- pdf다운로드 링크 걸 예정 -->
 						</div>					
 				<h3>무대기술자료</h3>
-					<div><a href="#">무대 장비 목록 다운로드</a><br><br><a href="#">무대 도면 다운로드</a></div><!-- pdf다운로드 링크 걸 예정 -->
+					<div><a href="#">무대 장비 목록 다운로드 <img src="http://localhost:9090/images/ect/pdf_icon.jpg"></a>
+					<br><br><a href="#">무대 도면 다운로드<img src="http://localhost:9090/images/ect/pdf_icon.jpg"></a></div><!-- pdf다운로드 링크 걸 예정 -->
 			</article>
 		</section>
 		<h2><span class="font_circle">●</span> 피카소관</h2>   <!-- http://theater.arko.or.kr/Pages/SpaceInfo/Space_04.aspx -->
@@ -154,10 +155,11 @@
 						<br>(담당자 상의)
 					</div>
 				<h3>대관규약</h3>
-						<div><a href="#">대관규약서 다운로드</a><!-- pdf다운로드 링크 걸 예정 -->
+						<div><a href="#">대관규약서 다운로드<img src="http://localhost:9090/images/ect/pdf_icon.jpg"></a><!-- pdf다운로드 링크 걸 예정 -->
 						</div>					
 				<h3>무대기술자료</h3>
-					<div><a href="#">무대 장비 목록 다운로드</a><br><br><a href="#">무대 도면 다운로드</a></div><!-- pdf다운로드 링크 걸 예정 -->
+					<div><a href="#">무대 장비 목록 다운로드<img src="http://localhost:9090/images/ect/pdf_icon.jpg"></a>
+					<br><br><a href="#">무대 도면 다운로드<img src="http://localhost:9090/images/ect/pdf_icon.jpg"></a></div><!-- pdf다운로드 링크 걸 예정 -->
 			</article>
 		</section>		
 		<section>

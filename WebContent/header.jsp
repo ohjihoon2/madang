@@ -182,11 +182,11 @@ ul.dept02 li a:hover {
 				</li>
 				
 				<li class="reservation">
-					<a href="#"> 대관 <i class='fa fa-angle-down'></i></a>
+					<a href="http://localhost:9090/contents/rental_hall/rentalInfo.jsp"> 대관 <i class='fa fa-angle-down'></i></a>
 					<ul class="dept02">
-						<li><a href="#">대관안내</a></li>
-						<li><a href="#">대관시설</a></li>
-						<li><a href="#">대관신청</a></li>
+						<li><a href="http://localhost:9090/contents/rental_hall/rentalInfo.jsp">대관안내</a></li>
+						<li><a href="http://localhost:9090/contents/rental_hall/rentalhall.jsp">대관시설</a></li>
+						<li><a href="http://localhost:9090/contents/rental_hall/retalrequest.jsp">대관신청</a></li>
 					</ul>
 				</li>
 				
@@ -203,8 +203,8 @@ ul.dept02 li a:hover {
 				<li class="ticket">
 					<a href="#">티켓구매<i class='fa fa-angle-down'></i></a>
 					<ul class="dept02">
-						<li><a href="#">우대안내</a></li>
 						<li><a href="#">티켓예매</a></li>
+						<li><a href="http://localhost:9090/contents/ticket/respecting_ticket.jsp">우대안내</a></li>
 					</ul>
 				</li>
 				
