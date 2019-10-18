@@ -42,8 +42,7 @@ div#main_title {
 div#left_nav>ul {
 	border-right:2px solid #9b9b9b; 
 	text-align: center;
-	list-style-type: none;;
-	color: rgb(5, 135, 94);
+	list-style-type: none;
 }
 
 div#left_nav>ul>li{
@@ -59,8 +58,16 @@ div#left_nav>ul>li:nth-child(1) {
 
 div#left_nav>ul>li>a {
 	text-decoration: none;
+	color: black;
 }
 
+div#left_nav>ul>li>a:hover {
+	color: rgb(155,155,155);
+}
+	
+div#left_nav>ul>li>a:active {
+	color: rgb(155,155,155);
+}
 
 /** 중앙 concert contents **/
 
@@ -296,6 +303,63 @@ div.ticket_box_3 > table {
 div.clear {
 	clear:both;
 }
+
+
+
+/** 찜 */
+
+div.bmark {
+	/* border:1px solid cyan; */
+	width:950px;
+	margin-top:40px;
+	padding-left:40px;
+}
+
+div.bmark div.bmark_list {
+	/* border:1px solid red; */
+	width:440px;
+	display:inline-block;
+	margin:10px 30px 20px 0px;
+}
+
+div.bmark img.bmark_poster { /* 포스터 */
+	border:4px solid #9b9b9b;
+	width:120px; height:150px;
+	vertical-align:top;
+	margin-right:10px;
+}
+
+div.bmark img.bmark_poster:hover {
+	border:4px solid #05875e;
+}
+
+div.bmark div.bmark_info { /* 정보 */
+	/* border:1px solid blue; */
+	width:290px; height:125px;
+	display:inline-block;
+	vertical-align:top;
+	padding:15px 0px 15px 0px;
+}
+
+div.bmark div.bmark_info p { /* 정보 텍스트 */
+	font-size:13pt;
+}
+
+div.bmark div.bmark_info > p:first-child { /* 공연명 */
+	font-size:14pt;
+	font-weight:bold;
+	margin-bottom:25px;
+}
+
+div.bmark div.bmark_info > p:first-child a {
+	color:black;
+}
+
+div.bmark div.bmark_info > p:first-child a:hover {
+	color:#05875e;
+}
+
+
 
 
 /** 하단 */
