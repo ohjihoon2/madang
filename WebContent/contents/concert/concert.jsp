@@ -5,6 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+ 		function showPopup() { window.open("ticket.jsp", "a", "width=1000, height=700, left=400, top=200"); }
+</script>
 <style>
 	*{
 		font-family:"나눔스퀘어라운드";
@@ -112,7 +115,7 @@
 		text-align:left;
 		margin-left:10px;
 	}
-	div.concert_info>div>#text_space>div>a{
+	div.concert_info>div>#text_space>div>.ticketing_popup{
 		display:inline-block;
 		color:#e5002c;
 		border:1px solid #e5002c;
@@ -124,7 +127,7 @@
 		
 	}
 		
-	div.concert_info>div>#text_space>div>a:hover{
+	div.concert_info>div>#text_space>div>.ticketing_popup:hover{
 	 
 	  background-color: #e5002c;
 	  color:white;
@@ -170,7 +173,7 @@
 				<div>
 					<div>베토벤 홀  <span>|</span>  2019.10.02(수) ~ 2019.10.03(목)</div>
 					<span>R석 8만원 / S석 6만원 / A석 4만원 / B석 2만원</span>
-					<a href="#">예매</a>
+					<input type="button" value="예매" onclick="showPopup();" class="ticketing_popup"/>
 				</div>
 			</div>
 		</div>
@@ -186,7 +189,8 @@
 				<div>
 					<div>베토벤 홀  <span>|</span>  2019.10.02(수) ~ 2019.10.03(목)</div>
 					<span>R석 8만원 / S석 6만원 / A석 4만원 / B석 2만원</span>
-					<a href="#">예매</a>
+					<!-- <a href="#">예매</a> -->
+					<input type="button" value="예매" onclick="showPopup();" class="ticketing_popup"/>
 				</div>
 			</div>
 		</div>
