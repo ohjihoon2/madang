@@ -70,8 +70,8 @@
 		</div>
 		
 		<div class="button">
-			<button type="button" id="out_btn">예매취소</button>
-			<a href="mypage_reserv_details.jsp"><button type="button" id="out_btn">취소</button></a>
+			<button type="button" id="out_btn" class="button_a">예매취소</button>
+			<a href="mypage_reserv_details.jsp"><button type="button" id="out_btn" class="button_b">취소</button></a>
 		</div>
 
 	</div>

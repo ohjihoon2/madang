@@ -45,7 +45,7 @@
 				</tr>
 			</table>
 			<div class="button">
-				<a href="cs_qaa.jsp"><button type="button">목록</button></a>
+				<a href="cs_qaa.jsp"><button type="button" class="button_b">목록</button></a>
 			</div>
 		</div>
 		

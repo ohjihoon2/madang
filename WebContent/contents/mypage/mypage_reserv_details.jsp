@@ -115,8 +115,8 @@
 		</div>
 		
 		<div class="button">
-			<a href="mypage_reserv_list.jsp"><button type="button" id="out_btn">목록</button></a>
-			<a href="mypage_reserv_cc.jsp"><button type="button" id="out_btn">예매취소</button></a>
+			<a href="mypage_reserv_list.jsp"><button type="button" id="out_btn" class="button_b">목록</button></a>
+			<a href="mypage_reserv_cc.jsp"><button type="button" id="out_btn" class="button_b">예매취소</button></a>
 		</div>
 		
 	</div>

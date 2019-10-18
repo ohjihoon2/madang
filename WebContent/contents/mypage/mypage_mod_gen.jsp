@@ -100,9 +100,9 @@
 				</div>
 				
 				<div class="button">
-					<button type="button" id="mem_mod_btn">수정</button>
-					<button type="button">취소</button>
-					<a href="mypage_out.jsp"><button type="button">탈퇴</button></a>
+					<button type="button" id="mem_mod_btn" class="button_a">수정</button>
+					<button type="button" class="button_b">취소</button>
+					<a href="mypage_out.jsp"><button type="button" class="button_b">탈퇴</button></a>
 				</div>
 				
 			</form>

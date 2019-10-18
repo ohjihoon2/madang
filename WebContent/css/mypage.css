@@ -83,6 +83,11 @@ div.mod_icon, div.reserv_icon, div.bmark_icon { /* 버튼 */
 	border-radius:20px;
 }
 
+div.mod_icon:hover, div.reserv_icon:hover, div.bmark_icon:hover {
+	border:2px solid #05875e;
+	opacity:0.8;
+}
+
 div.mod_icon > a > div:first-child,
 div.reserv_icon > a > div:first-child,
 div.bmark_icon > a > div:first-child { /* 제목 */
@@ -192,8 +197,10 @@ button#addr_btn {
 	width:90px; height:26px;
 	font-size:12pt;
 	border-radius:10px;
-	background:lightgray;
+	background:white;
+	color:black;
 	margin-left:6px;
+	border:1px solid rgb(155,155,155);
 }
 
 /* div#mypage_table > form > tr:nth-child(8) > td > input { 성별 radio 왜안먹어
@@ -385,17 +392,36 @@ div.out_cfm /* 예매취소 확인 */ {
 
 
 /* 정보수정 개인 그룹 회원탈퇴 예매상세 */
-div.button button {
+
+div.button {
+	text-align:center;
+	/* margin-left:-50px; */
+	margin:0px;
+}
+
+/* div.button button {
 	margin-top:40px;
 	width:80px; height:40px;
 	font-size:13pt;
 	border-radius:10px;
 	background:lightgray;
 	margin-right:10px;
+} */
+
+div.button button.button_b { /* 회색 rgb(155,155,155) */
+	margin-top:40px;
+	width:120px; height:40px;
+	font-size:13pt;
+	background:rgb(155,155,155);
+	color:rgb(255,255,255);
+	border:none;
 }
 
-div.button {
-	text-align:center;
-	/* margin-left:-50px; */
-	margin:0px;
+div.button button.button_a { /* 초록색 rgb(5,135,94) */
+	margin-top:40px;
+	width:120px; height:40px;
+	font-size:13pt;
+	background:rgb(5,135,94);
+	color:rgb(255,255,255);
+	border:none;
 }

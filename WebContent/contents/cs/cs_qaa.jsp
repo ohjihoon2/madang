@@ -44,7 +44,7 @@
 			</table>
 			
 			<div class="button">
-				<a href="cs_qaa_write.jsp"><button type="button" id="qaa_write">작성</button></a>
+				<a href="cs_qaa_write.jsp"><button type="button" id="qaa_write" class="button_a">작성</button></a>
 			</div>
 		</div>
 		

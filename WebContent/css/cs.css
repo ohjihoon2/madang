@@ -83,6 +83,11 @@ div.faq_icon, div.qaa_icon { /* FAQ Q&A 버튼 */
 	border-radius:20px;
 }
 
+div.faq_icon:hover, div.qaa_icon:hover {
+	border:2px solid #05875e;
+	opacity:0.8;
+}
+
 div.faq_icon > a > div:first-child,
 div.qaa_icon > a > div:first-child { /* FAQ 제목, Q&A 제목 */
 	border-right:1px dashed #9b9b9b;
@@ -295,11 +300,47 @@ div.button {
 	text-align:right;
 }
 
-div.button button {
+/* div.button button {
 	margin-top:40px;
 	width:80px; height:40px;
 	font-size:13pt;
 	border-radius:10px;
 	background:lightgray;
+} */
+
+div.button button.button_b { /* 회색 rgb(155,155,155) */
+	margin-top:40px;
+	width:120px; height:40px;
+	font-size:13pt;
+	background:rgb(155,155,155);
+	color:rgb(255,255,255);
+	border:none;
 }
+
+div.button button.button_a { /* 초록색 rgb(5,135,94) */
+	margin-top:40px;
+	width:120px; height:40px;
+	font-size:13pt;
+	background:rgb(5,135,94);
+	color:rgb(255,255,255);
+	border:none;
+}
+/*
+   	div.joinbtn button.join_prv{
+   		font-size:14pt;
+   		background-color:rgb(155,155,155);
+ 		width:150px;
+ 		height:50px;
+ 		color:rgb(255,255,255);
+ 		border:none;
+   	}   	
+   	div.joinbtn button.join_next{
+   		font-size:14pt;
+   		background-color:rgb(5,135,94);
+ 		width:150px;
+ 		height:50px;
+ 		color:rgb(255,255,255);
+ 		border:none;
+   	}
+*/
 

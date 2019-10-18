@@ -40,8 +40,8 @@
 		</div>
 		
 		<div class="button">
-			<button type="button" id="out_btn">탈퇴</button>
-			<a href="mypage_mod_gen.jsp"><button type="button">취소</button></a>
+			<button type="button" id="out_btn" class="button_a">탈퇴</button>
+			<a href="mypage_mod_gen.jsp"><button type="button" class="button_b">취소</button></a>
 		</div>
 
 	</div>
