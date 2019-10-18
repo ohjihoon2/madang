@@ -262,6 +262,7 @@ div.ticket_box_0 table td.rnum a { /* 예매번호 */
 
 div.ticket_box_0 table td.rnum a:hover {
 	text-decoration:underline;
+	color:#05875e;
 }
 
 div.ticket_box_3 table tr td:nth-child(1),

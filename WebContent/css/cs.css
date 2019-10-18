@@ -140,14 +140,15 @@ div#faq_list li span.faq_list_title { /* 제목 */
 	padding:8px;
 }
 
-div#faq_list li span.faq_list_title {
+/* div#faq_list li span.faq_list_title { 왜 따로 있었는지 못찾음 이거뭔지
 	color:black;
 	text-decoration:none;
-}
+} */
 
 div#faq_list li span.faq_list_title:hover {
 	text-decoration:underline;
-	color:#323232;
+	/* color:#323232; */
+	color:#05875e;
 }
 
 div#faq_list li > div:first-child { /* 카테고리+제목 */
@@ -217,7 +218,8 @@ div.qaa_table tr > td:nth-child(2) > a {
 
 div.qaa_table tr > td:nth-child(2) > a:hover {
 	text-decoration:underline;
-	color:#323232;
+	/* color:#323232; */
+	color:#05875e;
 }
 
 div.qaa_table_1 tr > th, div.qaa_table_1 tr:nth-child(1) td { /* 제목 */
