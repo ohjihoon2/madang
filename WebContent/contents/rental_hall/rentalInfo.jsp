@@ -100,14 +100,14 @@
 </style>
 </head>
 <body>
-	<jsp:include page="../header.jsp"/>
+	<jsp:include page="../../header.jsp"/>
 <div id="rental_info">
 	<!-- <img src="#"/> -->
 	<div id="left_nav">
 		<ul>
-			<li><a href="concert.jsp">대관안내</a></li>
-			<li><a href="concert.jsp">대관시설</a></li>
-			<li><a href="concert_seat.jsp">대관신청</a></li>
+			<li><a href="#">대관안내</a></li>
+			<li><a href="rentalhall.jsp">대관시설</a></li>
+			<li><a href="retalrequest.jsp">대관신청</a></li>
 		</ul>
 	</div><!-- left_nav -->
 	<div class="page_contents">

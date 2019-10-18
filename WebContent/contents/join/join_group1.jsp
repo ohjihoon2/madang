@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="http://localhost:9090/css/madangcss.css">
 </head>
 <body>
-<jsp:include page="../header.jsp"/>
+<jsp:include page="../../header.jsp"/>
 <div id="join_group1" class="page_contents">
 <h1 class="page_title">회원가입 - 대관자 전용</h1>
 <form action="#" method="post" name="join_group1_form">

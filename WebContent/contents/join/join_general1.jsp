@@ -9,7 +9,7 @@
 
 </head>
 <body>
-<jsp:include page="../header.jsp"/>
+<jsp:include page="../../header.jsp"/>
 <div id="join_general1" class="page_contents">
 	<h1 class="page_title">회원가입</h1>
 	<form action="#" method="post" name="join_geral1_form">

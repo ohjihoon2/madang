@@ -10,13 +10,11 @@
 		font-family:"나눔스퀘어라운드";
 		padding:0px;
 		margin:0px;
-		border:1px solid red;
 	}
 	
 	div.page_contents2{
-	
 		width:1000px;
-		height:2000px;
+		height:3000px;
 		margin:auto;
 	}
 	
@@ -70,6 +68,9 @@
 	}
 	
 /**대관안내폼 **/
+	div#rental_hall div.page_contents2 h2{
+		margin:20px 0px 30px 0px;
+	}
 	div#rental_hall div.page_contents2 >section {
 		text-align:center;
 	}
@@ -80,9 +81,9 @@
 		width:650px;
 		padding:30px 0px 30px 0px;
 	}
-	/*담당자 정보표*/
+	/*절차 안내 글귀*/
 	div#rental_hall div.page_contents2 section article:nth-child(4) div{
-		padding:20px 0px 20px 30px;
+		padding:10px 0px 20px 50px;
 	}
 	
 	 /*기타 공통 부분*/	
@@ -93,14 +94,14 @@
 </style>
 </head>
 <body>
-	<jsp:include page="../header.jsp"/>
+	<jsp:include page="../../header.jsp"/>
 <div id="rental_hall">
 	<!-- <img src="#"/> -->
 	<div id="left_nav">
 		<ul>
-			<li><a href="concert.jsp">대관안내</a></li>
-			<li><a href="concert.jsp" style="color:rgb(5,135,94)" >대관시설</a></li>
-			<li><a href="concert_seat.jsp">대관신청</a></li>
+			<li><a href="rentalInfo.jsp">대관안내</a></li>
+			<li><a href="#" style="color:rgb(5,135,94)" >대관시설</a></li>
+			<li><a href="retalrequest.jsp">대관신청</a></li>
 		</ul>
 	</div><!-- left_nav -->
 	<div class="page_contents2">
@@ -110,10 +111,12 @@
 				<img src="http://localhost:9090/images/rental_hall/beethoven_hall.png">
 				<br>
 			<article>
-					블랙박스형 트랩무대로 폭 12.8m 깊이 14.8m 높이 5.4m로 자유로운 형식과 내용의 작품들을 충분히 담아낼 수 있는 공간으로서, 
-					다양한 공연 장르가 펼쳐질 수 있는 새로움이 넘쳐나는 인큐베이팅 공간입니다. 
-					공연장 상부에는 Rigging System의 하나인 3열 4조의 포인트 호이스트가 있어 그룹운저이 가능하며, 
-					하부에는 가로/세로 각 1.5m 크기의 총 49조 트랩무대가 설치되어 있어 또 하나의 공간연출이 가능합니다. 
+					블랙박스형 트랩무대로 폭 12.8m 깊이 14.8m 높이 5.4m로 자유로운 형식과 내용의 작품들을 
+					<br>충분히 담아낼 수 있는 공간으로서, 다양한 공연 장르가 펼쳐질 수 있는 새로움이 넘쳐나는 
+					<br>인큐베이팅 공간입니다. 
+					<br>공연장 상부에는 Rigging System의 하나인 3열 4조의 포인트 호이스트가 있어 그룹운전이 
+					<br>가능하며,	하부에는 가로/세로 각 1.5m 크기의 총 49조 트랩무대가 설치되어 있어 
+					<br>또 하나의 공간연출이 가능합니다. 
 			</article>
 			<article>
 				<h3> 대관절차</h3>
@@ -133,7 +136,7 @@
 		</section>
 		<h2><span class="font_circle">●</span> 피카소관</h2>   <!-- http://theater.arko.or.kr/Pages/SpaceInfo/Space_04.aspx -->
 		<section>
-				<img src="http://localhost:9090/images/retal_hall/picasso_gallery.png"/>
+				<img src="http://localhost:9090/images/rental_hall/picasso_gallery.png"/>
 				<br>
 			<article>
 					블랙박스형 트랩무대로 폭 12.8m 깊이 14.8m 높이 5.4m로 자유로운 형식과 내용의 작품들을 충분히 담아낼 수 있는 공간으로서, 

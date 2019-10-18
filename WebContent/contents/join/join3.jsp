@@ -8,16 +8,16 @@
 <link rel="stylesheet" href="http://localhost:9090/css/madangcss.css">
 </head>
 <body>
-<!-- 일반회원과 대관자 회원 분기점 -->
-<jsp:include page="../header.jsp"/>
-<div id="join0" class="page_contents">
+<jsp:include page="../../header.jsp"/>
+<div id="join3" class="page_contents">
 	<h1 class="page_title">회원가입</h1>
 	<div>
-	
+		<img src="http://localhost:9090/images/join/join3.png">
 	</div>
+	
 	<div>
-		<a href="join_general1.jsp"><button type="button">일 반 개 인 회 원</button></a>
-		<a href="join_group1.jsp"><button type="button">법 인 / 단 체 회 원<br>(학교,기업,기관)</button></a>
+		<a href="http://localhost:9090/mainpage.jsp"><button type="button">홈페이지로</button></a>
+		<a href="http://localhost:9090/contents/login/login.jsp"><button type="button">로그인</button></a>
 	</div>
 </body>
 </html>

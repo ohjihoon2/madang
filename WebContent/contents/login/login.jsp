@@ -10,7 +10,7 @@
 
 </head>
 <body>
-<jsp:include page="../header.jsp"/>
+<jsp:include page="../../header.jsp"/>
 
 <div id="login" class="page_contents">
 	<h1 class="page_title">로그인</h1>
@@ -19,6 +19,8 @@
 			<input type="text" id="id" name="id" placeholder="아이디">
 			<br>
 			<input type="password" id="password" name="password" placeholder="패스워드">
+			<br>
+			<a href="login_group.jsp"><span>대관자는 이쪽으로</span></a>
 			<br>
 			<button type="button" id="btnlonin">로그인</button>
 			
