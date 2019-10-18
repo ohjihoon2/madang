@@ -4,78 +4,67 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>예술의 마당</title>
+<!-- 슬릭 관련(공연,전시) -->
+<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="http://localhost:9090/jquery/jquery-3.4.1.min.js"></script>
-<link rel="stylesheet" href="http://localhost:9090/css/caleshall.css"/>
-<link rel="stylesheet" href="http://localhost:9090/css/madangcss.css"/>
 
+<!-- 메인페이지 -->
 
+				
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.autoplay').slick({
+			  slidesToShow: 3,
+			  slidesToScroll: 1,
+			  autoplay: true,
+			  autoplaySpeed: 200,
+		});
+		$('.single-item').slick();
+		});
+	});
+</script>
 </head>
 <body>
 <jsp:include page="header.jsp"/>
 <div id="main_page">
 	<div id="main_title_img">
-		<!-- ))캐러셀. 일단 이미지부터 놓자 -->
-			<!-- <h1>캐러셀 추가 부분</h1>
-			<img src="http://localhost:9090/dycgv/images/15675941245740.jpg"/> -->
-			<article><!-- ))캐러셀 코드 붙여넣었다. -->
-				<div id="demo" class="carousel slide" data-ride="carousel">
-				
-				  <!-- Indicators -->
-				  <ul class="carousel-indicators">
-				    <li data-target="#demo" data-slide-to="0" class="active"></li> <!-- ))슬라이드 인덱스.  -->
-				    <li data-target="#demo" data-slide-to="1"></li>
-				    <li data-target="#demo" data-slide-to="2"></li>
-				    <li data-target="#demo" data-slide-to="3"></li>
-				  </ul>
-				  
-				  <!-- The slideshow -->
-				  <div class="carousel-inner">
-				    <div class="carousel-item active"> <!-- ))이미지 삽입  크기는 여기의 width&height 혹은 위의 css에서 해결-->
-				     <a href="#"><img src="http://localhost:9090/images/mainpage/main_FarewellMyConcubine.png" alt="FarewellMyConcubine" ></a>  <!-- ))alt 말풍선 같은거? -->
-				    </div>
-				    <div class="carousel-item">
-				      <a href="#"><img src="http://localhost:9090/images/mainpage/main_SAC_CUBE2019.JPG" alt="SAC_CUBE2019"></a> 
-				    </div>
-				    <div class="carousel-item">
-				      <a href="#"><img src="http://localhost:9090/images/mainpage/main_TheStoryOfOldCouple.JPG" alt="TheStoryOfOldCouple" ></a> 
-				    </div>
-				    <div class="carousel-item">
-				      <a href="#"><img src="http://localhost:9090/images/mainpage/main_TracesOfBlackSand.JPG" alt="TracesOfBlackSand" ></a> 
-				    </div>
-				  </div>
-				  
-				  <!-- Left and right controls -->
-				  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-				    <span class="carousel-control-prev-icon"></span>
-				  </a>
-				  <a class="carousel-control-next" href="#demo" data-slide="next">
-				    <span class="carousel-control-next-icon"></span>
-				  </a>
-				</div>
-			</article>
+		
+			<img src="http://localhost:9090/images/mainpage/main_FarewellMyConcubine.png" alt="FarewellMyConcubine" ></a> 
+			<img src="http://localhost:9090/images/mainpage/main_SAC_CUBE2019.JPG" alt="SAC_CUBE2019"></a> 
+			<img src="http://localhost:9090/images/mainpage/main_TheStoryOfOldCouple.JPG" alt="TheStoryOfOldCouple" ></a> 
+			<img src="http://localhost:9090/images/mainpage/main_TracesOfBlackSand.JPG" alt="TracesOfBlackSand" ></a> 
+			
 	</div>
 	<div id="main_content">
 		<div id="main_announce">
 			<section>
 				<h1>공연</h1>
 				<article>
-					<img src="http://localhost:9090/images/mainpage/poster_37309.gif">
-					<img src="http://localhost:9090/images/mainpage/poster_37309.gif">
-					<img src="http://localhost:9090/images/mainpage/poster_37309.gif">
+				 	<div class="autoplay">
+						<div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div>
+						<div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div>
+						<div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div>
+						<div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div>
+						<div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div>
+						<div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div>
+						<div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div>
+					</div>
 				</article>
 			</section>
 			
 			<section>
 				<h1>전시</h1>
 				<article>
-					<img src="http://localhost:9090/images/mainpage/poster_38632.gif">
-					<img src="http://localhost:9090/images/mainpage/poster_38632.gif">
-					<img src="http://localhost:9090/images/mainpage/poster_38632.gif">
+					<div class="single-item">
+					<div><img src="http://localhost:9090/images/mainpage/poster_38632.gif"></div>
+					<div><img src="http://localhost:9090/images/mainpage/poster_38632.gif"></div>
+					<div><img src="http://localhost:9090/images/mainpage/poster_38632.gif"></div>
+				</div>
 				</article>
 			</section>
 		</div>
@@ -120,10 +109,6 @@
 		</div>
 	</div> <!-- main_content -->
 </div>
-
-</body>
-</html>
-
 
 </body>
 </html>
