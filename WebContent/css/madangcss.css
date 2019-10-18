@@ -30,6 +30,7 @@
 		margin:auto;
 		text-align:center;
 		height:2500px;
+
 		
 	}
 	div#main_content{ /*공연/전시~퀵메뉴*/
@@ -51,7 +52,6 @@
 	
  	div#main_content div#main_announce section h1{
 		text-align:left;
-		padding-left:25%;
 		margin-bottom:10px;
 		
 	}
@@ -59,8 +59,10 @@
 	div#main_content div#main_announce section article img{  /*포스터 이미지 파일의 사이즈는 동일하게 맞출 것. 공연이든 전시이든 */
 		height:350px;
 	}
-
-	
+/*슬릭 슬라이더 버튼*/
+	.slick-prev:before, .slick-next:before { 
+    color:rgb(155,155,155) !important;
+}
 	
 /*티켓알림(예정작), 이벤트   		Q.요소들이 흐트러지지않고 창이 줄어들면 그냥 보이지 않게 하는 법?*/	
 

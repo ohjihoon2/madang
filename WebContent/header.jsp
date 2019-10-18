@@ -5,26 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
-<script>
-$(document).ready(function(){
-	$('nav li').hover(
-		function() {
-		$('ul', this).stop().slideDown(200);
-		},
-		function() {
-		$('ul', this).stop().slideUp(200);
-		}
-	);
-});
 
-</script>
 <style>
 * {
 	font-family: "나눔스퀘어라운드";
 }
 
-body {
+header {
 	border-top: 1px solid #05875e;
 	margin-top: 0px;
 	/* border:1px solid green; */
@@ -32,65 +19,65 @@ body {
 	margin: auto;
 }
 
-body > div:first-child { /* 로고 이미지 영역 */
+header > div:first-child { /* 로고 이미지 영역 */
 	/* border:1px solid red; */
 	display: inline-block;
 	padding-left: 55px;
 }
-body > div > a > img { /* 로고 이미지 */
+header > div > a > img { /* 로고 이미지 */
 	width: 240px; height: 80px;
 	margin-top: 2px;
 }
-body > div > nav img { /* 검색 이미지 */
+header > div > nav img { /* 검색 이미지 */
 	width: 20px; height: 20px;
 	margin-bottom: -5px;
 	opacity: 0.5;
 }
-body>div>nav img:hover {
+header>div>nav img:hover {
 	opacity: 0.6;
 }
-body > div.header_nav { /* 검색 로그인~고객센터 영역 */
+header > div.header_nav { /* 검색 로그인~고객센터 영역 */
 	/* border:1px solid blue; */
 	display: inline-block;
 	/* float:right; */
 	/* margin-left:1500px; */
 	margin: -20px 0px 0px 1500px;
 }
-body > div.header_nav li { /* 검색 로그인~고객센터 리스트 */
+header > div.header_nav li { /* 검색 로그인~고객센터 리스트 */
 	/* border:1px solid green; */
 	list-style-type: none;
 	display: inline-block;
 }
-body > div.header_nav li a { /* 검색 로그인~고객센터 글자 */
+header > div.header_nav li a { /* 검색 로그인~고객센터 글자 */
 	border-right: 1px solid gray;
 	padding: 0px 10px 0px 6px;
 	text-decoration: none;
 	color: gray;
 }
-body > div.header_nav li a:hover {
+header > div.header_nav li a:hover {
 	color: #282828;
 }
-body > div.header_nav li:first-child a { /* 검색 글자..? */
+header > div.header_nav li:first-child a { /* 검색 글자..? */
 	border-right: none;
 }
-body > div.header_nav li:last-child a { /* 검색 로그인~고객센터 마지막 글자 */
+header > div.header_nav li:last-child a { /* 검색 로그인~고객센터 마지막 글자 */
 	border-right: none;
 }
 
-ul.dept01 { /* 헤더 메뉴바 전체 영역 */
+header ul.dept01 { /* 헤더 메뉴바 전체 영역 */
 	border-bottom: 1px solid #9b9b9b;
 	text-align: center;
 	margin: auto;
 	padding: 30px 0px 0px 0px;
 	width: 66%;
 }
-ul.dept01 > li { /* 헤더 메뉴바 리스트 */
+header ul.dept01 > li { /* 헤더 메뉴바 리스트 */
 	/* border:1px solid blue; */
 	display: inline-block;
 	margin: 10px 40px 0px 40px;
 	position: relative;
 }
-ul.dept01 > li > a { /* 헤더 메뉴바 글자 */
+header ul.dept01 > li > a { /* 헤더 메뉴바 글자 */
 	color: #05875e;
 	display: block;
 	font-size: 22pt;
@@ -99,10 +86,10 @@ ul.dept01 > li > a { /* 헤더 메뉴바 글자 */
 	padding: 15px 14px;
 	transition: 0.3s linear;
 }
-ul.dept01 > li:hover {
+header ul.dept01 > li:hover {
 	/* background: #126d9b; */
 }
-ul.dept02 { /* 상세메뉴 내려오는거 */
+header ul.dept02 { /* 상세메뉴 내려오는거 */
 	padding:0px;
 	border-bottom: 5px solid #05875e;
 	display: none;
@@ -111,15 +98,15 @@ ul.dept02 { /* 상세메뉴 내려오는거 */
 	text-align:left;
 	z-index:1;
 }
-ul.dept02 li { /* 상세메뉴 내려온거 각 리스트 */
+header ul.dept02 li { /* 상세메뉴 내려온거 각 리스트 */
 	border-top: 1px solid #444;
 	display: block;
 	background: white;
 }
-ul.dept02 li:first-child {
+header ul.dept02 li:first-child {
 	border-top: none;
 }
-ul.dept02 li a { /* 상세 메뉴 */
+header ul.dept02 li a { /* 상세 메뉴 */
 	/* background: #9b9b9b; */
 	display: block;
 	padding: 10px 14px;
@@ -127,7 +114,7 @@ ul.dept02 li a { /* 상세 메뉴 */
 	color: #282828;
 	font-weight: bold;
 }
-ul.dept02 li a:hover {
+header ul.dept02 li a:hover {
 	background: #9b9b9b;
 	color: white;
 	font-weight: bold;
@@ -139,7 +126,7 @@ ul.dept02 li a:hover {
 
 </head>
 <body>
-
+	<header>
 	<div>
 		<a href="http://localhost:9090/mainpage.jsp"><img src="http://localhost:9090/images/index_logo.png"></a>
 	</div>
@@ -221,6 +208,6 @@ ul.dept02 li a:hover {
 			</ul>
 		</div>
 	</nav>
-	
+	</header>
 </body>
 </html>

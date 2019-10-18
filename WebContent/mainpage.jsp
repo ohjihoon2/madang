@@ -10,42 +10,32 @@
 <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="slick/slick.min.js"></script>
-
-
-<!-- 메인페이지 -->
-
+<script type="text/javascript" src="http://localhost:9090/slick/slick.min.js"></script>
 				
+<script src="http://localhost:9090/jquery/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>	
+<link rel="stylesheet" href="http://localhost:9090/css/madangcss.css"/>
 <script type="text/javascript">
-	$(document).ready(function(){
-		$('.autoplay').slick({
-			  slidesToShow: 3,
-			  slidesToScroll: 1,
-			  autoplay: true,
-			  autoplaySpeed: 200,
-		});
-		$('.single-item').slick();
-		});
-	});
+
 </script>
 </head>
 <body>
 <jsp:include page="header.jsp"/>
 <div id="main_page">
 	<div id="main_title_img">
-		
-			<img src="http://localhost:9090/images/mainpage/main_FarewellMyConcubine.png" alt="FarewellMyConcubine" ></a> 
-			<img src="http://localhost:9090/images/mainpage/main_SAC_CUBE2019.JPG" alt="SAC_CUBE2019"></a> 
-			<img src="http://localhost:9090/images/mainpage/main_TheStoryOfOldCouple.JPG" alt="TheStoryOfOldCouple" ></a> 
-			<img src="http://localhost:9090/images/mainpage/main_TracesOfBlackSand.JPG" alt="TracesOfBlackSand" ></a> 
-			
+		<div class="autoplay">
+			<div><img src="http://localhost:9090/images/mainpage/main_FarewellMyConcubine.png" alt="FarewellMyConcubine" ></a> </div>
+			<div><img src="http://localhost:9090/images/mainpage/main_SAC_CUBE2019.JPG" alt="SAC_CUBE2019"></a> </div>
+			<div><img src="http://localhost:9090/images/mainpage/main_TheStoryOfOldCouple.JPG" alt="TheStoryOfOldCouple" ></a> </div>
+			<div><img src="http://localhost:9090/images/mainpage/main_TracesOfBlackSand.JPG" alt="TracesOfBlackSand" ></a> </div>
+		</div>
 	</div>
 	<div id="main_content">
 		<div id="main_announce">
 			<section>
 				<h1>공연</h1>
 				<article>
-				 	<div class="autoplay">
+				 	<div class="center">
 						<div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div>
 						<div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div>
 						<div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div>
@@ -60,7 +50,11 @@
 			<section>
 				<h1>전시</h1>
 				<article>
-					<div class="single-item">
+					<div class="center">
+					<div><img src="http://localhost:9090/images/mainpage/poster_38632.gif"></div>
+					<div><img src="http://localhost:9090/images/mainpage/poster_38632.gif"></div>
+					<div><img src="http://localhost:9090/images/mainpage/poster_38632.gif"></div>
+					<div><img src="http://localhost:9090/images/mainpage/poster_38632.gif"></div>
 					<div><img src="http://localhost:9090/images/mainpage/poster_38632.gif"></div>
 					<div><img src="http://localhost:9090/images/mainpage/poster_38632.gif"></div>
 					<div><img src="http://localhost:9090/images/mainpage/poster_38632.gif"></div>
@@ -109,6 +103,5 @@
 		</div>
 	</div> <!-- main_content -->
 </div>
-
 </body>
 </html>
