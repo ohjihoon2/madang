@@ -25,7 +25,7 @@
 	<div>
 		<div id="left_nav">
 			<ul>
-				<li><a href="cs_main.jsp">고객센터</a></li>
+				<li><a style="color: rgb(5, 135, 94)" href="cs_main.jsp">고객센터</a></li>
 				<li><a style="color: rgb(5, 135, 94)" href="cs_faq.jsp">F&Q</a></li>
 				<li><a href="cs_qaa.jsp">1:1 상담</a></li>
 			</ul>
