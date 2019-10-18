@@ -127,9 +127,10 @@ div#mypage_table {
 }
 
 div#mypage_table table {
-	width:90%;
+	width:80%;
 	border-right:none;
 	border-left:none;
+	margin:auto;
 }
 
 div#mypage_table table, div#mypage_table tr, div#mypage_table td {
@@ -160,7 +161,7 @@ div#mypage_table tr > td:nth-child(2) { /* 각 행 2열: */
 }
 
 
-table input {
+div#mypage_table table input {
 	height:25px;
 	border:1px solid lightgray;
 	border-radius:10px;
@@ -256,11 +257,11 @@ div.ticket_box_1 table, div.ticket_box_1 th, div.ticket_box_1 tr, div.ticket_box
 	text-align:center;
 }
 
-div.ticket_box_2 table, div.ticket_box_2 tr, div.ticket_box_2 td,
-div.ticket_box_1 table, div.ticket_box_1 th, div.ticket_box_1 tr, div.ticket_box_1 td {
+div.ticket_box_3 td,
+div.ticket_box_2 td,
+div.ticket_box_1 th, div.ticket_box_1 td {
 	text-align:left;
 }
-
 
 div.ticket_box_0 table td.rnum a { /* 예매번호 */
 	text-decoration:none;
@@ -299,12 +300,11 @@ div.ticket_box_3 div#poster {
 	display:inline-block;
 	width:230px; height:265px;
 	float:left;
-	margin-left:25px;
 	margin-right:60px;
 }
 
 div.ticket_box_3 > table {
-	width:500px;
+	width:558px;
 	float:left;
 }
 
@@ -376,7 +376,7 @@ div.bmark div.bmark_info > p:first-child a:hover {
 /** 동의 체크 */
 
 div.mem_mod_agr { /* 정보수정 개인 수신여부 */
-	width:90%;
+	width:80%;
 	margin-top:20px;
 }
 
