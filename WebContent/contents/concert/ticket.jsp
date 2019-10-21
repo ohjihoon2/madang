@@ -5,6 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+
 <!-- jQuery 기본 js파일 -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <!-- jQuery UI 라이브러리 js파일 -->
@@ -25,6 +27,14 @@
 	  ****************/
 	.ticketing_step{
 		background:rgb(34,34,34);
+	}
+	.tab {
+		overflow: hidden;
+	}
+	.tab li{
+		 background-color: inherit;
+		 cursor: pointer;
+		 transition: 0.3s;	
 	}
 	.ticketing_step>span{
 		display:block;
@@ -108,7 +118,6 @@
 	.ticketing_info_choice_text{
 		width:160px;
 		height:160px;
-		border:1px solid red;
 		float:right;
 	}
 	.ticketing_info_choice_text>span{
@@ -127,28 +136,105 @@
 	}
 	.ticketing_info_my_ticket{
 		display:inline-block;
-		border:1px solid blue;
 		width:300px;
-		height:300px;
+		height:400px;
+	}
+	.ticketing_info_my_ticket>span{
+		display:block;
+		padding:10px;
 	}
 	.ticketing_info_my_ticket>table{
-		border:1px solid red;
+		border-top:2px solid rgb(34, 34, 34);
+		border-bottom:2px solid rgb(34, 34, 34);
+		font-size:10pt;
+		width:300px;
+		height:300px;
+		text-align: left;
 	}
+	tr, th{
+		border-bottom:1px solid rgb(155, 155, 155);
+	}
+	td{
+		border-bottom:1px solid rgb(155, 155, 155);
+		background: white;
+	}
+	
+	.ticketing_info_my_ticket>button{
+		margin-top:10px;
+		display:block;
+		border:1px solid rgb(255, 127, 39);
+		width:300px;
+		height:50px;
+		text-align:center;
+		/* background:rgb(255, 127, 39); */
+		background:rgb(237, 28, 36);
+	}
+
 </style>
+<script>
+	$(document).ready(function(){
+		$("div#step1").css("display","block");
+		$("div#step2").css("display","none");
+		$("div#step3").css("display","none");
+		$("div#step4").css("display","none");
+		$("div#step5").css("display","none");
+		
+		$(".step").click(function(){
+			var step = $(this).attr("id");
+			
+			 if(step == 'step1'){
+				$("div#step1").css("display","block");
+				$("div#step2").css("display","none");
+				$("div#step3").css("display","none");
+				$("div#step4").css("display","none");
+				$("div#step5").css("display","none");
+				
+			}else if(step == 'step2'){
+				$("div#step1").css("display","none");
+				/* var src = $("div#step1").attr("src");
+				alert(src); */
+				/* "http://localhost:9090/images/ticketing/05_step_01_off.gif"); */
+				$("div#step2").css("display","block");
+				$("div#step3").css("display","none");
+				$("div#step4").css("display","none");
+				$("div#step5").css("display","none");
+			}else if(step == 'step3'){
+				$("div#step1").css("display","none");
+				$("div#step2").css("display","none");
+				$("div#step3").css("display","block");
+				$("div#step4").css("display","none");
+				$("div#step5").css("display","none");
+			}else if(step == 'step4'){
+				$("div#step1").css("display","none");
+				$("div#step2").css("display","none");
+				$("div#step3").css("display","none");
+				$("div#step4").css("display","block");
+				$("div#step5").css("display","none");
+			}else if(step == 'step5'){
+				$("div#step1").css("display","none");
+				$("div#step2").css("display","none");
+				$("div#step3").css("display","none");
+				$("div#step4").css("display","none");
+				$("div#step5").css("display","block");
+			} 
+		});
+	});
+</script>
+
 </head>
 <body>
 	<div class="ticketing_main">
 		<div class="ticketing_step">
 			<span>예술의마당 티켓 예매</span>
-			<ul>
-				<li><img src="http://localhost:9090/images/ticketing/05_step_01_on.gif"></li>
-				<li><img src="http://localhost:9090/images/ticketing/05_step_02_off.gif"></li>
-				<li><img src="http://localhost:9090/images/ticketing/05_step_03_off.gif"></li>
-				<li><img src="http://localhost:9090/images/ticketing/05_step_04_off.gif"></li>
-				<li><img src="http://localhost:9090/images/ticketing/05_step_05_off.gif"></li>
+			<ul class=tab>
+				<li><img src="http://localhost:9090/images/ticketing/05_step_01_on.gif" id="step1" class="step"></li>
+				<li><img src="http://localhost:9090/images/ticketing/05_step_02_off.gif" id="step2" class="step"></li>
+				<li><img src="http://localhost:9090/images/ticketing/05_step_03_off.gif" id="step3" class="step"></li>
+				<li><img src="http://localhost:9090/images/ticketing/05_step_04_off.gif" id="step4" class="step"></li>
+				<li><img src="http://localhost:9090/images/ticketing/05_step_05_off.gif" id="step5" class="step"></li>
 			</ul>
 		</div>
-		<div class="ticketing_left">
+		<div class="ticketing_left" id="step1">
 			<div class="day_choice">
 				<span>관람일 선택</span>
 				<div class="calender">
@@ -178,6 +264,170 @@
 				</ul>
 			</div>
 		</div>
+		
+		<!-- #################################################### -->
+		<div class="ticketing_left" id="step2">
+			<div class="concert_seats">
+				<img src="http://localhost:9090/images/concert_main/small1_seat.gif">
+			</div>
+		</div>
+		
+		<!-- #################################################### -->
+		<div class="ticketing_left" id="step3">
+			<div class="price">
+            	<p class="stit"><span class="col1">좌석 1매</span>를 선택하셨습니다.</p>
+	            <table class="Tb_price_Wp">
+	                	<tr>
+		                    <th>
+		                    	기본가<span class="pt"></span>
+		                    </th>
+	                   		<td>일반</td>
+                            <td class="taR">90,000원</td>
+                            <td class="taL">
+								<select name="SeatCount">
+                                    <option value="0">0매</option><option value="1">1매</option>
+                                </select>
+                            </td>
+                      	</tr>
+                      	<tr>
+		                    <th>
+		                    	기본할인<span class="pt"></span>
+		                    </th>
+	                   		<td>장애인 할인(동반1인까지)50%</td>
+                            <td class="taR">45,000원</td>
+                            <td class="taL">
+								<select name="SeatCount">
+                                    <option value="0">0매</option><option value="1">1매</option>
+                                </select>
+                            </td>
+                      	</tr>
+                      	<tr>
+		                    <th>
+		                    	기본할인<span class="pt"></span>
+		                    </th>
+	                   		<td>국가유공자 할인(동반1인까지)50%</td>
+                            <td class="taR">45,000원</td>
+                            <td class="taL">
+								<select name="SeatCount">
+                                    <option value="0">0매</option><option value="1">1매</option>
+                                </select>
+                            </td>
+                      	</tr>
+            	</table>
+        	</div>
+		</div>
+		
+		<!-- #################################################### -->
+		<div class="ticketing_left" id="step4">
+			<div class="recive_method">
+				<span>티켓수령방법</span>
+				<input type="radio" name="ticket_recive" value="현장수령" checked="checked" >현장수령
+				<input type="radio" name="ticket_recive" value="문자">문자
+			</div>	
+			<div class="check_user">
+				<span>예매자 확인</span>
+				<table>
+	                <tr>
+	                    <th>생년월일</th>
+	                    <td>
+	                    	<input type="text" value="920111" maxlength="6" readonly="">  <span style="font-size:11px;">예) 850101 (YYMMDD)</span>                    
+                    	</td>
+	                </tr>
+                    <tr>
+                        <td colspan="2"><em>현장수령 및 고객문의시 본인확인을 위해 정확한 정보를 입력해주세요.</em></td>
+                    </tr>
+                    <tr>
+                        <th>전화번호</th>
+                        <td>
+	                        <input type="text" id="PhoneNo1" value="010">&nbsp;-&nbsp;
+	                        <input type="text" id="PhoneNo2" value="4229" >&nbsp;-&nbsp;
+	                        <input type="text" id="PhoneNo3" value="5793">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>휴대폰</th>
+                            <td>
+                            	<input type="text" id="HpNo1" value="010" style="width:36px;" class="txt1" maxlength="3" >
+                            	 - <input type="text" id="HpNo2" value="4229" style="width:41px;" class="txt1" maxlength="4"> 
+                            	 - <input type="text" id="HpNo3" value="5793" style="width:41px;" class="txt1" maxlength="4">
+                           	 </td>
+                    </tr>
+                    <tr>
+                        <th>이메일</th>
+                        <td>
+                        	<input type="text" id="Email" value="" style="width:170px;" class="txt1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="fs">SMS 문자와 이메일로 예매 정보를 보내드립니다.</td>
+                    </tr>
+                </table>
+			</div>
+		</div>
+		
+		<!-- #################################################### -->
+		<div class="ticketing_left" id="step5">
+			<div class="payment_L">
+				<span>결제방식선택</span>
+	            <table>
+	                <tbody>
+	                    <tr id="Payment_1" class="selected">
+							<td><input type="radio" class="chk" name="Payment" value="1">
+								<label for="">신용카드</label></td>
+	                        <!-- 선택되었을때 -->
+	                    </tr>
+	                    <tr id="Payment_2" class="">
+							<td><input type="radio" class="chk" name="Payment" value="2">
+								<label for="">무통장입금</label></td>
+	                    </tr>
+	                    <tr id="Payment_3" class="">
+							<td><input type="radio" class="chk" name="Payment" value="3">
+								<label for="">휴대폰결제</label></td>
+	                    </tr>
+	                    <tr id="Payment_4" style="display: block;" class="">
+							<td><input type="radio" class="chk" name="Payment" value="4">
+								<label for="">SAC포인트</label></td>
+	                    </tr>
+	            </table>
+       		</div>
+       		<div class="payment_R">
+            <span>결제수단 입력</span>
+            
+            <!-- //신용카드 -->
+            <div class="input" style="display: block;" id="PaymentArea_22003">
+                <p class="stit">신용카드정보</p>
+                <ul>
+                    <div>
+                    	<input type="radio" class="chk" name="PaymentSelect" id="PaymentSelect" value="C1" >       
+                    	<label for="">일반신용카드</label>       
+                    	<select id="DiscountCard" onchange="fnCardSelect(this.value);"><option value="">카드종류를 선택하세요.</option><option value="62">KB국민카드</option><option value="67">BC카드</option><option value="65">삼성카드</option><option value="26006">현대카드</option><option value="26010">신한카드</option><option value="26008">롯데카드</option><option value="26011">하나카드</option><option value="63">외환카드</option><option value="26013">NH카드</option><option value="64">우리카드</option><option value="53">씨티카드</option><option value="73">수협카드</option><option value="37">전북카드</option><option value="34">광주카드</option><option value="35">제주카드</option><option value="26016">문화누리카드</option></select> <div id="divCardDetail01"></div>
+                   	</div>
+                </ul>
+            </div>
+
+            <!-- //무통장입금   -->
+            <div class="input" style="display: none;" id="PaymentArea_22004">
+                <p class="stit">무통장입금</p>
+                <div id="Input_22004"></div>
+            </div>
+
+            <!-- 무통장입금 //-->
+
+            <!-- //휴대폰결제   -->
+            <div class="input" style="display: none;" id="PaymentArea_22027">
+                <p class="stit">휴대폰 결제 시 유의사항을 확인 하신 후 <br>[다음단계] 버튼으로 이동해주세요.</p>
+                <dl class="method2">
+                    <dt>휴대폰결제 유의사항</dt>
+                    <dd>- 휴대폰 결제 시 전체 취소만 가능</dd>
+                    <dd>- 통신사 별로 한도 금액 내에서 최대 20만원까지 결제 가능</dd>
+                    <dd>- 당월 관람일 예매 시에만 결제 가능</dd>
+                    <dd>- 미성년자 명의,법인명의,요금연체,선불요금제 가입,사용정지 휴대폰은 사용 불가</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+       		
+		</div>
 		<div class="ticketing_right">
 			<div class="ticketing_info">
 				<div class="ticketing_info_choice">
@@ -185,7 +435,7 @@
 						<img src="http://localhost:9090/images/ticketing/ticketing_small_img.gif">
 					</div>
 					<div class="ticketing_info_choice_text">
-						<span>창작가무극[다윈 영의 악의 기원]</span>
+						<span>창작가무극[다윈영의 악의 기원]</span>
 						<div id="text_space">		
 							<ul>
 	                            <li>2019.10.15 ~ 2019.10.27</li>
@@ -197,6 +447,7 @@
 					</div>
 				</div>
 				<div class="ticketing_info_my_ticket">
+					<span>My 예매정보</span>
 					<table>
 						<tr>
 							<th scope="row">일시</th>
