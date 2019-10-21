@@ -5,15 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>   
 <link rel="stylesheet" href="http://localhost:9090/css/mypage.css"/>
 
-<style>
-
-
-/** 중앙 concert contents **/
-
-</style>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />
