@@ -11,13 +11,11 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="http://localhost:9090/slick/slick.min.js"></script>
-				
-<script src="http://localhost:9090/jquery/jquery-3.4.1.min.js"></script>
+		
 <script src="http://localhost:9090/js/madang.js"></script>	
 <link rel="stylesheet" href="http://localhost:9090/css/madangcss.css"/>
-<script type="text/javascript">
+				
 
-</script>
 </head>
 <body>
 <jsp:include page="header.jsp"/>

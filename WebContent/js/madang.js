@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	//헤더
-	$('nav li').hover(
+	$('header nav li').hover(
 		function() {
 		$('ul', this).stop().slideDown(200);
 		},
@@ -11,14 +11,15 @@ $(document).ready(function(){
 	
 	//메인페이지
 
-		$('.autoplay').slick({
+
+	$('.autoplay').slick({
 			  slidesToShow: 1,
 			  slidesToScroll: 1,
 			  autoplay: true,
 			  autoplaySpeed: 1000
 			});
 		
-		$('.center').slick({
+	$('.center').slick({
 			  centerMode: true,
 			  centerPadding: '60px',
 			  slidesToShow: 3,

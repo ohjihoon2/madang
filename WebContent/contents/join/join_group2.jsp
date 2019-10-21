@@ -5,14 +5,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://localhost:9090/css/madangcss.css">
-</head>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>	
+<link rel="stylesheet" href="http://localhost:9090/css/madangcss.css"/></head>
 <body>
 <jsp:include page="../../header.jsp"/>
 
 <div id="join_group2" class="page_contents">
 <h1 class="page_title">회원가입</h1>
-<h2><span class="page_title">●</span> 회원 정보 입력</h2>
+<h2><span class="font_circle">●</span> 회원 정보 입력</h2>
 	<form action="#" method="post" name="join_group2_form">
 		<ul>
 			<li>
@@ -52,6 +53,14 @@
 				<span> - </span>
 				<input type="text" name="phon3">
 			</li>
+			<li>
+				<label>팩스번호</label>
+				<input type="text" name="fax_phon1">
+				<span> - </span>
+				<input type="text" name="fax_phon2">
+				<span> - </span>
+				<input type="text" name="fax_phon3">
+			</li>	
 			<br>
 			<li>
 				<label>회사명</label>
@@ -73,15 +82,7 @@
 				<input type="text" name="group_phon2">
 				<span> - </span>
 				<input type="text" name="group_phon3">
-			</li>
-			<li>
-				<label>팩스번호</label>
-				<input type="text" name="fax_phon1">
-				<span> - </span>
-				<input type="text" name="fax_phon2">
-				<span> - </span>
-				<input type="text" name="fax_phon3">
-			</li>					
+			</li>				
 			<li>
 				<label>주소</label>
 				<input type="text" name="addr">

@@ -293,12 +293,15 @@
 	div#join_general2 form li{
 		padding:5px 0px 5px 0px;
 		margin:10px 0px 5px 0px;
+		border:1px solid green;
 		}
 	div#join_general2 label{
 		display:inline-block;
 		font-size:13.5pt;
+		border:1px solid red;
 		
 		width:180px;
+		
 		padding:5px 0px 5px 30px; /*))전체 사이즈가 늘어난다!=>전체 사이즈 수정 100px->70px*/
 		}
 	
@@ -308,10 +311,13 @@
 		padding:5px 5px 5px 20px; /*))텍스트 필드 안의 여백. 단 사이즈도 증가한다!((사방으로!))*/
 		}
 
-	div#join_general2 li:nth-child(6)>input[type=text]{
+	div#join_general2 li:nth-child(7)>input[type=text]{
+		width:10%
+	}
+	div#join_general2 li:nth-child(7)>input[type=text]{
 		width:15%;
 	}
-	div#join_general2 li:nth-child(6)>select{
+	div#join_general2 li:nth-child(7)>select{
 		width:20%;
 		padding: 5px;
 	}
@@ -319,13 +325,7 @@
 	div#join_general2 li:nth-child(8)>div{
 		display:inline-block;
 	}
-	div#join_general2 li:nth-child(8) div:nth-child(2){
-		width:30%;
-	}
-	div#join_general2 li:nth-child(8) div:nth-child(3){
-		width:50%;
-	}
-	div#join_general2 li:nth-child(8) div:nth-child(3) input[type=text]{
+	div#join_general2 li:nth-child(8) input[type=text]{
 		width:20%;
 		padding: 5px 5px 5px 10px;
 	}
@@ -412,7 +412,7 @@
 	
 	/*연락처 입력폼*/
 	div#join_group2 li:nth-child(6) input[type=text],
-	div#join_group2 li:nth-child(11) input[type=text],
+	div#join_group2 li:nth-child(7) input[type=text],
 	div#join_group2 li:nth-child(12) input[type=text]
 	{
 

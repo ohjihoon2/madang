@@ -5,7 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://localhost:9090/css/madangcss.css">
+
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>	
+<link rel="stylesheet" href="http://localhost:9090/css/madangcss.css"/>
 
 </head>
 <body>
@@ -13,7 +16,7 @@
 <div id="join_general1" class="page_contents">
 	<h1 class="page_title">회원가입</h1>
 	<form action="#" method="post" name="join_geral1_form">
-		<h2><span style="color:rgb(5,135,94)">●</span> 이용약관</h2>
+		<h2><span class="font_circle">●</span> 이용약관</h2>
 		<div id=join_general1_paper>
 			<h3>예술의 마당 이용약관 동의(필수)</h3>
 			<article>
@@ -83,7 +86,7 @@
 			</article>
 			<div>동의합니다. <input type="checkbox" value="Y" name="join_geral1_agree3"></div>
 		</div>
-		<h2><span class="page_title">●</span> 휴대전화 인증</h2>
+		<h2><span class="font_circle">●</span> 휴대전화 인증</h2>
 		<div id="join_general1_table">
 				<table>
 					<tr>

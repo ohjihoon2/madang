@@ -5,7 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://localhost:9090/css/madangcss.css">
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>	
+<link rel="stylesheet" href="http://localhost:9090/css/madangcss.css"/>
 
 </head>
 <body>
@@ -13,7 +15,7 @@
 
 <div id="join_general2" class="page_contents">
 <h1 class="page_title">회원가입</h1>
-<h2><span class="page_title">●</span> 회원 정보 입력</h2>
+<h2><span class="font_circle">●</span> 회원 정보 입력</h2>
 	<form action="#" method="post" name="join_geral2_form">
 		<ul>
 			<li>
@@ -40,6 +42,23 @@
 				<input type="radio" name="gender">남자
 				<input type="radio" name="gender">여자
 			</li>
+			<li>
+				<label>생년월일</label>	<!-- join_general1.jsp에서 입력한 정보가 미리 작성되어있겠끔 -->
+				<input type="text" name=birthday placeholder="2019-10-10">
+			</li>
+			<li>
+				<label>연락처</label>			<!-- join_general1.jsp에서 입력한 연락처가 미리 작성되어있겠끔 -->
+				<input type="radio" name="phon_com" value="SKT">SKT
+				<input type="radio" name="phon_com" value="KT">KT
+				<input type="radio" name="phon_com" value="LGU+">LGU+
+				<br>
+				<label> </label>	
+				<input type="text" name="phon1" placeholder="010">
+				<span> - </span>
+				<input type="text" name="phon2" placeholder="1234">
+				<span> - </span>
+				<input type="text" name="phon3" placeholder="5648">	
+			</li>			
 			<li>
 				<label>이메일</label>
 				<input type="text" name="email1">
