@@ -125,7 +125,7 @@
 				</table>
 		</form>
 		<div class="joinbtn">
-		<button type="button" class="join_prv">이전으로</button>
+		<a href="join0.jsp"><button type="button" class="join_prv">이전으로</button></a>
 		<a href="join_general2.jsp"><button type="button" class="join_next">다음으로</button></a>
 		</div>
 		

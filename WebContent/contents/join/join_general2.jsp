@@ -3,12 +3,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
-<script src="http://localhost:9090/js/madang.js"></script>	
-<link rel="stylesheet" href="http://localhost:9090/css/madangcss.css"/>
-
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
+	<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+	<script src="http://localhost:9090/js/madang.js"></script>	
+	<link rel="stylesheet" href="http://localhost:9090/css/madangcss.css"/>
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script src="http://localhost:9090/js/madang.js"></script>
 </head>
 <body>
 <jsp:include page="../../header.jsp"/>
@@ -72,8 +73,12 @@
 			</li>
 			<li>
 				<label>주소</label>
-				<input type="text" name="addr">
-				<button type="button">주소찾기</button>
+				<input type="text" id="sample6_postcode" placeholder="우편번호">
+				<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="addr_find">
+				<label> </label>
+				<input type="text" id="sample6_address" placeholder="주소"><br>
+				<label> </label>
+				<input type="text" placeholder="상세주소"><br>			
 			</li>	
 			<li>
 				<label>이메일 수신여부(선택) </label>

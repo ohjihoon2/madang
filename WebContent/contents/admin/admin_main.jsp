@@ -85,7 +85,7 @@ aside.amdmin_left ul li div.dept02{
 		width:400px;
 		height:200px;
 		margin-top:20px;
-		overflow:scroll;
+		overflow:auto;
 	}
 	
 </style>
@@ -128,7 +128,7 @@ aside.amdmin_left ul li div.dept02{
 		 		<h5>더보기</h5>
 		 		<ul>
 		 			<li>
-		 				차이코프스키 호두깍기 (20190901~20190810)
+		 				차이코프스키 호두깍기차이코프스키 호두깍기차이코프스키 호두깍기차이코프스키 호두깍기차이코프스키 호두깍기 (20190901~20190810)
 		 			</li>
 		 			<li>
 		 				차이코프스키 호두깍기 (20190901~20190810)
