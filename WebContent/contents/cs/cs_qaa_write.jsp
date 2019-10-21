@@ -8,7 +8,25 @@
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <script src="http://localhost:9090/js/madang.js"></script>   
 <link rel="stylesheet" href="http://localhost:9090/css/cs.css"/>
-
+<script>
+$(document).ready(function(){
+	$("button#qaa_write").click(function(){
+		
+		if($("input#qaa_title").val()==""){
+			alert("제목을 입력하세요");
+			$("input#qaa_title").focus();
+			
+		} else if($("textarea#qaa_content").val()=="") {
+			alert("내용을 입력하세요");
+			$("textarea#qaa_content").focus();
+			
+		} else {
+			alert("ㅇ");
+			//qaa_write_form.submit();
+		}
+	})
+})
+</script>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />

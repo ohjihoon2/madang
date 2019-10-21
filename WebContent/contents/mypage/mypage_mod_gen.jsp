@@ -8,7 +8,34 @@
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <script src="http://localhost:9090/js/madang.js"></script>   
 <link rel="stylesheet" href="http://localhost:9090/css/mypage.css"/>
-
+<script>
+$(document).ready(function(){
+	$("button#mem_mod_btn").click(function(){
+		
+		if($("input#pw").val()==""){ /* 유효성체크 */
+			alert("비밀번호를 입력하세요");
+			$("input#pw").focus();
+			
+		} else if($("input#phone1").val()=="" || $("input#phone2").val()=="" ||$("input#phone3").val()=="") {
+			alert("전화번호를 입력하세요");
+			$("input#phone1").focus();
+			
+		} else {
+			alert("ㅇ");
+			//mypage_mod_form.submit();
+		}
+	})
+	
+	
+	$("#email3").change(function(){ /* 이메일주소 선택-전달 */
+		if($("#email3").val()=="선택"){
+			$("#email2").val("");
+		} else {
+			$("#email2").val($("#email3").val());
+		}
+	});
+})
+</script>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />

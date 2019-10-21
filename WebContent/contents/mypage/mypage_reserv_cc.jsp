@@ -8,7 +8,9 @@
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <script src="http://localhost:9090/js/madang.js"></script>   
 <link rel="stylesheet" href="http://localhost:9090/css/mypage.css"/>
+<script>
 
+</script>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />
@@ -67,8 +69,12 @@
 		<div class="out_cfm">
 			<input type="checkbox" id="out1"> 예매취소 완료 후에는 이전 상태로 되돌릴 수 없습니다.
 		</div>
-		<div  class="out_cfm">
+		<div class="out_cfm">
 			<input type="checkbox" id="out2"> 안내사항을 모두 확인하였으며, 이에 동의합니다.
+		</div>
+		
+		<div id="out_pw_cfm">
+			<input type="password" name="out_pw_cfm" id="out_pw_cfm" placeholder="비밀번호를 입력해주세요">
 		</div>
 		
 		<div class="button">

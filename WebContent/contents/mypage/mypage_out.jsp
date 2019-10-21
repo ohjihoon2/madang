@@ -41,6 +41,10 @@
 			<input type="checkbox" id="out2"> 안내사항을 모두 확인하였으며, 이에 동의합니다.
 		</div>
 		
+		<div id="out_pw_cfm">
+			<input type="password" name="out_pw_cfm" id="out_pw_cfm" placeholder="비밀번호를 입력해주세요">
+		</div>
+		
 		<div class="button">
 			<button type="button" id="out_btn" class="button_a">탈퇴</button>
 			<a href="mypage_mod_gen.jsp"><button type="button" class="button_b">취소</button></a>

@@ -221,6 +221,21 @@ div.out_box { /* 회원탈퇴 유의사항, 예매취소 유의사항 */
 }
 
 
+div#out_pw_cfm { /* 예매취소 비밀번호 확인 */
+	margin-top:50px;
+	text-align:center;
+}
+
+div#out_pw_cfm input { /* 입력창 */
+	border-radius:10px;
+	width:300px; height:30px;
+	margin-right:15px;
+	font-size:12pt;
+	padding-left:5px;
+}
+
+
+
 /** 예매내역
 0 list 6열,
 1 details 2열,
