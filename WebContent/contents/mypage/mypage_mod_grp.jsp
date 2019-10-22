@@ -8,34 +8,9 @@
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <script src="http://localhost:9090/js/madang.js"></script>   
 <link rel="stylesheet" href="http://localhost:9090/css/mypage.css"/>
-<script>
-$(document).ready(function(){
-	$("button#mem_mod_btn").click(function(){
-		
-		if($("input#pw").val()==""){ /* 유효성체크 */
-			alert("비밀번호를 입력하세요");
-			$("input#pw").focus();
-			
-		} else if($("input#phone1").val()=="" || $("input#phone2").val()=="" ||$("input#phone3").val()=="") {
-			alert("전화번호를 입력하세요");
-			$("input#phone1").focus();
-			
-		} else {
-			alert("ㅇ");
-			//mypage_mod_form.submit();
-		}
-	})
-	
-	
-	$("#email3").change(function(){ /* 이메일주소 선택-전달 */
-		if($("#email3").val()=="선택"){
-			$("#email2").val("");
-		} else {
-			$("#email2").val($("#email3").val());
-		}
-	});
-})
-</script>
+<script src="http://localhost:9090/js/mypage.js"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> <!-- 주소 API -->
+
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />
@@ -67,18 +42,13 @@ $(document).ready(function(){
 						<td><input type="text" name="name" id="name" disabled="disabled"></td>
 					</tr>
 					<tr>
-						<td rowspan=3>담당자 연락처</td>
-					</tr>
-					<tr>
+						<td>담당자 연락처</td>
 						<td class="left">
-							Tel. <input type="text" name="phone1" id="phone1">
+							Tel.&nbsp&nbsp&nbsp <input type="text" name="phone1" id="phone1">
 							- <input type="text" name="phone2" id="phone2">
 							- <input type="text" name="phone3" id="phone3">
-						</td>
-					</tr>
-					<tr>
-						<td class="left">
-							FAX. <input type="text" name="pax1" id="pax1">
+							<br>
+							FAX.&nbsp <input type="text" name="pax1" id="pax1">
 							- <input type="text" name="pax2" id="pax2">
 							- <input type="text" name="pax3" id="pax3">
 						</td>
@@ -113,7 +83,7 @@ $(document).ready(function(){
 					<tr>
 						<td>대표번호</td>
 						<td class="left">
-							Tel. <input type="text" name="cphone1" id="cphone1">
+							Tel.&nbsp&nbsp&nbsp <input type="text" name="cphone1" id="cphone1">
 							- <input type="text" name="cphone2" id="cphone2">
 							- <input type="text" name="cphone3" id="cphone3">
 						</td>
@@ -121,8 +91,12 @@ $(document).ready(function(){
 					<tr>
 						<td>주소</td>
 						<td>
-							<input type="text" name="addr" id="addr">
-							<button type="button" id="addr_btn">주소찾기</button>
+							<!-- <input type="text" name="addr" id="addr">
+							<button type="button" id="addr_btn">주소찾기</button> -->
+							<input type="text" id="sample6_postcode" placeholder="우편번호">
+							<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기 " id="addr_btn">
+							<br><input type="text" id="sample6_address" placeholder="주소" class="addr">
+							<br><input type="text" placeholder="상세주소" class="addr"><br>
 						</td>
 					</tr>
 				</table>

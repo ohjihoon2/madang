@@ -177,6 +177,10 @@ input#cpax1, input#cpax2, input#cpax3 {
 	width:20%;
 }
 
+div#mypage_table input#pax1 {
+	margin-top:5px;
+}
+
 input#email1, input#email2 {
 	width:30%;
 }
@@ -190,11 +194,12 @@ select#comp, select#email3 {
 }
 
 
-input#addr {
-	width:70%;
+input.addr {
+	width:80%;
+	margin-top:5px;
 }
 
-button#addr_btn {
+/* button#addr_btn {
 	width:90px; height:26px;
 	font-size:12pt;
 	border-radius:10px;
@@ -202,11 +207,20 @@ button#addr_btn {
 	color:black;
 	margin-left:6px;
 	border:1px solid rgb(155,155,155);
+} */
+
+input#addr_btn {
+	width:110px;
+	background:white;
+	color:black;
+	border:1px solid rgb(155,155,155);
 }
 
 /* div#mypage_table > form > tr:nth-child(8) > td > input { 성별 radio 왜안먹어
 	margin:20px;
 	width:30%;
+	background:white;
+	color:black;
 } */
 
 
@@ -390,10 +404,10 @@ div.bmark div.bmark_info > p:first-child a:hover {
 
 /** 동의 체크 */
 
-div.mem_mod_agr { /* 정보수정 개인 수신여부 */
+/* div.mem_mod_agr { 정보수정 개인 수신여부
 	width:80%;
 	margin-top:20px;
-}
+} */
 
 div.out_cfm /* 회원탈퇴 확인 */,
 div.out_cfm /* 예매취소 확인 */ {
