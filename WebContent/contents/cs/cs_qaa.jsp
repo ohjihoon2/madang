@@ -5,9 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
-<script src="http://localhost:9090/js/madang.js"></script>   
 <link rel="stylesheet" href="http://localhost:9090/css/cs.css"/>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>
 
 </head>
 <body>
@@ -39,7 +39,7 @@
 				</tr>
 				<tr>
 					<td>2</td>
-					<td><a href="#">개천절에 전시 관람</a></td>
+					<td><a href="cs_qaa_content.jsp">개천절에 전시 관람</a></td>
 					<td>2019-10-01</td>
 					<td>N</td>
 				</tr>

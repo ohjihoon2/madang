@@ -5,9 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
-<script src="http://localhost:9090/js/madang.js"></script>   
 <link rel="stylesheet" href="http://localhost:9090/css/mypage.css"/>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>
 
 </head>
 <body>
@@ -56,8 +56,8 @@
 					<td>김예술</td>
 				</tr>
 				<tr>
-					<td>배송지</td>
-					<td>서울시 강남구 역삼동 12-3 4층</td>
+					<td>연락처</td>
+					<td>010-2345-5432</td>
 				</tr>
 			</table>
 		</div>
@@ -90,10 +90,6 @@
 					<td>T45621</td>
 				</tr>
 				<tr>
-					<td>좌석등급</td>
-					<td>R석</td>
-				</tr>
-				<tr>
 					<td>가격</td>
 					<td>200,000</td>
 				</tr>
@@ -106,12 +102,8 @@
 					<td>500</td>
 				</tr>
 				<tr>
-					<td>배송비</td>
-					<td>2,500</td>
-				</tr>
-				<tr>
 					<td>총 결제금액</td>
-					<td>183,000</td>
+					<td>180,500</td>
 				</tr>
 			</table>
 		</div>
