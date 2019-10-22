@@ -253,7 +253,7 @@ div#out_pw_cfm input { /* 입력창 */
 /** 예매내역
 0 list 6열,
 1 details 2열,
-2 details 4열 cc 4열,
+2 cc 4열,
 3 details 포스터 옆 2열
 */
 
@@ -267,7 +267,7 @@ div.ticket_box_1 {
 
 div.ticket_box_0 table,
 div.ticket_box_3 table, /* 공연정보 */
-div.ticket_box_2 table, /* 결제내역 1 */
+div.ticket_box_2 table,
 div.ticket_box_1 table /* 결제내역 2 */ {
 	width:100%;
 	border-right:none;
@@ -302,6 +302,17 @@ div.ticket_box_0 table td.rnum a:hover {
 	color:#05875e;
 }
 
+div.ticket_box_0 table td:nth-child(1),
+div.ticket_box_0 table td:nth-child(2),
+div.ticket_box_0 table td:nth-child(5),
+div.ticket_box_0 table td:nth-child(6) {
+	width:10%;
+}
+
+div.ticket_box_0 table td:nth-child(4) {
+	width:20%;
+}
+
 div.ticket_box_3 table tr td:nth-child(1),
 div.ticket_box_1 table tr td:nth-child(1) {
 	text-align:center;
@@ -320,6 +331,7 @@ div.ticket_box_2 table tr td:nth-child(3) {
 	width:20%;
 }
 
+div.ticket_box_2 table tr td:nth-child(2),
 div.ticket_box_2 table tr td:nth-child(4) {
 	width:30%;
 }

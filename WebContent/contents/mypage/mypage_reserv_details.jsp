@@ -48,6 +48,7 @@
 					<td>베토벤홀</td>
 				</tr>
 				<tr>
+					<!-- 전시: 매수 -->
 					<td>좌석</td>
 					<td>1층 6열 10, 1층 6열 11</td>
 				</tr>
@@ -64,7 +65,7 @@
 		
 		<div class="clear"></div>
 		
-		<div class="ticket_box_2">
+		<!-- <div class="ticket_box_2">
 			<h2>결제내역</h2>
 			<br>
 			<table border=1>
@@ -81,13 +82,35 @@
 					<td>결제</td>
 				</tr>
 			</table>
-		</div>
+		</div> -->
 		
 		<div class="ticket_box_1">
+			<h2>결제정보</h2>
+			<br>
 			<table border=1>
 				<tr>
 					<td>예매번호</td>
 					<td>T45621</td>
+				</tr>
+				<tr>
+					<td>예매일</td>
+					<td>2019-09-30</td>
+				</tr>
+				<tr>
+					<td>예매상태</td>
+					<td>예매</td>
+				</tr>
+				<tr>
+					<td>결제일</td>
+					<td>2019-09-30</td>
+				</tr>
+				<tr>
+					<td>결제수단</td>
+					<td>카드</td>
+				</tr>
+				<tr>
+					<td>결제상태</td>
+					<td>결제</td>
 				</tr>
 				<tr>
 					<td>가격</td>

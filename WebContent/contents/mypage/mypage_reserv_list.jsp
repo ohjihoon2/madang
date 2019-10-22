@@ -36,7 +36,7 @@
 					<th>매수</th>
 					<th>현재상태</th>
 				</tr>
-				<tr>
+				<tr> <!-- 한 행 전체에 링크 못거는지 확인~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 					<td>2019-09-30</td>
 					<td class="rnum"><a href="mypage_reserv_details.jsp">T45621</a></td>
 					<td>bbbb</td>
@@ -62,8 +62,8 @@
 				<tr>
 					<td>2019-09-25</td>
 					<td class="rnum"><a href="#">T12211</a></td>
-					<td>cccc</td>
-					<td>2019-11-16</td>
+					<td>ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄴㄴㄴㄴ15</td>
+					<td>2019-11-16 ~ 2019-11-16</td>
 					<td>1매</td>
 					<td>예약완료</td>
 				</tr>
