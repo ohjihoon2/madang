@@ -169,7 +169,67 @@
 		/* background:rgb(255, 127, 39); */
 		background:rgb(237, 28, 36);
 	}
-
+	
+	/***************** step3 *****************/
+	
+	.col1{
+		color:rgb(237, 28, 36);
+	}
+	
+	.Tb_price_Wp{
+		width:600px;
+		height:150px;
+		border: 1px solid rgb(155, 155, 155);
+	}
+	
+	.Tb_price_Wp>th{
+	
+		background:rgb(230, 230, 230);
+	}
+	td{
+		border-left: 1px solid rgb(155, 155, 155);
+	}
+	td:nth-child(2){
+		text-align:left;
+		padding-left:10px;
+	}
+	td:nth-child(3) {
+		text-align:right;
+		padding-right:10px;
+	}
+	
+	
+	/***************** step4 *****************/
+	.recive_method{
+		width:200px;
+		height:600px;
+		float:left;
+	}
+	.recive_method>div{
+		border-bottom:2px solid black;
+	}
+	.recive_method>span{
+		display:inline-block;
+	}
+	
+	.recive_method>input{
+		margin:20px 10px 0px 10px;
+	}
+	
+	.check_user{
+		width:350px;
+		height:600px;
+		float:right;
+	}
+	
+	.check_user>table{
+		font-size:10pt;
+	}
+	
+	th{
+		width:100px;
+	}
+	
 </style>
 <script>
 	$(document).ready(function(){
@@ -320,13 +380,19 @@
 		<!-- #################################################### -->
 		<div class="ticketing_left" id="step4">
 			<div class="recive_method">
-				<span>티켓수령방법</span>
-				<input type="radio" name="ticket_recive" value="현장수령" checked="checked" >현장수령
-				<input type="radio" name="ticket_recive" value="문자">문자
+				<div>티켓수령방법</div>
+				<input type="radio" name="ticket_recive" value="현장수령" checked="checked" class="ticket_recive"><span>현장수령</span>
+				<input type="radio" name="ticket_recive" value="문자" class="ticket_recive"><span>문자</span>
 			</div>	
 			<div class="check_user">
 				<span>예매자 확인</span>
 				<table>
+					 <tr>
+	                    <th>이름</th>
+	                    <td>
+	                    	<input type="text" value="홍길동" maxlength="6" readonly="">  <span style="font-size:11px;"></span>                    
+                    	</td>
+	                </tr>
 	                <tr>
 	                    <th>생년월일</th>
 	                    <td>
@@ -334,7 +400,7 @@
                     	</td>
 	                </tr>
                     <tr>
-                        <td colspan="2"><em>현장수령 및 고객문의시 본인확인을 위해 정확한 정보를 입력해주세요.</em></td>
+                        <td colspan="2">현장수령 및 고객문의시 본인확인을 위해 정확한 정보를 입력해주세요.</td>
                     </tr>
                     <tr>
                         <th>전화번호</th>
