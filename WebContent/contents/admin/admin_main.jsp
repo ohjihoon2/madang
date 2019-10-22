@@ -26,43 +26,20 @@ $(document).ready(function(){
 }
 
 div.admin_page{
-
+	border:1px solid blue;
+	width:1300px;
 	height:1500px;
+	margin:auto;
 }
 
 div.admin_content{
 	border : 1px solid red;
-	width:80%;
+	width:1000px;
 	height:1500px;
 	margin:auto;
 	float:left;
 }
 
-/*왼쪽네비*/
-aside.amdmin_left{
-	background-color:rgb(5,135,94);
-	width:250px;
-	height:1500px;
-	float:left;
-	color:white;
-}
-aside.amdmin_left ul{
-	list-style-type:none;
-	font-size:15pt;
-}
-aside.amdmin_left ul li:first-child{
-	height:100px;
-	margine:30px 0px 300px 0px;
-	test-align:center;
-}
-
-aside.amdmin_left ul li{
-	height:40px;
-	padding:3px 0px 0px 30px;
-}
-aside.amdmin_left ul li div.dept02{
-	display:none;
-}
 
 /*내용*/
 	div#admin_main div.admin_content section{
@@ -73,9 +50,9 @@ aside.amdmin_left ul li div.dept02{
 	/*공연, 전시 안내*/
 	div#admin_main div.admin_content section:first-child article{
 		display : inline-block;
-		width:500px;
+		width:400px;
 		height:250px;
-		margin-right:50px;
+		margin-right:40px;
 		
 	}
 	div#admin_main div.admin_content section:first-child article ul {
@@ -88,6 +65,29 @@ aside.amdmin_left ul li div.dept02{
 		overflow:auto;
 	}
 	
+	
+	div#admin_main div.admin_content section table{
+		width:650px;
+		height:200px;
+		margin:auto;
+		margin-top:30px;
+		border-collapse: collapse;
+	}
+	div#admin_main div.admin_content section table th{
+		background-color:lightgray;
+		border-bottom:1px solid gray;
+	}
+	
+	div#admin_main div.admin_content section table td:first-child{
+		border-bottom:1px solid gray;
+		width:500px;
+		padding-left:10px;
+	}
+	div#admin_main div.admin_content section table td:last-child{
+		border-bottom:1px solid gray;
+		text-align:center;
+	}
+	
 </style>
 
 </head>
@@ -96,30 +96,7 @@ aside.amdmin_left ul li div.dept02{
 	admin페이지에서 하는 것: 공지사항, 1:1상담, 언론보도, 이벤트 그리고 공시,전시에 대한 crud.
  -->
 <div id="admin_main" class="admin_page">
-	<aside class="amdmin_left">
-	<!--
-	왼쪽네비
-		-공연
-		-전시
-	 -->
-	 <ul>
-	 	<li><a href="#"><span>관리자 페이지</span></a></li>
-	 	<li class="dept01">
-	 		공연관리
-	 		<div class="dept02">
-	 			<a>완료</a>
-	 			<a>예정</a>
-	 		</div>
-	 	</li>
-	 	
-	 	<li>전시관리</li>
-	 	<li>대관관리</li>
-	 	<li>회원관리</li>
-	 	<li>고객센터</li>
-	 	<li>게시판 관리</li>
-	 	<li>공지사항</li>
-	 </ul>
-	</aside>
+<jsp:include page="admin_left_nav.jsp"/>
 	<div class="admin_content">
 		<section>
 		 	<article>
@@ -154,6 +131,18 @@ aside.amdmin_left ul li div.dept02{
 	 		<h2>공지사항</h2>
 	 		<table>
 	 			<tr>
+	 				<th>제목</th>
+	 				<th>작성일자</th>
+	 			</tr>
+	 			<tr>
+	 				<td>오늘만큼은 무료라구!</td>
+	 				<td>2019-10-20</td>
+	 			</tr>
+	 			<tr>
+	 				<td>오늘만큼은 무료라구!</td>
+	 				<td>2019-10-20</td>
+	 			</tr>
+	 			<tr>
 	 				<td>오늘만큼은 무료라구!</td>
 	 				<td>2019-10-20</td>
 	 			</tr>
@@ -167,6 +156,18 @@ aside.amdmin_left ul li div.dept02{
 	 	<!-- 1:1 상담 -->
 	 		<h2>1:1상담</h2>
 	 		<table>
+	 			<tr>
+	 				<th>제목</th>
+	 				<th>작성일자</th>
+	 			</tr>
+	 			<tr>
+	 				<td>오늘만큼은 무료라구!</td>
+	 				<td>2019-10-20</td>
+	 			</tr>
+	 			<tr>
+	 				<td>오늘만큼은 무료라구!</td>
+	 				<td>2019-10-20</td>
+	 			</tr>
 	 			<tr>
 	 				<td>오늘만큼은 무료라구!</td>
 	 				<td>2019-10-20</td>
