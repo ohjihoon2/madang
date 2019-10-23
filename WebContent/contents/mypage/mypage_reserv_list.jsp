@@ -36,9 +36,10 @@
 					<th>매수</th>
 					<th>현재상태</th>
 				</tr>
-				<tr> <!-- 한 행 전체에 링크 못거는지 확인~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<tr onClick="location.href='mypage_reserv_details.jsp'">
+				<!-- 한 행 전체에 링크 확인~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 					<td>2019-09-30</td>
-					<td class="rnum"><a href="mypage_reserv_details.jsp">T45621</a></td>
+					<td> <!--class="rnum">> <a href="mypage_reserv_details.jsp"> -->T45621<!-- </a> --></td>
 					<td>bbbb</td>
 					<td>2019-11-30</td>
 					<td>2매</td>
@@ -61,7 +62,7 @@
 				</tr>
 				<tr>
 					<td>2019-09-25</td>
-					<td class="rnum"><a href="#">T12211</a></td>
+					<td>T12211</td>
 					<td>ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄴㄴㄴㄴ15</td>
 					<td>2019-11-16 ~ 2019-11-16</td>
 					<td>1매</td>

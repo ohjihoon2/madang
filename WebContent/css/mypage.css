@@ -292,7 +292,17 @@ div.ticket_box_1 th, div.ticket_box_1 td {
 	text-align:left;
 }
 
-div.ticket_box_0 table td.rnum a { /* 예매번호 */
+div.ticket_box_0 table tr:hover {
+	color:#05875e;
+	text-decoration:underline;
+}
+
+div.ticket_box_0 table tr:first-child:hover {
+	color:black;
+	text-decoration:none;
+}
+
+/* div.ticket_box_0 table td.rnum a { 예매번호
 	text-decoration:none;
 	color:black;
 }
@@ -300,7 +310,7 @@ div.ticket_box_0 table td.rnum a { /* 예매번호 */
 div.ticket_box_0 table td.rnum a:hover {
 	text-decoration:underline;
 	color:#05875e;
-}
+} */
 
 div.ticket_box_0 table td:nth-child(1),
 div.ticket_box_0 table td:nth-child(2),
