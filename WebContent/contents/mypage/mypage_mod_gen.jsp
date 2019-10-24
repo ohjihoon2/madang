@@ -1,13 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="com.madang.vo.General_member_VO, com.madang.service.General_member_Service" %>
+<%@ page import="com.madang.vo.General_mem_VO, com.madang.service.General_mem_Service" %>
 
 <%
 	String id="test";
-	General_member_Service mem=new General_member_Service();
-	General_member_VO vo=mem.getContent(id);
-	
-	/* String p_comp=vo.getP_comp(); */
+	General_mem_Service service=new General_mem_Service();
+	General_mem_VO vo=service.getContent(id);
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -68,25 +66,25 @@
 					<tr>
 						<td>이메일</td>
 						<td>
-							<input type="text" name="email1" id="email1" value="<%= vo.getEmail1() %>">
-							@ <input type="text" name="email2" id="email2" value="<%= vo.getEmail2() %>">
-							<select name="email3" id="email3">
+							<input type="text" name="email_id" id="email1" value="<%= vo.getEmail_id() %>">
+							@ <input type="text" name="email_addr" id="email2" value="<%= vo.getEmail_addr() %>">
+							<select id="email3">
 								<option>선택</option>
-								<option <% if(vo.getEmail2().equals("naver.com")) { %> selected <% } %>>naver.com</option>
-								<option <% if(vo.getEmail2().equals("gmail.com")) { %> selected <% } %>>gmail.com</option>
-								<option <% if(vo.getEmail2().equals("daum.net")) { %> selected <% } %>>daum.net</option>
+								<option <% if(vo.getEmail_addr().equals("naver.com")) { %> selected <% } %>>naver.com</option>
+								<option <% if(vo.getEmail_addr().equals("gmail.com")) { %> selected <% } %>>gmail.com</option>
+								<option <% if(vo.getEmail_addr().equals("daum.net")) { %> selected <% } %>>daum.net</option>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<td>생년월일</td>
-						<td><input type="date" name="birth" id="birth" value="<%= vo.getBirth() %>"></td>
+						<td><input type="date" name="birth" id="birth" disabled="disabled" value="<%= vo.getBirth() %>"></td>
 					</tr>
 					<tr>
 						<td>성별</td>
 						<td>
-							<input type="radio" name="gender" value="M" id="gender">남&nbsp&nbsp&nbsp&nbsp&nbsp
-							<input type="radio" name="gender" value="F" id="gender">여
+							<input type="radio" name="gender" value="M" id="gender" <% if(vo.getGender().equals("M")) { %> checked="checked" <% } %>>남 &nbsp&nbsp&nbsp&nbsp&nbsp
+							<input type="radio" name="gender" value="F" id="gender" <% if(vo.getGender().equals("F")) { %> checked="checked" <% } %>>여
 						</td>
 					</tr>
 					<tr>
@@ -104,16 +102,16 @@
 					<tr>
 						<td>이메일 수신</td>
 						<td>
-							<input type="radio" name="accept_email" value="Y">예&nbsp&nbsp&nbsp&nbsp&nbsp
-							<input type="radio" name="accept_email" value="N">아니오
+							<input type="radio" name="accept_email" value="Y" <% if(vo.getAccept_email().equals("Y")) { %> checked="checked" <% } %>>예 &nbsp&nbsp&nbsp&nbsp&nbsp
+							<input type="radio" name="accept_email" value="N" <% if(vo.getAccept_email().equals("N")) { %> checked="checked" <% } %>>아니오
 						</td>
 					</tr>
 					
 					<tr>
 						<td>SMS 수신</td>
 						<td>
-							<input type="radio" name="accept_sms" value="Y">예&nbsp&nbsp&nbsp&nbsp&nbsp
-							<input type="radio" name="accept_sms" value="N">아니오
+							<input type="radio" name="accept_sms" value="Y" <% if(vo.getAccept_sms().equals("Y")) { %> checked="checked" <% } %>>예 &nbsp&nbsp&nbsp&nbsp&nbsp
+							<input type="radio" name="accept_sms" value="N" <% if(vo.getAccept_sms().equals("N")) { %> checked="checked" <% } %>>아니오
 						</td>
 					</tr>
 					

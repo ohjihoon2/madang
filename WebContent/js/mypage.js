@@ -5,9 +5,14 @@ $(document).ready(function(){
 		if($("input#pw").val()==""){
 			alert("비밀번호를 입력하세요");
 			$("input#pw").focus();
-		} else if($("input#phone1").val()=="" || $("input#phone2").val()=="" ||$("input#phone3").val()=="") {
+		} else if($("input#phone1").val()=="" || $("input#phone2").val()=="" || $("input#phone3").val()=="") {
 			alert("전화번호를 입력하세요");
 			$("input#phone1").focus();
+		} else if($("input#p_comp").val()=="통신사") {
+			alert("통신사를 선택하세요");
+		} else if($("input#email1").val()=="" || $("input#email2").val()=="") {
+			alert("이메일을 입력하세요");
+			$("input#email1").focus();
 		} else {
 			alert("ㅇ");
 			//mypage_mod_form.submit();
