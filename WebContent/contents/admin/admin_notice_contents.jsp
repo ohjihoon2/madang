@@ -41,6 +41,11 @@ div#admin_notice_contents section table{
 	height:500px;
 	border-collapse: collapse;
 }
+
+div#admin_notice_contents section table th{
+	background-color:rgb(195,195,195);
+	height:
+}
 div#admin_notice_contents section table tr:nth-child(4) td{
 	height:450px;
   
