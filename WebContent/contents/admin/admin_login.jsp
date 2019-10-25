@@ -8,10 +8,14 @@
 <style>
 *{
 	border:1px solid blue;
+	margin: 0px;
+	padding:0px
 }
 
 div#admin_login{
+	width:400px;
 	margin:auto;
+	text-align:center;
 }
 div#admin_login > section{
 	display:inline-block;

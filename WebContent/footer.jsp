@@ -112,19 +112,19 @@ footer>div:last-child>div>div>span {
 	<footer>
 		<div>
 			<div>
-				<img src="http://localhost:9090/madang02/images/footer/notice_icon.png" />
+				<img src="http://localhost:9090/images/footer/notice_icon.png" />
 				<div>공지사항 한줄로 띄우기</div>
 			</div>
 		</div>
 		<div>
 			<div>
 				<label>Contact With Us</label> <img
-					src="http://localhost:9090/madang02/images/footer/sns_t.png" /> <img
-					src="http://localhost:9090/madang02/images/footer/sns_n.png" /> <img
-					src="http://localhost:9090/madang02/images/footer/sns_np.png" /> <img
-					src="http://localhost:9090/madang02/images/footer/sns_t.png" /> <img
-					src="http://localhost:9090/madang02/images/footer/sns_tv.png" /> <img
-					src="http://localhost:9090/madang02/images/footer/sns_youtube.png" />
+					src="http://localhost:9090/images/footer/sns_t.png" /> <img
+					src="http://localhost:9090/images/footer/sns_n.png" /> <img
+					src="http://localhost:9090/images/footer/sns_np.png" /> <img
+					src="http://localhost:9090/images/footer/sns_t.png" /> <img
+					src="http://localhost:9090/images/footer/sns_tv.png" /> <img
+					src="http://localhost:9090/images/footer/sns_youtube.png" />
 				<ul>
 					<li><a href="#">사이트맵</a></li>
 					<li><a href="#">이용약관/정책</a></li>

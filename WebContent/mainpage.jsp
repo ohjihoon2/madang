@@ -113,6 +113,8 @@
 			</section>
 		</div>
 	</div> <!-- main_content -->
+	
 </div>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>
