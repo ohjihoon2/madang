@@ -9,6 +9,16 @@ $(document).ready(function(){
 		$('ul', this).stop().slideUp(200);
 		}
 	);
+
+	    $(".main_switch_con").hide();
+	    $(".main_switch_con:first").show();
+	    
+		$('.main_switch').click(function() {
+	        $(".main_switch_con").hide();
+	        var activeTab = $(this).attr("rel");
+	        $("#" + activeTab).fadeIn();
+		});
+
 	
 	//우편번호
 	$('input.addr_find').click(function(){ 
@@ -32,7 +42,7 @@ $(document).ready(function(){
 			  slidesToShow: 1,
 			  slidesToScroll: 1,
 			  autoplay: true,
-			  autoplaySpeed: 1000
+			  autoplaySpeed: 3000
 			});
 		
 	$('.center').slick({

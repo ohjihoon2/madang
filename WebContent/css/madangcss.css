@@ -209,21 +209,21 @@
    div#join0 div:last-child{
    	margin-top:20px;
    	text-align:center;
-   	border:1px solid red;
    	width:930px;
-
-   	
    }
 
     /*이전, 다음 버튼 (joinbtn클래스)*/ 	
-   	div#join0 div:last-child a button{
+   	div#join0 div:last-child  div{
+   		display:inline-block;
    		font-size:20pt;
    		background-color:rgb(5,135,94);
  		width:250px;
- 		height:150px;
+ 		height:100px;
  		color:rgb(255,255,255);
  		border:none;
  		margin:0px 100px 0px 100px;
+ 		vertical-align:middle; 
+ 		padding-top:50px;
    	}
    	
    	

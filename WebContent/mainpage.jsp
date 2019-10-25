@@ -63,10 +63,23 @@
 		<div>
 			<section>
 				<article>
-					<button type="button">티켓오픈</button>
-					<button type="button">이벤트</button>
+					<button type="button" class="main_switch" rel="tab1">티켓오픈</button>
+					<button type="button" rel="tab2">이벤트</button>
 				</article>
-				<article>
+				<!-- 전시,공연 예정된 썸네일. select 랭크,이미지,코드,시작일 from(select 이미지,코드,from 전시,공연 where 시작일 between sysdate and sysdate+30일 oder by 시작일)랭크between 1and3 -->
+				<article class="main_switch_con">
+					<div>
+						<img src="http://localhost:9090/images/mainpage/d-dayopen.gif">
+					</div>
+					<div>
+						<img src="http://localhost:9090/images/mainpage/d-dayopen.gif">
+					</div>
+					<div>
+						<img src="http://localhost:9090/images/mainpage/d-dayopen.gif">
+					</div>
+				
+				<!--이벤트 -->
+				<article class="main_switch_con">
 					<div>
 						<img src="http://localhost:9090/images/mainpage/eventThumb_02.gif">
 						<br>

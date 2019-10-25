@@ -109,9 +109,9 @@
 								<option>016</option>
 							</select>
 							<span> - </span>
-							<input type="text" name="join_general_phon2">
+							<input type="text" name="phon2">
 							<span> - </span>
-							<input type="text" name="join_general_phon3">
+							<input type="text" name="phon3">
 						</td>
 					</tr>
 					<tr>

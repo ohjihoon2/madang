@@ -17,8 +17,8 @@
 	
 	</div>
 	<div>
-		<a href="join_general1.jsp"><button type="button">일 반 개 인 회 원</button></a>
-		<a href="join_group1.jsp"><button type="button">법 인 / 단 체 회 원<br>(학교,기업,기관)</button></a>
+		<a href="join_general1.jsp"><div>일 반 개 인 회 원</div></a>
+		<a href="join_group1.jsp"><div>법 인 / 단 체 회 원 <br>(학교,기업,기관)</div></a>
 	</div>
 </body>
 </html>
