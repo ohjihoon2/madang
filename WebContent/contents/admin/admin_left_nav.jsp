@@ -29,9 +29,6 @@ aside.amdmin_left ul li{
 	height:40px;
 	padding:3px 0px 0px 30px;
 }
-aside.amdmin_left ul li div.dept02{
-	display:none;
-}
 
 </style>
 </head>
@@ -46,16 +43,32 @@ aside.amdmin_left ul li div.dept02{
 	 	<li><a href="#"><span>관리자 페이지</span></a></li>
 	 	<li class="dept01">
 	 		공연관리
-	 		<div class="dept02">
-	 			<a>완료</a>
-	 			<a>예정</a>
-	 		</div>
+	 		<ul class="dept02">
+	 			<li>예정</li>
+	 			<li>완료</li>
+	 		</ul>
 	 	</li>
 	 	
-	 	<li>전시관리</li>
-	 	<li>대관관리</li>
+	 	<li>전시관리
+	 		<ul class="dept02">
+	 			<li>예정</li>
+	 			<li>완료</li>
+	 		</ul>
+	 	</li>
+	 	
+	 	<li>대관관리
+	 		<ul class="dept02">
+	 			<li>공연대관</li>
+	 			<li>전시대관</li>
+	 		</ul>
+	 	</li>	
 	 	<li>회원관리</li>
-	 	<li>고객센터</li>
+	 	<li>고객센터
+		 	<ul class="dept02">
+	 			<li>1:1상담</li>
+	 			<li>예정</li>
+	 		</ul>
+	 	</li>
 	 	<li>게시판 관리</li>
 	 	<li>공지사항</li>
 	 </ul>
