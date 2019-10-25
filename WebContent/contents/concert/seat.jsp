@@ -6,75 +6,82 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
-	.seatTest{
+	.seat_all{
+		border:1px solid blue;
+		display:inline-block;
+	}
+	.seat_section{
 		display:inline-block;
 		padding:10px 30px 0px 30px;
 	}
-	.h_seat{
+	.seat_section>span{
+		display:block;
+		text-align:center;
+	}
+	.seat_num{
 		display:inline-block;
-		
-		border:1px solid red;
-		padding:5px;
+		text-align:center;
+		border-radius:5px;
+		border:1px solid rgb(34,34,34);
+		border-bottom:10px solid rgb(34,34,34);
+		width:20px;
+		height:23px;
+		margin:10px 0px 10px 0px;
+		font-size:5pt;
 	}
 	body {
-	 	 background-image: url("http://localhost:9090/images/concert_main/소극장_seat.gif");
-	 	 background-repeat: repeat-x;
+	 	 /* background-image: url("http://localhost:9090/images/concert_main/소극장_seat.gif");
+	 	 background-repeat: repeat-x; */
 	}
 </style>
 </head>
 
-<%
-int num =1;
-int z =0;
-%>
 <body>
-	<%-- <div class="seatTest">
-		<%for(int i=1;i<7;i++){ %>
-		<a href=#><span class="h_seat" id="h<%=i%>"><%=i%></span></a>
-			<%for(int j=0;j<5;j++){ %>
-				<a href=#><span class="h_seat" id="h<%=j%>"></span></a>
-			<%} %>
-				<br>
-		<%} %>
-	</div>
-	<div class="seatTest">
-		<%for(int i=0; i<6;i++) { %>
-		<a href=#><span class="h_seat" id="h<%=i%>"></span></a>
-			<%for(int j=0;j<9;j++){ %>
-			<a href=#><span class="h_seat" id="h<%=j%>"></span></a>
-			<%} %>
-				<br>
-		<%} %>
-	</div>
-	<div class="seatTest">
-		<%for(int i=0;i<6;i++){ %>
-		<a href=#><span class="h_seat" id="h<%=i%>"></span></a>
-			<%for(int j=0;j<5;j++){ %>
-				<a href=#><span class="h_seat" id="h<%=j%>"></span></a>
-			<%} %>
-				<br>
-		<%} %>
-	</div> --%>
-	
-	<div class="seatTest">
-		<%while(z<6) {
-				for(int i=1; i<7;i++) { %>
-		<a href=#><span class="h_seat" id="h<%=num%>"><%=num %></span></a>
-		<%num++;
+	<div class="seat_all">	
+		<
+		<div class="seat_section">
+			<span>A</span>
+			<%
+				int num =1;
+				int z =0;
+				while(z<6) {
+					for(int i=1; i<7;i++) { %>
+			<a href=#><span class="seat_num" id="h<%=num%>"><%=num %></span></a>
+			<%num++;
+					} %>
+					<br>
+		<%	z++;
 				} %>
-				<br>
-	<%	z++;
-			} %>
+		</div>
+		<div class="seat_section">
+			<span>B</span>
+			<%
+				num =1;
+				z =0;
+				while(z<6) {
+					for(int i=1; i<10;i++) { %>
+			<a href=#><span class="seat_num" id="h<%=num%>"><%=num %></span></a>
+			<%num++;
+					} %>
+					<br>
+		<%	z++;
+				} %>
+		</div>
+		
+		<div class="seat_section">
+			<span>C</span>
+			<%
+				num =1;
+				z =0;
+				while(z<6) {
+					for(int i=1; i<7;i++) { %>
+			<a href=#><span class="seat_num" id="h<%=num%>"><%=num %></span></a>
+			<%num++;
+					} %>
+					<br>
+		<%	z++;
+				} %>
+		</div>
 	</div>
-	
-		<!-- while(z<6) {
-			for(int i=1; i<7;i++) {
-				System.out.print(num);
-				num++;
-			}
-			System.out.println();
-			j++;
-		} -->
-	
 </body>
 </html>

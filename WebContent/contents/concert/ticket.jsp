@@ -169,6 +169,33 @@
 		/* background:rgb(255, 127, 39); */
 		background:rgb(237, 28, 36);
 	}
+	/***************** step2 *****************/	
+	.concert_seats{
+		margin-left:15px;
+	}
+	.seat_all{
+		padding-left:15px;
+		display:inline-block;
+	}
+	.seat_section{
+		display:inline-block;
+		padding:50px 20px 0px 25px;
+	}
+	.seat_section>span{
+		display:block;
+		text-align:center;
+	}
+	.seat_num{
+		display:inline-block;
+		text-align:center;
+		border-radius:5px;
+		border:1px solid rgb(34,34,34);
+		border-bottom:10px solid rgb(34,34,34);
+		width:15px;
+		height:18px;
+		margin:5px 0px 5px 0px;
+		font-size:5pt;
+	}
 	
 	/***************** step3 *****************/
 	
@@ -186,14 +213,14 @@
 	
 		background:rgb(230, 230, 230);
 	}
-	td{
+	table.Tb_price_Wp td{
 		border-left: 1px solid rgb(155, 155, 155);
 	}
-	td:nth-child(2){
+	table.Tb_price_Wp td:nth-child(2){
 		text-align:left;
 		padding-left:10px;
 	}
-	td:nth-child(3) {
+	table.Tb_price_Wp td:nth-child(3) {
 		text-align:right;
 		padding-right:10px;
 	}
@@ -202,7 +229,7 @@
 	/***************** step4 *****************/
 	.recive_method{
 		width:200px;
-		height:600px;
+		height:500px;
 		float:left;
 	}
 	.recive_method>div{
@@ -218,18 +245,62 @@
 	
 	.check_user{
 		width:350px;
-		height:600px;
+		height:500px;
 		float:right;
 	}
 	
 	.check_user>table{
 		font-size:10pt;
 	}
-	
-	th{
-		width:100px;
+	.check_user>div{
+		border-bottom:2px solid black;
+	}
+	table.user_checkT th{
+		width:70px;
+	}
+	.exp{
+		font-size:9pt;
+	}
+	/***************** step5 *****************/	
+	.payment_L{
+		width:250px;
+		height:200px;
+		float:left;
+	}
+	.payment_L>div{
+		border-bottom:2px solid black;
 	}
 	
+	table.paymentT td{
+		padding:10px;
+		width:250px;
+	}
+	
+	.payment_inputT{
+		
+	}
+	
+	#Payment_1 td{
+		background:rgb(220,220,220);
+	}
+	.payment_R{
+		width:300px;
+		height:200px;
+		float:right;
+	}
+	
+	.pay_input{
+		border-bottom:2px solid black;
+	}
+	
+	#agreement_box{
+		border:2px solid rgb(220,220,220);
+		overflow: hidden;
+	}
+	
+	.agreement{
+		font-size:8pt;
+	}
 </style>
 <script>
 	$(document).ready(function(){
@@ -328,7 +399,52 @@
 		<!-- #################################################### -->
 		<div class="ticketing_left" id="step2">
 			<div class="concert_seats">
-				<img src="http://localhost:9090/images/concert_main/small1_seat.gif">
+				<img src="http://localhost:9090/images/concert_main/stage.png">
+			</div>
+			<div class="seat_all">
+				<div class="seat_section">
+					<span>A</span>
+					<%
+						int num =1;
+						int z =0;
+						while(z<6) {
+							for(int i=1; i<7;i++) { %>
+					<a href=#><span class="seat_num" id="h<%=num%>"><%=num %></span></a>
+					<%num++;
+							} %>
+							<br>
+				<%	z++;
+						} %>
+				</div>
+				<div class="seat_section">
+					<span>B</span>
+					<%
+						num =1;
+						z =0;
+						while(z<6) {
+							for(int i=1; i<10;i++) { %>
+					<a href=#><span class="seat_num" id="h<%=num%>"><%=num %></span></a>
+					<%num++;
+							} %>
+							<br>
+				<%	z++;
+						} %>
+				</div>
+				
+				<div class="seat_section">
+					<span>C</span>
+					<%
+						num =1;
+						z =0;
+						while(z<6) {
+							for(int i=1; i<7;i++) { %>
+					<a href=#><span class="seat_num" id="h<%=num%>"><%=num %></span></a>
+					<%num++;
+							} %>
+							<br>
+				<%	z++;
+						} %>
+				</div>
 			</div>
 		</div>
 		
@@ -385,8 +501,8 @@
 				<input type="radio" name="ticket_recive" value="문자" class="ticket_recive"><span>문자</span>
 			</div>	
 			<div class="check_user">
-				<span>예매자 확인</span>
-				<table>
+				<div>예매자 확인</div>
+				<table class=user_checkT>
 					 <tr>
 	                    <th>이름</th>
 	                    <td>
@@ -399,15 +515,15 @@
 	                    	<input type="text" value="920111" maxlength="6" readonly="">  <span style="font-size:11px;">예) 850101 (YYMMDD)</span>                    
                     	</td>
 	                </tr>
-                    <tr>
+                    <tr class="exp">
                         <td colspan="2">현장수령 및 고객문의시 본인확인을 위해 정확한 정보를 입력해주세요.</td>
                     </tr>
                     <tr>
                         <th>전화번호</th>
                         <td>
-	                        <input type="text" id="PhoneNo1" value="010">&nbsp;-&nbsp;
-	                        <input type="text" id="PhoneNo2" value="4229" >&nbsp;-&nbsp;
-	                        <input type="text" id="PhoneNo3" value="5793">
+	                        <input type="text" id="PhoneNo1" value="010" style="width:36px;" class="txt1" maxlength="3">
+	                       	- <input type="text" id="PhoneNo2" value="4229" style="width:41px;" class="txt1" maxlength="4">
+	                        - <input type="text" id="PhoneNo3" value="5793" style="width:41px;" class="txt1" maxlength="4">
                         </td>
                     </tr>
                     <tr>
@@ -434,41 +550,44 @@
 		<!-- #################################################### -->
 		<div class="ticketing_left" id="step5">
 			<div class="payment_L">
-				<span>결제방식선택</span>
-	            <table>
-	                <tbody>
-	                    <tr id="Payment_1" class="selected">
-							<td><input type="radio" class="chk" name="Payment" value="1">
-								<label for="">신용카드</label></td>
-	                        <!-- 선택되었을때 -->
-	                    </tr>
-	                    <tr id="Payment_2" class="">
-							<td><input type="radio" class="chk" name="Payment" value="2">
-								<label for="">무통장입금</label></td>
-	                    </tr>
-	                    <tr id="Payment_3" class="">
-							<td><input type="radio" class="chk" name="Payment" value="3">
-								<label for="">휴대폰결제</label></td>
-	                    </tr>
-	                    <tr id="Payment_4" style="display: block;" class="">
-							<td><input type="radio" class="chk" name="Payment" value="4">
-								<label for="">SAC포인트</label></td>
-	                    </tr>
+				<div>결제방식선택</div>
+	            <table class="paymentT">
+                    <tr id="Payment_1">
+						<td><input type="radio"  name="Payment" value="1" checked="checked">
+							<label>신용카드</label></td>
+                    </tr>
+                    <tr id="Payment_2" class="">
+						<td><input type="radio"  name="Payment" value="2">
+							<label>무통장입금</label></td>
+                    </tr>
+                    <tr id="Payment_3" class="">
+						<td><input type="radio" class="chk" name="Payment" value="3">
+							<label>휴대폰결제</label></td>
+                    </tr>
 	            </table>
        		</div>
        		<div class="payment_R">
-            <span>결제수단 입력</span>
-            
+            <div class="pay_input">결제수단 입력</div>
             <!-- //신용카드 -->
             <div class="input" style="display: block;" id="PaymentArea_22003">
-                <p class="stit">신용카드정보</p>
-                <ul>
-                    <div>
-                    	<input type="radio" class="chk" name="PaymentSelect" id="PaymentSelect" value="C1" >       
-                    	<label for="">일반신용카드</label>       
-                    	<select id="DiscountCard" onchange="fnCardSelect(this.value);"><option value="">카드종류를 선택하세요.</option><option value="62">KB국민카드</option><option value="67">BC카드</option><option value="65">삼성카드</option><option value="26006">현대카드</option><option value="26010">신한카드</option><option value="26008">롯데카드</option><option value="26011">하나카드</option><option value="63">외환카드</option><option value="26013">NH카드</option><option value="64">우리카드</option><option value="53">씨티카드</option><option value="73">수협카드</option><option value="37">전북카드</option><option value="34">광주카드</option><option value="35">제주카드</option><option value="26016">문화누리카드</option></select> <div id="divCardDetail01"></div>
-                   	</div>
-                </ul>
+                
+                <div>
+                	<table class="payment_inputT">
+	                	<tr>
+	                		<td>신용카드정보</td>
+	                	</tr>
+	                	<tr>
+	                		<td>
+			                 	<input type="radio" checked="checked" name="PaymentSelect" id="PaymentSelect" value="C1" >       
+			                 	<label for="">일반신용카드</label>       
+			                 	<select id="DiscountCard" onchange="fnCardSelect(this.value);"><option value="">카드종류를 선택하세요.</option><option value="62">KB국민카드</option><option value="67">BC카드</option><option value="65">삼성카드</option><option value="26006">현대카드</option><option value="26010">신한카드</option><option value="26008">롯데카드</option><option value="26011">하나카드</option><option value="63">외환카드</option><option value="26013">NH카드</option><option value="64">우리카드</option><option value="53">씨티카드</option><option value="73">수협카드</option><option value="37">전북카드</option><option value="34">광주카드</option><option value="35">제주카드</option><option value="26016">문화누리카드</option></select> <div id="divCardDetail01"></div>
+	                		</td>
+	                	</tr>
+	                	<tr>
+	                		<td>결제금액 : 150,000원</td>
+	                	</tr>
+                 	</table>
+               	</div>
             </div>
 
             <!-- //무통장입금   -->
@@ -491,73 +610,122 @@
                 </dl>
             </div>
         </div>
-    </div>
-       		
-		</div>
-		<div class="ticketing_right">
-			<div class="ticketing_info">
-				<div class="ticketing_info_choice">
-					<div class="ticketing_info_choice_img">
-						<img src="http://localhost:9090/images/ticketing/ticketing_small_img.gif">
-					</div>
-					<div class="ticketing_info_choice_text">
-						<span>창작가무극[다윈영의 악의 기원]</span>
-						<div id="text_space">		
-							<ul>
-	                            <li>2019.10.15 ~ 2019.10.27</li>
-	                            <li><span title="예술의전당 CJ 토월극장">예술의전당 CJ 토...</span></li>
-	                            <li>14세 이상 관람가</li>
-	                            <li>관람시간 : 155분</li>
-	                        </ul>
-						</div>
+        <div id="agreement" class="agreement">
+				<h3><img src="//ticketimage.interpark.com/TicketImage/onestop/txt_agree.gif" alt="개인정보 제3자 정보제공"></h3>
+				<div class="btn_top">
+					<a href="#agreement" class="btn_close2" id="btn_a_close2" onclick="layerClose()" style="display: none;"><img src="//ticketimage.interpark.com/TicketImage/onestop/btn_close1.gif" alt="상세닫기"></a>
+					<a href="#agreement" class="btn_open" id="btn_a_open" onclick="layerOpen()" style="display: block;"><img src="//ticketimage.interpark.com/TicketImage/onestop/btn_open.gif" alt="상세보기"></a>				
+				</div>
+				<div id="agreement_box" class="box" style="height: 55px;">
+					<br>
+					예술의전당 입장권 판매 대행사인 (주)인터파크가 제공하는 서비스를 통하여 이용자간 거래관계가 이루어진 경우 고객응대 및 공연정보 안내 등을 위하여 관련한 정보는 필요한 범위내에서 거래 당사자에게 아래와 같이 제공됩니다.<br>
+					<br>
+					1. 개인정보 제공 동의<br>
+					인터파크는 정보통신망 이용촉진 및 정보보호 등에 관한 법률에 따라 이용자의 개인정보에 있어<br>아래와 같이 알리고 동의를 받아 상품의 기획사 및 인터파크 고객센터에 제공합니다.<br>
+					<br>
+					2. 개인정보 제공받는자 <br>
+					<span class="text_emphasis">인터파크 고객센터, (재) 국립오페라단</span><br>
+					<br>
+					3. 개인정보 이용 목적<br>
+					<span class="text_emphasis">인터파크 고객센터 : 예매내역 확인 및 고객응대<br>
+					기획사 : 티켓 현장발권, 캐스팅 변경, 공연취소 등에 대한 고객 안내, 티켓 정당 예매 확인 및 관련 업무 수행<br>
+				</span>
+					<br>
+					4. 개인정보 제공 항목<br>
+					<span class="text_emphasis">성명,아이디,전화번호,휴대폰번호,이메일주소,주문/배송 정보</span><br>
+					<br>
+					5. 개인정보 보유 및 이용 기간<br>
+					<span class="text_emphasis">개인정보 이용목적 달성 시까지(단, 관계 법령의 규정에 의해 보존의 필요가 있는 경우 및 사전 동의를 득한 경우 해당 보유기간까지</span>
+					<br><br>
+				</div>
+				<a href="#agreement" class="btn_close" id="btn_a_close" onclick="layerClose()" style="display: none;"><img src="//ticketimage.interpark.com/TicketImage/onestop/btn_close1.gif" alt="상세닫기"></a>
+				<script>					
+					function layerOpen(){
+						document.getElementById('agreement_box').style.height = 'auto';
+						document.getElementById('btn_a_close').style.display = 'block';
+						document.getElementById('btn_a_close2').style.display = 'block';
+						document.getElementById('btn_a_open').style.display = 'none';
+					}
+					function layerClose(){
+						document.getElementById('agreement_box').style.height = '55px';
+						document.getElementById('btn_a_close').style.display = 'none';
+						document.getElementById('btn_a_close2').style.display = 'none';
+						document.getElementById('btn_a_open').style.display = 'block';
+					}
+				</script>
+			</div>
+			<p class="check">
+				<input id="CancelAgree"  type="checkbox">
+				<label for="CancelAgree" class="check2">제3자 정보제공 내용에 동의합니다.</label>				
+			</p>
+    	</div>
+	</div>
+	<div class="ticketing_right">
+		<div class="ticketing_info">
+			<div class="ticketing_info_choice">
+				<div class="ticketing_info_choice_img">
+					<img src="http://localhost:9090/images/ticketing/ticketing_small_img.gif">
+				</div>
+				<div class="ticketing_info_choice_text">
+					<span>창작가무극[다윈영의 악의 기원]</span>
+					<div id="text_space">		
+						<ul>
+                            <li>2019.10.15 ~ 2019.10.27</li>
+                            <li><span title="예술의전당 CJ 토월극장">예술의전당 CJ 토...</span></li>
+                            <li>14세 이상 관람가</li>
+                            <li>관람시간 : 155분</li>
+                        </ul>
 					</div>
 				</div>
-				<div class="ticketing_info_my_ticket">
-					<span>My 예매정보</span>
-					<table>
-						<tr>
-							<th scope="row">일시</th>
-							<td>
-									2019.09.21(토) ~ 2019.10.13(일)
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">선택좌석</th>
-							<td>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">티켓금액</th>
-							<td></td>
-						</tr>
-						<tr>
-							<th scope="row">수수료</th>
-							<td></td>
-						</tr>
-						<tr>
-							<th scope="row">배송료</th>
-							<td></td>
-						</tr>
-						<tr>
-							<th scope="row">할인</th>
-							<td></td>
-						</tr>
-						<tr>
-							<th scope="row">취소기한</th>
-							<td>2019년 10월 25일(금) 23:59</td>
-						</tr>
-						
-						<tr>
-							<th scope="row">취소수수료</th>
-							<td>티켓금액의 0~10% </td>
-						</tr>
-						<tr>
-							<th scope="row">총 결제 금액</th>
-							<td>0원</td>
-						</tr>
-					</table>
-					<button type="button">다음단계</button>
-				</div>
+			</div>
+			<div class="ticketing_info_my_ticket">
+				<span>My 예매정보</span>
+				<table>
+					<tr>
+						<th scope="row">일시</th>
+						<td>
+								2019.09.21(토) ~ 2019.10.13(일)
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">선택좌석</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">티켓금액</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row">수수료</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row">배송료</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row">할인</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row">취소기한</th>
+						<td>2019년 10월 25일(금) 23:59</td>
+					</tr>
+					
+					<tr>
+						<th scope="row">취소수수료</th>
+						<td>티켓금액의 0~10% </td>
+					</tr>
+					<tr>
+						<th scope="row">총 결제 금액</th>
+						<td>0원</td>
+					</tr>
+				</table>
+				<script>
+				</script>
+				<button type="button" class="btn_next">다음단계</button>
+				<button type="button" class="btn_back">이전단계</button>
 			</div>
 		</div>
 	</div>
