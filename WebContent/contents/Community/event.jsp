@@ -191,13 +191,13 @@ div#demo{
 				  <!-- The slideshow -->
 				  <div class="carousel-inner">
 				    <div class="carousel-item active">
-				      <img src="http://localhost:9090/MyJSP/sns_icon/event1.gif" alt="Los Angeles" width="700" height="250">
+				      <img src="http://localhost:9090/images/comm_usher_img/event1.gif" alt="Los Angeles" width="700" height="250">
 				    </div>
 				    <div class="carousel-item">
-				      <img src="http://localhost:9090/MyJSP/sns_icon/event2.gif" alt="Chicago" width="700" height="250">
+				      <img src="http://localhost:9090/images/comm_usher_img/event2.gif" alt="Chicago" width="700" height="250">
 				    </div>
 				    <div class="carousel-item">
-				      <img src="http://localhost:9090/MyJSP/sns_icon/event3.gif" alt="New York" width="700" height="250">
+				      <img src="http://localhost:9090/images/comm_usher_img/event3.gif" alt="New York" width="700" height="250">
 				    </div>
 				  </div>
 				  
@@ -216,7 +216,7 @@ div#demo{
 		<h2><span style="color:rgb(5,135,94)">●</span>현재 진행중인 이벤트</h2>
 		<div class="evnet">
 			<div id="event">
-				<a href="eventing1.jsp"><img src="http://localhost:9090/MyJSP/sns_icon/event1.gif"/></a>
+				<a href="eventing1.jsp"><img src="http://localhost:9090/images/comm_usher_img/event1.gif"/></a>
 				<p id="event_title">이영우 피아노 독주회 기대평 이벤트</p>
 				<p id="event_term">이벤트 기간 | 2019.10.14(월) ~ 2019.10.27(일)</p>
 			</div>

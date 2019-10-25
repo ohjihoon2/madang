@@ -140,7 +140,7 @@
 <jsp:include page="../../header.jsp" />
 	<div id="left_nav">
 		<ul>
-			<li><a style="color: rgb(5, 135, 94)" href="review.jsp">커뮤니티</a></li>
+			<li><a style="color: rgb(5, 135, 94)" href="review_byDate.jsp">커뮤니티</a></li>
 			<li><a href="review_byDate.jsp">관람후기</a></li>
 			<li><a href="event.jsp">이벤트</a></li>
 			<li><a style="color: rgb(5, 135, 94)" href="notice_list.jsp">공지사항</a></li>

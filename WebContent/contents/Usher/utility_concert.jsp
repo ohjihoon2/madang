@@ -147,18 +147,18 @@ section {
 		<div id="utility_list2">*이용문의 02-580-1300 (09:00~20:00)</div>
 		<div>
 			<section> <article class="utility_ariticle"> <img
-				src="http://localhost:9090/MyJSP/sns_icon/madang_logo.png"> <label>오페라글라스</label>
+				src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> <label>오페라글라스</label>
 			</article> <article class="utility_ariticle"> <img
-				src="http://localhost:9090/MyJSP/sns_icon/madang_logo.png"> <label>물품보관소</label>
+				src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> <label>물품보관소</label>
 			</article> <article class="utility_ariticle"> <img
-				src="http://localhost:9090/MyJSP/sns_icon/madang_logo.png"> <label>키즈라운지</label>
+				src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> <label>키즈라운지</label>
 			</article> </section>
 			<section> <article class="utility_ariticle"> <img
-				src="http://localhost:9090/MyJSP/sns_icon/madang_logo.png"> <label>수유실</label>
+				src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> <label>수유실</label>
 			</article> <article class="utility_ariticle"> <img
-				src="http://localhost:9090/MyJSP/sns_icon/madang_logo.png"> <label>주차요금
+				src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> <label>주차요금
 				사전정산기</label> </article> <article class="utility_ariticle"> <img
-				src="http://localhost:9090/MyJSP/sns_icon/madang_logo.png"> <label>은행ATM</label>
+				src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> <label>은행ATM</label>
 			</article> </section>
 		</div>
 </div>		

@@ -143,20 +143,20 @@ section {
 		<div id="utility_list2">*이용문의 02-580-1300 (09:00~20:00)</div>
 		<div>
 			<section> <article class="utility_ariticle"> <img
-				src="http://localhost:9090/MyJSP/sns_icon/madang_logo.png"> <p>오디오
+				src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> <p>오디오
 				가이드</p> <p>신분증 제시 + 소정의 대여료</p>
 			<p>각 전시장 입구 대여소</p> </article> <article class="utility_ariticle">
-			<img src="http://localhost:9090/MyJSP/sns_icon/madang_logo.png">
+			<img src="http://localhost:9090/images/comm_usher_img/madang_logo.png">
 			<p>사물함</p> <p>비타민스테이션, 피카소관 1층,</p>
 			<p>다빈치관 2층, 09:00 ~ 20:00 (동절기 19:00)</p> </article> <article
 				class="utility_ariticle"> <img
-				src="http://localhost:9090/MyJSP/sns_icon/madang_logo.png"> <p>휠체어/유모차
+				src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> <p>휠체어/유모차
 				대여</p> </article> </section>
 
 			<section> <article class="utility_ariticle"> <img
-				src="http://localhost:9090/MyJSP/sns_icon/madang_logo.png"> <p>수유실</p>
+				src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> <p>수유실</p>
 			</article> <article class="utility_ariticle"> <img
-				src="http://localhost:9090/MyJSP/sns_icon/madang_logo.png"> <p>주차사전정산</p>
+				src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> <p>주차사전정산</p>
 		</div>
 	</div>
 </body>

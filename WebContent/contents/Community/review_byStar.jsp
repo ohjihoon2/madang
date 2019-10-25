@@ -224,8 +224,8 @@ $(document).ready(function(){
 		<div id="review_content">
 			<div id="sub_title">
 				관람후기
-				<a href="http://localhost:9090/MyJSP/contents/Community/review_byDate.jsp"><button type="button" id="btnByDate" style="background:white;color:black">최신날짜순</button></a>
-				<a href="http://localhost:9090/MyJSP/contents/Community/review_byStar.jsp"><button type="button" id="btnByStar" style="background:rgb(5, 135, 94);color:white">평점높은순</button></a>
+				<a href="http://localhost:9090/contents/Community/review_byDate.jsp"><button type="button" id="btnByDate" style="background:white;color:black">최신날짜순</button></a>
+				<a href="http://localhost:9090/contents/Community/review_byStar.jsp"><button type="button" id="btnByStar" style="background:rgb(5, 135, 94);color:white">평점높은순</button></a>
 			</div>
 			<div class="table_div">
 			<%for(int i = 1; i < 8; i++){ %>
@@ -233,7 +233,7 @@ $(document).ready(function(){
 					<tr>
 						<th>yyyy-mm-dd</th>
 						<td rowspan=3><img class="poster"
-							src="http://localhost:9090/MyJSP/sns_icon/1945poster.jpg" /></td>
+							src="http://localhost:9090/images/comm_usher_img/1945poster.jpg" /></td>
 						<td id="title">title<span id="hits">조회수</span></td>
 					</tr>
 					<tr>
@@ -254,7 +254,7 @@ $(document).ready(function(){
 	
 			<div id="btnMore_div">
 				<button type="button" id="btnMore">
-					<img src="http://localhost:9090/MyJSP/sns_icon/plus_more.png" />더보기
+					<img src="http://localhost:9090/images/comm_usher_img/plus_more.png" />더보기
 				</button>
 			</div>
 			

@@ -185,7 +185,7 @@ div#faq_search img { /* 검색 이미지 */
 				}
 			%>
 			<div id="btnMore_div">			
-				<button type="button" id="btnMore"><img src="http://localhost:9090/MyJSP/sns_icon/plus_more.png"/>더보기</button>			
+				<button type="button" id="btnMore"><img src="http://localhost:9090/images/comm_usher_img/plus_more.png"/>더보기</button>			
 			</div>
 			
 			<div id="faq_search">

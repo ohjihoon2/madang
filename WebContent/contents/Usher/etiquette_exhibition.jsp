@@ -138,11 +138,11 @@ div.img_div>img {
 		<div id="inExhibition">전시장매너</div>
 		<div class="img_div">
 			<img class="etiquette_img"
-				src="http://localhost:9090/MyJSP/sns_icon/etiquette_exhibition.PNG" />
+				src="http://localhost:9090/images/comm_usher_img/etiquette_exhibition.PNG" />
 		</div>
 		<div class="img_div">
 			<img class="etiquette_img"
-				src="http://localhost:9090/MyJSP/sns_icon/etiquette_bottom.PNG" />
+				src="http://localhost:9090/images/comm_usher_img/etiquette_bottom.PNG" />
 		</div>
 
 	</div>

@@ -109,26 +109,26 @@ div.img_div>img {
 		<div id="sub_title">공연장 오기 전</div>
 		<div class="img_div">
 			<img class="etiquette_img"
-				src="http://localhost:9090/MyJSP/sns_icon/etiquette_before_consert.PNG" />
+				src="http://localhost:9090/images/comm_usher_img/etiquette_before_consert.PNG" />
 		</div>
 
 
 		<div id="sub_title">공연장에서</div>
 		<div class="img_div">
 			<img class="etiquette_img"
-				src="http://localhost:9090/MyJSP/sns_icon/etiquette_in_consert.PNG" />
+				src="http://localhost:9090/images/comm_usher_img/etiquette_in_consert.PNG" />
 		</div>
 
 
 		<div id="sub_title">박수매너</div>
 		<div class="img_div">
 			<img class="etiquette_img"
-				src="http://localhost:9090/MyJSP/sns_icon/etiquette_applauds.PNG" />
+				src="http://localhost:9090/images/comm_usher_img/etiquette_applauds.PNG" />
 		</div>
 
 		<div class="img_div">
 			<img class="etiquette_img"
-				src="http://localhost:9090/MyJSP/sns_icon/etiquette_bottom.PNG" />
+				src="http://localhost:9090/images/comm_usher_img/etiquette_bottom.PNG" />
 		</div>
 	</div>
 </body>

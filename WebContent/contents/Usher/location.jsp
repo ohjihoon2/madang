@@ -185,7 +185,7 @@ iframe {
 		<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3165.3748167059625!2d127.0312321744784!3d37.49907704085682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z7ZWc64-F67mM65Sp!5e0!3m2!1sko!2skr!4v1571614812695!5m2!1sko!2skr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 		</div>
 		<div class="img_div">
-			<img src="http://localhost:9090/MyJSP/sns_icon/etiquette_bottom.PNG" />
+			<img src="http://localhost:9090/images/comm_usher_img/etiquette_bottom.PNG" />
 		</div>
 	</div>
 </body>

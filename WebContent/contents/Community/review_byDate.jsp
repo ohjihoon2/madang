@@ -234,7 +234,7 @@ $(document).ready(function(){
 					<tr>
 						<th>yyyy-mm-dd</th>
 						<td rowspan=3><img class="poster"
-							src="http://localhost:9090/MyJSP/sns_icon/1945poster.jpg" /></td>
+							src="http://localhost:9090/images/comm_usher_img/1945poster.jpg" /></td>
 						<td id="title">title<span id="hits">조회수</span></td>
 					</tr>
 					<tr>
@@ -255,7 +255,7 @@ $(document).ready(function(){
 	
 			<div id="btnMore_div">
 				<button type="button" id="btnMore">
-					<img src="http://localhost:9090/MyJSP/sns_icon/plus_more.png" />더보기
+					<img src="http://localhost:9090/images/comm_usher_img/plus_more.png" />더보기
 				</button>
 			</div>
 			

@@ -86,7 +86,7 @@ div.img_div {
 	width: 1000px;
 	height: 950px;
 	margin: auto;
-	background-image:url("http://localhost:9090/MyJSP/sns_icon/facility_map.PNG");
+	background-image:url("http://localhost:9090/images/comm_usher_img/facility_map.PNG");
 	background-repeat:no-repeat;
 }
 
@@ -159,19 +159,19 @@ section {
 		<div class="facility_map">시설안내</div>
 		<section> 
 			<a href=""><article class="facility_img"> 
-				<img src="http://localhost:9090/MyJSP/sns_icon/madang_logo.png">
+				<img src="http://localhost:9090/images/comm_usher_img/madang_logo.png">
 				<label>베트벤홀</label></article></a>
 			<a href=""><article class="facility_img">
-				<img src="http://localhost:9090/MyJSP/sns_icon/madang_logo.png"> 
+				<img src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> 
 				<label>모차르트홀</label></article></a>
 			<a href=""><article class="facility_img"> 
-				<img src="http://localhost:9090/MyJSP/sns_icon/madang_logo.png"> 
+				<img src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> 
 				<label>피카소관</label></article></a>
 			<a href=""><article class="facility_img"> 
-				<img src="http://localhost:9090/MyJSP/sns_icon/madang_logo.png"> 
+				<img src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> 
 				<label>다빈치관</label></article></a> 
 			<a href=""><article class="facility_img"> 
-				<img src="http://localhost:9090/MyJSP/sns_icon/madang_logo.png"> 
+				<img src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> 
 				<label>오지훈관</label></article></a> 
 		</section>
 
