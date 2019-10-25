@@ -11,8 +11,6 @@
 		padding:0px;
 		margin:0px;
 	}
-	
-	
 	body{
 		margin:auto;
 		/* text-align:center; */
@@ -20,19 +18,18 @@
 	
 	/** 타이틀 & 공연날짜 **/
 	div#main_title{
-		width:500px;
+		width:900px;
 		border-bottom:3px solid rgb(5,135,94);
 		border-left:15px solid rgb(5,135,94);
 		display:inline-block;
-		margin:100px 0px 0px 0px;
+		margin:100px 0px 0px 70px;
 		font-size:30pt;
 		font-weight:bold;
-		font-family:"궁서체";
 		text-align:left;
 	}
 	div#date_info{
 		display:inline-block;
-		margin:30px 0px 50px 20px;
+		margin:30px 0px 50px 70px;
 		
 	}
 	
