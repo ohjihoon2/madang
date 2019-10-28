@@ -4,15 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 
+<!-- jQuery UI CSS파일 --> 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
 <!-- jQuery 기본 js파일 -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <!-- jQuery UI 라이브러리 js파일 -->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
- <!-- jQuery UI CSS파일 --> 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <title>예술의 마당 Ticketing Page</title>
 <style>
@@ -74,18 +74,20 @@
 		height:250px;	
 		float:right;
 	}
-	.time_table>a{
+	
+	.time_table>span{
+		display:block;
+		border-bottom:2px solid black;
+	}
+	.time_table>div{
 		text-decoration:none;	
 		background:rgb(255, 127, 39);
 		/* background:rgb(237, 28, 36); */
 		color:white;
-		display:block;
-		margin-top:5px;
+		margin-top:10px;
+		margin-bottom:10px;
 		text-align:center;
 		padding:5px 20px 5px 20px;
-	}
-	.time_table>div{
-		border-bottom:2px solid black;
 	}
 	.ticketing_notice{
 		display:inline-block;
@@ -159,11 +161,22 @@
 		background: white;
 	}
 	
-	.ticketing_info_my_ticket>button{
+	.btn_next1 , .btn_payment{
 		margin-top:10px;
 		display:block;
 		border:1px solid rgb(255, 127, 39);
 		width:300px;
+		height:50px;
+		text-align:center;
+		/* background:rgb(255, 127, 39); */
+		background:rgb(237, 28, 36);
+	}
+	
+	.btn_next2, .btn_back{
+		margin:10px 4px 0px 4px;
+		display:inline-block;
+		border:1px solid rgb(255, 127, 39);
+		width:140px;
 		height:50px;
 		text-align:center;
 		/* background:rgb(255, 127, 39); */
@@ -301,6 +314,7 @@
 	.agreement{
 		font-size:8pt;
 	}
+	
 </style>
 <script>
 	$(document).ready(function(){
@@ -309,6 +323,9 @@
 		$("div#step3").css("display","none");
 		$("div#step4").css("display","none");
 		$("div#step5").css("display","none");
+	 	$(".btn_back").hide();
+		$(".btn_next2").hide();
+		$(".btn_payment").hide();
 		
 		$(".step").click(function(){
 			var step = $(this).attr("id");
@@ -322,9 +339,6 @@
 				
 			}else if(step == 'step2'){
 				$("div#step1").css("display","none");
-				/* var src = $("div#step1").attr("src");
-				alert(src); */
-				/* "http://localhost:9090/images/ticketing/05_step_01_off.gif"); */
 				$("div#step2").css("display","block");
 				$("div#step3").css("display","none");
 				$("div#step4").css("display","none");
@@ -349,7 +363,121 @@
 				$("div#step5").css("display","block");
 			} 
 		});
-	});
+	
+		/**
+		*클릭시 이미지 변경 
+		*/
+	    $(".step").click(function () {
+	    	var func = $(this).attr('id'); 
+	    	
+	    	/* var src = $("#"+func).attr("src"); */
+	    	/*
+	    	for(i=2;i<6;i++){
+	    		$("#step"+i).attr("src", "http://localhost:9090/images/ticketing/05_step_0"+i+"_on.gif");	
+	    		i =6;
+	    		
+	    	}
+	    	*/
+	    	
+	    	if(func == "step1"){
+    			$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_on.gif");	
+    			$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
+    			$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
+    			$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
+    			$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_off.gif");
+    			$(".btn_next1").show();
+    			$(".btn_back").hide();
+    			$(".btn_next2").hide();
+    			$(".btn_payment").hide();
+    			
+    			
+	    	}else if(func =="step2"){
+	    		$("#step1").attr("src", "http://l	ocalhost:9090/images/ticketing/05_step_01_off.gif");	
+    			$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_on.gif");	
+    			$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
+    			$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
+    			$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_off.gif");	
+    			$(".btn_next1").hide();
+    			$(".btn_back").show();
+    			$(".btn_next2").show();
+    			$(".btn_payment").hide();
+    			
+	    	}else if(func =="step3"){
+	    		$("#step1").attr("src", "http://l	ocalhost:9090/images/ticketing/05_step_01_off.gif");	
+    			$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
+    			$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_on.gif");	
+    			$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
+    			$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_off.gif");	
+    			$(".btn_next1").hide();
+    			$(".btn_back").show();
+    			$(".btn_next2").show();
+    			$(".btn_payment").hide();
+    			
+	    	}else if(func =="step4"){
+	    		$("#step1").attr("src", "http://l	ocalhost:9090/images/ticketing/05_step_01_off.gif");	
+    			$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
+    			$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
+    			$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_on.gif");	
+    			$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_off.gif");	
+    			$(".btn_next1").hide();
+    			$(".btn_back").show();
+    			$(".btn_next2").show();
+    			$(".btn_payment").hide();
+    			
+	    	}else if(func =="step5"){
+	    		$("#step1").attr("src", "http://l	ocalhost:9090/images/ticketing/05_step_01_off.gif");	
+    			$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
+    			$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
+    			$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
+    			$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_on.gif");	
+    			$(".btn_next1").hide();
+    			$(".btn_back").hide();
+    			$(".btn_next2").hide();
+    			$(".btn_payment").show();
+	    	} 
+        });
+		
+		/**
+		* datepicker 
+		**/
+	    $( function() {
+	  		$("#datepicker").datepicker({
+	      		dateFormat: 'yy년 mm월 dd일 ' //Input Display Format 변경
+		        ,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
+		        ,showMonthAfterYear:true //년도 먼저 나오고, 뒤에 월 표시
+		        ,showOn: "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시  
+		        ,buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif" //버튼 이미지 경로
+		        ,buttonImageOnly: true //기본 버튼의 회색 부분을 없애고, 이미지만 보이게 함
+		        ,buttonText: "선택" //버튼에 마우스 갖다 댔을 때 표시되는 텍스트                
+		        ,yearSuffix: "년" //달력의 년도 부분 뒤에 붙는 텍스트
+		        ,monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 Tooltip 텍스트
+		        ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 부분 텍스트
+		        ,minDate: new Date('2019-10-20') //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
+		        ,maxDate:new Date('2019-11-29') //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
+		  		,onSelect: function(dateText, inst) { //클릭시에 date value 값 !!!!!!!!!!!!
+		            var date = $(this).val();
+		  			var dateText = $("table.myticket_t > tbody > tr:nth-child(1) > td>span:nth-child(1)");
+						  			
+		  			dateText.empty();
+		  			$("table.myticket_t > tbody > tr:nth-child(1) > td >span:nth-child(2)").empty();
+		  			dateText.append(date);
+		          
+		       }
+      		});    
+		});//datepicker end 
+		
+		/**
+		* 일시 - 시간 
+		**/
+		$(".time_table>div").click(function(){
+			var time = $(this).text(); 
+			var timeText =$("table.myticket_t > tbody > tr:nth-child(1) > td >span:nth-child(2)");
+			timeText.empty();
+			timeText.append(time);
+		});
+		
+	});//document.ready() end
+	
 </script>
 
 </head>
@@ -369,18 +497,18 @@
 			<div class="day_choice">
 				<span>관람일 선택</span>
 				<div class="calender">
-					날짜 : <input type="text" id="datepicker">
-	    
-				    <script>
-				        $("#datepicker").datepicker();
-				    </script>
+					날짜 : 
+					<div id="datepicker"></div>
+					<script>
+						
+					</script>
 			    </div>
 			</div>
 			<div class="time_table">
-				<div>회차(관람시간)</div>
-				<a href="#"><span>17 : 00</span></a><br>
-				<a href="#"><span>19 : 00</span></a><br>
-				<a href="#"><span>21 : 00</span></a><br>
+				<span>회차(관람시간)</span>
+				<div id="time1">17 : 00</div>
+				<div id="time2">19 : 00</div>
+				<div id="time3">21 : 00</div>
 			</div>
 			<div class="ticketing_notice">
 				<div>유의사항</div>
@@ -675,16 +803,16 @@
                             <li>14세 이상 관람가</li>
                             <li>관람시간 : 155분</li>
                         </ul>
-					</div>
+.					</div>
 				</div>
 			</div>
 			<div class="ticketing_info_my_ticket">
 				<span>My 예매정보</span>
-				<table>
+				<table class="myticket_t">
 					<tr>
 						<th scope="row">일시</th>
 						<td>
-								2019.09.21(토) ~ 2019.10.13(일)
+						<span> </span><span> </span>
 						</td>
 					</tr>
 					<tr>
@@ -722,10 +850,10 @@
 						<td>0원</td>
 					</tr>
 				</table>
-				<script>
-				</script>
-				<button type="button" class="btn_next">다음단계</button>
+				<button type="button" class="btn_next1">다음단계</button>
 				<button type="button" class="btn_back">이전단계</button>
+				<button type="button" class="btn_next2">다음단계</button>
+				<button type="button" class="btn_payment">결제하기</button>
 			</div>
 		</div>
 	</div>
