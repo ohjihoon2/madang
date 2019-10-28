@@ -92,7 +92,7 @@
 						<td>
 							<!-- <input type="text" name="addr" id="addr">
 							<button type="button" id="addr_btn">주소찾기</button> -->
-							<input type="text" id="sample6_postcode" placeholder="우편번호" name="post_num" value="<%= vo.getPost_num() %>">
+							<input type="text" id="sample6_postcode" placeholder="우편번호" name="post_num" value="<%= vo.getPost_num2() %>">
 							<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기 " id="addr_btn">
 							<br><input type="text" id="sample6_address" placeholder="주소" class="addr" name="addr" value="<%= vo.getAddr() %>">
 							<br><input type="text" placeholder="상세주소" class="addr" name="addr_d" value="<%= vo.getAddr_d() %>"><br>

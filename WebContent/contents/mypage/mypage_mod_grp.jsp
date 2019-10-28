@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="com.madang.vo.Group_mem_VO, com.madang.service.Group_mem_Service" %>
+<%
+	String id="group";
+	Group_mem_Service service=new Group_mem_Service();
+	Group_mem_VO vo=service.getContent(id);
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,61 +37,61 @@
 				<table border=1>
 					<tr>
 						<td>아이디</td>
-						<td><input type="text" name="id" id="id" disabled="disabled"></td>
+						<td><input type="text" name="id" id="id" disabled="disabled" value=<%= vo.getId() %>></td>
 					</tr>
 					<tr>
 						<td>비밀번호</td>
-						<td><input type="password" name="pw" id="pw"></td>
+						<td><input type="password" name="pw" id="pw" value=<%= vo.getPw() %>></td>
 					</tr>
 					<tr>
 						<td>담당자 이름</td>
-						<td><input type="text" name="name" id="name" disabled="disabled"></td>
+						<td><input type="text" name="name" id="name" disabled="disabled" value=<%= vo.getName() %>></td>
 					</tr>
 					<tr>
 						<td>담당자 연락처</td>
 						<td class="left">
-							Tel.&nbsp&nbsp&nbsp <input type="text" name="phone1" id="phone1">
-							- <input type="text" name="phone2" id="phone2">
-							- <input type="text" name="phone3" id="phone3">
+							Tel.&nbsp&nbsp&nbsp <input type="text" name="phone1" id="phone1" maxlength="4" value=<%= vo.getPhone1() %>>
+							- <input type="text" name="phone2" id="phone2" maxlength="4" value=<%= vo.getPhone2() %>>
+							- <input type="text" name="phone3" id="phone3" maxlength="4" value=<%= vo.getPhone3() %>>
 							<br>
-							FAX.&nbsp <input type="text" name="pax1" id="pax1">
-							- <input type="text" name="pax2" id="pax2">
-							- <input type="text" name="pax3" id="pax3">
+							FAX.&nbsp <input type="text" name="pax1" id="pax1" maxlength="4" value=<%= vo.getFax1() %>>
+							- <input type="text" name="pax2" id="pax2" maxlength="4" value=<%= vo.getFax2() %>>
+							- <input type="text" name="pax3" id="pax3" maxlength="4" value=<%= vo.getFax3() %>>
 						</td>
 					</tr>
 					<tr>
 						<td>담당자 이메일</td>
 						<td>
-							<input type="text" name="email1" id="email1">
-							@ <input type="text" name="email2" id="email2">
+							<input type="text" name="email1" id="email1" value=<%= vo.getEmail_id() %>>
+							@ <input type="text" name="email2" id="email2" value=<%= vo.getEmail_addr() %>>
 							<select name="email3" id="email3">
 								<option>선택</option>
-								<option>naver.com</option>
-								<option>gmail.com</option>
-								<option>daum.net</option>
+								<option <% if(vo.getEmail_addr().equals("naver.com")) { %> selected <% } %>>naver.com</option>
+								<option <% if(vo.getEmail_addr().equals("gmail.com")) { %> selected <% } %>>gmail.com</option>
+								<option <% if(vo.getEmail_addr().equals("daum.net")) { %> selected <% } %>>daum.net</option>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<td>회사명</td>
-						<td><input type="text" name="company" id="company" disabled="disabled"></td>
+						<td><input type="text" name="company" id="company" disabled="disabled" value=<%= vo.getCompany() %>></td>
 					</tr>
 					<tr>
 						<td>대표자명</td>
 						<td>
-							<input type="text" name="cname" id="cname" disabled="disabled">
+							<input type="text" name="cname" id="cname" disabled="disabled" value=<%= vo.getC_name() %>>
 						</td>
 					</tr>
 					<tr>
 						<td>사업자번호</td>
-						<td><input type="text" name="licsnum" id="licsnum" disabled="disabled">
+						<td><input type="text" name="licsnum" id="licsnum" disabled="disabled" value=<%= vo.getC_number() %>>
 					</tr>
 					<tr>
 						<td>대표번호</td>
 						<td class="left">
-							Tel.&nbsp&nbsp&nbsp <input type="text" name="cphone1" id="cphone1">
-							- <input type="text" name="cphone2" id="cphone2">
-							- <input type="text" name="cphone3" id="cphone3">
+							Tel.&nbsp&nbsp&nbsp <input type="text" name="cphone1" id="cphone1" maxlength="4" value=<%= vo.getC_phone1() %>>
+							- <input type="text" name="cphone2" id="cphone2" maxlength="4" value=<%= vo.getC_phone2() %>>
+							- <input type="text" name="cphone3" id="cphone3" maxlength="4" value=<%= vo.getC_phone3() %>>
 						</td>
 					</tr>
 					<tr>
@@ -93,10 +99,10 @@
 						<td>
 							<!-- <input type="text" name="addr" id="addr">
 							<button type="button" id="addr_btn">주소찾기</button> -->
-							<input type="text" id="sample6_postcode" placeholder="우편번호">
+							<input type="text" id="sample6_postcode" placeholder="우편번호" value=<%= vo.getC_post_num2() %>>
 							<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기 " id="addr_btn">
-							<br><input type="text" id="sample6_address" placeholder="주소" class="addr">
-							<br><input type="text" placeholder="상세주소" class="addr"><br>
+							<br><input type="text" id="sample6_address" placeholder="주소" class="addr" value=<%= vo.getC_addr() %>>
+							<br><input type="text" placeholder="상세주소" class="addr" value=<%= vo.getC_addr_d() %>><br>
 						</td>
 					</tr>
 				</table>

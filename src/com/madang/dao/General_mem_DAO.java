@@ -39,8 +39,8 @@ public class General_mem_DAO {
 		
 		General_mem_VO vo=new General_mem_VO();
 		
-		String sql="select id, pw, name, gender, to_char(birth,'yyyy-mm-dd'), email_id, email_addr, post_num, addr, addr_d, "
-				+ "phone1, phone2, phone3, p_comp,accept_email, accept_sms from general_mem where id=?";
+		String sql="select id, pw, name, gender, to_char(birth,'yyyy-mm-dd') birth, email_id, email_addr, post_num, addr, addr_d,"
+				+ " phone1, phone2, phone3, p_comp, accept_email, accept_sms, joindate from general_mem where id=?";
 		getPreparedStatement(sql);
 		
 		try {
@@ -55,7 +55,7 @@ public class General_mem_DAO {
 				vo.setBirth(rs.getString(5));
 				vo.setEmail_id(rs.getString(6));
 				vo.setEmail_addr(rs.getString(7));
-				vo.setPost_num(rs.getInt(8));
+				vo.setPost_num2(rs.getString(8));
 				vo.setAddr(rs.getString(9));
 				vo.setAddr_d(rs.getString(10));
 				vo.setPhone1(rs.getString(11));
@@ -64,7 +64,12 @@ public class General_mem_DAO {
 				vo.setP_comp(rs.getString(14));
 				vo.setAccept_email(rs.getString(15));
 				vo.setAccept_sms(rs.getString(16));
+				vo.setJoindate(rs.getString(17));
 				
+				
+				System.out.println(vo.getId());
+				System.out.println(vo.getPost_num2());
+				System.out.println(vo.getJoindate());
 			}
 			
 		} catch (Exception e) {e.printStackTrace();}
