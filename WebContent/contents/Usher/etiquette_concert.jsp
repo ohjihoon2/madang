@@ -5,123 +5,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style>
-	*{
-		font-family:"나눔스퀘어라운드";
-		padding:0px;
-		margin:0px;
-	}
-	body{
-		margin:auto;
-		/* text-align:center; */
-	}
-	
-	/** 타이틀 & 공연날짜 **/
-	div#main_title{
-		width:900px;
-		border-bottom:3px solid rgb(5,135,94);
-		border-left:15px solid rgb(5,135,94);
-		display:inline-block;
-		margin:100px 0px 0px 70px;
-		font-size:30pt;
-		font-weight:bold;
-		text-align:left;
-	}
-	div#date_info{
-		display:inline-block;
-		margin:30px 0px 50px 70px;
-		
-	}
-	
-	/** 왼쪽 nav **/
-	
-	#left_nav{
-		width:180px;
-		margin:180px -20px 0px 200px;
-		padding-right:30px;
-		display:inline-block;
-		float:left;
-		text-decoration:none;		
-		color:rgb(34,34,34);
-	}
-	div#left_nav>ul{
-		border-right:2px solid #9b9b9b;
-		text-align:center;
-		list-style-type:none;;		
-	}
-	div#left_nav>ul>li{
-      height:50px;
-   }
-	div#left_nav>ul>li:nth-child(1) {
-		font-size:20pt;
-		font-style: bold;
-		margin-bottom:10px;
-		margin-right:20px;
-	}
-	
-	div#left_nav>ul>li>a{
-		text-decoration: none;
-		color:black;
-	}
-		
-	div#left_nav>ul>li>a:hover {
-		color: rgb(155,155,155);
-	}
-	div#left_nav>ul>li>a:active {
-		color: rgb(155,155,155);
-	}
-	
-/** 중앙 concert contents **/
-div#sub_title {
-	width: 1000px;
-	font-size: 20pt;
-	font-weight: bold;
-	text-align: left;
-	padding: 50px;
-	margin:auto;
-}
-
-div#Sub_btn{
-	width:1000px;
-	margin:auto;
-	padding:20px;
-}
-span#CE, span#EE{
-	border-radius: 5px;
-	padding: 10px 100px 10px 100px;
-	font-size: 12pt;
-	font-weight: bold;
-	float: right;
-	border:1px solid rgb(5, 135, 94);
-	background:white;
-	margin:auto;
-}
-
-span#CE{
-	color:white;
-	background:rgb(5, 135, 94);
-}
-
-div.img_div {
-	border-bottom: 1px solid #9b9b9b;
-	padding: 10px 0px 50px 0px;
-	width: 1000px;
-	margin: auto;
-}
-
-div.img_div>img {
-	width: 1000px;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="http://localhost:9090/css/usher.css"/>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />
 	<div>
 		<div id="left_nav">
 			<ul>
+				<li><a style="color: rgb(5, 135, 94)" href="location.jsp">이용안내</a></li>
+				<li><a href="location.jsp">오시는길</a></li>
+				<li><a href="facility.jsp">시설안내</a></li>
+				<li><a href="utility_concert.jsp">편의시설</a></li>
 				<li><a style="color: rgb(5, 135, 94)" href="etiquette_concert.jsp">관람매너</a></li>
-				<li><a style="color: rgb(5, 135, 94)" href="etiquette_concert.jsp">공연매너</a></li>
-				<li><a href="etiquette_exhibition.jsp">전시매너</a></li>
 			</ul>
 		</div>
 
