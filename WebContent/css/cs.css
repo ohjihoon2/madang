@@ -128,6 +128,20 @@ div#faq_list li {
 	/* width:90%; */
 }
 
+div#faq_list span.faq_category { /* 카테고리별 제목 */
+	/* border:1px solid blue; */
+	font-size:20pt;
+	font-weight:bold;
+	display:inline-block;
+	margin:10px 0px 10px 5px;
+}
+
+div#faq_list span.font_circle {
+	color:rgb(5,135,94);
+	font-size:11pt;
+	vertical-align:middle;
+}
+
 div#faq_list li span.faq_list_category { /* 카테고리 */
 	border-right:1px dashed #9b9b9b;
 	display:inline-block;

@@ -29,17 +29,10 @@
 		
 		<div id="faq_list">
 			<ul>
-				<li>
-					<div>
-						<span class="faq_list_category">사이트</span>
-						<span class="faq_list_title" id="f1">아이디, 비밀번호를 잊어버렸어요.</span>
-					</div>
-					<div class="faq_slide" id="f1">
-						로그인 페이지에 있는 [아이디 찾기]와 [비밀번호 찾기]를 이용해 주십시오.
-						<br>[아이디 찾기]시 성명, 생년월일, 회원 가입 시 입력한 이메일 주소를 입력하셔야 찾을 수 있습니다.
-					</div>
-				</li>
-				<br>
+				<span class="faq_category">
+					<span class="font_circle">●</span>
+					공연
+				</span>
 				<li>
 					<div>
 						<span class="faq_list_category">공연</span>
@@ -101,6 +94,11 @@
 					</div>
 				</li>
 				<br>
+				
+				<span class="faq_category">
+					<span class="font_circle">●</span>
+					전시
+				</span>
 				<li>
 					<div>
 						<span class="faq_list_category">전시</span>
@@ -136,6 +134,11 @@
 					</div>
 				</li>
 				<br>
+				
+				<span class="faq_category">
+					<span class="font_circle">●</span>
+					예매
+				</span>
 				<li>
 					<div>
 						<span class="faq_list_category">예매</span>
@@ -174,6 +177,11 @@
 					</div>
 				</li>
 				<br>
+				
+				<span class="faq_category">
+					<span class="font_circle">●</span>
+					환불/취소
+				</span>
 				<li>
 					<div>
 						<span class="faq_list_category">환불/취소</span>
@@ -201,6 +209,21 @@
 					</div>
 				</li>
 				<br>
+				
+				<span class="faq_category">
+					<span class="font_circle">●</span>
+					사이트
+				</span>
+				<li>
+					<div>
+						<span class="faq_list_category">사이트</span>
+						<span class="faq_list_title" id="f1">아이디, 비밀번호를 잊어버렸어요.</span>
+					</div>
+					<div class="faq_slide" id="f1">
+						로그인 페이지에 있는 [아이디 찾기]와 [비밀번호 찾기]를 이용해 주십시오.
+						<br>[아이디 찾기]시 성명, 생년월일, 회원 가입 시 입력한 이메일 주소를 입력하셔야 찾을 수 있습니다.
+					</div>
+				</li>
 			</ul>
 		
 		</div>
