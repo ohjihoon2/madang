@@ -1,0 +1,809 @@
+/*
+ <link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>
+ */
+
+/* 
+ * 공통부분
+ */
+* {
+	font-family: "나눔스퀘어라운드";
+	padding: 0px;
+	margin: 0px;
+}
+
+body {
+	margin: auto;
+	/* text-align:center; */
+}
+
+/** 타이틀 & 공연날짜 **/
+div#main_title {
+	width: 900px;
+	border-bottom: 3px solid rgb(5, 135, 94);
+	border-left: 15px solid rgb(5, 135, 94);
+	display: inline-block;
+	margin: 100px 0px 0px 70px;
+	font-size: 30pt;
+	font-weight: bold;
+	text-align: left;
+}
+
+div#date_info {
+	display: inline-block;
+	margin: 30px 0px 50px 70px;
+}
+
+/** 왼쪽 nav **/
+#left_nav {
+	width: 180px;
+	margin: 180px -20px 0px 200px;
+	padding-right: 30px;
+	display: inline-block;
+	float: left;
+	text-decoration: none;
+	color: rgb(34, 34, 34);
+}
+
+div#left_nav>ul {
+	border-right: 2px solid #9b9b9b;
+	text-align: center;
+	list-style-type: none;;
+}
+
+div#left_nav>ul>li {
+	height: 50px;
+}
+
+div#left_nav>ul>li:nth-child(1) {
+	font-size: 20pt;
+	font-style: bold;
+	margin-bottom: 10px;
+	margin-right: 20px;
+}
+
+div#left_nav>ul>li>a {
+	text-decoration: none;
+	color: black;
+}
+
+div#left_nav>ul>li>a:hover {
+	color: rgb(155, 155, 155);
+}
+
+div#left_nav>ul>li>a:active {
+	color: rgb(155, 155, 155);
+}
+
+/*더보기버튼*/
+div#btnMore_div button#btnMore {
+	padding: 5px 50px 5px 50px;
+	background: white;
+	font-size: 13pt;
+	border: none;
+	border-top: 1px solid #9b9b9b;
+	border-left: 1px solid #9b9b9b;
+	border-right: 1px solid #9b9b9b;
+	margin-top: 30px;
+}
+
+div#btnMore_div {
+	text-align: center;
+	border-bottom: 1px solid #9b9b9b;
+	margin-bottom: 30px;
+}
+
+/*검색*/
+div#faq_search {
+	/* border:1px solid cyan; */
+	margin: 50px 0px 50px 0px;
+	text-align: center;
+}
+
+div#faq_search input { /* 검색 입력창 */
+	border-radius: 10px;
+	width: 300px;
+	height: 30px;
+	margin-right: 15px;
+	font-size: 12pt;
+	padding-left: 5px;
+}
+
+div#faq_search img { /* 검색 이미지 */
+	width: 20px;
+	height: 20px;
+	margin-bottom: -5px;
+	opacity: 0.5;
+}
+
+/* 
+ * event
+ */
+h2 {
+	margin: 10px;
+	margin: auto;
+	padding: 20px;
+}
+
+h2>span {
+	color: rgb(5, 135, 94);
+}
+
+div.event_contents {
+	margin: auto;
+	width: 1000px;
+	padding-left: 50px;
+}
+
+article#article_carousel {
+	text-align: center;
+	width: 800px;
+	height: 300px;
+	margin: auto;
+}
+
+img.carousel_img {
+	margin: auto;
+}
+
+div#event {
+	border: 1px double #9b9b9b;
+	border-radius: 5px;
+	display: inline-block;
+	padding: 10px;
+	width: 400px;
+	height: 300;
+	text-align: center;
+}
+
+div#event img {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 10px;
+	margin: auto;
+}
+
+div.all_event_list {
+	border-bottom: 1px solid #ccc;
+	padding: 10px 0px 10px 30px;
+	margin: auto;
+	width: 950px;
+}
+
+div#event {
+	margin: 10px 0px 10px 40px;
+}
+
+div#event>a>img {
+	width: 270px;
+	height: 110px;
+}
+
+div#event p#event_title, div#all_event_title {
+	margin: auto;
+	font-weight: bold;
+	font-size: 12pt;
+	margin: 5px 0px 5px 0px;
+}
+
+div#event p#event_term, div#all_event_term {
+	font-size: 10pt;
+	padding-bottom: 5px;
+	color: #9b9b9b;
+}
+
+div.event_end {
+	width: 1000px;
+	padding: 0px 0px 30px 50px;
+	margin: auto;
+}
+
+div.event_end>div:first-child {
+	font-weight: bold;
+	color: rgb(5, 135, 94);
+	padding-bottom: 20px;
+}
+
+div.event_end>p {
+	color: #9b9b9b;
+	padding-bottom: 10px;
+}
+
+div#demo {
+	text-align: center;
+	padding: 5px;
+}
+
+/* 
+ * event1
+ */
+div#event_content {
+	width: 1000px;
+	margin: auto;
+}
+
+div#sub_title {
+	width: 950px;
+	font-size: 15pt;
+	text-align: left;
+	padding: 50px;
+	margin: auto;
+}
+
+h1#event_title, h3#event_term {
+	text-align: center;
+	color: #9b9b9b;
+	margin-bottom: 10px;
+}
+
+h3#event_term {
+	margin-bottom: 70px;
+}
+
+img#event_poster {
+	margin-bottom: 50px;
+	padding-bottom: 50px;
+	border-bottom: 1px solid #9b9b9b;
+}
+
+div#sub_title2>span {
+	color: #9b9b9b;
+	font-size: 15pt;
+}
+
+button#btnWrite {
+	border: 1px solid rgb(5, 135, 94);
+	border-radius: 10px;
+	color: rgb(5, 135, 94);
+	background: white;
+	padding: 10px 50px 10px 50px;
+	margin-right: 20px;
+	float: right;
+}
+
+button#btnRE, button#btnDE {
+	border: 1px solid rgb(155, 155, 155);
+	border-radius: 10px;
+	color: rgb(5, 135, 94);
+	background: white;
+	padding: 7px 20px 7px 20px;
+	margin-right: 20px;
+	float: right;
+}
+
+ul#event_ul {
+	border-bottom: 1px solid rgb(155, 155, 155);
+	margin: 10px;
+	padding: 10px;
+}
+
+li {
+	list-style-type: none;
+	padding: 10px;
+}
+
+li>span#li_id {
+	font-weight: bold;
+	font-size: 13pt;
+	margin-right: 20px;
+}
+
+li>span#li_event_date, li#li_content {
+	color: gray;
+}
+
+li>span#li_event_date {
+	font-size: 9pt;
+}
+
+/* 
+ * event2
+ */
+div#event_content {
+	width: 1000px;
+	margin: auto;
+}
+
+div#sub_title {
+	width: 950px;
+	font-size: 15pt;
+	text-align: left;
+	padding: 50px;
+	margin: auto;
+}
+
+h1#event_title, h3#event_term {
+	text-align: center;
+	color: #9b9b9b;
+	margin-bottom: 10px;
+}
+
+h3#event_term {
+	margin-bottom: 70px;
+}
+
+img#event_poster {
+	margin-bottom: 50px;
+	padding-bottom: 50px;
+	border-bottom: 1px solid #9b9b9b;
+}
+
+div#sub_title2>span {
+	color: #9b9b9b;
+	font-size: 15pt;
+}
+
+button#btnWrite {
+	border: 1px solid rgb(5, 135, 94);
+	border-radius: 10px;
+	color: rgb(5, 135, 94);
+	background: white;
+	padding: 10px 50px 10px 50px;
+	margin-right: 20px;
+	float: right;
+}
+
+button#btnRE, button#btnDE {
+	border: 1px solid rgb(155, 155, 155);
+	border-radius: 10px;
+	color: rgb(5, 135, 94);
+	background: white;
+	padding: 7px 20px 7px 20px;
+	margin-right: 20px;
+	float: right;
+}
+
+ul#event_ul {
+	border-bottom: 1px solid rgb(155, 155, 155);
+	margin: 10px;
+	padding: 10px;
+}
+
+li {
+	list-style-type: none;
+	padding: 10px;
+}
+
+li>span#li_id {
+	font-weight: bold;
+	font-size: 13pt;
+	margin-right: 20px;
+}
+
+li>span#li_event_date, li#li_content {
+	color: gray;
+}
+
+li>span#li_event_date {
+	font-size: 9pt;
+}
+
+/* 
+ * event3
+ */
+div#event_content {
+	width: 1000px;
+	margin: auto;
+}
+
+div#sub_title {
+	width: 950px;
+	font-size: 15pt;
+	text-align: left;
+	padding: 50px;
+	margin: auto;
+}
+
+h1#event_title, h3#event_term {
+	text-align: center;
+	color: #9b9b9b;
+	margin-bottom: 10px;
+}
+
+h3#event_term {
+	margin-bottom: 70px;
+}
+
+img#event_poster {
+	margin-bottom: 50px;
+	padding-bottom: 50px;
+	border-bottom: 1px solid #9b9b9b;
+}
+
+div#sub_title2>span {
+	color: #9b9b9b;
+	font-size: 15pt;
+}
+
+button#btnWrite {
+	border: 1px solid rgb(5, 135, 94);
+	border-radius: 10px;
+	color: rgb(5, 135, 94);
+	background: white;
+	padding: 10px 50px 10px 50px;
+	margin-right: 20px;
+	float: right;
+}
+
+button#btnRE, button#btnDE {
+	border: 1px solid rgb(155, 155, 155);
+	border-radius: 10px;
+	color: rgb(5, 135, 94);
+	background: white;
+	padding: 7px 20px 7px 20px;
+	margin-right: 20px;
+	float: right;
+}
+
+ul#event_ul {
+	border-bottom: 1px solid rgb(155, 155, 155);
+	margin: 10px;
+	padding: 10px;
+}
+
+li {
+	list-style-type: none;
+	padding: 10px;
+}
+
+li>span#li_id {
+	font-weight: bold;
+	font-size: 13pt;
+	margin-right: 20px;
+}
+
+li>span#li_event_date, li#li_content {
+	color: gray;
+}
+
+li>span#li_event_date {
+	font-size: 9pt;
+}
+
+/* 
+ * news
+ */
+div#news_content {
+	margin: auto;
+	width: 1000px;
+}
+
+div#news_title {
+	border-bottom: 1px solid #9b9b9b;
+	font-size: 12pt;
+	font-weight: bold;
+	padding: 15px;
+}
+
+span#sp_article {
+	border: 1px solid rgb(5, 135, 94);
+	color: rgb(5, 135, 94);
+	border-radius: 7px;
+	padding: 5px;
+}
+
+span#sp_article, a#sp_title, span#sp_press, span#sp_date {
+	margin: 0px 30px 0px 30px;
+}
+
+a#sp_title {
+	width: 440px;
+	display: inline-block;
+	text-decoration: none;
+}
+
+span#sp_press, span#sp_date {
+	width: 100px;
+	display: inline-block;
+}
+
+div#sub_title {
+	width: 950px;
+	font-size: 20pt;
+	text-align: left;
+	margin-top: 50px;
+	margin-bottom: 40px;
+	padding: 0px 50px 7px 0px;
+	border-bottom: 1px solid gray;
+}
+
+/* 
+ * notice_content
+ */
+div#notice_content {
+	width: 1000px;
+	margin: auto;
+}
+
+div#sub_title {
+	width: 900px;
+	font-size: 20pt;
+	text-align: left;
+	margin-bottom: 50px;
+	padding: 50px 50px 7px 50px;
+	border-bottom: 1px solid gray;
+}
+
+h1#review_title {
+	padding: 30px 30px 30px 50px;
+	text-align: left;
+	margin-bottom: 10px;
+	margin: auto;
+}
+
+h1#review_title>span {
+	padding: 10px 200px 10px 10px;
+	font-size: 15pt;
+	color: #9b9b9b;
+	float: right;
+}
+
+h1#review_title {
+	color: #9b9b9b;
+}
+
+textarea#review_contents {
+	margin: 10px 20px 70px 20px;
+	border: 1px solid #9b9b9b;
+	border-radius: 10px;
+	width: 700px;
+	height: 200px;
+	padding: 20px;
+	font-size: 13pt;
+}
+
+textarea#comment {
+	margin: 10px 0px 10px 25px;
+	padding: 15px;
+	border: 1px solid #9b9b9b;
+	border-radius: 10px;
+	width: 800px;
+	height: 30px;
+	font-size: 11pt;
+}
+
+button#btnNoticeList {
+	border: 1px solid rgb(5, 135, 94);
+	border-radius: 10px;
+	color: rgb(5, 135, 94);
+	background: white;
+	padding: 10px 50px 10px 50px;
+	margin-right: 20px;
+	float: right;
+}
+
+/* 
+ * notice_list
+ */
+div#year {
+	width: 950px;
+	border-bottom: 1px solid gray;
+	text-align: center;
+	color: rgb(5, 135, 94);
+	font-weight: bold;
+	font-size: 30pt;
+	padding: 20px;
+	margin: auto;
+}
+
+div.notice_list {
+	border-bottom: 1px solid #ccc;
+	padding: 10px 0px 10px 30px;
+	margin: auto;
+	width: 900px;
+}
+
+div#notice_title {
+	margin: auto;
+	font-weight: bold;
+	font-size: 12pt;
+	margin: 5px 0px 5px 0px;
+}
+
+div#notice_title>span {
+	float: right;
+}
+
+div#notice_date {
+	font-size: 10pt;
+	padding-bottom: 5px;
+	color: #9b9b9b;
+}
+
+/* 
+ * review
+ */
+
+div#review_content{
+	width:1000px;
+	margin:auto;
+}
+
+div#sub_title {
+	width: 950px;
+	font-size: 20pt;
+	text-align: left;
+	margin-bottom: 50px;
+	padding: 50px 50px 7px 50px;
+	border-bottom: 1px solid gray;
+}
+
+div.table_div {
+	margin: auto;
+}
+
+table.review_table {
+	border-bottom: 1px solid #9b9b9b;
+	width: 1000px;
+	margin: auto;
+	margin: 10px;
+	padding: 10px;
+}
+
+table.review_table td#title, table.review_table td#contents{
+	width: 650px;	
+	padding-left:30px;
+}
+
+table.review_table img.poster {
+	border:1px solid rgb(5, 135, 94);
+	border-radius: 7px;
+	width: 110px;
+	height: 130px;
+	padding: 5px;
+}
+
+button#btnByDate, button#btnByStar {
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 12pt;
+	font-weight: bold;
+	float: right;
+	border:1px solid rgb(5, 135, 94);
+}
+
+
+table.review_table th {
+	display:inline-block;
+	width: 200px;
+	font-size:16px;
+	margin-top:15px;
+}
+
+
+table.review_table td:nth-child(3) span#hits{
+	color:rgb(155,155,155);
+	float:right;
+}
+
+
+/* 별점 */
+th.star_rating {font-size:0; letter-spacing:-4px;}
+
+th.star_rating a {
+    font-size:22px;
+    letter-spacing:0;
+    display:inline-block;
+    margin-left:5px;
+    color:#ccc;
+    text-decoration:none;
+}
+
+th.star_rating a:first-child {margin-left:0;}
+
+th.star_rating a.on {color:tomato;}
+   
+
+/* 
+ * review_contents
+ */     
+
+	div#content{
+		width: 1000px;
+		margin:auto;
+	}
+	
+	div#sub_title {
+		width: 950px;
+		font-size: 20pt;
+		text-align: left;
+		padding: 50px;
+		margin: auto;
+	}
+	
+	h1#review_title, h3#review_contents{
+		padding:30px 30px 30px 50px;
+		text-align:left;
+		margin-bottom:10px;
+		margin:auto;
+	}
+	
+	h1#review_title>span{
+		padding:10px 200px 10px 10px;
+		font-size: 15pt;
+		color:#9b9b9b;
+		float:right;
+	}
+	
+	h1#review_title{
+		color:#9b9b9b;
+	}
+	
+	textarea#review_contents{
+		margin: 10px 20px 70px 20px;
+		border:1px solid #9b9b9b;
+		border-radius:10px;
+		width:700px;
+		height:200px;
+		padding:20px;
+		font-size:13pt;
+	}
+	
+	textarea#comment{
+		margin:10px 0px 10px 25px;
+		padding:15px;
+		border:1px solid #9b9b9b;
+		border-radius:10px;
+		width:800px;
+		height:30px;
+		font-size:11pt;
+	}
+	
+	button#btnOK{
+		margin:15px;
+		padding:20px;
+		border:1px solid gray;
+		border-radius:10px;
+		float:right;
+	}
+	
+	div#sub_title2>span{
+		color:#9b9b9b;
+		font-size:15pt;
+	}
+	
+	button#btnWrite{
+		border:1px solid rgb(5,135,94);
+		border-radius:10px;
+		color: rgb(5,135,94);
+		background:white; 
+		padding:10px 50px 10px 50px;
+		margin-right:20px;	
+		float:right;
+	}
+	
+	button#btnRE, button#btnDE{
+		border:1px solid  rgb(155,155,155);
+		border-radius:10px;
+		color: rgb(5,135,94);
+		background:white; 
+		padding:7px 20px 7px 20px;
+		margin-right:20px;	
+		float:right;
+	}
+	
+	ul#event_ul{
+		border-bottom:1px solid rgb(155,155,155);
+		margin:10px;
+		padding:10px;		
+	}
+	
+	li{
+		list-style-type:none;
+		padding:10px;
+	}
+	
+	li>span#li_id{
+		font-weight:bold;
+		font-size:13pt;
+		margin-right:20px;
+	}
+	
+	li>span#li_event_date, li#li_content{
+		color:gray;
+	}
+	
+	li>span#li_event_date{
+		font-size:9pt;
+	}
+	 
