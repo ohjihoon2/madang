@@ -72,17 +72,17 @@
 	}
 	
 /** 중앙 concert contents **/
+
 div#inExhibition {
 	width: 1000px;
 	font-size: 20pt;
 	font-weight: bold;
-	text-align: left;
-	margin-top: 50px;
-	margin-bottom: 50px;
+	padding: 30px;
+	margin:auto;
 }
 
 div#sub_title{
-	width:800px;
+	width:1000px;
 	margin:auto;
 	padding:20px;
 }
@@ -123,17 +123,17 @@ div.img_div>img {
 				<li><a style="color: rgb(5, 135, 94)" href="location.jsp">이용안내</a></li>
 				<li><a href="location.jsp">오시는길</a></li>
 				<li><a href="facility.jsp">시설안내</a></li>
-				<li><a href="utility.jsp">편의시설</a></li>
+				<li><a href="utility_concert.jsp">편의시설</a></li>
 				<li><a style="color: rgb(5, 135, 94)" href="etiquette_concert.jsp">관람매너</a></li>
 			</ul>
 		</div>
 
 		<div id="main_title">전시매너</div>
 		<br>
-			<div id="sub_title">
-				<a href="http://localhost:9090/contents/Usher/etiquette_concert.jsp"><span id="CE">관람매너</span></a>
-				<a href="http://localhost:9090/contents/Usher/etiquette_exhibition.jsp"><span id="EE">전시매너</span></a>
-			</div>
+		<div id="sub_title">
+			<a href="http://localhost:9090/contents/Usher/etiquette_concert.jsp"><span id="CE">관람매너</span></a>
+			<a href="http://localhost:9090/contents/Usher/etiquette_exhibition.jsp"><span id="EE">전시매너</span></a>
+		</div>
 
 		<div id="inExhibition">전시장매너</div>
 		<div class="img_div">

@@ -77,8 +77,29 @@ div#sub_title {
 	font-size: 20pt;
 	font-weight: bold;
 	text-align: left;
-	margin-top: 50px;
-	margin-bottom: 50px;
+	padding: 50px;
+	margin:auto;
+}
+
+div#Sub_btn{
+	width:1000px;
+	margin:auto;
+	padding:20px;
+}
+span#CE, span#EE{
+	border-radius: 5px;
+	padding: 10px 100px 10px 100px;
+	font-size: 12pt;
+	font-weight: bold;
+	float: right;
+	border:1px solid rgb(5, 135, 94);
+	background:white;
+	margin:auto;
+}
+
+span#CE{
+	color:white;
+	background:rgb(5, 135, 94);
 }
 
 div.img_div {
@@ -105,6 +126,11 @@ div.img_div>img {
 		</div>
 
 		<div id="main_title">관람매너</div>
+		<br>
+		<div id="Sub_btn">
+			<a href="http://localhost:9090/contents/Usher/etiquette_concert.jsp"><span id="CE">관람매너</span></a>
+			<a href="http://localhost:9090/contents/Usher/etiquette_exhibition.jsp"><span id="EE">전시매너</span></a>
+		</div>
 
 		<div id="sub_title">공연장 오기 전</div>
 		<div class="img_div">

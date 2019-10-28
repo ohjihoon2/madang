@@ -161,7 +161,7 @@ iframe {
 				<li><a style="color: rgb(5, 135, 94)" href="location.jsp">이용안내</a></li>
 				<li><a style="color: rgb(5, 135, 94)" href="location.jsp">오시는길</a></li>
 				<li><a href="facility.jsp">시설안내</a></li>
-				<li><a href="utility.jsp">편의시설</a></li>
+				<li><a href="utility_concert.jsp">편의시설</a></li>
 				<li><a href="etiquette_concert.jsp">관람매너</a></li>
 			</ul>
 		</div>

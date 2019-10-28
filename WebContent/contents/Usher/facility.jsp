@@ -128,10 +128,20 @@ article.facility_img>img {
 	border: 1px solid #ccc;
 }
 
+section label:link,section p:link{
+		text-decoration:none;	
+}
+
+section label ,section p{
+	color:gray;
+}
+
 section {
 	text-align: center;
 	margin-bottom:100px;
 }
+
+
 </style>
 </head>
 <body>
@@ -158,21 +168,25 @@ section {
 		
 		<div class="facility_map">시설안내</div>
 		<section> 
-			<a href=""><article class="facility_img"> 
-				<img src="http://localhost:9090/images/comm_usher_img/madang_logo.png">
-				<label>베트벤홀</label></article></a>
-			<a href=""><article class="facility_img">
-				<img src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> 
-				<label>모차르트홀</label></article></a>
-			<a href=""><article class="facility_img"> 
-				<img src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> 
-				<label>피카소관</label></article></a>
-			<a href=""><article class="facility_img"> 
-				<img src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> 
-				<label>다빈치관</label></article></a> 
-			<a href=""><article class="facility_img"> 
-				<img src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> 
-				<label>오지훈관</label></article></a> 
+			<a href="../concert/concert_seat_beethoven.jsp"><article class="facility_img"> 
+				<img src="http://localhost:9090/images/comm_usher_img/f_operahall.gif"/>
+				<label>베토벤홀</label><p>관람석 총 1,004석 | 일반판매 915석 | 판매유보 9석</p></article></a>
+			
+			<a href="../concert/concert_seat_mozart.jsp"><article class="facility_img">
+				<img src="http://localhost:9090/images/comm_usher_img/f_concerthall.gif"/> 
+				<label>모차르트홀</label><p>관람석 총 600석 | 일반판매 594석 | 휠체어석 6석</p></article></a>
+				
+			<a href="../exhibition/exhibition_view_picasso.jsp"><article class="facility_img"> 
+				<img src="http://localhost:9090/images/comm_usher_img/f_picaso.gif"/> 
+				<label>피카소관</label><p>본관 전체 3층 총 6개 전시실</p></article></a>
+				 
+			<a href="../exhibitionexhibition_view_davinci.jsp"><article class="facility_img"> 
+				<img src="http://localhost:9090/images/comm_usher_img/f_davinch.gif"/> 
+				<label>다빈치관</label><p>본관 전체 3층 중 1층 총 3개 전시실</p></article></a> 
+				
+			<a href="../exhibitionexhibition_view_jihoon.jsp"><article class="facility_img"> 
+				<img src="http://localhost:9090/images/comm_usher_img/f_ojihoon.gif"/> 
+				<label>오지훈관</label><p>비타민스테이션 내 소규모 전시공간</p></article></a> 
 		</section>
 
 	</div>

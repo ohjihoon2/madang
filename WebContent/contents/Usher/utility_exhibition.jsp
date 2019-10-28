@@ -76,9 +76,9 @@ div#utility_list {
 	width: 1000px;
 	font-size: 20pt;
 	text-align: left;
-	margin-top: 50px;
-	margin-bottom: 50px;
-	padding-left: 50px;
+	margin:50px;
+	padding:30px;
+	margin:auto;
 }
 
 div#utility_list1, div#utility_list2 {
@@ -86,6 +86,7 @@ div#utility_list1, div#utility_list2 {
 	font-size: 10pt;
 	text-align: left;
 	color: #9b9b9b;
+	margin:auto;
 }
 
 div.img_div {
@@ -95,10 +96,17 @@ div.img_div {
 	margin: auto;
 }
 
+div#section{
+	margin:auto;
+	width:1000px;
+	padding:50px;
+}
+
 article.utility_ariticle {
+	border:1px solid red;
 	border: 1px solid #ccc;
-	width: 200px;
-	height: 270px;
+	width: 260px;
+	height: 300px;
 	display: inline-block;
 	padding: 10px;
 	margin: 20px;
@@ -111,8 +119,8 @@ article.utility_ariticle>img:hover {
 }
 
 article.utility_ariticle>img {
-	width: 180px;
-	height: 150px;
+	width: 250px;
+	height: 200px;
 	margin-bottom: 5px;
 	border: 1px solid #ccc;
 }
@@ -120,6 +128,24 @@ article.utility_ariticle>img {
 section {
 	text-align: center;
 }
+
+section label{
+	font-size:12pt;
+	font-weight:bold;
+	color:gray;
+	margin:7px;
+	padding:5px;
+	border:1px solid #9b9b9b;
+	border-radius:5px;
+	display:inline-block;	
+}
+
+section p{
+	font-size:9pt;
+	color:gray;
+	padding:5px;
+}
+
 </style>
 </head>
 <body>
@@ -130,33 +156,35 @@ section {
 				<li><a style="color: rgb(5, 135, 94)" href="location.jsp">이용안내</a></li>
 				<li><a href="location.jsp">오시는길</a></li>
 				<li><a href="facility.jsp">시설안내</a></li>
-				<li><a style="color: rgb(5, 135, 94)" href="utility.jsp">편의시설</a></li>
+				<li><a style="color: rgb(5, 135, 94)" href="utility_concert.jsp">편의시설</a></li>
 				<li><a href="etiquette_concert.jsp">관람매너</a></li>
 			</ul>
 		</div>
 
 		<div id="main_title">편의시설</div>
 
-		<h2><span>●</span>전시장 편의 시설 안내</h2>
 		<div id="utility_list">전시장 편의 시설 안내</div>
 		<div id="utility_list1">오디오 가이드, 사물함, 휠체어/유모차 대여, 수유실, 주차사전정산</div>
 		<div id="utility_list2">*이용문의 02-580-1300 (09:00~20:00)</div>
-		<div>
+		<div id="section">
 			<section> <article class="utility_ariticle"> <img
-				src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> <p>오디오
-				가이드</p> <p>신분증 제시 + 소정의 대여료</p>
+				src="http://localhost:9090/images/comm_usher_img/u_odio.gif"> <label>오디오
+				가이드</label> <p>신분증 제시 + 소정의 대여료</p>
 			<p>각 전시장 입구 대여소</p> </article> <article class="utility_ariticle">
-			<img src="http://localhost:9090/images/comm_usher_img/madang_logo.png">
-			<p>사물함</p> <p>비타민스테이션, 피카소관 1층,</p>
+			<img src="http://localhost:9090/images/comm_usher_img/utility_cabinet.gif">
+			<label>사물함</label> <p>비타민스테이션, 피카소관 1층,</p>
 			<p>다빈치관 2층, 09:00 ~ 20:00 (동절기 19:00)</p> </article> <article
 				class="utility_ariticle"> <img
-				src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> <p>휠체어/유모차
-				대여</p> </article> </section>
+				src="http://localhost:9090/images/comm_usher_img/u_wheelchair.gif"> <label>휠체어/유모차
+				대여</label><p>신분증 제시 + 소정의 대여료</p><p>각 전시장 입구 대여소</p></article></section>
 
 			<section> <article class="utility_ariticle"> <img
-				src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> <p>수유실</p>
+				src="http://localhost:9090/images/comm_usher_img/utility_mroom.gif"><label>수유실</label> <p>신분증 제시 + 소정의 대여료</p>
+			<p>각 전시장 입구 대여소</p>
 			</article> <article class="utility_ariticle"> <img
-				src="http://localhost:9090/images/comm_usher_img/madang_logo.png"> <p>주차사전정산</p>
+				src="http://localhost:9090/images/comm_usher_img/utility_parkingfee.gif"><label>주차요금정산소
+				가이드</label> <p>신분증 제시 + 소정의 대여료</p>
+			<p>각 전시장 입구 대여소</p>
 		</div>
 	</div>
 </body>
