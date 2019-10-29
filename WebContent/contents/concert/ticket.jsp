@@ -318,6 +318,12 @@
 </style>
 <script>
 	$(document).ready(function(){
+		
+		//화면 상태 값 
+		var status = 1;
+		
+		//선택 좌석 개수
+		var rows = 0;
 		$("div#step1").css("display","block");
 		$("div#step2").css("display","none");
 		$("div#step3").css("display","none");
@@ -330,7 +336,21 @@
 		$(".step").click(function(){
 			var step = $(this).attr("id");
 			
-			 if(step == 'step1'){
+	/* 		if(){
+				status=1;
+			}else if(step == 'step2'){
+				status=2;
+			}else if(step == 'step3'){
+				status=3;
+			}else if(step == 'step4'){
+				status=4;
+			}else if(step == 'step5'){
+				status=5;
+			} */
+			
+			
+			 if(step =='step1'){
+				 status=1;
 				$("div#step1").css("display","block");
 				$("div#step2").css("display","none");
 				$("div#step3").css("display","none");
@@ -344,18 +364,21 @@
 				$("div#step4").css("display","none");
 				$("div#step5").css("display","none");
 			}else if(step == 'step3'){
+				 status=3;
 				$("div#step1").css("display","none");
 				$("div#step2").css("display","none");
 				$("div#step3").css("display","block");
 				$("div#step4").css("display","none");
 				$("div#step5").css("display","none");
 			}else if(step == 'step4'){
+				 status=4;
 				$("div#step1").css("display","none");
 				$("div#step2").css("display","none");
 				$("div#step3").css("display","none");
 				$("div#step4").css("display","block");
 				$("div#step5").css("display","none");
 			}else if(step == 'step5'){
+				 status=5;
 				$("div#step1").css("display","none");
 				$("div#step2").css("display","none");
 				$("div#step3").css("display","none");
@@ -377,7 +400,7 @@
 	    		i =6;
 	    		
 	    	}
-	    	*/
+	    	*/	
 	    	
 	    	if(func == "step1"){
     			$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_on.gif");	
@@ -474,10 +497,28 @@
 			var timeText =$("table.myticket_t > tbody > tr:nth-child(1) > td >span:nth-child(2)");
 			timeText.empty();
 			timeText.append(time);
+		});//일시 - 시간 end
+	
+		
+		
+		$(".seat_num").click(function(){
+			var anum = $(this).attr("id");
+			var seatText =$("table.myticket_t > tbody > tr:nth-child(2) > td");
+			var seatPic = $("#"+anum);
+			seatPic.css({"border-bottom" :"10px solid rgb(155,155,155 )"});
+			
+			//선택 좌석 개수 구하기
+			seatText.append(anum+" 석<br>");
+			rows = seatText.text().split('석').length;
+		 	alert(rows -1);
+		 	
 		});
+			
+		
 		
 	});//document.ready() end
 	
+
 </script>
 
 </head>
@@ -534,10 +575,10 @@
 					<span>A</span>
 					<%
 						int num =1;
-						int z =0;
-						while(z<6) {
-							for(int i=1; i<7;i++) { %>
-					<a href=#><span class="seat_num" id="h<%=num%>"><%=num %></span></a>
+						int z =1;
+						while(z<7) {
+							for(int i=1; i<7;i++) { %>	
+					<a href=#><span class="seat_num" id="A<%=num%>"><%=num %></span></a>
 					<%num++;
 							} %>
 							<br>
@@ -548,10 +589,10 @@
 					<span>B</span>
 					<%
 						num =1;
-						z =0;
-						while(z<6) {
+						z =1;
+						while(z<7) {
 							for(int i=1; i<10;i++) { %>
-					<a href=#><span class="seat_num" id="h<%=num%>"><%=num %></span></a>
+					<a href=#><span class="seat_num" id="B<%=num%>" onclick=""><%=num %></span></a>
 					<%num++;
 							} %>
 							<br>
@@ -563,10 +604,10 @@
 					<span>C</span>
 					<%
 						num =1;
-						z =0;
-						while(z<6) {
+						z =1;
+						while(z<7) {
 							for(int i=1; i<7;i++) { %>
-					<a href=#><span class="seat_num" id="h<%=num%>"><%=num %></span></a>
+					<a href=#><span class="seat_num" id="C<%=num%>"><%=num %></span></a>
 					<%num++;
 							} %>
 							<br>
