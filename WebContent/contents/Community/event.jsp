@@ -64,7 +64,7 @@
 		<h2><span style="color:rgb(5,135,94)">●</span>현재 진행중인 이벤트</h2>
 		<div class="evnet">
 			<div id="event">
-				<a href="eventing1.jsp"><img src="http://localhost:9090/images/comm_usher_img/event1.gif"/></a>
+				<a href="event_content.jsp"><img src="http://localhost:9090/images/comm_usher_img/event1.gif"/></a>
 				<p id="event_title">이영우 피아노 독주회 기대평 이벤트</p>
 				<p id="event_term">이벤트 기간 | 2019.10.14(월) ~ 2019.10.27(일)</p>
 			</div>
@@ -86,7 +86,7 @@
 
 		<%for (int i = 1; i < 11; i++) {%>
 		<div class="all_event_list">
-			<div id="all_event_title">음악당 대관공고 및 접수일정<span>조회수</span></div>
+			<div id="all_event_title">음악당 대관공고 및 접수일정<span style="float:right;display:inline-block;padding-right:40px">조회수:</span></div>
 			<div id="all_event_date">2019.10.15~2019.10.30</div>		
 		</div>
 		<%}%>

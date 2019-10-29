@@ -6,6 +6,43 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>	
+<script>
+	$(document).ready(function(){
+		$("#reply_div").hide();
+		$("#btnReply").click(function(){
+			$("#reply_div").show();
+			
+			var rep_btn = $("#btnReply").text();
+			var rep_content = $("#reply_area").val();
+			
+			if(rep_btn == "댓글쓰기"){
+				$(btnReply).text("댓글등록");
+			}else{
+				if(rep_content==""){
+					alert("댓글을 작성하세요.");
+					$("#reply_area").focus();
+					
+				}else{
+					$.ajax({
+						url:"event_reply_write_process.jsp",
+						success:function(result){
+							if(result != 0) {
+								alert("댓글이 등록되었습니다.");
+							}else{
+								alert("댓글 등록에 실패했습니다.");
+							}
+						}
+					});
+					
+					$("#reply_div").css("display","none");
+					$("#btnReply").text("댓글 쓰기");
+				}
+			}
+		});
+		
+	});
+</script>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />
@@ -24,8 +61,15 @@
 			<h1 id="event_title">이영우 피아노 독주회 기대평 이벤트</h1>
 			<h3 id="event_term">이영우 피아노 독주회 기대평 이벤트</h3>
 			<img id="event_poster" src="http://localhost:9090/images/comm_usher_img/event1_content.gif"/>
-			<div id="sub_title2"><span>댓글이벤트</span><button type="button" id="btnWrite">댓글쓰기</button>
-				<a href="http://localhost:9090/contents/Community/event.jsp"><button type="button" id="btnWrite">목록보기</button></a></div>
+
+			<div id="sub_title2">		
+				<span>댓글이벤트</span>
+				<button type="button" id="btnReply">댓글쓰기</button>
+				<a href="http://localhost:9090/contents/Community/event.jsp"><button type="button" id="btnList">목록보기</button></a></div>
+			<br><br>
+			<div id="reply_div">
+				<textarea id="reply_area" placeholder="여기에 댓글을 써주세요."></textarea>
+			</div>		
 			<%for(int i=1; i<=5; i++){ %>
 			<ul id="event_ul">
 				<li><span id="li_id">아이디</span><span id="li_event_date">날짜</span>
@@ -35,6 +79,7 @@
 			</ul>
 			<%} %>
 		</div>	
+		
 		
 		<div id="btnMore_div">
 			<button type="button" id="btnMore">
