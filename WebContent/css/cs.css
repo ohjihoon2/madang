@@ -184,7 +184,7 @@ div.faq_slide {	/* 내용 */
 
 
 /** Q&A
-0: list
+x: list
 1: content
 2: write
 */
@@ -220,6 +220,13 @@ div.qaa_table_2 tr > th, div.qaa_table_2 tr > td {
 	text-align:center;
 }
 
+div.qaa_table tr > td:nth-child(1),
+div.qaa_table tr > td:nth-child(4) { /* 리스트 번호, 제목*/
+	width:12%;
+}
+
+
+div.qaa_table tr > td:nth-child(3), /* 리스트 날짜 */
 div.qaa_table_1 tr > td:nth-child(1),
 div.qaa_table_2 tr > td:nth-child(1) { /* 각 행 1열 */
 	width:20%;
@@ -264,7 +271,7 @@ div.qaa_table_2 input#qaa_title { /* 제목 입력칸 */
 	padding-left:5px;
 }
 
-div.qaa_table_2 textarea#qaa_content { /* 내용 입력칸 */
+div.qaa_table_2 textarea#qaa_contents { /* 내용 입력칸 */
 	height:200px; width:95%;
 	border:1px solid lightgray;
 	font-size:12pt;

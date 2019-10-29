@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="com.madang.vo.QandA_VO, java.util.ArrayList, com.madang.service.QandA_Service" %>
+<%
+	QandA_Service service=new QandA_Service();
+	String id="test";
+	ArrayList<QandA_VO> list=service.getList(id);
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,18 +37,16 @@
 					<th>날짜</th>
 					<th>답변여부</th>
 				</tr>
-				<tr>
-					<td>1</td>
-					<td><a href="cs_qaa_content.jsp">예매 후 좌석변경이 가능한가요?</a></td>
-					<td>2019-09-29</td>
-					<td>Y</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td><a href="cs_qaa_content.jsp">개천절에 전시 관람</a></td>
-					<td>2019-10-01</td>
-					<td>N</td>
-				</tr>
+				<% for(QandA_VO vo : list) { %>
+					<tr>
+						<td><%= vo.getRownum() %></td>
+						<td><a href="cs_qaa_content.jsp?qa_code=<%= vo.getQa_code() %>"><%= vo.getQa_title() %></a></td>
+						<td><%= vo.getQa_date() %></td>
+						<td>
+							<% if(vo.getQa_adate()!="" && vo.getQa_adate()!=null) { %> Y <% } else { %> N <% } %>
+						</td>
+					</tr>
+				<% } %>
 			</table>
 			
 			<div class="button">

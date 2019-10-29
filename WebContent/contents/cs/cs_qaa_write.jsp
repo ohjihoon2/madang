@@ -25,20 +25,20 @@
 		<div id="main_title">Q&A 1:1 상담</div>
 		
 		<div class="qaa_table_2">
-			<form action="#" method="get" name="qaa_write_form">
+			<form action="qaa_write_process.jsp" method="post" name="qaa_write_form">
 				<table border=1>
 					<tr>
 						<td>제목</td>
-						<td><input type="text" name="qaa_title" id="qaa_title"></td>
+						<td><input type="text" name="qa_title" id="qaa_title"></td>
 					</tr>
 					<tr>
 						<td>내용</td>
-						<td><textarea name="qaa_content" id="qaa_content"></textarea></td>
+						<td><textarea name="qa_contents" id="qaa_contents"></textarea></td>
 					</tr>
 					<tr>
 						<td>첨부파일</td>
 						<td>
-							<input type="file"><br>
+							<input type="file" name="qa_file"><br>
 							<span>필요한 경우 파일을 첨부해주세요.</span>
 						</td>
 					</tr>

@@ -15,13 +15,13 @@ $(document).ready(function(){
 			alert("제목을 입력하세요");
 			$("input#qaa_title").focus();
 			
-		} else if($("textarea#qaa_content").val()=="") {
+		} else if($("textarea#qaa_contents").val()=="") {
 			alert("내용을 입력하세요");
-			$("textarea#qaa_content").focus();
+			$("textarea#qaa_contents").focus();
 			
 		} else {
-			alert("ㅇ");
-			//qaa_write_form.submit();
+			//alert("ㅇ");
+			qaa_write_form.submit();
 		}
 	});
 	

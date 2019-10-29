@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="com.madang.vo.QandA_VO, com.madang.service.QandA_Service" %>
+<%
+	String qa_code=request.getParameter("qa_code");
+	QandA_Service service=new QandA_Service();
+	QandA_VO vo=service.getContent(qa_code);
+	vo.setQa_contents(vo.getQa_contents().replace("\r\n", "<br>"));
+	
+	if(vo.getQa_acontents()!="" && vo.getQa_acontents()!=null){
+		vo.setQa_acontents(vo.getQa_acontents().replace("\r\n", "<br>"));
+	}
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,24 +38,34 @@
 			<table border=1>
 				<tr>
 					<td>제목</td>
-					<td>어쩌구</td>
+					<td><%= vo.getQa_title() %></td>
 				</tr>
 				<tr>
 					<td>날짜</td>
-					<td>2019-10-16</td>
+					<td><%= vo.getQa_date() %></td>
 				</tr>
 				<tr>
 					<td>내용</td>
-					<td>저쩌구</td>
+					<td><%= vo.getQa_contents() %></td>
 				</tr>
 				<tr>
 					<td>첨부파일</td>
-					<td>이름</td>
+					<td>
+						<% if(vo.getQa_sfile()!="" && vo.getQa_sfile()!=null) { %>
+							<img src="http://localhost:9090/upload/<%= vo.getQa_sfile() %>"/>
+						<% } else { %> 파일 없음 <% } %>
+					</td>
 				</tr>
+				
+				<% if(vo.getQa_adate()!="" && vo.getQa_adate()!=null) { %>
 				<tr>
 					<td>답변</td>
-					<td>네네</td>
+					<td>
+						<%= vo.getQa_acontents() %>
+						<br><br>( <%= vo.getQa_adate() %> )
+					</td>
 				</tr>
+				<% } %>
 			</table>
 			<div class="button">
 				<a href="cs_qaa.jsp"><button type="button" class="button_b">목록</button></a>
