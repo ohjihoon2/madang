@@ -1,7 +1,7 @@
 package com.madang.vo;
 
 public class General_mem_VO {
-	String id, pw, name, gender, birth, email_id, email_addr, post_num2, addr, addr_d, 
+	String id, pw, name, gender, birth, email_id, email_addr, post_num, addr, addr_d, 
 			phone1, phone2, phone3, p_comp, accept_email, accept_sms, joindate;
 
 	public String getId() {
@@ -60,12 +60,12 @@ public class General_mem_VO {
 		this.email_addr = email_addr;
 	}
 
-	public String getPost_num2() {
-		return post_num2;
+	public String getPost_num() {
+		return post_num;
 	}
 
-	public void setPost_num2(String post_num2) {
-		this.post_num2 = post_num2;
+	public void setPost_num(String post_num) {
+		this.post_num = post_num;
 	}
 
 	public String getAddr() {
@@ -139,7 +139,6 @@ public class General_mem_VO {
 	public void setJoindate(String joindate) {
 		this.joindate = joindate;
 	}
-	
 	
 	
 }

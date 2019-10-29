@@ -169,7 +169,6 @@ div#mypage_table table input {
 	padding-left:5px;
 }
 
-
 input#phone1, input#phone2, input#phone3,
 input#cphone1, input#cphone2, input#cphone3,
 input#pax1, input#pax2, input#pax3,
@@ -214,6 +213,11 @@ input#addr_btn {
 	background:white;
 	color:black;
 	border:1px solid rgb(155,155,155);
+}
+
+input#id, input#name, input#birth, input#company, input#cname, input#licsnum { /* 수정 x */
+	background:rgb(225,225,225);
+	opacity:0.8;
 }
 
 /* div#mypage_table > form > tr:nth-child(8) > td > input { 성별 radio 왜안먹어

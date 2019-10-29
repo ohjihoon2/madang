@@ -55,7 +55,7 @@ public class General_mem_DAO {
 				vo.setBirth(rs.getString(5));
 				vo.setEmail_id(rs.getString(6));
 				vo.setEmail_addr(rs.getString(7));
-				vo.setPost_num2(rs.getString(8));
+				vo.setPost_num(rs.getString(8));
 				vo.setAddr(rs.getString(9));
 				vo.setAddr_d(rs.getString(10));
 				vo.setPhone1(rs.getString(11));
@@ -66,10 +66,6 @@ public class General_mem_DAO {
 				vo.setAccept_sms(rs.getString(16));
 				vo.setJoindate(rs.getString(17));
 				
-				
-				System.out.println(vo.getId());
-				System.out.println(vo.getPost_num2());
-				System.out.println(vo.getJoindate());
 			}
 			
 		} catch (Exception e) {e.printStackTrace();}
@@ -78,23 +74,37 @@ public class General_mem_DAO {
 	}
 	
 	
-	
+	/** 회원정보 수정 */
 	public boolean getResultUpdate(General_mem_VO vo) {
 		boolean result=false;
 		
-		String sql="";
+		String sql="update general_mem set pw=?, phone1=?, phone2=?, phone3=?, p_comp=?, email_id=?, email_addr=?,\r\n" + 
+				"  gender=?, post_num=?, addr=?, addr_d=?, accept_email=?, accept_sms=? where id=?";
 		getPreparedStatement(sql);
 		
 		try {
+			pstmt.setString(1, vo.getPw());
+			pstmt.setString(2, vo.getPhone1());
+			pstmt.setString(3, vo.getPhone2());
+			pstmt.setString(4, vo.getPhone3());
+			pstmt.setString(5, vo.getP_comp());
+			pstmt.setString(6, vo.getEmail_id());
+			pstmt.setString(7, vo.getEmail_addr());
+			pstmt.setString(8, vo.getGender());
+			pstmt.setString(9, vo.getPost_num());
+			pstmt.setString(10, vo.getAddr());
+			pstmt.setString(11, vo.getAddr_d());
+			pstmt.setString(12, vo.getAccept_email());
+			pstmt.setString(13, vo.getAccept_sms());
+			pstmt.setString(14, vo.getId());
 			
+			int val=pstmt.executeUpdate();
+			if(val!=0) result=true;
 			
 		} catch (Exception e) {e.printStackTrace();}
 		
 		return result;
 	}
-	
-	
-	
 	
 	
 	

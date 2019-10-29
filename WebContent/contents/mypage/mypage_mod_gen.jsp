@@ -35,11 +35,11 @@
 		<div id="main_title">회원정보 수정</div>
 		
 		<div id="mypage_table">
-			<form action="#" method="get" name="mypage_mod_form">
+			<form action="mod_gen_update_process.jsp" method="post" name="mypage_mod_form">
 				<table border=1>
 					<tr>
 						<td>아이디</td>
-						<td><input type="text" name="id" id="id" disabled="disabled" value="<%= vo.getId() %>"></td>
+						<td><input type="text" name="id" id="id" value="<%= vo.getId() %>"></td>
 					</tr>
 					<tr>
 						<td>비밀번호</td>
@@ -47,7 +47,7 @@
 					</tr>
 					<tr>
 						<td>이름</td>
-						<td><input type="text" name="name" id="name" disabled="disabled" value="<%= vo.getName() %>"></td>
+						<td><input type="text" name="name" id="name" value="<%= vo.getName() %>"></td>
 					</tr>
 					<tr>
 						<td>전화번호</td>
@@ -78,7 +78,7 @@
 					</tr>
 					<tr>
 						<td>생년월일</td>
-						<td><input type="date" name="birth" id="birth" disabled="disabled" value="<%= vo.getBirth() %>"></td>
+						<td><input type="date" name="birth" id="birth" value="<%= vo.getBirth() %>"></td>
 					</tr>
 					<tr>
 						<td>성별</td>
@@ -92,7 +92,7 @@
 						<td>
 							<!-- <input type="text" name="addr" id="addr">
 							<button type="button" id="addr_btn">주소찾기</button> -->
-							<input type="text" id="sample6_postcode" placeholder="우편번호" name="post_num" value="<%= vo.getPost_num2() %>">
+							<input type="text" id="sample6_postcode" placeholder="우편번호" name="post_num" value="<%= vo.getPost_num() %>">
 							<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기 " id="addr_btn">
 							<br><input type="text" id="sample6_address" placeholder="주소" class="addr" name="addr" value="<%= vo.getAddr() %>">
 							<br><input type="text" placeholder="상세주소" class="addr" name="addr_d" value="<%= vo.getAddr_d() %>"><br>

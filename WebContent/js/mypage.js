@@ -14,10 +14,19 @@ $(document).ready(function(){
 			alert("이메일을 입력하세요");
 			$("input#email1").focus();
 		} else {
-			alert("ㅇ");
-			//mypage_mod_form.submit();
+			//alert("ㅇ");
+			mypage_mod_form.submit();
 		}
 	});
+	
+	
+	//read only
+	$("input#id").attr("readonly", true);
+	$("input#name").attr("readonly", true);
+	$("input#birth").attr("readonly", true);
+	$("input#company").attr("readonly", true);
+	$("input#cname").attr("readonly", true);
+	$("input#licsnum").attr("readonly", true);
 	
 	
 	//이메일주소 선택-전달

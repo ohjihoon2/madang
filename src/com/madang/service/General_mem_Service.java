@@ -5,6 +5,7 @@ import com.madang.vo.General_mem_VO;
 
 public class General_mem_Service {
 	
+	/** 출력 */
 	public General_mem_VO getContent(String id) {
 		General_mem_VO vo=new General_mem_VO();
 		General_mem_DAO dao=new General_mem_DAO();
@@ -13,13 +14,12 @@ public class General_mem_Service {
 		return vo;
 	}
 	
-	
-	
+	/** 수정 */
 	public boolean getResultUpdate(General_mem_VO vo) {
 		boolean result=false;
 		General_mem_DAO dao=new General_mem_DAO();
-		dao.getResultUpdate(vo);
-		dao.close();
+		result=dao.getResultUpdate(vo);
+		//dao.close();
 		return result;
 	}
 }
