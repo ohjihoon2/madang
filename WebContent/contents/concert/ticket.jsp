@@ -507,8 +507,13 @@
 			var seatPic = $("#"+anum);
 			seatPic.css({"border-bottom" :"10px solid rgb(155,155,155 )"});
 			
+			if(seatText.text() != anum+" 석<br>"){
+				seatText.append(anum+" 석<br>");
+			}else{
+				seatText.val(anum+" 석<br>") == " ";
+			}
+			
 			//선택 좌석 개수 구하기
-			seatText.append(anum+" 석<br>");
 			rows = seatText.text().split('석').length;
 		 	alert(rows -1);
 		 	
