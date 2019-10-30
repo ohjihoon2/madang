@@ -109,6 +109,39 @@ public class Group_mem_DAO {
 		return result;
 	}
 	
+	//회원가입 db에  대관회원정보삽입
+	public boolean getResultJoin(Group_mem_VO vo) {
+		boolean result=false;
+		String sql="insert into group_mem values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,sysdate)";
+		getPreparedStatement(sql);
+		try {
+			pstmt.setString(1, vo.getId());
+			pstmt.setString(2, vo.getPw());
+			pstmt.setString(3, vo.getName());
+			pstmt.setString(4, vo.getEmail_id());
+			pstmt.setString(5, vo.getEmail_addr());
+			pstmt.setString(6, vo.getPhone1());
+			pstmt.setString(7, vo.getPhone2());
+			pstmt.setString(8, vo.getPhone3());
+			pstmt.setString(9, vo.getFax1());
+			pstmt.setString(10, vo.getFax2());
+			pstmt.setString(11, vo.getFax3());
+			pstmt.setString(12, vo.getCompany());
+			pstmt.setString(13, vo.getC_name());
+			pstmt.setString(14, vo.getC_number());
+			pstmt.setString(15, vo.getC_phone1());
+			pstmt.setString(16, vo.getC_phone2());
+			pstmt.setString(17, vo.getC_phone3());
+			pstmt.setString(18, vo.getC_post_num2());
+			pstmt.setString(19, vo.getC_addr());
+			pstmt.setString(20, vo.getC_addr_d());
+			int val = pstmt.executeUpdate();
+			if(val!=0) {
+				result=true;
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		return result;
+	}
 	
 	public void close() {
 		try {

@@ -12,9 +12,84 @@
 	<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 	<script src="http://localhost:9090/js/madang.js"></script>	
 	
-	<script>
-		
-	</script>
+<script>
+$(document).ready(function(){
+
+	//유효성검사
+	$("#join_gp2next_btn").click(function(){
+		if($("#join_gp2_id").val()==""){
+			alert("아이디를 입력해 주세요");
+			$("#join_gp2_id").focus();
+		}else if($("#join_gp2_pw").val()==""){
+			alert("패스워드 입력해 주세요");
+			$("#join_gp2_pw").focus();
+		}else if($("#join_gp2_cpw").val()==""){
+			alert("패스워드 확인을 입력해 주세요");
+			$("#join_gp2_cpw").focus();
+		}else if($("#join_gp2_name").val()==""){
+			alert("담당자 이름을 입력해 주세요");
+			$("#join_gp2_name").focus();
+		}else if($("#join_gp2_email_id").val()==""){
+			alert("담당자 이메일을 입력해 주세요");
+			$("#join_gp2_email_id").focus();
+		}else if($("#join_gp2_email_addr").val()==""){
+			alert("담당자 이메일 주소를 입력해 주세요");
+			$("#join_gp2_email_addr").focus();
+		}else if($("#join_gp2_phone1").val()==""||$("#join_gp2_phone2").val()==""|| $("#join_gp2_phone3").val()==""){
+			alert("담당자 연락처를 입력해 주세요");
+			$("#join_gp2_phone1").focus();
+		}else if($("#join_gp2_company").val()==""){
+			alert("회사명을 입력해 주세요");
+			$("#join_gp2_company").focus();
+		}else if($("#join_gp2_c_name").val()==""){
+			alert("대표자명을 입력해 주세요");
+			$("#join_gp2_c_name").focus();
+		}else if($("#join_gp2_c_number").val()==""){
+			alert("사업자 번호를 입력해 주세요");
+			$("#join_gp2_c_number").focus();
+		}else if($("#join_gp2_c_phone1").val()==""||$("#join_gp2_c_phone2").val()==""|| $("#join_gp2_c_phone3").val()==""){
+			alert("대표번호를 입력해 주세요");
+			$("#join_gp2_c_phone1").focus();
+		}else{
+			join_group2_form.submit();
+		}
+	});//회원가입 버튼클릭
+	
+	/*이메일주소 선택*/
+	$("#join_gp2_email_addr2").change(function(){
+		if($("#join_gp2_email_addr2").val()!="선택하세요"){
+			$("#join_gp2_email_addr").val($("#join_gp2_email_addr2").val());			
+		}else{
+			$("#join_gp2_email_addr").val("");
+			$("#join_gp2_email_addr2").focus();
+		}
+	});//이메일주소 선택
+	
+	/*패스워드 확인*/
+			$("#join_gp2_cpw").focusout(function(){	////)cpass에서 떨어질때 function 작동
+		 	if($("#join_gp2_pw").val()==""){ //)패스워드는 비어있음 안되지.
+		 		alert("암호를 입력해주세요");
+		 		$("#join_gp2_pw").focus();
+		 		//return false; //)커서의 위치를 html로 옮긴다? //)요즘은 생략해도 된다.
+		 	}else{
+		 		if($("#join_gp2_cpw").val()!=""){
+		 			if($("#join_gp2_pw").val() == $("#join_gp2_cpw").val()){
+		 				$("#join_gp2_pwCheckResult")
+		 				.css("color","blue")
+		 				.text("암호가 동일합니다");		 				
+				 	}
+		 			else{
+				 		 $("#join_gp2_pwCheckResult")
+		 				.css("color","red").css("font-size","10pt").text("암호가 다릅니다. 다시 입력해주세요");
+		 				$("#join_gp2_pw").val("");
+		 				$("#join_gp2_cpw").val("");
+		 				$("#join_gp2_pw").focus(); 
+				 		} 
+		 			}
+		 		}
+		});	//패스워드 확인
+});
+</script>
 </head>	
 <body>
 <jsp:include page="../../header.jsp"/>
@@ -22,31 +97,31 @@
 <div id="join_group2" class="page_contents">
 <h1 class="page_title">회원가입</h1>
 <h2><span class="font_circle">●</span> 회원 정보 입력</h2>
-	<form action="#" method="post" name="join_group2_form">
+	<form action="join_group2_proce.jsp" method="post" name="join_group2_form">
 		<ul>
 			<li>
-				<label>담당자 아이디</label>
-				<input type="text" name="id">
+				<label>아이디*</label>
+				<input type="text" name="id" id="join_gp2_id">
 				<button type="button">중복확인</button>
 			</li>
 			<li>
-				<label>패스워드</label>
-				<input type="password" name="pass">
+				<label>패스워드*</label>
+				<input type="password" name="pw" id="join_gp2_pw">
 			</li>
 			<li>
-				<label>패스워드 확인</label>
-				<input type="password" name="cpass">
-				*같은 패스워드를 입력하세요 <!-- 일치하면 "일치합니다"라고 변경될 예정 -->
+				<label>패스워드 확인*</label>
+				<input type="password" name="cpw" id="join_gp2_cpw">
+				<span id="join_gp2_pwCheckResult">같은 패스워드를 입력하세요</span>
 			</li>			
 			<li>
-				<label>담당자 이름</label>
-				<input type="text" name="name">
+				<label>담당자 이름*</label>
+				<input type="text" name="name" id="join_gp2_name">
 			</li>
 			<li>
-				<label>담당자 이메일</label>
-				<input type="text" name="email1">
-				@<input type="text" name="email2">
-				<select name="email3">
+				<label>담당자 이메일*</label>
+				<input type="text" name="email_id" id="join_gp2_email_id">
+				@<input type="text" name="email_addr" id="join_gp2_email_addr">
+				<select name="email_addr2" id="join_gp2_email_addr2">
 					<option>선택하세요</option>
 					<option>naver.com</option>
 					<option>gmail.com</option>
@@ -54,58 +129,60 @@
 				</select>
 			</li>
 			<li>
-				<label>담당자 연락처</label>
-				<input type="text" name="phon1">
+				<label>담당자 연락처*</label>
+				<input type="text" name="phone1" id="join_gp2_phone1">
 				<span> - </span>
-				<input type="text" name="phon2">
+				<input type="text" name="phone2" id="join_gp2_phone2">
 				<span> - </span>
-				<input type="text" name="phon3">
+				<input type="text" name="phone3" id="join_gp2_phone3"> 
 			</li>
 			<li>
 				<label>팩스번호</label>
-				<input type="text" name="fax_phon1">
+				<input type="text" name="fax1">
 				<span> - </span>
-				<input type="text" name="fax_phon2">
+				<input type="text" name="fax2">
 				<span> - </span>
-				<input type="text" name="fax_phon3">
+				<input type="text" name="fax3">
 			</li>	
 			<br>
 			<li>
-				<label>회사명</label>
-				<input type="text" name="group_name">
+				<label>회사명*</label>
+				<input type="text" name="company" id="join_gp2_company">
 			</li>
 			<li>
-				<label>대표자명</label>
-				<input type="text" name="group_boss">
+				<label>대표자명*</label>
+				<input type="text" name="c_name" id="join_gp2_c_name">
 			</li>
 			<li>
-				<label>사업자번호('-'제외)</label>
-				<input type="text" name="group_reg_num">
+				<label>사업자번호('-'제외)*</label>
+				<input type="text" name="c_number" id="join_gp2_c_number">
 				<button type="button">중복확인</button>
 			</li>
 			<li>
-				<label>대표번호</label>
-				<input type="text" name="group_phon1">
+				<label>대표번호*</label>
+				<input type="text" name="c_phone1" id="join_gp2_c_phone1">
 				<span> - </span>
-				<input type="text" name="group_phon2">
+				<input type="text" name="c_phone2" id="join_gp2_c_phone2">
 				<span> - </span>
-				<input type="text" name="group_phon3">
+				<input type="text" name="c_phone3" id="join_gp2_c_phone3">
 			</li>				
 			<li>
 				<label>주소</label>
-				<input type="text" id="sample6_postcode" placeholder="우편번호">
+				<input type="text" id="sample6_postcode" placeholder="우편번호" name="c_post_num2">
 				<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="addr_find">
 				<label> </label>
-				<input type="text" id="sample6_address" placeholder="주소"><br>
+				<input type="text" id="sample6_address" placeholder="주소" name="c_addr"><br>
 				<label> </label>
-				<input type="text" placeholder="상세주소"><br>			
+				<input type="text" placeholder="상세주소" name="c_addr_d"><br>			
 			</li>	
-				
+			<li style="text-align:right">
+				*표시는 필수사항입니다.
+			</li>
 		</ul>
 	</form>
 	<div class="joinbtn">
 		<a href="join_group1.jsp"><button type="button" class="join_prv">이전으로</button></a>
-		<a href="join3.jsp"><button type="button" class="join_next">다음으로</button></a>
+		<button type="button" class="join_next" id="join_gp2next_btn">다음으로</button>
 	</div>
 </div>	
 </body>
