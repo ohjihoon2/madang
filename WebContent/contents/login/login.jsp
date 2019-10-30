@@ -16,7 +16,7 @@
 <div id="login" class="page_contents">
 	<h1 class="page_title">로그인</h1>
 	<div>
-		<form action="#" method="get" name="loginform">
+		<form action="login_proce.jsp" method="get" name="loginform">
 			<input type="text" id="id" name="id" placeholder="아이디">
 			<br>
 			<input type="password" id="password" name="password" placeholder="패스워드">

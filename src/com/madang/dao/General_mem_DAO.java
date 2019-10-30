@@ -136,6 +136,28 @@ public class General_mem_DAO {
 		return result;
 	}
 	
+	
+	//회원가입시 아이디 중복 체크
+	public boolean IsOverlapId(String nid) {
+		boolean result=false;
+		int val=0;
+		String sql="select count(*) from general_mem where id=?";
+		getPreparedStatement(sql);
+		try {
+			pstmt.setString(1, nid);
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				val = rs.getInt(1);
+			}
+			if(val != 0){
+				result = true;
+			}		
+		}catch(Exception e) {e.printStackTrace();}
+		return result;
+	}
+	
+	
+	
 	public void close() {
 		try {
 			if(rs!=null) rs.close();

@@ -7,12 +7,20 @@
 <jsp:setProperty name="vo" property="*"/>
 
 <%
+
+	String nid=" ";
+	nid = request.getParameter("nid");
 	General_mem_DAO dao = new General_mem_DAO();
-	boolean result = dao.getResultJoin(vo);
-	
-	if(result){
-		response.sendRedirect("join3.jsp");
+	if(nid.equals(" ")){
+		boolean result = dao.getResultJoin(vo);
+		
+		if(result){
+			response.sendRedirect("join3.jsp");
+		}else{
+			response.sendRedirect("../../errorPage.jsp");
+		}
 	}else{
-		response.sendRedirect("../../errorPage.jsp");
+		boolean result = dao.IsOverlapId(nid);  //true=중복, false=중복X
+		out.write(String.valueOf(result));
 	}
 %>

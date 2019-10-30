@@ -17,6 +17,7 @@ $(document).ready(function(){
 
 	//유효성검사
 	$("#join_g2next_btn").click(function(){
+		
 		if($("#join_g2_id").val()==""){
 			alert("아이디를 입력해 주세요");
 			$("#join_g2_id").focus();
@@ -48,6 +49,7 @@ $(document).ready(function(){
 			alert("이메일 수신여부를 선택해 주세요")
 		}else if($(".join_g2_accept_sms:checked").length==0){
 			alert("sms 수신여부를 선택해 주세요")
+		
 		}else{
 			join_geral2_form.submit();
 		}
@@ -85,6 +87,24 @@ $(document).ready(function(){
 		 			}
 		 		}
 		});	//패스워드 확인
+		
+		
+		//중복아이디 체크
+		$("#join_g2_idchk").click(function(){
+			var nid = $("#join_g2_id").val();
+			if(nid==""){
+				alert("아이디를 입력해주세요");
+			}else{
+				$.ajax({
+					url:"join_general2_proce.jsp?nid="+nid,
+					success:function(result){
+						alert(result);
+					}
+				});	
+			}
+		});//아이디 중복
+	
+		
 });
 </script>
 </head>
@@ -99,7 +119,7 @@ $(document).ready(function(){
 			<li>
 				<label>아이디*</label>
 				<input type="text" name="id" id="join_g2_id">
-				<button type="button">중복확인</button>
+				<button type="button" id="join_g2_idchk">중복확인</button>
 			</li>
 			<li>
 				<label>패스워드*</label>
