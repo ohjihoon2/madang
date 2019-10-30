@@ -500,7 +500,34 @@
 			timeText.append(time);
 		});//일시 - 시간 end
 	
-		
+	      
+	      $(".seat_num").click(function(){
+	         var anum = $(this).attr("id");
+	         var seatText =$("table.myticket_t > tbody > tr:nth-child(2) > td");
+	         var seatPic = $("#"+anum);
+	         //seatPic.css({"border-bottom" :"10px solid rgb(155,155,155 )"});
+	         
+	         //선택을 안했을경우
+	         var flag = $("input#"+anum).val();
+	         
+	         var position1 = anum+" 석";
+	         var position2 =seatText.text();
+	         var position3= position2.replace(position1,"");
+
+	         
+	         if(flag ==0){
+	            seatPic.css({"border-bottom" :"10px solid rgb(155,155,155 )"});
+	            $("input#"+anum).val("1"); 
+	            seatText.append(anum+" 석");
+	         }else{
+	            seatPic.css({"border-bottom" :"10px solid rgb(34,34,34)"});
+	            $("input#"+anum).val("0"); 
+
+	            seatText.empty();
+	            seatText.text(position3);
+
+	         }
+	         /* 
 		$(".seat_num").click(function(){
 			var anum = $(this).attr("id");
 			var seatText =$("table.myticket_t > tbody > tr:nth-child(2) > td");
@@ -518,8 +545,10 @@
 			}else{
 				seatPic.css({"border-bottom" :"10px solid rgb(34,34,34)"});
 				$("input#"+anum).val("0"); 
-				seatText.empty();
-			}
+				$("input:last-child").remove();
+				/* seatText.empty();
+
+			} */
 			
 	/* 		 if(seatText.text() != anum+" 석<br>"){
 				
@@ -932,11 +961,12 @@
 						<td>0원</td>
 					</tr>
 				</table>
-				<button type="button" class="btn_next1">다음단계</button>
+				<button type="button" class="btn_next1" >다음단계</button>
 				<button type="button" class="btn_back">이전단계</button>
 				<button type="button" class="btn_next2">다음단계</button>
 				<button type="button" class="btn_payment">결제하기</button>
 			</div>
+			
 		</div>
 	</div>
 </body>
