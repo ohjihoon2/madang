@@ -33,7 +33,7 @@
 		<div id="main_title">회원정보 수정</div>
 		
 		<div id="mypage_table">
-			<form action="#" method="get" name="mypage_mod_form">
+			<form action="mod_grp_update_process.jsp" method="post" name="mypage_mod_form">
 				<table border=1>
 					<tr>
 						<td>아이디</td>
@@ -54,9 +54,9 @@
 							- <input type="text" name="phone2" id="phone2" maxlength="4" value=<%= vo.getPhone2() %>>
 							- <input type="text" name="phone3" id="phone3" maxlength="4" value=<%= vo.getPhone3() %>>
 							<br>
-							FAX.&nbsp <input type="text" name="pax1" id="pax1" maxlength="4" value=<%= vo.getFax1() %>>
-							- <input type="text" name="pax2" id="pax2" maxlength="4" value=<%= vo.getFax2() %>>
-							- <input type="text" name="pax3" id="pax3" maxlength="4" value=<%= vo.getFax3() %>>
+							FAX.&nbsp <input type="text" name="fax1" id="fax1" maxlength="4" value=<%= vo.getFax1() %>>
+							- <input type="text" name="fax2" id="fax2" maxlength="4" value=<%= vo.getFax2() %>>
+							- <input type="text" name="fax3" id="fax3" maxlength="4" value=<%= vo.getFax3() %>>
 						</td>
 					</tr>
 					<tr>

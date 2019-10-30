@@ -11,6 +11,13 @@ public class Group_mem_Service {
 		vo=dao.getContent(id);
 		dao.close();
 		return vo;
-		
+	}
+	
+	public boolean getResultUpdate(Group_mem_VO vo) {
+		boolean result=false;
+		Group_mem_DAO dao=new Group_mem_DAO();
+		result=dao.getResultUpdate(vo);
+		dao.close();
+		return result;
 	}
 }

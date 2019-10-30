@@ -171,12 +171,12 @@ div#mypage_table table input {
 
 input#phone1, input#phone2, input#phone3,
 input#cphone1, input#cphone2, input#cphone3,
-input#pax1, input#pax2, input#pax3,
-input#cpax1, input#cpax2, input#cpax3 {
+input#fax1, input#fax2, input#fax3,
+input#cfax1, input#cfax2, input#cfax3 {
 	width:20%;
 }
 
-div#mypage_table input#pax1 {
+div#mypage_table input#fax1 {
 	margin-top:5px;
 }
 

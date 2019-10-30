@@ -9,9 +9,9 @@ import com.madang.vo.Group_mem_VO;
 
 public class Group_mem_DAO {
 	//Field
-	String url="jdbc:oracle:thin:@localhost:1521";
-	String user="scott";
-	String pass="tiger";
+	String url="jdbc:oracle:thin:@211.63.89.214:1521";
+	String user="madang";
+	String pass="1234";
 	Connection conn;
 	PreparedStatement pstmt;
 	ResultSet rs;
@@ -34,8 +34,8 @@ public class Group_mem_DAO {
 	}
 	
 	
+	/** 회원정보 수정 전 셋팅(전체 출력) */
 	public Group_mem_VO getContent(String id) {
-		
 		Group_mem_VO vo=new Group_mem_VO();
 		
 		String sql="select * from group_mem where id=?";
@@ -66,11 +66,47 @@ public class Group_mem_DAO {
 				vo.setC_post_num2(rs.getString(18));
 				vo.setC_addr(rs.getString(19));
 				vo.setC_addr_d(rs.getString(20));
+				vo.setJoindate(rs.getString(21));
 			}
 			
 		} catch (Exception e) {e.printStackTrace();}
 		
 		return vo;
+	}
+	
+	
+	/** 회원정보 수정 */
+	public boolean getResultUpdate(Group_mem_VO vo) {
+		boolean result=false;
+		
+		String sql="update group_mem set pw=?, phone1=?, phone2=?, phone3=?, fax1=?, fax2=?, fax3=?, email_id=?, email_addr=?, \r\n" + 
+				"  c_phone1=?, c_phone2=?, c_phone3=?, c_post_num=?, c_addr=?, c_addr_d=? where id=?";
+		getPreparedStatement(sql);
+		
+		try {
+			pstmt.setString(1, vo.getPw());
+			pstmt.setString(2, vo.getPhone1());
+			pstmt.setString(3, vo.getPhone2());
+			pstmt.setString(4, vo.getPhone3());
+			pstmt.setString(5, vo.getFax1());
+			pstmt.setString(6, vo.getFax2());
+			pstmt.setString(7, vo.getFax3());
+			pstmt.setString(8, vo.getEmail_id());
+			pstmt.setString(9, vo.getEmail_addr());
+			pstmt.setString(10, vo.getC_phone1());
+			pstmt.setString(11, vo.getC_phone2());
+			pstmt.setString(12, vo.getC_phone3());
+			pstmt.setString(13, vo.getC_post_num2());
+			pstmt.setString(14, vo.getC_addr());
+			pstmt.setString(15, vo.getC_addr_d());
+			pstmt.setString(16, vo.getId());
+			
+			int val=pstmt.executeUpdate();
+			if(val!=0) result=true;
+			
+		} catch (Exception e) {e.printStackTrace();}
+		
+		return result;
 	}
 	
 	

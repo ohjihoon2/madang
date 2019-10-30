@@ -65,7 +65,6 @@ public class General_mem_DAO {
 				vo.setAccept_email(rs.getString(15));
 				vo.setAccept_sms(rs.getString(16));
 				vo.setJoindate(rs.getString(17));
-				
 			}
 			
 		} catch (Exception e) {e.printStackTrace();}
