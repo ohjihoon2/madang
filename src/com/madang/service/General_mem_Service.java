@@ -19,7 +19,7 @@ public class General_mem_Service {
 		boolean result=false;
 		General_mem_DAO dao=new General_mem_DAO();
 		result=dao.getResultUpdate(vo);
-		//dao.close();
+		dao.close();
 		return result;
 	}
 }

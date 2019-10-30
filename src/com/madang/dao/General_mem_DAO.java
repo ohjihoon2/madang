@@ -10,8 +10,8 @@ import com.madang.vo.General_mem_VO;
 public class General_mem_DAO {
 	//Field
 	String url="jdbc:oracle:thin:@localhost:1521";
-	String user="scott";
-	String pass="tiger";
+	String user="madang";
+	String pass="1234";
 	Connection conn;
 	PreparedStatement pstmt;
 	ResultSet rs;
