@@ -6,6 +6,11 @@
 	String id="test";
 	General_mem_Service service=new General_mem_Service();
 	General_mem_VO vo=service.getContent(id);
+	
+	//null > 공백
+ 	if(vo.getPost_num()=="" || vo.getPost_num()==null) vo.setPost_num("");
+	if(vo.getAddr()=="" || vo.getAddr()==null) vo.setAddr("");
+	if(vo.getAddr_d()=="" || vo.getAddr_d()==null) vo.setAddr_d("");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

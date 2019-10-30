@@ -5,6 +5,14 @@
 	String id="group";
 	Group_mem_Service service=new Group_mem_Service();
 	Group_mem_VO vo=service.getContent(id);
+	
+	//null > 공백
+	if(vo.getFax1()=="" || vo.getFax1()==null) vo.setFax1("");
+	if(vo.getFax2()=="" || vo.getFax2()==null) vo.setFax2("");
+	if(vo.getFax3()=="" || vo.getFax3()==null) vo.setFax3("");
+	if(vo.getC_post_num2()=="" || vo.getC_post_num2()==null) vo.setC_post_num2("");
+	if(vo.getC_addr()=="" || vo.getC_addr()==null) vo.setC_addr("");
+	if(vo.getC_addr_d()=="" || vo.getC_addr_d()==null) vo.setC_addr_d("");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
