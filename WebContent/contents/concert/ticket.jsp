@@ -358,6 +358,7 @@
 				$("div#step5").css("display","none");
 				
 			}else if(step == 'step2'){
+				 status=2;
 				$("div#step1").css("display","none");
 				$("div#step2").css("display","block");
 				$("div#step3").css("display","none");
@@ -500,19 +501,52 @@
 		});//일시 - 시간 end
 	
 		
-		
 		$(".seat_num").click(function(){
 			var anum = $(this).attr("id");
 			var seatText =$("table.myticket_t > tbody > tr:nth-child(2) > td");
 			var seatPic = $("#"+anum);
-			seatPic.css({"border-bottom" :"10px solid rgb(155,155,155 )"});
+			//seatPic.css({"border-bottom" :"10px solid rgb(155,155,155 )"});
 			
-			if(seatText.text() != anum+" 석<br>"){
+			//선택을 안했을경우
+			var flag = $("input#"+anum).val();
+			
+			
+			if(flag ==0){
+				seatPic.css({"border-bottom" :"10px solid rgb(155,155,155 )"});
+				$("input#"+anum).val("1"); 
 				seatText.append(anum+" 석<br>");
 			}else{
-				seatText.val(anum+" 석<br>") == " ";
+				seatPic.css({"border-bottom" :"10px solid rgb(34,34,34)"});
+				$("input#"+anum).val("0"); 
+				seatText.empty();
 			}
 			
+	/* 		 if(seatText.text() != anum+" 석<br>"){
+				
+				var val= seatText.text().contains(anum+" 석");
+				alert("val = " + val);
+			}else{
+				seatText.val(anum+" 석<br>") == " ";
+				
+			} 
+				 */
+		/* 	if(seatText.text(anum)){
+				alert("있음");
+			}else{
+				alert("없음");
+				seatText.append(anum+" ,");
+			} */
+			
+			//$(seatText).text(text.replace(anum, ""));
+			
+/* 				if($("table.myticket_t > tbody > tr:nth-child(2) > td:contains('B1')")){
+					alert("1");
+				}else{
+					seatText.append(anum);
+					$(this).text(text.replace(anum, ' '));
+					alert("2");
+				}
+ */		
 			//선택 좌석 개수 구하기
 			rows = seatText.text().split('석').length;
 		 	alert(rows -1);
@@ -597,7 +631,10 @@
 						z =1;
 						while(z<7) {
 							for(int i=1; i<10;i++) { %>
-					<a href=#><span class="seat_num" id="B<%=num%>" onclick=""><%=num %></span></a>
+					<a href=#>
+						<span class="seat_num" id="B<%=num%>" onclick=""><%=num %></span>
+						<input type="hidden" id="B<%=num%>" class="seat_num_flag" value="0">
+					</a>
 					<%num++;
 							} %>
 							<br>
@@ -863,8 +900,7 @@
 					</tr>
 					<tr>
 						<th scope="row">선택좌석</th>
-						<td>
-						</td>
+						<td></td>
 					</tr>
 					<tr>
 						<th scope="row">티켓금액</th>
