@@ -10,7 +10,7 @@
 	if(vo.getFax1()=="" || vo.getFax1()==null) vo.setFax1("");
 	if(vo.getFax2()=="" || vo.getFax2()==null) vo.setFax2("");
 	if(vo.getFax3()=="" || vo.getFax3()==null) vo.setFax3("");
-	if(vo.getC_post_num2()=="" || vo.getC_post_num2()==null) vo.setC_post_num2("");
+	if(vo.getC_post_num()=="" || vo.getC_post_num()==null) vo.setC_post_num("");
 	if(vo.getC_addr()=="" || vo.getC_addr()==null) vo.setC_addr("");
 	if(vo.getC_addr_d()=="" || vo.getC_addr_d()==null) vo.setC_addr_d("");
 %>
@@ -107,7 +107,7 @@
 						<td>
 							<!-- <input type="text" name="addr" id="addr">
 							<button type="button" id="addr_btn">주소찾기</button> -->
-							<input type="text" name="c_post_num" id="sample6_postcode" placeholder="우편번호" value=<%= vo.getC_post_num2() %>>
+							<input type="text" name="c_post_num" id="sample6_postcode" placeholder="우편번호" value=<%= vo.getC_post_num() %>>
 							<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기 " id="addr_btn">
 							<br><input type="text" name="c_addr" id="sample6_address" placeholder="주소" class="addr" value=<%= vo.getC_addr() %>>
 							<br><input type="text" name="c_addr_d" placeholder="상세주소" class="addr" value=<%= vo.getC_addr_d() %>><br>

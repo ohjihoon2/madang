@@ -1,7 +1,7 @@
 package com.madang.vo;
 
 public class Group_mem_VO {
-	String id, pw, name, email_id, email_addr, phone1, phone2, phone3, fax1, fax2, fax3, company, c_name, c_number, c_phone1, c_phone2, c_phone3, c_post_num2, c_addr, c_addr_d, joindate;
+	String id, pw, name, email_id, email_addr, phone1, phone2, phone3, fax1, fax2, fax3, company, c_name, c_number, c_phone1, c_phone2, c_phone3, c_post_num, c_addr, c_addr_d, joindate;
 
 	
 	public String getJoindate() {
@@ -148,12 +148,12 @@ public class Group_mem_VO {
 		this.c_phone3 = c_phone3;
 	}
 
-	public String getC_post_num2() {
-		return c_post_num2;
+	public String getC_post_num() {
+		return c_post_num;
 	}
 
-	public void setC_post_num2(String c_post_num2) {
-		this.c_post_num2 = c_post_num2;
+	public void setC_post_num(String c_post_num) {
+		this.c_post_num = c_post_num;
 	}
 
 	public String getC_addr() {

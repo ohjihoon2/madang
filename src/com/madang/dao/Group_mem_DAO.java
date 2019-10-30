@@ -63,7 +63,7 @@ public class Group_mem_DAO {
 				vo.setC_phone1(rs.getString(15));
 				vo.setC_phone2(rs.getString(16));
 				vo.setC_phone3(rs.getString(17));
-				vo.setC_post_num2(rs.getString(18));
+				vo.setC_post_num(rs.getString(18));
 				vo.setC_addr(rs.getString(19));
 				vo.setC_addr_d(rs.getString(20));
 				vo.setJoindate(rs.getString(21));
@@ -96,7 +96,7 @@ public class Group_mem_DAO {
 			pstmt.setString(10, vo.getC_phone1());
 			pstmt.setString(11, vo.getC_phone2());
 			pstmt.setString(12, vo.getC_phone3());
-			pstmt.setString(13, vo.getC_post_num2());
+			pstmt.setString(13, vo.getC_post_num());
 			pstmt.setString(14, vo.getC_addr());
 			pstmt.setString(15, vo.getC_addr_d());
 			pstmt.setString(16, vo.getId());
@@ -132,7 +132,7 @@ public class Group_mem_DAO {
 			pstmt.setString(15, vo.getC_phone1());
 			pstmt.setString(16, vo.getC_phone2());
 			pstmt.setString(17, vo.getC_phone3());
-			pstmt.setString(18, vo.getC_post_num2());
+			pstmt.setString(18, vo.getC_post_num());
 			pstmt.setString(19, vo.getC_addr());
 			pstmt.setString(20, vo.getC_addr_d());
 			int val = pstmt.executeUpdate();

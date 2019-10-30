@@ -184,14 +184,12 @@ input#email1, input#email2 {
 	width:30%;
 }
 
-
 select#p_comp, select#email3 {
 	width:22%; height:26px;
 	border-radius:10px;
 	margin-left:6px;
 	font-size:12pt;
 }
-
 
 input.addr {
 	width:80%;
