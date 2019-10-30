@@ -7,9 +7,20 @@
 <title>Insert title here</title>
 
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
-<script src="http://localhost:9090/js/madang.js"></script>	
 <link rel="stylesheet" href="http://localhost:9090/css/madangcss.css"/>
-
+<script>
+	$(document).ready(function(){
+		$("#join_g1next_btn").click(function(){
+			if($("input:checkbox[name='join_geral1_agree1']").is(":checked")){
+				if($("input:checkbox[name='join_geral1_agree2']").is(":checked")){
+					if($("input:checkbox[name='join_geral1_agree3']").is(":checked")){
+						location.href="join_general2.jsp";
+					}else alert("모두 동의해주세요.");
+				}else alert("모두 동의해주세요.");
+			}else alert("모두 동의해주세요.");
+		});
+	});
+</script>
 </head>
 <body>
 <jsp:include page="../../header.jsp"/>
@@ -126,7 +137,7 @@
 		</form>
 		<div class="joinbtn">
 		<a href="join0.jsp"><button type="button" class="join_prv">이전으로</button></a>
-		<a href="join_general2.jsp"><button type="button" class="join_next">다음으로</button></a>
+		<button type="button" class="join_next"  id="join_g1next_btn">다음으로</button>
 		</div>
 		
 </div>

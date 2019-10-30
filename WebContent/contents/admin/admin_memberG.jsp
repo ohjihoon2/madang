@@ -12,7 +12,7 @@
 	padding:0px;
 }
 
-aside.amdmin_left ul li:nth-child(8){
+aside.amdmin_left ul li:nth-child(5){
 	color:black;
 }
 
@@ -36,15 +36,7 @@ div.admin_content h1{
 
 
 
-
-
-div#admin_notice section div{
-	margin:30px 0px 20px 0px;
-	text-align:right;
-	width:80%;
-}
-
-div#admin_notice section div button{
+div#admin_memberlist section div button{
 	background-color:rgb(5,135,94);
 	border:none;
 	width:150px;
@@ -52,30 +44,19 @@ div#admin_notice section div button{
 	color:white;
 }
 
-div#admin_notice section table{
+div#admin_memberlist section table{
 	width:80%;
 	height:500px; 
 	border-collapse: collapse;
+	margin-top:60px;
 }
-div#admin_notice section table th{
+div#admin_memberlist section table th{
 	background-color:rgb(195,195,195);
+		border:1px solid lightgray;
 }
-div#admin_notice section table td:nth-child(2),
-div#admin_notice section table td:nth-child(3),
-div#admin_notice section table tr:last-child td{
+div#admin_memberlist section table td{
 	text-align:center;
 	border:1px solid lightgray;
-}
-div#admin_notice section table tr:last-child td{
-	border-bottom:hidden;
-	border-right:hidden;
-	border-left:hidden;
-	height:100px;
-}
-div#admin_notice section table td:first-child{
-	padding-left:20px;
-	border:1px solid lightgray;
-	width:70%;
 }
 
 
@@ -83,27 +64,31 @@ div#admin_notice section table td:first-child{
 </head>
 <body>
 <jsp:include page="admin_left_nav.jsp"/>
-<div id="admin_notice" class="admin_content">
-	<h1>공 지 사 항</h1>	
+<div id="admin_memberlist" class="admin_content">
+	<h1>대 관 회 원 관 리</h1>	
 	<section>
-		<div>
-			<button type="button">작성하기</button>
-		</div>
 		<table>
 			<tr>
-				<th>제목</th>
-				<th>작성일</th>
-				<th>조회수</th>
+				<th>번호</th>
+				<th>아이디</th>
+				<th>이름</th>
+				<th>연락처</th>
+				<th>가입일자</th>
+				<th>탈퇴신청</th>
 			</tr>
 			<%for(int i=0; i<10;i++){ %>
 				<tr>
-					<td><a href="admin_notice_contents.jsp">무료공지</a></td>
-					<td>20190906</td>
-					<td>3</td>
-				</tr>	
+					<td>1</td>
+					<td><a href="#">kakak</a></td>
+					<td>김봉봉</td>
+					<td>010-8555-8888</td>
+					<td>2019.08.12</td>
+					<td>신청</td>
+				</tr>
+					
 			<%} %>
 			<tr>
-				<td colspan="3">이전   1 2 3 4   다음</td>
+				<td colspan="6">이전   1 2 3 4   다음</td>
 			</tr>
 		</table>
 	</section>

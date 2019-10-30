@@ -7,22 +7,49 @@
 <title>Insert title here</title>
 <style>
 *{
-	border:1px solid blue;
 	margin: 0px;
-	padding:0px
+	padding:0px; font-family:"나눔스퀘어라운드";
+	
 }
+body{
+	padding-top:150px;
+	padding-bottom:150px;
+}
+
 
 div#admin_login{
-	width:400px;
+	width:500px;
 	margin:auto;
 	text-align:center;
+	padding:50px 0px 50px 0px;
+}
+div#admin_login > h1{
+	margin-bottom:30px;
 }
 div#admin_login > section{
+	width:400px;
+	padding: 20px 10px 20px 10px;
+	border:1px solid rgb(5,135,94);
+	border-radius:30px;
 	display:inline-block;
-	border:1px solid red;
 	margin:auto;
 }
 
+div#admin_login > section form input{
+	width:95%;
+	height:35px;
+	margin:20px 0px 0px 0px;
+}
+
+div#admin_login > section form button{
+	width:95%;
+	height:40px;
+	margin:20px 0px 20px 0px;
+	border:none;
+	background-color:rgb(5,135,94);
+	color:white;
+	font-size:15pt;
+}
 
 </style>
 
@@ -30,15 +57,15 @@ div#admin_login > section{
 </head>
 <body>
 <div id="admin_login">
+	<h1>관리자 로그인</h1>
 	<section>
-		<h2>관리자 로그인</h2>
 		<div>
 			<form action="#" method="post" name="admin_login">
 				<input type="text" placeholder="아이디"/>
 				<input type="password"  placeholder="패스워드"/>
 				
+			<a href="admin_main.jsp"><button type="button">로그인</button></a>
 			</form>
-			<button type="button">로그인</button>
 		</div>
 	</section>
 </div>

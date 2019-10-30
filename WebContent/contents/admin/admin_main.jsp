@@ -33,29 +33,29 @@ div.admin_page{
 }
 
 div.admin_content{
-	border : 1px solid red;
-	width:1000px;
-	height:1500px;
+	width:70%;
+	height:1400px;
 	margin:auto;
 	float:left;
+	padding:130px 0px 0px 100px;
 }
 
 
 /*내용*/
-	div#admin_main div.admin_content section{
+	div#admin_main section{
 		border:1px solid gray;
 		height:300px;
 		padding:50px 0px 0px 30px;
 	}
 	/*공연, 전시 안내*/
-	div#admin_main div.admin_content section:first-child article{
+	div#admin_main section:first-child article{
 		display : inline-block;
 		width:400px;
 		height:250px;
 		margin-right:40px;
 		
 	}
-	div#admin_main div.admin_content section:first-child article ul {
+	div#admin_main section:first-child article ul {
 		border:1px solid green;
 		list-style-position: inside;
 		padding:5px 0px 0px 10px;
@@ -66,24 +66,24 @@ div.admin_content{
 	}
 	
 	
-	div#admin_main div.admin_content section table{
+	div#admin_main section table{
 		width:650px;
 		height:200px;
 		margin:auto;
 		margin-top:30px;
 		border-collapse: collapse;
 	}
-	div#admin_main div.admin_content section table th{
+	div#admin_main section table th{
 		background-color:lightgray;
 		border-bottom:1px solid gray;
 	}
 	
-	div#admin_main div.admin_content section table td:first-child{
+	div#admin_main section table td:first-child{
 		border-bottom:1px solid gray;
 		width:500px;
 		padding-left:10px;
 	}
-	div#admin_main div.admin_content section table td:last-child{
+	div#admin_main section table td:last-child{
 		border-bottom:1px solid gray;
 		text-align:center;
 	}
@@ -95,9 +95,8 @@ div.admin_content{
 <!-- 
 	admin페이지에서 하는 것: 공지사항, 1:1상담, 언론보도, 이벤트 그리고 공시,전시에 대한 crud.
  -->
-<div id="admin_main" class="admin_page">
 <jsp:include page="admin_left_nav.jsp"/>
-	<div class="admin_content">
+	<div id="admin_main" class="admin_content">
 		<section>
 		 	<article>
 		 		<!--현재 진행중인 공연(넘치면 over-scroll / for문사용) -->	

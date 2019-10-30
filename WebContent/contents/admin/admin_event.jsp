@@ -62,6 +62,7 @@ div#admin_notice section table th{
 }
 div#admin_notice section table td:nth-child(2),
 div#admin_notice section table td:nth-child(3),
+div#admin_notice section table td:nth-child(4),
 div#admin_notice section table tr:last-child td{
 	text-align:center;
 	border:1px solid lightgray;
@@ -75,7 +76,7 @@ div#admin_notice section table tr:last-child td{
 div#admin_notice section table td:first-child{
 	padding-left:20px;
 	border:1px solid lightgray;
-	width:70%;
+	width:60%;
 }
 
 
@@ -84,20 +85,22 @@ div#admin_notice section table td:first-child{
 <body>
 <jsp:include page="admin_left_nav.jsp"/>
 <div id="admin_notice" class="admin_content">
-	<h1>공 지 사 항</h1>	
+	<h1>이 벤 트</h1>	
 	<section>
 		<div>
-			<button type="button">작성하기</button>
+			<a href="admin_event_contents.jsp"><button type="button">작성하기</button></a>
 		</div>
 		<table>
 			<tr>
 				<th>제목</th>
+				<th>기간</th>
 				<th>작성일</th>
 				<th>조회수</th>
 			</tr>
 			<%for(int i=0; i<10;i++){ %>
 				<tr>
-					<td><a href="admin_notice_contents.jsp">무료공지</a></td>
+					<td><a href="admin_event_contents.jsp">이벤트 <span style="border:1px solid green">종료</span></a></td>
+					<td>20190906~20190808</td>
 					<td>20190906</td>
 					<td>3</td>
 				</tr>	

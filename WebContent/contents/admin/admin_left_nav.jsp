@@ -5,73 +5,112 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	  $("div.admin_left_sub").hide();
+	  // $("ul > li:first-child a").next().show();
+	  $("ul>li>a:first-child").click(function(){
+	    $(this).siblings().slideToggle(300);
+	    $("ul li a").not(this).siblings().slideUp(300);
+	    return false;
+	  });
+	  
+	});
+ </script>
+
 <style>
 
+*{
+  padding:0; 
+  margin:0;
+  font-family:"나눔스퀘어라운드";
+}
 /*왼쪽네비*/
-aside.amdmin_left{
+aside#amdmin_left{
 	background-color:rgb(5,135,94);
 	width:290px;
 	height:1500px;
 	float:left;
 	color:white;
 }
-aside.amdmin_left ul{
-	list-style-type:none;
-	font-size:15pt;
-}
-aside.amdmin_left ul li:first-child{
-	height:100px;
-	padding:50px 30px 50px 0px;
-	test-align:center;
+aside#amdmin_left>div{
+	width:100%;
+	height:130px;
+	text-align:center;
+	font-size:23pt;
+	padding-top:50px;
 }
 
-aside.amdmin_left ul li{
-	height:40px;
-	padding:3px 0px 0px 30px;
+aside#amdmin_left ul{
+  width:100%; 
+  list-style:none;
+}
+
+aside#amdmin_left ul li{
+	margin:0px 0px 15px 60px;
+  padding:20px 30px 0px 10px; 
+  text-align:left;
+  color:white;
+}
+
+
+aside#amdmin_left ul li a{
+  
+  line-height:20px; 
+  display:block; 
+  text-decoration:none; 
+  color:white;
+}
+aside#amdmin_left ul li> a{
+  margin-right:30px;
+	font-size:18pt;
+}
+aside#amdmin_left ul li>div{
+	margin:10px 0px 15px 20px;
+	font-size:13pt;
 }
 
 </style>
 </head>
 <body>
-<aside class="amdmin_left">
-	<!--
-	왼쪽네비
-		-공연
-		-전시
-	 -->
-	 <ul>
-	 	<li><a href="#"><span>관리자 페이지</span></a></li>
-	 	<li class="dept01">
-	 		공연관리
-	 		<ul class="dept02">
-	 			<li>예정</li>
-	 			<li>완료</li>
-	 		</ul>
-	 	</li>
-	 	
-	 	<li>전시관리
-	 		<ul class="dept02">
-	 			<li>예정</li>
-	 			<li>완료</li>
-	 		</ul>
-	 	</li>
-	 	
-	 	<li>대관관리
-	 		<ul class="dept02">
-	 			<li>공연대관</li>
-	 			<li>전시대관</li>
-	 		</ul>
-	 	</li>	
-	 	<li>회원관리</li>
-	 	<li>고객센터
-		 	<ul class="dept02">
-	 			<li>1:1상담</li>
-	 			<li>예정</li>
-	 		</ul>
-	 	</li>
-	 	<li>게시판 관리</li>
-	 	<li>공지사항</li>
-	 </ul>
-	</aside>
+<aside id="amdmin_left">
+<div>
+	관리자 페이지
+</div>
+<ul>
+  <li>
+    <a href="#">공연관리</a><!-- 상영중 -->
+    <div class="admin_left_sub"><a href="#">상영중인 공연</a></div>
+    <div class="admin_left_sub"><a href="#">지난 공연</a></div>
+	<div class="admin_left_sub"><a href="#">완료된 공연</a></div>
+  </li>
+  <li>
+    <a href="#">전시관리</a><!-- 상영중 -->
+    <div class="admin_left_sub"><a href="#">상영중인 전시</a></div>
+    <div class="admin_left_sub"><a href="#">지난 전시</a></div>
+	<div class="admin_left_sub"><a href="#">완료된 전시</a></div>
+  </li>
+  <li>
+    <a href="#">회원관리</a>  <!-- 일반회원 -->
+    <div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/admin_member.jsp">일반 회원</a></div>
+	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/admin_memberG.jsp">대관 회원</a></div>
+  </li>
+  <li>
+     <a href="#">1:1상담 관리</a>
+  </li>
+  <li>
+     <a href="#">대관관리</a>
+    <div class="admin_left_sub"><a href="#">공연대관</a></div>
+	<div class="admin_left_sub"><a href="#">전시대관</a></div>
+  </li>
+    <li>
+     <a href="#">게시판 관리</a>
+    <div class="admin_left_sub"><a href="#">관람후기</a></div>
+	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/admin_notice.jsp">공지사항</a></div>
+	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/admin_event.jsp">이벤트</a></div>
+  </li>
+</ul>
+</aside>
 </body>
 </html>

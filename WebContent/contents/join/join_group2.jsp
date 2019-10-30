@@ -11,6 +11,11 @@
 	
 	<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 	<script src="http://localhost:9090/js/madang.js"></script>	
+	
+	<script>
+		
+	</script>
+</head>	
 <body>
 <jsp:include page="../../header.jsp"/>
 

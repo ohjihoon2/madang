@@ -8,6 +8,23 @@
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <script src="http://localhost:9090/js/madang.js"></script>	
 <link rel="stylesheet" href="http://localhost:9090/css/madangcss.css"/>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="http://localhost:9090/css/madangcss.css"/>
+<script>
+	$(document).ready(function(){
+		$("#join_gp1next_btn").click(function(){
+			if($("input:checkbox[name='join_group1_agree1']").is(":checked")){
+				if($("input:checkbox[name='join_group1_agree2']").is(":checked")){
+					if($("input:checkbox[name='join_group1_agree3']").is(":checked")){
+						if($("input:checkbox[name='join_group1_agree4']").is(":checked")){
+						location.href="join_group2.jsp";
+						}else alert("모두 동의해주세요.");
+					}else alert("모두 동의해주세요.");
+				}else alert("모두 동의해주세요.");
+			}else alert("모두 동의해주세요.");
+		});
+	});
+</script>
 </head>
 <body>
 <jsp:include page="../../header.jsp"/>
@@ -39,7 +56,7 @@
 			<br>① 당 사이트는 귀하가 본 약관 내용에 동의하는 것을 조건으로 귀하에게 서비스를 제공할 것이며, 귀하가 본 약관의 내용에 동의하는 경우, 당 사이트의 서비스 제공 행위 및 귀하의 서비스 사용 행위에는 본 약관이 우선적으로 적용됩니다.
 			<br>② 당 사이트는 본 약관을 변경할 수 있으며, 변경된 약관은 당 사이트 내에 공지함으로써 이용자가 직접 확인하도록 할 것입니다. 약관을 변경할 경우에는 적용일자 및 변경사유를 명시하여 당 사이트 내에 그 적용일자 30일 전부터 공지합니다. 약관 변경 공지 후 이용자가 명시적으로 약관 변경에 대한 거부의사를 표시하지 아니하면, 이용자가 약관에 동의한 것으로 간주합니다. 이용자가 변경된 약관에 동의하지 아니하는 경우, 이용자는 본인의 회원등록을 취소(회원탈퇴)할 수 있습니다
 		</article>
-		<div>동의합니다. <input type="checkbox" value="Y" name="join_geral1_agree1"></div>
+		<div>동의합니다. <input type="checkbox" value="Y" name="join_group1_agree1"></div>
 		<h3>개인정보 수집 및 이용에 대한 안내(필수)</h3>
 		<article>
 			<strong>Ⅰ. 개인정보의 수집 및 이용 동의서</strong>
@@ -72,7 +89,7 @@
 			 <br> - 귀하께서는 본 안내에 따른 개인정보 수집, 이용에 대하여 동의를 거부하실 권리가 있습니다. 다만, 귀하가 개인정보의 수집/이용에 동의를 
 			 거부하시는 경우에 장학생 선발 과정에 있어 불이익이 발생할 수 있음을 알려드립니다.
 		</article>
-		<div>동의합니다. <input type="checkbox" value="Y" name="join_geral1_agree2"></div>		
+		<div>동의합니다. <input type="checkbox" value="Y" name="join_group1_agree2"></div>		
 		<h3>개인정보 제3자 제공에 동의합니다.(필수)</h3>
 		<article>
 			알라딘은 인터넷서비스화면을 통하여 공개된 정보를 제외하고는 이용자의 개인정보를 알라딘이 제공하는 인터넷 서비스 외의 용도로 사용하거나 이용자의 동의 없이 제3자에게 제공하지 않습니다. 다만, 다음 각 호의 경우에는 예외로 합니다.
@@ -82,7 +99,7 @@
 			<br>
 			<br>
 		</article>
-		<div>동의합니다. <input type="checkbox" value="Y" name="join_geral1_agree3"></div>
+		<div>동의합니다. <input type="checkbox" value="Y" name="join_group1_agree3"></div>
 		<h3>대관자(기획사) 가입약관 동의.(필수)</h3>
 		<article>
 			<strong>제1장 총칙</strong>
@@ -108,12 +125,12 @@
 			<br>7. “아이디(ID)”란 서비스를 이용하기 위하여 대관자가 설정하고 전당이 승인한 회원 식별문자 및 숫자 조합이며, “비밀번호”란 대관자의 정보를 보호하기 위하여 대관자 자신이 설정한 문자 및 숫자의 조합입니다.
 			<br>8. “해지”란 대관자가 대관자 홈페이지 서비스 이용의 중단을 위하여 밝히는 의사 표시를 말합니다. 다만, “해지”는 대관 규약상의 행사취소와는 다르며, 단지 대관자 홈페이지 서비스의 이용 중단에만 국한됩니다.
 		</article>
-		<div>동의합니다. <input type="checkbox" value="Y" name="join_geral1_agree3"></div>
+		<div>동의합니다. <input type="checkbox" value="Y" name="join_group1_agree4"></div>
 	</div>
 	</form>
 		<div class="joinbtn">
 		<a href="join0.jsp"><button type="button" class="join_prv">이전으로</button></a>
-		<a href="join_group2.jsp"><button type="button" class="join_next">다음으로</button></a>
+	<button type="button" class="join_next" id="join_gp1next_btn">다음으로</button>
 		</div>
 		
 </div>

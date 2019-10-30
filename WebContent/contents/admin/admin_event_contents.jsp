@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="http://localhost:9090/dycgv/js/jquery-3.4.1.min.js"></script>
 <style>
 *{
 	font-family:"나눔스퀘어라운드";
@@ -53,17 +54,6 @@ div#admin_notice_contents section table tr:nth-child(2) td:nth-child(2){
 	width:520px;
 }
 
-div#admin_notice_contents section table tr:nth-child(4) td{
-	height:460px;
-  
-}
-div#admin_notice_contents section table tr:nth-child(4) td div{
-  	margin-top:10px;
-  	overflow: auto;
-	height:450px;
-	width:98%;
-	word-break:break-all;
-}
 div#admin_notice_contents section article {
 	width:70%;
 	text-align :right;
@@ -77,11 +67,25 @@ div#admin_notice_contents section article button{
 
 
 </style>
+
+<script>
+	//이미지를 파일선택하기로 올리면 테이블에 그 이미지를 작은사이지로 올리고 클릭시 새창뜨게 하기
+	$(document).ready(function(){
+		if($("#admin_ev_detail").val() != ""){
+			$("#admin_ev_detail").on("change paste keyup")
+				
+				alert("test");
+			});
+		}
+		
+	});
+</script>
+
 </head>
 <body>
 <jsp:include page="admin_left_nav.jsp"/>
 <div id="admin_notice_contents" class="admin_content">
-	<h1>공 지 사 항</h1>	
+	<h1>이 벤 트</h1>	
 	<section>
 		<table>
 			<tr>
@@ -91,24 +95,29 @@ div#admin_notice_contents section article button{
 				<td>d</td>
 			</tr>
 			<tr>
+				<th>이벤트 기간</th>
+				<td>d</td>
+				<th>상태</th>
+				<td>d</td>
+			</tr>
+			<tr>	
 				<th>작성일자</th>
 				<td>d</td>
 				<th>조회수</th>
 				<td>d</td>
 			</tr>
 			<tr>
-				<th colspan="4">내용</th>
-			</tr>
-			<tr>
 				<td colspan="4">
-				<div>
-					dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-				</div>
+					<a href=" 링크주소 target = "_blank"><img src="이미지경로" /></a>
 				</td>
 			</tr>
 			<tr>
-				<th>첨부파일</th>
-				<td colspan="3"><input type="file"></td>
+				<th>상세내용 이미지</th>
+				<td colspan="3"><input type="file" id="admin_ev_detail"></td>
+			</tr>
+			<tr>
+				<th>썸네일 이미지</th>
+				<td colspan="3"><input type="file" id="admin_ev_thumbnail"></td>
 			</tr>
 		</table>
 		<article>

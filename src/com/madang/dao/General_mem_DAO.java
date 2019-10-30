@@ -9,7 +9,7 @@ import com.madang.vo.General_mem_VO;
 
 public class General_mem_DAO {
 	//Field
-	String url="jdbc:oracle:thin:@localhost:1521";
+	String url="jdbc:oracle:thin:@211.63.89.214:1521";
 	String user="madang";
 	String pass="1234";
 	Connection conn;
@@ -106,7 +106,36 @@ public class General_mem_DAO {
 		return result;
 	}
 	
-	
+	//회원가입 db에 회원정보삽입
+	public boolean getResultJoin(General_mem_VO vo) {
+		boolean result=false;
+		String sql="insert into general_mem values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,sysdate)";
+		getPreparedStatement(sql);
+		try {
+			pstmt.setString(1, vo.getId());
+			pstmt.setString(2, vo.getPw());
+			pstmt.setString(3, vo.getName());
+			pstmt.setString(4, vo.getGender());
+			pstmt.setString(5, vo.getBirth());
+			pstmt.setString(6, vo.getEmail_id());
+			pstmt.setString(7, vo.getEmail_addr());
+			pstmt.setString(8, vo.getPost_num());
+			pstmt.setString(9, vo.getAddr());
+			pstmt.setString(10, vo.getAddr_d());
+			pstmt.setString(11, vo.getPhone1());
+			pstmt.setString(12, vo.getPhone2());
+			pstmt.setString(13, vo.getPhone3());
+			pstmt.setString(14, vo.getP_comp());
+			pstmt.setString(15, vo.getAccept_email());
+			pstmt.setString(16, vo.getAccept_sms());
+			
+			int val = pstmt.executeUpdate();
+			if(val!=0) {
+				result=true;
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		return result;
+	}
 	
 	public void close() {
 		try {
