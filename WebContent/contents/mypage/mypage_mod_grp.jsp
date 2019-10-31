@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="com.madang.vo.Group_mem_VO, com.madang.service.Group_mem_Service" %>
 <%
-	String id="group";
+	String id=String.valueOf(session.getAttribute("grouopID"));
 	Group_mem_Service service=new Group_mem_Service();
 	Group_mem_VO vo=service.getContent(id);
 	
@@ -117,7 +117,7 @@
 				
 				<div class="button">
 					<button type="button" id="mem_mod_btn" class="button_a">수정</button>
-					<button type="button" class="button_b">취소</button>
+					<a href="mypage_main.jsp"><button type="button" class="button_b">취소</button></a>
 					<a href="mypage_out.jsp"><button type="button" class="button_b">탈퇴</button></a>
 				</div>
 				

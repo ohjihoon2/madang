@@ -3,7 +3,8 @@
 <%@ page import="com.madang.vo.General_mem_VO, com.madang.service.General_mem_Service" %>
 
 <%
-	String id="test";
+	String id=String.valueOf(session.getAttribute("generalID"));
+	
 	General_mem_Service service=new General_mem_Service();
 	General_mem_VO vo=service.getContent(id);
 	
@@ -134,7 +135,7 @@
 				
 				<div class="button">
 					<button type="button" id="mem_mod_btn" class="button_a">수정</button>
-					<button type="button" class="button_b">취소</button>
+					<a href="mypage_main.jsp"><button type="button" class="button_b">취소</button></a>
 					<a href="mypage_out.jsp"><button type="button" class="button_b">탈퇴</button></a>
 				</div>
 				

@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	String general_id=String.valueOf(session.getAttribute("generalID"));
+	String group_id=String.valueOf(session.getAttribute("grouopID"));
+	
+	//세션 초기화 개인
+	//세션 초기화 그룹
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,6 +17,7 @@
 <script src="http://localhost:9090/js/madang.js"></script>
 <script>
 	$(document).ready(function(){
+		
 		
 		var pw_msg="";
 		
@@ -22,11 +30,8 @@
 						$("input#out_pw_cfm").focus();
 					} else {
 						if(pw_msg=="비밀번호 확인이 완료되었습니다.") {
-							alert("ㅇㅇ");
-							
-							//탈퇴db연결
-							
-							
+							//탈퇴 db 연결
+							location.href="http://localhost:9090/contents/mypage/gen_mem_out_process.jsp";
 						} else {
 							alert("비밀번호를 다시 입력해주세요")
 							$("input#out_pw_cfm").focus();
@@ -44,25 +49,52 @@
 		
 		
 		//비밀번호 확인
-		$("input#out_pw_cfm").blur(function(){
-			var u_pw=$("input#out_pw_cfm").val();
-			var id='11';
-			$.ajax({
-				url:"mem_out_pw_process.jsp?id="+id+"&pw="+u_pw,
-				success:function(result){
-					if(u_pw!="") {
-						if(result==0) { //비밀번호 불일치
-							$("span#pw_check_result").text("비밀번호가 일치하지 않습니다.");
-							pw_msg=$("span#pw_check_result").text();
-						} else {
-							$("span#pw_check_result").text("비밀번호 확인이 완료되었습니다.");
-							pw_msg=$("span#pw_check_result").text();
+		$("input#out_pw_cfm").focusout(function(){
+			alert("dd");
+			//var id='대관';
+			alert(general_id);
+			alert(group_id); 
+			//var u_pw=$("input#out_pw_cfm").val();
+			/* if(general_id!=null && group_id==null) { //개인회원
+				alert("zzz");
+				$.ajax({
+					url:"mem_out_pw_process.jsp?id="+general_id+"&pw="+u_pw,
+					success:function(result){
+						if(u_pw!="") {
+							if(result==0) { //비밀번호 불일치
+								$("span#pw_check_result").text("비밀번호가 일치하지 않습니다.");
+								pw_msg=$("span#pw_check_result").text();
+							} else {
+								$("span#pw_check_result").text("비밀번호 확인이 완료되었습니다.");
+								pw_msg=$("span#pw_check_result").text();
+							}
 						}
 					}
-				}
-			});
+				}); 
+				
+			
+			} else if((group_id!=null && general_id==null)) { //그룹회원
+				$.ajax({
+					url:"mem_out_pw_process.jsp?id="+group_id+"&pw="+u_pw,
+					success:function(result){
+						if(u_pw!="") {
+							if(result==0) { //비밀번호 불일치
+								$("span#pw_check_result").text("비밀번호가 일치하지 않습니다.");
+								pw_msg=$("span#pw_check_result").text();
+							} else {
+								$("span#pw_check_result").text("비밀번호 확인이 완료되었습니다.");
+								pw_msg=$("span#pw_check_result").text();
+							}
+						}
+					}
+				});
+				
+				
+			}
+			
+			*/	
 		});
-		
+		 
 		
 	}); //document
 </script>
@@ -104,9 +136,7 @@
 		</div>
 		
 		<div class="button">
-			<%-- <a herf="mem_out_process.jsp?id=<% id %>"> --%>
 			<button type="button" id="out_btn" class="button_a">탈퇴</button>
-			<!-- </a> -->
 			<a href="mypage_mod_gen.jsp"><button type="button" class="button_b">취소</button></a>
 		</div>
 		
