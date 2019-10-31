@@ -5,7 +5,7 @@
 	String ev_code = request.getParameter("ev_code");
 	EventService service = new EventService();
 	EventVO vo = service.getResultContent(ev_code);
-/* 	ArrayList<EventReplyVO> rlist = service.getResultReplyList(ev_code); */
+ 	ArrayList<EventReplyVO> rlist = service.getResultReplyList(ev_code); 
 	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -22,25 +22,28 @@
 			$("#reply_div").show();
 			
 			var rep_btn = $("#btnReply").text();
-			var rep_content = $("#reply_area").val();
+			var ev_rp_content = $("#reply_area").val();
 			
 			if(rep_btn == "댓글쓰기"){
 				$(btnReply).text("댓글등록");
 				
 			}else{
-				if(rep_content==""){
+				if(ev_rp_content==""){
 					alert("200자 이내로 댓글을 작성하세요.");
 					$("#reply_area").focus();
 					
 				}else{
-					alert(rep_content.length);
-					if(rep_content.length>200){
+					alert(ev_rp_content.length);
+					if(ev_rp_content.length>200){
+						alert("200자 이내로 댓글을 작성하세요.");
+						$("#reply_area").focus();
 						
 					}else{
 						$.ajax({
-							url:"event_reply_write_process.jsp",
+							url:"event_reply_write_process.jsp?ev_code="+<%=ev_code%>+"&ev_rp_content="+ev_rp_content,
 							success:function(result){
-								if(result != 0) {
+								alert(result);
+								/* if(result != 0) {
 									alert("댓글이 등록되었습니다.");
 									$("#reply_div").hide();
 									$("#btnReply").text("댓글 쓰기");
@@ -48,7 +51,7 @@
 									
 								}else{
 									alert("댓글 등록에 실패했습니다.");
-								}
+								} */
 							}
 						});
 						
@@ -92,11 +95,11 @@
 			<div id="reply_div">
 				<textarea id="reply_area" placeholder="여기에 댓글을 써주세요."></textarea>
 			</div>		
-			<%for(int i=1; i<=5; i++){ %>
+			<%for(EventReplyVO rvo : rlist){ %>
 			<ul id="event_ul">
-				<li><span id="li_id">아이디</span><span id="li_event_date">날짜</span>
+				<li><span id="li_id"><%=rvo.getId() %></span><span id="li_event_date"><%=rvo.getEv_rp_date() %></span>
 				<button type="button" id="btnRE">수정</button><button type="button" id="btnDE">삭제</button></li>
-				<li id="li_content">브람스와 바흐 피아노 선율이 함께라면 가을밤 정취가 더 깊어질 것 같습니다.</li>				
+				<li id="li_content"><%=rvo.getEv_rp_content() %></li>				
 			</ul>
 			<%} %>
 		</div>	

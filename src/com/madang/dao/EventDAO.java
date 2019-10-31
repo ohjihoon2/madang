@@ -5,21 +5,21 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-
+import com.madang.vo.EventReplyVO;
 import com.madang.vo.EventVO;
 
 public class EventDAO {
 	//field
-		String url ="jdbc:oracle:thin:@localhost:1521";
-		String user ="madang";
-		String pass ="1234";
+	    String url="jdbc:oracle:thin:@211.63.89.214:1521";
+	    String user="madang";
+	    String pass="1234";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 	
 	public EventDAO() {
 		try {
-			Class.forName("Oracle.jdbc.driver.OracleDriver");
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection(url,user,pass);
 			
 		}catch(Exception e) {e.printStackTrace();}				
@@ -35,39 +35,8 @@ public class EventDAO {
 	/** 이벤트 리스트 전체 출력 **/
 	public ArrayList<EventVO> getResultList(){
 		ArrayList<EventVO> list = new ArrayList<EventVO>();
-		String sql = "SELECT ev_code, ev_title, ev_sthumbnail,ev_sdetail, to_char(ev_date,'yyyy.mm.dd.'),ev_status, ev_hits"
-				+ " FROM EVENT ORDER BY BDATE DESC";
-		getPreparedStatement(sql);
-		
-		try {
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				EventVO vo = new EventVO();
-				
-				vo.setEv_code(rs.getString(1));
-				vo.setEv_title(rs.getString(2));
-				vo.setEv_sthumbnail(rs.getString(3));
-				vo.setEv_sdetail(rs.getString(4));
-				vo.setEv_date(rs.getString(5));
-				vo.setEv_status(rs.getString(6));
-				vo.setEv_hits(rs.getInt(7));
-				
-				list.add(vo);
-			}
-		}catch(Exception e) {e.printStackTrace();}
-		
-		return list;
-	}
-	
-	/**  현재 진행중인 이벤트 리스트 출력 **/
-	public ArrayList<EventVO> getResultIngList(){
-		
-		ArrayList<EventVO> elist = new ArrayList<EventVO>();
-		String sql = "select ev_code, ev_title, ev_sthumbnail,ev_sdetail, to_char(ev_date,'yyyy.mm.dd.'),to_char(ev_sdate,'yyyy.mm.dd.'),to_char(ev_edate,'yyyy.mm.dd.'), ev_status, ev_hits"
-				+ " from event"
-				+ " where ev_edate>sysdate"
-				+ " order by ev_date desc";
+		String sql = "select ev_code, ev_title, ev_sthumbnail, ev_sdetail, to_char(ev_date,'yyyy.mm.dd.'), to_char(ev_sdate,'yyyy.mm.dd.'), to_char(ev_edate,'yyyy.mm.dd.'), ev_status, ev_hits"
+				+ " from event order by ev_date";
 		getPreparedStatement(sql);
 		
 		try {
@@ -85,7 +54,43 @@ public class EventDAO {
 				vo.setEv_edate(rs.getString(7));
 				vo.setEv_status(rs.getString(8));
 				vo.setEv_hits(rs.getInt(9));
+
+				list.add(vo);
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		
+		return list;
+	}
+	
+	/**  현재 진행중인 이벤트 리스트 출력 **/
+	public ArrayList<EventVO> getResultIngList(){
+		
+		ArrayList<EventVO> elist = new ArrayList<EventVO>();
+		String sql = "select ev_code, ev_title, ev_sthumbnail,ev_sdetail, to_char(ev_date,'yyyy.mm.dd.'),to_char(ev_sdate,'yyyy.mm.dd.'),to_char(ev_edate,'yyyy.mm.dd.'), ev_status, ev_hits"
+				+ " from event"
+				+ " where ev_edate>sysdate"
+				+ " order by ev_date desc";
+		
+		
+		
+		getPreparedStatement(sql);
+		
+		try {
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				EventVO vo = new EventVO();
 				
+				vo.setEv_code(rs.getString(1));
+				vo.setEv_title(rs.getString(2));
+				vo.setEv_sthumbnail(rs.getString(3));
+				vo.setEv_sdetail(rs.getString(4));
+				vo.setEv_date(rs.getString(5));
+				vo.setEv_sdate(rs.getString(6));
+				vo.setEv_edate(rs.getString(7));
+				vo.setEv_status(rs.getString(8));
+				vo.setEv_hits(rs.getInt(9));
+
 				elist.add(vo);
 			}
 			
@@ -97,7 +102,7 @@ public class EventDAO {
 	/** Contents VO출력 **/
 	public EventVO getResultVO(String ev_code) {
 		EventVO vo = new EventVO();
-		String sql = "select * from event where ev_code=?";
+		String sql = "select ev_code, ev_title, ev_sthumbnail, ev_sdetail, ev_date, ev_sdate, ev_edate, ev_status, ev_hits from event where ev_code=?";
 		getPreparedStatement(sql);
 		
 		try {
@@ -120,6 +125,52 @@ public class EventDAO {
 		
 		return vo;
 	}
+	
+	/**  댓글 리스트 출력  **/
+	public ArrayList<EventReplyVO> getResultReplyList(String ev_code){
+		
+		ArrayList<EventReplyVO> rlist = new ArrayList<EventReplyVO>();
+		String sql = "select id, ev_rp_content, ev_rp_date from event_reply"
+				+ " where ev_code=?"
+				+ " order by ev_rp_date desc";
+		getPreparedStatement(sql);
+		
+		try {
+			pstmt.setString(1, ev_code);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				EventReplyVO rvo = new EventReplyVO();
+				
+				rvo.setId(rs.getString(1));
+				rvo.setEv_rp_content(rs.getString(2));
+				rvo.setEv_rp_date(rs.getString(3));				
 
+				rlist.add(rvo);
+			}
+			
+		}catch(Exception e) {e.printStackTrace();}
+		
+		return rlist;
+	}
+
+	/** 댓글 등록 **/
+	public int getResultReplyWrite(EventReplyVO rvo) {
+		int result = 0;
+		String sql = "insert into event_reply values('ev_rp'|| lpad(sequ_event_reply.nextval, 4,'0'),?,?,?, sysdate)";
+		getPreparedStatement(sql);
+		
+		try {
+			pstmt.setString(1, rvo.getEv_rp_content());
+			pstmt.setString(2, rvo.getEv_rp_code());
+			pstmt.setString(3, rvo.getId());
+			
+			int val = pstmt.executeUpdate();
+			if(val != 0) result = 1;
+System.out.println("result:"+result);
+		}catch(Exception e) {e.printStackTrace();}
+		
+		return result;
+	}
 
 }

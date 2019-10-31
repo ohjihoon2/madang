@@ -1,48 +1,55 @@
 package com.madang.vo;
 
-public class EventReplyVO {
-	
+public class EventReplyVO {	
 	//field
-	String EV_RP_CODE, EV_RP_CONTENT, ID, EV_RP_DATE;
-	
+	String ev_rp_code, ev_rp_content, ev_code, id, ev_rp_date;
 	//setter, getter
-	public String getEV_RP_CODE() {
-		return EV_RP_CODE;
+	public String getEv_rp_code() {
+		return ev_rp_code;
 	}
 
-	public void setEV_RP_CODE(String eV_RP_CODE) {
-		EV_RP_CODE = eV_RP_CODE;
+	public void setEv_rp_code(String ev_rp_code) {
+		this.ev_rp_code = ev_rp_code;
 	}
 
-	public String getEV_RP_CONTENT() {
-		return EV_RP_CONTENT;
+	public String getEv_rp_content() {
+		return ev_rp_content;
 	}
 
-	public void setEV_RP_CONTENT(String eV_RP_CONTENT) {
-		EV_RP_CONTENT = eV_RP_CONTENT;
+	public void setEv_rp_content(String ev_rp_content) {
+		this.ev_rp_content = ev_rp_content;
 	}
 
-	public String getID() {
-		return ID;
+	public String getEv_code() {
+		return ev_code;
 	}
 
-	public void setID(String iD) {
-		ID = iD;
+	public void setEv_code(String ev_code) {
+		this.ev_code = ev_code;
 	}
 
-	public String getEV_RP_DATE() {
-		return EV_RP_DATE;
+	public String getId() {
+		return id;
 	}
 
-	public void setEV_RP_DATE(String eV_RP_DATE) {
-		EV_RP_DATE = eV_RP_DATE;
+	public void setId(String id) {
+		this.id = id;
 	}
-	
+
+	public String getEv_rp_date() {
+		return ev_rp_date;
+	}
+
+	public void setEv_rp_date(String ev_rp_date) {
+		this.ev_rp_date = ev_rp_date;
+	}
+
 	
 }
 /**
 EV_RP_CODE    NOT NULL VARCHAR2(20)   
 EV_RP_CONTENT NOT NULL NVARCHAR2(200) 
-ID                     VARCHAR2(20)   
-EV_RP_DATE    NOT NULL DATE 
+EV_CODE       FK       VARCHAR2(20)   
+ID            FK       VARCHAR2(20)   
+EV_RP_DATE    NOT NULL DATE    
  */
