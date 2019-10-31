@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
- 		function showPopup() { window.open("ticket.jsp", "a", "width=1000, height=700, left=400, top=200"); }
+ 		function showPopup() { window.open("ticket.jsp", "window팝업", "width=1000, height=700, left=400, top=200"); }
 </script>
 <style>
 	*{
