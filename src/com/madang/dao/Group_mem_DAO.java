@@ -180,8 +180,7 @@ public class Group_mem_DAO {
 		}catch(Exception e) {e.printStackTrace();}
 		return result;
 	}
-	
-	
+		
 	
 	
 	public void close() {
