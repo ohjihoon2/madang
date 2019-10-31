@@ -348,8 +348,11 @@
 		width:180px;
 		padding:5px 0px 5px 30px; /*))전체 사이즈가 늘어난다!=>전체 사이즈 수정 100px->70px*/
 		}
-	div#join_general2 input[type=text], input[type=password],
-	div#join_group2 input[type=text], input[type=password]{
+	div#join_general2 input[type=text],
+	div#join_general2 input[type=password],
+	div#join_general2 input[type=date],
+	div#join_group2 input[type=text], 
+	div#join_general2 input[type=password]{
 		width:250px;/*))li기준*/
 		padding:5px 5px 5px 20px; /*))텍스트 필드 안의 여백. 단 사이즈도 증가한다!((사방으로!))*/
 		}

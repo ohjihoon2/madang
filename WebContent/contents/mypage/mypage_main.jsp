@@ -13,6 +13,7 @@
 <body>
 	<jsp:include page="../../header.jsp" />
 	<div>
+		<span>일반회원 아이디:<%= session.getAttribute("generalID")%> 대관회원 아이디:<%= session.getAttribute("gruopID")%></span>
 		<div id="left_nav">
 			<ul>
 				<li><a style="color: rgb(5, 135, 94)" href="mypage_main.jsp">마이페이지</a></li>

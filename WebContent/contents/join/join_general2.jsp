@@ -160,7 +160,7 @@ $(document).ready(function(){
 			</li>
 			<li>
 				<label>생년월일*</label>	<!-- join_general1.jsp에서 입력한 정보가 미리 작성되어있겠끔 -->
-				<input type="text" name=birth placeholder="2019-10-10" id="join_g2_birth">
+				<input type="date" name=birth placeholder="2019-10-10" id="join_g2_birth">
 			</li>
 			<li>
 				<label>연락처*</label>			<!-- join_general1.jsp에서 입력한 연락처가 미리 작성되어있겠끔 -->

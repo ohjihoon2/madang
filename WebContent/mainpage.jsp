@@ -35,13 +35,13 @@
 				<h1>공연</h1>
 				<article>
 				 	<div class="center">
-						<div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div>
-						<div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div>
-						<div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div>
-						<div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div>
-						<div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div>
-						<div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div>
-						<div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div>
+						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div></a>
+						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div></a>
+						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div></a>
+						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div></a>
+						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div></a>
+						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div></a>
+						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div></a>
 					</div>
 				</article>
 			</section>
@@ -105,11 +105,11 @@
 		</div>
 		<div>
 			<section>
-				<article><a href='#'><img src="http://localhost:9090/images/mainpage/icon_map.png"><span>오시는길</span></a></article>
-				<article><a href='#'><img src="http://localhost:9090/images/mainpage/icon_map.png"><span>오시는길</span></a></article>
-				<article><a href='#'><img src="http://localhost:9090/images/mainpage/icon_map.png"><span>오시는길</span></a></article>
-				<article><a href='#'><img src="http://localhost:9090/images/mainpage/icon_map.png"><span>오시는길</span></a></article>
-				<article><a href='#'><img src="http://localhost:9090/images/mainpage/icon_map.png"><span>오시는길</span></a></article>
+				<article><a href='http://localhost:9090/contents/Usher/location.jsp'><img src="http://localhost:9090/images/mainpage/icon_map.png"><span>오시는길</span></a></article>
+				<article><a href='http://localhost:9090/contents/Usher/utility_concert.jsp'><img src="http://localhost:9090/images/mainpage/icon_map.png"><span>편의시설</span></a></article>
+				<article><a href='http://localhost:9090/contents/Usher/etiquette_concert.jsp'><img src="http://localhost:9090/images/mainpage/icon_map.png"><span>관람매너</span></a></article>
+				<article><a href='http://localhost:9090/contents/cs/cs_qaa.jsp'><img src="http://localhost:9090/images/mainpage/icon_map.png"><span>1:1문의</span></a></article>
+				<article><a href='#'><img src="http://localhost:9090/images/mainpage/icon_map.png"><span>일정보기</span></a></article>
 				
 			</section>
 		</div>
