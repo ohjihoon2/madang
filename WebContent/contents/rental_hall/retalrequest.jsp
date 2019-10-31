@@ -24,7 +24,7 @@
 	}
 	
 	h1.page_title{
-      width:700px;
+      width:900px;
       border-bottom:3px solid rgb(5,135,94);
       border-left:15px solid rgb(5,135,94);
       display:inline-block;
@@ -84,7 +84,7 @@
 
 	div#rental_request div.page_contents section table{
 		display : inline-block;
-
+		border-collapse: collapse;
 	}
 	div#rental_request div.page_contents section table th{
 		width:200px;
@@ -139,10 +139,10 @@
 		<section>
 			<table>
 				<tr>
-					<th>신청서식</th>
+					<th>필수 서류</th>
 					<td>
-					2019_베토벤홀_대관신청서.hwp <!-- 파일링크예정 -->
-					<br>2019_피카소관_대관신청서.hwp
+					공연대관 : &nbsp;&nbsp;2019_베토벤홀_대관신청서.hwp <!-- 파일링크예정 -->
+					<br>전시대관 : &nbsp;&nbsp;2019_피카소관_대관신청서.hwp
 					</td>
 				</tr>
 				<tr>
@@ -155,11 +155,15 @@
 				</tr>
 			</table>
 		</section>
+		<h2><span class="font_circle">●</span> 대관 신청하기</h2>
 		<section>
-			<h2><span class="font_circle">●</span> 온라인 신청</h2>
-			<button type = "button"> 신청서 업로드 </button> <!-- 로그인한 사람만 클릭가능 -->
+			<button type = "button"> 신청서 작성 </button> <!-- 로그인한 사람만 클릭가능 -->
+			<div>
+				* 대관자 회원만 가능한 서비스 입니다.
+			</div>
 		</section>
-		<section>
+		
+		<!-- <section>
 			<h2><span class="font_circle">●</span> 오프라인 신청</h2>
 			<article>
 					-Tel:  02-123-4567
@@ -170,7 +174,7 @@
 			        <br>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 신청서식 * 표시된 란은 필수 기입 부탁드립니다.
 			
 			</article>
-		</section>
+		</section> -->
 	</div> <!-- class=page_contents -->
 	</div> <!-- rentalquest -->
 </body>

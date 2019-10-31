@@ -22,7 +22,7 @@
 	}
 	
 	h1.page_title{
-      width:700px;
+      width:900px;
       border-bottom:3px solid rgb(5,135,94);
       border-left:15px solid rgb(5,135,94);
       display:inline-block;
