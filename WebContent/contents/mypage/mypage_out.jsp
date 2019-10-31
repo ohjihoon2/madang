@@ -8,7 +8,25 @@
 <link rel="stylesheet" href="http://localhost:9090/css/mypage.css"/>
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <script src="http://localhost:9090/js/madang.js"></script>
-
+<script>
+	//체크박스 동의
+	$(document).ready(function(){
+		$("button#out_btn").click(function(){
+			if($("input:checkbox[id='out1']").is(":checked")) {
+				if($("input:checkbox[id='out2']").is(":checked")) {
+					alert("ㅇㅇ");
+				} else {
+					alert("동의 후 진행해주세요.");
+				}
+			} else {
+				alert("동의 후 진행해주세요.");
+			}
+		});
+	});
+	
+	//비밀번호 확인
+	
+</script>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />

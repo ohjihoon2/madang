@@ -141,11 +141,10 @@ public class General_mem_DAO {
 	public boolean IsOverlapId(String nid) {
 		boolean result=false;
 		int val=0;
-		String sql="select count(*) from general_mem generalM, group_mem groupM where generalM.id=? or groupM.id=?";
+		String sql="select count(*) from general_mem where id=?";
 		getPreparedStatement(sql);
 		try {
 			pstmt.setString(1, nid);
-			pstmt.setString(2, nid);
 			rs=pstmt.executeQuery();
 			if(rs.next()){
 				val = rs.getInt(1);
@@ -157,26 +156,20 @@ public class General_mem_DAO {
 		return result;
 	}
 	
-
-	//·Î±×ÀÎ È®ÀÎ
-		public boolean getResultLogin(General_mem_VO vo) {
-			boolean result=false;
-			int val = 0;
-			String sql="select count(*) from general_mem where id=? and pw=?";
-			getPreparedStatement(sql);
-			try {
-				pstmt.setString(1,vo.getId());
-				pstmt.setString(2,vo.getPw());
-				rs=pstmt.executeQuery();
-				
-				if(rs.next()) val=rs.getInt(1);
-				if(val!=0) result=true;
-			}catch(Exception e) {e.printStackTrace();}
-			return result;
-		}
-
-
-
+	
+	/** È¸¿ø Å»Åð */
+	public boolean getResultOut(String id) {
+		boolean result=false;
+		
+		String sql="";
+		getPreparedStatement(sql);
+		
+		try {
+			
+		} catch (Exception e) {e.printStackTrace();}
+		
+		return result;
+	}
 	
 	public void close() {
 		try {

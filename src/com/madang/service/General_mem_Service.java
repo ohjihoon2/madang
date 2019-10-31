@@ -22,4 +22,13 @@ public class General_mem_Service {
 		dao.close();
 		return result;
 	}
+	
+	/** Ε»Επ */
+	public boolean getResultOut(String id) {
+		boolean result=false;
+		General_mem_DAO dao=new General_mem_DAO();
+		result=dao.getResultOut(id);
+		dao.close();
+		return result;
+	}
 }
