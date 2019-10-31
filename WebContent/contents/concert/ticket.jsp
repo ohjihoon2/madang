@@ -320,7 +320,9 @@
 	.agreement{
 		font-size:8pt;
 	}
-	
+	#accountNum{
+		font-size:8pt;
+	}
 </style>
 <script>
 	$(document).ready(function(){
@@ -601,14 +603,27 @@
 			discount_text.append(discountPrice);
 			final_price.append(sumPrice);
 			
-			
 		});
   		
 		/**
-		* step4
+		* step5
 		**/
 		
+		$('input[name="Payment"]').change(function() {
+			var val = $(this).val();
+			var checked = $(this).prop('checked');
+			
+			if(val =="1"){
+				$("#PaymentArea_1").css("display", "block");
+				$("#PaymentArea_2").css("display", "none");
+			}else if(val =="2"){
+	 			$("#PaymentArea_1").css("display", "none");
+				$("#PaymentArea_2").css("display", "block");
+			} 
+		});
 		
+
+
 		
 		//버튼 클릭시 페이지 이동
 		$("button").click(function(){
@@ -645,20 +660,43 @@
    	 			}
     	  	}else if(status ==4){
    	 			if(val == "btn_back"){
-   	 				status = 3;
+					status = 3;
    	 			}else{
-	   	 			if($("#Email").val()==null || $("#PhoneNo1").val()==null || $("#PhoneNo2").val()==null 
-	   	 				|| $("#PhoneNo3").val()==null || $("#HpNo1").val()==null || $("#HpNo2").val()==null || $("#HpNo3").val()==null){
-		   	 				alert("주문자 정보를 빠짐없이 입력하세요.");
+   	 			
+   	 				// 이메일 유효성 정규식검사 
+ 				 	var email = $('#Email');
+   	 				var regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+					if( !email.val() ){
+				         alert('이메일주소를 입력 해 주세요');
+				         email.focus();
+				         return false;
+			     	} else {
+				         if(!regEmail.test(email.val())) {
+				             alert('이메일 주소가 유효하지 않습니다');
+				             email.focus();
+				             return false;
+				         }
+			     	}
+   	 				//빈 값 체크
+	   	 			if($("#Email").val()!="" 
+	   	 					&& $("#PhoneNo1").val()!="" 
+	   	 					&& $("#PhoneNo2").val()!="" 
+	   	 					&& $("#PhoneNo3").val()!="" 
+	   	 					&& $("#HpNo1").val()!="" 
+	   	 					&& $("#HpNo2").val()!="" 
+	   	 					&& $("#HpNo3").val()!=""){
+				   			status = 5;
 		   	 		}else{
-			   			status = 5;
+		   	 				alert("주문자 정보를 빠짐없이 입력하세요.");
 		   	 		}
    	 			}
     	  	}else if(status ==5){
     	  		if(val == "btn_back"){
    	 				status = 4;
    	 			}else{
-   	 				alert("결제 완료");
+ 					if($("input:checkbox[id='agreement_box']").is(":checked")){
+	   	 				alert("결제 완료");
+ 					}
    	 			}
     	  		
     	  	}
@@ -746,7 +784,6 @@
 				$(".btn_payment").show();
 			}
     	});  
-  		
   		
 	});//document.ready() end
 	
@@ -966,21 +1003,16 @@
 						<td><input type="radio"  name="Payment" value="1" checked="checked">
 							<label>신용카드</label></td>
                     </tr>
-                    <tr id="Payment_2" class="">
+                    <tr id="Payment_2">
 						<td><input type="radio"  name="Payment" value="2">
 							<label>무통장입금</label></td>
-                    </tr>
-                    <tr id="Payment_3" class="">
-						<td><input type="radio" class="chk" name="Payment" value="3">
-							<label>휴대폰결제</label></td>
                     </tr>
 	            </table>
        		</div>
        		<div class="payment_R">
             <div class="pay_input">결제수단 입력</div>
             <!-- //신용카드 -->
-            <div class="input" style="display: block;" id="PaymentArea_22003">
-                
+            <div class="input" style="display: block;" id="PaymentArea_1">
                 <div>
                 	<table class="payment_inputT">
 	                	<tr>
@@ -1001,24 +1033,16 @@
             </div>
 
             <!-- //무통장입금   -->
-            <div class="input" style="display: none;" id="PaymentArea_22004">
+            <div class="input" style="display: none;" id="PaymentArea_2">
                 <p class="stit">무통장입금</p>
-                <div id="Input_22004"></div>
+                <div id="accountNum">
+      				농협은행(123-02-037411, 예금주 : 예술의마당(주))<br>
+      				우리은행(156-04-124510, 예금주 : 예술의마당(주))<br>
+      				국민은행(342-22-548621, 예금주 : 예술의마당(주))<br>
+      				신한은행(886-45-578945, 예금주 : 예술의마당(주))<br>
+          		</div>
             </div>
-
             <!-- 무통장입금 //-->
-
-            <!-- //휴대폰결제   -->
-            <div class="input" style="display: none;" id="PaymentArea_22027">
-                <p class="stit">휴대폰 결제 시 유의사항을 확인 하신 후 <br>[다음단계] 버튼으로 이동해주세요.</p>
-                <dl class="method2">
-                    <dt>휴대폰결제 유의사항</dt>
-                    <dd>- 휴대폰 결제 시 전체 취소만 가능</dd>
-                    <dd>- 통신사 별로 한도 금액 내에서 최대 20만원까지 결제 가능</dd>
-                    <dd>- 당월 관람일 예매 시에만 결제 가능</dd>
-                    <dd>- 미성년자 명의,법인명의,요금연체,선불요금제 가입,사용정지 휴대폰은 사용 불가</dd>
-                </dl>
-            </div>
         </div>
         <div id="agreement" class="agreement">
 				<h3><img src="//ticketimage.interpark.com/TicketImage/onestop/txt_agree.gif" alt="개인정보 제3자 정보제공"></h3>

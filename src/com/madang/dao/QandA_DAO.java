@@ -10,7 +10,7 @@ import com.madang.vo.QandA_VO;
 
 public class QandA_DAO {
 	//Field
-	String url="jdbc:oracle:thin:@localhost:1521";
+	String url="jdbc:oracle:thin:@211.63.89.219:1521";
 	String user="scott";
 	String pass="tiger";
 	Connection conn;
