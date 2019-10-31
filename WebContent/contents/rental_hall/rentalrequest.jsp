@@ -6,8 +6,24 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
-<script src="http://localhost:9090/js/madang.js"></script>	
 <link rel="stylesheet" href="http://localhost:9090/css/madangcss.css"/>
+<script>
+	$(document).ready(function(){
+		$("#rental_rq_btn").click(function(){
+			$.ajax({
+				url:"rentalrequest_proce.jsp?situation=open",
+				success:function(result){
+					var openform = result.trim();
+					if(openform == "openform"){
+					 window.open("rentalrequest_form.jsp", "rq_form", "width=500, height=650, left=300, top=100");
+					}else{
+						alert("대관 회원 전용입니다.")
+					}
+				}//success
+			});
+		});
+	});
+</script>
 <style>
 	*{
 		font-family:"나눔스퀘어라운드";
@@ -157,7 +173,7 @@
 		</section>
 		<h2><span class="font_circle">●</span> 대관 신청하기</h2>
 		<section>
-			<button type = "button"> 신청서 작성 </button> <!-- 로그인한 사람만 클릭가능 -->
+			<button type = "button" id="rental_rq_btn"> 신청서 작성 </button> <!-- 로그인한 사람만 클릭가능 -->
 			<div>
 				* 대관자 회원만 가능한 서비스 입니다.
 			</div>
