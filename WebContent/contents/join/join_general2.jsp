@@ -88,6 +88,14 @@ $(document).ready(function(){
 		 		}
 		});	//패스워드 확인
 		
+		//아이디 공백 제거
+		$("#join_g2_id").focusout(function(){
+			var resultId=$("#join_g2_id").val().trim();
+			var resultId=resultId.replace(/ /g,"");
+			
+			$("#join_g2_id").val(resultId);
+		});
+		
 		
 		//중복아이디 체크
 		$("#join_g2_idchk").click(function(){
@@ -97,8 +105,16 @@ $(document).ready(function(){
 			}else{
 				$.ajax({
 					url:"join_general2_proce.jsp?nid="+nid,
-					success:function(result){
-						alert(result);
+					success:function(result){  //true=중복, false=중복X
+						var cheresult= result.trim();
+						if(cheresult == "overlap"){
+							alert("아이디가 중복됩니다.");
+							$("#join_g2_id").val("");
+							$("#join_g2_id").focus();
+							
+						}else{
+							alert("사용가능한 아이디입니다.");
+						}
 					}
 				});	
 			}

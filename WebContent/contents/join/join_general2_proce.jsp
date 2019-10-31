@@ -21,6 +21,10 @@
 		}
 	}else{
 		boolean result = dao.IsOverlapId(nid);  //true=중복, false=중복X
-		out.write(String.valueOf(result));
+		if(result){ //중복됨
+			out.write("overlap");
+		}else{ //중복x
+			out.write("nonOverlap");			
+		}
 	}
 %>

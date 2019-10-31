@@ -18,6 +18,7 @@
 
 </head>
 <body>
+<!--<span>generalID: <%=session.getAttribute("generalID")%> grouplID: <%=session.getAttribute("grouopID")%></span>-->
 <jsp:include page="header.jsp"/>
 <div id="main_page">
 	<div id="main_title_img">

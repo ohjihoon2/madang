@@ -14,12 +14,13 @@
 	
 <script>
 $(document).ready(function(){
-
+	var isIdCheck = false;
 	//유효성검사
 	$("#join_gp2next_btn").click(function(){
 		if($("#join_gp2_id").val()==""){
 			alert("아이디를 입력해 주세요");
 			$("#join_gp2_id").focus();
+			alert(isIdCheck);
 		}else if($("#join_gp2_pw").val()==""){
 			alert("패스워드 입력해 주세요");
 			$("#join_gp2_pw").focus();
@@ -50,6 +51,9 @@ $(document).ready(function(){
 		}else if($("#join_gp2_c_phone1").val()==""||$("#join_gp2_c_phone2").val()==""|| $("#join_gp2_c_phone3").val()==""){
 			alert("대표번호를 입력해 주세요");
 			$("#join_gp2_c_phone1").focus();
+		}else if(isIdCheck==false){
+			alert("아이디 중복확인을 해주세요")
+			$("#join_gp2_idchk").focus();
 		}else{
 			join_group2_form.submit();
 		}
@@ -88,6 +92,40 @@ $(document).ready(function(){
 		 			}
 		 		}
 		});	//패스워드 확인
+		
+		//아이디 공백 제거
+		$("#join_gp2_id").focusout(function(){
+			var resultId=$("#join_gp2_id").val().trim();
+			var resultId=resultId.replace(/ /g,"");
+			
+			$("#join_gp2_id").val(resultId);
+		});
+		
+		
+		
+		//중복아이디 체크
+		$("#join_gp2_idchk").click(function(){
+			var nid = $("#join_gp2_id").val();
+			if(nid==""){
+				alert("아이디를 입력해주세요");
+			}else{
+				$.ajax({
+					url:"join_group2_proce.jsp?nid="+nid,
+					success:function(result){  //true=중복, false=중복X
+						var cheresult= result.trim();
+						if(cheresult == "overlap"){
+							alert("아이디가 중복됩니다.");
+							$("#join_gp2_id").val("");
+							$("#join_gp2_id").focus();
+							
+						}else{
+							alert("사용가능한 아이디입니다.");
+							isIdCheck=true;
+						}
+					}
+				});	
+			}
+		});//아이디 중복
 });
 </script>
 </head>	
@@ -101,8 +139,8 @@ $(document).ready(function(){
 		<ul>
 			<li>
 				<label>아이디*</label>
-				<input type="text" name="id" id="join_gp2_id">
-				<button type="button">중복확인</button>
+				<input type="text" name="id" id="join_gp2_id" onkeyup="test(this)">
+				<button type="button" id="join_gp2_idchk">중복확인</button>
 			</li>
 			<li>
 				<label>패스워드*</label>

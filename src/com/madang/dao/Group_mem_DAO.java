@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import com.madang.vo.General_mem_VO;
 import com.madang.vo.Group_mem_VO;
 
 public class Group_mem_DAO {
@@ -142,6 +143,46 @@ public class Group_mem_DAO {
 		}catch(Exception e) {e.printStackTrace();}
 		return result;
 	}
+	
+	//회원가입시 아이디 중복 체크
+	public boolean IsOverlapId(String nid) {
+		boolean result=false;
+		int val=0;
+		String sql="select count(*) from general_mem generalM, group_mem groupM where generalM.id=? or groupM.id=?";
+		getPreparedStatement(sql);
+		try {
+			pstmt.setString(1, nid);
+			pstmt.setString(2, nid);
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				val = rs.getInt(1);
+			}
+			if(val != 0){
+				result = true;
+			}		
+		}catch(Exception e) {e.printStackTrace();}
+		return result;
+	}
+	
+	//로그인 확인
+	public boolean getResultLogin(Group_mem_VO vo) {
+		boolean result=false;
+		int val = 0;
+		String sql="select count(*) from group_mem where id=? and pw=?";
+		getPreparedStatement(sql);
+		try {
+			pstmt.setString(1,vo.getId());
+			pstmt.setString(2,vo.getPw());
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) val=rs.getInt(1);
+			if(val!=0) result=true;
+		}catch(Exception e) {e.printStackTrace();}
+		return result;
+	}
+	
+	
+	
 	
 	public void close() {
 		try {

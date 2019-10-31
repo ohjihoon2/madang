@@ -6,8 +6,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
-<script src="http://localhost:9090/js/madang.js"></script>	
 <link rel="stylesheet" href="http://localhost:9090/css/madangcss.css">
+<script>
+	$(document).ready(function(){
+		$("#btnlonin").click(function(){
+			//유효성 검사
+			if($("#login_id1").val()==""){
+				alert("아이디를 입력하세요.");
+				$("#login_id1").focus();
+			}else if($("#login_pw1").val()==""){
+				alert("패스워드를 입력하세요.");
+				$("#login_pw1").focus();
+			}else{
+				//회원인지 검사
+				loginform.submit();
+			}
+			
+		});
+	});
+</script>
+
 
 </head>
 <body>
@@ -16,15 +34,15 @@
 <div id="login" class="page_contents">
 	<h1 class="page_title">로그인</h1>
 	<div>
-		<form action="login_proce.jsp" method="get" name="loginform">
-			<input type="text" id="id" name="id" placeholder="아이디">
+		<form action="login_proce.jsp" method="post" name="loginform">
+			<input type="text" id="login_id1" name="id" placeholder="아이디">
 			<br>
-			<input type="password" id="password" name="password" placeholder="패스워드">
+			<input type="password" id="login_pw1" name="pw" placeholder="패스워드">
 			<br>
 			<a href="login_group.jsp"><span>대관자는 이쪽으로</span></a>
 			<br>
 			<button type="button" id="btnlonin">로그인</button>
-			
+			<input type="hidden" name = "distinguish" value="general"/>
 		</form>
 		<section>
 			<a href="#"><span>아이디/패스워드 찾기</span></a>
