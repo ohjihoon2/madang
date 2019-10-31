@@ -104,14 +104,14 @@
 		<ul>
 			<li><a href="rentalInfo.jsp">대관안내</a></li>
 			<li><a href="#" style="color:rgb(5,135,94)" >대관시설</a></li>
-			<li><a href="retalrequest.jsp">대관신청</a></li>
+			<li><a href="rentalrequest.jsp">대관신청</a></li>
 		</ul>
 	</div><!-- left_nav -->
 	<div class="page_contents2">
 		<h1 class="page_title">대관시설</h1>
-		<h2><span class="font_circle">●</span> 베토벤홀</h2>   <!-- http://theater.arko.or.kr/Pages/SpaceInfo/Space_04.aspx -->
+		<h2><span class="font_circle">●</span> 모짜르트홀</h2>   <!-- http://theater.arko.or.kr/Pages/SpaceInfo/Space_04.aspx -->
 		<section>
-				<img src="http://localhost:9090/images/rental_hall/beethoven_hall.png">
+				<img src="http://localhost:9090/images/rental_hall/소극장_pic.png">
 				<br>
 			<article>
 					블랙박스형 트랩무대로 폭 12.8m 깊이 14.8m 높이 5.4m로 자유로운 형식과 내용의 작품들을 
@@ -140,7 +140,7 @@
 		</section>
 		<h2><span class="font_circle">●</span> 피카소관</h2>   <!-- http://theater.arko.or.kr/Pages/SpaceInfo/Space_04.aspx -->
 		<section>
-				<img src="http://localhost:9090/images/rental_hall/picasso_gallery.png"/>
+				<img src="http://localhost:9090/images/rental_hall/hangaram_1.gif"/>
 				<br>
 			<article>
 					블랙박스형 트랩무대로 폭 12.8m 깊이 14.8m 높이 5.4m로 자유로운 형식과 내용의 작품들을 충분히 담아낼 수 있는 공간으로서, 

@@ -110,6 +110,10 @@ aside#amdmin_left ul li>div{
 	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/admin_notice.jsp">공지사항</a></div>
 	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/admin_event.jsp">이벤트</a></div>
   </li>
+  <li>
+  	<a> </a>
+     <a href="http://localhost:9090/mainpage.jsp">홈페이지로</a>
+  </li>
 </ul>
 </aside>
 </body>

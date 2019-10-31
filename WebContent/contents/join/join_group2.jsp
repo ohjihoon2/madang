@@ -168,19 +168,19 @@ $(document).ready(function(){
 			</li>
 			<li>
 				<label>담당자 연락처*</label>
-				<input type="text" name="phone1" id="join_gp2_phone1">
+				<input type="text" name="phone1" maxlength="4" id="join_gp2_phone1">
 				<span> - </span>
-				<input type="text" name="phone2" id="join_gp2_phone2">
+				<input type="text" name="phone2" maxlength="4" id="join_gp2_phone2">
 				<span> - </span>
-				<input type="text" name="phone3" id="join_gp2_phone3"> 
+				<input type="text" name="phone3" maxlength="4" id="join_gp2_phone3"> 
 			</li>
 			<li>
 				<label>팩스번호</label>
-				<input type="text" name="fax1">
+				<input type="text" maxlength="4" name="fax1">
 				<span> - </span>
-				<input type="text" name="fax2">
+				<input type="text" maxlength="4" name="fax2">
 				<span> - </span>
-				<input type="text" name="fax3">
+				<input type="text" maxlength="4" name="fax3">
 			</li>	
 			<br>
 			<li>

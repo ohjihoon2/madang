@@ -14,10 +14,9 @@
 	
 <script>
 $(document).ready(function(){
-
+	var isIdCheck = false;
 	//유효성검사
 	$("#join_g2next_btn").click(function(){
-		
 		if($("#join_g2_id").val()==""){
 			alert("아이디를 입력해 주세요");
 			$("#join_g2_id").focus();
@@ -49,7 +48,9 @@ $(document).ready(function(){
 			alert("이메일 수신여부를 선택해 주세요")
 		}else if($(".join_g2_accept_sms:checked").length==0){
 			alert("sms 수신여부를 선택해 주세요")
-		
+		}else if(isIdCheck==false){
+			alert("아이디 중복확인을 해주세요")
+			$("#join_g2_idchk").focus();
 		}else{
 			join_geral2_form.submit();
 		}
@@ -114,6 +115,7 @@ $(document).ready(function(){
 							
 						}else{
 							alert("사용가능한 아이디입니다.");
+							isIdCheck=true;
 						}
 					}
 				});	
@@ -167,11 +169,11 @@ $(document).ready(function(){
 				<input type="radio" name="p_comp" value="LGU+" class="join_g2_p_comp">LGU+
 				<br>
 				<label> </label>	
-				<input type="text" name="phone1" placeholder="010" id="join_g2_phon1">
+				<input type="text" name="phone1" placeholder="010" maxlength="4" id="join_g2_phon1">
 				<span> - </span>
-				<input type="text" name="phone2" placeholder="1234" id="join_g2_phon2">
+				<input type="text" name="phone2" placeholder="1234" maxlength="4" id="join_g2_phon2">
 				<span> - </span>
-				<input type="text" name="phone3" placeholder="5648" id="join_g2_phon3">	
+				<input type="text" name="phone3" placeholder="5648" maxlength="4" id="join_g2_phon3">	
 			</li>			
 			<li>
 				<label>이메일*</label>

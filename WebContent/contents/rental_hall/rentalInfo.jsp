@@ -110,7 +110,7 @@
 		<ul>
 			<li><a href="#">대관안내</a></li>
 			<li><a href="rentalhall.jsp">대관시설</a></li>
-			<li><a href="retalrequest.jsp">대관신청</a></li>
+			<li><a href="rentalrequest.jsp">대관신청</a></li>
 		</ul>
 	</div><!-- left_nav -->
 	<div class="page_contents">
@@ -125,7 +125,7 @@
 				5. 완료<br>
 			</article>
 		</section>
-		<h2><span class="font_circle">●</span> 베트벤홀 대관일정</h2>
+		<h2><span class="font_circle">●</span> 모짜르트홀 대관일정</h2>
 		<section>
 			<table>
 				<tr>

@@ -7,11 +7,9 @@
 <jsp:setProperty name="vo" property="*"/>
 
 <%
-
-	String nid=" ";
-	nid = request.getParameter("nid");
+	String nid = request.getParameter("nid");
 	General_mem_DAO dao = new General_mem_DAO();
-	if(nid.equals(" ")){
+	if(nid==null){
 		boolean result = dao.getResultJoin(vo);
 		
 		if(result){
