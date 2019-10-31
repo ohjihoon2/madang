@@ -178,12 +178,12 @@ header ul.dept02 li a:hover {
 				</li>
 				
 				<li class="utilize">
-					<a href="#">이용안내<i class='fa fa-angle-down'></i></a>
+					<a href="http://localhost:9090/contents/Usher/location.jsp">이용안내<i class='fa fa-angle-down'></i></a>
 					<ul class="dept02">
-						<li><a href="#">오시는길</a></li>
-						<li><a href="#">시설안내</a></li>
-						<li><a href="#">편의시설</a></li>
-						<li><a href="#">관람매너</a></li>
+						<li><a href="http://localhost:9090/contents/Usher/location.jsp">오시는길</a></li>
+						<li><a href="http://localhost:9090/contents/Usher/facility.jsp">시설안내</a></li>
+						<li><a href="http://localhost:9090/contents/Usher/utility_concert.jsp">편의시설</a></li>
+						<li><a href="http://localhost:9090/contents/Usher/etiquette_concert.jsp">관람매너</a></li>
 					</ul>
 				</li>
 				
@@ -196,12 +196,12 @@ header ul.dept02 li a:hover {
 				</li>
 				
 				<li class="community">
-					<a href="#">커뮤니티<i class='fa fa-angle-down'></i></a>
+					<a href="http://localhost:9090/contents/Community/review_byDate.jsp">커뮤니티<i class='fa fa-angle-down'></i></a>
 					<ul class="dept02">
-						<li><a href="#">관람후기</a></li>
-						<li><a href="#">이벤트</a></li>
-						<li><a href="#">공지사항</a></li>
-						<li><a href="#">언론보도</a></li>
+						<li><a href="http://localhost:9090/contents/Community/review_byDate.jsp">관람후기</a></li>
+						<li><a href="http://localhost:9090/contents/Community/event.jsp">이벤트</a></li>
+						<li><a href="http://localhost:9090/contents/Community/notice_list.jsp">공지사항</a></li>
+						<li><a href="http://localhost:9090/contents/Community/news.jsp">언론보도</a></li>
 					</ul>
 				</li>
 				

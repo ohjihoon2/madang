@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="com.madang.dao.*,com.madang.service.*,com.madang.vo.*,java.util.*" %>
+<%
+	EventService service = new EventService();
+	ArrayList<EventVO> list = service.getResultList();
+	ArrayList<EventVO> inglist = service.getResultIngList();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,6 +26,8 @@
 				<li><a href="news.jsp">언론보도</a></li>
 			</ul>
 		</div>
+		
+		
 	<div class="event_contents">
 		<div id="main_title">이벤트</div>
 		
@@ -30,24 +38,21 @@
 
 				  <!-- Indicators -->
 				  <ul class="carousel-indicators">
-				    <li data-target="#demo" data-slide-to="0" class="active"></li>
-				    <li data-target="#demo" data-slide-to="1"></li>
-				    <li data-target="#demo" data-slide-to="2"></li>
+				  	<%for(int i=0; i<inglist.size();i++){ %>
+				    <li data-target="#demo" data-slide-to=<%=i %> class="active"></li>		
+				    <%} %>		    
+<!-- 				    <li data-target="#demo" data-slide-to="1"></li>
+				    <li data-target="#demo" data-slide-to="2"></li> -->
 
 				  </ul>
 				  
 				  <!-- The slideshow -->
 				  <div class="carousel-inner">
+					<%for(EventVO vo: inglist){ %>
 				    <div class="carousel-item active">
-				      <img src="http://localhost:9090/images/comm_usher_img/event1.gif" alt="Los Angeles" width="700" height="250">
+				      <img src="http://localhost:9090/images/comm_usher_img/<%=vo.getEv_sthumbnail() %>" alt="Los Angeles" width="700" height="250">
 				    </div>
-				    <div class="carousel-item">
-				      <img src="http://localhost:9090/images/comm_usher_img/event2.gif" alt="Chicago" width="700" height="250">
-				    </div>
-				    <div class="carousel-item">
-				      <img src="http://localhost:9090/images/comm_usher_img/event3.gif" alt="New York" width="700" height="250">
-				    </div>
-				  </div>
+				    <%} %>
 				  
 				  <!-- Left and right controls -->
 				  <a class="carousel-control-prev" href="#demo" data-slide="prev">
@@ -61,36 +66,38 @@
 				<br>
 		<!-- 캐러셀 끝 -->	
 		
+		
+<!-- 이벤트 -->		
 		<h2><span style="color:rgb(5,135,94)">●</span>현재 진행중인 이벤트</h2>
 		<div class="evnet">
+		<%for(EventVO vo: inglist){ %>
 			<div id="event">
-				<a href="event_content.jsp"><img src="http://localhost:9090/images/comm_usher_img/event1.gif"/></a>
-				<p id="event_title">이영우 피아노 독주회 기대평 이벤트</p>
-				<p id="event_term">이벤트 기간 | 2019.10.14(월) ~ 2019.10.27(일)</p>
+				<a href="event_content.jsp?ev_code=<%=vo.getEv_code() %>"><img src="http://localhost:9090/images/comm_usher_img/<%=vo.getEv_sthumbnail() %>"/></a>
+				<p id="event_title"><%=vo.getEv_title() %></p>
+				<p id="event_term">이벤트 기간 | <%=vo.getEv_sdate() %> ~ <%=vo.getEv_edate() %></p>
 			</div>
-			<div id="event">
+		<%} %>			
+<!-- 		<div id="event">
 				<a href="#"><img src="http://localhost:9090/MyJSP/sns_icon/event2.gif"/></a>
 				<p id="event_title">[회원이벤트] 국립현대무용단 검은돌:모래의 기억</p>
 				<p id="event_term">이벤트 기간 | 2019.10.14(월) ~ 2019.10.27(일)</p>
 			</div>
-			<div id="event">
-				<a href="#"><img src="http://localhost:9090/MyJSP/sns_icon/event3.gif"/></a>
-				<p id="event_title">오페라 카르멘 기대평 이벤트</p>
-				<p id="event_term">이벤트 기간 | 2019.10.14(월) ~ 2019.10.27(일)</p>
-			</div>
+ -->			
 		</div>
 	
 
 		<br><br>
 		<h2><span style="color:rgb(5,135,94)">●</span>전체 이벤트</h2>
 
-		<%for (int i = 1; i < 11; i++) {%>
+		<%for (EventVO vo: list) { %>
 		<div class="all_event_list">
-			<div id="all_event_title">음악당 대관공고 및 접수일정<span style="float:right;display:inline-block;padding-right:40px">조회수:</span></div>
-			<div id="all_event_date">2019.10.15~2019.10.30</div>		
+			<div id="all_event_title"><%=vo.getEv_title() %><span>조회수:<%=vo.getEv_hits() %></span></div>
+			<div id="all_event_date">이벤트 기간:<%=vo.getEv_sdate() %> ~ <%=vo.getEv_edate() %></div>		
 		</div>
 		<%}%>
 		
+		
+<!-- 이벤트 풋터 -->		
 		<br><hr><br>
 		<div class="event_end">
 			<div id="event_alarm">이벤트 유의사항</div>

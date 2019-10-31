@@ -178,6 +178,12 @@ div#event>a>img {
 	height: 110px;
 }
 
+div#all_event_title>span{
+	float:right;
+	display:inline-block;
+	padding-right:40px;
+}
+
 div#event p#event_title, div#all_event_title {
 	margin: auto;
 	font-weight: bold;
@@ -275,6 +281,10 @@ button#btnReply,button#btnList {
 	padding: 10px 50px 10px 50px;
 	margin-right: 20px;
 	float: right;
+}
+
+div#reply_div{
+	clear:left;
 }
 
 button#btnRE, button#btnDE {
