@@ -9,23 +9,62 @@
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <script src="http://localhost:9090/js/madang.js"></script>
 <script>
-	//체크박스 동의
 	$(document).ready(function(){
+		
+		var pw_msg="";
+		
+		//회원탈퇴 체크박스/비밀번호 체크
 		$("button#out_btn").click(function(){
 			if($("input:checkbox[id='out1']").is(":checked")) {
 				if($("input:checkbox[id='out2']").is(":checked")) {
-					alert("ㅇㅇ");
+					if($("input#out_pw_cfm").val()=="") {
+						alert("비밀번호를 입력해주세요");
+						$("input#out_pw_cfm").focus();
+					} else {
+						if(pw_msg=="비밀번호 확인이 완료되었습니다.") {
+							alert("ㅇㅇ");
+							
+							//탈퇴db연결
+							
+							
+						} else {
+							alert("비밀번호를 다시 입력해주세요")
+							$("input#out_pw_cfm").focus();
+						}
+					}
 				} else {
-					alert("동의 후 진행해주세요.");
+					alert("동의 후 진행해주세요");
 				}
 			} else {
-				alert("동의 후 진행해주세요.");
+				alert("동의 후 진행해주세요");
 			}
 		});
-	});
-	
-	//비밀번호 확인
-	
+		
+		
+		
+		
+		//비밀번호 확인
+		$("input#out_pw_cfm").blur(function(){
+			var u_pw=$("input#out_pw_cfm").val();
+			var id='11';
+			$.ajax({
+				url:"mem_out_pw_process.jsp?id="+id+"&pw="+u_pw,
+				success:function(result){
+					if(u_pw!="") {
+						if(result==0) { //비밀번호 불일치
+							$("span#pw_check_result").text("비밀번호가 일치하지 않습니다.");
+							pw_msg=$("span#pw_check_result").text();
+						} else {
+							$("span#pw_check_result").text("비밀번호 확인이 완료되었습니다.");
+							pw_msg=$("span#pw_check_result").text();
+						}
+					}
+				}
+			});
+		});
+		
+		
+	}); //document
 </script>
 </head>
 <body>
@@ -61,14 +100,16 @@
 		
 		<div id="out_pw_cfm">
 			<input type="password" name="out_pw_cfm" id="out_pw_cfm" placeholder="비밀번호를 입력해주세요">
-			<br><br><span>비밀번호가 일치하지 않습니다.</span>
+			<br><br><span id="pw_check_result"></span>
 		</div>
 		
 		<div class="button">
+			<%-- <a herf="mem_out_process.jsp?id=<% id %>"> --%>
 			<button type="button" id="out_btn" class="button_a">탈퇴</button>
+			<!-- </a> -->
 			<a href="mypage_mod_gen.jsp"><button type="button" class="button_b">취소</button></a>
 		</div>
-
+		
 	</div>
 </body>
 </html>

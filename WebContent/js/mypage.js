@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	
-	//유효성체크
+	//정보수정 유효성체크
 	$("button#mem_mod_btn").click(function(){
 		if($("input#pw").val()==""){
 			alert("비밀번호를 입력하세요");
@@ -20,7 +20,7 @@ $(document).ready(function(){
 	});
 	
 	
-	//read only
+	//정보수정 read only
 	$("input#id").attr("readonly", true);
 	$("input#name").attr("readonly", true);
 	$("input#birth").attr("readonly", true);
@@ -29,7 +29,7 @@ $(document).ready(function(){
 	$("input#licsnum").attr("readonly", true);
 	
 	
-	//이메일주소 선택-전달
+	//정보수정 이메일주소 선택-전달
 	$("#email3").change(function(){
 		if($("#email3").val()=="선택"){
 			$("#email2").val("");
@@ -39,7 +39,7 @@ $(document).ready(function(){
 	});
 	
 	
-	//우편번호
+	//정보수정 우편번호
 	$('input#addr_btn').click(function(){ 
 	    new daum.Postcode({
 	        oncomplete: function(data) {

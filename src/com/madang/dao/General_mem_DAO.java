@@ -176,17 +176,38 @@ public class General_mem_DAO {
 			}
 
 
-
+	/** È¸¿ø Å»Åð ºñ¹Ð¹øÈ£ È®ÀÎ */
+	public int getResultPw(String id, String u_pw) {
+		int result=0;
+		
+		String sql="select count(*) from general_mem where id=? and pw=?";
+		getPreparedStatement(sql);
+		
+		try {
+			pstmt.setString(1, id);
+			pstmt.setString(2, u_pw);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) result=rs.getInt(1);
+			
+		} catch (Exception e) {e.printStackTrace();}
+		
+		return result;
+	}
 	
 	
 	/** È¸¿ø Å»Åð */
 	public boolean getResultOut(String id) {
 		boolean result=false;
 		
-		String sql="";
+		String sql="delete from general_mem where id=?";
 		getPreparedStatement(sql);
 		
 		try {
+			pstmt.setString(1, id);
+			int val=pstmt.executeUpdate();
+			if(val!=0) result=true;
 			
 		} catch (Exception e) {e.printStackTrace();}
 		
