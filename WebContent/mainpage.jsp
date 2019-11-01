@@ -14,7 +14,19 @@
 		
 <script src="http://localhost:9090/js/madang.js"></script>	
 <link rel="stylesheet" href="http://localhost:9090/css/madangcss.css"/>
-				
+<script>
+	$(document).ready(function(){
+		$("button#main_switch_t").click(function(){
+			$("article#main_switch_teaser").css("display","block");
+			$("article#main_switch_event").css("display","none");
+		});//티켓오픈 클릭
+		
+		$("button#main_switch_e").click(function(){
+			$("article#main_switch_teaser").css("display","none");
+			$("article#main_switch_event").css("display","block");
+		});//이벤트 클릭
+	});
+</script>
 
 </head>
 <body>
@@ -32,7 +44,7 @@
 	<div id="main_content">
 		<div id="main_announce">
 			<section>
-				<h1>공연</h1>
+				<div class="parallelogram"><h1>진행중인 공연</h1></div>
 				<article>
 				 	<div class="center">
 						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div></a>
@@ -47,7 +59,7 @@
 			</section>
 			
 			<section>
-				<h1>전시</h1>
+				<div class="parallelogram"><h1>진행중인 전시</h1></div>
 				<article>
 					<div class="center">
 					<div><img src="http://localhost:9090/images/mainpage/poster_38632.gif"></div>
@@ -64,43 +76,52 @@
 		<div>
 			<section>
 				<article>
-					<button type="button" class="main_switch" rel="tab1">티켓오픈</button>
-					<button type="button" rel="tab2">이벤트</button>
+					<button type="button" id="main_switch_t">티켓오픈</button>
+					<button type="button" id="main_switch_e">이벤트</button>
 				</article>
+				<!--이벤트 -->
+				<article id="main_switch_event">
+					<div>
+						<img src="http://localhost:9090/images/mainpage/eventThumb_02.gif">
+						<br>
+						<span><a href="#">국립오페라단 《호프만의 이야기》 미리보기</a></span>
+						<span><br>이벤트 기간 ㅣ 2019.09.24(화) ~ 10.07(월)<br>담첨자 발표 ㅣ 2019.10.09(수)</span>
+					</div>
+					<div>
+						<img src="http://localhost:9090/images/mainpage/eventThumb_02.gif">
+						<br>
+						<span><a href="#">국립오페라단 《호프만의 이야기》 미리보기</a></span>
+						<span><br>이벤트 기간 ㅣ 2019.09.24(화) ~ 10.07(월)<br>담첨자 발표 ㅣ 2019.10.09(수)</span>
+					</div>
+					<div>
+						<img src="http://localhost:9090/images/mainpage/eventThumb_02.gif">
+						<br>
+						<span><a href="#">국립오페라단 《호프만의 이야기》 미리보기</a></span>
+						<span><br>이벤트 기간 ㅣ 2019.09.24(화) ~ 10.07(월)<br>담첨자 발표 ㅣ 2019.10.09(수)</span>
+					</div>
 				<!-- 전시,공연 예정된 썸네일. select 랭크,이미지,코드,시작일 from(select 이미지,코드,from 전시,공연 where 시작일 between sysdate and sysdate+30일 oder by 시작일)랭크between 1and3 -->
-				<article class="main_switch_con">
+				</article>
+				<article id="main_switch_teaser">
 					<div>
-						<img src="http://localhost:9090/images/mainpage/d-dayopen.gif">
+						<img src="http://localhost:9090/images/mainpage/bigfish_thumbnail.gif">
+						<br>
+						<span><a href="#">뮤지컬 <빅 피쉬> 한국 초연(12/4~2/9) 2차오픈</a></span>
+						<span><br>- 10/30(수) 11AM 1차 오픈<br>- 10/30(수) 2PM 2차 오픈</span>
 					</div>
 					<div>
-						<img src="http://localhost:9090/images/mainpage/d-dayopen.gif">
+						<img src="http://localhost:9090/images/mainpage/bigfish_thumbnail.gif">
+						<br>
+						<span><a href="#">뮤지컬 <빅 피쉬> 한국 초연(12/4~2/9) 2차오픈</a></span>
+						<span><br>- 10/30(수) 11AM 1차 오픈<br>- 10/30(수) 2PM 2차 오픈</span>
 					</div>
 					<div>
-						<img src="http://localhost:9090/images/mainpage/d-dayopen.gif">
+						<img src="http://localhost:9090/images/mainpage/bigfish_thumbnail.gif">
+						<br>
+						<span><a href="#">뮤지컬 <빅 피쉬> 한국 초연(12/4~2/9) 2차오픈</a></span>
+						<span><br>- 10/30(수) 11AM 1차 오픈<br>- 10/30(수) 2PM 2차 오픈</span>
 					</div>
 				
-				<!--이벤트 -->
-				<article class="main_switch_con">
-					<div>
-						<img src="http://localhost:9090/images/mainpage/eventThumb_02.gif">
-						<br>
-						<span><a href="#">국립오페라단 《호프만의 이야기》 미리보기</a></span>
-						<span><br>이벤트 기간 ㅣ 2019.09.24(화) ~ 10.07(월)<br>담첨자 발표 ㅣ 2019.10.09(수)</span>
-					</div>
-					<div>
-						<img src="http://localhost:9090/images/mainpage/eventThumb_02.gif">
-						<br>
-						<span><a href="#">국립오페라단 《호프만의 이야기》 미리보기</a></span>
-						<span><br>이벤트 기간 ㅣ 2019.09.24(화) ~ 10.07(월)<br>담첨자 발표 ㅣ 2019.10.09(수)</span>
-					</div>
-					<div>
-						<img src="http://localhost:9090/images/mainpage/eventThumb_02.gif">
-						<br>
-						<span><a href="#">국립오페라단 《호프만의 이야기》 미리보기</a></span>
-						<span><br>이벤트 기간 ㅣ 2019.09.24(화) ~ 10.07(월)<br>담첨자 발표 ㅣ 2019.10.09(수)</span>
-					</div>
-					
-				</article>
+				
 			</section>
 		</div>
 		<div>

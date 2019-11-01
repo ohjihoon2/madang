@@ -72,7 +72,7 @@
 	div#main_page{
 		margin:auto;
 		text-align:center;
-		height:2500px;
+		height:2100px;
 
 		
 	}
@@ -87,7 +87,17 @@
 		margin-top:50px;
 		margin-bottom:70px;
 	}
-	
+	div#main_content div#main_announce section>div.parallelogram {
+	  width: 300px;
+	  height:30px;
+      transform: skew(-20deg);
+      border-bottom:1px solid rgb(5,135,94);
+      border-right-style:double;
+      border-right-color:rgb(5,135,94);
+      border-right-width:5px;
+      margin-bottom:10px;
+      padding:5px 0px 10px 0px;
+	}
 	div#main_content div#main_announce section:first-child{
 		margin-bottom:50px;
 		
@@ -95,8 +105,8 @@
 	
  	div#main_content div#main_announce section h1{
 		text-align:left;
-		margin-bottom:10px;
-		
+		margin:0px 20px 0px 3px;
+		transform: skew(20deg);
 	}
 
 	div#main_content div#main_announce section article img{  /*포스터 이미지 파일의 사이즈는 동일하게 맞출 것. 공연이든 전시이든 */
@@ -122,18 +132,25 @@
 		text-align:center;
 	}
 
-	div#main_page div#main_content div:nth-child(2) section article:nth-child(2) {
-		margin-top:30px;
-		margin-bottom:50px;
-		overflow:hidden;
+	div#main_page div#main_content div:nth-child(2) section article#main_switch_teaser {
+		padding:30px 0px 50px 0px;
+		height:250px;
 	}
 
-	div#main_page div#main_content div:nth-child(2) section article:nth-child(2) div{
+	div#main_page div#main_content div:nth-child(2) section article#main_switch_event{
+		display:none;
+		height:250px;
+		padding:30px 0px 50px 0px;
+	}
+
+	div#main_page div#main_content div:nth-child(2) section article#main_switch_teaser div,
+	div#main_page div#main_content div:nth-child(2) section article#main_switch_event div{
 
 		display:inline-block;
 		margin:0px 10px 0px 10px;
 	}
-	div#main_page div#main_content div:nth-child(2) section article:nth-child(2) div img{
+	div#main_page div#main_content div:nth-child(2) section article#main_switch_teaser div img,
+	div#main_page div#main_content div:nth-child(2) section article#main_switch_event div img{
 		width:300px;
 		margin-bottom:10px;
 	}
