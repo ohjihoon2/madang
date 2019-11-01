@@ -21,6 +21,15 @@
 		</div>
 
 		<div id="main_title">편의시설</div>
+		
+		<br><br><br><br>		
+		<div id="Sub_btn">
+			<a href="http://localhost:9090/contents/Usher/utility_exhibition.jsp"><span style="color:rgb(5, 135, 94);background:white" id="EE">전시장 편의시설</span></a>
+			<a href="http://localhost:9090/contents/Usher/utility_concert.jsp"><span style="color:white;background:rgb(5, 135, 94)" id="CE">공연장 편의시설</span></a>
+			
+		</div>
+		<br><br>
+		
 <div id="content">
 		<div id="utility_list">공연장 편의 시설 안내</div>
 		<div id="utility_list1">오페라글라스, 물품보관소, 키즈라운지, 수유실, 주차요금 사전정산기,

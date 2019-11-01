@@ -23,31 +23,32 @@
 		<div id="main_title">관람매너</div>
 		<br>
 		<div id="Sub_btn">
-			<a href="http://localhost:9090/contents/Usher/etiquette_concert.jsp"><span id="CE">관람매너</span></a>
-			<a href="http://localhost:9090/contents/Usher/etiquette_exhibition.jsp"><span id="EE">전시매너</span></a>
+		<a href="http://localhost:9090/contents/Usher/etiquette_exhibition.jsp"><span style="color:rgb(5, 135, 94);background:white" id="EE">전시매너</span></a>
+			<a href="http://localhost:9090/contents/Usher/etiquette_concert.jsp"><span style="color:white;background:rgb(5, 135, 94)" id="CE">관람매너</span></a>
+			
 		</div>
 
 		<div id="sub_title">공연장 오기 전</div>
-		<div class="img_div">
+		<div class="etti_content">
 			<img class="etiquette_img"
 				src="http://localhost:9090/images/comm_usher_img/etiquette_before_consert.PNG" />
 		</div>
 
 
 		<div id="sub_title">공연장에서</div>
-		<div class="img_div">
+		<div class="etti_content">
 			<img class="etiquette_img"
 				src="http://localhost:9090/images/comm_usher_img/etiquette_in_consert.PNG" />
 		</div>
 
 
 		<div id="sub_title">박수매너</div>
-		<div class="img_div">
+		<div class="etti_content">
 			<img class="etiquette_img"
 				src="http://localhost:9090/images/comm_usher_img/etiquette_applauds.PNG" />
 		</div>
 
-		<div class="img_div">
+		<div class="etti_content">
 			<img class="etiquette_img"
 				src="http://localhost:9090/images/comm_usher_img/etiquette_bottom.PNG" />
 		</div>

@@ -7,15 +7,14 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>
 <script src="http://localhost:9090/MyJSP/jquery/jquery-3.4.1.min.js"></script>
-
 <script>
-$(document).ready(function(){
-	$( "th.star_rating a" ).click(function() {
-	    $(this).parent().children("a").removeClass("on");
-	    $(this).addClass("on").prevAll("a").addClass("on");
-	    return false;
+	$(document).ready(function(){
+		$( "th.star_rating a" ).click(function() {
+		    $(this).parent().children("a").removeClass("on");
+		    $(this).addClass("on").prevAll("a").addClass("on");
+		    return false;
+		});
 	});
-});
 </script>
 
 </head>
@@ -33,6 +32,7 @@ $(document).ready(function(){
 		</div>
 
 		<div id="main_title">관람후기</div>
+
 
 		<div id="review_content">
 			<div id="sub_title">
@@ -52,7 +52,7 @@ $(document).ready(function(){
 					</tr>
 					<tr>
 						<th>ID@test.com</th>
-						<td rowspan=2 id="contents">Contents</td>
+						<a href="http://localhost:9090/Community/review_contents.jsp"><td rowspan=2 id="contents">Contents</td></a>
 					</tr>
 					
 					<tr>
