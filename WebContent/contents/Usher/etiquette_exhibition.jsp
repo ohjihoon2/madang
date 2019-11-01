@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="http://localhost:9090/css/usher.css"/>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.214:9090/css/usher.css"/>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />
@@ -23,18 +23,18 @@
 		<div id="main_title">전시매너</div>
 		<br>
 		<div id="sub_title">
-			<a href="http://localhost:9090/contents/Usher/etiquette_concert.jsp"><span style="color:rgb(5, 135, 94);background:white" id="CE">관람매너</span></a>
-			<a href="http://localhost:9090/contents/Usher/etiquette_exhibition.jsp"><span style="color:white;background:rgb(5, 135, 94)" id="EE">전시매너</span></a>
+			<a href="http://211.63.89.214:9090/contents/Usher/etiquette_concert.jsp"><span style="color:rgb(5, 135, 94);background:white" id="CE">관람매너</span></a>
+			<a href="http://211.63.89.214:9090/contents/Usher/etiquette_exhibition.jsp"><span style="color:white;background:rgb(5, 135, 94)" id="EE">전시매너</span></a>
 		</div>
 
 		<div id="inExhibition">전시장매너</div>
 		<div class="etti_content">
 			<img class="etiquette_img"
-				src="http://localhost:9090/images/comm_usher_img/etiquette_exhibition.PNG" />
+				src="http://211.63.89.214:9090/images/comm_usher_img/etiquette_exhibition.PNG" />
 		</div>
 		<div class="etti_content">
 			<img class="etiquette_img"
-				src="http://localhost:9090/images/comm_usher_img/etiquette_bottom.PNG" />
+				src="http://211.63.89.214:9090/images/comm_usher_img/etiquette_bottom.PNG" />
 		</div>
 
 	</div>

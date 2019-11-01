@@ -11,8 +11,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://localhost:9090/MyJSP/contents/Community/index_carousel.css">
-<link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>
+<link rel="stylesheet" href="http://211.63.89.214:9090/MyJSP/contents/Community/index_carousel.css">
+<link rel="stylesheet" type="text/css" href="http://211.63.89.214:9090/css/community.css"/>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />
@@ -32,7 +32,7 @@
 		<div id="main_title">이벤트</div>
 		
 		<!-- <h1>캐러셀 추가 부분</h1>
-				<img src="http://localhost:9090/dycgv/images/15675941245740.jpg" /> -->
+				<img src="http://211.63.89.214:9090/dycgv/images/15675941245740.jpg" /> -->
 				<article>
 				<div id="demo" class="carousel slide" data-ride="carousel">
 
@@ -50,7 +50,7 @@
 				  <div class="carousel-inner">
 <%-- 					<%for(EventVO vo: inglist){ %> --%>
 				    <div class="carousel-item active">
-				      <img src="http://localhost:9090/images/comm_usher_img/<%-- <%=vo.getEv_sthumbnail() %> --%>" alt="Los Angeles" width="700" height="250">
+				      <img src="http://211.63.89.214:9090/images/comm_usher_img/<%-- <%=vo.getEv_sthumbnail() %> --%>" alt="Los Angeles" width="700" height="250">
 				    </div>
 <%-- 				    <%} %> --%>
 				  
@@ -72,13 +72,13 @@
 		<div class="evnet">
 		<%for(EventVO vo: inglist){ %>
 			<div id="event">
-				<a href="event_content.jsp?ev_code=<%=vo.getEv_code() %>"><img src="http://localhost:9090/images/comm_usher_img/<%=vo.getEv_sthumbnail() %>"/></a>
+				<a href="event_content.jsp?ev_code=<%=vo.getEv_code() %>"><img src="http://211.63.89.214:9090/images/comm_usher_img/<%=vo.getEv_sthumbnail() %>"/></a>
 				<p id="event_title"><%=vo.getEv_title() %></p>
 				<p id="event_term">이벤트 기간 | <%=vo.getEv_sdate() %> ~ <%=vo.getEv_edate() %></p>
 			</div>
 		<%} %>			
 <!-- 		<div id="event">
-				<a href="#"><img src="http://localhost:9090/MyJSP/sns_icon/event2.gif"/></a>
+				<a href="#"><img src="http://211.63.89.214:9090/MyJSP/sns_icon/event2.gif"/></a>
 				<p id="event_title">[회원이벤트] 국립현대무용단 검은돌:모래의 기억</p>
 				<p id="event_term">이벤트 기간 | 2019.10.14(월) ~ 2019.10.27(일)</p>
 			</div>

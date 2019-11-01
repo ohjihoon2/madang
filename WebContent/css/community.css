@@ -283,9 +283,6 @@ button#btnReply,button#btnList {
 	float: right;
 }
 
-div#reply_div{
-	clear:left;
-}
 
 button#btnRE, button#btnDE {
 	border: 1px solid rgb(155, 155, 155);

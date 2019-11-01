@@ -8,13 +8,13 @@
 <link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>
 <script src="http://localhost:9090/MyJSP/jquery/jquery-3.4.1.min.js"></script>
 <script>
-	$(document).ready(function(){
-		$( "th.star_rating a" ).click(function() {
-		    $(this).parent().children("a").removeClass("on");
-		    $(this).addClass("on").prevAll("a").addClass("on");
-		    return false;
-		});
+$(document).ready(function(){
+	$( "th.star_rating a" ).click(function() {
+	    $(this).parent().children("a").removeClass("on");
+	    $(this).addClass("on").prevAll("a").addClass("on");
+	    return false;
 	});
+});
 </script>
 
 </head>
@@ -33,17 +33,16 @@
 
 		<div id="main_title">관람후기</div>
 
-
 		<div id="review_content">
 			<div id="sub_title">
 				관람후기
-				<a href="http://localhost:9090/MyJSP/contents/Community/review_byStar.jsp"><button type="button" id="btnByStar" style="background:rgb(5, 135, 94);color:white">최신날짜순</button></a>
-				<a href="http://localhost:9090/MyJSP/contents/Community/review_byDate.jsp"><button type="button" id="btnByDate" style="background:white;color:black">평점높은순</button></a>
-				
+				<a href="http://localhost:9090/contents/Community/review_byStar.jsp"><button type="button" id="btnByDate" style="background:white;color:rgb(5, 135, 94)">평점높은순</button></a>	
+				<a href="http://localhost:9090/contents/Community/review_byDate.jsp"><button type="button" id="btnByStar" style="background:rgb(5, 135, 94);color:white">최신날짜순</button></a>			
 			</div>
 			<div class="table_div">
 			<%for(int i = 1; i < 8; i++){ %>
-				<table class="review_table">
+				<a href="http://localhost:9090/contents/Community/review_contents.jsp">
+				<table class="review_table">				
 					<tr>
 						<th>yyyy-mm-dd</th>
 						<td rowspan=3><img class="poster"
@@ -52,7 +51,7 @@
 					</tr>
 					<tr>
 						<th>ID@test.com</th>
-						<a href="http://localhost:9090/Community/review_contents.jsp"><td rowspan=2 id="contents">Contents</td></a>
+						<td rowspan=2 id="contents">Contents</td>
 					</tr>
 					
 					<tr>
@@ -61,8 +60,9 @@
 							<a href="#" class="on" value="<%=j %>">★</a>
 						<%} %>    
 						</th>						
-					</tr>
+					</tr>			
 				</table>
+				</a>
 			<%}%>
 			</div>
 	

@@ -157,17 +157,20 @@ public class EventDAO {
 	/** ´ñ±Û µî·Ï **/
 	public int getResultReplyWrite(EventReplyVO rvo) {
 		int result = 0;
-		String sql = "insert into event_reply values('ev_rp'|| lpad(sequ_event_reply.nextval, 4,'0'),?,?,?, sysdate)";
+		String sql = "insert into event_reply values('ev_rp_'|| lpad(sequ_event_reply.nextval, 4,'0'),?,?,?, sysdate)";
 		getPreparedStatement(sql);
 		
 		try {
 			pstmt.setString(1, rvo.getEv_rp_content());
-			pstmt.setString(2, rvo.getEv_rp_code());
+			pstmt.setString(2, rvo.getEv_code());
 			pstmt.setString(3, rvo.getId());
 			
 			int val = pstmt.executeUpdate();
 			if(val != 0) result = 1;
 System.out.println("result:"+result);
+System.out.println("rcontent:"+rvo.getEv_rp_content());
+System.out.println("evcode:"+rvo.getEv_code());
+System.out.println("id:"+rvo.getId());
 		}catch(Exception e) {e.printStackTrace();}
 		
 		return result;
