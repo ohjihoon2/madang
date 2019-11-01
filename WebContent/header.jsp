@@ -5,6 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<%
+	String generalId=(String)session.getAttribute("generalID");
+	String groupId=(String)session.getAttribute("groupID");
+%>
+
 
 <style>
 * {
@@ -123,7 +128,6 @@ header ul.dept02 li a:hover {
 
 </style>
 
-
 </head>
 <body>
 	<header>
@@ -133,11 +137,31 @@ header ul.dept02 li a:hover {
 	
 	<div class="header_nav">
 		<nav>
+		<!-- 로그인 안했을때 -->
+		<% if(generalId==null && groupId==null){ %>
 			<li><a href="#"><img src="http://localhost:9090/images/search.png"></a></li>
 			<li><a href="http://localhost:9090/contents/login/login.jsp">로그인</a></li>
 			<li><a href="http://localhost:9090/contents/join/join0.jsp">회원가입</a></li>
-			<li><a href="http://localhost:9090/contents/mypage/mypage_main.jsp">마이페이지</a></li>
+			<li><a href="http://localhost:9090/contents/mypage/mypage_main.jsp">마이페이지</a></li>		<!-- 막아버리기 -->
+			<!-- <li><a href="#">티켓예매</a></li> 막아버리기 -->
 			<li><a href="http://localhost:9090/contents/cs/cs_main.jsp">고객센터</a></li>
+		<!-- 일반회원 로그인 -->
+		<%}else if(generalId!=null && groupId==null){ %>		
+			<li><a href="#"><img src="http://localhost:9090/images/search.png"></a></li>
+			<li><a href="http://localhost:9090/contents/login/logout_proce.jsp">로그아웃</a></li>
+			<!-- <li><a href="http://localhost:9090/contents/join/join0.jsp">회원가입</a></li> -->
+			<li><a href="http://localhost:9090/contents/mypage/mypage_main.jsp">마이페이지</a></li>
+			<li><a href="#">티켓예매</a></li>
+			<li><a href="http://localhost:9090/contents/cs/cs_main.jsp">고객센터</a></li>
+		<!-- 대관자회원 로그인 -->
+		<%}else if(generalId==null && groupId!=null){ %>
+			<li><a href="#"><img src="http://localhost:9090/images/search.png"></a></li>
+			<li><a href="http://localhost:9090/contents/login/logout_proce.jsp">로그아웃</a></li>
+			<!-- <li><a href="http://localhost:9090/contents/join/join0.jsp">회원가입</a></li> -->
+			<li><a href="http://localhost:9090/contents/mypage/mypage_main_group.jsp">마이페이지</a></li>
+			<li><a href="#">티켓예매</a></li>
+			<li><a href="http://localhost:9090/contents/cs/cs_main.jsp">고객센터</a></li>
+		<%} %>
 		</nav>
 	</div>
 	
@@ -173,7 +197,7 @@ header ul.dept02 li a:hover {
 					<ul class="dept02">
 						<li><a href="http://localhost:9090/contents/rental_hall/rentalInfo.jsp">대관안내</a></li>
 						<li><a href="http://localhost:9090/contents/rental_hall/rentalhall.jsp">대관시설</a></li>
-						<li><a href="http://localhost:9090/contents/rental_hall/retalrequest.jsp">대관신청</a></li>
+						<li><a href="http://localhost:9090/contents/rental_hall/rentalrequest.jsp">대관신청</a></li>
 					</ul>
 				</li>
 				

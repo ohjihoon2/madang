@@ -72,13 +72,14 @@
 	div#main_page{
 		margin:auto;
 		text-align:center;
-		height:2100px;
+		height:2300px;
 
 		
 	}
 	div#main_content{ /*공연/전시~퀵메뉴*/
 		display:inline-block;
 		margin:auto;
+		padding-top:30px;
 		width:1000px;
 	}
 /*공연, 전시 */	
@@ -95,11 +96,11 @@
       border-right-style:double;
       border-right-color:rgb(5,135,94);
       border-right-width:5px;
-      margin-bottom:10px;
+      margin-bottom:30px;
       padding:5px 0px 10px 0px;
 	}
-	div#main_content div#main_announce section:first-child{
-		margin-bottom:50px;
+	div#main_content div#main_announce section{
+		margin-bottom:100px;
 		
 	}
 	
@@ -135,12 +136,16 @@
 	div#main_page div#main_content div:nth-child(2) section article#main_switch_teaser {
 		padding:30px 0px 50px 0px;
 		height:250px;
+		border:1px solid rgb(5,135,94); 
+		border-radius:35px;
 	}
 
 	div#main_page div#main_content div:nth-child(2) section article#main_switch_event{
 		display:none;
 		height:250px;
 		padding:30px 0px 50px 0px;
+		border:1px solid rgb(5,135,94); 
+		border-radius:35px;
 	}
 
 	div#main_page div#main_content div:nth-child(2) section article#main_switch_teaser div,
@@ -159,11 +164,11 @@
 /*하단 5개 퀵메뉴*/	
 
 	div#main_page div#main_content >div:last-child section {
-		
-		width:100%;
+		margin-top:50px;
+		width:90%;
 		padding: 10px 40px 10px 40px;
 		display:inline-block;
-		border-top:1px solid green;
+		border-top:1px solid rgb(5,135,94);
 		border-bottom:1px solid green;
 		
 	}

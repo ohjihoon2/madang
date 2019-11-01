@@ -47,13 +47,12 @@
 				<div class="parallelogram"><h1>진행중인 공연</h1></div>
 				<article>
 				 	<div class="center">
+						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/20190711113234P.gif"></div></a>
 						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div></a>
+						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/20190823151229P.gif"></div></a>
+						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/20190711113234P.gif"></div></a>
 						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div></a>
-						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div></a>
-						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div></a>
-						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div></a>
-						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div></a>
-						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div></a>
+						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/20190823151229P.gif"></div></a>
 					</div>
 				</article>
 			</section>
@@ -63,12 +62,11 @@
 				<article>
 					<div class="center">
 					<div><img src="http://localhost:9090/images/mainpage/poster_38632.gif"></div>
+					<div><img src="http://localhost:9090/images/mainpage/20190711113234P.gif"></div>
+					<div><img src="http://localhost:9090/images/mainpage/20190823151229P.gif"></div>
 					<div><img src="http://localhost:9090/images/mainpage/poster_38632.gif"></div>
-					<div><img src="http://localhost:9090/images/mainpage/poster_38632.gif"></div>
-					<div><img src="http://localhost:9090/images/mainpage/poster_38632.gif"></div>
-					<div><img src="http://localhost:9090/images/mainpage/poster_38632.gif"></div>
-					<div><img src="http://localhost:9090/images/mainpage/poster_38632.gif"></div>
-					<div><img src="http://localhost:9090/images/mainpage/poster_38632.gif"></div>
+					<div><img src="http://localhost:9090/images/mainpage/20190711113234P.gif"></div>
+					<div><img src="http://localhost:9090/images/mainpage/20190823151229P.gif"></div>
 				</div>
 				</article>
 			</section>
@@ -105,23 +103,22 @@
 					<div>
 						<img src="http://localhost:9090/images/mainpage/bigfish_thumbnail.gif">
 						<br>
-						<span><a href="#">뮤지컬 <빅 피쉬> 한국 초연(12/4~2/9) 2차오픈</a></span>
+						<span><a href="#">뮤지컬<빅 피쉬>한국 초연 2차오픈</a></span>
 						<span><br>- 10/30(수) 11AM 1차 오픈<br>- 10/30(수) 2PM 2차 오픈</span>
 					</div>
 					<div>
 						<img src="http://localhost:9090/images/mainpage/bigfish_thumbnail.gif">
 						<br>
-						<span><a href="#">뮤지컬 <빅 피쉬> 한국 초연(12/4~2/9) 2차오픈</a></span>
+						<span><a href="#">뮤지컬<빅 피쉬>한국 초연 2차오픈</a></span>
 						<span><br>- 10/30(수) 11AM 1차 오픈<br>- 10/30(수) 2PM 2차 오픈</span>
 					</div>
 					<div>
 						<img src="http://localhost:9090/images/mainpage/bigfish_thumbnail.gif">
 						<br>
-						<span><a href="#">뮤지컬 <빅 피쉬> 한국 초연(12/4~2/9) 2차오픈</a></span>
+						<span><a href="#">뮤지컬<빅 피쉬>한국 초연 2차오픈</a></span>
 						<span><br>- 10/30(수) 11AM 1차 오픈<br>- 10/30(수) 2PM 2차 오픈</span>
 					</div>
-				
-				
+					</article>
 			</section>
 		</div>
 		<div>
