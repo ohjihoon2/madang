@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>
-<script src="http://localhost:9090/MyJSP/jquery/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 
 <script>
 $(document).ready(function(){
@@ -35,15 +35,19 @@ $(document).ready(function(){
 		<div id="main_title">관람후기</div>
 
 		<div id="review_content">
-			<div id="sub_title">
-				관람후기
-				<a href="http://localhost:9090/contents/Community/review_byDate.jsp"><button type="button" id="btnByDate" style="background:white;color:rgb(5, 135, 94)">최신날짜순</button></a>
-				<a href="http://localhost:9090/contents/Community/review_byStar.jsp"><button type="button" id="btnByStar" style="background:rgb(5, 135, 94);color:white">평점높은순</button></a>
+			
+			<div id="sub_rtitle">				
+				<a href="http://localhost:9090/contents/Community/review_byDate.jsp">
+					<button type="button" id="btnSByDate">최신날짜순</button></a>
+				<a href="http://localhost:9090/contents/Community/review_byStar.jsp">
+					<button type="button" id="btnSByStar">평점높은순</button></a>
+									<a href="http://localhost:9090/contents/Community/review_write.jsp">
+					<button type="button" id="btnWriteReview"> 후기 작성 </button></a>											
 			</div>
 			<div class="table_div">
 			<%for(int i = 1; i < 8; i++){ %>
-				<table class="review_table">
 				<a href="http://localhost:9090/contents/Community/review_contents.jsp">
+				<table class="review_table">
 					<tr>
 						<th>yyyy-mm-dd</th>
 						<td rowspan=3><img class="poster"
@@ -61,9 +65,9 @@ $(document).ready(function(){
 							<a href="#" class="on" value="<%=j %>">★</a>
 						<%} %>    
 						</th>						
-					</tr>
-				</a>
+					</tr>				
 				</table>
+				</a>
 			<%}%>
 			</div>
 	
@@ -81,5 +85,7 @@ $(document).ready(function(){
 		</div>
 		
 	</div>
+	
+	<jsp:include page="../../footer.jsp"/>	
 </body>
 </html>

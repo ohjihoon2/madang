@@ -479,14 +479,16 @@ div#review_content{
 	margin:auto;
 }
 
-div#sub_title {
+div#sub_rtitle {
 	width: 950px;
 	font-size: 20pt;
 	text-align: left;
-	margin-bottom: 50px;
-	padding: 50px 50px 7px 50px;
-	border-bottom: 1px solid gray;
+	margin: 30px;
+	padding: 30px;
+	padding-bottom:9px;
+	border-bottom: 1px solid rgb(5, 135, 94);
 }
+
 
 div.table_div {
 	margin: auto;
@@ -498,6 +500,7 @@ table.review_table {
 	margin: auto;
 	margin: 10px;
 	padding: 10px;
+	color: black;
 }
 
 table.review_table td#title, table.review_table td#contents{
@@ -513,14 +516,15 @@ table.review_table img.poster {
 	padding: 5px;
 }
 
-button#btnByDate, button#btnByStar {
+button#btnDByDate, button#btnDByStar, button#btnSByDate, button#btnSByStar {
 	border: none;
 	border-radius: 5px;
 	padding: 10px;
-	font-size: 12pt;
+	margin-left:1px;
 	font-weight: bold;
-	float: right;
+	font-size:12pt;
 	border:1px solid rgb(5, 135, 94);
+
 }
 
 
@@ -537,6 +541,28 @@ table.review_table td:nth-child(3) span#hits{
 	float:right;
 }
 
+/* 최신순 버튼 */
+button#btnDByDate{
+	background:rgb(5, 135, 94);
+	color:white;
+}
+
+button#btnDByStar{
+	background:white;
+	color:rgb(5, 135, 94);
+}
+
+/* 별점순 버튼 */
+button#btnSByDate{
+	background:white;
+	color:rgb(5, 135, 94);
+}
+
+button#btnSByStar{
+	background:rgb(5, 135, 94);
+	color:white;
+
+}
 
 /* 별점 */
 th.star_rating {font-size:0; letter-spacing:-4px;}
@@ -553,8 +579,72 @@ th.star_rating a {
 th.star_rating a:first-child {margin-left:0;}
 
 th.star_rating a.on {color:tomato;}
-   
 
+
+/* 
+ * review_write
+ */     
+button#btnWriteReview{
+	border: none;
+	border-radius: 5px;
+	padding: 10px 50px 10px 50px;
+	margin-left:1px;
+	font-weight: bold;
+	font-size:12pt;
+	float: right;
+	border:1px solid rgb(5, 135, 94);
+	background:#ccc;
+	
+} 
+ 
+h1#rv_title{
+	width: 950px;
+	padding: 10px;
+	margin: auto;
+	border:1px solid red;
+	vertical-align:top;
+} 
+input#review_title{
+	width:400px;
+	height:25px;
+	padding:7px;
+	font-size: 16pt;
+	border-radius:7px;
+	border:1px solid #9b9b9b;
+	padding-left:20px;
+	margin-top:10px;
+}
+
+textarea#review_contents{
+	margin: 10px 20px 70px 20px;
+	border:1px solid #9b9b9b;
+	border-radius:10px;
+	width:700px;
+	height:200px;
+	padding:20px;
+	font-size:13pt;
+}
+
+select#rv_op_title{
+	border:1px solid #9b9b9b;
+	width:200px;
+	height:40px;
+	padding:10px;
+	border-radius:7px;
+	font-size: 12pt;
+}
+button.btnRVWrite{
+	border: none;
+	border-radius: 5px;
+	padding: 10px 30px 10px 30px;
+	margin-left:1px;
+	font-weight: bold;
+	font-size:12pt;
+	border:1px solid rgb(5, 135, 94);
+	float:right;
+}
+ 
+ 
 /* 
  * review_contents
  */     
@@ -564,11 +654,12 @@ th.star_rating a.on {color:tomato;}
 		margin:auto;
 	}
 	
-	div#sub_title {
+	div#sub_c_title {
 		width: 950px;
 		font-size: 20pt;
 		text-align: left;
-		padding: 50px;
+		padding: 30px;
+		padding-left:10px;
 		margin: auto;
 	}
 	
@@ -590,7 +681,7 @@ th.star_rating a.on {color:tomato;}
 		color:#9b9b9b;
 	}
 	
-	textarea#review_contents{
+	div#review_contents{
 		margin: 10px 20px 70px 20px;
 		border:1px solid #9b9b9b;
 		border-radius:10px;
@@ -599,6 +690,7 @@ th.star_rating a.on {color:tomato;}
 		padding:20px;
 		font-size:13pt;
 	}
+
 	
 	textarea#comment{
 		margin:10px 0px 10px 25px;
@@ -634,7 +726,7 @@ th.star_rating a.on {color:tomato;}
 	}
 	
 	button#btnRE, button#btnDE{
-		border:1px solid  rgb(155,155,155);
+		border:1px solid rgb(155,155,155);
 		border-radius:10px;
 		color: rgb(5,135,94);
 		background:white; 

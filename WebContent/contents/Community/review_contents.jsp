@@ -16,6 +16,7 @@
 	  $("button#btnWrite").click(function(){
 	    $("#div_comment").toggle();
 	  });
+	  
 	});
 </script>
 </head>
@@ -35,11 +36,11 @@
 		<div id="main_title">관람후기</div>
 	
 		<div id="content">
-			<div id="sub_title">관람 후기</div>
+			<div id="sub_c_title">관람 후기</div>
 			<form action="board_write_process.jsp" method="post" name="boardForm" enctype="multipart/form-data">
 			
 				<h1 id="review_title">리뷰 제목<span> 공연/전시 제목  | 아이디 </span></h1>
-				<textarea id="review_contents" placeholder="카르멘을 보고 나서... 리뷰내용"></textarea>		
+				<div id="review_contents" placeholder="카르멘을 보고 나서... 리뷰내용"></div>		
 					
 					
 				<div id="sub_title2"><span>댓글</span><button type="button" id="btnWrite">댓글쓰기</button>
@@ -63,5 +64,7 @@
 			</form>
 		</div>
 	</div>	
+	
+	<jsp:include page="../../footer.jsp"/>
 </body>
 </html>

@@ -32,12 +32,16 @@ $(document).ready(function(){
 		</div>
 
 		<div id="main_title">관람후기</div>
-
+	
 		<div id="review_content">
-			<div id="sub_title">
-				관람후기
-				<a href="http://localhost:9090/contents/Community/review_byStar.jsp"><button type="button" id="btnByDate" style="background:white;color:rgb(5, 135, 94)">평점높은순</button></a>	
-				<a href="http://localhost:9090/contents/Community/review_byDate.jsp"><button type="button" id="btnByStar" style="background:rgb(5, 135, 94);color:white">최신날짜순</button></a>			
+			
+			<div id="sub_rtitle">
+				<a href="http://localhost:9090/contents/Community/review_byDate.jsp">
+					<button type="button" id="btnDByDate">최신날짜순</button></a>
+				<a href="http://localhost:9090/contents/Community/review_byStar.jsp">
+					<button type="button" id="btnDByStar">평점높은순</button></a>				
+				<a href="http://localhost:9090/contents/Community/review_write.jsp">
+					<button type="button" id="btnWriteReview">후기 작성</button></a>
 			</div>
 			<div class="table_div">
 			<%for(int i = 1; i < 8; i++){ %>
@@ -45,7 +49,7 @@ $(document).ready(function(){
 				<table class="review_table">				
 					<tr>
 						<th>yyyy-mm-dd</th>
-						<td rowspan=3><img class="poster"
+					<td rowspan=3><img class="poster"
 							src="http://localhost:9090/images/comm_usher_img/1945poster.jpg" /></td>
 						<td id="title">title<span id="hits">조회수</span></td>
 					</tr>
@@ -80,5 +84,8 @@ $(document).ready(function(){
 		</div>
 		
 	</div>
+
+
+	<jsp:include page="../../footer.jsp"/>	
 </body>
 </html>
