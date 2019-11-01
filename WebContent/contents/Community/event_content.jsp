@@ -13,8 +13,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="http://211.63.89.214:9090/css/community.css"/>
-<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>	
+<link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>	
 <script>
 	$(document).ready(function(){
 		$("#reply_div").hide();
@@ -84,14 +84,14 @@
 			<div id="sub_title">진행중인 이벤트</div>
 			<h1 id="event_title"><%=vo.getEv_title() %></h1>
 			<h3 id="event_term"><%=vo.getEv_title() %></h3>
-			<img id="event_poster" src="http://211.63.89.214:9090/images/comm_usher_img/<%= vo.getEv_sdetail()%>"/>
+			<img id="event_poster" src="http://localhost:9090/images/comm_usher_img/<%= vo.getEv_sdetail()%>"/>
 
 
 <!-- 댓글 -->
 			<div id="sub_title2">		
 				<span>댓글이벤트</span>
 				<button type="button" id="btnReply">댓글쓰기</button>
-				<a href="http://211.63.89.214:9090/contents/Community/event.jsp"><button type="button" id="btnList">목록보기</button></a></div>
+				<a href="http://localhost:9090/contents/Community/event.jsp"><button type="button" id="btnList">목록보기</button></a></div>
 			<br><br>
 			<div id="reply_div">
 				<textarea id="reply_area" placeholder="여기에 댓글을 써주세요."></textarea>
@@ -108,7 +108,7 @@
 		
 		<div id="btnMore_div">
 			<button type="button" id="btnMore">
-				<img src="http://211.63.89.214:9090/images/comm_usher_img/plus_more.png" />더보기
+				<img src="http://localhost:9090/images/comm_usher_img/plus_more.png" />더보기
 			</button>
 		</div>
 	

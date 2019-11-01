@@ -24,8 +24,8 @@
 	}
 	
 	if(result) {
-		out.println("<script>alert('회원 탈퇴가 완료되었습니다'); location.href='http://211.63.89.214:9090/mainpage.jsp';</script>");
-		//response.sendRedirect("http://211.63.89.214:9090/contents/mypage/mypage_mod_grp.jsp");
+		out.println("<script>alert('회원 탈퇴가 완료되었습니다'); location.href='http://localhost:9090/mainpage.jsp';</script>");
+		//response.sendRedirect("http://localhost:9090/contents/mypage/mypage_mod_grp.jsp");
 	} else {
 		response.sendRedirect("../../errorPage.jsp");
 	}

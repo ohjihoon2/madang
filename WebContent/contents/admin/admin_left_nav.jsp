@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <script>
 $(document).ready(function(){
 	  $("div.admin_left_sub").hide();
@@ -15,7 +15,11 @@ $(document).ready(function(){
 	    $("ul li a").not(this).siblings().slideUp(300);
 	    return false;
 	  });
-	  window.open(url, "_blank");  
+	  
+	  $("aside#amdmin_left div#admin_left_gohome").click(function(){
+		  window.open("http://localhost:9090/mainpage.jsp", "_blank");  
+	  });
+
 	});
  </script>
 
@@ -76,7 +80,7 @@ aside#amdmin_left ul li a{
 
 
 
-aside#amdmin_left ul li>div{
+aside#amdmin_left ul li>div a{
 	margin:10px 0px 15px 20px;
 	font-size:13pt;
 }
@@ -88,7 +92,7 @@ aside#amdmin_left ul li>div{
 <div>
 	관리자 페이지
 </div>
-<div>홈페이지로</div>
+<div id="admin_left_gohome">홈페이지로</div>
 <ul>
   <li>
     <a href="#">공연관리</a><!-- 상영중 -->
@@ -104,8 +108,8 @@ aside#amdmin_left ul li>div{
   </li>
   <li>
     <a href="#">회원관리</a>  <!-- 일반회원 -->
-    <div class="admin_left_sub"><a href="http://211.63.89.214:9090/contents/admin/admin_member.jsp">일반 회원</a></div>
-	<div class="admin_left_sub"><a href="http://211.63.89.214:9090/contents/admin/admin_memberG.jsp">대관 회원</a></div>
+    <div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/admin_member.jsp">일반 회원</a></div>
+	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/admin_memberG.jsp">대관 회원</a></div>
   </li>
   <li>
      <a href="#">1:1상담 관리</a>
@@ -118,8 +122,8 @@ aside#amdmin_left ul li>div{
     <li>
      <a href="#">게시판 관리</a>
     <div class="admin_left_sub"><a href="#">관람후기</a></div>
-	<div class="admin_left_sub"><a href="http://211.63.89.214:9090/contents/admin/admin_notice.jsp">공지사항</a></div>
-	<div class="admin_left_sub"><a href="http://211.63.89.214:9090/contents/admin/admin_event.jsp">이벤트</a></div>
+	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/admin_notice.jsp">공지사항</a></div>
+	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/admin_event.jsp">이벤트</a></div>
   </li>
   </ul>
 </aside>

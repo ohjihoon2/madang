@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="http://211.63.89.214:9090/css/community.css"/>
+<link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 	$(document).ready(function(){
@@ -43,7 +43,7 @@
 					
 					
 				<div id="sub_title2"><span>댓글</span><button type="button" id="btnWrite">댓글쓰기</button>
-				<a href="http://211.63.89.214:9090/contents/Community/event.jsp"><button type="button" id="btnWrite">목록보기</button></a></div>
+				<a href="http://localhost:9090/contents/Community/event.jsp"><button type="button" id="btnWrite">목록보기</button></a></div>
 					<div id="div_comment"><textarea id="comment" placeholder="댓글을 달아주세요."></textarea><button type="button" id="btnOK">등록</button></div>
 				<%for(int i=1; i<=5; i++){ %>
 				<ul id="event_ul">
@@ -56,7 +56,7 @@
 			
 				<div id="btnMore_div">
 					<button type="button" id="btnMore">
-						<img src="http://211.63.89.214:9090/images/comm_usher_img/plus_more.png" />더보기
+						<img src="http://localhost:9090/images/comm_usher_img/plus_more.png" />더보기
 					</button>
 				</div>
 			

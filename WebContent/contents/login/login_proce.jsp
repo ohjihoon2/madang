@@ -15,9 +15,9 @@
 		if(result){
 			//로그인 성공 : 세션에 아이디를 넣고, 메인페이지로 이동
 			session.setAttribute("generalID",vo.getId());
-			response.sendRedirect("http://211.63.89.214:9090/mainpage.jsp");
+			response.sendRedirect("http://localhost:9090/mainpage.jsp");
 		}else{//로그인 실패
-			response.sendRedirect("http://211.63.89.214:9090/errorPage.jsp");	
+			response.sendRedirect("http://localhost:9090/errorPage.jsp");	
 		}
 		
 		
@@ -32,9 +32,9 @@
 		if(result){
 			//로그인 성공 : 세션에 아이디를 넣고, 메인페이지로 이동
 			session.setAttribute("groupID",vo2.getId());
-			response.sendRedirect("http://211.63.89.214:9090/mainpage.jsp");
+			response.sendRedirect("http://localhost:9090/mainpage.jsp");
 		}else{//로그인 실패
-			response.sendRedirect("http://211.63.89.214:9090/errorPage.jsp");
+			response.sendRedirect("http://localhost:9090/errorPage.jsp");
 		}
 
 	

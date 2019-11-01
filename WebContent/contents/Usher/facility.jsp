@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="http://211.63.89.214:9090/css/usher.css"/>
+<link rel="stylesheet" type="text/css" href="http://localhost:9090/css/usher.css"/>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />
@@ -26,30 +26,30 @@
 		<div class="facility_map">안내도</div>
 		<div class="img_div">
 <!-- 			<img class="etiquette_img"
-				src="http://211.63.89.214:9090/MyJSP/sns_icon/facility_map.png" /> -->		
+				src="http://localhost:9090/MyJSP/sns_icon/facility_map.png" /> -->		
 		</div>
 		
 
 		<div class="facility_map">시설안내</div>
 		<section> 
 			<a href="../concert/concert_seat_beethoven.jsp"><article class="facility_img"> 
-				<img src="http://211.63.89.214:9090/images/comm_usher_img/f_operahall.gif"/>
+				<img src="http://localhost:9090/images/comm_usher_img/f_operahall.gif"/>
 				<label>베토벤홀</label><p>관람석 총 1,004석 | 일반판매 915석 | 판매유보 9석</p></article></a>
 			
 			<a href="../concert/concert_seat_mozart.jsp"><article class="facility_img">
-				<img src="http://211.63.89.214:9090/images/comm_usher_img/f_concerthall.gif"/> 
+				<img src="http://localhost:9090/images/comm_usher_img/f_concerthall.gif"/> 
 				<label>모차르트홀</label><p>관람석 총 600석 | 일반판매 594석 | 휠체어석 6석</p></article></a>
 				
 			<a href="../exhibition/exhibition_view_picasso.jsp"><article class="facility_img"> 
-				<img src="http://211.63.89.214:9090/images/comm_usher_img/f_picaso.gif"/> 
+				<img src="http://localhost:9090/images/comm_usher_img/f_picaso.gif"/> 
 				<label>피카소관</label><p>본관 전체 3층 총 6개 전시실</p></article></a>
 				 
 			<a href="../exhibitionexhibition_view_davinci.jsp"><article class="facility_img"> 
-				<img src="http://211.63.89.214:9090/images/comm_usher_img/f_davinch.gif"/> 
+				<img src="http://localhost:9090/images/comm_usher_img/f_davinch.gif"/> 
 				<label>다빈치관</label><p>본관 전체 3층 중 1층 총 3개 전시실</p></article></a> 
 				
 			<a href="../exhibitionexhibition_view_jihoon.jsp"><article class="facility_img"> 
-				<img src="http://211.63.89.214:9090/images/comm_usher_img/f_ojihoon.gif"/> 
+				<img src="http://localhost:9090/images/comm_usher_img/f_ojihoon.gif"/> 
 				<label>오지훈관</label><p>비타민스테이션 내 소규모 전시공간</p></article></a> 
 		</section>
 

@@ -152,7 +152,7 @@
 </head>
 <body>
 	<jsp:include page="../../header.jsp"/>
-	<img src="http://211.63.89.214:9090/images/concert_main/concert_main.png">
+	<img src="http://localhost:9090/images/concert_main/concert_main.png">
 	<div id="left_nav">
 		<ul>
 			<li><a href="concert.jsp">공연</a></li>
@@ -168,7 +168,7 @@
 	
 	<%for(int i=0;i<list.size();i++){ %>
 	<div class="concert_info">
-		<a href="concert_detail.jsp"><img src="http://211.63.89.214:9090/images/concert_main/<%=list.get(i).getC_poster()%>"></a>
+		<a href="concert_detail.jsp"><img src="http://localhost:9090/images/concert_main/<%=list.get(i).getC_poster()%>"></a>
 		<div>
 			<h2><a href="concert_detail.jsp"><%=list.get(i).getC_title() %></a></h2>
 			<div id="hide_space">

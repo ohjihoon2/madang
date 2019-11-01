@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 
 <!-- jQuery UI CSS파일 --> 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -415,11 +415,11 @@
 	    	var func = $(this).attr('id'); 
 	    	
 	    	if(func == "step1"){
-    			$("#step1").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_01_on.gif");	
-    			$("#step2").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_02_off.gif");	
-    			$("#step3").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_03_off.gif");	
-    			$("#step4").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_04_off.gif");	
-    			$("#step5").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_05_off.gif");
+    			$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_on.gif");	
+    			$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
+    			$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
+    			$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
+    			$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_off.gif");
     			$(".btn_next1").show();
     			$(".btn_back").hide();
     			$(".btn_next2").hide();
@@ -427,44 +427,44 @@
     			
     			
 	    	}else if(func =="step2"){
-	    		$("#step1").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_01_off.gif");	
-    			$("#step2").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_02_on.gif");	
-    			$("#step3").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_03_off.gif");	
-    			$("#step4").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_04_off.gif");	
-    			$("#step5").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_05_off.gif");	
+	    		$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_off.gif");	
+    			$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_on.gif");	
+    			$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
+    			$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
+    			$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_off.gif");	
     			$(".btn_next1").hide();
     			$(".btn_back").show();
     			$(".btn_next2").show();
     			$(".btn_payment").hide();
     			
 	    	}else if(func =="step3"){
-	    		$("#step1").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_01_off.gif");	
-    			$("#step2").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_02_off.gif");	
-    			$("#step3").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_03_on.gif");	
-    			$("#step4").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_04_off.gif");	
-    			$("#step5").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_05_off.gif");	
+	    		$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_off.gif");	
+    			$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
+    			$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_on.gif");	
+    			$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
+    			$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_off.gif");	
     			$(".btn_next1").hide();
     			$(".btn_back").show();
     			$(".btn_next2").show();
     			$(".btn_payment").hide();
     			
 	    	}else if(func =="step4"){
-	    		$("#step1").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_01_off.gif");	
-    			$("#step2").attr("src", "http://l211.63.89.2149090/images/ticketing/05_step_02_off.gif");	
-    			$("#step3").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_03_off.gif");	
-    			$("#step4").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_04_on.gif");	
-    			$("#step5").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_05_off.gif");	
+	    		$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_off.gif");	
+    			$("#step2").attr("src", "http://llocalhost9090/images/ticketing/05_step_02_off.gif");	
+    			$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
+    			$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_on.gif");	
+    			$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_off.gif");	
     			$(".btn_next1").hide();
     			$(".btn_back").show();
     			$(".btn_next2").show();
     			$(".btn_payment").hide();
     			
 	    	}else if(func =="step5"){
-	    		$("#step1").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_01_off.gif");	
-    			$("#step2").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_02_off.gif");	
-    			$("#step3").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_03_off.gif");	
-    			$("#step4").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_04_off.gif");	
-    			$("#step5").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_05_on.gif");	
+	    		$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_off.gif");	
+    			$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
+    			$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
+    			$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
+    			$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_on.gif");	
     			$(".btn_next1").hide();
     			$(".btn_back").hide();
     			$(".btn_next2").hide();
@@ -708,11 +708,11 @@
 				$("div#step4").css("display","none");
 				$("div#step5").css("display","none");
 				
-				$("#step1").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_01_on.gif");	
-				$("#step2").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_02_off.gif");	
-				$("#step3").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_03_off.gif");	
-				$("#step4").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_04_off.gif");	
-				$("#step5").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_05_off.gif");
+				$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_on.gif");	
+				$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
+				$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
+				$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
+				$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_off.gif");
 				$(".btn_next1").show();
 				$(".btn_back").hide();
 				$(".btn_next2").hide();
@@ -724,11 +724,11 @@
 				$("div#step4").css("display","none");
 				$("div#step5").css("display","none");
 				
-				$("#step1").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_01_off.gif");	
-				$("#step2").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_02_on.gif");	
-				$("#step3").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_03_off.gif");	
-				$("#step4").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_04_off.gif");	
-				$("#step5").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_05_off.gif");	
+				$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_off.gif");	
+				$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_on.gif");	
+				$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
+				$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
+				$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_off.gif");	
 				$(".btn_next1").hide();
 				$(".btn_back").show();
 				$(".btn_next2").show();
@@ -741,11 +741,11 @@
 				$("div#step4").css("display","none");
 				$("div#step5").css("display","none");
 				
-				$("#step1").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_01_off.gif");	
-				$("#step2").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_02_off.gif");	
-				$("#step3").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_03_on.gif");	
-				$("#step4").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_04_off.gif");	
-				$("#step5").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_05_off.gif");	
+				$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_off.gif");	
+				$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
+				$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_on.gif");	
+				$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
+				$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_off.gif");	
 				$(".btn_next1").hide();
 				$(".btn_back").show();
 				$(".btn_next2").show();
@@ -757,11 +757,11 @@
 				$("div#step4").css("display","block");
 				$("div#step5").css("display","none");
 				
-				$("#step1").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_01_off.gif");	
-				$("#step2").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_02_off.gif");	
-				$("#step3").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_03_off.gif");	
-				$("#step4").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_04_on.gif");	
-				$("#step5").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_05_off.gif");	
+				$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_off.gif");	
+				$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
+				$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
+				$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_on.gif");	
+				$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_off.gif");	
 				$(".btn_next1").hide();
 				$(".btn_back").show();
 				$(".btn_next2").show();
@@ -773,11 +773,11 @@
 				$("div#step4").css("display","none");
 				$("div#step5").css("display","block");
 				
-				$("#step1").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_01_off.gif");	
-				$("#step2").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_02_off.gif");	
-				$("#step3").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_03_off.gif");	
-				$("#step4").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_04_off.gif");	
-				$("#step5").attr("src", "http://211.63.89.214:9090/images/ticketing/05_step_05_on.gif");	
+				$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_off.gif");	
+				$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
+				$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
+				$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
+				$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_on.gif");	
 				$(".btn_next1").hide();
 				$(".btn_back").show();
 				$(".btn_next2").hide();
@@ -796,11 +796,11 @@
 		<div class="ticketing_step">
 			<span>예술의마당 티켓 예매</span>
 			<ul class=tab>
-				<li><img src="http://211.63.89.214:9090/images/ticketing/05_step_01_on.gif" id="step1" class="step"></li>
-				<li><img src="http://211.63.89.214:9090/images/ticketing/05_step_02_off.gif" id="step2" class="step"></li>
-				<li><img src="http://211.63.89.214:9090/images/ticketing/05_step_03_off.gif" id="step3" class="step"></li>
-				<li><img src="http://211.63.89.214:9090/images/ticketing/05_step_04_off.gif" id="step4" class="step"></li>
-				<li><img src="http://211.63.89.214:9090/images/ticketing/05_step_05_off.gif" id="step5" class="step"></li>
+				<li><img src="http://localhost:9090/images/ticketing/05_step_01_on.gif" id="step1" class="step"></li>
+				<li><img src="http://localhost:9090/images/ticketing/05_step_02_off.gif" id="step2" class="step"></li>
+				<li><img src="http://localhost:9090/images/ticketing/05_step_03_off.gif" id="step3" class="step"></li>
+				<li><img src="http://localhost:9090/images/ticketing/05_step_04_off.gif" id="step4" class="step"></li>
+				<li><img src="http://localhost:9090/images/ticketing/05_step_05_off.gif" id="step5" class="step"></li>
 			</ul>
 		</div>
 		<div class="ticketing_left" id="step1">
@@ -837,7 +837,7 @@
 		<!-- #################################################### -->
 		<div class="ticketing_left" id="step2">
 			<div class="concert_seats">
-				<img src="http://211.63.89.214:9090/images/concert_main/stage.png">
+				<img src="http://localhost:9090/images/concert_main/stage.png">
 			</div>
 			<div class="seat_all">
 				<div class="seat_section">
@@ -1098,7 +1098,7 @@
 		<div class="ticketing_info">
 			<div class="ticketing_info_choice">
 				<div class="ticketing_info_choice_img">
-					<img src="http://211.63.89.214:9090/images/ticketing/ticketing_small_img.gif">
+					<img src="http://localhost:9090/images/ticketing/ticketing_small_img.gif">
 				</div>
 				<div class="ticketing_info_choice_text">
 					<span>창작가무극[다윈영의 악의 기원]</span>

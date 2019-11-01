@@ -5,7 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="http://211.63.89.214:9090/css/usher.css"/>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>		
+<link rel="stylesheet" type="text/css" href="http://localhost:9090/css/usher.css"/>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />
@@ -39,7 +41,7 @@
 		<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3165.3748167059625!2d127.0312321744784!3d37.49907704085682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z7ZWc64-F67mM65Sp!5e0!3m2!1sko!2skr!4v1571614812695!5m2!1sko!2skr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 		</div>
 		<div class="notice_div">
-			<img src="http://211.63.89.214:9090/images/comm_usher_img/etiquette_bottom.PNG" />
+			<img src="http://localhost:9090/images/comm_usher_img/etiquette_bottom.PNG" />
 		</div>
 	</div>
 </body>

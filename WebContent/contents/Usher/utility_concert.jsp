@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="http://211.63.89.214:9090/css/usher.css"/>
-<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://localhost:9090/css/usher.css"/>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <script>
 $(document).ready(function(){
 	$("p").hide();
@@ -48,8 +48,8 @@ $(document).ready(function(){
 		
 		<br><br><br><br>		
 		<div id="Sub_btn">
-			<a href="http://211.63.89.214:9090/contents/Usher/utility_exhibition.jsp"><span style="color:rgb(5, 135, 94);background:white" id="EE">전시장 편의시설</span></a>
-			<a href="http://211.63.89.214:9090/contents/Usher/utility_concert.jsp"><span style="color:white;background:rgb(5, 135, 94)" id="CE">공연장 편의시설</span></a>
+			<a href="http://localhost:9090/contents/Usher/utility_exhibition.jsp"><span style="color:rgb(5, 135, 94);background:white" id="EE">전시장 편의시설</span></a>
+			<a href="http://localhost:9090/contents/Usher/utility_concert.jsp"><span style="color:white;background:rgb(5, 135, 94)" id="CE">공연장 편의시설</span></a>
 			
 		</div>
 		<br><br>
@@ -61,18 +61,18 @@ $(document).ready(function(){
 		<div id="utility_list2">*이용문의 02-580-1300 (09:00~20:00)</div>
 		<div>
 			<section> <article class="utility_ariticle"> <img id="glasses"
-				src="http://211.63.89.214:9090/images/comm_usher_img/utility_glasses.gif"> <label class="u_lb">오페라글라스</label>
+				src="http://localhost:9090/images/comm_usher_img/utility_glasses.gif"> <label class="u_lb">오페라글라스</label>
 			<p class="glasses">대여료 | 3,000원 / 신분증을 맡기고 대여</p><p class="glasses">운영시간 | 공연 기준 전 30분 ~ 후 바로 반납</p></article> <article class="utility_ariticle"> <img id="locker"
-				src="http://211.63.89.214:9090/images/comm_usher_img/utility_cabinet.gif"> <label class="u_lb">물품보관소</label><p class="locker">편한 관람을 위해 물품을 맡아드립니다.</p><p class="locker">운영시간 | 공연 기준 전후로 30분 간</p>
+				src="http://localhost:9090/images/comm_usher_img/utility_cabinet.gif"> <label class="u_lb">물품보관소</label><p class="locker">편한 관람을 위해 물품을 맡아드립니다.</p><p class="locker">운영시간 | 공연 기준 전후로 30분 간</p>
 			</article> <article class="utility_ariticle"> <img id="kids"
-				src="http://211.63.89.214:9090/images/comm_usher_img/utility_kidzRound.gif"> <label class="u_lb">키즈라운지</label><p class="kids">연력제한 | 36개월 ~ 8세 미만 어린이</p><p class="kids"> 필요사항 | 당일 공연 입장권과 신분증 지참 요망</p>
+				src="http://localhost:9090/images/comm_usher_img/utility_kidzRound.gif"> <label class="u_lb">키즈라운지</label><p class="kids">연력제한 | 36개월 ~ 8세 미만 어린이</p><p class="kids"> 필요사항 | 당일 공연 입장권과 신분증 지참 요망</p>
 			</article> </section>
 			<section> <article class="utility_ariticle"> <img id="mroom"
-				src="http://211.63.89.214:9090/images/comm_usher_img/utility_mroom.gif"> <label class="u_lb">수유실</label><p class="mroom">베토벤하우스 2층 : 09:00 ~ 23:00</p><p class="mroom">한가람미술관 1층 : 09:00 ~ 20:00</p>
+				src="http://localhost:9090/images/comm_usher_img/utility_mroom.gif"> <label class="u_lb">수유실</label><p class="mroom">베토벤하우스 2층 : 09:00 ~ 23:00</p><p class="mroom">한가람미술관 1층 : 09:00 ~ 20:00</p>
 			</article> <article class="utility_ariticle"> <img id="pfee"
-				src="http://211.63.89.214:9090/images/comm_usher_img/utility_parkingfee.gif"> <label class="u_lb">주차요금
+				src="http://localhost:9090/images/comm_usher_img/utility_parkingfee.gif"> <label class="u_lb">주차요금
 				사전정산기</label><p class="pfee">베토벤관*모차르트관 1층</p><p class="pfee">피카소관*다비치관 1층</p></article> <article class="utility_ariticle"> <img id="atm"
-				src="http://211.63.89.214:9090/images/comm_usher_img/utility_atm.gif"> <label class="u_lb">은행ATM</label><p class="atm">우리은행 ATM : 오지훈관 로비</p><p class="atm">IBK 기업은행 ATM : 야외 광장</p>
+				src="http://localhost:9090/images/comm_usher_img/utility_atm.gif"> <label class="u_lb">은행ATM</label><p class="atm">우리은행 ATM : 오지훈관 로비</p><p class="atm">IBK 기업은행 ATM : 야외 광장</p>
 			</article> </section>
 		</div>
 </div>		
