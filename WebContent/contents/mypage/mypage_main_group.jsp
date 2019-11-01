@@ -16,9 +16,9 @@
 		<span>일반회원 아이디:<%= session.getAttribute("generalID") %> 대관회원 아이디:<%= session.getAttribute("groupID") %></span>
 		<div id="left_nav">
 			<ul>
-				<li><a style="color: rgb(5, 135, 94)" href="mypage_main.jsp">마이페이지</a></li>
+				<li><a style="color: rgb(5, 135, 94)" href="mypage_main.jsp">마이페이지_대관자</a></li>
 				<li><a href="mypage_mod_gen.jsp">회원정보 수정</a></li>
-				<li><a href="mypage_reserv_list.jsp">예매내역 확인</a></li>
+				<li><a href="mypage_reserv_list.jsp">예매내역 확인</a></li><!-- 대관내역보기   로 수정?-->
 				<li><a href="mypage_bmark.jsp">찜한 공연/전시</a></li>
 			</ul>
 		</div>

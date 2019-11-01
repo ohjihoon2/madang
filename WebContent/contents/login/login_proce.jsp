@@ -32,9 +32,6 @@
 		if(result){
 			//로그인 성공 : 세션에 아이디를 넣고, 메인페이지로 이동
 			session.setAttribute("groupID",vo2.getId());
-			System.out.println(vo2.getId());
-			System.out.println((String)session.getAttribute("groupID"));
-			
 			response.sendRedirect("http://localhost:9090/mainpage.jsp");
 		}else{//로그인 실패
 			response.sendRedirect("http://localhost:9090/errorPage.jsp");

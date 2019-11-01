@@ -183,5 +183,6 @@
 
 	</div> <!-- class=page_contents -->
 	</div> <!-- rental_hall -->
+	<jsp:include page="../../footer.jsp"/>
 </body>
 </html>

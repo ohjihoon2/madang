@@ -193,5 +193,6 @@
 		</section> -->
 	</div> <!-- class=page_contents -->
 	</div> <!-- rentalquest -->
+	<jsp:include page="../../footer.jsp"/>
 </body>
 </html>

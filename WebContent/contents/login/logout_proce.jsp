@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<%
+	String generalId=(String)session.getAttribute("generalID");
+	String grouplId=(String)session.getAttribute("groupID");
+	
+	
+	if(generalId!=null){   //일반회원 로그아웃
+		session.removeAttribute("generalID");
+		response.sendRedirect("http://localhost:9090/mainpage.jsp");
+	}else if(grouplId!=null){   //대관자 회원 로그아웃
+		session.removeAttribute("groupID");
+		response.sendRedirect("http://localhost:9090/mainpage.jsp");
+	}
+%>
 
-</body>
-</html>
+
