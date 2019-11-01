@@ -8,7 +8,7 @@
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <script>
 $(document).ready(function(){
-	//헤더
+	//�뿤�뜑
 	$('aside.amdmin_left ul li.dept01').hover(
 		function() {
 		$('div.dept02').slideDown();
@@ -17,10 +17,10 @@ $(document).ready(function(){
 });
 </script>
 <style>
-/*공통사항*/
+/*怨듯넻�궗�빆*/
 *{
 	/*border:1px solid red;*/
-	font-family:"나눔스퀘어라운드";
+	font-family:"�굹�닎�뒪�섏뼱�씪�슫�뱶";
 	margin:0px;
 	padding:0px;
 }
@@ -41,13 +41,13 @@ div.admin_content{
 }
 
 
-/*내용*/
+/*�궡�슜*/
 	div#admin_main section{
 		border:1px solid gray;
 		height:300px;
 		padding:50px 0px 0px 30px;
 	}
-	/*공연, 전시 안내*/
+	/*怨듭뿰, �쟾�떆 �븞�궡*/
 	div#admin_main section:first-child article{
 		display : inline-block;
 		width:400px;
@@ -93,86 +93,86 @@ div.admin_content{
 </head>
 <body>
 <!-- 
-	admin페이지에서 하는 것: 공지사항, 1:1상담, 언론보도, 이벤트 그리고 공시,전시에 대한 crud.
+	admin�럹�씠吏��뿉�꽌 �븯�뒗 寃�: 怨듭��궗�빆, 1:1�긽�떞, �뼵濡좊낫�룄, �씠踰ㅽ듃 洹몃━怨� 怨듭떆,�쟾�떆�뿉 ���븳 crud.
  -->
 <jsp:include page="admin_left_nav.jsp"/>
 	<div id="admin_main" class="admin_content">
 		<section>
 		 	<article>
-		 		<!--현재 진행중인 공연(넘치면 over-scroll / for문사용) -->	
-		 		<h2>진행중인 공연 </h2>
-		 		<h5>더보기</h5>
+		 		<!--�쁽�옱 吏꾪뻾以묒씤 怨듭뿰(�꽆移섎㈃ over-scroll / for臾몄궗�슜) -->	
+		 		<h2>吏꾪뻾以묒씤 怨듭뿰 </h2>
+		 		<h5>�뜑蹂닿린</h5>
 		 		<ul>
 		 			<li>
-		 				차이코프스키 호두깍기차이코프스키 호두깍기차이코프스키 호두깍기차이코프스키 호두깍기차이코프스키 호두깍기 (20190901~20190810)
+		 				李⑥씠肄뷀봽�뒪�궎 �샇�몢源띻린李⑥씠肄뷀봽�뒪�궎 �샇�몢源띻린李⑥씠肄뷀봽�뒪�궎 �샇�몢源띻린李⑥씠肄뷀봽�뒪�궎 �샇�몢源띻린李⑥씠肄뷀봽�뒪�궎 �샇�몢源띻린 (20190901~20190810)
 		 			</li>
 		 			<li>
-		 				차이코프스키 호두깍기 (20190901~20190810)
+		 				李⑥씠肄뷀봽�뒪�궎 �샇�몢源띻린 (20190901~20190810)
 		 			</li>
 		 		</ul> 
 		 	</article>
 		 	<article>
-		 		<!--현재 진행중인 공연(넘치면 over-scroll / for문사용) -->	
-		 		<h2>진행중인 전시 </h2>
-		 		<h5>더보기</h5>
+		 		<!--�쁽�옱 吏꾪뻾以묒씤 怨듭뿰(�꽆移섎㈃ over-scroll / for臾몄궗�슜) -->	
+		 		<h2>吏꾪뻾以묒씤 �쟾�떆 </h2>
+		 		<h5>�뜑蹂닿린</h5>
 		 		<ul>
 		 			<li>
-		 				차이코프스키 호두깍기 (20190901~20190810)
+		 				李⑥씠肄뷀봽�뒪�궎 �샇�몢源띻린 (20190901~20190810)
 		 			</li>
 		 			<li>
-		 				차이코프스키 호두깍기 (20190901~20190810)
+		 				李⑥씠肄뷀봽�뒪�궎 �샇�몢源띻린 (20190901~20190810)
 		 			</li>
 		 		</ul> 
 		 	</article>
 		</section>
 		<section>
-	 		<!-- 공지사항 -->
-	 		<h2>공지사항</h2>
+	 		<!-- 怨듭��궗�빆 -->
+	 		<h2>怨듭��궗�빆</h2>
 	 		<table>
 	 			<tr>
-	 				<th>제목</th>
-	 				<th>작성일자</th>
+	 				<th>�젣紐�</th>
+	 				<th>�옉�꽦�씪�옄</th>
 	 			</tr>
 	 			<tr>
-	 				<td>오늘만큼은 무료라구!</td>
+	 				<td>�삤�뒛留뚰겮�� 臾대즺�씪援�!</td>
 	 				<td>2019-10-20</td>
 	 			</tr>
 	 			<tr>
-	 				<td>오늘만큼은 무료라구!</td>
+	 				<td>�삤�뒛留뚰겮�� 臾대즺�씪援�!</td>
 	 				<td>2019-10-20</td>
 	 			</tr>
 	 			<tr>
-	 				<td>오늘만큼은 무료라구!</td>
+	 				<td>�삤�뒛留뚰겮�� 臾대즺�씪援�!</td>
 	 				<td>2019-10-20</td>
 	 			</tr>
 	 			<tr>
-	 				<td>오늘만큼은 무료라구!</td>
+	 				<td>�삤�뒛留뚰겮�� 臾대즺�씪援�!</td>
 	 				<td>2019-10-20</td>
 	 			</tr>
 	 		</table>
 	 	</section>
 	 	<section>
-	 	<!-- 1:1 상담 -->
-	 		<h2>1:1상담</h2>
+	 	<!-- 1:1 �긽�떞 -->
+	 		<h2>1:1�긽�떞</h2>
 	 		<table>
 	 			<tr>
-	 				<th>제목</th>
-	 				<th>작성일자</th>
+	 				<th>�젣紐�</th>
+	 				<th>�옉�꽦�씪�옄</th>
 	 			</tr>
 	 			<tr>
-	 				<td>오늘만큼은 무료라구!</td>
+	 				<td>�삤�뒛留뚰겮�� 臾대즺�씪援�!</td>
 	 				<td>2019-10-20</td>
 	 			</tr>
 	 			<tr>
-	 				<td>오늘만큼은 무료라구!</td>
+	 				<td>�삤�뒛留뚰겮�� 臾대즺�씪援�!</td>
 	 				<td>2019-10-20</td>
 	 			</tr>
 	 			<tr>
-	 				<td>오늘만큼은 무료라구!</td>
+	 				<td>�삤�뒛留뚰겮�� 臾대즺�씪援�!</td>
 	 				<td>2019-10-20</td>
 	 			</tr>
 	 			<tr>
-	 				<td>오늘만큼은 무료라구!</td>
+	 				<td>�삤�뒛留뚰겮�� 臾대즺�씪援�!</td>
 	 				<td>2019-10-20</td>
 	 			</tr>
 	 		</table>
