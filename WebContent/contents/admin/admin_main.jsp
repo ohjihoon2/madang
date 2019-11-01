@@ -5,86 +5,96 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
-<script>
-$(document).ready(function(){
-	//�뿤�뜑
-	$('aside.amdmin_left ul li.dept01').hover(
-		function() {
-		$('div.dept02').slideDown();
-		}
-	);
-});
-</script>
 <style>
-/*怨듯넻�궗�빆*/
+
 *{
 	/*border:1px solid red;*/
-	font-family:"�굹�닎�뒪�섏뼱�씪�슫�뱶";
+	font-family:"나눔스퀘어라운드";
 	margin:0px;
 	padding:0px;
 }
 
-div.admin_page{
-	border:1px solid blue;
-	width:1300px;
-	height:1500px;
-	margin:auto;
-}
 
 div.admin_content{
 	width:70%;
 	height:1400px;
-	margin:auto;
 	float:left;
 	padding:130px 0px 0px 100px;
 }
 
 
-/*�궡�슜*/
-	div#admin_main section{
-		border:1px solid gray;
+
+div#admin_main section{
 		height:300px;
-		padding:50px 0px 0px 30px;
 	}
-	/*怨듭뿰, �쟾�떆 �븞�궡*/
-	div#admin_main section:first-child article{
+
+
+div#admin_main section >h5{
+	margin-top:20px;
+	width:80%;
+	text-align:right;
+}
+
+div#admin_main section >article h5{
+	margin-top:20px;
+	width:100%;
+	text-align:right;
+}
+
+div#admin_main section:first-child article{
 		display : inline-block;
-		width:400px;
+		width:450px;
 		height:250px;
 		margin-right:40px;
 		
 	}
-	div#admin_main section:first-child article ul {
+div#admin_main section:first-child article ul {
 		border:1px solid green;
 		list-style-position: inside;
-		padding:5px 0px 0px 10px;
-		width:400px;
+		padding:15px 0px 0px 20px;
+		width:450px;
 		height:200px;
-		margin-top:20px;
 		overflow:auto;
+		border-radius:20px;
 	}
+div#admin_main section:first-child article ul li span:first-child{
+	width:95%;
+	height:18px;
+	overflow:hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}	
 	
-	
-	div#admin_main section table{
-		width:650px;
-		height:200px;
-		margin:auto;
-		margin-top:30px;
+	div#admin_main section:first-child article ul li{
+		margin:5px 0px 15px 0px;
+	}
+div#admin_main section table{
+		width:80%;
+		height:150px;
 		border-collapse: collapse;
 	}
-	div#admin_main section table th{
+div#admin_main section table th{
+		width:60%;
 		background-color:lightgray;
 		border-bottom:1px solid gray;
 	}
-	
-	div#admin_main section table td:first-child{
+
+div#admin_main section table th:nth-child(2),
+div#admin_main section table th:last-child{
+		width:20%;
+		background-color:lightgray;
 		border-bottom:1px solid gray;
-		width:500px;
+		border-left:1px solid gray;
+	}
+		
+div#admin_main section table td:first-child{
+		border-bottom:1px solid gray;
 		padding-left:10px;
 	}
-	div#admin_main section table td:last-child{
+div#admin_main section table td:last-child,
+div#admin_main section table td:nth-child(2){
 		border-bottom:1px solid gray;
+		border-left:1px solid gray;
 		text-align:center;
 	}
 	
@@ -92,87 +102,101 @@ div.admin_content{
 
 </head>
 <body>
-<!-- 
-	admin�럹�씠吏��뿉�꽌 �븯�뒗 寃�: 怨듭��궗�빆, 1:1�긽�떞, �뼵濡좊낫�룄, �씠踰ㅽ듃 洹몃━怨� 怨듭떆,�쟾�떆�뿉 ���븳 crud.
- -->
 <jsp:include page="admin_left_nav.jsp"/>
 	<div id="admin_main" class="admin_content">
 		<section>
 		 	<article>
-		 		<!--�쁽�옱 吏꾪뻾以묒씤 怨듭뿰(�꽆移섎㈃ over-scroll / for臾몄궗�슜) -->	
-		 		<h2>吏꾪뻾以묒씤 怨듭뿰 </h2>
-		 		<h5>�뜑蹂닿린</h5>
+		 		
+		 		<h2>진행중인 전시 </h2>
+		 		<h5>더보기</h5>
 		 		<ul>
 		 			<li>
-		 				李⑥씠肄뷀봽�뒪�궎 �샇�몢源띻린李⑥씠肄뷀봽�뒪�궎 �샇�몢源띻린李⑥씠肄뷀봽�뒪�궎 �샇�몢源띻린李⑥씠肄뷀봽�뒪�궎 �샇�몢源띻린李⑥씠肄뷀봽�뒪�궎 �샇�몢源띻린 (20190901~20190810)
+		 				<span>자바란 무엇인가 자바자바 잇럽미 자바자바 잇럽미!!!</span><br><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(20190901~20190810)</span>
 		 			</li>
 		 			<li>
-		 				李⑥씠肄뷀봽�뒪�궎 �샇�몢源띻린 (20190901~20190810)
+		 				<span>자바란 무엇인가</span><br><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(20190901~20190810)</span>
 		 			</li>
 		 		</ul> 
 		 	</article>
 		 	<article>
-		 		<!--�쁽�옱 吏꾪뻾以묒씤 怨듭뿰(�꽆移섎㈃ over-scroll / for臾몄궗�슜) -->	
-		 		<h2>吏꾪뻾以묒씤 �쟾�떆 </h2>
-		 		<h5>�뜑蹂닿린</h5>
+		 		<h2>진행중인 공연 </h2>
+		 		<h5>더보기</h5>
 		 		<ul>
 		 			<li>
-		 				李⑥씠肄뷀봽�뒪�궎 �샇�몢源띻린 (20190901~20190810)
+		 				어 컵- 어 컵 어컵!!! (20190901~20190810)
 		 			</li>
 		 			<li>
-		 				李⑥씠肄뷀봽�뒪�궎 �샇�몢源띻린 (20190901~20190810)
+		 				공연장에서 실시하는 전시회 (20190901~20190810)
 		 			</li>
 		 		</ul> 
 		 	</article>
 		</section>
 		<section>
-	 		<!-- 怨듭��궗�빆 -->
-	 		<h2>怨듭��궗�빆</h2>
+	 		<h2>공지사항</h2>
+	 		<h5>더보기</h5>
 	 		<table>
 	 			<tr>
-	 				<th>�젣紐�</th>
-	 				<th>�옉�꽦�씪�옄</th>
+	 				<th>제목</th>
+	 				<th>작성일</th>
 	 			</tr>
 	 			<tr>
-	 				<td>�삤�뒛留뚰겮�� 臾대즺�씪援�!</td>
+	 				<td>오늘 무료공연에 대한 공지사항</td>
 	 				<td>2019-10-20</td>
 	 			</tr>
 	 			<tr>
-	 				<td>�삤�뒛留뚰겮�� 臾대즺�씪援�!</td>
+	 				<td>오늘 무료공연에 대한 공지사항</td>
 	 				<td>2019-10-20</td>
 	 			</tr>
 	 			<tr>
-	 				<td>�삤�뒛留뚰겮�� 臾대즺�씪援�!</td>
-	 				<td>2019-10-20</td>
-	 			</tr>
-	 			<tr>
-	 				<td>�삤�뒛留뚰겮�� 臾대즺�씪援�!</td>
+	 				<td>오늘 무료공연에 대한 공지사항</td>
 	 				<td>2019-10-20</td>
 	 			</tr>
 	 		</table>
 	 	</section>
 	 	<section>
-	 	<!-- 1:1 �긽�떞 -->
-	 		<h2>1:1�긽�떞</h2>
+	 		<h2>1:1상담</h2>
+	 		<h5>더보기</h5>
 	 		<table>
 	 			<tr>
-	 				<th>�젣紐�</th>
-	 				<th>�옉�꽦�씪�옄</th>
+	 				<th>제목</th>
+	 				<th>작성일</th>
 	 			</tr>
 	 			<tr>
-	 				<td>�삤�뒛留뚰겮�� 臾대즺�씪援�!</td>
+	 				<td>환불안하세요?!!??</td>
 	 				<td>2019-10-20</td>
 	 			</tr>
 	 			<tr>
-	 				<td>�삤�뒛留뚰겮�� 臾대즺�씪援�!</td>
+	 				<td>환불안하세요?!!??</td>
 	 				<td>2019-10-20</td>
 	 			</tr>
 	 			<tr>
-	 				<td>�삤�뒛留뚰겮�� 臾대즺�씪援�!</td>
+	 				<td>환불안하세요?!!??</td>
+	 				<td>2019-10-20</td>
+	 			</tr>
+	 		</table>
+	 	</section>
+	 		 	<section>
+	 		<h2>대관신청</h2>
+	 		<h5>더보기</h5>
+	 		<table>
+	 			<tr>
+	 				<th>제목</th>
+	 				<th>장소</th>
+	 				<th>신청일</th>
+	 			</tr>
+	 			<tr>
+	 				<td>나때는 말이야 이런 파티는 생각도 못했어</td>
+	 				<td>베토벤 홀</td>
 	 				<td>2019-10-20</td>
 	 			</tr>
 	 			<tr>
-	 				<td>�삤�뒛留뚰겮�� 臾대즺�씪援�!</td>
+	 				<td>요즘 세상 참 좋아졌다?</td>
+	 				<td>베토벤 홀</td>
+	 				<td>2019-10-20</td>
+	 			</tr>
+	 			<tr>
+	 				<td>환불안하세요?!!??</td>
+	 				<td>베토벤 홀</td>
 	 				<td>2019-10-20</td>
 	 			</tr>
 	 		</table>

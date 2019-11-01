@@ -6,8 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
-<link rel="stylesheet" href="http://localhost:9090/css/madangcss.css"/>
+<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="http://211.63.89.214:9090/css/madangcss.css"/>
 <script>
 	$(document).ready(function(){
 		$("#join_g1next_btn").click(function(){

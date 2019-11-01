@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
 <script>
 $(document).ready(function(){
 	  $("div.admin_left_sub").hide();
@@ -15,7 +15,7 @@ $(document).ready(function(){
 	    $("ul li a").not(this).siblings().slideUp(300);
 	    return false;
 	  });
-	  
+	  window.open(url, "_blank");  
 	});
  </script>
 
@@ -34,12 +34,21 @@ aside#amdmin_left{
 	float:left;
 	color:white;
 }
-aside#amdmin_left>div{
+aside#amdmin_left>div:first-child{
 	width:100%;
-	height:130px;
+	height:50px;
 	text-align:center;
 	font-size:23pt;
 	padding-top:50px;
+}
+
+aside#amdmin_left> div:nth-child(2){
+	width:90%;
+	text-align:right;
+	padding: 20px 15px 0px 0px;
+	font-size:15pt;
+	margin-bottom:80px;
+	
 }
 
 aside#amdmin_left ul{
@@ -61,11 +70,12 @@ aside#amdmin_left ul li a{
   display:block; 
   text-decoration:none; 
   color:white;
-}
-aside#amdmin_left ul li> a{
   margin-right:30px;
-	font-size:18pt;
+  font-size:18pt;
 }
+
+
+
 aside#amdmin_left ul li>div{
 	margin:10px 0px 15px 20px;
 	font-size:13pt;
@@ -78,6 +88,7 @@ aside#amdmin_left ul li>div{
 <div>
 	관리자 페이지
 </div>
+<div>홈페이지로</div>
 <ul>
   <li>
     <a href="#">공연관리</a><!-- 상영중 -->
@@ -93,8 +104,8 @@ aside#amdmin_left ul li>div{
   </li>
   <li>
     <a href="#">회원관리</a>  <!-- 일반회원 -->
-    <div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/admin_member.jsp">일반 회원</a></div>
-	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/admin_memberG.jsp">대관 회원</a></div>
+    <div class="admin_left_sub"><a href="http://211.63.89.214:9090/contents/admin/admin_member.jsp">일반 회원</a></div>
+	<div class="admin_left_sub"><a href="http://211.63.89.214:9090/contents/admin/admin_memberG.jsp">대관 회원</a></div>
   </li>
   <li>
      <a href="#">1:1상담 관리</a>
@@ -107,14 +118,10 @@ aside#amdmin_left ul li>div{
     <li>
      <a href="#">게시판 관리</a>
     <div class="admin_left_sub"><a href="#">관람후기</a></div>
-	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/admin_notice.jsp">공지사항</a></div>
-	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/admin_event.jsp">이벤트</a></div>
+	<div class="admin_left_sub"><a href="http://211.63.89.214:9090/contents/admin/admin_notice.jsp">공지사항</a></div>
+	<div class="admin_left_sub"><a href="http://211.63.89.214:9090/contents/admin/admin_event.jsp">이벤트</a></div>
   </li>
-  <li>
-  	<a> </a>
-     <a href="http://localhost:9090/mainpage.jsp">홈페이지로</a>
-  </li>
-</ul>
+  </ul>
 </aside>
 </body>
 </html>
