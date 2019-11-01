@@ -3,8 +3,8 @@
 <%@ page import="com.madang.dao.*" %>
 <%
 	//String id=request.getParameter("id");
-	String general_id=String.valueOf(session.getAttribute("generalID"));
-	String group_id=String.valueOf(session.getAttribute("grouopID"));
+	String general_id=(String)session.getAttribute("generalID");
+	String group_id=(String)session.getAttribute("grouopID");
 	String u_pw=request.getParameter("pw");
 	
 	int result=0;
@@ -12,11 +12,11 @@
 	System.out.println("process group id "+group_id);
 	System.out.println("process pw "+u_pw);
 	
-	if(general_id!="null" && group_id=="null") { //개인회원
+	if(general_id!=null && group_id==null) { //개인회원
 		General_mem_DAO dao=new General_mem_DAO();
 		result=dao.getResultPw(general_id, u_pw);
 		System.out.println("개인회원 if "+result);
-	} else if(group_id!="null" && general_id=="null") { //그룹회원
+	} else if(group_id!=null && general_id==null) { //그룹회원
 		Group_mem_DAO dao=new Group_mem_DAO();
 		result=dao.getResultPw(general_id, u_pw);
 		System.out.println("그룹회원 if "+result);

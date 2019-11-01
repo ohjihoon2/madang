@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	String general_id=String.valueOf(session.getAttribute("generalID"));
-	String group_id=String.valueOf(session.getAttribute("grouopID"));
+	String general_id=(String)session.getAttribute("generalID");
+	String group_id=(String)session.getAttribute("grouopID");
+	
+	System.out.println(general_id);
+	System.out.println(group_id);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -51,28 +54,11 @@
 		
 		
 		//비밀번호 확인
-		$("input#out_pw_cfm").focusout(function(){
-			var u_pw=$("input#out_pw_cfm").val();
-			if(<%= general_id %>!=null && <%= group_id %>==null) { //개인회원
-				//alert("zzz");
-				$.ajax({
-					
-					url:"mem_out_pw_process.jsp?pw="+u_pw,
-					success:function(result){
-						if(u_pw!="") {
-							if(result==0) { //비밀번호 불일치
-								$("span#pw_check_result").text("비밀번호가 일치하지 않습니다.");
-								pw_msg=$("span#pw_check_result").text();
-							} else {
-								$("span#pw_check_result").text("비밀번호 확인이 완료되었습니다.");
-								pw_msg=$("span#pw_check_result").text();
-							}
-						}
-					}
-				}); 
-				
+		$("input#out_pw_cfm").blur(function(){
 			
-			} else if(<%= group_id %>!=null && <%= general_id %>==null) { //그룹회원
+			var u_pw=$("input#out_pw_cfm").val();
+			<% if(general_id!=null && group_id ==null) { %>//개인회원
+				
 				$.ajax({
 					url:"mem_out_pw_process.jsp?pw="+u_pw,
 					success:function(result){
@@ -89,7 +75,24 @@
 				});
 				
 				
-			}
+			<% } else if(group_id!="null" && general_id=="null") { %> //그룹회원
+				$.ajax({
+					url:"mem_out_pw_process.jsp?pw="+u_pw,
+					success:function(result){
+						if(u_pw!="") {
+							if(result==0) { //비밀번호 불일치
+								$("span#pw_check_result").text("비밀번호가 일치하지 않습니다.");
+								pw_msg=$("span#pw_check_result").text();
+							} else {
+								$("span#pw_check_result").text("비밀번호 확인이 완료되었습니다.");
+								pw_msg=$("span#pw_check_result").text();
+							}
+						}
+					}
+				});
+				
+				
+			<% } %>
 			
 			
 		});
@@ -99,6 +102,7 @@
 </script>
 </head>
 <body>
+	<%-- <span>일반회원 아이디:<%= session.getAttribute("generalID") %> 대관회원 아이디:<%= session.getAttribute("groupID") %></span> --%>
 	<jsp:include page="../../header.jsp" />
 	<div>
 		<div id="left_nav">
