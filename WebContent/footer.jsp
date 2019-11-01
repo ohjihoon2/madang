@@ -112,31 +112,31 @@ footer>div:last-child>div>div>span {
 	<footer>
 		<div>
 			<div>
-				<img src="http://localhost:9090/images/footer/notice_icon.png" />
+				<img src="http://211.63.89.214:9090/images/footer/notice_icon.png" />
 				<div>공지사항 한줄로 띄우기</div>
 			</div>
 		</div>
 		<div>
 			<div>
 				<label>Contact With Us</label> <img
-					src="http://localhost:9090/images/footer/sns_t.png" /> <img
-					src="http://localhost:9090/images/footer/sns_n.png" /> <img
-					src="http://localhost:9090/images/footer/sns_np.png" /> <img
-					src="http://localhost:9090/images/footer/sns_t.png" /> <img
-					src="http://localhost:9090/images/footer/sns_tv.png" /> <img
-					src="http://localhost:9090/images/footer/sns_youtube.png" />
+					src="http://211.63.89.214:9090/images/footer/sns_t.png" /> <img
+					src="http://211.63.89.214:9090/images/footer/sns_n.png" /> <img
+					src="http://211.63.89.214:9090/images/footer/sns_np.png" /> <img
+					src="http://211.63.89.214:9090/images/footer/sns_t.png" /> <img
+					src="http://211.63.89.214:9090/images/footer/sns_tv.png" /> <img
+					src="http://211.63.89.214:9090/images/footer/sns_youtube.png" />
 				<ul>
 					<li><a href="#">사이트맵</a></li>
 					<li><a href="#">이용약관/정책</a></li>
 					<li><a href="#">개인정보처리방침</a></li>
 					<li><a href="#">홈페이지저작권보호정책</a></li>
-					<li><a href="http://localhost:9090/contents/admin/admin_login.jsp">Admin</a></li>
+					<li><a href="http://211.63.89.214:9090/contents/admin/admin_login.jsp">Admin</a></li>
 				</ul>
 			</div>
 		</div>
 		<div>
 			<div>
-				<img src="http://localhost:9090/images/footer/madang_Logo_G.png" />
+				<img src="http://211.63.89.214:9090/images/footer/madang_Logo_G.png" />
 				<div>
 					<span>(04377)서울특별시 강남구 역삼동 735 예술의 마당 | </span> <span>대표이사 :
 						장마당 | 사업자등록번호 : 104-81-45690 | 통신판매업신고번호 : 2017-서울강남-0662 | </span> <span>개인정보보호
