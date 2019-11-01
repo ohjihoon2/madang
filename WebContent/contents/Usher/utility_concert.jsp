@@ -6,6 +6,30 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="http://localhost:9090/css/usher.css"/>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("p").hide();
+	$("img#glasses").click(function(){
+		$("p.glasses").toggle();
+	});
+	$("img#locker").click(function(){
+		$("p.locker").toggle();
+	});
+	$("img#kids").click(function(){
+		$("p.kids").toggle();
+	});
+	$("img#mroom").click(function(){
+		$("p.mroom").toggle();
+	});
+	$("img#pfee").click(function(){
+		$("p.pfee").toggle();
+	});
+	$("img#atm").click(function(){
+		$("p.atm").toggle();
+	});
+});
+</script>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />
@@ -36,20 +60,19 @@
 			은행 ATM</div>
 		<div id="utility_list2">*이용문의 02-580-1300 (09:00~20:00)</div>
 		<div>
-			<section> <article class="utility_ariticle"> <img
+			<section> <article class="utility_ariticle"> <img id="glasses"
 				src="http://localhost:9090/images/comm_usher_img/utility_glasses.gif"> <label class="u_lb">오페라글라스</label>
-			<p>대여료 3,000원 / 신분증을 맡기고 대여</p><p>운영시간 공연 시작 30분 전 ~ 공연 종료 후 10분간</p></article> <article class="utility_ariticle"> <img
-				src="http://localhost:9090/images/comm_usher_img/utility_cabinet.gif"> <label class="u_lb">물품보관소</label><p>객석 내 가지고 들어갈 수 없는 물품이나
-두꺼운 외투 등을 맡아 드립니다.</p><p>운영시간 공연 시작 30분 전 ~ 공연 종료 후 10분간</p>
-			</article> <article class="utility_ariticle"> <img
-				src="http://localhost:9090/images/comm_usher_img/utility_kidzRound.gif"> <label class="u_lb">키즈라운지</label><p>36개월 ~ 8세 미만 어린이</p><p>당일 공연 입장권과 신분증 지참 요망</p>
+			<p class="glasses">대여료 | 3,000원 / 신분증을 맡기고 대여</p><p class="glasses">운영시간 | 공연 기준 전 30분 ~ 후 바로 반납</p></article> <article class="utility_ariticle"> <img id="locker"
+				src="http://localhost:9090/images/comm_usher_img/utility_cabinet.gif"> <label class="u_lb">물품보관소</label><p class="locker">편한 관람을 위해 물품을 맡아드립니다.</p><p class="locker">운영시간 | 공연 기준 전후로 30분 간</p>
+			</article> <article class="utility_ariticle"> <img id="kids"
+				src="http://localhost:9090/images/comm_usher_img/utility_kidzRound.gif"> <label class="u_lb">키즈라운지</label><p class="kids">연력제한 | 36개월 ~ 8세 미만 어린이</p><p class="kids"> 필요사항 | 당일 공연 입장권과 신분증 지참 요망</p>
 			</article> </section>
-			<section> <article class="utility_ariticle"> <img
-				src="http://localhost:9090/images/comm_usher_img/utility_mroom.gif"> <label class="u_lb">수유실</label><p>베토벤하우스 2층 : 09:00 ~ 23:00</p><p>한가람미술관 1층 : 09:00 ~ 20:00</p>
-			</article> <article class="utility_ariticle"> <img
+			<section> <article class="utility_ariticle"> <img id="mroom"
+				src="http://localhost:9090/images/comm_usher_img/utility_mroom.gif"> <label class="u_lb">수유실</label><p class="mroom">베토벤하우스 2층 : 09:00 ~ 23:00</p><p class="mroom">한가람미술관 1층 : 09:00 ~ 20:00</p>
+			</article> <article class="utility_ariticle"> <img id="pfee"
 				src="http://localhost:9090/images/comm_usher_img/utility_parkingfee.gif"> <label class="u_lb">주차요금
-				사전정산기</label><p>베토벤관*모차르트관 1층</p><p>피카소관*다비치관 1층</p></article> <article class="utility_ariticle"> <img
-				src="http://localhost:9090/images/comm_usher_img/utility_atm.gif"> <label class="u_lb">은행ATM</label><p>우리은행 ATM : 오지훈관 로비</p><p>IBK 기업은행 ATM : 야외 광장</p>
+				사전정산기</label><p class="pfee">베토벤관*모차르트관 1층</p><p class="pfee">피카소관*다비치관 1층</p></article> <article class="utility_ariticle"> <img id="atm"
+				src="http://localhost:9090/images/comm_usher_img/utility_atm.gif"> <label class="u_lb">은행ATM</label><p class="atm">우리은행 ATM : 오지훈관 로비</p><p class="atm">IBK 기업은행 ATM : 야외 광장</p>
 			</article> </section>
 		</div>
 </div>		
