@@ -31,7 +31,7 @@
 <body>
 <jsp:include page="../../header.jsp"/>
 
-<div id="login" class="page_contents">
+<div id="login" class="page_contents1">
 	<h1 class="page_title">로그인</h1>
 	<div>
 		<form action="login_proce.jsp" method="post" name="loginform">
@@ -54,6 +54,6 @@
 </div><!-- id=login -->
 
 
-
+	<jsp:include page="../../footer.jsp"/>
 </body>
 </html>

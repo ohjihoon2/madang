@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="http://localhost:9090/css/madangcss.css"/></head>
 <body>
 <jsp:include page="../../header.jsp"/>
-<div id="join3" class="page_contents">
+<div id="join3" class="page_contents1">
 	<h1 class="page_title">회원가입</h1>
 	<div>
 		<img src="http://localhost:9090/images/join/join3.png">
@@ -20,5 +20,7 @@
 		<a href="http://localhost:9090/mainpage.jsp"><button type="button">홈페이지로</button></a>
 		<a href="http://localhost:9090/contents/login/login.jsp"><button type="button">로그인</button></a>
 	</div>
+	</div>
+		<jsp:include page="../../footer.jsp"/>
 </body>
 </html>

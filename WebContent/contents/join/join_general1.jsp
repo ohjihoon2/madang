@@ -134,6 +134,7 @@
 						</td>
 					</tr>
 				</table>
+				</div>
 		</form>
 		<div class="joinbtn">
 		<a href="join0.jsp"><button type="button" class="join_prv">이전으로</button></a>
@@ -142,5 +143,6 @@
 		
 </div>
 
+<jsp:include page="../../footer.jsp"/>
 </body>
 </html>

@@ -222,6 +222,7 @@ $(document).ready(function(){
 		<a href="join_group1.jsp"><button type="button" class="join_prv">이전으로</button></a>
 		<button type="button" class="join_next" id="join_gp2next_btn">다음으로</button>
 	</div>
+		<jsp:include page="../../footer.jsp"/>
 </div>	
 </body>
 </html>

@@ -215,5 +215,6 @@ $(document).ready(function(){
 		<button type="button" class="join_next" id="join_g2next_btn">회원가입</button>
 	</div>
 </div>	
+	<jsp:include page="../../footer.jsp"/>
 </body>
 </html>
