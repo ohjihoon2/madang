@@ -35,10 +35,13 @@ public class ReviewDAO {
 	public boolean getResultWrite(ReviewVO vo) {
 		
 		boolean result = false;
-		String sql = "insert into review values('rv'|| lpad(sequ_review.nextval, 4,'0'),?,?,?,?,sysdate,?,?)";
+		String sql = "insert into review values('rv'|| lpad(sequ_review.nextval, 4,'0'),?,?,'','',sysdate,58,?,4)";
 		getPreparedStatement(sql);
 		try {
-			
+			pstmt.setString(1, vo.getRv_title());
+			pstmt.setString(1, vo.getRv_content());
+			pstmt.setString(1, vo.getRv_title());
+
 		}catch(Exception e) {e.printStackTrace();}
 		
 		return result;
