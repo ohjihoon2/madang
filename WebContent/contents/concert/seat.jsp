@@ -30,7 +30,7 @@
 		font-size:5pt;
 	}
 	body {
-	 	 /* background-image: url("http://localhost:9090/images/concert_main/소극장_seat.gif");
+	 	 /* background-image: url("http://211.63.89.214:9090/images/concert_main/소극장_seat.gif");
 	 	 background-repeat: repeat-x; */
 	}
 </style>

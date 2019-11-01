@@ -107,7 +107,7 @@
 </head>
 <body>
 	<jsp:include page="../../header.jsp"/>x
-	<img src="http://localhost:9090/images/concert_main/people-2590551_1920_1.jpg">
+	<img src="http://211.63.89.214:9090/images/concert_main/people-2590551_1920_1.jpg">
 	<div id="left_nav">
 		<ul>
 			<li><a href="concert.jsp">공연</a></li>
@@ -122,14 +122,14 @@
 	</div>
 	<div class="concert_seat_guide">
 		<h1>모짜르트 홀</h1>
-		<img src="http://localhost:9090/images/concert_main/소극장_pic.jpg" class="theater_pic">
+		<img src="http://211.63.89.214:9090/images/concert_main/소극장_pic.jpg" class="theater_pic">
 		<div>
 			<h2>공연장 좌석배치도<br>
 					각 좌석도에서 좌석 버튼을 클릭하시면 해당 좌석에서 촬영한 무대시각선을 보실 수 있습니다.<br>
 					촬영 시야(VIEW)이기 때문에 실제 눈으로 보는 것과는 약간의 차이가 있을 수 있습니다.<br>
 			</h2>
 		</div>
-		<img src="http://localhost:9090/images/concert_main/소극장_seat.gif" class ="theater_seat">
+		<img src="http://211.63.89.214:9090/images/concert_main/소극장_seat.gif" class ="theater_seat">
 	</div>
 </body>
 </html>
