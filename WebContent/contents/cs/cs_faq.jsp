@@ -6,10 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://localhost:9090/css/cs.css"/>
-<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
-<script src="http://localhost:9090/js/madang.js"></script>
-<script src="http://localhost:9090/js/cs.js"></script>
+<link rel="stylesheet" href="http://211.63.89.214:9090/css/cs.css"/>
+<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://211.63.89.214:9090/js/madang.js"></script>
+<script src="http://211.63.89.214:9090/js/cs.js"></script>
 
 </head>
 <body>
@@ -230,7 +230,7 @@
 		
 		<!-- <div id="faq_search">
 			<input type="text" name="faq_search" placeholder="검색어를 입력해주세요">
-			<a href="#"><img src="http://localhost:9090/images/search.png"></a>
+			<a href="#"><img src="http://211.63.89.214:9090/images/search.png"></a>
 		</div> -->
 
 	</div>

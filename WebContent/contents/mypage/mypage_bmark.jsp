@@ -5,9 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://localhost:9090/css/mypage.css"/>
-<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
-<script src="http://localhost:9090/js/madang.js"></script>
+<link rel="stylesheet" href="http://211.63.89.214:9090/css/mypage.css"/>
+<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://211.63.89.214:9090/js/madang.js"></script>
 <script>
 /* 	$(document).ready(function(){
 		$("p#bmark_star a").click(function() {
@@ -38,10 +38,10 @@
 		<br>
 		
 			<div class="bmark_list">
-				<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
+				<a href="http://211.63.89.214:9090/contents/concert/concert_detail.jsp"><img src="http://211.63.89.214:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
 				<div class="bmark_info">
 					<p id="bmark_star"><a class="on" value="off">★</a></p>
-					<p><a href="http://localhost:9090/contents/concert/concert_detail.jsp">2019 연극 늙은 부부이야기</a></p>
+					<p><a href="http://211.63.89.214:9090/contents/concert/concert_detail.jsp">2019 연극 늙은 부부이야기</a></p>
 					<p>2019.10.02(수) ~ 2019.10.03(목)</p>
 					<br>
 					<p>베토벤홀</p>
@@ -49,7 +49,7 @@
 			</div>
 			
 			<div class="bmark_list">
-				<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
+				<a href="#"><img src="http://211.63.89.214:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
 				<div class="bmark_info">
 					<p id="bmark_star"><a class="on" value="off">★</a></p>
 					<p><a href="#">이쌍용 피아노 독주회</a></p>
@@ -60,7 +60,7 @@
 			</div>
 			
 			<div class="bmark_list">
-				<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
+				<a href="#"><img src="http://211.63.89.214:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
 				<div class="bmark_info">
 					<p id="bmark_star"><a class="on" value="off">★</a></p>
 					<p><a href="#">이쌍용 피아노 독주회</a></p>
@@ -78,7 +78,7 @@
 		<br>
 		
 			<div class="bmark_list">
-				<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
+				<a href="#"><img src="http://211.63.89.214:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
 				<div class="bmark_info">
 					<p></p>
 					<p><a href="#">오지훈 개인전</a></p>
@@ -89,7 +89,7 @@
 			</div>
 			
 			<div class="bmark_list">
-				<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
+				<a href="#"><img src="http://211.63.89.214:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
 				<div class="bmark_info">
 					<p></p>
 					<p><a href="#">오지훈 개인전</a></p>
@@ -100,7 +100,7 @@
 			</div>
 			
 			<div class="bmark_list">
-				<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
+				<a href="#"><img src="http://211.63.89.214:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
 				<div class="bmark_info">
 					<p></p>
 					<p><a href="#">오지훈 개인전</a></p>

@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import ="com.madang.dao.ConcertDAO, com.madang.vo.ConcertVO, java.util.*"%>
+
+<%
+	ConcertDAO dao = new ConcertDAO();
+	ArrayList<ConcertVO>list = dao.getConcertInfo();	
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -132,7 +137,9 @@
 	  background-color: #e5002c;
 	  color:white;
 	}
-		
+	#text_space > div >div{
+		margin: 10px 0px 10px 0px;
+	}
 		
 /* 	div#concertInfo>div>#textSpace>div>div{
 	border:1px solid gray;
@@ -141,14 +148,11 @@
 	border:1px solid gray;
 	} */
 	
-	
-	
-	
 </style>
 </head>
 <body>
 	<jsp:include page="../../header.jsp"/>
-	<img src="http://localhost:9090/images/concert_main/concert_main.png">
+	<img src="http://211.63.89.214:9090/images/concert_main/concert_main.png">
 	<div id="left_nav">
 		<ul>
 			<li><a href="concert.jsp">공연</a></li>
@@ -162,39 +166,21 @@
 	<button type="button">이미지보기</button>
 	<button type="button">텍스트보기</button>
 	
+	<%for(int i=0;i<list.size();i++){ %>
 	<div class="concert_info">
-		<a href="concert_detail.jsp"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif"></a>
+		<a href="concert_detail.jsp"><img src="http://211.63.89.214:9090/images/concert_main/<%=list.get(i).getC_poster()%>"></a>
 		<div>
-			<h2><a href="concert_detail.jsp">2019 연극 <늙은 부부이야기></a></h2>
+			<h2><a href="concert_detail.jsp"><%=list.get(i).getC_title() %></a></h2>
 			<div id="hide_space">
 				<span></span>
 			</div>
 			<div id="text_space">
 				<div>
-					<div>베토벤 홀  <span>|</span>  2019.10.02(수) ~ 2019.10.03(목)</div>
-					<span>R석 8만원 / S석 6만원 / A석 4만원 / B석 2만원</span>
+					<div><%=list.get(i).getC_place() %> <span>|</span> <%=list.get(i).getC_sdate() %>~ <%=list.get(i).getC_edate() %></div>
+					<span>R석 <%=list.get(i).getC_price() %> 원 </span>
 					<input type="button" value="예매" onclick="showPopup();" class="ticketing_popup"/>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="concert_info">
-		<a href="concert_detail.jsp"><img src="http://localhost:9090/images/concert_main/20190711113234P.gif"></a>
-		<div>
-			<h2><a href="concert_detail.jsp">SIDance2019-울티마&nbsp;베스&nbsp;</a></h2>
-			<div id="hide_space">
-				<span></span>
-			</div>
-			<div id="text_space">
-				<div>
-					<div>베토벤 홀  <span>|</span>  2019.10.02(수) ~ 2019.10.03(목)</div>
-					<span>R석 8만원 / S석 6만원 / A석 4만원 / B석 2만원</span>
-					<!-- <a href="#">예매</a> -->
-					<input type="button" value="예매" onclick="showPopup();" class="ticketing_popup"/>
-				</div>
-			</div>
-		</div>
-	</div>
-	<jsp:include page="../../footer.jsp"/>
-</body>
-</html>
+	<%} %>
