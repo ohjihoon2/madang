@@ -9,8 +9,9 @@
 	boolean result=service.getResultUpdate(vo);
 	
 	if(result) {
-		//response.sendRedirect("mypage_mod_gen.jsp");
-		response.sendRedirect("http://localhost:9090/contents/mypage/mypage_mod_grp.jsp");
+		//response.sendRedirect("mypage_mod_grp.jsp");
+		//response.sendRedirect("http://localhost:9090/contents/mypage/mypage_mod_grp.jsp");
+		out.println("<script>alert('정보 수정 완료'); location.href='mypage_mod_grp.jsp'</script>");
 	} else {
 		response.sendRedirect("../../errorPage.jsp");
 	}
