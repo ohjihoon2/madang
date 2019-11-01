@@ -7,14 +7,18 @@
 	String general_id=String.valueOf(session.getAttribute("generalID"));
 	String group_id=String.valueOf(session.getAttribute("grouopID"));
 	
+	String u_pw=request.getParameter("u_pw");
+	
 	boolean result=false;
 	
-	if(general_id!=null && group_id==null) { //개인회원 탈퇴
+	if(general_id!="null" && group_id=="null") { //개인회원 탈퇴
 		General_mem_Service service=new General_mem_Service();
-		result=service.getResultOut(general_id);
-	} else if((group_id!=null && general_id==null)) { //그룹회원 탈퇴
+		result=service.getResultOut(general_id, u_pw);
+		System.out.println("개인 탈퇴 "+result);
+	} else if(group_id!="null" && general_id=="null") { //그룹회원 탈퇴
 		Group_mem_Service service=new Group_mem_Service();
-		result=service.getResultOut(group_id);
+		result=service.getResultOut(group_id, u_pw);
+		System.out.println("그룹 탈퇴  "+result);
 	}
 	
 	

@@ -198,14 +198,15 @@ public class General_mem_DAO {
 	
 	
 	/** È¸¿ø Å»Åð */
-	public boolean getResultOut(String id) {
+	public boolean getResultOut(String id, String pw) {
 		boolean result=false;
 		
-		String sql="delete from general_mem where id=?";
+		String sql="delete from general_mem where id=? and pw=?";
 		getPreparedStatement(sql);
 		
 		try {
 			pstmt.setString(1, id);
+			pstmt.setString(2, pw);
 			int val=pstmt.executeUpdate();
 			if(val!=0) result=true;
 			

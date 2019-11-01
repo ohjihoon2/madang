@@ -24,10 +24,10 @@ public class Group_mem_Service {
 	}
 	
 	/** Ε»Επ */
-	public boolean getResultOut(String id) {
+	public boolean getResultOut(String id, String pw) {
 		boolean result=false;
 		Group_mem_DAO dao=new Group_mem_DAO();
-		result=dao.getResultOut(id);
+		result=dao.getResultOut(id, pw);
 		dao.close();
 		return result;
 	}

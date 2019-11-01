@@ -3,9 +3,6 @@
 <%
 	String general_id=String.valueOf(session.getAttribute("generalID"));
 	String group_id=String.valueOf(session.getAttribute("grouopID"));
-	
-	//세션 초기화 개인
-	//세션 초기화 그룹
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -18,8 +15,7 @@
 <script>
 	$(document).ready(function(){
 		
-		
-		var pw_msg="";
+		//var pw_msg="";
 		
 		//회원탈퇴 체크박스/비밀번호 체크
 		$("button#out_btn").click(function(){
@@ -29,13 +25,19 @@
 						alert("비밀번호를 입력해주세요");
 						$("input#out_pw_cfm").focus();
 					} else {
+						
 						if(pw_msg=="비밀번호 확인이 완료되었습니다.") {
 							//탈퇴 db 연결
-							location.href="http://localhost:9090/contents/mypage/gen_mem_out_process.jsp";
+							//location.href="http://localhost:9090/contents/mypage/gen_mem_out_process.jsp";
+							
+							//alert("d");
+							mem_out_form.submit();
+							
 						} else {
 							alert("비밀번호를 다시 입력해주세요")
 							$("input#out_pw_cfm").focus();
 						}
+						
 					}
 				} else {
 					alert("동의 후 진행해주세요");
@@ -50,15 +52,12 @@
 		
 		//비밀번호 확인
 		$("input#out_pw_cfm").focusout(function(){
-			alert("dd");
-			//var id='대관';
-			alert(general_id);
-			alert(group_id); 
-			//var u_pw=$("input#out_pw_cfm").val();
-			/* if(general_id!=null && group_id==null) { //개인회원
-				alert("zzz");
+			var u_pw=$("input#out_pw_cfm").val();
+			if(<%= general_id %>!=null && <%= group_id %>==null) { //개인회원
+				//alert("zzz");
 				$.ajax({
-					url:"mem_out_pw_process.jsp?id="+general_id+"&pw="+u_pw,
+					
+					url:"mem_out_pw_process.jsp?pw="+u_pw,
 					success:function(result){
 						if(u_pw!="") {
 							if(result==0) { //비밀번호 불일치
@@ -73,9 +72,9 @@
 				}); 
 				
 			
-			} else if((group_id!=null && general_id==null)) { //그룹회원
+			} else if(<%= group_id %>!=null && <%= general_id %>==null) { //그룹회원
 				$.ajax({
-					url:"mem_out_pw_process.jsp?id="+group_id+"&pw="+u_pw,
+					url:"mem_out_pw_process.jsp?pw="+u_pw,
 					success:function(result){
 						if(u_pw!="") {
 							if(result==0) { //비밀번호 불일치
@@ -92,9 +91,9 @@
 				
 			}
 			
-			*/	
+			
 		});
-		 
+		
 		
 	}); //document
 </script>
@@ -130,15 +129,24 @@
 			<input type="checkbox" id="out2"> 안내사항을 모두 확인하였으며, 이에 동의합니다.
 		</div>
 		
-		<div id="out_pw_cfm">
-			<input type="password" name="out_pw_cfm" id="out_pw_cfm" placeholder="비밀번호를 입력해주세요">
-			<br><br><span id="pw_check_result"></span>
-		</div>
-		
-		<div class="button">
-			<button type="button" id="out_btn" class="button_a">탈퇴</button>
-			<a href="mypage_mod_gen.jsp"><button type="button" class="button_b">취소</button></a>
-		</div>
+		<form action="mem_out_process.jsp" method="post" name="mem_out_form">
+			<div id="out_pw_cfm">
+				<input type="password" name="u_pw" id="out_pw_cfm" placeholder="비밀번호를 입력해주세요">
+				<br><br><span id="pw_check_result"></span>
+			</div>
+			
+			<div class="button">
+				<%-- 
+				<% if(general_id!=null && group_id==null) { %>
+					<input type="hidden" name="id" value="<%= general_id %>">
+				<% } else if(group_id!=null && general_id==null) { %>
+					<input type="hidden" name="id" value="<%= group_id %>">
+				<% } %>
+				 --%>
+				<button type="button" id="out_btn" class="button_a">탈퇴</button>
+				<a href="mypage_mod_gen.jsp"><button type="button" class="button_b">취소</button></a>
+			</div>
+		</form>
 		
 	</div>
 </body>
