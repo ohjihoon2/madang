@@ -10,9 +10,9 @@ import com.madang.vo.QandA_VO;
 
 public class QandA_DAO {
 	//Field
-	String url="jdbc:oracle:thin:@211.63.89.219:1521";
-	String user="scott";
-	String pass="tiger";
+	String url="jdbc:oracle:thin:@211.63.89.214:1521";
+	String user="madang";
+	String pass="1234";
 	Connection conn;
 	PreparedStatement pstmt;
 	ResultSet rs;
