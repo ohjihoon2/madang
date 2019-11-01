@@ -305,3 +305,22 @@ insert into concert values( 'c002', '2019 빈 필하모닉 오케스트라 내한공연', TO_C
 /* 콘서트 티켓 insert */
 insert into TICKET_CONCERT values('tc_001','c001', '2019-11-14', 'A1', 7000, '2019-11-10', 70000,'1','이르미','2000-01-01', '1111','1111','12@NAVER.COM', '1','국민은행', '완료');
 /*//////////////////////////////////////////////////////////////////////////////////////////////지훈*/
+
+
+/*대관테이블*/
+--대관테이블
+create table rental(
+  rental_code varchar2(20) primary key,
+  r_case varchar2(20) not null,
+  r_title varchar2(300) not null,
+  r_status varchar2(20),
+  r_place varchar2(30),
+  r_sdate date not null,
+  r_edate date not null,
+  r_opentime varchar2(30),
+  r_time varchar2(30),
+  r_rhtime varchar2(30),
+  r_id varchar2(30),
+  r_file varchar2(200),
+  r_sfile varchar2(200)
+);
