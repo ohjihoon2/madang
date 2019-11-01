@@ -32,4 +32,13 @@ public class QandA_Service {
 		dao.close();
 		return list;
 	}
+	
+	/** ªË¡¶ */
+	public boolean getResultDelete(String qa_code) {
+		boolean result=false;
+		QandA_DAO dao=new QandA_DAO();
+		result=dao.getResultDelete(qa_code);
+		dao.close();
+		return result;
+	}
 }

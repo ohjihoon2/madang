@@ -22,6 +22,7 @@
 
 </head>
 <body>
+document.write(<%= vo.getQa_code() %>);
 	<jsp:include page="../../header.jsp" />
 	<div>
 		<div id="left_nav">
@@ -68,6 +69,7 @@
 				<% } %>
 			</table>
 			<div class="button">
+				<a href="qaa_delete_process.jsp?qa_code=<%= vo.getQa_code() %>"><button type="button" class="button_b">삭제</button></a>
 				<a href="cs_qaa.jsp"><button type="button" class="button_b">목록</button></a>
 			</div>
 		</div>

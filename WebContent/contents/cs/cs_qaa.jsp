@@ -30,28 +30,30 @@
 		<div id="main_title">Q&A 1:1 상담</div>
 		
 		<div class="qaa_table">
-			<table border=1>
-				<tr>
-					<th>번호</th>
-					<th>제목</th>
-					<th>날짜</th>
-					<th>답변여부</th>
-				</tr>
-				<% for(QandA_VO vo : list) { %>
+			<form action="cs_qaa_write.jsp">
+				<table border=1>
 					<tr>
-						<td><%= vo.getRownum() %></td>
-						<td><a href="cs_qaa_content.jsp?qa_code=<%= vo.getQa_code() %>"><%= vo.getQa_title() %></a></td>
-						<td><%= vo.getQa_date() %></td>
-						<td>
-							<% if(vo.getQa_adate()!="" && vo.getQa_adate()!=null) { %> Y <% } else { %> N <% } %>
-						</td>
+						<th>번호</th>
+						<th>제목</th>
+						<th>날짜</th>
+						<th>답변여부</th>
 					</tr>
-				<% } %>
-			</table>
-			
-			<div class="button">
-				<a href="cs_qaa_write.jsp"><button type="button" id="qaa_write" class="button_a">작성</button></a>
-			</div>
+					<% for(QandA_VO vo : list) { %>
+						<tr>
+							<td><%= vo.getRownum() %></td>
+							<td><a href="cs_qaa_content.jsp?qa_code=<%= vo.getQa_code() %>"><%= vo.getQa_title() %></a></td>
+							<td><%= vo.getQa_date() %></td>
+							<td>
+								<% if(vo.getQa_adate()!="" && vo.getQa_adate()!=null) { %> Y <% } else { %> N <% } %>
+							</td>
+						</tr>
+					<% } %>
+				</table>
+				
+				<div class="button">
+					<a href="cs_qaa_write.jsp"><button type="button" id="qaa_write" class="button_a">작성</button></a>
+				</div>
+			</form>
 		</div>
 		
 	</div>

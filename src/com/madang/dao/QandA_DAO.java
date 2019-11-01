@@ -36,15 +36,15 @@ public class QandA_DAO {
 	public boolean getResultWrite(QandA_VO vo) {
 		boolean result=false;
 		
-		String sql="insert into q_and_a values(('qa'||lpad(sequ_q_and_a.nextval,4,'0')), ?, ?, sysdate, ?, null, null, null, null)";
+		String sql="insert into q_and_a values(('qa'||lpad(sequ_q_and_a.nextval,4,'0')), ?, ?, sysdate, ?, ?, ?, null, null)";
 		getPreparedStatement(sql);
 		
 		try {
 			pstmt.setString(1, vo.getId());
 			pstmt.setString(2, vo.getQa_title());
 			pstmt.setString(3, vo.getQa_contents());
-			//pstmt.setString(4, vo.getQa_file());
-			//pstmt.setString(5, vo.getQa_sfile());
+			pstmt.setString(4, vo.getQa_file());
+			pstmt.setString(5, vo.getQa_sfile());
 			int val=pstmt.executeUpdate();
 			if(val!=0) result=true;
 			
@@ -58,7 +58,7 @@ public class QandA_DAO {
 	public QandA_VO getContent(String qa_code) {
 		QandA_VO vo=new QandA_VO();
 		
-		String sql="select qa_title, qa_date, qa_contents, qa_file, qa_sfile, qa_acontents, qa_adate from q_and_a where qa_code=?";
+		String sql="select qa_title, qa_date, qa_contents, qa_file, qa_sfile, qa_acontents, qa_adate, qa_code from q_and_a where qa_code=?";
 		getPreparedStatement(sql);
 		
 		try {
@@ -72,6 +72,7 @@ public class QandA_DAO {
 				vo.setQa_sfile(rs.getString(5));
 				vo.setQa_acontents(rs.getString(6));
 				vo.setQa_adate(rs.getString(7));
+				vo.setQa_code(rs.getString(8));
 			}
 			
 		} catch (Exception e) {e.printStackTrace();}
@@ -99,6 +100,7 @@ public class QandA_DAO {
 				vo.setQa_title(rs.getString(3));
 				vo.setQa_date(rs.getString(4));
 				vo.setQa_adate(rs.getString(5));
+				vo.setId(id);
 				
 				list.add(vo);
 			}
@@ -108,6 +110,23 @@ public class QandA_DAO {
 		return list;
 	}
 	
+	
+	/** ªË¡¶ */
+	public boolean getResultDelete(String qa_code) {
+		boolean result=false;
+		
+		String sql="delete from q_and_a where qa_code=?";
+		getPreparedStatement(sql);
+		
+		try {
+			pstmt.setString(1, qa_code);
+			int val=pstmt.executeUpdate();
+			if(val!=0) result=true;
+			
+		} catch (Exception e) {e.printStackTrace();}
+		
+		return result;
+	}
 	
 	
 	public void close() {

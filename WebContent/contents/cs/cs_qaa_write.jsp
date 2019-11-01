@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,7 +26,7 @@
 		<div id="main_title">Q&A 1:1 상담</div>
 		
 		<div class="qaa_table_2">
-			<form action="qaa_write_process.jsp" method="post" name="qaa_write_form">
+			<form action="qaa_write_process.jsp" method="post" name="qaa_write_form" enctype="multipart/form-data">
 				<table border=1>
 					<tr>
 						<td>제목</td>
