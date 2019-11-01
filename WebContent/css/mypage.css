@@ -399,24 +399,38 @@ div.bmark div.bmark_info { /* 정보 */
 	width:290px; height:125px;
 	display:inline-block;
 	vertical-align:top;
-	padding:15px 0px 15px 0px;
+	padding:5px 0px 15px 0px;
 }
 
 div.bmark div.bmark_info p { /* 정보 텍스트 */
 	font-size:13pt;
 }
+/************************************************************************************************************/
+div.bmark div.bmark_info > p#bmark_star { /* ★표시 */
+	margin-bottom:10px;
+}
 
-div.bmark div.bmark_info > p:first-child { /* 공연명 */
+div.bmark div.bmark_info > p#bmark_star a {
+	font-size:20px;
+	color:#ccc;
+	text-decoration:none;
+}
+/* 
+div.bmark div.bmark_info > p#bmark_star a.on {
+	color:tomato;
+}
+ */
+div.bmark div.bmark_info > p:nth-child(2) { /* 공연명 */
 	font-size:14pt;
 	font-weight:bold;
 	margin-bottom:25px;
 }
 
-div.bmark div.bmark_info > p:first-child a {
+div.bmark div.bmark_info > p:nth-child(2) a {
 	color:black;
 }
 
-div.bmark div.bmark_info > p:first-child a:hover {
+div.bmark div.bmark_info > p:nth-child(2) a:hover {
 	color:#05875e;
 }
 
