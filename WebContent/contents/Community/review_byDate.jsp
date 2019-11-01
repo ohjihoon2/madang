@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>
-<script src="http://localhost:9090/MyJSP/jquery/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.214:9090/css/community.css"/>
+<script src="http://211.63.89.214:9090/MyJSP/jquery/jquery-3.4.1.min.js"></script>
 <script>
 $(document).ready(function(){
 	$( "th.star_rating a" ).click(function() {
@@ -36,17 +36,17 @@ $(document).ready(function(){
 		<div id="review_content">
 			<div id="sub_title">
 				관람후기
-				<a href="http://localhost:9090/contents/Community/review_byStar.jsp"><button type="button" id="btnByDate" style="background:white;color:rgb(5, 135, 94)">평점높은순</button></a>	
-				<a href="http://localhost:9090/contents/Community/review_byDate.jsp"><button type="button" id="btnByStar" style="background:rgb(5, 135, 94);color:white">최신날짜순</button></a>			
+				<a href="http://211.63.89.214:9090/contents/Community/review_byStar.jsp"><button type="button" id="btnByDate" style="background:white;color:rgb(5, 135, 94)">평점높은순</button></a>	
+				<a href="http://211.63.89.214:9090/contents/Community/review_byDate.jsp"><button type="button" id="btnByStar" style="background:rgb(5, 135, 94);color:white">최신날짜순</button></a>			
 			</div>
 			<div class="table_div">
 			<%for(int i = 1; i < 8; i++){ %>
-				<a href="http://localhost:9090/contents/Community/review_contents.jsp">
+				<a href="http://211.63.89.214:9090/contents/Community/review_contents.jsp">
 				<table class="review_table">				
 					<tr>
 						<th>yyyy-mm-dd</th>
 						<td rowspan=3><img class="poster"
-							src="http://localhost:9090/images/comm_usher_img/1945poster.jpg" /></td>
+							src="http://211.63.89.214:9090/images/comm_usher_img/1945poster.jpg" /></td>
 						<td id="title">title<span id="hits">조회수</span></td>
 					</tr>
 					<tr>
@@ -68,13 +68,13 @@ $(document).ready(function(){
 	
 			<div id="btnMore_div">
 				<button type="button" id="btnMore">
-					<img src="http://localhost:9090/images/comm_usher_img/plus_more.png" />더보기
+					<img src="http://211.63.89.214:9090/images/comm_usher_img/plus_more.png" />더보기
 				</button>
 			</div>
 			
 			<div id="faq_search">
 	       		<input type="text" name="faq_search" placeholder="검색어를 입력해주세요">
-	            <a href="#"><img src="http://localhost:9090/images/search.png"></a>
+	            <a href="#"><img src="http://211.63.89.214:9090/images/search.png"></a>
 	     	</div>
      	
 		</div>
