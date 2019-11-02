@@ -10,7 +10,7 @@ import com.madang.vo.EventVO;
 
 public class EventDAO {
 	//field
-	    String url="jdbc:oracle:thin:@211.63.89.214:1521";
+	    String url="jdbc:oracle:thin:@localhost:1521";
 	    String user="madang";
 	    String pass="1234";
 		Connection conn = null;
@@ -32,7 +32,7 @@ public class EventDAO {
 		}catch(Exception e) {e.printStackTrace();}
 	}
 	
-	/** ÀÌº¥Æ® ¸®½ºÆ® ÀüÃ¼ Ãâ·Â **/
+	/** ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ **/
 	public ArrayList<EventVO> getResultList(){
 		ArrayList<EventVO> list = new ArrayList<EventVO>();
 		String sql = "select ev_code, ev_title, ev_sthumbnail, ev_sdetail, to_char(ev_date,'yyyy.mm.dd.'), to_char(ev_sdate,'yyyy.mm.dd.'), to_char(ev_edate,'yyyy.mm.dd.'), ev_status, ev_hits"
@@ -62,7 +62,7 @@ public class EventDAO {
 		return list;
 	}
 	
-	/**  ÇöÀç ÁøÇàÁßÀÎ ÀÌº¥Æ® ¸®½ºÆ® Ãâ·Â **/
+	/**  ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ **/
 	public ArrayList<EventVO> getResultIngList(){
 		
 		ArrayList<EventVO> elist = new ArrayList<EventVO>();
@@ -99,7 +99,7 @@ public class EventDAO {
 		return elist;
 	}
 	
-	/** Contents VOÃâ·Â **/
+	/** Contents VOï¿½ï¿½ï¿½ **/
 	public EventVO getResultVO(String ev_code) {
 		EventVO vo = new EventVO();
 		String sql = "select ev_code, ev_title, ev_sthumbnail, ev_sdetail, ev_date, ev_sdate, ev_edate, ev_status, ev_hits from event where ev_code=?";
@@ -126,7 +126,7 @@ public class EventDAO {
 		return vo;
 	}
 	
-	/**  ´ñ±Û ¸®½ºÆ® Ãâ·Â  **/
+	/**  ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½  **/
 	public ArrayList<EventReplyVO> getResultReplyList(String ev_code){
 		
 		ArrayList<EventReplyVO> rlist = new ArrayList<EventReplyVO>();
@@ -154,7 +154,7 @@ public class EventDAO {
 		return rlist;
 	}
 
-	/** ´ñ±Û µî·Ï **/
+	/** ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ **/
 	public int getResultReplyWrite(EventReplyVO rvo) {
 		int result = 0;
 		String sql = "insert into event_reply values('ev_rp_'|| lpad(sequ_event_reply.nextval, 4,'0'),?,?,?, sysdate)";

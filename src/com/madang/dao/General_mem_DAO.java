@@ -9,7 +9,7 @@ import com.madang.vo.General_mem_VO;
 
 public class General_mem_DAO {
 	//Field
-	String url="jdbc:oracle:thin:@211.63.89.214:1521";
+	String url="jdbc:oracle:thin:@localhost:1521";
 	String user="madang";
 	String pass="1234";
 	Connection conn;
@@ -34,7 +34,7 @@ public class General_mem_DAO {
 	}
 	
 	
-	/** È¸¿øÁ¤º¸ ¼öÁ¤ Àü ¼ÂÆÃ(ÀüÃ¼ Ãâ·Â) */
+	/** È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½) */
 	public General_mem_VO getContent(String id) {
 		
 		General_mem_VO vo=new General_mem_VO();
@@ -73,7 +73,7 @@ public class General_mem_DAO {
 	}
 	
 	
-	/** È¸¿øÁ¤º¸ ¼öÁ¤ */
+	/** È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 	public boolean getResultUpdate(General_mem_VO vo) {
 		boolean result=false;
 		
@@ -105,7 +105,7 @@ public class General_mem_DAO {
 		return result;
 	}
 	
-	//È¸¿ø°¡ÀÔ db¿¡ È¸¿øÁ¤º¸»ðÀÔ
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ dbï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public boolean getResultJoin(General_mem_VO vo) {
 		boolean result=false;
 		String sql="insert into general_mem values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,sysdate)";
@@ -137,7 +137,7 @@ public class General_mem_DAO {
 	}
 	
 	
-	//È¸¿ø°¡ÀÔ½Ã ¾ÆÀÌµð Áßº¹ Ã¼Å©
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ßºï¿½ Ã¼Å©
 		public boolean IsOverlapId(String nid) {
 			boolean result=false;
 			int val=0;
@@ -158,7 +158,7 @@ public class General_mem_DAO {
 		}
 		
 
-		//·Î±×ÀÎ È®ÀÎ
+		//ï¿½Î±ï¿½ï¿½ï¿½ È®ï¿½ï¿½
 			public boolean getResultLogin(General_mem_VO vo) {
 				boolean result=false;
 				int val = 0;
@@ -176,7 +176,7 @@ public class General_mem_DAO {
 			}
 
 
-	/** È¸¿ø Å»Åð ºñ¹Ð¹øÈ£ È®ÀÎ */
+	/** È¸ï¿½ï¿½ Å»ï¿½ï¿½ ï¿½ï¿½Ð¹ï¿½È£ È®ï¿½ï¿½ */
 	public int getResultPw(String id, String u_pw) {
 		int result=0;
 		
@@ -197,7 +197,7 @@ public class General_mem_DAO {
 	}
 	
 	
-	/** È¸¿ø Å»Åð */
+	/** È¸ï¿½ï¿½ Å»ï¿½ï¿½ */
 	public boolean getResultOut(String id, String pw) {
 		boolean result=false;
 		

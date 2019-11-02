@@ -10,7 +10,7 @@ import com.madang.vo.ConcertVO;
 
 public class ConcertDAO {
 
-	String url ="jdbc:oracle:thin:@211.63.89.214:1521";
+	String url ="jdbc:oracle:thin:@localhost:1521";
 	String user ="madang";
 	String pass ="1234";
 	Connection conn = null;

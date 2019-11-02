@@ -9,7 +9,7 @@ import com.madang.vo.ReviewVO;
 
 public class ReviewDAO {
 	//field
-    String url="jdbc:oracle:thin:@211.63.89.214:1521";
+    String url="jdbc:oracle:thin:@localhost:1521";
     String user="madang";
     String pass="1234";
 	Connection conn = null;
@@ -31,7 +31,7 @@ public class ReviewDAO {
 		}catch(Exception e) {e.printStackTrace();}
 	}
 	
-	/** ¸®ºä ±Û¾²±â **/
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ **/
 	public boolean getResultWrite(ReviewVO vo) {
 		
 		boolean result = false;

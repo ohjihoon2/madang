@@ -10,7 +10,7 @@ import com.madang.vo.QandA_VO;
 
 public class QandA_DAO {
 	//Field
-	String url="jdbc:oracle:thin:@211.63.89.214:1521";
+	String url="jdbc:oracle:thin:@localhost:1521";
 	String user="madang";
 	String pass="1234";
 	Connection conn;
@@ -32,7 +32,7 @@ public class QandA_DAO {
 		} catch (Exception e) {e.printStackTrace();}
 	}
 	
-	/** µî·Ï */
+	/** ï¿½ï¿½ï¿½ */
 	public boolean getResultWrite(QandA_VO vo) {
 		boolean result=false;
 		
@@ -54,7 +54,7 @@ public class QandA_DAO {
 	}
 	
 	
-	/** ³»¿ë Ãâ·Â */
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
 	public QandA_VO getContent(String qa_code) {
 		QandA_VO vo=new QandA_VO();
 		
@@ -81,7 +81,7 @@ public class QandA_DAO {
 	}
 	
 	
-	/** ÀüÃ¼ ¸®½ºÆ® */
+	/** ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½Æ® */
 	public ArrayList<QandA_VO> getList(String id) {
 		ArrayList<QandA_VO> list=new ArrayList<QandA_VO>();
 		
@@ -111,7 +111,7 @@ public class QandA_DAO {
 	}
 	
 	
-	/** »èÁ¦ */
+	/** ï¿½ï¿½ï¿½ï¿½ */
 	public boolean getResultDelete(String qa_code) {
 		boolean result=false;
 		
