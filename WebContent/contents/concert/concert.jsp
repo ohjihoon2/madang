@@ -1,9 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import ="com.madang.dao.ConcertDAO, com.madang.vo.ConcertVO, java.util.*"%>
+    pageEncoding="UTF-8" 
+    import ="com.madang.dao.ConcertDAO, com.madang.vo.ConcertVO, java.util.*, java.util.Date, java.text.SimpleDateFormat"%>
 
 <%
 	ConcertDAO dao = new ConcertDAO();
 	ArrayList<ConcertVO>list = dao.getConcertInfo();	
+	
+	Date now = new Date();
+	//오늘 날짜	(년.월.일(요일))
+	SimpleDateFormat sf  = new SimpleDateFormat("yyyy.MM.dd.(E)");
+	String today = sf.format(now);
+
+	//오늘 날짜	(년월일)
+	sf = new SimpleDateFormat("yyMMdd");
+	String tday = sf.format(now);
+	out.write(tday);
+	
+	out.write(list.get(1).getSday());
+	out.write(Integer.valueOf(list.get(1).getSday()));
+	out.write(list.get(1).getEday());
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -11,7 +27,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
- 		function showPopup() { window.open("ticket.jsp", "window팝업", "width=1000, height=700, left=400, top=200"); }
+	
+	function showPopup() { window.open("ticket.jsp?code=<%=list.get(1).getConcert_code()%>", "window팝업", "width=1000, height=700, left=400, top=200"); }
+	
 </script>
 <style>
 	*{
@@ -161,16 +179,27 @@
 		</ul>
 	</div>
 	<div id="main_title">&nbsp&nbsp공연</div><br>
-	<div id="date_info">2019.10.02 (수) 오늘의 공연입니다.</div>
+	<div id="date_info"><%=today%> 오늘의 공연입니다.</div>
 	
-	<button type="button">이미지보기</button>
-	<button type="button">텍스트보기</button>
 	
-	<%for(int i=0;i<list.size();i++){ %>
+	<%
+		for(int i=0;i<list.size();i++){ 
+			//오늘 날짜 int값
+			int td = Integer.parseInt(tday);
+			//공연 마지막 날짜 int값 
+			int ed = list.get(i).getEday();
+			out.write(ed);
+			//공연 시작 날짜 int값 
+			//int sd = list.get(i).getSday();
+			//마지막 공연날이 오늘이전이면 concert list에서 보여지지 않음.
+			//if(td<ed && td>sd){
+			
+	%>
+	
 	<div class="concert_info">
-		<a href="concert_detail.jsp"><img src="http://localhost:9090/images/concert_main/<%=list.get(i).getC_poster()%>"></a>
+		<a href="concert_detail.jsp?concert_code=<%=list.get(i).getConcert_code()%>"><img src="http://localhost:9090/images/concert_main/<%=list.get(i).getC_poster()%>"></a>
 		<div>
-			<h2><a href="concert_detail.jsp"><%=list.get(i).getC_title() %></a></h2>
+			<h2><a href="concert_detail.jsp?concert_code=<%=list.get(i).getConcert_code()%>"><%=list.get(i).getC_title() %></a></h2>
 			<div id="hide_space">
 				<span></span>
 			</div>
@@ -178,9 +207,12 @@
 				<div>
 					<div><%=list.get(i).getC_place() %> <span>|</span> <%=list.get(i).getC_sdate() %>~ <%=list.get(i).getC_edate() %></div>
 					<span>R석 <%=list.get(i).getC_price() %> 원 </span>
+				
 					<input type="button" value="예매" onclick="showPopup();" class="ticketing_popup"/>
 				</div>
 			</div>
 		</div>
 	</div>
-	<%} %>
+	<%
+		//} 
+	}%>

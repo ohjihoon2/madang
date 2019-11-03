@@ -1,5 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.madang.service.*, com.madang.vo.*, com.madang.dao.*"%>
+    
+<%
+	String code = request.getParameter("code");
+	String id = (String)session.getAttribute("generalID");
+	out.write(code);
+	
+	ConcertService service = new ConcertService();
+	ConcertVO cvo = service.getConcertDetail(code);
+	
+	String time = cvo.getC_stime();
+	String[] timelist = time.split(";");
+	
+	
+	General_mem_VO mvo = new General_mem_VO(); 
+	mvo = service.getResultMemInfo(id);
+	
+	
+%>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -326,7 +344,14 @@
 </style>
 <script>
 	$(document).ready(function(){
+		<%-- var sd = '<%=vo.getSday()%>';
+		var ed = '<%=vo.getC_edate()%>'; --%>
 		
+		<%-- var a = new Date(<%=vo.getSnday()%>);
+		var b = new Date(<%=vo.getEnday()%>);
+		alert(<%=vo.getSnday()%>);
+		alert(a);
+		alert(b); --%>
 		//화면 상태 값 
 		var status = 1;
 		
@@ -344,13 +369,6 @@
 		$(".btn_next2").hide();
 		$(".btn_payment").hide();
 
-		/* <button type="button" class="btn_next1" >다음단계</button>
-		<button type="button" class="btn_back">이전단계</button>
-		<button type="button" class="btn_next2">다음단계</button>
-		<button type="button" class="btn_payment">결제하기</button> */
-		
-		
-		
 		
 		/* $(".step").click(function(){
 			var step = $(this).attr("id");
@@ -487,15 +505,20 @@
 		        ,yearSuffix: "년" //달력의 년도 부분 뒤에 붙는 텍스트
 		        ,monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 Tooltip 텍스트
 		        ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 부분 텍스트
-		        ,minDate: new Date('2019-10-20') //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
-		        ,maxDate:new Date('2019-11-29') //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
+		       <%--  ,minDate: new Date(<%=vo.getSnday()%>) //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
+		        ,maxDate:new Date(<%=vo.getEnday()%>) //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후) --%>
 		  		,onSelect: function(dateText, inst) { //클릭시에 date value 값 !!!!!!!!!!!!
 		            var date = $(this).val();
 		  			var dateText = $("table.myticket_t > tbody > tr:nth-child(1) > td");
+		  			var cancelText = $("table.myticket_t > tbody > tr:nth-child(5) > td");
 						  			
 		  			dateText.empty();
+		  			cancelText.empty();
+		  			
 		  			$("table.myticket_t > tbody > tr:nth-child(1) > td >span:nth-child(2)").empty();
 		  			dateText.append("<span>"+date+"</span>");
+		  			$("table.myticket_t > tbody > tr:nth-child(5) > td >span:nth-child(2)").empty();
+		  			cancelText.append("<span>"+date+"23:59 </span>");
 		          
 		       }
       		});    
@@ -507,8 +530,8 @@
 		$(".time_table>div").click(function(){
 			var time = $(this).text(); 
 			var timeText =$("table.myticket_t > tbody > tr:nth-child(1) > td");
-			//timeText.empty();
-			timeText.append("<span>"+time+"</span>");
+			$("table.myticket_t > tbody > tr:nth-child(1) > td > span.timeSpan").empty();
+			timeText.append("<span class='timeSpan'>"+time+"</span>");
 		});//일시 - 시간 end
 	
 	      /**
@@ -632,31 +655,34 @@
   		    if(status == 1){
   		    	//유효성 검사
   		    	//if(일시에 날짜/시간이 두개다 적힌다면 다음페이지로 이동)
-  		    	if($("table.myticket_t > tbody > tr:nth-child(1) > td >span").length == 2){
+  		    	/* if($("table.myticket_t > tbody > tr:nth-child(1) > td >span").length == 2){
 	   		  		status = 2;
-  		    	}
+  		    	} */
+	   		  		status = 2;
    	 		}else if(status ==2){
    	 			if(val == "btn_back"){
    	 				status = 1;
    	 			}else{
    	 				//validation 
-	   	 			if($("table.myticket_t > tbody > tr:nth-child(2) > td").text().length >= 5){
+	   	 			/* if($("table.myticket_t > tbody > tr:nth-child(2) > td").text().length >= 5){
 		   	 			for(i = 0;i<rows;i++){
 		   	 		 		$(".SeatCount").append("<option value="+i+" class='optionCheck'>"+i+"매</option>");
 		   	 	 		}
 			   			status = 3;
-	   	 			}
+	   	 			} */
+			   			status = 3;
    	 			}
     	  	}else if(status ==3){
    	 			if(val == "btn_back"){
    	 				$(".SeatCount").empty();
    	 				status = 2;
    	 			}else{
-   	 				if(countSum != 0){
+   	 				/* if(countSum != 0){
    	 					if(countSum == choiceCount){
 			   			status = 4;
    	 					}
-   	 				}
+   	 				} */
+			   			status = 4;
    	 			}
     	  	}else if(status ==4){
    	 			if(val == "btn_back"){
@@ -695,10 +721,35 @@
    	 				status = 4;
    	 			}else{
  					if($("input:checkbox[id='CancelAgree']").is(":checked")){
-	   	 				alert("결제 완료");
+ 						//DB연결 !!!!!
+ 						<%--  window.location = "ticket_process.jsp?code=<%=code%>"; --%> 
+						<%-- <%response.sendRedirect("ticket_process.jsp");%> --%>
+						<%-- //var concert_code = <%=code%>; --%> 
+						//선택관람일
+						var tc_cdate= $("table.myticket_t > tbody > tr:nth-child(2) > td").val();
+						//선택좌석
+						//취소수수료
+						//취소기한
+						//총결제금액
+						//티켓 수령방법
+						//이름
+						//생년월일
+						//휴대폰
+						//이메일
+						//결제방식
+						//결제수단
+						//결제상태
+						//"&ev_rp_content="+ev_rp_content,
+						$.ajax({
+							url :"ticket_process.jsp?code=<%=code%>",
+							success : function(data){
+								alert(data);
+							}
+						});
+ 					}else{
+ 						alert("개인정보 제3자 정보제공에 동의해야합니다.")
  					}
    	 			}
-    	  		
     	  	}
   		  
 	  		if(status ==1){
@@ -807,7 +858,6 @@
 			<div class="day_choice">
 				<span>관람일 선택</span>
 				<div class="calender">
-					날짜 : 
 					<div id="datepicker"></div>
 					<script>
 						
@@ -816,9 +866,9 @@
 			</div>
 			<div class="time_table">
 				<span>회차(관람시간)</span>
-				<div id="time1">17 : 00</div>
-				<div id="time2">19 : 00</div>
-				<div id="time3">21 : 00</div>
+				<%for(int i=0;i<timelist.length;i++){ %>
+				<div id="time1"><%=timelist[i]%></div>
+				<%} %>
 			</div>
 			<div class="ticketing_notice">
 				<div>유의사항</div>
@@ -953,38 +1003,30 @@
 					 <tr>
 	                    <th>이름</th>
 	                    <td>
-	                    	<input type="text" value="홍길동" maxlength="6" readonly="">  <span style="font-size:11px;"></span>                    
+	                    	<input type="text" value="<%=mvo.getName() %>" maxlength="6" readonly="">  <span style="font-size:11px;"></span>                    
                     	</td>
 	                </tr>
 	                <tr>
 	                    <th>생년월일</th>
 	                    <td>
-	                    	<input type="text" value="920111" maxlength="6" readonly="">  <span style="font-size:11px;">예) 850101 (YYMMDD)</span>                    
+	                    	<input type="text" value="<%=mvo.getBirth() %>" maxlength="6" readonly="">  <span style="font-size:11px;">예) 850101 (YYMMDD)</span>                    
                     	</td>
 	                </tr>
                     <tr class="exp">
                         <td colspan="2">현장수령 및 고객문의시 본인확인을 위해 정확한 정보를 입력해주세요.</td>
                     </tr>
                     <tr>
-                        <th>전화번호</th>
-                        <td>
-	                        <input type="text" id="PhoneNo1" value="010" style="width:36px;" class="txt1" maxlength="3">
-	                       	- <input type="text" id="PhoneNo2" value="4229" style="width:41px;" class="txt1" maxlength="4">
-	                        - <input type="text" id="PhoneNo3" value="5793" style="width:41px;" class="txt1" maxlength="4">
-                        </td>
-                    </tr>
-                    <tr>
                         <th>휴대폰</th>
                             <td>
-                            	<input type="text" id="HpNo1" value="010" style="width:36px;" class="txt1" maxlength="3" >
-                            	 - <input type="text" id="HpNo2" value="4229" style="width:41px;" class="txt1" maxlength="4"> 
-                            	 - <input type="text" id="HpNo3" value="5793" style="width:41px;" class="txt1" maxlength="4">
+                            	<input type="text" id="HpNo1" value="<%=mvo.getPhone1() %>" style="width:36px;" class="txt1" maxlength="3" >
+                            	 - <input type="text" id="HpNo2" value="<%=mvo.getPhone2() %>" style="width:41px;" class="txt1" maxlength="4"> 
+                            	 - <input type="text" id="HpNo3" value="<%=mvo.getPhone3() %>" style="width:41px;" class="txt1" maxlength="4">
                            	 </td>
                     </tr>
                     <tr>
                         <th>이메일</th>
                         <td>
-                        	<input type="text" id="Email" value="" style="width:170px;" class="txt1">
+                        	<input type="text" id="Email" value="t@c.com" style="width:170px;" class="txt1">
                         </td>
                     </tr>
                     <tr>
@@ -1098,16 +1140,16 @@
 		<div class="ticketing_info">
 			<div class="ticketing_info_choice">
 				<div class="ticketing_info_choice_img">
-					<img src="http://localhost:9090/images/ticketing/ticketing_small_img.gif">
+					<img src="http://localhost:9090/images/concert_main/<%=cvo.getC_poster()	%>">
 				</div>
 				<div class="ticketing_info_choice_text">
-					<span>창작가무극[다윈영의 악의 기원]</span>
+					<span><%=cvo.getC_title() %></span>
 					<div id="text_space">		
 						<ul>
-                            <li>2019.10.15 ~ 2019.10.27</li>
-                            <li><span title="예술의전당 CJ 토월극장">예술의전당 CJ 토...</span></li>
-                            <li>14세 이상 관람가</li>
-                            <li>관람시간 : 155분</li>
+                            <li><%=cvo.getC_sdate() %> ~ <%=cvo.getC_edate() %></li>
+                            <li><span title="예술의전당 CJ 토월극장"><%=cvo.getC_place() %></span></li>
+                            <li><%=cvo.getC_rating() %></li>
+                            <li>관람시간 : <%=cvo.getC_time() %></li>
                         </ul>
 .					</div>
 				</div>
@@ -1133,7 +1175,7 @@
 					</tr>
 					<tr>
 						<th scope="row">취소기한</th>
-						<td>2019년 10월 25일(금) 23:59</td>
+						<td></td>
 					</tr>
 					
 					<tr>

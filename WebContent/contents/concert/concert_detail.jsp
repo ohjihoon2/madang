@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.madang.vo.ConcertVO, com.madang.service.ConcertService"%>
+ <%
+ 	String code = request.getParameter("concert_code");
+ 	ConcertService service = new ConcertService();
+ 	ConcertVO vo = service.getConcertDetail(code);
+ %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -163,58 +168,57 @@
 		</ul>
 	</div>
 	<div class="concert_detail_info">
-		<a href=#><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="Info_img"></a>
+		<a href=#><img src="http://localhost:9090/images/concert_main/<%=vo.getC_poster() %>" class="Info_img"></a>
 		<div>
-			<h2>2019 연극 <늙은 부부이야기></h2>
+			<h2><%=vo.getC_title() %></h2>
 			<div id="content_detail_right">
 				<table>
 					<tr>
 						<th scope="row">기간</th>
 						<td>
-								2019.09.21(토) ~ 2019.10.13(일)
+								<%=vo.getC_sdate() %> ~ <%=vo.getC_edate()%>
 						</td>
 					</tr>
 					<tr>
 						<th scope="row">시간</th>
 						<td>
-							화-금 20시 / 토 14시, 17시 / 일 15시 / * 월요일,10월 8일 공연 없음<br>
-							(단, 9월 25일, 10월 2일, 10월 10일 2회 공연 : 15시, 20시)
+							매일 <%=vo.getC_stime() %>
 						</td>
 					</tr>
 					<tr>
 						<th scope="row">장소</th>
-						<td>자유소극장</td>
+						<td><%=vo.getC_place() %></td>
 					</tr>
 					<tr>
 						<th scope="row">관람등급</th>
-						<td>14세이상</td>
+						<td><%=vo.getC_rating() %></td>
 					</tr>
 					<tr>
 						<th scope="row">관람시간</th>
-						<td>90  분</td>
+						<td><%=vo.getC_time() %> 분</td>
 					</tr>
 					<tr>
 						<th scope="row">장르</th>
-						<td>연극</td>
+						<td><%=vo.getC_genre() %></td>
 					</tr>
 					<tr>
 						<th scope="row">가격</th>
-						<td>1층석 6만원 / 2층석 5만원 / 3층석 4만원</td>
+						<td>R석 <%=vo.getC_price() %></td>
 					</tr>
 					
 					<tr>
 						<th scope="row">주최</th>
-						<td>예술의전당, (유)덕우기획</td>
+						<td><%=vo.getC_host() %></td>
 					</tr>
 					<tr>
 						<th scope="row">문의</th>
-						<td>02-580-1300</td>
+						<td><%=vo.getC_contact() %></td>
 					</tr>
 				</table>
 				<a href="#">예매하기</a>
 			</div>
 			<div>
-				<img src="http://localhost:9090/images/concert_main/20190831163401061.gif" id="content_image">
+				<img src="http://localhost:9090/images/concert_main/<%=vo.getC_info_poster() %>" id="content_image">
 			</div>
 		</div>
 	</div>
