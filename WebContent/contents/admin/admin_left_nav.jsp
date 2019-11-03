@@ -108,8 +108,8 @@ aside#amdmin_left ul li>div a{
   </li>
   <li>
     <a href="#">회원관리</a>  <!-- 일반회원 -->
-    <div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/admin_member.jsp">일반 회원</a></div>
-	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/admin_memberG.jsp">대관 회원</a></div>
+    <div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/member_counsel/admin_member.jsp">일반 회원</a></div>
+	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/member_counsel/admin_memberG.jsp">대관 회원</a></div>
   </li>
   <li>
      <a href="#">1:1상담 관리</a>
@@ -122,8 +122,8 @@ aside#amdmin_left ul li>div a{
     <li>
      <a href="#">게시판 관리</a>
     <div class="admin_left_sub"><a href="#">관람후기</a></div>
-	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/admin_notice.jsp">공지사항</a></div>
-	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/admin_event.jsp">이벤트</a></div>
+	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/board/admin_notice.jsp">공지사항</a></div>
+	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/board/admin_event.jsp">이벤트</a></div>
   </li>
   </ul>
 </aside>

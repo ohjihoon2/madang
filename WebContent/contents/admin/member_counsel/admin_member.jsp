@@ -63,7 +63,7 @@ div#admin_memberlist section table td{
 </style>
 </head>
 <body>
-<jsp:include page="admin_left_nav.jsp"/>
+<jsp:include page="../admin_left_nav.jsp"/>
 <div id="admin_memberlist" class="admin_content">
 	<h1>일 반 회 원 관 리</h1>	
 	<section>

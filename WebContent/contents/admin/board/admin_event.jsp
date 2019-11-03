@@ -83,7 +83,7 @@ div#admin_notice section table td:first-child{
 </style>
 </head>
 <body>
-<jsp:include page="admin_left_nav.jsp"/>
+<jsp:include page="../admin_left_nav.jsp"/>
 <div id="admin_notice" class="admin_content">
 	<h1>이 벤 트</h1>	
 	<section>

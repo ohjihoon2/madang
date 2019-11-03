@@ -79,7 +79,7 @@ div#admin_notice_contents section article button{
 </style>
 </head>
 <body>
-<jsp:include page="admin_left_nav.jsp"/>
+<jsp:include page="../admin_left_nav.jsp"/>
 <div id="admin_notice_contents" class="admin_content">
 	<h1>공 지 사 항</h1>	
 	<section>

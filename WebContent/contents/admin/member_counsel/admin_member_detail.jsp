@@ -52,8 +52,13 @@ div#admin_notice_contents section table tr td{
 	border:1px solid gray;
 }
 
+div#admin_notice_contents section:nth-child(3) table tr td:nth-child(2),
+div#admin_notice_contents section:nth-child(4) table tr td:nth-child(2){
+	width:500px;
+}
 
 div#admin_notice_contents article {
+	margin-top:50px;
 	width:70%;
 	text-align :right;
 }
@@ -68,7 +73,7 @@ div#admin_notice_contents article button{
 </style>
 </head>
 <body>
-<jsp:include page="admin_left_nav.jsp"/>
+<jsp:include page="../admin_left_nav.jsp"/>
 <div id="admin_notice_contents" class="admin_content">
 	<h1>회 원 관 리</h1>	
 	<section>
@@ -121,19 +126,18 @@ div#admin_notice_contents article button{
 		<table>
 			<tr>
 				<th>예매번호</th>
-				<th>예매일</th>
-			<tr>
-				<th>결제수단</th>
-				<th>결제일</th>
-				<th>결제금액(할인)</th>
-				<th>예매상태</th>
 				<th>공연명</th>
+				<th>예매일</th>
 				<th>관람일</th>
-				<th>장소</th>
-				<th>좌석</th>
-				<th>예매자</th>
-				<th>연락처</th>
 			</tr>
+				<%for(int i=0;i<5;i++){ %>
+			<tr>
+				<td>dd</td>
+				<td>dd</td>
+				<td>dd</td>
+				<td>dd</td>
+			</tr>
+			<%} %>
 		</table>
 	</section>
 	<section>	
@@ -141,21 +145,22 @@ div#admin_notice_contents article button{
 		<table>
 			<tr>
 				<th>예매번호</th>
-				<th>예매일</th>
-				<th>결제일</th>
-				<th>결제수단</th>
-				<th>결제금액(할인)</th>
-				<th>예매상태</th>
 				<th>전시명</th>
-				<th>관람가능기간</th>
-				<th>장소</th>
-				<th>예매자</th>
-				<th>연락처</th>
+				<th>예매일</th>
+				<th>관람기간</th>
 			</tr>
+			<%for(int i=0;i<5;i++){ %>
+			<tr>
+				<td>dd</td>
+				<td>dd</td>
+				<td>dd</td>
+				<td>dd</td>
+			</tr>
+			<%} %>
 		</table>
 	</section>
 		<article>
-			<a herf="admin_member_list.jsp"><button type="button">목록으로</button></a>
+			<a href="admin_member.jsp"><button type="button">목록으로</button></a>
 		</article>
 </div>
 </body>

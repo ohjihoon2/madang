@@ -31,38 +31,57 @@ div.admin_content h1{
 
 
 
-div#admin_notice_contents section table{
+div#admin_event_contents section table{
 	margin:30px 0px 20px 0px;
-	width:70%;
-	height:500px;
+	width:80%;
+	height:800px;
 	border-collapse: collapse;
+	table-layout:fixed;
 }
 
-div#admin_notice_contents section table th{
+div#admin_event_contents section table th{
 	background-color:rgb(195,195,195);
-	width:100px;
+	width:130px;
 	height:32px;
 	border:1px solid gray;
 }
-div#admin_notice_contents section table tr td{
+div#admin_event_contents section table tr td{
 	padding-left:10px;
 	border:1px solid gray;
 }
 
-div#admin_notice_contents section table tr:nth-child(1) td:nth-child(2),
-div#admin_notice_contents section table tr:nth-child(2) td:nth-child(2){
-	width:520px;
+div#admin_event_contents section table tr:nth-child(1) td:nth-child(2),
+div#admin_event_contents section table tr:nth-child(2) td:nth-child(2){
+	overflow:auto;
+	width:400px;
 }
 
-div#admin_notice_contents section article {
+
+
+div#admin_event_contents section table tr:nth-child(5) td div{
+	overflow:auto;
+	width:100%;
+	height:600px;
+}
+
+div#admin_event_contents section table tr:nth-child(5) td div img{
+	width:100%;
+	margin-bottom:10px;
+}
+
+
+div#admin_event_contents section article {
 	width:70%;
 	text-align :right;
 }
-div#admin_notice_contents section article button{
+div#admin_event_contents section article button{
 	width:100px;
 	height:35px;
 	border:none;
 }
+div#admin_event_contents section article a:first-child button{
+	color:white;
+	}
 
 
 
@@ -71,20 +90,14 @@ div#admin_notice_contents section article button{
 <script>
 	//이미지를 파일선택하기로 올리면 테이블에 그 이미지를 작은사이지로 올리고 클릭시 새창뜨게 하기
 	$(document).ready(function(){
-		if($("#admin_ev_detail").val() != ""){
-			$("#admin_ev_detail").on("change paste keyup")
-				
-				alert("test");
-			});
-		}
 		
 	});
 </script>
 
 </head>
 <body>
-<jsp:include page="admin_left_nav.jsp"/>
-<div id="admin_notice_contents" class="admin_content">
+<jsp:include page="../admin_left_nav.jsp"/>
+<div id="admin_event_contents" class="admin_content">
 	<h1>이 벤 트</h1>	
 	<section>
 		<table>
@@ -107,22 +120,27 @@ div#admin_notice_contents section article button{
 				<td>d</td>
 			</tr>
 			<tr>
+				<th colspan="4">내용</th>
+			</tr>
+			<tr>
 				<td colspan="4">
-					<a href=" 링크주소 target = "_blank"><img src="이미지경로" /></a>
+					<!-- 이미지 부터 출력 -->
+					<div>
+						<img src="../admin_event_temp.gif"/> <br>
+						내용내
+					</div>
 				</td>
 			</tr>
 			<tr>
-				<th>상세내용 이미지</th>
-				<td colspan="3"><input type="file" id="admin_ev_detail"></td>
-			</tr>
-			<tr>
 				<th>썸네일 이미지</th>
-				<td colspan="3"><input type="file" id="admin_ev_thumbnail"></td>
+				<td colspan="3">
+					<img src="#"/>
+				</td>
 			</tr>
 		</table>
 		<article>
 			<a herf="#"><button type="button" style="background-color:rgb(5,135,94)">수정하기</button></a>
-			<button type="button" id="admin_del_btn">삭제하기</button>
+			<a herf="#"><button type="button" id="admin_del_btn">삭제하기</button></a>
 			<a herf="admin_notice.jsp"><button type="button">목록으로</button></a>
 		</article>
 	</section>

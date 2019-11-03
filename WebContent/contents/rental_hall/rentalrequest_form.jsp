@@ -11,16 +11,28 @@
 		$("select#rental_rq_dis_select").change(function(){
 			var select = $(this).val();
 			if(select == "공연"){
-				$("section#rental_rq_con_form").css("display","block");
-				$("section#rental_rq_exh_form").css("display","none");
+				$("section#rental_rq_con").css("display","block");
+				$("section#rental_rq_exh").css("display","none");
 			}else if(select == "전시"){
-				$("section#rental_rq_con_form").css("display","none");
-				$("section#rental_rq_exh_form").css("display","block");
+				$("section#rental_rq_con").css("display","none");
+				$("section#rental_rq_exh").css("display","block");
 			}else{
-				$("section#rental_rq_con_form").css("display","none");
-				$("section#rental_rq_exh_form").css("display","none");
+				$("section#rental_rq_con").css("display","none");
+				$("section#rental_rq_exh").css("display","none");
 			}
-		});
+		});//카테고리 선택하는 매소드
+		
+		$("button.rental_rq_btn").click(function(){
+			var dis=$(this).attr("id");
+
+			if(dis=="rental_rq_con_btn"){
+				rental_rq_con_form.submit();
+			}else if(dis =="rental_rq_exh_btn"){
+				rental_rq_exh_form.submit();
+			}else{		
+				alert("선택오류");
+			}
+		});//폼 전송하는 이벤트 (실수하든 말든 (ajax안쓸려궁))
 	});
 </script>
 <style>
@@ -41,8 +53,8 @@
 		width:100%;
 	}
 	
-	div#rental_rq_form section#rental_rq_con_form,
-	div#rental_rq_form section#rental_rq_exh_form{
+	div#rental_rq_form section#rental_rq_con,
+	div#rental_rq_form section#rental_rq_exh{
 		display:none;
 		border-radius:20px;
 		background-color:rgb(230,230,230);
@@ -52,7 +64,7 @@
 
 
 	div#rental_rq_form section form table,
-	div#rental_rq_form section#rental_rq_dis_form table{
+	div#rental_rq_form section#rental_rq_dis table{
 		width:90%;
 		margin:auto;
 	}
@@ -63,14 +75,14 @@
 		padding-left:20px;
 	}
 	
-	div#rental_rq_form section#rental_rq_dis_form table th{
+	div#rental_rq_form section#rental_rq_dis table th{
 		width:120px;
 		height:60px;
 		text-align:left;
 		padding-left:20px;
 		
 	}
-	div#rental_rq_form section#rental_rq_dis_form table select{
+	div#rental_rq_form section#rental_rq_dis table select{
 		width:100px;
 		height:40px;
 	}
@@ -102,7 +114,7 @@
 <div id="rental_rq_form">
 	<div>대관 신청</div>
 	<!-- 대관타입 선택 -->
-	<section id="rental_rq_dis_form">
+	<section id="rental_rq_dis">
 		<table>
 			<tr>
 				<th>대관 유형</th>
@@ -117,8 +129,9 @@
 		</table>
 	</section>
 	<!-- 공연 대관 폼 -->
-	<section id="rental_rq_con_form">
-		<form action="#" method="post" name="rental_rq_con_form" enctype="multipart/form-data">
+	<section id="rental_rq_con">
+			<form action="rentalrequest_proce.jsp" method="post" name="rental_rq_con_form" enctype="multipart/form-data">
+			<input type="hidden" name="situation" value="rqsubmit"><!-- 호출부분이 rentalrequest_form.jsp임을 알림 -->
 			<input type="hidden" name="r_case" value="concert"><!-- 공연선택했다는걸 알림 -->
 			<table>
 				<tr>
@@ -193,14 +206,15 @@
 					<td><input type="file" name="r_file"></td>
 				</tr>
 				<tr>	
-					<td colspan="2"><button type="button" id="rental_rq_con_btn">전송</button></td>
+					<td colspan="2"><button type="button" id="rental_rq_con_btn" class="rental_rq_btn">전송</button></td>
 				</tr>
 			</table>
 		</form>
 	</section>
 	<!-- 전시 대관 폼 -->
-	<section id="rental_rq_exh_form">
-		<form>
+	<section id="rental_rq_exh">
+		<form action="rentalrequest_proce.jsp" method="post" name="rental_rq_exh_form" enctype="multipart/form-data">
+			<input type="hidden" name="situation" value="rqsubmit"><!-- 호출부분이 rentalrequest_form.jsp임을 알림 -->		
 			<input type="hidden" name="r_case" value="exhibition"><!-- 전시선택했다는걸 알림 -->
 						<table>
 				<tr>
@@ -258,7 +272,7 @@
 					<td><input type="file" name="r_file"></td>
 				</tr>	
 				<tr>
-					<td colspan="2"><button type="button" id="rental_rq_exh_btn">전송</button></td>
+					<td colspan="2"><button type="button" id="rental_rq_exh_btn" class="rental_rq_btn">전송</button></td>
 				</tr>
 			</table>
 		</form>
