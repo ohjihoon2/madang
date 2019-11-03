@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	String generalId=(String)session.getAttribute("generalID");
+	String groupId=(String)session.getAttribute("groupID");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,16 +19,28 @@
 	<div>
 		<%-- <span>일반회원 아이디:<%= session.getAttribute("generalID") %> 대관회원 아이디:<%= session.getAttribute("groupID") %></span> --%>
 		<div id="left_nav">
+			<!-- 일반회원 로그인 -->
+			<% if(generalId!=null && groupId==null) { %>
 			<ul>
 				<li><a style="color: rgb(5, 135, 94)" href="mypage_main.jsp">마이페이지</a></li>
 				<li><a href="mypage_mod_gen.jsp">회원정보 수정</a></li>
 				<li><a href="mypage_reserv_list.jsp">예매내역 확인</a></li>
 				<li><a href="mypage_bmark.jsp">찜한 공연/전시</a></li>
 			</ul>
+			<!-- 대관자회원 로그인 -->
+			<% } else if(generalId==null && groupId!=null) { %>
+				<ul>
+				<li><a style="color: rgb(5, 135, 94)" href="mypage_main.jsp">마이페이지</a></li>
+				<li><a href="mypage_mod_grp.jsp">회원정보 수정</a></li>
+				<li><a href="mypage_rental_list.jsp">대관 확인</a></li>
+			</ul>
+			<% } %>
 		</div>
 
 		<div id="main_title">마이페이지</div>
 		
+		<!-- 일반회원 로그인 -->
+		<% if(generalId!=null && groupId==null) { %>
 		<div class="mod_icon">
 			<a href="mypage_mod_gen.jsp">
 				<div>
@@ -60,7 +76,33 @@
 			</div>
 		</a>
 		</div>
-
+		
+		<!-- 대관자회원 로그인 -->
+		<% } else if(generalId==null && groupId!=null) { %>
+		<div class="mod_icon">
+			<a href="mypage_mod_grp.jsp">
+				<div>
+					<p><br><br>회원정보 수정</p>
+				</div>
+				<div>
+					<p><br><br>정보를 수정하고 관리하세요.</p>
+					<span><br>회원정보 수정 | 회원탈퇴</span>
+				</div>
+			</a>
+		</div>
+		
+		<div class="reserv_icon">
+		<a href="mypage_rental_list.jsp">
+			<div>
+				<p><br><br>대관 확인</p>
+			</div>
+			<div>
+				<p><br><br>대관 신청 정보를 확인하세요.</p>
+				<span><br>신청 내역 | 신청 취소</span>
+			</div>
+		</a>
+		</div>
+		<% } %>
 	</div>
 </body>
 </html>
