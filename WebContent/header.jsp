@@ -158,7 +158,7 @@ header ul.dept02 li a:hover {
 			<li><a href="#"><img src="http://localhost:9090/images/search.png"></a></li>
 			<li><a href="http://localhost:9090/contents/login/logout_proce.jsp">로그아웃</a></li>
 			<!-- <li><a href="http://localhost:9090/contents/join/join0.jsp">회원가입</a></li> -->
-			<li><a href="http://localhost:9090/contents/mypage/mypage_main_group.jsp">마이페이지</a></li>
+			<li><a href="http://localhost:9090/contents/mypage/mypage_main.jsp">마이페이지</a></li>
 			<li><a href="#">티켓예매</a></li>
 			<li><a href="http://localhost:9090/contents/cs/cs_main.jsp">고객센터</a></li>
 		<%} %>
