@@ -40,11 +40,11 @@
 			<form action="board_write_process.jsp" method="post" name="boardForm" enctype="multipart/form-data">
 			
 				<h1 id="review_title">리뷰 제목<span> 공연/전시 제목  | 아이디 </span></h1>
-				<div id="review_contents" placeholder="카르멘을 보고 나서... 리뷰내용"></div>		
+				<div id="review_content" placeholder="공연을 보고 나서... 관람 후기 작성 공간 입니다."></div>		
 					
 					
-				<div id="sub_title2"><span>댓글</span><button type="button" id="btnWrite">댓글쓰기</button>
-				<a href="http://localhost:9090/contents/Community/event.jsp"><button type="button" id="btnWrite">목록보기</button></a></div>
+				<div id="sub_title2"><span>댓글</span><button type="button" id="btnWriteReply">댓글쓰기</button>
+				<a href="http://localhost:9090/contents/Community/review_byDate.jsp"><button type="button" id="btnBackList">목록보기</button></a></div>
 					<div id="div_comment"><textarea id="comment" placeholder="댓글을 달아주세요."></textarea><button type="button" id="btnOK">등록</button></div>
 				<%for(int i=1; i<=5; i++){ %>
 				<ul id="event_ul">

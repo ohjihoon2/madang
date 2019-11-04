@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="com.madang.vo.*, com.madang.service.*, java.util.*" %>
+<%
+	ReviewService service = new ReviewService();
+	ArrayList<ReviewVO> list = service.getResultListByStar();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,21 +12,17 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
-
 <script>
 $(document).ready(function(){
-	$( "th.star_rating a" ).click(function() {
-	    $(this).parent().children("a").removeClass("on");
-	    $(this).addClass("on").prevAll("a").addClass("on");
-	    return false;
-	});
+	$( "#star" ).addClass("on").prevAll("a").val("on");
 });
 </script>
 
 </head>
 <body>
-	<jsp:include page="../../header.jsp" />
 	<div>
+	<jsp:include page="../../header.jsp" />
+	
 		<div id="left_nav">
 			<ul>
 				<li><a style="color: rgb(5, 135, 94)" href="review_byDate.jsp">커뮤니티</a></li>
@@ -34,7 +35,7 @@ $(document).ready(function(){
 
 		<div id="main_title">관람후기</div>
 
-		<div id="review_content">
+		<div id="content">
 			
 			<div id="sub_rtitle">				
 				<a href="http://localhost:9090/contents/Community/review_byDate.jsp">
@@ -45,27 +46,27 @@ $(document).ready(function(){
 					<button type="button" id="btnWriteReview"> 후기 작성 </button></a>											
 			</div>
 			<div class="table_div">
-			<%for(int i = 1; i < 8; i++){ %>
+			<%for(ReviewVO vo: list){ %>
 				<a href="http://localhost:9090/contents/Community/review_contents.jsp">
-				<table class="review_table">
+				<table class="review_table">				
 					<tr>
-						<th>yyyy-mm-dd</th>
-						<td rowspan=3><img class="poster"
-							src="http://localhost:9090/images/comm_usher_img/1945poster.jpg" /></td>
-						<td id="title">title<span id="hits">조회수</span></td>
+						<th><%=vo.getRv_date() %></th>
+					<td rowspan=3><img class="poster"
+							src="http://localhost:9090/images/concert_main/<%=vo.getC_poster() %>" /></td>
+						<td id="title"><%=vo.getRv_title() %><span id="hits">조회수: <%=vo.getRv_hits() %></span></td>
 					</tr>
 					<tr>
-						<th>ID@test.com</th>
-						<td rowspan=2 id="contents">Contents</td>
+						<th><%=vo.getId() %></th>
+						<td rowspan=2 id="contents"><%=vo.getRv_content() %></td>
 					</tr>
 					
 					<tr>
-						<th class="star_rating">	
-						<%for(int j=1; j<=5; j++){ %>				
-							<a href="#" class="on" value="<%=j %>">★</a>
-						<%} %>    
+						<th class="star_rating">				
+							<a href="#" class="on" >★</a><span>평점 : <%=vo.getRv_staravg() %></span>
+
+<%-- 					   		<input type="hidden" name="rv_staravg" value="<%=vo.getRv_staravg() %>" id="star"> --%>  
 						</th>						
-					</tr>				
+					</tr>			
 				</table>
 				</a>
 			<%}%>
@@ -83,9 +84,9 @@ $(document).ready(function(){
 	     	</div>
      	
 		</div>
-		
-	</div>
+			
 	
 	<jsp:include page="../../footer.jsp"/>	
+	</div>	
 </body>
 </html>

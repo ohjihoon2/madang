@@ -474,7 +474,7 @@ div#notice_date {
  * review
  */
 
-div#review_content{
+div#content{
 	width:1000px;
 	margin:auto;
 }
@@ -492,6 +492,10 @@ div#sub_rtitle {
 
 div.table_div {
 	margin: auto;
+}
+
+div.table_div>a{
+	text-decoration:none;
 }
 
 table.review_table {
@@ -527,6 +531,18 @@ button#btnDByDate, button#btnDByStar, button#btnSByDate, button#btnSByStar {
 
 }
 
+button#btnWriteReview{
+	border: none;
+	border-radius: 5px;
+	padding: 10px 50px 10px 50px;
+	margin-left:1px;
+	font-weight: bold;
+	font-size:12pt;
+	float: right;
+	border:1px solid rgb(5, 135, 94);
+	background:#ccc;
+	
+}
 
 table.review_table th {
 	display:inline-block;
@@ -584,39 +600,26 @@ th.star_rating a.on {color:tomato;}
 /* 
  * review_write
  */     
-button#btnWriteReview{
-	border: none;
-	border-radius: 5px;
-	padding: 10px 50px 10px 50px;
-	margin-left:1px;
-	font-weight: bold;
-	font-size:12pt;
-	float: right;
-	border:1px solid rgb(5, 135, 94);
-	background:#ccc;
-	
+table#rv_write_tb{
+	margin-top:70px;
 } 
+
  
-h1#rv_title{
-	width: 950px;
-	padding: 10px;
-	margin: auto;
-	border:1px solid red;
-	vertical-align:top;
-} 
-input#review_title{
-	width:400px;
+input#rv_title{
+	width:370px;
 	height:25px;
 	padding:7px;
 	font-size: 16pt;
 	border-radius:7px;
 	border:1px solid #9b9b9b;
 	padding-left:20px;
-	margin-top:10px;
+	
 }
-
-textarea#review_contents{
-	margin: 10px 20px 70px 20px;
+span#span_c_title{
+	margin-left:20px;
+}
+textarea#rv_content{
+	margin: 10px 20px 70px 50px;
 	border:1px solid #9b9b9b;
 	border-radius:10px;
 	width:700px;
@@ -633,7 +636,14 @@ select#rv_op_title{
 	border-radius:7px;
 	font-size: 12pt;
 }
-button.btnRVWrite{
+th#th_star{
+	color:#9b9b9b;
+}
+th#th_star, td#td_star{
+	font-size:15pt;		
+}
+
+button#btnRVWrite,button#btnRVCancel,button#btnRVList{
 	border: none;
 	border-radius: 5px;
 	padding: 10px 30px 10px 30px;
@@ -641,12 +651,32 @@ button.btnRVWrite{
 	font-weight: bold;
 	font-size:12pt;
 	border:1px solid rgb(5, 135, 94);
-	float:right;
+
 }
- 
+th#RVbtn{
+	text-align:right;
+	padding-right:0px;
+	padding-bottom:70px;
+}
+
+/* º°Á¡ */
+td.star_rating {font-size:0; letter-spacing:-4px;}
+
+td.star_rating a {
+    font-size:22px;
+    letter-spacing:0;
+    display:inline-block;
+    margin-left:5px;
+    color:#ccc;
+    text-decoration:none;
+}
+
+td.star_rating a:first-child {margin-left:0;}
+
+td.star_rating a.on {color:tomato;}
  
 /* 
- * review_contents
+ * review_content
  */     
 
 	div#content{
@@ -681,7 +711,7 @@ button.btnRVWrite{
 		color:#9b9b9b;
 	}
 	
-	div#review_contents{
+	div#review_content{
 		margin: 10px 20px 70px 20px;
 		border:1px solid #9b9b9b;
 		border-radius:10px;
@@ -715,7 +745,7 @@ button.btnRVWrite{
 		font-size:15pt;
 	}
 	
-	button#btnWrite{
+	button#btnWriteReply, button#btnBackList{
 		border:1px solid rgb(5,135,94);
 		border-radius:10px;
 		color: rgb(5,135,94);

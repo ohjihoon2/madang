@@ -2,11 +2,18 @@ package com.madang.vo;
 
 public class ReviewVO {
 	//field
-	String rv_code, rv_title, rv_content, rv_file, rv_sfile, rv_date, id;
+	String rv_code, rv_title, rv_content, concert_code, rv_date, id, c_poster;
 	int rv_hits, rv_staravg;
 	//method
+	
 	public String getRv_code() {
 		return rv_code;
+	}
+	public String getC_poster() {
+		return c_poster;
+	}
+	public void setC_poster(String c_poster) {
+		this.c_poster = c_poster;
 	}
 	public void setRv_code(String rv_code) {
 		this.rv_code = rv_code;
@@ -23,17 +30,11 @@ public class ReviewVO {
 	public void setRv_content(String rv_content) {
 		this.rv_content = rv_content;
 	}
-	public String getRv_file() {
-		return rv_file;
+	public String getConcert_code() {
+		return concert_code;
 	}
-	public void setRv_file(String rv_file) {
-		this.rv_file = rv_file;
-	}
-	public String getRv_sfile() {
-		return rv_sfile;
-	}
-	public void setRv_sfile(String rv_sfile) {
-		this.rv_sfile = rv_sfile;
+	public void setConcert_code(String concert_code) {
+		this.concert_code = concert_code;
 	}
 	public String getRv_date() {
 		return rv_date;
@@ -59,17 +60,16 @@ public class ReviewVO {
 	public void setRv_staravg(int rv_staravg) {
 		this.rv_staravg = rv_staravg;
 	}
+
 	
 }
 /*review	리뷰 게시글							
-컬럼명	데이터타입	제약타입	기타제약	참조테이블	참조컬럼	설명		
-rv_code	varchar2(20)	pk				리뷰 게시글 코드		
-rv_title	varchar2(50)	nn				제목		
-rv_contents	nvarchar2(300)					내용		
-rv_file	varchar2(100)					첨부파일		
-rv_sfile	varchar2(100)					첨부파일 서버 저장용		
-rv_date	date	nn				작성일자		
-rv_hits	number	nn				조회수		
-id	varchar2(20)					작성자		
-rv_cost	number					평점		
+rv_code	varchar2(20)	primary key,	
+rv_title	varchar2(50)	not null,	
+rv_content	nvarchar2(300) not null,	
+concert_code	varchar2(100),
+rv_date	date	not null,					
+rv_hits	number not null,	
+id	varchar2(20),			
+rv_staravg	number			
 */
