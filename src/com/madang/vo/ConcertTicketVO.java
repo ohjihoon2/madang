@@ -2,12 +2,36 @@ package com.madang.vo;
 
 public class ConcertTicketVO {
 
-	String to_code, concert_code, tc_cdate, tc_cseats, tc_canceld, tc_recive, tc_name, tc_birth, tc_email, tc_paym, tc_payw, tc_pays;
+	String to_code, concert_code, tc_cdate, tc_cseat, tc_canceld, tc_recive, tc_name, tc_birth, tc_email, tc_paym, tc_payw, tc_pays, tc_phone1,tc_phone2, tc_phone3;
 	
-	int tc_cancelc, tc_price, tc_phone;
+	int tc_cancelc, tc_price;
 
 	
 	
+	public String getTc_phone1() {
+		return tc_phone1;
+	}
+
+	public void setTc_phone1(String tc_phone1) {
+		this.tc_phone1 = tc_phone1;
+	}
+
+	public String getTc_phone2() {
+		return tc_phone2;
+	}
+
+	public void setTc_phone2(String tc_phone2) {
+		this.tc_phone2 = tc_phone2;
+	}
+
+	public String getTc_phone3() {
+		return tc_phone3;
+	}
+
+	public void setTc_phone3(String tc_phone3) {
+		this.tc_phone3 = tc_phone3;
+	}
+
 	public String getTo_code() {
 		return to_code;
 	}
@@ -32,12 +56,12 @@ public class ConcertTicketVO {
 		this.tc_cdate = tc_cdate;
 	}
 
-	public String getTc_cseats() {
-		return tc_cseats;
+	public String getTc_cseat() {
+		return tc_cseat;
 	}
 
-	public void setTc_cseats(String tc_cseats) {
-		this.tc_cseats = tc_cseats;
+	public void setTc_cseat(String tc_cseat) {
+		this.tc_cseat = tc_cseat;
 	}
 
 	public String getTc_canceld() {
@@ -120,14 +144,6 @@ public class ConcertTicketVO {
 		this.tc_price = tc_price;
 	}
 
-	public int getTc_phone() {
-		return tc_phone;
-	}
-
-	public void setTc_phone(int tc_phone) {
-		this.tc_phone = tc_phone;
-	}
-	
 	
 	
 }

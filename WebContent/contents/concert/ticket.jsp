@@ -3,8 +3,8 @@
     
 <%
 	String code = request.getParameter("code");
+	System.out.println(code);
 	String id = (String)session.getAttribute("generalID");
-	out.write(code);
 	
 	ConcertService service = new ConcertService();
 	ConcertVO cvo = service.getConcertDetail(code);
@@ -12,6 +12,8 @@
 	String time = cvo.getC_stime();
 	String[] timelist = time.split(";");
 	
+	System.out.println(cvo.getSnday());
+	System.out.println(cvo.getEnday());
 	
 	General_mem_VO mvo = new General_mem_VO(); 
 	mvo = service.getResultMemInfo(id);
@@ -344,12 +346,11 @@
 </style>
 <script>
 	$(document).ready(function(){
-		<%-- var sd = '<%=vo.getSday()%>';
-		var ed = '<%=vo.getC_edate()%>'; --%>
-		
-		<%-- var a = new Date(<%=vo.getSnday()%>);
-		var b = new Date(<%=vo.getEnday()%>);
-		alert(<%=vo.getSnday()%>);
+		var sd = <%=cvo.getSnday()%>;
+		var ed = <%=cvo.getEnday()%>; 
+		<%-- var a = new Date(<%=cvo.getSnday()%>);
+		var b = new Date(<%=cvo.getEnday()%>);
+		alert(<%=cvo.getSnday()%>);
 		alert(a);
 		alert(b); --%>
 		//화면 상태 값 
@@ -357,7 +358,7 @@
 		
 		var countSum = 0;
 		var choiceCount = 0;
-		
+		var cancelPrice = 0;
 		//선택 좌석 개수
 		var rows = 0;
 		$("div#step1").css("display","block");
@@ -505,20 +506,34 @@
 		        ,yearSuffix: "년" //달력의 년도 부분 뒤에 붙는 텍스트
 		        ,monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 Tooltip 텍스트
 		        ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 부분 텍스트
-		       <%--  ,minDate: new Date(<%=vo.getSnday()%>) //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
-		        ,maxDate:new Date(<%=vo.getEnday()%>) //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후) --%>
+		        /* ,minDate: new Date(sd) //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
+		        ,maxDate:new Date(ed) //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후) */
+		        ,minDate: new Date('<%=cvo.getSnday()%>') //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
+		        ,maxDate:new Date('<%=cvo.getEnday()%>') //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
 		  		,onSelect: function(dateText, inst) { //클릭시에 date value 값 !!!!!!!!!!!!
 		            var date = $(this).val();
+		            var picdate = date;    
+		            var yyyy = picdate.substr(0,4);
+		            var mm = picdate.substr(6,2);
+		            var dd = picdate.substr(10,2); 
+
+		  			var seldate = new Date(yyyy, mm-1, dd-1);
+
+		  	        var  month = (seldate.getMonth() + 1);
+		  	        var day = seldate.getDate();
+		  	       	var year = seldate.getFullYear();
+		            var canceldate = year+'년 '+month+'월 '+day+'일 ';
+		            
 		  			var dateText = $("table.myticket_t > tbody > tr:nth-child(1) > td");
 		  			var cancelText = $("table.myticket_t > tbody > tr:nth-child(5) > td");
-						  			
+		  			
 		  			dateText.empty();
 		  			cancelText.empty();
 		  			
 		  			$("table.myticket_t > tbody > tr:nth-child(1) > td >span:nth-child(2)").empty();
 		  			dateText.append("<span>"+date+"</span>");
 		  			$("table.myticket_t > tbody > tr:nth-child(5) > td >span:nth-child(2)").empty();
-		  			cancelText.append("<span>"+date+"23:59 </span>");
+		  			cancelText.append("<span>"+canceldate+"23:59 </span>");
 		          
 		       }
       		});    
@@ -601,10 +616,12 @@
 			var nonDiscountPrice = transPrice1 * choiceCount;
 			var discountPrice = disPrice1+disPrice2;
 			var sumPrice = genPrice+disPrice1+disPrice2;
+			var cancelPrice = sumPrice* 0.1;
 			
 			//금액이 찍히는 selector
 			var price_text = $("table.myticket_t > tbody > tr:nth-child(3) > td");
 			var discount_text = $("table.myticket_t > tbody > tr:nth-child(4) > td");
+			var cancel_price = $("table.myticket_t > tbody > tr:nth-child(6) > td");
 			var final_price = $("table.myticket_t > tbody > tr:nth-child(7) > td");
 			
 			// 티켓 선택 갯수 validation
@@ -620,10 +637,12 @@
 			//지우기
 			price_text.empty();
 			discount_text.empty();
+			cancel_price.empty();
 			final_price.empty();
 			
 			price_text.append(nonDiscountPrice);
 			discount_text.append(discountPrice);
+			cancel_price.append(cancelPrice);
 			final_price.append(sumPrice);
 			
 		});
@@ -655,34 +674,37 @@
   		    if(status == 1){
   		    	//유효성 검사
   		    	//if(일시에 날짜/시간이 두개다 적힌다면 다음페이지로 이동)
-  		    	/* if($("table.myticket_t > tbody > tr:nth-child(1) > td >span").length == 2){
+  		    	if($("table.myticket_t > tbody > tr:nth-child(1) > td >span").length == 2){
 	   		  		status = 2;
-  		    	} */
-	   		  		status = 2;
+  		    	} else{
+  		    		alert("날짜와 시간을 선택해 주세요.");
+  		    	}
    	 		}else if(status ==2){
    	 			if(val == "btn_back"){
    	 				status = 1;
    	 			}else{
    	 				//validation 
-	   	 			/* if($("table.myticket_t > tbody > tr:nth-child(2) > td").text().length >= 5){
+	   	 			 if($("table.myticket_t > tbody > tr:nth-child(2) > td").text().length >= 5){
 		   	 			for(i = 0;i<rows;i++){
 		   	 		 		$(".SeatCount").append("<option value="+i+" class='optionCheck'>"+i+"매</option>");
 		   	 	 		}
 			   			status = 3;
-	   	 			} */
-			   			status = 3;
+	   	 			}else{
+	   	 				alert("좌석을 선택해주세요.");
+	   	 			}
    	 			}
     	  	}else if(status ==3){
    	 			if(val == "btn_back"){
    	 				$(".SeatCount").empty();
    	 				status = 2;
    	 			}else{
-   	 				/* if(countSum != 0){
+   	 				 if(countSum != 0){
    	 					if(countSum == choiceCount){
 			   			status = 4;
    	 					}
-   	 				} */
-			   			status = 4;
+   	 				}else{
+   	 					alert("티켓의 가격/할인을 선택해주세요.");
+   	 				}
    	 			}
     	  	}else if(status ==4){
    	 			if(val == "btn_back"){
@@ -726,24 +748,47 @@
 						<%-- <%response.sendRedirect("ticket_process.jsp");%> --%>
 						<%-- //var concert_code = <%=code%>; --%> 
 						//선택관람일
-						var tc_cdate= $("table.myticket_t > tbody > tr:nth-child(2) > td").val();
+						var tc_cdate= $("table.myticket_t > tbody > tr:nth-child(1) > td").text();
 						//선택좌석
-						//취소수수료
+						var tc_cseat= $("table.myticket_t > tbody > tr:nth-child(2) > td").text();
 						//취소기한
+						var tc_canceld= $("table.myticket_t > tbody > tr:nth-child(5) > td").text();
+						//취소수수료
+						var tc_cancelc= $("table.myticket_t > tbody > tr:nth-child(6) > td").text();
 						//총결제금액
+						var tc_price= $("table.myticket_t > tbody > tr:nth-child(7) > td").text();
 						//티켓 수령방법
-						//이름
-						//생년월일
+						var tc_recive = $(':radio[name="ticket_recive"]:checked').val();
 						//휴대폰
+						var tc_phone1 = $("#HpNo1").val();
+						var tc_phone2 = $("#HpNo2").val();
+						var tc_phone3 = $("#HpNo3").val();
 						//이메일
+						var tc_email = $("#Email").val();
 						//결제방식
+						var tc_paym = $(':radio[name="Payment"]:checked').val();
 						//결제수단
+						var tc_payw = $('#DiscountCard option:selected').val();
+						var tc_pays = '';
 						//결제상태
-						//"&ev_rp_content="+ev_rp_content,
+						if(tc_paym == 1){
+							tc_pays ='complete';
+						}else{
+							tc_pays = 'wait';
+						}
 						$.ajax({
-							url :"ticket_process.jsp?code=<%=code%>",
+							url :"ticket_process.jsp?code=<%=code%>&tc_cdate="+tc_cdate+"&tc_cseat="+tc_cseat+"&tc_canceld="+tc_canceld+"&tc_cancelc="+tc_cancelc+"&tc_price="+tc_price+"&tc_recive="+tc_recive+"&tc_name=<%=mvo.getName() %>&tc_birth=<%=mvo.getBirth() %>&tc_phone1="+tc_phone1+"&tc_phone2="+tc_phone2+"&tc_phone3="+tc_phone3+"&tc_email="+tc_email+"&tc_paym="+tc_paym+"&tc_payw="+tc_payw+"&tc_pays="+tc_pays,
+									
 							success : function(data){
-								alert(data);
+								data2 = $.trim(data) 
+								alert(data2);
+								if(data2 == 'true'){
+									alert("예매가 완료 되었습니다.")
+									window.close();									
+								}else if(data2='false'){
+									alert("결제에 실패하여 새로고침 합니다.")
+									location.reload();
+								}
 							}
 						});
  					}else{
@@ -989,13 +1034,12 @@
             	</table>
         	</div>
 		</div>
-		
 		<!-- #################################################### -->
 		<div class="ticketing_left" id="step4">
 			<div class="recive_method">
 				<div>티켓수령방법</div>
-				<input type="radio" name="ticket_recive" value="현장수령" checked="checked" class="ticket_recive"><span>현장수령</span>
-				<input type="radio" name="ticket_recive" value="문자" class="ticket_recive"><span>문자</span>
+				<input type="radio" name="ticket_recive" value="1" checked="checked" class="ticket_recive"><span>현장수령</span>
+				<input type="radio" name="ticket_recive" value="2" class="ticket_recive"><span>문자</span>
 			</div>	
 			<div class="check_user">
 				<div>예매자 확인</div>
@@ -1026,7 +1070,7 @@
                     <tr>
                         <th>이메일</th>
                         <td>
-                        	<input type="text" id="Email" value="t@c.com" style="width:170px;" class="txt1">
+                        	<input type="text" id="Email" value="" style="width:170px;" class="txt1">
                         </td>
                     </tr>
                     <tr>
@@ -1180,7 +1224,7 @@
 					
 					<tr>
 						<th scope="row">취소수수료</th>
-						<td>티켓금액의 10% </td>
+						<td></td>
 					</tr>
 					<tr>
 						<th scope="row">총 결제 금액</th>

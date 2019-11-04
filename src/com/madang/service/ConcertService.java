@@ -1,13 +1,14 @@
 package com.madang.service;
 
 import com.madang.dao.ConcertDAO;
+import com.madang.vo.ConcertTicketVO;
 import com.madang.vo.ConcertVO;
 import com.madang.vo.General_mem_VO;
 
 public class ConcertService {
 
 	/**
-	 * 공연 상세내용
+	 * 怨듭뿰 �긽�꽭�궡�슜
 	 * @param code
 	 * @return
 	 */
@@ -20,7 +21,7 @@ public class ConcertService {
 	}
 	
 	/**
-	 * 티켓에서 일반회원 값 mapping 
+	 * �떚耳볦뿉�꽌 �씪諛섑쉶�썝 媛� mapping 
 	 * @param id
 	 * @return
 	 */
@@ -32,12 +33,12 @@ public class ConcertService {
 	}
 	
 	/**
-	 * Ticket_Concert 추가하기
+	 * Ticket_Concert 異붽��븯湲�
 	 */
-	public boolean  getResultInsertTC() {
+	public boolean  getResultInsertTC(ConcertTicketVO vo) {
 		boolean result = false;
 		ConcertDAO dao = new ConcertDAO();
-		result = dao.getResultInsertTC();
+		result = dao.getResultInsertTC(vo);
 		return result;
 	}
 }

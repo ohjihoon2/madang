@@ -14,10 +14,11 @@
 	//오늘 날짜	(년월일)
 	sf = new SimpleDateFormat("yyMMdd");
 	String tday = sf.format(now);
-	out.write(tday);
+	System.out.println("tday : "+tday);
+	//out.write(tday);
 	
-	out.write(list.get(1).getSday());
-	out.write(Integer.valueOf(list.get(1).getSday()));
+	//out.write("sday = " +list.get(1).getSday());
+	//out.write(Integer.valueOf(list.get(1).getSday()));
 	out.write(list.get(1).getEday());
 	
 %>
@@ -25,11 +26,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <title>Insert title here</title>
 <script>
 	
-	function showPopup() { window.open("ticket.jsp?code=<%=list.get(1).getConcert_code()%>", "window팝업", "width=1000, height=700, left=400, top=200"); }
+	/* function showPopup(code) {
+		window.open("ticket.jsp?code="code, "window팝업", "width=1000, height=700, left=400, top=200");
+		} */
 	
+	$(document).ready(function(){
+		$('.ticketing_popup').click(function(){
+			var code = $('.'+$(this).attr("id")).val();
+			
+			 window.open("ticket.jsp?code="+code, "window팝업", "width=1000, height=700, left=400, top=200");
+			return false;
+		});
+	});
 </script>
 <style>
 	*{
@@ -181,19 +193,16 @@
 	<div id="main_title">&nbsp&nbsp공연</div><br>
 	<div id="date_info"><%=today%> 오늘의 공연입니다.</div>
 	
-	
 	<%
 		for(int i=0;i<list.size();i++){ 
 			//오늘 날짜 int값
 			int td = Integer.parseInt(tday);
 			//공연 마지막 날짜 int값 
 			int ed = list.get(i).getEday();
-			out.write(ed);
 			//공연 시작 날짜 int값 
-			//int sd = list.get(i).getSday();
+			int sd = list.get(i).getSday();
 			//마지막 공연날이 오늘이전이면 concert list에서 보여지지 않음.
-			//if(td<ed && td>sd){
-			
+			if(sd<=td  &&  td<=ed){
 	%>
 	
 	<div class="concert_info">
@@ -208,11 +217,13 @@
 					<div><%=list.get(i).getC_place() %> <span>|</span> <%=list.get(i).getC_sdate() %>~ <%=list.get(i).getC_edate() %></div>
 					<span>R석 <%=list.get(i).getC_price() %> 원 </span>
 				
-					<input type="button" value="예매" onclick="showPopup();" class="ticketing_popup"/>
+					<input type="hidden" value="<%=list.get(i).getConcert_code()%>" class="code<%=i%>"/>
+					
+					<input type="button" value="예매" class="ticketing_popup" id="code<%=i%>"/>
 				</div>
 			</div>
 		</div>
 	</div>
 	<%
-		//} 
+		} 
 	}%>

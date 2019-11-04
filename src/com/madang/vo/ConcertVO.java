@@ -2,11 +2,23 @@ package com.madang.vo;
 
 public class ConcertVO {
 	
-	String concert_code,c_title, c_sdate,c_edate, c_stime, c_place, c_rating, c_genre, c_host, c_poster, c_sposter, c_info_poster, c_info_sposter,c_status, c_contact, sday, eday;
+	String concert_code,c_title, c_sdate,c_edate, c_stime, c_place, c_rating, c_genre, c_host, c_poster, c_sposter, c_info_poster, c_info_sposter,c_status, c_contact, sday, eday, snday,enday;
 	int c_time, c_price;
 	
 	
 	
+	public String getSnday() {
+		return snday;
+	}
+	public void setSnday(String snday) {
+		this.snday = snday;
+	}
+	public String getEnday() {
+		return enday;
+	}
+	public void setEnday(String enday) {
+		this.enday = enday;
+	}
 	public int getSday() {
 		
 		return Integer.parseInt(sday);

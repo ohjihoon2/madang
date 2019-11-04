@@ -41,7 +41,7 @@ public class ConcertDAO {
 	//4~5
 	
 	/**
-	 * ConcertList 불러오기
+	 * ConcertList 遺덈윭�삤湲�
 	 * @return
 	 */
 	public ArrayList<ConcertVO> getConcertInfo() {
@@ -77,14 +77,14 @@ public class ConcertDAO {
 	}
 	
 	/**
-	 * concert 상세 내용
+	 * concert �긽�꽭 �궡�슜
 	 * @param code
 	 * @return
 	 */
 	public ConcertVO getResultConcertDetail(String code) {
 		ConcertVO vo = new ConcertVO();
 
-		String sql =  "SELECT CONCERT_CODE, C_TITLE,TO_CHAR(C_SDATE,'YY.MM.DD'), TO_CHAR(C_EDATE,'YY.MM.DD'),C_TIME, C_STIME,C_STIME,C_RATING,C_GENRE,C_PRICE,C_HOST,C_POSTER,C_SPOSTER,C_INFO_POSTER,C_INFO_SPOSTER,C_STATUS,C_CONTACT , TO_CHAR(C_SDATE, 'YYYY.MM.DD') as SNDAY , TO_CHAR(C_EDATE, 'YYYY.MM.DD') as ENDAY  FROM CONCERT WHERE CONCERT_CODE = ?";
+		String sql =  "SELECT CONCERT_CODE, C_TITLE,TO_CHAR(C_SDATE,'YY.MM.DD'), TO_CHAR(C_EDATE,'YY.MM.DD'),C_TIME, C_STIME,C_STIME,C_RATING,C_GENRE,C_PRICE,C_HOST,C_POSTER,C_SPOSTER,C_INFO_POSTER,C_INFO_SPOSTER,C_STATUS,C_CONTACT , TO_CHAR(C_SDATE, 'YYYY-MM-DD') as SNDAY , TO_CHAR(C_EDATE, 'YYYY-MM-DD') as ENDAY  FROM CONCERT WHERE CONCERT_CODE = ?";
 		getPreparedStatement(sql);
 		
 		try {
@@ -108,6 +108,8 @@ public class ConcertDAO {
 				vo.setC_info_sposter(rs.getString(15));
 				vo.setC_status(rs.getString(16));
 				vo.setC_contact(rs.getString(17));
+				vo.setSnday(rs.getString(18));
+				vo.setEnday(rs.getString(19));
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -116,7 +118,7 @@ public class ConcertDAO {
 	}
 	
 	/**
-	 * ticket 사용자 정보
+	 * ticket �궗�슜�옄 �젙蹂�
 	 * @param id
 	 * @return
 	 */
@@ -150,28 +152,29 @@ public class ConcertDAO {
 	 * insert concert ticket
 	 * @return
 	 */
-	public boolean getResultInsertTC() {
+	public boolean getResultInsertTC(ConcertTicketVO vo) {
 		boolean result = false;
-		ConcertTicketVO vo = new ConcertTicketVO();
-		String sql = "insert into ticket_concert values( 'tc_'||LPAD(to_char(SQU_TICKET_CONCERT_CODE.NEXTVAL),3,'0' ),?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into ticket_concert values( 'tc_'||LPAD(to_char(SQU_TICKET_CONCERT_CODE.NEXTVAL),3,'0' ),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		
 		getPreparedStatement(sql);
 		
 		try {
 			pstmt.setString(1, vo.getConcert_code());
 			pstmt.setString(2, vo.getTc_cdate());
-			pstmt.setString(3, vo.getTc_cseats());
+			pstmt.setString(3, vo.getTc_cseat());
 			pstmt.setInt(4, vo.getTc_cancelc());
 			pstmt.setString(5, vo.getTc_canceld());
 			pstmt.setInt(6, vo.getTc_price());
 			pstmt.setString(7, vo.getTc_recive());
 			pstmt.setString(8, vo.getTc_name());
 			pstmt.setString(9, vo.getTc_birth());
-			pstmt.setInt(10, vo.getTc_phone());
-			pstmt.setString(11, vo.getTc_email());
-			pstmt.setString(12, vo.getTc_paym());
-			pstmt.setString(13, vo.getTc_payw());
-			pstmt.setString(14, vo.getTc_pays());
+			pstmt.setString(10, vo.getTc_phone1());
+			pstmt.setString(11, vo.getTc_phone2());
+			pstmt.setString(12, vo.getTc_phone3());
+			pstmt.setString(13, vo.getTc_email());
+			pstmt.setString(14, vo.getTc_paym());
+			pstmt.setString(15, vo.getTc_payw());
+			pstmt.setString(16, vo.getTc_pays());
 			
 			int val = pstmt.executeUpdate();
 			
