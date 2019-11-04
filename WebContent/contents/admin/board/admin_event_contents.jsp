@@ -7,7 +7,7 @@
 	String ev_code=request.getParameter("ev_code");
 	EventService service = new EventService();
 	EventVO vo = new EventVO();
-	vo = service.getResultContent(ev_code);
+	vo = service.getResultContentAdmin(ev_code);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

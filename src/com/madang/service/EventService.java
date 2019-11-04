@@ -74,4 +74,25 @@ public class EventService {
 		dao.close();
 		return result;
 	}
+	
+	//관리자 내용 가져오기
+	public EventVO getResultContentAdmin(String ev_code) {
+		EventVO vo = new EventVO();
+		EventDAO dao = new EventDAO();
+		vo = dao.getResultContentAdmin(ev_code);
+		dao.close();
+		return vo;	
+	}
+	
+	
+	//관리자-이벤트 업데이트
+		public boolean getResultUpdateAdmin(EventVO vo) {
+			boolean result=false;
+			EventDAO dao = new EventDAO();		
+			result = dao.getResultUpdateAdmin(vo);
+			
+			dao.close();
+			return result;
+		}
+	
 }

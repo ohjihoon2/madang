@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="com.madang.vo.*, com.madang.service.*, java.time.LocalDate"%>
+
+<%
+	//String ev_code=request.getParameter("ev_code");
+	String ev_code=request.getParameter("ev_code");
+	EventService service = new EventService();
+	EventVO vo = new EventVO();
+	vo = service.getResultContentAdmin(ev_code);
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -81,8 +90,13 @@ div#admin_event_update section table tr:nth-child(5) td div{
 	height:200px;
 } 
 
-div#admin_event_update section table tr td>div>img{
-	width:100%;
+div#admin_event_update section table tr:nth-child(5) td>div>img{
+	width:10%;
+	margin-bottom:10px;
+}
+
+div#admin_event_update section table tr:nth-child(3) td>div>img{
+	width:10%;
 	margin-bottom:10px;
 }
 
@@ -140,35 +154,49 @@ div#admin_event_update section article button:first-child{
 <div id="admin_event_update" class="admin_content">
 	<h1>이 벤 트</h1>	
 	<section>
-		<form action="admin_board_multi_proce.jsp" method="post" name="event_update" enctype="multipart/form-data">
-		<input type="hidden" name="situation" value="event_wirte"/>
+		<form action="admin_event_proce.jsp" method="post" name="event_update" enctype="multipart/form-data">
+		<input type="hidden" name="situation" value="event_update"/>
+		<input type="hidden" name="ev_code" value="<%=ev_code%>"/>
 		<table>
 			<tr>
 				<th>제목</th>
-				<td><input type="text" name="ev_title" id="ad_ev_title"/></td>
+				<td><input type="text" name="ev_title" id="ad_ev_title" value="<%=vo.getEv_title()%>"/></td>
 			</tr>
 			<tr>
 				<th>이벤트 기간</th>
-				<td><input type="date" name="ev_sdate" id="ad_ev_sdate"/> ~ 
-				&nbsp;&nbsp;&nbsp;<input type="date" name="ev_edate" id="ad_ev_edate"/>
+				<td><input type="date" name="ev_sdate" id="ad_ev_sdate" value="<%=vo.getEv_sdate()%>"/> ~ 
+				&nbsp;&nbsp;&nbsp;<input type="date" name="ev_edate" id="ad_ev_edate" value="<%=vo.getEv_edate()%>"/>
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2"><div><img src="../admin_event_temp.gif"/></div></td>
+				<td colspan="2"><div>
+				
+							<%if(vo.getEv_sdetail()!=null && vo.getEv_sdetail() !=""){ %>
+								<img src="http://localhost:9090/upload/event/<%=vo.getEv_sdetail() %>"/>
+							<%}else{ %>
+								 
+							<%} %>
+				</div></td>
 			</tr>
 			<tr>
 				<th>상세 이미지</th>
 				<td>
-					<input type="file" name="ev_detail" id="ad_ev_detail"/>
+					<input type="file" name="ev_detail" id="ad_ev_detail" value="<%=vo.getEv_detail() %>"/>
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2"><div></div></td>
+				<td colspan="2"><div>
+						<%if(vo.getEv_sthumbnail()!=null && vo.getEv_sthumbnail() !=""){ %>
+							<img src="http://localhost:9090/upload/event/<%=vo.getEv_sthumbnail() %>"/>
+						<%}else{ %>
+							 
+						<%} %>				
+				</div></td>
 			</tr>
 			<tr>
 				<th>썸네일 이미지</th>
 				<td>
-					<input type="file" name="ev_thumbnail" id="ad_ev_thumbnail"/>
+					<input type="file" name="ev_thumbnail" id="ad_ev_thumbnail" value="<%=vo.getEv_thumbnail() %>"/>
 				</td>
 			</tr>
 		</table>

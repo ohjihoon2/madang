@@ -62,40 +62,7 @@ public class EventDAO {
 		return list;
 	}
 	
-	//관리자 이벤트 목록 가져오기
-	public ArrayList<EventVO> getResultListAdmin(){
-		ArrayList<EventVO> list = new ArrayList<EventVO>();
-		String sql = "select ev_code, ev_title, to_char(ev_sdate,'yyyy.mm.dd'),to_char(ev_edate,'yyyy.mm.dd'), to_char(ev_date,'yyyy.mm.dd'), ev_hits, floor(sysdate-to_date(ev_sdate,'yy/mm/dd')) startcount,floor(to_date(ev_edate,'yy/mm/dd')-sysdate)+1 endcount from event order by ev_date desc";
-		getPreparedStatement(sql);
-		
-		try {
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				EventVO vo = new EventVO();
-				
-				vo.setEv_code(rs.getString(1));
-				vo.setEv_title(rs.getString(2));
-				vo.setEv_sdate(rs.getString(3));
-				vo.setEv_edate(rs.getString(4));
-				vo.setEv_date(rs.getString(5));
-				vo.setEv_hits(rs.getInt(6));
-				if(rs.getInt(8)>=0) {
-					if(rs.getInt(7)<0) {
-						vo.setEv_status("진행중");
-					}else {
-						vo.setEv_status("예정");
-					}
-				}else {
-					vo.setEv_status("종료");
-				}
-				
-				list.add(vo);
-			}
-		}catch(Exception e) {e.printStackTrace();}
-		
-		return list;
-	}
+	
 	
 	
 	/** **/
@@ -212,7 +179,75 @@ System.out.println("id:"+rvo.getId());
 		return result;
 	}
 
+//관리자 이벤트 목록 가져오기
+	public ArrayList<EventVO> getResultListAdmin(){
+		ArrayList<EventVO> list = new ArrayList<EventVO>();
+		String sql = "select ev_code, ev_title, to_char(ev_sdate,'yyyy.mm.dd'),to_char(ev_edate,'yyyy.mm.dd'), to_char(ev_date,'yyyy.mm.dd'), ev_hits, floor(sysdate-to_date(ev_sdate,'yy/mm/dd')) startcount,floor(to_date(ev_edate,'yy/mm/dd')-sysdate)+1 endcount from event order by ev_date desc";
+		getPreparedStatement(sql);
+		
+		try {
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				EventVO vo = new EventVO();
+				
+				vo.setEv_code(rs.getString(1));
+				vo.setEv_title(rs.getString(2));
+				vo.setEv_sdate(rs.getString(3));
+				vo.setEv_edate(rs.getString(4));
+				vo.setEv_date(rs.getString(5));
+				vo.setEv_hits(rs.getInt(6));
+				if(rs.getInt(8)>=0) {
+					if(rs.getInt(7)<0) {
+						vo.setEv_status("진행중");
+					}else {
+						vo.setEv_status("예정");
+					}
+				}else {
+					vo.setEv_status("종료");
+				}
+				
+				list.add(vo);
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		
+		return list;
+	}
 	
+	//관리자 -이벤트 내용 보기
+	public EventVO getResultContentAdmin(String ev_code) {
+		EventVO vo = new EventVO();
+		String sql = "select ev_code, ev_title, ev_sthumbnail, ev_sdetail,to_char(ev_date,'yyyy-mm-dd'),to_char(ev_sdate,'yyyy-mm-dd'), to_char(ev_edate,'yyyy-mm-dd'), ev_hits, floor(sysdate-to_date(ev_sdate,'yy/mm/dd')) startcount,floor(to_date(ev_edate,'yy/mm/dd')-sysdate)+1 endcount from event where ev_code=?";
+		getPreparedStatement(sql);
+		
+		try {
+			pstmt.setString(1, ev_code);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				vo.setEv_code(rs.getString(1));
+				vo.setEv_title(rs.getString(2));
+				vo.setEv_sthumbnail(rs.getString(3));
+				vo.setEv_sdetail(rs.getString(4));
+				vo.setEv_date(rs.getString(5));
+				vo.setEv_sdate(rs.getString(6));
+				vo.setEv_edate(rs.getString(7));
+				vo.setEv_hits(rs.getInt(8));
+				if(rs.getInt(10)>=0) {
+					if(rs.getInt(9)<0) {
+						vo.setEv_status("진행중");
+					}else {
+						vo.setEv_status("예정");
+					}
+				}else {
+					vo.setEv_status("종료");
+				}
+			}
+			
+		}catch(Exception e) {e.printStackTrace();}
+		
+		return vo;
+	}
 	
 	//관리자-이벤트 등록
 	public boolean getResultWriteAdmin(EventVO vo) {
@@ -238,6 +273,35 @@ System.out.println("id:"+rvo.getId());
 		return result;
 	}
 	
+	//관리자-이벤트 업데이트
+		public boolean getResultUpdateAdmin(EventVO vo) {
+			System.out.println(vo.getEv_code());
+			boolean result = false;
+			String sql = "update event set ev_title=?, ev_thumbnail=?, ev_sthumbnail=?,ev_detail=?,ev_sdetail=?,ev_sdate=?,ev_edate=? where ev_code=?";
+			getPreparedStatement(sql);
+			try {
+				
+				pstmt.setString(1, vo.getEv_title());
+				pstmt.setString(2, vo.getEv_thumbnail());
+				pstmt.setString(3, vo.getEv_sthumbnail());
+				pstmt.setString(4, vo.getEv_detail());
+				pstmt.setString(5, vo.getEv_sdetail());
+				pstmt.setString(6, vo.getEv_sdate());
+				pstmt.setString(7, vo.getEv_edate());
+				pstmt.setString(8, vo.getEv_code());
+				
+				int val = pstmt.executeUpdate();
+				if(val != 0) {
+					result = true;
+				}
+				System.out.println(result);
+			}catch(Exception e) {e.printStackTrace();}
+			
+			return result;
+		}
+	
+		
+		
 	public void close() {
 		try {
 			if(rs!=null) rs.close();
