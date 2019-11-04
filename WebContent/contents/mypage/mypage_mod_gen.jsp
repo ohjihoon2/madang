@@ -3,7 +3,7 @@
 <%@ page import="com.madang.vo.General_mem_VO, com.madang.service.General_mem_Service" %>
 
 <%
-	String id=String.valueOf(session.getAttribute("generalID"));
+	String id=(String)session.getAttribute("generalID");
 	
 	General_mem_Service service=new General_mem_Service();
 	General_mem_VO vo=service.getContent(id);

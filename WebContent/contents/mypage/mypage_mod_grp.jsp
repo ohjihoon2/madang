@@ -2,7 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="com.madang.vo.Group_mem_VO, com.madang.service.Group_mem_Service" %>
 <%
-	String id=String.valueOf(session.getAttribute("grouopID"));
+String general_id=(String)session.getAttribute("generalID");
+String group_id=(String)session.getAttribute("groupID");
+
+
+	String id=(String)session.getAttribute("groupID");
 	Group_mem_Service service=new Group_mem_Service();
 	Group_mem_VO vo=service.getContent(id);
 	
@@ -14,6 +18,9 @@
 	if(vo.getC_addr()=="" || vo.getC_addr()==null) vo.setC_addr("");
 	if(vo.getC_addr_d()=="" || vo.getC_addr_d()==null) vo.setC_addr_d("");
 %>
+document.write(<%= id %>);
+document.write(개인 <%= general_id %>);
+document.write(대관 <%= group_id %>);
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>

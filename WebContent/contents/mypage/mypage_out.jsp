@@ -2,11 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%
 	String general_id=(String)session.getAttribute("generalID");
-	String group_id=(String)session.getAttribute("grouopID");
+	String group_id=(String)session.getAttribute("groupID");
 	
 	System.out.println(general_id);
 	System.out.println(group_id);
 %>
+document.write(개인 <%= general_id %>);
+document.write(대관 <%= group_id %>);
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,7 +20,7 @@
 <script>
 	$(document).ready(function(){
 		
-		//var pw_msg="";
+		var pw_msg="";
 		
 		//회원탈퇴 체크박스/비밀번호 체크
 		$("button#out_btn").click(function(){
@@ -75,7 +77,7 @@
 				});
 				
 				
-			<% } else if(group_id!="null" && general_id=="null") { %> //그룹회원
+			<% } else if(group_id!=null && general_id==null) { %> //그룹회원
 				$.ajax({
 					url:"mem_out_pw_process.jsp?pw="+u_pw,
 					success:function(result){
@@ -148,7 +150,13 @@
 				<% } %>
 				 --%>
 				<button type="button" id="out_btn" class="button_a">탈퇴</button>
+				<!-- 일반회원 로그인 -->
+				<% if(general_id!=null && group_id==null) { %>
 				<a href="mypage_mod_gen.jsp"><button type="button" class="button_b">취소</button></a>
+				<!-- 대관자회원 로그인 -->
+				<% } else if(general_id==null && group_id!=null) { %>
+				<a href="mypage_mod_grp.jsp"><button type="button" class="button_b">취소</button></a>
+				<% } %>
 			</div>
 		</form>
 		

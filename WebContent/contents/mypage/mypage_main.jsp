@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	String generalId=(String)session.getAttribute("generalID");
-	String groupId=(String)session.getAttribute("groupID");
+	String general_id=(String)session.getAttribute("generalID");
+	String group_id=(String)session.getAttribute("groupID");
 %>
+document.write(개인 <%= general_id %>);
+document.write(대관 <%= group_id %>);
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,7 +22,7 @@
 		<%-- <span>일반회원 아이디:<%= session.getAttribute("generalID") %> 대관회원 아이디:<%= session.getAttribute("groupID") %></span> --%>
 		<div id="left_nav">
 			<!-- 일반회원 로그인 -->
-			<% if(generalId!=null && groupId==null) { %>
+			<% if(general_id!=null && group_id==null) { %>
 			<ul>
 				<li><a style="color: rgb(5, 135, 94)" href="mypage_main.jsp">마이페이지</a></li>
 				<li><a href="mypage_mod_gen.jsp">회원정보 수정</a></li>
@@ -28,7 +30,7 @@
 				<li><a href="mypage_bmark.jsp">찜한 공연/전시</a></li>
 			</ul>
 			<!-- 대관자회원 로그인 -->
-			<% } else if(generalId==null && groupId!=null) { %>
+			<% } else if(general_id==null && group_id!=null) { %>
 				<ul>
 				<li><a style="color: rgb(5, 135, 94)" href="mypage_main.jsp">마이페이지</a></li>
 				<li><a href="mypage_mod_grp.jsp">회원정보 수정</a></li>
@@ -40,7 +42,7 @@
 		<div id="main_title">마이페이지</div>
 		
 		<!-- 일반회원 로그인 -->
-		<% if(generalId!=null && groupId==null) { %>
+		<% if(general_id!=null && group_id==null) { %>
 		<div class="mod_icon">
 			<a href="mypage_mod_gen.jsp">
 				<div>
@@ -78,7 +80,7 @@
 		</div>
 		
 		<!-- 대관자회원 로그인 -->
-		<% } else if(generalId==null && groupId!=null) { %>
+		<% } else if(general_id==null && group_id!=null) { %>
 		<div class="mod_icon">
 			<a href="mypage_mod_grp.jsp">
 				<div>

@@ -5,7 +5,7 @@
 	//String id=request.getParameter("id");
 	
 	String general_id=(String)session.getAttribute("generalID");
-	String group_id=(String)session.getAttribute("grouopID");
+	String group_id=(String)session.getAttribute("groupID");
 	
 	String u_pw=request.getParameter("u_pw");
 	
