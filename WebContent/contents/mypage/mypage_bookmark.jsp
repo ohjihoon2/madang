@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="com.madang.service.Bookmark_Service, com.madang.vo.Bookmark_VO, java.util.ArrayList" %>
+<%
+	String id=(String)session.getAttribute("generalID");
+	
+	Bookmark_Service service=new Bookmark_Service();
+	ArrayList<Bookmark_VO> list=service.getConcertList(id);
+%>
+document.write(<%= id %>);
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -65,7 +73,24 @@ img.bmark_heart {
 		<div class="bmark">
 		<h2>공연</h2>
 		<br>
-		
+			
+			<% for(Bookmark_VO cvo : list) { %>
+			<% if(cvo.getConcert_code()!=null && cvo.getConcert_code()!="") { %>
+				<div class="bmark_list">
+					<a href="http://localhost:9090/contents/concert/concert_detail.jsp">
+						<img src="http://localhost:9090/images/concert_main/<%= cvo.getC_sposter() %>" class="bmark_poster">
+					</a>
+					<div class="bmark_info">
+						<img id="<%= cvo.getBmark_code() %>" src="http://localhost:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
+						<p><a href="http://localhost:9090/contents/concert/concert_detail.jsp"><%= cvo.getC_title() %></a></p>
+						<p><%= cvo.getC_sdate() %> ~ <%= cvo.getC_edate() %></p>
+						<p><%= cvo.getC_place() %></p>
+					</div>
+				</div>
+			<% } %>
+			<% } %>
+			
+			
 			<div class="bmark_list">
 				<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
 				<div class="bmark_info">
@@ -73,26 +98,6 @@ img.bmark_heart {
 					<p><a href="http://localhost:9090/contents/concert/concert_detail.jsp">2019 연극 늙은 부부이야기</a></p>
 					<p>2019.10.02(수) ~ 2019.10.03(목)</p>
 					<p>베토벤홀</p>
-				</div>
-			</div>
-			
-			<div class="bmark_list">
-				<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
-				<div class="bmark_info">
-					<img id="b2" src="http://localhost:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
-					<p><a href="#">이쌍용 피아노 독주회</a></p>
-					<p>2019-11-08</p>
-					<p>모짜르트홀</p>
-				</div>
-			</div>
-			
-			<div class="bmark_list">
-				<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
-				<div class="bmark_info">
-					<img id="b3" src="http://localhost:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
-					<p><a href="#">이쌍용 피아노 독주회</a></p>
-					<p>2019-11-08</p>
-					<p>모짜르트홀</p>
 				</div>
 			</div>
 			
