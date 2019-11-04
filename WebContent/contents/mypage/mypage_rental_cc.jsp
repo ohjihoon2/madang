@@ -28,33 +28,20 @@
 			<br>
 			<table border=1>
 				<tr>
-					<td>예매번호</td>
+					<td>대관번호</td>
 					<td>T45621</td>
+					<td>유형</td>
+					<td>공연</td>
+				</tr>
+				<tr>
 					<td>공연명</td>
-					<td>bbbb</td>
+					<td colspan=3>,,</td>
 				</tr>
 				<tr>
-					<td>예매일</td>
+					<td>대관 시작일</td>
 					<td>2019-09-30</td>
-					<td>관람일</td>
+					<td>대관 종료일</td>
 					<td>2019-10-31</td>
-				</tr>
-				<tr>
-					<td>결제일</td>
-					<td>2019-09-30</td>
-					<td>결제수단</td>
-					<td>카드</td>
-				</tr>
-				<tr>
-					<td>결제금액</td>
-					<td>180,500</td>
-					<td>환불금액</td>
-					<td>180,000</td>
-				</tr>
-				
-				<tr>
-					<td>좌석</td> <!-- 전시: 매수 -->
-					<td colspan=3>1층 6열 10, 1층 6열 11</td>
 				</tr>
 			</table>
 		</div>
@@ -68,9 +55,6 @@
 			<br>취소
 		</div>
 		
-		<div class="out_cfm">
-			<input type="checkbox" id="out1"> 예매취소 완료 후에는 이전 상태로 되돌릴 수 없습니다.
-		</div>
 		<div class="out_cfm">
 			<input type="checkbox" id="out2"> 안내사항을 모두 확인하였으며, 이에 동의합니다.
 		</div>

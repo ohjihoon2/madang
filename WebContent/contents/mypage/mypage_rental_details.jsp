@@ -21,111 +21,51 @@
 			</ul>
 		</div>
 
-		<div id="main_title">대관 확인 ㄹㄴㅇㄹㄴㅇㄴㅇㅇㅇㅇㅇㅇ</div>
+		<div id="main_title">대관 신청 내역</div>
 		
-		<div class="ticket_box_3">
-			<h2>공연정보</h2>
+		<div class="ticket_box_1">
+			<h2>대관 정보</h2>
 			<br>
-			<div id="poster">
-				공연포스터
-			</div>
 			<table border=1>
 				<tr>
-					<td>예매번호</td>
-					<td>T45621</td>
+					<td>대관번호</td>
+					<td>0000</td>
+				</tr>
+				<tr>
+					<td>유형</td>
+					<td>공연</td>
 				</tr>
 				<tr>
 					<td>공연명</td>
-					<td>bbbb</td>
+					<td>노트북 화면 적응 안된다</td>
 				</tr>
 				<tr>
-					<td>관람일</td>
-					<td>2019-10-31</td>
+					<td>대관 장소</td>
+					<td>슬프다..</td>
 				</tr>
 				<tr>
-					<td>장소</td>
-					<td>베토벤홀</td>
-				</tr>
-				<tr>
-					<!-- 전시: 매수 -->
-					<td>좌석</td>
-					<td>1층 6열 10, 1층 6열 11</td>
-				</tr>
-				<tr>
-					<td>예매자</td>
-					<td>김예술</td>
-				</tr>
-				<tr>
-					<td>연락처</td>
-					<td>010-2345-5432</td>
-				</tr>
-			</table>
-		</div>
-		
-		<div class="clear"></div>
-		
-		<!-- <div class="ticket_box_2">
-			<h2>결제내역</h2>
-			<br>
-			<table border=1>
-				<tr>
-					<td>예매일</td>
-					<td>2019-09-30</td>
-					<td>예매상태</td>
-					<td>예매</td>
-				</tr>
-				<tr>
-					<td>결제수단</td>
-					<td>카드</td>
-					<td>결제상태</td>
-					<td>결제</td>
-				</tr>
-			</table>
-		</div> -->
-		
-		<div class="ticket_box_1">
-			<h2>결제정보</h2>
-			<br>
-			<table border=1>
-				<tr>
-					<td>예매번호</td>
-					<td>T45621</td>
-				</tr>
-				<tr>
-					<td>예매일</td>
+					<td>대관 시작일</td>
 					<td>2019-09-30</td>
 				</tr>
 				<tr>
-					<td>예매상태</td>
-					<td>예매</td>
-				</tr>
-				<tr>
-					<td>결제일</td>
+					<td>대관 종료일</td>
 					<td>2019-09-30</td>
 				</tr>
 				<tr>
-					<td>결제수단</td>
-					<td>카드</td>
+					<td>공연 시각</td>
+					<td>20:00</td>
 				</tr>
 				<tr>
-					<td>결제상태</td>
-					<td>결제</td>
+					<td>공연 시간</td>
+					<td>2시간 30분</td>
 				</tr>
 				<tr>
-					<td>가격</td>
-					<td>200,000</td>
+					<td>리허설 시간</td>
+					<td>14:00 ~ 17:00</td>
 				</tr>
 				<tr>
-					<td>할인금액</td>
-					<td>20,000</td>
-				</tr>
-				<tr>
-					<td>예매수수료</td>
-					<td>500</td>
-				</tr>
-				<tr>
-					<td>총 결제금액</td>
-					<td>180,500</td>
+					<td>신청서</td>
+					<td>이건....어떻게해</td>
 				</tr>
 			</table>
 		</div>
