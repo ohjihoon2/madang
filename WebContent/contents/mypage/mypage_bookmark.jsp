@@ -9,15 +9,44 @@
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <script src="http://localhost:9090/js/madang.js"></script>
 <script>
-/* 	$(document).ready(function(){
-		$("p#bmark_star a").click(function() {
-			//alert("ff");
+	$(document).ready(function(){
+		
+		$("img.bmark_heart").click(function(){
+			//alert("click");
 			
-			$("p#bmark_star a").attr('value','on');
+			var bmark_id=$(this).attr("id");
+			
+			alert(bmark_id);
+			
+			
+			var bmark_val=$(this).attr("value");
+			
+			alert(bmark_val);
+			
+			if(bmark_val=="on") {
+				$(this).attr("src", "http://localhost:9090/images/bookmark/off.png");
+				$(this).attr("value", "off");
+				
+				//delete
+				
+			} else if(bmark_val=="off") {
+				$(this).attr("src", "http://localhost:9090/images/bookmark/on.png");
+				$(this).attr("value", "on");
+				
+			}
+			
+			
+			
 			
 		});
-	}); */
+	});
 </script>
+<style>
+img.bmark_heart {
+	width:40px;
+	height:40px;
+}
+</style>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />
@@ -40,10 +69,9 @@
 			<div class="bmark_list">
 				<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
 				<div class="bmark_info">
-					<p id="bmark_star"><a class="on" value="off">★</a></p>
+					<img id="b1" src="http://localhost:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
 					<p><a href="http://localhost:9090/contents/concert/concert_detail.jsp">2019 연극 늙은 부부이야기</a></p>
 					<p>2019.10.02(수) ~ 2019.10.03(목)</p>
-					<br>
 					<p>베토벤홀</p>
 				</div>
 			</div>
@@ -51,10 +79,9 @@
 			<div class="bmark_list">
 				<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
 				<div class="bmark_info">
-					<p id="bmark_star"><a class="on" value="off">★</a></p>
+					<img id="b2" src="http://localhost:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
 					<p><a href="#">이쌍용 피아노 독주회</a></p>
 					<p>2019-11-08</p>
-					<br>
 					<p>모짜르트홀</p>
 				</div>
 			</div>
@@ -62,10 +89,9 @@
 			<div class="bmark_list">
 				<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
 				<div class="bmark_info">
-					<p id="bmark_star"><a class="on" value="off">★</a></p>
+					<img id="b3" src="http://localhost:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
 					<p><a href="#">이쌍용 피아노 독주회</a></p>
 					<p>2019-11-08</p>
-					<br>
 					<p>모짜르트홀</p>
 				</div>
 			</div>
@@ -80,10 +106,9 @@
 			<div class="bmark_list">
 				<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
 				<div class="bmark_info">
-					<p></p>
+					<img id="b4" src="http://localhost:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
 					<p><a href="#">오지훈 개인전</a></p>
 					<p>2019-10-01 ~ 2019-11-30</p>
-					<br>
 					<p>오지훈특별관</p>
 				</div>
 			</div>
@@ -91,10 +116,9 @@
 			<div class="bmark_list">
 				<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
 				<div class="bmark_info">
-					<p></p>
+					<img id="b5" src="http://localhost:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
 					<p><a href="#">오지훈 개인전</a></p>
 					<p>2019-10-01 ~ 2019-11-30</p>
-					<br>
 					<p>오지훈특별관</p>
 				</div>
 			</div>
@@ -102,10 +126,9 @@
 			<div class="bmark_list">
 				<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
 				<div class="bmark_info">
-					<p></p>
+					<img id="b6" src="http://localhost:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
 					<p><a href="#">오지훈 개인전</a></p>
 					<p>2019-10-01 ~ 2019-11-30</p>
-					<br>
 					<p>오지훈특별관</p>
 				</div>
 			</div>
