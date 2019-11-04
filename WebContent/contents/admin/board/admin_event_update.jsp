@@ -46,15 +46,21 @@ div#admin_event_update section form table th{
 	border:1px solid gray;
 }
 
-div#admin_event_update section form table input[type=text]{
+div#admin_event_update section form table tr td{
+	border:1px solid gray;
+}
+div#admin_event_update section form table input[type=text],
+div#admin_event_update section form table input[type=file]{
 	width:100%;
 	height:31px;
 	border:none;
 	padding-left:10px;
 	box-sizing:border-box;
 }
-div#admin_event_update section form table tr td{
-	border:1px solid gray;
+
+div#admin_event_update section form table input[type=date]{
+	margin:0px 10px 0px 10px;
+	width:200px;
 }
 
 div#admin_event_update section form table tr:nth-child(1) td:nth-child(2),
@@ -91,6 +97,7 @@ div#admin_event_update section article button{
 }
 div#admin_event_update section article button:first-child{
 	color:white;
+	background-color:rgb(5,135,94);
 	}
 
 
@@ -99,13 +106,13 @@ div#admin_event_update section article button:first-child{
 <script>
  $(document).ready(function(){
 	 $("#adboard_cancel_event_btn").click(function(){
-		 var cancel = confirm("작성을 취소하시겠습니까?");
+		 var cancel = confirm("수정을 취소하시겠습니까?");
 		 if(cancel==1){
 			 location.replace("admin_event.jsp");
 		 }
 	 });//작성취소 클릭
 	 /**유효성 검사**/
-	 $("#adboard_writeevent_btn").click(function(){
+	 $("#adboard_upevent_btn").click(function(){
 		 alert("dd");
 		 if($("div#admin_event_update input#ad_ev_title").val() == ""){
 		 	alert("제목을 입력하세요");
@@ -133,7 +140,8 @@ div#admin_event_update section article button:first-child{
 <div id="admin_event_update" class="admin_content">
 	<h1>이 벤 트</h1>	
 	<section>
-		<form action="admin_event_proce.jsp" method="post" name="event_update" enctype="multipart/form-data">
+		<form action="admin_board_multi_proce.jsp" method="post" name="event_update" enctype="multipart/form-data">
+		<input type="hidden" name="situation" value="event_wirte"/>
 		<table>
 			<tr>
 				<th>제목</th>
@@ -141,11 +149,12 @@ div#admin_event_update section article button:first-child{
 			</tr>
 			<tr>
 				<th>이벤트 기간</th>
-				<td><input type="date" name="ev_sdate" id="ad_nw_sdate"/> ~ 
-				&nbsp;&nbsp;&nbsp;<input type="date" name="ev_edate" id="ad_nw_edate"/>
+				<td><input type="date" name="ev_sdate" id="ad_ev_sdate"/> ~ 
+				&nbsp;&nbsp;&nbsp;<input type="date" name="ev_edate" id="ad_ev_edate"/>
+				</td>
 			</tr>
 			<tr>
-				<td colspan="2"><div></div></td>
+				<td colspan="2"><div><img src="../admin_event_temp.gif"/></div></td>
 			</tr>
 			<tr>
 				<th>상세 이미지</th>
@@ -165,12 +174,12 @@ div#admin_event_update section article button:first-child{
 		</table>
 		</form>
 		<article>
-			<button type="button" style="background-color:rgb(5,135,94)" id="adboard_writeevent_btn">작성하기</button>
+			<button type="button" id="adboard_upevent_btn">수정완료</button>
 			<button type="button" id="#">미리보기</button>
 			
 			<!-- 실제 홈페이지의 게시글의 width만한 창이뜨며 해당 게시판 볼 수 있도록... -->
 			
-			<button type="button" id="adboard_cancel_event_btn">작성취소</button>
+			<button type="button" id="adboard_cancel_event_btn">수정취소</button>
 		</article>
 	</section>
 </div>

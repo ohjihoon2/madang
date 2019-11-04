@@ -123,6 +123,7 @@ aside#amdmin_left ul li>div a{
      <a href="#">게시판 관리</a>
     <div class="admin_left_sub"><a href="#">관람후기</a></div>
 	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/board/admin_notice.jsp">공지사항</a></div>
+	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/board/admin_news.jsp">언론보도</a></div>
 	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/board/admin_event.jsp">이벤트</a></div>
   </li>
   </ul>

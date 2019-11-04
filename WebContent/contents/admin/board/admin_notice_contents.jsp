@@ -32,7 +32,7 @@ div.admin_content h1{
 
 div#admin_notice_contents section table{
 	margin:30px 0px 20px 0px;
-	width:70%;
+	width:80%;
 	height:500px;
 	border-collapse: collapse;
 }
@@ -44,7 +44,6 @@ div#admin_notice_contents section table th{
 	border:1px solid gray;
 }
 div#admin_notice_contents section table tr td{
-	padding-left:10px;
 	border:1px solid gray;
 }
 
@@ -61,11 +60,14 @@ div#admin_notice_contents section table tr:nth-child(4) td div{
   	margin-top:10px;
   	overflow: auto;
 	height:450px;
-	width:98%;
+	width:100%;
 	word-break:break-all;
+	border:none;
+	padding:10px;
+	box-sizing:border-box;
 }
 div#admin_notice_contents section article {
-	width:70%;
+	width:80%;
 	text-align :right;
 }
 div#admin_notice_contents section article button{
@@ -74,9 +76,23 @@ div#admin_notice_contents section article button{
 	border:none;
 }
 
+div#admin_notice_contents section article a:first-child button{
+	color:white;
+	}
 
 
 </style>
+<script>
+$(document).ready(function(){
+	$("#adboard_delnotice_btn").click(function(){
+		var del = confirm("삭제하시겠습니까?");
+		if(del == 1){
+			location.href="admin_board_proce.jsp?situation=notice_del";
+		}
+		
+	});//삭제하기 클릭
+});
+</script>
 </head>
 <body>
 <jsp:include page="../admin_left_nav.jsp"/>
@@ -112,9 +128,9 @@ div#admin_notice_contents section article button{
 			</tr>
 		</table>
 		<article>
-			<a herf="#"><button type="button" style="background-color:rgb(5,135,94)">수정하기</button></a>
-			<button type="button" id="admin_del_btn">삭제하기</button>
-			<a herf="admin_notice.jsp"><button type="button">목록으로</button></a>
+			<a href="admin_notice_update.jsp"><button type="button" style="background-color:rgb(5,135,94)">수정하기</button></a>
+			<button type="button" id="admin_delnotice_btn">삭제하기</button>
+			<a href="admin_notice.jsp"><button type="button">목록으로</button></a>
 		</article>
 	</section>
 </div>

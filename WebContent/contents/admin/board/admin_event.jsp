@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
+<%
+	EventService service = new EventService();
+	ArrayList<EventVO> list = service.getResultListAdmin();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -54,19 +59,18 @@ div#admin_notice section div button{
 
 div#admin_notice section table{
 	width:80%;
-	height:500px; 
 	border-collapse: collapse;
 }
 div#admin_notice section table th{
 	background-color:rgb(195,195,195);
+	height:40px;
 }
-div#admin_notice section table td:nth-child(2),
-div#admin_notice section table td:nth-child(3),
-div#admin_notice section table td:nth-child(4),
-div#admin_notice section table tr:last-child td{
+div#admin_notice section table tr td{
 	text-align:center;
 	border:1px solid lightgray;
+	height:40px;
 }
+
 div#admin_notice section table tr:last-child td{
 	border-bottom:hidden;
 	border-right:hidden;
@@ -77,8 +81,22 @@ div#admin_notice section table td:first-child{
 	padding-left:20px;
 	border:1px solid lightgray;
 	width:60%;
+	text-align:left;
+}
+div#admin_notice section table td:first-child a{
+	padding: 0px 10px 0px 6px;
+	text-decoration: none;
+	color: gray;
 }
 
+div#admin_notice section table td:first-child a:hover {
+	color: #282828;
+}
+div#admin_notice section table td:first-child span{
+	border:1px solid green;
+	margin-left:20px;
+	
+}
 
 </style>
 </head>
@@ -88,7 +106,7 @@ div#admin_notice section table td:first-child{
 	<h1>이 벤 트</h1>	
 	<section>
 		<div>
-			<a href="admin_event_contents.jsp"><button type="button">작성하기</button></a>
+			<a href="admin_event_write.jsp"><button type="button">작성하기</button></a>
 		</div>
 		<table>
 			<tr>
@@ -97,12 +115,12 @@ div#admin_notice section table td:first-child{
 				<th>작성일</th>
 				<th>조회수</th>
 			</tr>
-			<%for(int i=0; i<10;i++){ %>
+			<%for(EventVO vo : list){ %>
 				<tr>
-					<td><a href="admin_event_contents.jsp">이벤트 <span style="border:1px solid green">종료</span></a></td>
-					<td>20190906~20190808</td>
-					<td>20190906</td>
-					<td>3</td>
+					<td><a href="admin_event_contents.jsp?ev_code=<%=vo.getEv_code()%>"><%=vo.getEv_title()%></a><span><%=vo.getEv_status() %></span></td>
+					<td><%=vo.getEv_sdate() %> ~ <%=vo.getEv_edate() %></td>
+					<td><%=vo.getEv_date() %></td>
+					<td><%=vo.getEv_hits() %></td>
 				</tr>	
 			<%} %>
 			<tr>

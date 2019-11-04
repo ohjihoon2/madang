@@ -130,7 +130,7 @@
 	</section>
 	<!-- 공연 대관 폼 -->
 	<section id="rental_rq_con">
-			<form action="rentalrequest_proce.jsp" method="post" name="rental_rq_con_form" enctype="multipart/form-data">
+			<form action="rentalrequest_proce.jsp" method="get" name="rental_rq_con_form" >
 			<input type="hidden" name="situation" value="rqsubmit"><!-- 호출부분이 rentalrequest_form.jsp임을 알림 -->
 			<input type="hidden" name="r_case" value="concert"><!-- 공연선택했다는걸 알림 -->
 			<table>

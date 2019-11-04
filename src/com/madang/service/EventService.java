@@ -8,7 +8,7 @@ public class EventService {
 	EventDAO dao = new EventDAO();
 
 	/** LIST*/
-	/** ÀÌº¥Æ® ¸®½ºÆ® °¡Á®¿À±â */
+	/** ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 	public ArrayList<EventVO> getResultList(){
 		ArrayList<EventVO> list = new ArrayList<EventVO>();
 		EventDAO dao = new EventDAO();		
@@ -17,7 +17,7 @@ public class EventService {
 		return list;
 	}
 	
-	/** ÇöÀç ÁøÇàÁßÀÎ ÀÌº¥Æ® ¸®½ºÆ® °¡Á®¿À±â */
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 	public ArrayList<EventVO> getResultIngList(){
 		ArrayList<EventVO> inglist = new ArrayList<EventVO>();
 		EventDAO dao = new EventDAO();
@@ -27,7 +27,7 @@ public class EventService {
 	}
 
 	/** CONTENT
-	/** ÀÌº¥Æ® ³»¿ë VO °¡Á®¿À±â */
+	/** ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ VO ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 	public EventVO getResultContent(String ev_code) {
 		EventVO vo = new EventVO();
 		EventDAO dao = new EventDAO();
@@ -36,7 +36,7 @@ public class EventService {
 		return vo;	
 	}
 	
-	/** ´ñ±Û ¸®½ºÆ® °¡Á®¿À±â **/
+	/** ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ **/
 	public ArrayList<EventReplyVO> getResultReplyList(String ev_code) {
 		ArrayList<EventReplyVO> rvo = new ArrayList<EventReplyVO>();
 		EventDAO dao = new EventDAO();
@@ -45,7 +45,7 @@ public class EventService {
 		return rvo;
 	}
 	
-	/** ´ñ±Û µî·Ï **/
+	/** ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ **/
 	public int getResultReplyWrite(EventReplyVO vo) {
 		int result = 0;
 		EventDAO dao = new EventDAO();
@@ -55,4 +55,23 @@ public class EventService {
 	}
 	
 	
+	//ê´€ë¦¬ì ì´ë²¤íŠ¸ ë¦¬ìŠ¤íŠ¸ ê°€ì ¸ì˜¤ê¸°
+	public ArrayList<EventVO> getResultListAdmin(){
+		ArrayList<EventVO> list = new ArrayList<EventVO>();
+		EventDAO dao = new EventDAO();		
+		list = dao.getResultListAdmin();	
+		dao.close();
+		
+		return list;
+	}
+	
+	//ê´€ë¦¬ì-ì´ë²¤íŠ¸ ì‘ì„±
+	public boolean getResultWriteAdmin(EventVO vo) {
+		boolean result=false;
+		EventDAO dao = new EventDAO();		
+		result = dao.getResultWriteAdmin(vo);
+		
+		dao.close();
+		return result;
+	}
 }
