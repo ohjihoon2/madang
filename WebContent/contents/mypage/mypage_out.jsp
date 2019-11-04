@@ -108,12 +108,22 @@ document.write(대관 <%= group_id %>);
 	<jsp:include page="../../header.jsp" />
 	<div>
 		<div id="left_nav">
+			<!-- 일반회원 로그인 -->
+			<% if(general_id!=null && group_id==null) { %>
 			<ul>
 				<li><a style="color: rgb(5, 135, 94)" href="mypage_main.jsp">마이페이지</a></li>
 				<li><a style="color: rgb(5, 135, 94)" href="mypage_mod_gen.jsp">회원정보 수정</a></li>
 				<li><a href="mypage_reserv_list.jsp">예매내역 확인</a></li>
-				<li><a href="mypage_bmark.jsp">찜한 공연/전시</a></li>
+				<li><a href="mypage_bookmark.jsp">찜한 공연/전시</a></li>
 			</ul>
+			<!-- 대관자회원 로그인 -->
+			<% } else if(general_id==null && group_id!=null) { %>
+				<ul>
+				<li><a style="color: rgb(5, 135, 94)" href="mypage_main.jsp">마이페이지</a></li>
+				<li><a style="color: rgb(5, 135, 94)" href="mypage_mod_grp.jsp">회원정보 수정</a></li>
+				<li><a href="mypage_rental_list.jsp">대관 확인</a></li>
+			</ul>
+			<% } %>
 		</div>
 
 		<div id="main_title">회원탈퇴</div>
