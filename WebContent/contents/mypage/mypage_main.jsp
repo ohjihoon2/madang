@@ -27,7 +27,7 @@ document.write(대관 <%= group_id %>);
 				<li><a style="color: rgb(5, 135, 94)" href="mypage_main.jsp">마이페이지</a></li>
 				<li><a href="mypage_mod_gen.jsp">회원정보 수정</a></li>
 				<li><a href="mypage_reserv_list.jsp">예매내역 확인</a></li>
-				<li><a href="mypage_bmark.jsp">찜한 공연/전시</a></li>
+				<li><a href="mypage_bookmark.jsp">찜한 공연/전시</a></li>
 			</ul>
 			<!-- 대관자회원 로그인 -->
 			<% } else if(general_id==null && group_id!=null) { %>
@@ -68,7 +68,7 @@ document.write(대관 <%= group_id %>);
 		</div>
 		
 		<div class="bmark_icon">
-		<a href="mypage_bmark.jsp">
+		<a href="mypage_bookmark.jsp">
 			<div>
 				<p><br><br>찜한 공연/전시</p>
 			</div>
