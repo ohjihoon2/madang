@@ -10,6 +10,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="http://localhost:9090/dycgv/js/jquery-3.4.1.min.js"></script>
 <style>
 *{
 	font-family:"나눔스퀘어라운드";
@@ -99,6 +100,7 @@ div#admin_notice section table td:first-child span{
 }
 
 </style>
+
 </head>
 <body>
 <jsp:include page="../admin_left_nav.jsp"/>

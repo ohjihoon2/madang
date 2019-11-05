@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
+<%
+	NewsService service = new NewsService();
+	ArrayList<NewsVO> list = service.getNewsListAdmin();
+	
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -131,19 +137,22 @@ $(document).ready(function(){
 				<th>언론사</th>
 				<th>작성일자</th>
 			</tr>
-			<%for(int i=0; i<10;i++){ %>
+			<%for(int i=0; i<list.size();i++){ %>
 				<tr>
 					<td><span class="adboard_news" id="adboard_news<%=i%>">
-							언론에서 이러쿵저러쿵 하지만 난 신경쓰지 않아
+							<%=list.get(i).getNw_title() %>
 						</span>
-						<div  class="adboard_news_url" id="adboard_news<%=i%>_url">url:http://naver.com
-								<div>
-									<a href="admin_news_update.jsp"><button type="button">수정하기</button></a>
-								</div>
+						<div  class="adboard_news_url" id="adboard_news<%=i%>_url">
+							<a href="<%=list.get(i).getNw_url() %>"><%=list.get(i).getNw_url() %></a>
+							<div>
+								<a href="admin_news_update.jsp?nw_code=<%=list.get(i).getNw_code() %>">
+									<button type="button">수정하기</button>
+								</a>
+							</div>
 						</div>
 					</td>
-					<td>20190906</td>
-					<td>3</td>
+					<td><%=list.get(i).getNw_press() %></td>
+					<td><%=list.get(i).getNw_date() %></td>
 				</tr>	
 			<%} %>
 			<tr>

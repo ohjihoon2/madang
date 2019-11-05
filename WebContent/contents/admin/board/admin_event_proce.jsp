@@ -40,6 +40,8 @@ if(situation.equals("event_wirte")){ //작성하기
 	}else{
 		result = service.getResultWriteAdmin(vo);
 	}
+
+
 	
 }else if(situation.equals("event_update")){ //업데이트
 	if(detailfile.exists()&&thumbnailfile.exists()){
@@ -56,7 +58,12 @@ if(situation.equals("event_wirte")){ //작성하기
 		result = service.getResultUpdateAdmin(vo);
 	}
 }	
-
+//페이지 이동
+if(result){
+	out.println("<script>alert('게시글이 등록되었습니다.'); location.href='http://localhost:9090/admin_event.jsp';</script>");
+}else{
+	response.sendRedirect("../admin_error.jsp");
+}
 		
 
 %> 		  
