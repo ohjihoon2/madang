@@ -10,7 +10,7 @@ import com.madang.vo.Bookmark_VO;
 
 public class Bookmark_DAO {
 	//Field
-	String url="jdbc:oracle:thin:@localhost:1521";
+	String url="jdbc:oracle:thin:@211.63.89.214:1521";
 	String user="madang";
 	String pass="1234";
 	Connection conn;

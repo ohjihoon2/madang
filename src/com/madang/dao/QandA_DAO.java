@@ -10,12 +10,13 @@ import com.madang.vo.QandA_VO;
 
 public class QandA_DAO {
 	//Field
-	String url="jdbc:oracle:thin:@localhost:1521";
+	String url="jdbc:oracle:thin:@211.63.89.214:1521";
 	String user="madang";
 	String pass="1234";
 	Connection conn;
 	PreparedStatement pstmt;
 	ResultSet rs;
+	
 	
 	//Constructor
 	public QandA_DAO() {
@@ -25,6 +26,7 @@ public class QandA_DAO {
 		} catch (Exception e) {e.printStackTrace();}
 	}
 	
+	
 	//Method
 	public void getPreparedStatement(String sql) {
 		try {
@@ -32,7 +34,7 @@ public class QandA_DAO {
 		} catch (Exception e) {e.printStackTrace();}
 	}
 	
-	/** ï¿½ï¿½ï¿½ */
+	/** µî·Ï */
 	public boolean getResultWrite(QandA_VO vo) {
 		boolean result=false;
 		
@@ -54,7 +56,7 @@ public class QandA_DAO {
 	}
 	
 	
-	/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
+	/** ³»¿ë Ãâ·Â */
 	public QandA_VO getContent(String qa_code) {
 		QandA_VO vo=new QandA_VO();
 		
@@ -81,7 +83,7 @@ public class QandA_DAO {
 	}
 	
 	
-	/** ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½Æ® */
+	/** ÀüÃ¼ ¸®½ºÆ® */
 	public ArrayList<QandA_VO> getList(String id) {
 		ArrayList<QandA_VO> list=new ArrayList<QandA_VO>();
 		
@@ -111,7 +113,7 @@ public class QandA_DAO {
 	}
 	
 	
-	/** ï¿½ï¿½ï¿½ï¿½ */
+	/** »èÁ¦ */
 	public boolean getResultDelete(String qa_code) {
 		boolean result=false;
 		
