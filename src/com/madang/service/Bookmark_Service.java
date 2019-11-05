@@ -16,22 +16,42 @@ public class Bookmark_Service {
 	}
 	
 	
-	/** 등록 */
-	public boolean getResultAdd() {
+	/** 공연 북마크 여부 */
+	public boolean getCheckBmark(String concert_code, String id) {
 		boolean result=false;
 		Bookmark_DAO dao=new Bookmark_DAO();
-		result=dao.getResultAdd();
+		result=dao.getCheckConcertBmark(concert_code, id);
+		dao.close();
+		return result;
+	}
+	
+	/** 공연 북마크 코드 */
+	public String getConcertBmarkCode(String concert_code, String id) {
+		String bmark_code="";
+		Bookmark_DAO dao=new Bookmark_DAO();
+		bmark_code=dao.getConcertBmarkCode(concert_code, id);
+		dao.close();
+		return bmark_code;
+	}
+	
+	/** 등록 */
+	public int getResultAdd(String concert_code, String id) {
+		int result=0;
+		Bookmark_DAO dao=new Bookmark_DAO();
+		result=dao.getResultAdd(concert_code, id);
 		dao.close();
 		return result;
 	}
 	
 	
 	/** 삭제 */
-	public boolean getResultDelete() {
-		boolean result=false;
+	public int getResultDelete(String bmark_code, String id) {
+		int result=0;
 		Bookmark_DAO dao=new Bookmark_DAO();
-		result=dao.getResultDelete();
+		result=dao.getResultDelete(bmark_code, id);
 		dao.close();
+		System.out.println("service "+bmark_code);
+		System.out.println("service "+result);
 		return result;
 	}
 }

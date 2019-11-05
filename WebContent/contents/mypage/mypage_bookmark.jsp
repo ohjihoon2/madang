@@ -22,9 +22,9 @@ document.write(<%= id %>);
 		$("img.bmark_heart").click(function(){
 			//alert("click");
 			
-			var bmark_id=$(this).attr("id");
+			var bmark_code=$(this).attr("id");
 			
-			alert(bmark_id);
+			//alert(bmark_code);
 			
 			
 			var bmark_val=$(this).attr("value");
@@ -36,10 +36,14 @@ document.write(<%= id %>);
 				$(this).attr("value", "off");
 				
 				//delete
+				location.href="http://localhost:9090/contents/mypage/bookmark_delete_process.jsp?flag=bmark&bmark_code="+bmark_code;
+				//ajax 하면 div만 새로 로딩하는거 알아보기
 				
 			} else if(bmark_val=="off") {
 				$(this).attr("src", "http://localhost:9090/images/bookmark/on.png");
 				$(this).attr("value", "on");
+				
+				//insert 여기서는 안함
 				
 			}
 			
@@ -49,12 +53,6 @@ document.write(<%= id %>);
 		});
 	});
 </script>
-<style>
-img.bmark_heart {
-	width:40px;
-	height:40px;
-}
-</style>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />
@@ -90,7 +88,7 @@ img.bmark_heart {
 			<% } %>
 			<% } %>
 			
-			
+			<!-- 
 			<div class="bmark_list">
 				<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
 				<div class="bmark_info">
@@ -100,38 +98,20 @@ img.bmark_heart {
 					<p>베토벤홀</p>
 				</div>
 			</div>
-			
+			 -->
 		</div>
+		
 		
 		
 		<div class="bmark">
 		<h2>전시</h2>
 		<br>
-		
+			
+			
 			<div class="bmark_list">
 				<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
 				<div class="bmark_info">
 					<img id="b4" src="http://localhost:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
-					<p><a href="#">오지훈 개인전</a></p>
-					<p>2019-10-01 ~ 2019-11-30</p>
-					<p>오지훈특별관</p>
-				</div>
-			</div>
-			
-			<div class="bmark_list">
-				<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
-				<div class="bmark_info">
-					<img id="b5" src="http://localhost:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
-					<p><a href="#">오지훈 개인전</a></p>
-					<p>2019-10-01 ~ 2019-11-30</p>
-					<p>오지훈특별관</p>
-				</div>
-			</div>
-			
-			<div class="bmark_list">
-				<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
-				<div class="bmark_info">
-					<img id="b6" src="http://localhost:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
 					<p><a href="#">오지훈 개인전</a></p>
 					<p>2019-10-01 ~ 2019-11-30</p>
 					<p>오지훈특별관</p>
