@@ -2,11 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@page import="com.madang.vo.*, com.madang.service.*, java.util.*" %>	
 <%
-	
+
 	ReviewService service = new ReviewService();
 	ArrayList<ReviewVO> list = service.getResultListByDate();	
 %>	
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -20,6 +20,12 @@ $(document).ready(function(){
 	    $(this).addClass("on").prevAll("a").addClass("on");
 	    return false;
 	});
+	
+	/* $("#btnWriteReview").click(function(){
+		if(session != null){
+			
+		}
+	}); */
 });
 </script>
 
@@ -73,6 +79,7 @@ $(document).ready(function(){
 						</th>						
 					</tr>			
 				</table>
+				<input type="hidden" name="id" value="<%=vo.getId() %>">
 				</a>
 			<%}%>
 			</div>

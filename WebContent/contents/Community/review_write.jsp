@@ -43,7 +43,8 @@
 				
 			}else if($("#review_content").val()==""){
 				alert("내용을 입력해주세요");	
-				$("#rv_content").focus();				
+				$("#rv_content").focus();
+				
 			}else{				
 				reviewForm.submit();
 			}

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.madang.dao.ReviewDAO;
 import com.madang.vo.ConcertVO;
+import com.madang.vo.ReviewReplyVO;
 import com.madang.vo.ReviewVO;
 
 public class ReviewService {
@@ -13,6 +14,7 @@ public class ReviewService {
 		ReviewDAO dao = new ReviewDAO();
 		list = dao.getResultListByDate();
 		
+		dao.close();
 		return list;
 	}
 	
@@ -22,6 +24,7 @@ public class ReviewService {
 		ReviewDAO dao = new ReviewDAO();
 		list = dao.getResultListByStar();
 		
+		dao.close();
 		return list;
 	}
 	
@@ -31,6 +34,7 @@ public class ReviewService {
 		ReviewDAO dao = new ReviewDAO();
 		clist = dao.getConcertList();
 		
+		dao.close();
 		return clist;
 	}
 
@@ -41,6 +45,7 @@ public class ReviewService {
 		ReviewDAO dao = new ReviewDAO();
 		result = dao.getResultWrite(vo);
 		
+		dao.close();
 		return result;
 	}
 	
@@ -50,6 +55,7 @@ public class ReviewService {
 		ReviewDAO dao = new ReviewDAO();
 		vo = dao.getResultContent(rv_code);
 		
+		dao.close();
 		return vo;
 	}
 	
@@ -65,7 +71,31 @@ public class ReviewService {
 		ReviewDAO dao = new ReviewDAO();
 		result = dao.getResultReviewUpdate(vo);
 		
+		dao.close();
 		return result;
 	}
+	
+	//´ñ±Û ¸®½ºÆ®
+	public ArrayList<ReviewReplyVO> getReplyList(String rv_code){
+		ArrayList<ReviewReplyVO> list = new ArrayList<ReviewReplyVO>();
+		ReviewDAO dao = new ReviewDAO();
+		list = dao.getReplyList(rv_code);
+		
+		dao.close();
+		return list;
+	}
+	
+	//´ñ±Û ±Û¾²±â
+	public boolean getResultReplyWrite(ReviewReplyVO vo){
+		boolean result = false;
+		ReviewDAO dao = new ReviewDAO();
+		result = dao.getResultReplyWrite(vo);
+		
+		dao.close();
+		return result;
+	}
+	
+	
+	
 	
 }//class
