@@ -88,8 +88,54 @@ public class Bookmark_DAO {
 	}
 	
 	
-	/** 등록 */
-	public boolean getResultAdd() {
+	/** 공연 북마크 여부 */
+	public boolean getCheckConcertBmark(String concert_code, String id) {
+		boolean result=false;
+		
+		String sql="select count(*) from bookmark, concert where bookmark.concert_code = concert.concert_code \r\n" + 
+				"  and id=? and concert.concert_code=?";
+		getPreparedStatement(sql);
+		
+		try {
+			pstmt.setString(1, id);
+			pstmt.setString(2, concert_code);
+			
+			rs=pstmt.executeQuery();
+			
+			int val=0;
+			if(rs.next()) val=rs.getInt(1);
+			if(val!=0) result=true;
+			
+		} catch (Exception e) {e.printStackTrace();}
+		
+		return result;
+	}
+	
+	
+	/** 공연 북마크 코드 */
+	public String getConcertBmarkCode(String concert_code, String id) {
+		String bmark_code="";
+		
+		String sql="select bmark_code from bookmark, concert where bookmark.concert_code = concert.concert_code \r\n" + 
+				"  and id=? and concert.concert_code=?";
+		getPreparedStatement(sql);
+		
+		try {
+			pstmt.setString(1, id);
+			pstmt.setString(2, concert_code);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) bmark_code=rs.getString(1);
+			
+		} catch (Exception e) {e.printStackTrace();}
+		
+		return bmark_code;
+	}
+	
+	
+	/** 전시 북마크 여부 */
+	public boolean getCheckExhibBmark(String exhib_code, String id) {
 		boolean result=false;
 		
 		String sql="";
@@ -103,9 +149,9 @@ public class Bookmark_DAO {
 	}
 	
 	
-	/** 삭제 */
-	public boolean getResultDelete() {
-		boolean result=false;
+	/** 전시 북마크 코드 */
+	public String getExhibBmarkCode(String concert_code, String id) {
+		String bmark_code="";
 		
 		String sql="";
 		getPreparedStatement(sql);
@@ -113,6 +159,47 @@ public class Bookmark_DAO {
 		try {
 			
 		} catch (Exception e) {e.printStackTrace();}
+		
+		return bmark_code;
+	}
+	
+	
+	/** 등록 */
+	public int getResultAdd(String concert_code, String id) {
+		int result=0;
+		
+		String sql="insert into bookmark values(('bm'||lpad(sequ_bookmark.nextval,4,'0')), ?, ?, null)";
+		getPreparedStatement(sql);
+		
+		try {
+			pstmt.setString(1, id);
+			pstmt.setString(2, concert_code);
+			
+			result=pstmt.executeUpdate();
+			
+		} catch (Exception e) {e.printStackTrace();}
+		
+		return result;
+	}
+	
+	
+	/** 삭제 */
+	public int getResultDelete(String bmark_code, String id) {
+		int result=0;
+		
+		String sql="delete from bookmark where bmark_code=? and id=?";
+		getPreparedStatement(sql);
+		
+		try {
+			pstmt.setString(1, bmark_code);
+			pstmt.setString(2, id);
+			
+			result=pstmt.executeUpdate();
+			
+		} catch (Exception e) {e.printStackTrace();}
+		
+		System.out.println("dao "+bmark_code);
+		System.out.println("dao "+result);
 		
 		return result;
 	}

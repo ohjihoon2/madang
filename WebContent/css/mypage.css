@@ -386,21 +386,20 @@ div.bmark {
 	/* border:1px solid cyan; */
 	width:950px;
 	margin-top:40px;
-	padding-left:40px;
 }
 
 div.bmark div.bmark_list {
 	/* border:1px solid red; */
-	width:440px;
+	width:460px;
 	display:inline-block;
-	margin:10px 30px 20px 0px;
+	margin:10px 10px 20px 0px;
 }
 
 div.bmark img.bmark_poster { /* 포스터 */
 	border:4px solid #9b9b9b;
 	width:120px; height:150px;
 	vertical-align:top;
-	margin-right:10px;
+	margin-right:5px;
 }
 
 div.bmark img.bmark_poster:hover {
@@ -409,7 +408,7 @@ div.bmark img.bmark_poster:hover {
 
 div.bmark div.bmark_info { /* 정보 */
 	/* border:1px solid blue; */
-	width:290px; height:125px;
+	width:320px; height:135px;
 	display:inline-block;
 	vertical-align:top;
 	padding:5px 0px 15px 0px;
@@ -433,7 +432,11 @@ div.bmark div.bmark_info > p:nth-child(2) a:hover {
 	color:#05875e;
 }
 
-
+img.bmark_heart { /* ♡ 버튼 */
+	width:40px;
+	height:40px;
+	margin-bottom:5px;
+}
 
 
 /** 하단 */
@@ -490,4 +493,22 @@ div.button button.button_a { /* 초록색 rgb(5,135,94) */
 	background:rgb(5,135,94);
 	color:rgb(255,255,255);
 	border:none;
+}
+
+
+
+
+
+
+
+/* 공연/전시 상세내역 css */
+
+div.concert_detail_info img.bmark_heart { /* ♡ 버튼 */
+	border:1px solid #e5002c;
+	border-radius: 5px;
+	display:inline-block;
+	width:29px;
+	height:29px;
+	padding:0px 20px 0px 20px;
+	margin-bottom:-11px;
 }

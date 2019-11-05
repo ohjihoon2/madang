@@ -1,15 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.madang.vo.ConcertVO, com.madang.service.ConcertService"%>
+<%@ page import="com.madang.vo.Bookmark_VO, com.madang.service.Bookmark_Service" %>
  <%
  	String code = request.getParameter("concert_code");
  	ConcertService service = new ConcertService();
  	ConcertVO vo = service.getConcertDetail(code);
  %>
+<%
+	String id=(String)session.getAttribute("generalID");
+	
+	boolean b_check=false;
+	Bookmark_Service b_service=new Bookmark_Service();
+	b_check=b_service.getCheckBmark(vo.getConcert_code(), id);
+	
+	String on_off;
+	String val;
+	
+	if(b_check) {
+		on_off="on";
+		val="on";
+	} else {
+		on_off="off";
+		val="off";
+	}
+	
+	
+	String bmark_code="";
+	bmark_code=b_service.getConcertBmarkCode(vo.getConcert_code(), id);
+	
+	
+%>
+document.write(<%= bmark_code %>);
+document.write(<%= code %>);
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="http://localhost:9090/css/mypage.css"/> <!-- 찜하기 버튼 -->
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <style>
 	*{
 		font-family:"나눔스퀘어라운드";
@@ -132,7 +161,7 @@
 		margin:30px 0px 20px 250px;
 		text-align: left;
 	}
-	div.concert_detail_info>div>div#content_detail_right>a{
+	div.concert_detail_info>div>div#content_detail_right>a{ /* 예매하기 */
 		display:inline-block;
 		background:#e5002c;
 		color:white;
@@ -141,6 +170,7 @@
 		margin:20px 20px 0px 250px;
 		padding:5px 55px 5px 55px;
 		border-radius: 5px;
+		
 	}
 	th{
 		width:100px;
@@ -155,7 +185,92 @@
 	#content_image{
 		width:1000px;
 	}
+	
 </style>
+
+<script>
+$(document).ready(function(){
+	
+	$("img.bmark_heart").click(function(){
+		//alert("click");
+		
+		
+		var c_bmark_code=$(this).attr("id");
+			
+		alert("code:"+c_bmark_code);
+		
+		
+		var bmark_val=$(this).attr("value");
+		
+		alert("value:"+bmark_val);
+		
+		/* 
+		if(bmark_val=="on") {
+			$(this).attr("src", "http://localhost:9090/images/bookmark/off.png");
+			$(this).attr("value", "off");
+			
+		} else if(bmark_val=="off") {
+			$(this).attr("src", "http://localhost:9090/images/bookmark/on.png");
+			$(this).attr("value", "on");
+			
+		}
+		 */
+		
+		
+		if(bmark_val=="on") {
+			//삭제
+			//alert(c_bmark_code);
+			<%-- location.href="http://localhost:9090/contents/mypage/bookmark_delete_process.jsp?flag=detail&concert_code=<%= code %>&bmark_code="+c_bmark_code; --%>
+			
+			$.ajax({
+				url:"../mypage/bookmark_delete_process.jsp?flag=detail&content_code=<%= code %>&bmark_code="+c_bmark_code,
+				success:function(result) {
+					//alert(result); 1이면 성공
+					
+					System.out.println("detail "+bmark_code);
+					System.out.println("detail "+result);
+					
+					if(result==0) {
+						alert("실패")
+					} else {
+						$("img.bmark_heart").attr("src", "http://localhost:9090/images/bookmark/off.png");
+						
+						alert("찜 목록에서 삭제되었습니다.");
+					}
+				}
+				
+			});
+			
+			$(this).attr("value", "off");
+			
+			
+		} else if (bmark_val=="off") {
+			//등록
+			<%-- location.href="http://localhost:9090/contents/mypage/bookmark_add_process.jsp?concert_code=<%= vo.getConcert_code() %>"; --%>
+			
+			$.ajax({
+				url:"../mypage/bookmark_add_process.jsp?concert_code=<%= vo.getConcert_code() %>",
+				success:function(result) {
+					//alert(result); 1이면 성공
+					if(result==0) {
+						alert("실패")
+					} else {
+						$("img.bmark_heart").attr("src", "http://localhost:9090/images/bookmark/on.png");
+						
+						alert("찜 목록에 등록되었습니다.");
+					}
+				}
+			});
+			
+			$(this).attr("value", "on");
+			
+			
+		}
+		
+	});
+});
+</script>
+
 </head>
 <body>
 	<jsp:include page="../../header.jsp"/>
@@ -216,10 +331,14 @@
 					</tr>
 				</table>
 				<a href="#">예매하기</a>
+				
+				
+				<img id="<%= bmark_code %>" src="http://localhost:9090/images/bookmark/<%= on_off %>.png" class="bmark_heart" value="<%= val %>" />
+				
+				
 			</div>
-			<div>
-				<img src="http://localhost:9090/images/concert_main/<%=vo.getC_info_poster() %>" id="content_image">
-			</div>
+			
+			<img src="http://localhost:9090/images/concert_main/<%=vo.getC_info_poster() %>" id="content_image">
 		</div>
 	</div>
 	<jsp:include page="../../footer.jsp"/>
