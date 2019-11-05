@@ -229,7 +229,7 @@ public class EventDAO {
 				vo.setEv_hits(rs.getInt(8));
 				if(rs.getInt(10)>=0) {
 					if(rs.getInt(9)<0) {
-						vo.setEv_status("진행중");
+						vo.setEv_status("진행중진행중");
 					}else {
 						vo.setEv_status("예정");
 					}
