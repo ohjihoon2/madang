@@ -5,7 +5,8 @@
 	String id=(String)session.getAttribute("generalID");
 	
 	Bookmark_Service service=new Bookmark_Service();
-	ArrayList<Bookmark_VO> list=service.getConcertList(id);
+	ArrayList<Bookmark_VO> c_list=service.getConcertList(id); //공연
+	ArrayList<Bookmark_VO> e_list=service.getConcertList(id); //전시
 %>
 document.write(<%= id %>);
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -37,7 +38,7 @@ document.write(<%= id %>);
 				
 				//delete
 				location.href="http://localhost:9090/contents/mypage/bookmark_delete_process.jsp?flag=bmark&bmark_code="+bmark_code;
-				//ajax 하면 div만 새로 로딩하는거 알아보기
+				
 				
 			} /* else if(bmark_val=="off") {
 				$(this).attr("src", "http://localhost:9090/images/bookmark/on.png");
@@ -65,59 +66,51 @@ document.write(<%= id %>);
 				<li><a style="color: rgb(5, 135, 94)" href="mypage_bookmark.jsp">찜한 공연/전시</a></li>
 			</ul>
 		</div>
-
+		
 		<div id="main_title">찜한 공연/전시</div>
 		
 		<div class="bmark">
 		<h2>공연</h2>
 		<br>
-			
-			<% for(Bookmark_VO cvo : list) { %>
+		
+		<% for(Bookmark_VO cvo : c_list) { %>
 			<% if(cvo.getConcert_code()!=null && cvo.getConcert_code()!="") { %>
 				<div class="bmark_list">
-					<a href="http://localhost:9090/contents/concert/concert_detail.jsp">
+					<a href="http://localhost:9090/contents/concert/concert_detail.jsp?concert_code=<%= cvo.getConcert_code() %>">
 						<img src="http://localhost:9090/images/concert_main/<%= cvo.getC_sposter() %>" class="bmark_poster">
 					</a>
 					<div class="bmark_info">
 						<img id="<%= cvo.getBmark_code() %>" src="http://localhost:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
-						<p><a href="http://localhost:9090/contents/concert/concert_detail.jsp"><%= cvo.getC_title() %></a></p>
+						<p><a href="http://localhost:9090/contents/concert/concert_detail.jsp?concert_code=<%= cvo.getConcert_code() %>"><%= cvo.getC_title() %></a></p>
 						<p><%= cvo.getC_sdate() %> ~ <%= cvo.getC_edate() %></p>
 						<p><%= cvo.getC_place() %></p>
 					</div>
 				</div>
 			<% } %>
-			<% } %>
-			
-			<!-- 
-			<div class="bmark_list">
-				<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
-				<div class="bmark_info">
-					<img id="b1" src="http://localhost:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
-					<p><a href="http://localhost:9090/contents/concert/concert_detail.jsp">2019 연극 늙은 부부이야기</a></p>
-					<p>2019.10.02(수) ~ 2019.10.03(목)</p>
-					<p>베토벤홀</p>
-				</div>
-			</div>
-			 -->
-		</div>
+		<% } %>
 		
+		</div>
 		
 		
 		<div class="bmark">
 		<h2>전시</h2>
 		<br>
-			
-			
-			<div class="bmark_list">
-				<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif" class="bmark_poster"></a>
-				<div class="bmark_info">
-					<img id="b4" src="http://localhost:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
-					<p><a href="#">오지훈 개인전</a></p>
-					<p>2019-10-01 ~ 2019-11-30</p>
-					<p>오지훈특별관</p>
+		
+		<% for(Bookmark_VO evo : e_list) { %>
+			<% if(evo.getExhib_code()!=null && evo.getExhib_code()!="") { %>
+				<div class="bmark_list">
+					<a href="http://localhost:9090/contents/concert/concert_detail.jsp?concert_code=<%= evo.getExhib_code() %>">
+						<img src="http://localhost:9090/images/exhibition/<%= evo.getE_sposter() %>" class="bmark_poster">
+					</a>
+					<div class="bmark_info">
+						<img id="<%= evo.getBmark_code() %>" src="http://localhost:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
+						<p><a href="http://localhost:9090/contents/concert/concert_detail.jsp?concert_code=<%= evo.getExhib_code() %>"><%= evo.getE_title() %></a></p>
+						<p><%= evo.getE_sdate() %> ~ <%= evo.getE_edate() %></p>
+						<p><%= evo.getE_place() %></p>
+					</div>
 				</div>
-			</div>
-			
+			<% } %>
+		<% } %>	
 		</div>
 		
 		

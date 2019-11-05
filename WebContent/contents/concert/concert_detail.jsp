@@ -44,10 +44,10 @@ $(document).ready(function(){
 	$("img.bmark_heart").click(function(){
 		
 		var c_bmark_code=$(this).attr("id");
-		alert("code:"+c_bmark_code);
+		//alert("code:"+c_bmark_code);
 		
 		var bmark_val=$(this).attr("value");
-		alert("value:"+bmark_val);
+		//alert("value:"+bmark_val);
 		
 		if(bmark_val=="on") {
 			//삭제
