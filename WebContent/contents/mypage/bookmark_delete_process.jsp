@@ -12,6 +12,7 @@
 	Bookmark_Service service=new Bookmark_Service();
 	result=service.getResultDelete(bmark_code, id);
 	
+	System.out.println("process "+concert_code);
 	System.out.println("process "+bmark_code);
 	System.out.println("process "+result);
 	

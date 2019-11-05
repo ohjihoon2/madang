@@ -39,13 +39,13 @@ document.write(<%= id %>);
 				location.href="http://localhost:9090/contents/mypage/bookmark_delete_process.jsp?flag=bmark&bmark_code="+bmark_code;
 				//ajax 하면 div만 새로 로딩하는거 알아보기
 				
-			} else if(bmark_val=="off") {
+			} /* else if(bmark_val=="off") {
 				$(this).attr("src", "http://localhost:9090/images/bookmark/on.png");
 				$(this).attr("value", "on");
 				
 				//insert 여기서는 안함
 				
-			}
+			} */
 			
 			
 			

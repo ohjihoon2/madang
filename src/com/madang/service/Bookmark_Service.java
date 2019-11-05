@@ -40,6 +40,8 @@ public class Bookmark_Service {
 		Bookmark_DAO dao=new Bookmark_DAO();
 		result=dao.getResultAdd(concert_code, id);
 		dao.close();
+		System.out.println("dao 등록 "+concert_code);
+		System.out.println("dao 등록 "+result);
 		return result;
 	}
 	
@@ -50,8 +52,8 @@ public class Bookmark_Service {
 		Bookmark_DAO dao=new Bookmark_DAO();
 		result=dao.getResultDelete(bmark_code, id);
 		dao.close();
-		System.out.println("service "+bmark_code);
-		System.out.println("service "+result);
+		System.out.println("service 삭제 "+bmark_code);
+		System.out.println("service 삭제 "+result);
 		return result;
 	}
 }

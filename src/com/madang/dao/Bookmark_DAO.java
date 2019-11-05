@@ -179,6 +179,9 @@ public class Bookmark_DAO {
 			
 		} catch (Exception e) {e.printStackTrace();}
 		
+		System.out.println("dao 등록 "+concert_code);
+		System.out.println("dao 등록 "+result);
+		
 		return result;
 	}
 	
@@ -198,8 +201,8 @@ public class Bookmark_DAO {
 			
 		} catch (Exception e) {e.printStackTrace();}
 		
-		System.out.println("dao "+bmark_code);
-		System.out.println("dao "+result);
+		System.out.println("dao 삭제 "+bmark_code);
+		System.out.println("dao 삭제 "+result);
 		
 		return result;
 	}

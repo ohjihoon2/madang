@@ -58,4 +58,69 @@ $(document).ready(function(){
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	//찜목록 - 등록/삭제
+	
+	
+	
+	
+	
+	
+	
+	/* 여기로 옮겨오면 <%= vo.getConcert_code() %> 안됨 열받아
+	
+	//공연 상세내역 - 등록/삭제
+	$("img.bmark_heart").click(function(){
+		
+		var c_bmark_code=$(this).attr("id");
+		alert("code:"+c_bmark_code);
+		
+		var bmark_val=$(this).attr("value");
+		alert("value:"+bmark_val);
+		
+		if(bmark_val=="on") {
+			//삭제
+			$.ajax({
+				url:"../mypage/bookmark_delete_process.jsp?flag=detail&content_code=<%= code %>&bmark_code="+c_bmark_code,
+				success:function(result) {
+					//alert(result); 1이면 성공
+					if(result!=0) {
+						//$("img.bmark_heart").attr("src", "http://localhost:9090/images/bookmark/off.png");
+						alert("찜 목록에서 삭제되었습니다.");
+					} else {
+						alert("실패");
+					}
+				}
+				
+			});
+			
+		} else if (bmark_val=="off") {
+			//등록
+			$.ajax({
+				url:"../mypage/bookmark_add_process.jsp?concert_code=<%= vo.getConcert_code() %>",
+				success:function(result) {
+					//alert(result); 1이면 성공
+					if(result!=0) {
+						//$("img.bmark_heart").attr("src", "http://localhost:9090/images/bookmark/on.png");
+						alert("찜 목록에 등록되었습니다.");
+					} else {
+						alert("실패");
+					}
+				}
+			});
+			
+		}
+		
+		location.reload();
+	});
+	
+	*/
+	
+	//전시 상세내역 - 등록/삭제
+	
 });
