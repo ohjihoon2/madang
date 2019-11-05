@@ -37,7 +37,7 @@ document.write(<%= code %>);
 <title>Insert title here</title>
 <link rel="stylesheet" href="http://localhost:9090/css/mypage.css"/> <!-- 찜하기 버튼 -->
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
-<script src="http://localhost:9090/js/mypage.js"></script> <!-- 찜하기 jquery -->
+<!-- <script src="http://localhost:9090/js/mypage.js"></script> --> <!-- 찜하기 jquery -->
 <script>
 $(document).ready(function(){
 	
