@@ -145,7 +145,7 @@ $(document).ready(function(){
 						<div  class="adboard_news_url" id="adboard_news<%=i%>_url">
 							<a href="<%=list.get(i).getNw_url() %>"><%=list.get(i).getNw_url() %></a>
 							<div>
-								<a href="admin_news_update.jsp?nw_code=<%=list.get(i).getNw_code() %>">
+								<a href="admin_news_update.jsp?nw_code=<%=list.get(i).getNw_code()%>">
 									<button type="button">수정하기</button>
 								</a>
 							</div>

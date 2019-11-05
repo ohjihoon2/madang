@@ -32,7 +32,7 @@ public class NewsDAO {
 			} catch (Exception e) {e.printStackTrace();}
 		}
 		
-		//관리자 -언론보도 리스트 가져오기
+		//愿�由ъ옄 -�뼵濡좊낫�룄 由ъ뒪�듃 媛��졇�삤湲�
 		public ArrayList<NewsVO> getNewsListAdmin(){
 			ArrayList<NewsVO> list = new ArrayList<NewsVO>();
 			String sql="select nw_code, nw_title, to_char(nw_date,'yyyy-mm-dd'), nw_press, nw_url from news";
@@ -55,13 +55,80 @@ public class NewsDAO {
 		}
 		
 		
-		//관리자 업데이트_1.내용가져오기
-		public NewsVO getNewsContentAdmin() {
+		//admin - bring to update page
+		public NewsVO getNewsContentAdmin(String nw_code) {
 			NewsVO vo = new NewsVO();
+			String sql="select nw_code, nw_title, to_char(nw_date,'yyyy-mm-dd'), nw_press, nw_url from news where nw_code=?";
+			getPreparedStatement(sql);
+			try {
+				pstmt.setString(1, nw_code);
+				rs=pstmt.executeQuery();
+				if(rs.next()) {
+					vo.setNw_code(rs.getString(1));
+					vo.setNw_title(rs.getString(2));
+					vo.setNw_date(rs.getString(3));
+					vo.setNw_press(rs.getString(4));
+					vo.setNw_url(rs.getString(5));
+				}
+			}catch(Exception e) {e.printStackTrace();}
 			return vo;
 		}
 		
 		
+		//damin - update
+		public boolean getResultUpdate(NewsVO vo) {
+			boolean result = false;
+			String sql = "update news set nw_title=?,nw_press=?,nw_url=? where nw_code=?";
+			getPreparedStatement(sql);
+			try {
+				pstmt.setString(1, vo.getNw_title());
+				pstmt.setString(2, vo.getNw_press());
+				pstmt.setString(3, vo.getNw_url());
+				pstmt.setString(4, vo.getNw_code());
+				
+				int val = pstmt.executeUpdate();
+				if(val!=0) {
+					result = true;
+				}
+			}catch(Exception e) {e.printStackTrace();}
+			return result;
+		}
+		
+		//admin - new write
+		public boolean getResultWrite(NewsVO vo) {
+			boolean result = false;
+			String sql = "insert into news values('nw'|| lpad(sequ_news.nextval, 4,'0'), ?,sysdate,?,?)";
+			getPreparedStatement(sql);
+			try {
+				pstmt.setString(1, vo.getNw_title());
+				pstmt.setString(2, vo.getNw_press());
+				pstmt.setString(3, vo.getNw_url());
+				
+				int val = pstmt.executeUpdate();
+				if(val!=0) {
+					result = true;
+				}
+			}catch(Exception e) {e.printStackTrace();}
+			return result;
+		}
+		
+		
+		
+		//admin - delete
+		public boolean getResultDelete(String nw_code) {
+			boolean result = false;
+			String sql = "delete news where nw_code=?";
+			getPreparedStatement(sql);
+			try {
+				pstmt.setString(1, nw_code);
+				
+				int val = pstmt.executeUpdate();
+				if(val!=0) {
+					result = true;
+				}
+			}catch(Exception e) {e.printStackTrace();}	
+			return result;
+		}
 		
 		
 		public void close() {

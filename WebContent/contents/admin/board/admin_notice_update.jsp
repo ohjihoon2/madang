@@ -117,7 +117,8 @@ $(document).ready(function(){
 <div id="admin_notice_update" class="admin_content">
 	<h1>공 지 사 항</h1>	
 	<section>
-		<form action="admin_board_multi_proce.jsp" mehtod="post" name="notice_update"/>
+		<form action="admin_board_multi_proce.jsp" mehtod="post" name="notice_update" enctype="multipart/form-data"/>
+		<input type="hidden" name="situation" value="notice_update"/>
 		<table>
 			<tr>
 				<th>제목</th>

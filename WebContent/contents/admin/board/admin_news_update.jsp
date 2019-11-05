@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
+<%@ page import="com.madang.service.*, com.madang.vo.*" %>
+
+
 <%
+	String nw_code = request.getParameter("nw_code");
 	NewsService service = new NewsService();
-	NewsVO vo = new NewsVO();
-	
+	NewsVO vo = service.getNewsContentAdmin(nw_code);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -91,21 +93,24 @@ div#admin_news_update section article button:first-child{
 	 });//작성취소 클릭
 	 /**유효성 검사**/
 	 $("#adboard_writenw_btn").click(function(){
-		 alert("dd");
-		 if($("div#admin_news_update input#ad_nw_title").val() == ""){
-		 	alert("제목을 입력하세요");
-	 	 }else if($("div#admin_news_update input#ad_nw_url").val() == ""){
-		 	alert("기사 url을 입력하세요");
-	 	 }else if($("div#admin_news_update input#ad_nw_press").val() == ""){
-		 	alert("언론사를 입력하세요");
-	 	 }else{
-	 		event_update.submit();
-	 	 }
+		 var check = confirm("수정하겠습니까?");
+		 if(check==1){
+			 
+		 	 if($("div#admin_news_update input#ad_nw_title").val() == ""){
+			 	alert("제목을 입력하세요");
+		 	 }else if($("div#admin_news_update input#ad_nw_url").val() == ""){
+			 	alert("기사 url을 입력하세요");
+		 	 }else if($("div#admin_news_update input#ad_nw_press").val() == ""){
+			 	alert("언론사를 입력하세요");
+		 	 }else{
+		 		news_update.submit();
+		 	 }
+		 }
 	 });
 	 $("#adboard_delnews_btn").click(function(){
 			var del = confirm("삭제하시겠습니까?");
 			if(del == 1){
-				location.href="admin_board_proce.jsp?situation=event_del";
+				location.href="admin_news_proce.jsp?situation=news_del&nw_code=<%=nw_code%>";
 			}
 			
 		});//삭제하기 클릭
@@ -120,20 +125,21 @@ div#admin_news_update section article button:first-child{
 <div id="admin_news_update" class="admin_content">
 	<h1>언 론 보 도</h1>	
 	<section>
-		<form action="admin_board_proce.jsp" method="post" name="news_write">
-		<input type="hidden" name="situation" value="event_wirte"/>
+		<form action="admin_news_proce.jsp" method="post" name="news_update">
+		<input type="hidden" name="situation" value="news_update"/>
+		<input type="hidden" name="nw_code" value="<%=nw_code%>"/>
 		<table>
 			<tr>
 				<th>제목</th>
-				<td><input type="text" name="nw_title" id="ad_nw_title"/></td>
+				<td><input type="text" name="nw_title" id="ad_nw_title" value="<%=vo.getNw_title()%>"/></td>
 			</tr>
 			<tr>
 				<th>기사 url</th>
-				<td><input type="text" name="nw_url" id="ad_nw_url"></td>
+				<td><input type="text" name="nw_url" id="ad_nw_url" value="<%=vo.getNw_url()%>"></td>
 			</tr>
 			<tr>
 				<th>언론사</th>
-				<td><input type="text" name="nw_press" id="ad_nw_press"></td>
+				<td><input type="text" name="nw_press" id="ad_nw_press" value="<%=vo.getNw_press()%>"></td>
 			</tr>
 		</table>
 		</form>

@@ -31,40 +31,40 @@ div.admin_content h1{
 
 
 
-div#admin_notice_update section form table{
+div#admin_notice_write section form table{
 	margin:30px 0px 20px 0px;
 	width:80%;
 	height:500px;
 	border-collapse: collapse;
 }
 
-div#admin_notice_update section form table th{
+div#admin_notice_write section form table th{
 	background-color:rgb(195,195,195);
 	width:100px;
 	height:32px;
 	border:1px solid gray;
 }
-div#admin_notice_update section form table tr td{
+div#admin_notice_write section form table tr td{
 	border:1px solid gray;
 }
 
-div#admin_notice_update section form table tr:nth-child(1) td:nth-child(2){
+div#admin_notice_write section form table tr:nth-child(1) td:nth-child(2){
 	width:520px;
 }
 
-div#admin_notice_update section form table tr:nth-child(3) td{
+div#admin_notice_write section form table tr:nth-child(3) td{
 	height:460px;
   
 }
-div#admin_notice_update section form table input[type=text],
-div#admin_notice_update section form table input[type=file]{
+div#admin_notice_write section form table input[type=text],
+div#admin_notice_write section form table input[type=file]{
 	width:100%;
 	height:31px;
 	border:none;
 	padding-left:10px;
 	box-sizing:border-box;
 }
-div#admin_notice_update section form table tr:nth-child(3) td textarea{
+div#admin_notice_write section form table tr:nth-child(3) td textarea{
   	margin-top:10px;
   	overflow: auto;
 	height:450px;
@@ -74,17 +74,17 @@ div#admin_notice_update section form table tr:nth-child(3) td textarea{
 	padding:10px;
 	box-sizing:border-box;
 }
-div#admin_notice_update section article {
+div#admin_notice_write section article {
 	width:80%;
 	text-align :right;
 }
-div#admin_notice_update section article button{
+div#admin_notice_write section article button{
 	width:100px;
 	height:35px;
 	border:none;
 }
 
-div#admin_notice_update section article button:first-child {
+div#admin_notice_write section article button:first-child {
 	background-color:rgb(5,135,94);
 	color:white;
 }
@@ -101,12 +101,12 @@ $(document).ready(function(){
 	 });//작성취소 클릭
 	 /**유효성 검사**/
 	 $("#adboard_writenotice_btn").click(function(){
-		 if($("div#admin_notice_update input#ad_nt_title").val() == ""){
+		 if($("div#admin_notice_write input#ad_nt_title").val() == ""){
 		 	alert("제목을 입력하세요");
-	 	 }else if($("div#admin_notice_update textarea#ad_nt_contents").val() == ""){
+	 	 }else if($("div#admin_notice_write textarea#ad_nt_contents").val() == ""){
 		 	alert("내용을 입력하세요");
 	 	 }else{
-	 		notice_update.submit();
+	 		notice_write.submit();
 	 	 }
 	 });
 });
@@ -114,10 +114,11 @@ $(document).ready(function(){
 </head>
 <body>
 <jsp:include page="../admin_left_nav.jsp"/>
-<div id="admin_notice_update" class="admin_content">
+<div id="admin_notice_write" class="admin_content">
 	<h1>공 지 사 항</h1>	
 	<section>
-		<form action="admin_board_multi_proce.jsp" mehtod="post" name="notice_update"/>
+		<form action="admin_board_multi_proce.jsp" mehtod="post" name="notice_wirte" enctype="multipart/form-data"/>
+		<input type="hidden" name="situation" value="notice_write"/>
 		<table>
 			<tr>
 				<th>제목</th>

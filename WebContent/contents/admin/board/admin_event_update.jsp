@@ -204,7 +204,7 @@ div#admin_event_update section article button:first-child{
 <div id="admin_event_update" class="admin_content">
 	<h1>이 벤 트</h1>	
 	<section>
-		<form action="admin_event_proce.jsp" method="post" name="event_update" enctype="multipart/form-data">
+		<form action="admin_event_multi_proce.jsp" method="post" name="event_update" enctype="multipart/form-data">
 		<input type="hidden" name="situation" value="event_update"/>
 		<input type="hidden" name="ev_code" value="<%=ev_code%>"/>
 		<table>

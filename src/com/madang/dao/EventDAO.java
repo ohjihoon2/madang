@@ -193,12 +193,12 @@ public class EventDAO {
 				vo.setEv_hits(rs.getInt(6));
 				if(rs.getInt(8)>=0) {
 					if(rs.getInt(7)<0) {
-						vo.setEv_status("吏꾪뻾以�");
+						vo.setEv_status("진행중");
 					}else {
-						vo.setEv_status("�삁�젙");
+						vo.setEv_status("예정");
 					}
 				}else {
-					vo.setEv_status("醫낅즺");
+					vo.setEv_status("종료");
 				}
 				
 				list.add(vo);
@@ -229,12 +229,12 @@ public class EventDAO {
 				vo.setEv_hits(rs.getInt(8));
 				if(rs.getInt(10)>=0) {
 					if(rs.getInt(9)<0) {
-						vo.setEv_status("吏꾪뻾以�");
+						vo.setEv_status("진행중");
 					}else {
-						vo.setEv_status("�삁�젙");
+						vo.setEv_status("예정");
 					}
 				}else {
-					vo.setEv_status("醫낅즺");
+					vo.setEv_status("종료");
 				}
 			}
 			

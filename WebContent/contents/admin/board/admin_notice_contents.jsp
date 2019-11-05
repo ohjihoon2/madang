@@ -84,10 +84,10 @@ div#admin_notice_contents section article a:first-child button{
 </style>
 <script>
 $(document).ready(function(){
-	$("#adboard_delnotice_btn").click(function(){
+	$("#adnotice_del_btn").click(function(){
 		var del = confirm("삭제하시겠습니까?");
 		if(del == 1){
-			location.href="admin_board_proce.jsp?situation=notice_del";
+			location.href="#";
 		}
 		
 	});//삭제하기 클릭
@@ -129,7 +129,7 @@ $(document).ready(function(){
 		</table>
 		<article>
 			<a href="admin_notice_update.jsp"><button type="button" style="background-color:rgb(5,135,94)">수정하기</button></a>
-			<button type="button" id="admin_delnotice_btn">삭제하기</button>
+			<button type="button" id="adnotice_del_btn">삭제하기</button>
 			<a href="admin_notice.jsp"><button type="button">목록으로</button></a>
 		</article>
 	</section>

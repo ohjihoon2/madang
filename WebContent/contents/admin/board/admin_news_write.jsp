@@ -85,7 +85,6 @@ div#admin_news_write section article button:first-child{
 	 });//작성취소 클릭
 	 /**유효성 검사**/
 	 $("#adboard_writenw_btn").click(function(){
-		 alert("dd");
 		 if($("div#admin_news_write input#ad_nw_title").val() == ""){
 		 	alert("제목을 입력하세요");
 	 	 }else if($("div#admin_news_write input#ad_nw_url").val() == ""){
@@ -93,7 +92,7 @@ div#admin_news_write section article button:first-child{
 	 	 }else if($("div#admin_news_write input#ad_nw_press").val() == ""){
 		 	alert("언론사를 입력하세요");
 	 	 }else{
-	 		event_update.submit();
+	 		news_write.submit();
 	 	 }
 	 });
 
@@ -108,8 +107,8 @@ div#admin_news_write section article button:first-child{
 <div id="admin_news_write" class="admin_content">
 	<h1>언 론 보 도</h1>	
 	<section>
-		<form action="admin_board_proce.jsp" method="post" name="news_write">
-		<input type="hidden" name="situation" value="event_wirte"/>
+		<form action="admin_news_proce.jsp" method="post" name="news_write">
+		<input type="hidden" name="situation" value="news_wirte"/>
 		<table>
 			<tr>
 				<th>제목</th>

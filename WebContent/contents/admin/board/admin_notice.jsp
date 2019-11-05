@@ -87,7 +87,7 @@ div#admin_notice section table td:first-child{
 	<h1>공 지 사 항</h1>	
 	<section>
 		<div>
-			<button type="button">작성하기</button>
+			<a href="admin_notice_write.jsp"><button type="button">작성하기</button></a>
 		</div>
 		<table>
 			<tr>

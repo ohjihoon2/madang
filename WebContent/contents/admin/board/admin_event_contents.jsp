@@ -107,9 +107,8 @@ div#admin_event_contents section article a:first-child button{
 </style>
 
 <script>
-	//이미지를 파일선택하기로 올리면 테이블에 그 이미지를 작은사이지로 올리고 클릭시 새창뜨게 하기
 	$(document).ready(function(){
-		$("#adboard_delevent_btn").click(function(){
+		$("#adevent_del_btn").click(function(){
 			var del = confirm("삭제하시겠습니까?");
 			if(del == 1){
 				location.href="admin_board_proce.jsp?situation=event_del&ev_code=<%=vo.getEv_code()%>";
@@ -174,7 +173,7 @@ div#admin_event_contents section article a:first-child button{
 		</table>
 		<article>
 			<a href="admin_event_update.jsp?ev_code=<%=ev_code%>"><button type="button" style="background-color:rgb(5,135,94)">수정하기</button></a>
-			<button type="button" id="adboard_delevent_btn">삭제하기</button>
+			<button type="button" id="adevent_del_btn">삭제하기</button>
 			<a href="admin_event.jsp"><button type="button">목록으로</button></a>
 		</article>
 	</section>
