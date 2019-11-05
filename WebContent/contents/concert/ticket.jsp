@@ -9,6 +9,10 @@
 	ConcertService service = new ConcertService();
 	ConcertVO cvo = service.getConcertDetail(code);
 	
+	
+	String place =cvo.getC_place().trim();
+	System.out.println("장소 = "+place);
+	
 	String time = cvo.getC_stime();
 	String[] timelist = time.split(";");
 	
@@ -234,7 +238,30 @@
 		margin:5px 0px 5px 0px;
 		font-size:5pt;
 	}
+	.seat_all_b{
+		border:1px solid blue;
+		display:inline-block;
+	}
+	.seat_all_b > .seat_section{
+		display:inline-block;
+		padding:10px 30px 0px 30px;
+	}
+	.seat_all_b > .seat_section>span{
+		display:block;
+		text-align:center;
+	}
 	
+	.bseat_num{
+		display:inline-block;
+		text-align:center;
+		border-radius:5px;
+		border:1px solid rgb(34,34,34);
+		border-bottom:10px solid rgb(34,34,34);
+		width:18px;
+		height:18px;
+		margin:3px 0px 3px 0px;
+		font-size:5pt;
+	}
 	/***************** step3 *****************/
 	
 	.col1{
@@ -582,6 +609,37 @@
 			rows = seatText.text().split('석').length;
 		 	
 		});
+		
+	      $(".bseat_num").click(function(){
+		         var anum = $(this).attr("id");
+		         var seatText =$("table.myticket_t > tbody > tr:nth-child(2) > td");
+		         var seatPic = $("#"+anum);
+		         
+		         //선택을 안했을경우
+		         var flag = $("input#"+anum).val();
+		         
+		         var position1 = anum+"석 /";
+		         var position2 =seatText.html();
+		         var position3= position2.replace(position1,"");
+
+		         
+		         if(flag ==0){
+		            seatPic.css({"border-bottom" :"10px solid rgb(155,155,155 )"});
+		            $("input#"+anum).val("1"); 
+		            seatText.append(anum+"석 /");
+		         }else{
+		            seatPic.css({"border-bottom" :"10px solid rgb(34,34,34)"});
+		            $("input#"+anum).val("0"); 
+
+		            seatText.empty();
+		            seatText.text(position3);
+		         }
+		     	/**
+		 		* 선택 좌석 개수 구하기
+		 		**/
+				rows = seatText.text().split('석').length;
+			 	
+			});
 		
 		
   		/**
@@ -931,6 +989,7 @@
 		
 		<!-- #################################################### -->
 		<div class="ticketing_left" id="step2">
+			<%if(place.equals("모짜르트홀")){ %>
 			<div class="concert_seats">
 				<img src="http://localhost:9090/images/concert_main/stage.png">
 			</div>
@@ -969,7 +1028,6 @@
 				<%	z++;
 						} %>
 				</div>
-				
 				<div class="seat_section">
 					<span>C</span>
 					<%
@@ -988,8 +1046,47 @@
 						} %>
 				</div>
 			</div>
+			<%}else if(place.equals("베토벤홀")){ %>
+			<!-- <div class="concert_seats">
+				<img src="http://localhost:9090/images/concert_main/stage.png">
+			</div> -->
+			<div class="seat_all_b">	
+			<div class="seat_section">
+				<span>A</span>
+				<%
+					int num =1;
+					int z =0;
+					while(z<14) {
+						for(int i=1; i<9;i++) { %>
+				<a href=#>
+					<span class="bseat_num" id="h<%=num%>"><%=num %></span>
+					<input type="hidden" id="A<%=num%>" class="seat_num_flag" value="0">
+				</a>
+				<%num++;
+						} %>
+						<br>
+			<%	z++;
+					} %>
+			</div>
+			<div class="seat_section">
+				<span>B</span>
+				<%
+					num =1;
+					z =0;
+					while(z<14) {
+						for(int i=1; i<9;i++) { %>
+				<a href=#>
+					<span class="bseat_num" id="h<%=num%>"><%=num %></span>
+					<input type="hidden" id="B<%=num%>" class="seat_num_flag" value="0">
+				</a>
+				<%num++;
+						} %>
+						<br>
+			<%	z++;
+					} %>
+			</div>
 		</div>
-		
+		<%} %>
 		<!-- #################################################### -->
 		<div class="ticketing_left" id="step3">
 			<div class="price">
