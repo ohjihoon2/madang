@@ -43,4 +43,29 @@ public class ReviewService {
 		
 		return result;
 	}
-}
+	
+	//내용 불러오기
+	public ReviewVO getResultContent(String rv_code) {
+		ReviewVO vo = new ReviewVO();
+		ReviewDAO dao = new ReviewDAO();
+		vo = dao.getResultContent(rv_code);
+		
+		return vo;
+	}
+	
+	//조회수 증가
+	public void getResultUpdateHits(String rv_code) {
+		ReviewDAO dao = new ReviewDAO();
+		dao.getResultUpdateHits(rv_code);		
+	}
+	
+	//리뷰 내용 업데이트
+	public boolean getResultReviewUpdate(ReviewVO vo) {
+		boolean result = false;
+		ReviewDAO dao = new ReviewDAO();
+		result = dao.getResultReviewUpdate(vo);
+		
+		return result;
+	}
+	
+}//class

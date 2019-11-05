@@ -1,7 +1,8 @@
 /*
  <link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>
  */
-
+list_reply
+li_content
 /* 
  * 공통부분
  */
@@ -14,6 +15,16 @@
 body {
 	margin: auto;
 	/* text-align:center; */
+}
+
+textarea {
+	scrollbar-highlight-color:white;
+	scrollbar-3dlight-color:rgb(5,135,94);
+	scrollbar-face-color:rgb(5,135,94);
+	scrollbar-shadow-color:#B58E63;
+	scrollbar-darkshadow-color:#9b9b9b;
+	scrollbar-track-color:white;
+	scrollbar-arrow-color:white;
 }
 
 /** 타이틀 & 공연날짜 **/
@@ -237,6 +248,7 @@ textarea#reply_area{
 	padding:10px;
 	margin:5px;
 	text-align:left;
+	overflow-y:scroll;
 }
 
 div#event_content {
@@ -311,7 +323,7 @@ li>span#li_id {
 	margin-right: 20px;
 }
 
-li>span#li_event_date, li#li_content {
+li>span#li_event_date, li#list_reply {
 	color: gray;
 }
 
@@ -410,6 +422,7 @@ textarea#review_contents {
 	height: 200px;
 	padding: 20px;
 	font-size: 13pt;
+	overflow-y:scroll;
 }
 
 textarea#comment {
@@ -420,6 +433,7 @@ textarea#comment {
 	width: 800px;
 	height: 30px;
 	font-size: 11pt;
+	overflow-y:scroll;
 }
 
 button#btnNoticeList {
@@ -501,11 +515,19 @@ div.table_div>a{
 table.review_table {
 	border-bottom: 1px solid #9b9b9b;
 	width: 1000px;
+	height:180px;
 	margin: auto;
 	margin: 10px;
 	padding: 10px;
 	color: black;
+
 }
+
+/* table.review_table td#contents{
+	padding:10px;
+	height:120px;
+} */
+
 
 table.review_table td#title, table.review_table td#contents{
 	width: 650px;	
@@ -626,6 +648,7 @@ textarea#rv_content{
 	height:200px;
 	padding:20px;
 	font-size:13pt;
+	overflow-y:scroll;
 }
 
 select#rv_op_title{
@@ -643,7 +666,7 @@ th#th_star, td#td_star{
 	font-size:15pt;		
 }
 
-button#btnRVWrite,button#btnRVCancel,button#btnRVList{
+button#btnRVWrite,button#btnRVCancel,button#btnRVList, button#btnRVUpdateOK{
 	border: none;
 	border-radius: 5px;
 	padding: 10px 30px 10px 30px;
@@ -678,6 +701,7 @@ td.star_rating a.on {color:tomato;}
 /* 
  * review_content
  */     
+
 
 	div#content{
 		width: 1000px;
@@ -721,7 +745,7 @@ td.star_rating a.on {color:tomato;}
 		font-size:13pt;
 	}
 
-	
+/* 	
 	textarea#comment{
 		margin:10px 0px 10px 25px;
 		padding:15px;
@@ -730,7 +754,8 @@ td.star_rating a.on {color:tomato;}
 		width:800px;
 		height:30px;
 		font-size:11pt;
-	}
+		overflow-y:scroll;
+	} */
 	
 	button#btnOK{
 		margin:15px;
@@ -740,12 +765,21 @@ td.star_rating a.on {color:tomato;}
 		float:right;
 	}
 	
-	div#sub_title2>span{
+	span#sp_title{
 		color:#9b9b9b;
 		font-size:15pt;
 	}
 	
-	button#btnWriteReply, button#btnBackList{
+	div#btn1{
+		padding-bottom:20px;
+	}
+	
+	div#btn1, div#btn2{
+		clear:both;
+		padding:10px;
+	}
+	
+	button#btnRVUpdate, button#btnBackList{
 		border:1px solid rgb(5,135,94);
 		border-radius:10px;
 		color: rgb(5,135,94);
@@ -755,13 +789,25 @@ td.star_rating a.on {color:tomato;}
 		float:right;
 	}
 	
+	button#btnWriteReply{
+		display:inline-block;
+		border:1px solid rgb(5,135,94);
+		border-radius:10px;
+		color: rgb(5,135,94);
+		background:white; 
+		padding:10px 50px 10px 50px;
+		margin-right:20px;
+		float:right;
+	}
+	
 	button#btnRE, button#btnDE{
 		border:1px solid rgb(155,155,155);
 		border-radius:10px;
 		color: rgb(5,135,94);
 		background:white; 
 		padding:7px 20px 7px 20px;
-		margin-right:20px;	
+		margin-right:20px;
+
 		float:right;
 	}
 	
@@ -782,11 +828,21 @@ td.star_rating a.on {color:tomato;}
 		margin-right:20px;
 	}
 	
-	li>span#li_event_date, li#li_content{
+	li>span#li_event_date, li#list_reply{
 		color:gray;
 	}
 	
 	li>span#li_event_date{
 		font-size:9pt;
 	}
+	
+	textarea {
+	scrollbar-highlight-color:white;
+	scrollbar-3dlight-color:rgb(5,135,94);
+	scrollbar-face-color:rgb(5,135,94);
+	scrollbar-shadow-color:#B58E63;
+	scrollbar-darkshadow-color:#9b9b9b;
+	scrollbar-track-color:white;
+	scrollbar-arrow-color:white;
+}
 	 

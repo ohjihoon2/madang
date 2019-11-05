@@ -2,7 +2,7 @@ package com.madang.vo;
 
 public class ReviewVO {
 	//field
-	String rv_code, rv_title, rv_content, concert_code, rv_date, id, c_poster;
+	String rv_code, rv_title, rv_content, concert_code, rv_date, id, c_poster, c_title;
 	int rv_hits, rv_staravg;
 	//method
 	
@@ -60,7 +60,13 @@ public class ReviewVO {
 	public void setRv_staravg(int rv_staravg) {
 		this.rv_staravg = rv_staravg;
 	}
-
+	public String getC_title() {
+		return c_title;
+	}
+	public void setC_title(String c_title) {
+		this.c_title = c_title;
+	}
+	
 	
 }
 /*review	¸®ºä °Ô½Ã±Û							

@@ -32,10 +32,10 @@ public class EventDAO {
 		}catch(Exception e) {e.printStackTrace();}
 	}
 	
-	/** 占싱븝옙트 占쏙옙占쏙옙트 占쏙옙체 占쏙옙占� **/
+	/** �뜝�떛釉앹삕�듃 �뜝�룞�삕�뜝�룞�삕�듃 �뜝�룞�삕泥� �뜝�룞�삕�뜝占� **/
 	public ArrayList<EventVO> getResultList(){
 		ArrayList<EventVO> list = new ArrayList<EventVO>();
-		String sql = "select ev_code, ev_title, ev_sthumbnail, ev_sdetail, to_char(ev_date,'yyyy.mm.dd.'), to_char(ev_sdate,'yyyy.mm.dd.'), to_char(ev_edate,'yyyy.mm.dd.'), ev_status, ev_hits"
+		String sql = "select ev_code, ev_title, ev_sthumbnail, ev_sdetail, to_char(ev_date,'yyyy.mm.dd.'), to_char(ev_sdate,'yyyy.mm.dd.'), to_char(ev_edate,'yyyy.mm.dd.'), ev_hits"
 				+ " from event order by ev_date";
 		getPreparedStatement(sql);
 		
@@ -52,8 +52,7 @@ public class EventDAO {
 				vo.setEv_date(rs.getString(5));
 				vo.setEv_sdate(rs.getString(6));
 				vo.setEv_edate(rs.getString(7));
-				vo.setEv_status(rs.getString(8));
-				vo.setEv_hits(rs.getInt(9));
+				vo.setEv_hits(rs.getInt(8));
 
 				list.add(vo);
 			}
@@ -69,7 +68,7 @@ public class EventDAO {
 	public ArrayList<EventVO> getResultIngList(){
 		
 		ArrayList<EventVO> elist = new ArrayList<EventVO>();
-		String sql = "select ev_code, ev_title, ev_sthumbnail,ev_sdetail, to_char(ev_date,'yyyy.mm.dd.'),to_char(ev_sdate,'yyyy.mm.dd.'),to_char(ev_edate,'yyyy.mm.dd.'), ev_status, ev_hits"
+		String sql = "select ev_code, ev_title, ev_sthumbnail,ev_sdetail, to_char(ev_date,'yyyy.mm.dd.'),to_char(ev_sdate,'yyyy.mm.dd.'),to_char(ev_edate,'yyyy.mm.dd.'), ev_hits"
 				+ " from event"
 				+ " where ev_edate>sysdate"
 				+ " order by ev_date desc";
@@ -91,8 +90,7 @@ public class EventDAO {
 				vo.setEv_date(rs.getString(5));
 				vo.setEv_sdate(rs.getString(6));
 				vo.setEv_edate(rs.getString(7));
-				vo.setEv_status(rs.getString(8));
-				vo.setEv_hits(rs.getInt(9));
+				vo.setEv_hits(rs.getInt(8));
 
 				elist.add(vo);
 			}
@@ -102,10 +100,10 @@ public class EventDAO {
 		return elist;
 	}
 	
-	/** Contents VO占쏙옙占� **/
+	/** Contents VO�뜝�룞�삕�뜝占� **/
 	public EventVO getResultVO(String ev_code) {
 		EventVO vo = new EventVO();
-		String sql = "select ev_code, ev_title, ev_sthumbnail, ev_sdetail, ev_date, ev_sdate, ev_edate, ev_status, ev_hits from event where ev_code=?";
+		String sql = "select ev_code, ev_title, ev_sthumbnail, ev_sdetail, ev_date, ev_sdate, ev_edate, ev_hits from event where ev_code=?";
 		getPreparedStatement(sql);
 		
 		try {
@@ -120,8 +118,7 @@ public class EventDAO {
 				vo.setEv_date(rs.getString(5));
 				vo.setEv_sdate(rs.getString(6));
 				vo.setEv_edate(rs.getString(7));
-				vo.setEv_status(rs.getString(8));
-				vo.setEv_hits(rs.getInt(9));
+				vo.setEv_hits(rs.getInt(8));
 			}
 			
 		}catch(Exception e) {e.printStackTrace();}
@@ -129,7 +126,7 @@ public class EventDAO {
 		return vo;
 	}
 	
-	/**  占쏙옙占� 占쏙옙占쏙옙트 占쏙옙占�  **/
+	/**  �뜝�룞�삕�뜝占� �뜝�룞�삕�뜝�룞�삕�듃 �뜝�룞�삕�뜝占�  **/
 	public ArrayList<EventReplyVO> getResultReplyList(String ev_code){
 		
 		ArrayList<EventReplyVO> rlist = new ArrayList<EventReplyVO>();
@@ -157,7 +154,7 @@ public class EventDAO {
 		return rlist;
 	}
 
-	/** 占쏙옙占� 占쏙옙占� **/
+	/** �뜝�룞�삕�뜝占� �뜝�룞�삕�뜝占� **/
 	public int getResultReplyWrite(EventReplyVO rvo) {
 		int result = 0;
 		String sql = "insert into event_reply values('ev_rp_'|| lpad(sequ_event_reply.nextval, 4,'0'),?,?,?, sysdate)";
@@ -170,16 +167,13 @@ public class EventDAO {
 			
 			int val = pstmt.executeUpdate();
 			if(val != 0) result = 1;
-System.out.println("result:"+result);
-System.out.println("rcontent:"+rvo.getEv_rp_content());
-System.out.println("evcode:"+rvo.getEv_code());
-System.out.println("id:"+rvo.getId());
+
 		}catch(Exception e) {e.printStackTrace();}
 		
 		return result;
 	}
 
-//관리자 이벤트 목록 가져오기
+//愿�由ъ옄 �씠踰ㅽ듃 紐⑸줉 媛��졇�삤湲�
 	public ArrayList<EventVO> getResultListAdmin(){
 		ArrayList<EventVO> list = new ArrayList<EventVO>();
 		String sql = "select ev_code, ev_title, to_char(ev_sdate,'yyyy.mm.dd'),to_char(ev_edate,'yyyy.mm.dd'), to_char(ev_date,'yyyy.mm.dd'), ev_hits, floor(sysdate-to_date(ev_sdate,'yy/mm/dd')) startcount,floor(to_date(ev_edate,'yy/mm/dd')-sysdate)+1 endcount from event order by ev_date desc";
@@ -199,12 +193,12 @@ System.out.println("id:"+rvo.getId());
 				vo.setEv_hits(rs.getInt(6));
 				if(rs.getInt(8)>=0) {
 					if(rs.getInt(7)<0) {
-						vo.setEv_status("진행중");
+						vo.setEv_status("吏꾪뻾以�");
 					}else {
-						vo.setEv_status("예정");
+						vo.setEv_status("�삁�젙");
 					}
 				}else {
-					vo.setEv_status("종료");
+					vo.setEv_status("醫낅즺");
 				}
 				
 				list.add(vo);
@@ -214,7 +208,7 @@ System.out.println("id:"+rvo.getId());
 		return list;
 	}
 	
-	//관리자 -이벤트 내용 보기
+	//愿�由ъ옄 -�씠踰ㅽ듃 �궡�슜 蹂닿린
 	public EventVO getResultContentAdmin(String ev_code) {
 		EventVO vo = new EventVO();
 		String sql = "select ev_code, ev_title, ev_sthumbnail, ev_sdetail,to_char(ev_date,'yyyy-mm-dd'),to_char(ev_sdate,'yyyy-mm-dd'), to_char(ev_edate,'yyyy-mm-dd'), ev_hits, floor(sysdate-to_date(ev_sdate,'yy/mm/dd')) startcount,floor(to_date(ev_edate,'yy/mm/dd')-sysdate)+1 endcount from event where ev_code=?";
@@ -235,12 +229,12 @@ System.out.println("id:"+rvo.getId());
 				vo.setEv_hits(rs.getInt(8));
 				if(rs.getInt(10)>=0) {
 					if(rs.getInt(9)<0) {
-						vo.setEv_status("진행중");
+						vo.setEv_status("吏꾪뻾以�");
 					}else {
-						vo.setEv_status("예정");
+						vo.setEv_status("�삁�젙");
 					}
 				}else {
-					vo.setEv_status("종료");
+					vo.setEv_status("醫낅즺");
 				}
 			}
 			
@@ -249,7 +243,7 @@ System.out.println("id:"+rvo.getId());
 		return vo;
 	}
 	
-	//관리자-이벤트 등록
+	//愿�由ъ옄-�씠踰ㅽ듃 �벑濡�
 	public boolean getResultWriteAdmin(EventVO vo) {
 		boolean result = false;
 		String sql = "insert into event values('ev'|| lpad(sequ_event.nextval, 4,'0'),?,?,?,?,?,sysdate,?,?,0)";
@@ -273,7 +267,7 @@ System.out.println("id:"+rvo.getId());
 		return result;
 	}
 	
-	//관리자-이벤트 업데이트
+	//愿�由ъ옄-�씠踰ㅽ듃 �뾽�뜲�씠�듃
 		public boolean getResultUpdateAdmin(EventVO vo) {
 			System.out.println(vo.getEv_code());
 			boolean result = false;

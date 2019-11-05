@@ -5,6 +5,9 @@
 <%
 	ReviewService service = new ReviewService();
 	ArrayList<ConcertVO> clist = service.getConcertList();
+/* 	String id = request.getParameter("id"); */ 
+/*  System.out.println(id);	 */
+/* 	String id = (String)session.getAttribute("generalID"); */
 
 %>
 <!DOCTYPE html>
@@ -69,9 +72,10 @@
 	<div id="main_title">관람후기</div>
 
 	<div id="content"> <!-- form.submit을 해야하므로 form없으면 생성 -->
-		<form action="review_write_process.jsp" method="get" name="reviewForm">
+		<form action="review_write_process.jsp" method="post" name="reviewForm">
 			
 			<table id="rv_write_tb">
+			
 			<tr>
 				<th><h1 id="review_title">제목</th><td><input type="text" id="rv_title" name="rv_title">
 				<span id="span_c_title">
@@ -83,9 +87,9 @@
 						</select>
 				</span></h1>
 			</tr>
-				<tr>	
+			<tr>	
 				<th colspan=2>	
-				<textarea id="rv_content" name="rv_content" placeholder="카르멘을 보고 나서... 리뷰내용"></textarea>
+				<textarea id="rv_content" name="rv_content" placeholder="리뷰내용을 300자 이내로 작성해주세요."></textarea>
 				</th>
 			</tr>
 			<tr id="tr_star">
@@ -109,6 +113,7 @@
 	        	</div>
 	       		</th>
 	       	</tr>	
+<%-- 	       	<input type="hidden" name="id" value="<%=id%>"> --%>
         </table>    
 		</form>
 	</div>

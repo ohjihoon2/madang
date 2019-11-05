@@ -2,9 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@page import="com.madang.vo.*, com.madang.service.*, java.util.*" %>	
 <%
+	
 	ReviewService service = new ReviewService();
-	ArrayList<ReviewVO> list = service.getResultListByDate();
-System.out.println(list.size());	
+	ArrayList<ReviewVO> list = service.getResultListByDate();	
 %>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -52,7 +52,7 @@ $(document).ready(function(){
 			<div class="table_div">
 			
 			<%for(ReviewVO vo: list){ %>
-				<a href="http://localhost:9090/contents/Community/review_contents.jsp">
+				<a href="http://localhost:9090/contents/Community/review_contents.jsp?rv_code=<%=vo.getRv_code() %>">
 				<table class="review_table">				
 					<tr>
 						<th><%=vo.getRv_date() %></th>
