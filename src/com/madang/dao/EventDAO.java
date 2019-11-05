@@ -32,7 +32,7 @@ public class EventDAO {
 		}catch(Exception e) {e.printStackTrace();}
 	}
 	
-	/** �뜝�떛釉앹삕�듃 �뜝�룞�삕�뜝�룞�삕�듃 �뜝�룞�삕泥� �뜝�룞�삕�뜝占� **/
+	/** 占쎈쐻占쎈뼓�뇡�빘�굲占쎈뱜 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈뱜 占쎈쐻占쎈짗占쎌굲筌ｏ옙 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� **/
 	public ArrayList<EventVO> getResultList(){
 		ArrayList<EventVO> list = new ArrayList<EventVO>();
 		String sql = "select ev_code, ev_title, ev_sthumbnail, ev_sdetail, to_char(ev_date,'yyyy.mm.dd.'), to_char(ev_sdate,'yyyy.mm.dd.'), to_char(ev_edate,'yyyy.mm.dd.'), ev_hits"
@@ -100,7 +100,7 @@ public class EventDAO {
 		return elist;
 	}
 	
-	/** Contents VO�뜝�룞�삕�뜝占� **/
+	/** Contents VO占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� **/
 	public EventVO getResultVO(String ev_code) {
 		EventVO vo = new EventVO();
 		String sql = "select ev_code, ev_title, ev_sthumbnail, ev_sdetail, ev_date, ev_sdate, ev_edate, ev_hits from event where ev_code=?";
@@ -126,7 +126,7 @@ public class EventDAO {
 		return vo;
 	}
 	
-	/**  �뜝�룞�삕�뜝占� �뜝�룞�삕�뜝�룞�삕�듃 �뜝�룞�삕�뜝占�  **/
+	/**  占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈뱜 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占�  **/
 	public ArrayList<EventReplyVO> getResultReplyList(String ev_code){
 		
 		ArrayList<EventReplyVO> rlist = new ArrayList<EventReplyVO>();
@@ -154,7 +154,7 @@ public class EventDAO {
 		return rlist;
 	}
 
-	/** �뜝�룞�삕�뜝占� �뜝�룞�삕�뜝占� **/
+	/** 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� **/
 	public int getResultReplyWrite(EventReplyVO rvo) {
 		int result = 0;
 		String sql = "insert into event_reply values('ev_rp_'|| lpad(sequ_event_reply.nextval, 4,'0'),?,?,?, sysdate)";
@@ -173,7 +173,7 @@ public class EventDAO {
 		return result;
 	}
 
-//愿�由ъ옄 �씠踰ㅽ듃 紐⑸줉 媛��졇�삤湲�
+//�꽴占썹뵳�딆쁽 占쎌뵠甕겹끋�뱜 筌뤴뫖以� 揶쏉옙占쎌죬占쎌궎疫뀐옙
 	public ArrayList<EventVO> getResultListAdmin(){
 		ArrayList<EventVO> list = new ArrayList<EventVO>();
 		String sql = "select ev_code, ev_title, to_char(ev_sdate,'yyyy.mm.dd'),to_char(ev_edate,'yyyy.mm.dd'), to_char(ev_date,'yyyy.mm.dd'), ev_hits, floor(sysdate-to_date(ev_sdate,'yy/mm/dd')) startcount,floor(to_date(ev_edate,'yy/mm/dd')-sysdate)+1 endcount from event order by ev_date desc";
@@ -208,7 +208,7 @@ public class EventDAO {
 		return list;
 	}
 	
-	//愿�由ъ옄 -�씠踰ㅽ듃 �궡�슜 蹂닿린
+	//�꽴占썹뵳�딆쁽 -占쎌뵠甕겹끋�뱜 占쎄땀占쎌뒠 癰귣떯由�
 	public EventVO getResultContentAdmin(String ev_code) {
 		EventVO vo = new EventVO();
 		String sql = "select ev_code, ev_title, ev_sthumbnail, ev_sdetail,to_char(ev_date,'yyyy-mm-dd'),to_char(ev_sdate,'yyyy-mm-dd'), to_char(ev_edate,'yyyy-mm-dd'), ev_hits, floor(sysdate-to_date(ev_sdate,'yy/mm/dd')) startcount,floor(to_date(ev_edate,'yy/mm/dd')-sysdate)+1 endcount from event where ev_code=?";
@@ -243,7 +243,7 @@ public class EventDAO {
 		return vo;
 	}
 	
-	//愿�由ъ옄-�씠踰ㅽ듃 �벑濡�
+	//�꽴占썹뵳�딆쁽-占쎌뵠甕겹끋�뱜 占쎈쾻嚥∽옙
 	public boolean getResultWriteAdmin(EventVO vo) {
 		boolean result = false;
 		String sql = "insert into event values('ev'|| lpad(sequ_event.nextval, 4,'0'),?,?,?,?,?,sysdate,?,?,0)";
@@ -267,7 +267,7 @@ public class EventDAO {
 		return result;
 	}
 	
-	//愿�由ъ옄-�씠踰ㅽ듃 �뾽�뜲�씠�듃
+	//�꽴占썹뵳�딆쁽-占쎌뵠甕겹끋�뱜 占쎈씜占쎈쑓占쎌뵠占쎈뱜
 		public boolean getResultUpdateAdmin(EventVO vo) {
 			System.out.println(vo.getEv_code());
 			boolean result = false;
