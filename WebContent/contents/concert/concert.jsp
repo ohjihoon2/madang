@@ -3,6 +3,8 @@
     import ="com.madang.dao.ConcertDAO, com.madang.vo.ConcertVO, java.util.*, java.util.Date, java.text.SimpleDateFormat"%>
 
 <%
+	String id = (String)session.getAttribute("generalID");
+
 	ConcertDAO dao = new ConcertDAO();
 	ArrayList<ConcertVO>list = dao.getConcertInfo();	
 	
@@ -15,11 +17,7 @@
 	sf = new SimpleDateFormat("yyMMdd");
 	String tday = sf.format(now);
 	System.out.println("tday : "+tday);
-	//out.write(tday);
-	
-	//out.write("sday = " +list.get(1).getSday());
-	//out.write(Integer.valueOf(list.get(1).getSday()));
-	out.write(list.get(1).getEday());
+	System.out.println("id : "+id);
 	
 %>
 <!DOCTYPE html>
@@ -30,17 +28,25 @@
 <title>Insert title here</title>
 <script>
 	
-	/* function showPopup(code) {
-		window.open("ticket.jsp?code="code, "window팝업", "width=1000, height=700, left=400, top=200");
-		} */
-	
 	$(document).ready(function(){
+		var id = "<%=id%>";
+		alert(id);
+		
+		//팝업창 
 		$('.ticketing_popup').click(function(){
 			var code = $('.'+$(this).attr("id")).val();
-			
-			 window.open("ticket.jsp?code="+code, "window팝업", "width=1000, height=700, left=400, top=200");
+			//예매 팝업 validation
+			 if(id ==null || id==" "){
+				alert("로그인시 이용가능합니다. 로그인 페이지로 이동합니다.");
+				location.replace("http://localhost:9090/contents/login/login.jsp");
+			}else{
+		  		window.open("ticket.jsp?code="+code, "window팝업", "width=1000, height=700, left=400, top=200");
+			} 
 			return false;
 		});
+		
+		
+		
 	});
 </script>
 <style>

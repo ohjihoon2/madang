@@ -2,12 +2,45 @@ package com.madang.vo;
 
 public class ConcertTicketVO {
 
-	String to_code, concert_code, tc_cdate, tc_cseat, tc_canceld, tc_recive, tc_name, tc_birth, tc_email, tc_paym, tc_payw, tc_pays, tc_phone1,tc_phone2, tc_phone3;
+	String tc_code, concert_code, tc_cdate, tc_cplace,tc_cseat, tc_canceld, tc_recive, tc_id, tc_name, tc_birth, tc_email, tc_paym, tc_payw, tc_pays, tc_phone1,tc_phone2, tc_phone3, p_code;
 	
 	int tc_cancelc, tc_price;
 
 	
 	
+	
+	public String getTc_code() {
+		return tc_code;
+	}
+
+	public void setTc_code(String tc_code) {
+		this.tc_code = tc_code;
+	}
+
+	public String getP_code() {
+		return p_code;
+	}
+
+	public void setP_code(String p_code) {
+		this.p_code = p_code;
+	}
+
+	public String getTc_id() {
+		return tc_id;
+	}
+
+	public void setTc_id(String tc_id) {
+		this.tc_id = tc_id;
+	}
+
+	public String getTc_cplace() {
+		return tc_cplace;
+	}
+
+	public void setTc_cplace(String tc_cplace) {
+		this.tc_cplace = tc_cplace;
+	}
+
 	public String getTc_phone1() {
 		return tc_phone1;
 	}
@@ -32,13 +65,6 @@ public class ConcertTicketVO {
 		this.tc_phone3 = tc_phone3;
 	}
 
-	public String getTo_code() {
-		return to_code;
-	}
-
-	public void setTo_code(String to_code) {
-		this.to_code = to_code;
-	}
 
 	public String getConcert_code() {
 		return concert_code;

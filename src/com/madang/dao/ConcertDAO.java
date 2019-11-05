@@ -77,7 +77,7 @@ public class ConcertDAO {
 	}
 	
 	/**
-	 * concert �긽�꽭 �궡�슜
+	 * concert detail contents
 	 * @param code
 	 * @return
 	 */
@@ -117,14 +117,38 @@ public class ConcertDAO {
 		return vo;
 	}
 	
+	
+	public String getResultSeats(String code, String datetime) {
+		String result = "";
+
+		String sql =  "SELECT "+ 
+				"            LISTAGG(TC_CSEAT,'')"+ 
+				"                WITHIN GROUP(ORDER BY TC_CDATE ) AS TC_CSEAT" + 
+				" FROM TICKET_CONCERT" + 
+				" WHERE CONCERT_CODE=? AND TC_CDATE=?";
+		getPreparedStatement(sql);
+		
+		try {
+			pstmt.setString(1, code);
+			pstmt.setString(2, datetime);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getString(1);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 	/**
-	 * ticket �궗�슜�옄 �젙蹂�
+	 * ticket getMemberInfo
 	 * @param id
 	 * @return
 	 */
 	public General_mem_VO getResultMemInfo(String id) {
 		General_mem_VO vo = new General_mem_VO();
-		String sql = "select name, to_char(birth, 'yymmdd') birth, phone1, phone2, phone3, email_addr from general_mem where id = ?";
+		String sql = "select id, name, to_char(birth, 'yymmdd') birth, phone1, phone2, phone3, email_addr from general_mem where id = ?";
 		
 		getPreparedStatement(sql);
 		try {
@@ -133,12 +157,13 @@ public class ConcertDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				vo.setName(rs.getString(1));
-				vo.setBirth(rs.getString(2));
-				vo.setPhone1(rs.getString(3));
-				vo.setPhone2(rs.getString(4));
-				vo.setPhone3(rs.getString(5));
-				vo.setEmail_addr(rs.getString(6));
+				vo.setId(rs.getString(1));
+				vo.setName(rs.getString(2));
+				vo.setBirth(rs.getString(3));
+				vo.setPhone1(rs.getString(4));
+				vo.setPhone2(rs.getString(5));
+				vo.setPhone3(rs.getString(6));
+				vo.setEmail_addr(rs.getString(7));
 				
 			}
 		}catch(Exception e) {
@@ -154,27 +179,29 @@ public class ConcertDAO {
 	 */
 	public boolean getResultInsertTC(ConcertTicketVO vo) {
 		boolean result = false;
-		String sql = "insert into ticket_concert values( 'tc_'||LPAD(to_char(SQU_TICKET_CONCERT_CODE.NEXTVAL),3,'0' ),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into ticket_concert values( 'tc_'||LPAD(to_char(SQU_TICKET_CONCERT_CODE.NEXTVAL),3,'0' ),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,'p_'||LPAD(to_char(SQU_PURCHASE_CODE.NEXTVAL),3,'0' ),?,?,?)";
 		
 		getPreparedStatement(sql);
 		
 		try {
 			pstmt.setString(1, vo.getConcert_code());
 			pstmt.setString(2, vo.getTc_cdate());
-			pstmt.setString(3, vo.getTc_cseat());
-			pstmt.setInt(4, vo.getTc_cancelc());
-			pstmt.setString(5, vo.getTc_canceld());
-			pstmt.setInt(6, vo.getTc_price());
-			pstmt.setString(7, vo.getTc_recive());
-			pstmt.setString(8, vo.getTc_name());
-			pstmt.setString(9, vo.getTc_birth());
-			pstmt.setString(10, vo.getTc_phone1());
-			pstmt.setString(11, vo.getTc_phone2());
-			pstmt.setString(12, vo.getTc_phone3());
-			pstmt.setString(13, vo.getTc_email());
-			pstmt.setString(14, vo.getTc_paym());
-			pstmt.setString(15, vo.getTc_payw());
-			pstmt.setString(16, vo.getTc_pays());
+			pstmt.setString(3, vo.getTc_cplace());
+			pstmt.setString(4, vo.getTc_cseat());
+			pstmt.setInt(5, vo.getTc_cancelc());
+			pstmt.setString(6, vo.getTc_canceld());
+			pstmt.setInt(7, vo.getTc_price());
+			pstmt.setString(8, vo.getTc_recive());
+			pstmt.setString(9, vo.getTc_id());
+			pstmt.setString(10, vo.getTc_name());
+			pstmt.setString(11, vo.getTc_birth());
+			pstmt.setString(12, vo.getTc_phone1());
+			pstmt.setString(13, vo.getTc_phone2());
+			pstmt.setString(14, vo.getTc_phone3());
+			pstmt.setString(15, vo.getTc_email());
+			pstmt.setString(16, vo.getTc_paym());
+			pstmt.setString(17, vo.getTc_payw());
+			pstmt.setString(18, vo.getTc_pays());
 			
 			int val = pstmt.executeUpdate();
 			
