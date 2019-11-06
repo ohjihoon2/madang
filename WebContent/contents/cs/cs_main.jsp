@@ -17,7 +17,7 @@
 			<ul>
 				<li><a style="color: rgb(5, 135, 94)" href="cs_main.jsp">고객센터</a></li>
 				<li><a href="cs_faq.jsp">F&Q</a></li>
-				<li><a href="cs_qaa.jsp">1:1 상담</a></li>
+				<li><a href="cs_qaa_list.jsp">1:1 상담</a></li>
 			</ul>
 		</div>
 
@@ -37,7 +37,7 @@
 		</div>
 		
 		<div class="qaa_icon">
-		<a href="cs_qaa.jsp">
+		<a href="cs_qaa_list.jsp">
 			<div>
 				<p><br><br>1:1 상담</p>
 			</div>

@@ -7,7 +7,7 @@
 	boolean result=service.getResultDelete(qa_code);
 	
 	if(result) {
-		out.print("<script>alert('삭제 완료'); location.href='cs_qaa.jsp'</script>");
+		out.print("<script>alert('삭제 완료'); location.href='cs_qaa_list.jsp'</script>");
 	} else {
 		response.sendRedirect("../../errorPage.jsp");
 	}

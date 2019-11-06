@@ -6,6 +6,7 @@
 	QandA_Service service=new QandA_Service();
 	ArrayList<QandA_VO> list=service.getList(id);
 %>
+document.write(<%= id %>);
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,7 +24,7 @@
 			<ul>
 				<li><a style="color: rgb(5, 135, 94)" href="cs_main.jsp">고객센터</a></li>
 				<li><a href="cs_faq.jsp">F&Q</a></li>
-				<li><a style="color: rgb(5, 135, 94)" href="cs_qaa.jsp">1:1 상담</a></li>
+				<li><a style="color: rgb(5, 135, 94)" href="cs_qaa_list.jsp">1:1 상담</a></li>
 			</ul>
 		</div>
 

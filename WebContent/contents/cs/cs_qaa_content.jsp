@@ -29,7 +29,7 @@ document.write(<%= vo.getQa_code() %>);
 			<ul>
 				<li><a style="color: rgb(5, 135, 94)" href="cs_main.jsp">고객센터</a></li>
 				<li><a href="cs_faq.jsp">F&Q</a></li>
-				<li><a style="color: rgb(5, 135, 94)" href="cs_qaa.jsp">1:1 상담</a></li>
+				<li><a style="color: rgb(5, 135, 94)" href="cs_qaa_list.jsp">1:1 상담</a></li>
 			</ul>
 		</div>
 
@@ -70,7 +70,7 @@ document.write(<%= vo.getQa_code() %>);
 			</table>
 			<div class="button">
 				<a href="qaa_delete_process.jsp?qa_code=<%= vo.getQa_code() %>"><button type="button" class="button_b">삭제</button></a>
-				<a href="cs_qaa.jsp"><button type="button" class="button_b">목록</button></a>
+				<a href="cs_qaa_list.jsp"><button type="button" class="button_b">목록</button></a>
 			</div>
 		</div>
 		

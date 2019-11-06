@@ -43,7 +43,7 @@
 	boolean result=service.getResultWrite(vo);
 	
 	if(result) {
-		response.sendRedirect("cs_qaa.jsp");
+		response.sendRedirect("cs_qaa_list.jsp");
 	} else {
 		response.sendRedirect("../../errorPage.jsp");
 	}
@@ -69,7 +69,7 @@
 	boolean result=service.getResultWrite(vo);
 	
 	if(result) {
-		response.sendRedirect("cs_qaa.jsp");
+		response.sendRedirect("cs_qaa_list.jsp");
 	} else {
 		response.sendRedirect("../../errorPage.jsp");
 	}

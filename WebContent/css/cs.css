@@ -220,12 +220,14 @@ div.qaa_table_2 tr > th, div.qaa_table_2 tr > td {
 	text-align:center;
 }
 
+div.qaa_table tr > th:nth-child(1),
+div.qaa_table tr > th:nth-child(4),
 div.qaa_table tr > td:nth-child(1),
-div.qaa_table tr > td:nth-child(4) { /* 리스트 번호, 제목*/
+div.qaa_table tr > td:nth-child(4) { /* 리스트 번호, 답변여부*/
 	width:12%;
 }
 
-
+div.qaa_table tr > th:nth-child(3),
 div.qaa_table tr > td:nth-child(3), /* 리스트 날짜 */
 div.qaa_table_1 tr > td:nth-child(1),
 div.qaa_table_2 tr > td:nth-child(1) { /* 각 행 1열 */
