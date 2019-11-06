@@ -2,13 +2,19 @@ package com.madang.vo;
 
 public class ConcertTicketVO {
 
-	String tc_code, concert_code, tc_cdate, tc_cplace,tc_cseat, tc_canceld, tc_recive, tc_id, tc_name, tc_birth, tc_email, tc_paym, tc_payw, tc_pays, tc_phone1,tc_phone2, tc_phone3, p_code;
+	String tc_code, concert_code, tc_cdate, tc_cplace,tc_cseat, tc_canceld, tc_recive, tc_id, tc_name, tc_birth, tc_email, tc_paym, tc_payw, tc_pays, tc_phone1,tc_phone2, tc_phone3, p_code, tc_time;
 	
 	int tc_cancelc, tc_price;
 
 	
-	
-	
+	public String getTc_time() {
+		return tc_time;
+	}
+
+	public void setTc_time(String tc_time) {
+		this.tc_time = tc_time;
+	}
+
 	public String getTc_code() {
 		return tc_code;
 	}

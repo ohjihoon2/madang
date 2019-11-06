@@ -48,7 +48,7 @@ public class ConcertDAO {
 	public ArrayList<ConcertVO> getConcertInfo() {
 		ArrayList<ConcertVO> list = new ArrayList<ConcertVO>();
 		
-		String sql = "SELECT CONCERT_CODE, C_TITLE, TO_CHAR(C_SDATE,'YY.MM.DD'), TO_CHAR(C_EDATE, 'YY.MM.DD'), C_PLACE, C_PRICE,  C_POSTER, C_STATUS, TO_CHAR(C_SDATE, 'YYMMDD') as SDAY , TO_CHAR(C_EDATE, 'YYMMDD') as EDAY  from concert order by concert_code asc";
+		String sql = "SELECT CONCERT_CODE, C_TITLE, TO_CHAR(C_SDATE,'YY.MM.DD'), TO_CHAR(C_EDATE, 'YY.MM.DD'), C_PLACE, C_PRICE,  C_POSTER, TO_CHAR(C_SDATE, 'YYMMDD') as SDAY , TO_CHAR(C_EDATE, 'YYMMDD') as EDAY  from concert order by concert_code asc";
 		
 		getPreparedStatement(sql);
 		try {
@@ -65,9 +65,8 @@ public class ConcertDAO {
 				vo.setC_place(rs.getString(5));
 				vo.setC_price(rs.getInt(6));
 				vo.setC_poster(rs.getString(7));
-				vo.setC_status(rs.getString(8));
-				vo.setSday(rs.getString(9));
-				vo.setEday(rs.getString(10));
+				vo.setSday(rs.getString(8));
+				vo.setEday(rs.getString(9));
 				
 				list.add(vo);
 			}
@@ -85,7 +84,7 @@ public class ConcertDAO {
 	public ConcertVO getResultConcertDetail(String code) {
 		ConcertVO vo = new ConcertVO();
 
-		String sql =  "SELECT CONCERT_CODE, C_TITLE,TO_CHAR(C_SDATE,'YY.MM.DD'), TO_CHAR(C_EDATE,'YY.MM.DD'),C_TIME, C_STIME,C_PLACE,C_RATING,C_GENRE,C_PRICE,C_HOST,C_POSTER,C_SPOSTER,C_INFO_POSTER,C_INFO_SPOSTER,C_STATUS,C_CONTACT , TO_CHAR(C_SDATE, 'YYYY-MM-DD') as SNDAY , TO_CHAR(C_EDATE, 'YYYY-MM-DD') as ENDAY  FROM CONCERT WHERE CONCERT_CODE = ?";
+		String sql =  "SELECT CONCERT_CODE, C_TITLE,TO_CHAR(C_SDATE,'YY.MM.DD'), TO_CHAR(C_EDATE,'YY.MM.DD'),C_TIME, C_STIME,C_PLACE,C_RATING,C_GENRE,C_PRICE,C_HOST,C_POSTER,C_SPOSTER,C_INFO_POSTER,C_INFO_SPOSTER,C_CONTACT , TO_CHAR(C_SDATE, 'YYYY-MM-DD') as SNDAY , TO_CHAR(C_EDATE, 'YYYY-MM-DD') as ENDAY  FROM CONCERT WHERE CONCERT_CODE = ?";
 		getPreparedStatement(sql);
 		
 		try {
@@ -107,10 +106,9 @@ public class ConcertDAO {
 				vo.setC_sposter(rs.getString(13));
 				vo.setC_info_poster(rs.getString(14));
 				vo.setC_info_sposter(rs.getString(15));
-				vo.setC_status(rs.getString(16));
-				vo.setC_contact(rs.getString(17));
-				vo.setSnday(rs.getString(18));
-				vo.setEnday(rs.getString(19));
+				vo.setC_contact(rs.getString(16));
+				vo.setSnday(rs.getString(17));
+				vo.setEnday(rs.getString(18));
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -181,7 +179,7 @@ public class ConcertDAO {
 	public boolean getResultInsertTC(ConcertTicketVO vo) {
 		boolean result = false;
 		String sql = "insert all"
-				+ "			into ticket_concert values( 'tc_'||LPAD(to_char(SQU_TICKET_CONCERT_CODE.NEXTVAL),3,'0' ),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,p_code)"
+				+ "			into ticket_concert values( 'tc_'||LPAD(to_char(SQU_TICKET_CONCERT_CODE.NEXTVAL),3,'0' ),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,p_code,sysdate)"
 				+ "			select rownum rno, p_code"
 				+ "			from (SELECT * FROM PURCHASE"
 				+"			WHERE TCE_CODE=? "  

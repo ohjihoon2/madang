@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.madang.vo.*, com.madang.service.*, java.util.*"%>
+<%
+	ExhibitionVO vo = new ExhibitionVO();
+	ExhibitionService service = new ExhibitionService();
+	/* vo = service.getResultExhibition() */;
+	ArrayList<ExhibitionVO> list = new ArrayList<ExhibitionVO>();
+	list = service.getResultExhibitionList();
+	
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -179,12 +187,12 @@
 	<br>
 	<div class="exhibition_area">
 		<div class="exhibition_info_today">
-			<%-- <%for(int i=0; i<;i++){ %> --%>
+			<%for(int i=0; i<list.size();i++){ %>
 			<div class="exhibition_info">
 				<div class="exhibition_info_count">
 					<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif"></a>
 					<div class="exhibition_info_text">
-						<h4><a href="#">2019 연극 <늙은 부부이야기></a></h4><br>
+						<h4><a href="#"><%=list.get(i).getExhibition_code() %></a></h4><br>
 						<div>
 							<div>한가람미술관	</div>
 							<span>2019.10.02(수) ~ 2019.10.29(화)</span><br>
@@ -193,6 +201,7 @@
 					</div>
 				</div>
 			</div>
+			<%} %>
 		</div>
 		<div class="last_exhibition">
 			<span class="last_exhibition_text">지난전시</span><br>
