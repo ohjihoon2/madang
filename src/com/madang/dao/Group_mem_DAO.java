@@ -4,8 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
-import com.madang.vo.General_mem_VO;
+import com.madang.vo.Group_mem_VO;
 import com.madang.vo.Group_mem_VO;
 
 public class Group_mem_DAO {
@@ -223,7 +224,67 @@ public class Group_mem_DAO {
 	}
 	
 	
-	
+	//Admin_list
+		public ArrayList<Group_mem_VO> getMembergpListAdmin(){
+			ArrayList<Group_mem_VO> list = new ArrayList<Group_mem_VO>();
+			String sql="select * from (select rownum rno, id, name, phone1,phone2,phone3,company, to_char(joindate,'yyyy/mm/dd') from(select * from group_mem order by joindate desc))";
+			getPreparedStatement(sql);
+			
+			try {
+				rs=pstmt.executeQuery();
+				while(rs.next()) {
+					Group_mem_VO vo = new Group_mem_VO();
+					vo.setRno(rs.getInt(1));
+					vo.setId(rs.getString(2));
+					vo.setName(rs.getString(3));	
+					vo.setPhone1(rs.getString(4));
+					vo.setPhone2(rs.getString(5));
+					vo.setPhone3(rs.getString(6));
+					vo.setCompany(rs.getString(7));
+					vo.setJoindate(rs.getString(8));
+					
+					list.add(vo);
+				}
+				
+			}catch (Exception e) {e.printStackTrace();}
+			return list;
+		}
+		
+		//Admin_contents
+		public Group_mem_VO getMembergpContentsAdmin(String id) {
+			Group_mem_VO vo = new Group_mem_VO();
+			String sql="select id, name, email_id, email_addr, phone1, phone2, phone3, fax1, fax2, fax3, company, c_name, c_number, "
+					+ "c_phone1, c_phone2, c_phone3, c_post_num, c_addr, c_addr_d,to_char(joindate,'yyyy/mm/dd') from group_mem where id=?";
+			getPreparedStatement(sql);
+			try {
+				pstmt.setString(1, id);
+				rs=pstmt.executeQuery();
+				if(rs.next()) {
+					vo.setId(rs.getString(1));
+					vo.setName(rs.getString(2));	
+					vo.setEmail_id(rs.getString(3));
+					vo.setEmail_addr(rs.getString(4));
+					vo.setPhone1(rs.getString(5));
+					vo.setPhone2(rs.getString(6));
+					vo.setPhone3(rs.getString(7));
+					vo.setFax1(rs.getString(8));
+					vo.setFax2(rs.getString(9));
+					vo.setFax3(rs.getString(10));
+					vo.setCompany(rs.getString(11));
+					vo.setC_name(rs.getString(12));
+					vo.setC_number(rs.getString(13));
+					vo.setC_phone1(rs.getString(14));
+					vo.setC_phone2(rs.getString(15));
+					vo.setC_phone3(rs.getString(16));
+					vo.setC_post_num(rs.getString(17));
+					vo.setC_addr(rs.getString(18));
+					vo.setC_addr_d(rs.getString(19));
+					vo.setJoindate(rs.getString(20));
+				}
+				
+			}catch (Exception e) {e.printStackTrace();}
+			return vo;
+		}
 	
 	
 	public void close() {

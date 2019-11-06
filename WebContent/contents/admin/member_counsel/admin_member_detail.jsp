@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
+<%
+	String id = request.getParameter("id");
+	General_mem_Service service = new General_mem_Service();
+	General_mem_VO vo = service.getMemberContentsAdmin(id);
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -68,7 +75,18 @@ div#admin_notice_contents article button{
 	border:none;
 }
 
-
+div#admin_notice_contents > article {
+	width:70%;
+	text-align :right;
+	margin-top:30px;
+}
+div#admin_notice_contents > article button{
+	width:100px;
+	height:35px;
+	border:none;
+	background-color:rgb(5,135,94);
+	color:white;
+}
 
 </style>
 </head>
@@ -82,41 +100,41 @@ div#admin_notice_contents article button{
 			<tr>
 				<tr>
 					<th>아이디</th>
-					<td>ee</td>
+					<td><%=vo.getId() %></td>
 					<th>가입일자</th>
-					<td>ee</td>
+					<td><%=vo.getJoindate() %></td>
 				</tr>
 				<tr>
 					<th>이름</th>
-					<td>ee</td>
+					<td><%=vo.getName()%></td>
 					<th>성별</th>
-					<td>ee</td>
+					<td><%=vo.getGender()%></td>
 				</tr>
 				<tr>
 					<th>이메일</th>
-					<td>ee</td>
+					<td><%=vo.getEmail_id()%>@<%=vo.getEmail_addr()%></td>
 					<th>생년월일</th>
-					<td>ee</td>
+					<td><%=vo.getBirth()%></td>
 				</tr>
 				<tr>
 					<th>연락처</th>
-					<td>ee</td>
+					<td><%=vo.getPhone1()%> - <%=vo.getPhone2()%> - <%=vo.getPhone3()%></td>
 					<th>통신사</th>
-					<td>ee</td>
+					<td><%=vo.getP_comp()%></td>
 				</tr>
 				<tr>
 					<th>우편번호</th>
-					<td colspan="3">ee</td>
+					<td colspan="3"><%=vo.getPost_num()%></td>
 				</tr>
 				<tr>
 					<th>주소</th>
-					<td colspan="3">ee</td>
+					<td colspan="3"><%=vo.getAddr()%> <%=vo.getAddr_d()%></td>
 				</tr>
 				<tr>
 					<th>이메일수신여부</th>
-					<td>ee</td>
+					<td><%=vo.getAccept_email()%></td>
 					<th>sms수신여부</th>
-					<td>ee</td>
+					<td><%=vo.getAccept_sms()%></td>
 				</tr>
 			</tr>
 		</table>

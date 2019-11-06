@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import com.madang.vo.General_mem_VO;
 
@@ -214,6 +215,67 @@ public class General_mem_DAO {
 		
 		return result;
 	}
+	
+	//Admin_list
+	public ArrayList<General_mem_VO> getMemberListAdmin(){
+		ArrayList<General_mem_VO> list = new ArrayList<General_mem_VO>();
+		String sql="select * from (select rownum rno, id, name, phone1,phone2,phone3, email_id, email_addr, to_char(joindate,'yyyy/mm/dd') from(select * from general_mem order by joindate desc))";
+		getPreparedStatement(sql);
+		
+		try {
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				General_mem_VO vo = new General_mem_VO();
+				vo.setRno(rs.getInt(1));
+				vo.setId(rs.getString(2));
+				vo.setName(rs.getString(3));	
+				vo.setPhone1(rs.getString(4));
+				vo.setPhone2(rs.getString(5));
+				vo.setPhone3(rs.getString(6));
+				vo.setEmail_id(rs.getString(7));
+				vo.setEmail_addr(rs.getString(8));
+				vo.setJoindate(rs.getString(9));
+				
+				list.add(vo);
+			}
+			
+		}catch (Exception e) {e.printStackTrace();}
+		return list;
+	}
+	
+	
+	//Admin_contents
+		public General_mem_VO getMemberContentsAdmin(String id) {
+			General_mem_VO vo = new General_mem_VO();
+			String sql="select id,name,gender,to_char(birth,'yyyy/mm/dd'),email_id,email_addr, post_num, addr, addr_d, phone1,phone2,phone3,p_comp, accept_email, accept_sms,to_char(joindate,'yyyy/mm/dd')  from general_mem where id=?";
+			getPreparedStatement(sql);
+			try {
+				pstmt.setString(1, id);
+				rs=pstmt.executeQuery();
+				if(rs.next()) {
+					vo.setId(rs.getString(1));
+					vo.setName(rs.getString(2));	
+					vo.setGender(rs.getString(3));
+					vo.setBirth(rs.getString(4));
+					vo.setEmail_id(rs.getString(5));
+					vo.setEmail_addr(rs.getString(6));
+					vo.setPost_num(rs.getString(7));
+					vo.setAddr(rs.getString(8));
+					vo.setAddr_d(rs.getString(9));
+					vo.setPhone1(rs.getString(10));
+					vo.setPhone2(rs.getString(11));
+					vo.setPhone3(rs.getString(12));
+					vo.setP_comp(rs.getString(13));
+					vo.setAccept_email(rs.getString(14));
+					vo.setAccept_sms(rs.getString(15));
+					vo.setJoindate(rs.getString(16));
+				}
+				
+			}catch (Exception e) {e.printStackTrace();}
+			return vo;
+		}
+	
+	
 	
 	public void close() {
 		try {

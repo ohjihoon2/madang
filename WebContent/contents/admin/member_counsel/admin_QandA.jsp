@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
 <%
-	General_mem_Service service = new General_mem_Service();
-	ArrayList<General_mem_VO> list = service.getMemberListAdmin();
+	QandA_Service service = new QandA_Service();
+	ArrayList<QandA_VO> list = service.getMemberListAdmin();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -76,13 +76,13 @@ div#admin_memberlist section table td{
 		<table>
 			<tr>
 				<th>번호</th>
-				<th>아이디</th>
-				<th>이름</th>
-				<th>연락처</th>
-				<th>이메일</th>
-				<th>가입일자</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>질문일자</th>
+				<th>답변여부</th>
+				<th>답변일자</th>
 			</tr>
-			<%for(General_mem_VO vo : list){ %>
+			<%for(QandA_VO vo : list){ %>
 				<tr>
 					<td><%=vo.getRno() %></td>
 					<td><a href="admin_member_detail.jsp?id=<%=vo.getId()%>"><%=vo.getId() %></a></td>

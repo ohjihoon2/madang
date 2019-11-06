@@ -7,24 +7,29 @@
 //이벤트 작성 및 수정하기
 
 //))파일 업로드 하기
-String save_path=request.getServletContext().getRealPath("/upload/notice");
+String save_path=request.getServletContext().getRealPath("/upload/rental");
 int max_size=1024*1024*5;
 MultipartRequest multi = new MultipartRequest(request,save_path,max_size,"utf-8",new DefaultFileRenamePolicy());
 
 	File file = new File(save_path+"/"+multi.getFilesystemName("nt_file"));
 	boolean result=false;
  
-	NoticeService service = new NoticeService();
-	NoticeVO vo = new NoticeVO();
+	RentalService service = new RentalService();
+	RentalVO vo = new RentalVO();
+
+	
+	
+	String r_case = multi.getParameter("r_case");
+	
+if(r_case.equals("concert")){ //공연신청	
+	//입력한 내용 vo에 넣기
 	vo.setNt_title(multi.getParameter("nt_title"));
 	vo.setNt_contents(multi.getParameter("nt_contents"));
+		//공연시각, 시간, 리허설시간
+	vo.setRtime(multi.getParameter("r_opentime_h")+":"+multi.getParameter("r_opentime_min"));	
 	
-	
-	String situation = multi.getParameter("situation");
-	
-if(situation.equals("notice_write")){ //작성하기	
+	//파일이 존재하면.....
 	if(file.exists()){
-		//BoardVO 객체에 데이터 넣기
 		vo.setNt_file(multi.getOriginalFileName("nt_file"));
 		vo.setNt_sfile(multi.getFilesystemName("nt_file"));
 		//service 객체에 전송
@@ -35,7 +40,7 @@ if(situation.equals("notice_write")){ //작성하기
 
 
 	
-}else if(situation.equals("notice_update")){ //업데이트
+}else if(r_case.equals("exhibition")){ //전시신청
 	System.out.println("service: "+vo.getNt_code());
 	if(file.exists()){
 		//BoardVO 객체에 데이터 넣기

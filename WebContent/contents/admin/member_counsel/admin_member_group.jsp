@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
 <%
-	General_mem_Service service = new General_mem_Service();
-	ArrayList<General_mem_VO> list = service.getMemberListAdmin();
+	Group_mem_Service service = new Group_mem_Service();
+	ArrayList<Group_mem_VO> list = service.getMembergpListAdmin();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -41,7 +41,7 @@ div.admin_content h1{
 
 
 
-div#admin_memberlist section div button{
+div#admin_memberlist_group section div button{
 	background-color:rgb(5,135,94);
 	border:none;
 	width:150px;
@@ -49,46 +49,50 @@ div#admin_memberlist section div button{
 	color:white;
 }
 
-div#admin_memberlist section table{
+div#admin_memberlist_group section table{
 	width:80%;
 	border-collapse: collapse;
 	margin-top:80px;
 }
-div#admin_memberlist section table th{
+div#admin_memberlist_group section table th{
 	background-color:rgb(195,195,195);
 	border:1px solid lightgray;
 	height:40px;
 }
-div#admin_memberlist section table td{
+div#admin_memberlist_group section table td{
 	text-align:center;
 	border:1px solid lightgray;
 	height:40px;
 }
-
+div#admin_memberlist_group section table td:nth-child(2),
+div#admin_memberlist_group section table td:nth-child(3),
+div#admin_memberlist_group section table td:nth-child(5){
+	width:20%;
+}
 
 </style>
 </head>
 <body>
 <jsp:include page="../admin_left_nav.jsp"/>
-<div id="admin_memberlist" class="admin_content">
-	<h1>일 반 회 원 관 리</h1>	
+<div id="admin_memberlist_group" class="admin_content">
+	<h1>대 관 회 원 관 리</h1>	
 	<section>
 		<table>
 			<tr>
 				<th>번호</th>
 				<th>아이디</th>
-				<th>이름</th>
-				<th>연락처</th>
-				<th>이메일</th>
+				<th>담당자명</th>
+				<th>담당자 연락처</th>
+				<th>회사명</th>
 				<th>가입일자</th>
 			</tr>
-			<%for(General_mem_VO vo : list){ %>
+			<%for(Group_mem_VO vo : list){ %>
 				<tr>
 					<td><%=vo.getRno() %></td>
-					<td><a href="admin_member_detail.jsp?id=<%=vo.getId()%>"><%=vo.getId() %></a></td>
+					<td><a href="admin_member_detail_group.jsp?id=<%=vo.getId()%>"><%=vo.getId() %></a></td>
 					<td><%=vo.getName() %></td>
 					<td><%=vo.getPhone1() %> - <%=vo.getPhone2() %> - <%=vo.getPhone3() %></td>
-					<td><%=vo.getEmail_id() %>@<%=vo.getEmail_addr() %></td>
+					<td><%=vo.getCompany()%></td>
 					<td><%=vo.getJoindate() %></td>
 				</tr>
 					

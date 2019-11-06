@@ -7,6 +7,20 @@
 <title>Insert title here</title>
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <script>
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0!
+	var yyyy = today.getFullYear();
+ 	if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+	today = yyyy+'-'+mm+'-'+dd;
+	document.getElementById("rcon_sdate").setAttribute("min", "2019-11-05");
+
 	$(document).ready(function(){
 		$("select#rental_rq_dis_select").change(function(){
 			var select = $(this).val();
@@ -26,14 +40,49 @@
 			var dis=$(this).attr("id");
 
 			if(dis=="rental_rq_con_btn"){
-				rental_rq_con_form.submit();
+				if($("input#rcon_title").val() == ""){
+					alert("제목을 입력하세요");
+				}else if($("input#rcon_sdate").val()==""){
+					alert("시작일을 입력하세요");
+				}else if($("input#rcon_edate").val()==""){
+					alert("종료일을 입력하세요");
+				}else if($("input#rcon_sdate").val()>$("input#rcon_edate").val()){
+					alert("시작일이 종료일보다 클 수 없습니다.")
+				}else if($("select#rcon_time_h").val()=="0"||$("select#rcon_time_h").val()=="1"){
+					alert("공연시간은 2시간 이상이어야 합니다.");
+				}else if($("select#rcon_rhtime_h").val()=="0"){
+					alert("리허설 시간은 1시간 이상이어야 합니다.");
+				}else if($("input#rcon_file").val()==""){
+					alert("신청서를 올려주세요");
+				}else{
+					alert("완성1");
+				}
+				
+				//rental_rq_con_form.submit();
 			}else if(dis =="rental_rq_exh_btn"){
-				rental_rq_exh_form.submit();
+				if($("input#rexh_title").val() == ""){
+					alert("제목을 입력하세요");
+				}else if($("input#rexh_sdate").val()==""){
+					alert("시작일을 입력하세요");
+				}else if($("input#rexh_edate").val()==""){
+					alert("종료일을 입력하세요");
+				}else if($("input#rexh_sdate").val()>$("input#rexh_edate").val()){
+					alert("시작일이 종료일보다 클 수 없습니다.")
+				}else if($("select#rexh_time_h").val()=="0"||$("select#rexh_time_h").val()=="1"){
+					alert("전시시간은 2시간 이상이어야 합니다.");
+				}else if($("input#rexh_file").val()==""){
+					alert("신청서를 올려주세요");
+				}else{
+					alert("완성1");
+				}
+				
+				//rental_rq_exh_form.submit();
 			}else{		
 				alert("선택오류");
 			}
-		});//폼 전송하는 이벤트 (실수하든 말든 (ajax안쓸려궁))
+		});//폼 전송하는 및 유효성검사
 	});
+
 </script>
 <style>
 	*{
@@ -130,36 +179,35 @@
 	</section>
 	<!-- 공연 대관 폼 -->
 	<section id="rental_rq_con">
-			<form action="rentalrequest_proce.jsp" method="get" name="rental_rq_con_form" >
-			<input type="hidden" name="situation" value="rqsubmit"><!-- 호출부분이 rentalrequest_form.jsp임을 알림 -->
+			<form action="retalrequest_multi_proce.jsp" method="get" name="rental_rq_con_form" >
 			<input type="hidden" name="r_case" value="concert"><!-- 공연선택했다는걸 알림 -->
 			<table>
 				<tr>
 					<th>공연 제목</th>
-					<td><input type="text" name="r_title"></td>
+					<td><input type="text" name="r_title" id="rcon_title"></td>
 				</tr>	
 				<tr>
 					<th>대관 장소</th>
-					<td><input type="text" name="r=place" value="베토벤홀"></td>
+					<td><input type="text" name="r=place" value="베토벤홀" disabled></td>
 				</tr>		
 				<tr>
 					<th>대관 시작일</th>
-					<td><input type="date" name="r_sdate"></td>
+					<td><input type="date" name="r_sdate" id="rcon_sdate" min="2019-11-02"></td>
 				</tr>
 				<tr>
 					<th>대관 종료일</th>
-					<td><input type="date" name="r_edate"></td>
+					<td><input type="date" name="r_edate" id="rcon_edate" min="2019-11-02"></td>
 				</tr>
 				<tr>
 					<th>공연시각</th>
 					<td>
-						<select name="r_opentime_h">
+						<select name="r_opentime_h" id="rcon_opentime_h">
 							<%for(int i=0; i<=24;i++){ %>
 								<option><%=i%></option>
 							<%} %>
 						</select>
 						시&nbsp;&nbsp;&nbsp;
-						<select name="r_opentime_min">
+						<select name="r_opentime_min" id="rcon_opentime_min">
 							<%for(int i=0; i<=60;i++){ %>
 								<option><%=i%></option>
 							<%} %>
@@ -170,13 +218,13 @@
 				<tr>
 					<th>공연시간</th>
 					<td>
-						<select name="r_time_h">
+						<select name="r_time_h" id="rcon_time_h">
 							<%for(int i=0; i<=24;i++){ %>
 								<option><%=i%></option>
 							<%} %>
 						</select>
 						시간
-						<select name="r_time_min">
+						<select name="r_time_min" id="rcon_time_min">
 							<%for(int i=0; i<=60;i++){ %>
 								<option><%=i%></option>
 							<%} %>
@@ -186,16 +234,16 @@
 				</tr>
 				<tr>
 					<th>리허설 시간</th>
-										<td>
-						<select name="r_rhtime_h">
+					<td>
+						<select name="r_rhtime_h" id="rcon_rhtime_h">
 							<%for(int i=0; i<=24;i++){ %>
-								<option><%=i%></option>
+								<option value="<%=i%>"><%=i%></option>
 							<%} %>
 						</select>
 						시간
-						<select name="r_rhtime_min">
+						<select name="r_rhtime_min" id="rcon_rhtime_min">
 							<%for(int i=0; i<=60;i++){ %>
-								<option><%=i%></option>
+								<option value="<%=i%>"><%=i%></option>
 							<%} %>
 						</select>
 						분					
@@ -203,7 +251,7 @@
 				</tr>		
 				<tr>
 					<th>신청서</th>
-					<td><input type="file" name="r_file"></td>
+					<td><input type="file" name="r_file" id="rcon_file"></td>
 				</tr>
 				<tr>	
 					<td colspan="2"><button type="button" id="rental_rq_con_btn" class="rental_rq_btn">전송</button></td>
@@ -213,36 +261,35 @@
 	</section>
 	<!-- 전시 대관 폼 -->
 	<section id="rental_rq_exh">
-		<form action="rentalrequest_proce.jsp" method="post" name="rental_rq_exh_form" enctype="multipart/form-data">
-			<input type="hidden" name="situation" value="rqsubmit"><!-- 호출부분이 rentalrequest_form.jsp임을 알림 -->		
+		<form action="retalrequest_multi_proce.jsp" method="post" name="rental_rq_exh_form" enctype="multipart/form-data">
 			<input type="hidden" name="r_case" value="exhibition"><!-- 전시선택했다는걸 알림 -->
 						<table>
 				<tr>
 					<th>전시 제목</th>
-					<td><input type="text" name="r_title"></td>
+					<td><input type="text" name="r_title" id="rexh_title"></td>
 				</tr>	
 				<tr>
 					<th>대관 장소</th>
-					<td><input type="text" name="r=place" value="피카소홀"></td>
+					<td><input type="text" name="r=place" value="피카소홀" disabled></td>
 				</tr>		
 				<tr>
 					<th>대관 시작일</th>
-					<td><input type="date" name="r_sdate"></td>
+					<td><input type="date" name="r_sdate" id="rexh_sdate" min="2019-11-02"></td>
 				</tr>
 				<tr>
 					<th>대관 종료일</th>
-					<td><input type="date" name="r_edate"></td>
+					<td><input type="date" name="r_edate" id="rexh_edate" min="2019-11-02"></td>
 				</tr>
 				<tr>
 					<th>전시 시각</th>
 					<td>
-						<select name="r_opentime_h">
+						<select name="r_opentime_h" id="rexh_opentime_h">
 							<%for(int i=0; i<=24;i++){ %>
 								<option><%=i%></option>
 							<%} %>
 						</select>
 						시&nbsp;&nbsp;&nbsp;
-						<select name="r_opentime_min">
+						<select name="r_opentime_min" id="rexh_opentime_mim">
 							<%for(int i=0; i<=60;i++){ %>
 								<option><%=i%></option>
 							<%} %>
@@ -253,13 +300,13 @@
 				<tr>
 					<th>전시시간</th>
 					<td>
-						<select name="r_time_h">
+						<select name="r_time_h" id="rexh_time_h">
 							<%for(int i=0; i<=24;i++){ %>
 								<option><%=i%></option>
 							<%} %>
 						</select>
 						시간
-						<select name="r_time_min">
+						<select name="r_time_min "id="rexh_time_min">
 							<%for(int i=0; i<=60;i++){ %>
 								<option><%=i%></option>
 							<%} %>
@@ -269,7 +316,7 @@
 				</tr>	
 				<tr>
 					<th>신청서</th>
-					<td><input type="file" name="r_file"></td>
+					<td><input type="file" name="r_file" id="rexh_file"></td>
 				</tr>	
 				<tr>
 					<td colspan="2"><button type="button" id="rental_rq_exh_btn" class="rental_rq_btn">전송</button></td>

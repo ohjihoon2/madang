@@ -3,7 +3,8 @@ package com.madang.vo;
 public class General_mem_VO {
 	String id, pw, name, gender, birth, email_id, email_addr, post_num, addr, addr_d, 
 			phone1, phone2, phone3, p_comp, accept_email, accept_sms, joindate;
-
+	int rno;
+	
 	public String getId() {
 		return id;
 	}
@@ -139,6 +140,14 @@ public class General_mem_VO {
 	public void setJoindate(String joindate) {
 		this.joindate = joindate;
 	}
+
+	public int getRno() {
+		return rno;
+	}
+
+	public void setRno(int rno) {
+		this.rno = rno;
+	}
 	
-	
+		
 }

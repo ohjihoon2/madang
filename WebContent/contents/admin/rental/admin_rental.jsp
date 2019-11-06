@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
+<%
+	Rental_Service service = new Rental_Service();
+	Rental_VO vo = service.getMemberListAdmin();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -36,7 +41,7 @@ div.admin_content h1{
 
 
 
-div#admin_memberlist section div button{
+div#admin_rental section div button{
 	background-color:rgb(5,135,94);
 	border:none;
 	width:150px;
@@ -44,19 +49,20 @@ div#admin_memberlist section div button{
 	color:white;
 }
 
-div#admin_memberlist section table{
+div#admin_rental section table{
 	width:80%;
-	height:500px; 
 	border-collapse: collapse;
-	margin-top:60px;
+	margin-top:80px;
 }
-div#admin_memberlist section table th{
+div#admin_rental section table th{
 	background-color:rgb(195,195,195);
-		border:1px solid lightgray;
+	border:1px solid lightgray;
+	height:40px;
 }
-div#admin_memberlist section table td{
+div#admin_rental section table td{
 	text-align:center;
 	border:1px solid lightgray;
+	height:40px;
 }
 
 
@@ -64,26 +70,27 @@ div#admin_memberlist section table td{
 </head>
 <body>
 <jsp:include page="../admin_left_nav.jsp"/>
-<div id="admin_memberlist" class="admin_content">
-	<h1>대 관 회 원 관 리</h1>	
+<div id="admin_rental" class="admin_content">
+	<h1>대 관 관 리</h1>	
 	<section>
 		<table>
 			<tr>
 				<th>번호</th>
-				<th>아이디</th>
-				<th>이름</th>
-				<th>연락처</th>
-				<th>가입일자</th>
-				<th>탈퇴신청</th>
+				<th>분류</th>
+				<th>제목</th>
+				<th>오픈시각</th>
+				<th>시간</th>
+				<th>신청자</th>
+				<th>상태</th>
 			</tr>
-			<%for(int i=0; i<10;i++){ %>
+			<%for(General_mem_VO vo : list){ %>
 				<tr>
-					<td>1</td>
-					<td><a href="#">kakak</a></td>
-					<td>김봉봉</td>
-					<td>010-8555-8888</td>
-					<td>2019.08.12</td>
-					<td>신청</td>
+					<td><%=vo.getRno() %></td>
+					<td><a href="admin_member_detail.jsp?id=<%=vo.getId()%>"><%=vo.getId() %></a></td>
+					<td><%=vo.getName() %></td>
+					<td><%=vo.getPhone1() %> - <%=vo.getPhone2() %> - <%=vo.getPhone3() %></td>
+					<td><%=vo.getEmail_id() %>@<%=vo.getEmail_addr() %></td>
+					<td><%=vo.getJoindate() %></td>
 				</tr>
 					
 			<%} %>

@@ -2,7 +2,7 @@ package com.madang.vo;
 
 public class Group_mem_VO {
 	String id, pw, name, email_id, email_addr, phone1, phone2, phone3, fax1, fax2, fax3, company, c_name, c_number, c_phone1, c_phone2, c_phone3, c_post_num, c_addr, c_addr_d, joindate;
-
+	int rno;
 	
 	public String getJoindate() {
 		return joindate;
@@ -170,6 +170,14 @@ public class Group_mem_VO {
 
 	public void setC_addr_d(String c_addr_d) {
 		this.c_addr_d = c_addr_d;
+	}
+
+	public int getRno() {
+		return rno;
+	}
+
+	public void setRno(int rno) {
+		this.rno = rno;
 	}
 	
 	

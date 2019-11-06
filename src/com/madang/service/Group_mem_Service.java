@@ -1,6 +1,10 @@
 package com.madang.service;
 
+import java.util.ArrayList;
+
+import com.madang.dao.General_mem_DAO;
 import com.madang.dao.Group_mem_DAO;
+import com.madang.vo.General_mem_VO;
 import com.madang.vo.Group_mem_VO;
 
 public class Group_mem_Service {
@@ -30,5 +34,20 @@ public class Group_mem_Service {
 		result=dao.getResultOut(id, pw);
 		dao.close();
 		return result;
+	}
+	
+	//Admin_list
+		public ArrayList<Group_mem_VO> getMembergpListAdmin(){
+			Group_mem_DAO dao=new Group_mem_DAO();
+			ArrayList<Group_mem_VO> list = dao.getMembergpListAdmin();
+			dao.close();
+			return list;
+		}
+	//Admin_contents	
+	public Group_mem_VO getMembergpContentsAdmin(String id) {
+		Group_mem_DAO dao=new Group_mem_DAO();
+		Group_mem_VO vo = dao.getMembergpContentsAdmin(id);
+		dao.close();
+		return vo;
 	}
 }

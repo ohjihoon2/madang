@@ -12,7 +12,7 @@
 	$(document).ready(function(){
 		$("#rental_rq_btn").click(function(){
 			$.ajax({
-				url:"rentalrequest_proce.jsp?situation=open",
+				url:"rentalrequest_proce.jsp",
 				success:function(result){
 					var openform = result.trim();
 					if(openform == "openform"){
