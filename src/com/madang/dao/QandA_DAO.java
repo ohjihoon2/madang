@@ -132,11 +132,15 @@ public class QandA_DAO {
 	
 	
 	//Admin list 
-	public ArrayList<QandA_VO> getQandAListAdmin(){
+	public ArrayList<QandA_VO> getQandAListAdmin(int startCount, int endCount){
 		ArrayList<QandA_VO> list = new ArrayList<QandA_VO>();
-		String sql="select * from(select rownum, qa_code, qa_title, id, to_char(qa_date,'yyyy/mm/dd'), to_char(qa_adate,'yyyy/mm/dd') from(select * from  q_and_a order by qa_date desc))";
+		String sql="select * from(select rownum rno, qa_code, qa_title, id, to_char(qa_date,'yyyy/mm/dd'), to_char(qa_adate,'yyyy/mm/dd') from(select * from  q_and_a order by qa_date desc))where rno between ? and ?";
 		getPreparedStatement(sql);
 		try {
+			
+			pstmt.setInt(1, startCount);
+			pstmt.setInt(2, endCount);
+			
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				QandA_VO vo = new QandA_VO();
@@ -199,7 +203,7 @@ public class QandA_DAO {
 	public int execTotalCount(){
 		int result =0;
 		try{
-			String sql = "select count(*) from dycgv_notice";
+			String sql = "select count(*) from q_and_a";
 			getPreparedStatement(sql);
 			
 			rs = pstmt.executeQuery();
