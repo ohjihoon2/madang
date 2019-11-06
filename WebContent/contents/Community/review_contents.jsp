@@ -4,7 +4,7 @@
 <%
 	String rv_code = request.getParameter("rv_code"); 
 	String rv_rp_id = (String)session.getAttribute("generalID"); 
-System.out.println("rv_rp_id:"+rv_rp_id);	
+
 	ReviewService service = new ReviewService();
 	ReviewVO vo = service.getResultContent(rv_code);
 	

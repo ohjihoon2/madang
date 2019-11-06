@@ -9,20 +9,20 @@ import com.madang.vo.ReviewVO;
 
 public class ReviewService {
 	//후기 리스트 출력
-	public ArrayList<ReviewVO> getResultListByDate(){
+	public ArrayList<ReviewVO> getResultListByDate(String listOrder){
 		ArrayList<ReviewVO> list = new ArrayList<ReviewVO>();
 		ReviewDAO dao = new ReviewDAO();
-		list = dao.getResultListByDate();
+		list = dao.getResultListByDate(listOrder);
 		
 		dao.close();
 		return list;
 	}
 	
 	//후기 리스트 출력
-	public ArrayList<ReviewVO> getResultListByStar(){
+	public ArrayList<ReviewVO> getResultListByDate(){
 		ArrayList<ReviewVO> list = new ArrayList<ReviewVO>();
 		ReviewDAO dao = new ReviewDAO();
-		list = dao.getResultListByStar();
+		list = dao.getResultListByDate();
 		
 		dao.close();
 		return list;

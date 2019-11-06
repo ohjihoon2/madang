@@ -36,15 +36,25 @@ public class ReviewDAO {
 	
 	
 	/** 리뷰 리스트 출력 **/
-	public ArrayList<ReviewVO> getResultListByDate(){
+	public ArrayList<ReviewVO> getResultListByDate(String listOrder){
 		ArrayList<ReviewVO> list = new ArrayList<ReviewVO>();
-		String sql = "select to_char(rv_date,'yyyy.mm.dd.'), r.id, rv_staravg, rv_title, rv_content, rv_hits, c_poster, rv_code\r\n" + 
-					" from review r, concert c \r\n" + 
-					" where r.concert_code = c.concert_code\r\n" + 
+		String sql = "";
+		if(listOrder.equals("byDate")) {
+			sql = "select to_char(rv_date,'yyyy.mm.dd.'), r.id, rv_staravg, rv_title, rv_content, rv_hits, c_poster, rv_code" + 
+					" from review r, concert c" + 
+					" where r.concert_code = c.concert_code" + 
 					" order by rv_date desc";
+		}else if(listOrder.equals("byStar")){
+			sql = "select to_char(rv_date,'yyyy.mm.dd.'), r.id, rv_staravg, rv_title, rv_content, rv_hits, c_poster, rv_code" + 
+					" from review r, concert c" + 
+					" where r.concert_code = c.concert_code" + 
+					" order by rv_staravg desc";
+		}
 		getPreparedStatement(sql);
+		System.out.println("sql:"+sql);
 		try {
 			rs = pstmt.executeQuery();
+			
 			while(rs.next()) {
 				ReviewVO vo = new ReviewVO();
 				vo.setRv_date(rs.getString(1));				
@@ -67,14 +77,14 @@ public class ReviewDAO {
 	}
 	
 	/** 리뷰 리스트 출력 **/
-	public ArrayList<ReviewVO> getResultListByStar(){
+	public ArrayList<ReviewVO> getResultListByDate(){
 		ArrayList<ReviewVO> list = new ArrayList<ReviewVO>();
-		String sql = "select to_char(rv_date,'yyyy.mm.dd.'), r.id, rv_staravg, rv_title, rv_content, rv_hits, c_poster, rv_code\r\n" + 
-				" from review r, concert c \r\n" + 
-				" where r.concert_code = c.concert_code\r\n" + 
-				" order by rv_staravg desc";
+		String sql = "select to_char(rv_date,'yyyy.mm.dd.'), r.id, rv_staravg, rv_title, rv_content, rv_hits, c_poster, rv_code" + 
+					" from review r, concert c" + 
+					" where r.concert_code = c.concert_code" + 
+					" order by rv_date desc";
 		getPreparedStatement(sql);
-		
+		System.out.println("sql:"+sql);
 		try {
 			rs = pstmt.executeQuery();
 			
@@ -88,7 +98,7 @@ public class ReviewDAO {
 				vo.setRv_hits(rs.getInt(6));
 				vo.setC_poster(rs.getString(7));
 				vo.setRv_code(rs.getString(8));
-				
+			
 				list.add(vo);
 			}
 			
