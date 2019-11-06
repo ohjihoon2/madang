@@ -19,9 +19,17 @@
     } 
 
 	today = yyyy+'-'+mm+'-'+dd;
-	document.getElementById("rcon_sdate").setAttribute("min", "2019-11-05");
+	//document.getElementById("rcon_sdate").setAttribute("min", "2019-11-05");  today만드는 것 까지는 되지만, jQuery와 같이 써서인지 이런 코드는 작동x 대신 function은 작동
 
 	$(document).ready(function(){
+	
+		
+		
+		$("#rcon_sdate").attr("min", today)//위의 자바스크립트가 안되서 변형한 것.
+		$("#rcon_edate").attr("min", today)
+		$("#rexh_sdate").attr("min", today)
+		$("#rexh_edate").attr("min", today)
+		
 		$("select#rental_rq_dis_select").change(function(){
 			var select = $(this).val();
 			if(select == "공연"){
@@ -38,7 +46,7 @@
 		
 		$("button.rental_rq_btn").click(function(){
 			var dis=$(this).attr("id");
-
+		//공연신청
 			if(dis=="rental_rq_con_btn"){
 				if($("input#rcon_title").val() == ""){
 					alert("제목을 입력하세요");
@@ -55,10 +63,10 @@
 				}else if($("input#rcon_file").val()==""){
 					alert("신청서를 올려주세요");
 				}else{
-					alert("완성1");
+					rental_rq_con_form.submit();
 				}
 				
-				//rental_rq_con_form.submit();
+		//전시신청
 			}else if(dis =="rental_rq_exh_btn"){
 				if($("input#rexh_title").val() == ""){
 					alert("제목을 입력하세요");
@@ -73,7 +81,7 @@
 				}else if($("input#rexh_file").val()==""){
 					alert("신청서를 올려주세요");
 				}else{
-					alert("완성1");
+					rental_rq_exh_form.submit();
 				}
 				
 				//rental_rq_exh_form.submit();
@@ -179,7 +187,7 @@
 	</section>
 	<!-- 공연 대관 폼 -->
 	<section id="rental_rq_con">
-			<form action="retalrequest_multi_proce.jsp" method="get" name="rental_rq_con_form" >
+			<form action="rentalrequest_multi_proce.jsp" method="post" name="rental_rq_con_form"  enctype="multipart/form-data" >
 			<input type="hidden" name="r_case" value="concert"><!-- 공연선택했다는걸 알림 -->
 			<table>
 				<tr>
@@ -188,7 +196,8 @@
 				</tr>	
 				<tr>
 					<th>대관 장소</th>
-					<td><input type="text" name="r=place" value="베토벤홀" disabled></td>
+					<td><input type="text" value="베토벤홀" disabled/></td>
+					<input type="hidden" name="r_place" value="베토벤홀">
 				</tr>		
 				<tr>
 					<th>대관 시작일</th>
@@ -261,16 +270,18 @@
 	</section>
 	<!-- 전시 대관 폼 -->
 	<section id="rental_rq_exh">
-		<form action="retalrequest_multi_proce.jsp" method="post" name="rental_rq_exh_form" enctype="multipart/form-data">
+	
+		<form action="rentalrequest_multi_proce.jsp" method="post" name="rental_rq_exh_form" enctype="multipart/form-data">
 			<input type="hidden" name="r_case" value="exhibition"><!-- 전시선택했다는걸 알림 -->
-						<table>
+				<table>
 				<tr>
 					<th>전시 제목</th>
 					<td><input type="text" name="r_title" id="rexh_title"></td>
 				</tr>	
 				<tr>
 					<th>대관 장소</th>
-					<td><input type="text" name="r=place" value="피카소홀" disabled></td>
+					<td><input type="text" value="피카소홀" disabled/></td>
+					<input type="hidden" name="r_place" value="피카소홀">
 				</tr>		
 				<tr>
 					<th>대관 시작일</th>

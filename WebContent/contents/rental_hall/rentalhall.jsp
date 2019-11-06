@@ -145,7 +145,7 @@ $(document).ready(function(){
 		<h1 class="page_title">대관시설</h1>
 		<h2><span class="font_circle">●</span> 모짜르트홀</h2>   <!-- http://theater.arko.or.kr/Pages/SpaceInfo/Space_04.aspx -->
 		<section>
-				<img class="page_con2_poster1" src="http://localhost:9090/images/rental_hall/소극장_pic.jpg">
+				<img class="page_con2_poster1" src="http://localhost:9090/images/rental/소극장_pic.jpg">
 				<br>
 			<article>
 					블랙박스형 트랩무대로 폭 12.8m 깊이 14.8m 높이 5.4m로 자유로운 형식과 내용의 작품들을 
@@ -174,7 +174,7 @@ $(document).ready(function(){
 		</section>
 		<h2><span class="font_circle">●</span> 피카소관</h2>   <!-- http://theater.arko.or.kr/Pages/SpaceInfo/Space_04.aspx -->
 		<section>
-				<img class="page_con2_poster2" src="http://localhost:9090/images/rental_hall/hangaram_1.gif"/>
+				<img class="page_con2_poster2" src="http://localhost:9090/images/rental/hangaram_1.gif"/>
 				<br>
 			<article>
 					블랙박스형 트랩무대로 폭 12.8m 깊이 14.8m 높이 5.4m로 자유로운 형식과 내용의 작품들을 충분히 담아낼 수 있는 공간으로서, 

@@ -142,14 +142,11 @@ header ul.dept02 li a:hover {
 			<li><a href="#"><img src="http://localhost:9090/images/search.png"></a></li>
 			<li><a href="http://localhost:9090/contents/login/login.jsp">로그인</a></li>
 			<li><a href="http://localhost:9090/contents/join/join0.jsp">회원가입</a></li>
-			<li><a href="http://localhost:9090/contents/mypage/mypage_main.jsp">마이페이지</a></li>		<!-- 막아버리기 -->
-			<!-- <li><a href="#">티켓예매</a></li> 막아버리기 -->
 			<li><a href="http://localhost:9090/contents/cs/cs_main.jsp">고객센터</a></li>
 		<!-- 일반회원 로그인 -->
 		<%}else if(generalId!=null && groupId==null){ %>		
 			<li><a href="#"><img src="http://localhost:9090/images/search.png"></a></li>
 			<li><a href="http://localhost:9090/contents/login/logout_proce.jsp">로그아웃</a></li>
-			<!-- <li><a href="http://localhost:9090/contents/join/join0.jsp">회원가입</a></li> -->
 			<li><a href="http://localhost:9090/contents/mypage/mypage_main.jsp">마이페이지</a></li>
 			<li><a href="#">티켓예매</a></li>
 			<li><a href="http://localhost:9090/contents/cs/cs_main.jsp">고객센터</a></li>
@@ -157,7 +154,6 @@ header ul.dept02 li a:hover {
 		<%}else if(generalId==null && groupId!=null){ %>
 			<li><a href="#"><img src="http://localhost:9090/images/search.png"></a></li>
 			<li><a href="http://localhost:9090/contents/login/logout_proce.jsp">로그아웃</a></li>
-			<!-- <li><a href="http://localhost:9090/contents/join/join0.jsp">회원가입</a></li> -->
 			<li><a href="http://localhost:9090/contents/mypage/mypage_main.jsp">마이페이지</a></li>
 			<li><a href="#">티켓예매</a></li>
 			<li><a href="http://localhost:9090/contents/cs/cs_main.jsp">고객센터</a></li>
@@ -208,16 +204,11 @@ header ul.dept02 li a:hover {
 						<li><a href="http://localhost:9090/contents/Usher/facility.jsp">시설안내</a></li>
 						<li><a href="http://localhost:9090/contents/Usher/utility_concert.jsp">편의시설</a></li>
 						<li><a href="http://localhost:9090/contents/Usher/etiquette_concert.jsp">관람매너</a></li>
-					</ul>
-				</li>
-				
-				<li class="ticket">
-					<a href="#">티켓구매<i class='fa fa-angle-down'></i></a>
-					<ul class="dept02">
-						<li><a href="#">티켓예매</a></li>
 						<li><a href="http://localhost:9090/contents/ticket/respecting_ticket.jsp">우대안내</a></li>
 					</ul>
 				</li>
+				
+	
 				
 				<li class="community">
 					<a href="http://localhost:9090/contents/Community/review_byDate.jsp">커뮤니티<i class='fa fa-angle-down'></i></a>

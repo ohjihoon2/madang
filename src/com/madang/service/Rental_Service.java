@@ -32,4 +32,14 @@ public class Rental_Service {
 		dao.close();
 		return result;
 	}
+	
+	//rental request (insert)
+	public boolean getResultRentalRequest(Rental_VO vo) {
+		System.out.println("service"+vo.getR_place());
+		boolean result = false;
+		Rental_DAO dao=new Rental_DAO();
+		result=dao.getResultRentalRequest(vo);
+		dao.close();
+		return result;
+	}
 }

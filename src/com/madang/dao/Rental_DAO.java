@@ -145,6 +145,40 @@ public class Rental_DAO {
 		return result;
 	}
 	
+	//rental request (insert)
+	public boolean getResultRentalRequest(Rental_VO vo) {
+		boolean result = false;
+		String sql = "insert into rental values('rt'||lpad(sequ_rental.nextval,4,0),?,?,?,?,?,?,?,?,?,?,?,?)";
+		getPreparedStatement(sql);
+		System.out.println("daO"+vo.getR_place());
+		try {
+			pstmt.setString(1, vo.getR_case());
+			pstmt.setString(2, vo.getR_title());
+			pstmt.setString(3, vo.getR_place());
+			pstmt.setString(4, vo.getR_sdate());
+			pstmt.setString(5, vo.getR_edate());
+			pstmt.setString(6, vo.getR_opentime());
+			pstmt.setString(7, vo.getR_time());
+			pstmt.setString(8, vo.getR_rhtime());
+			pstmt.setString(9, vo.getR_status());
+			pstmt.setString(10, vo.getR_id());
+			pstmt.setString(11, vo.getR_file());
+			pstmt.setString(12, vo.getR_sfile());
+			
+			
+			
+			
+			int val=pstmt.executeUpdate();
+			if(val!=0) result=true;
+		} catch (Exception e) {e.printStackTrace();}
+		
+		return result;
+	}
+	
+	
+	
+	
+	
 	
 	public void close() {
 		try {

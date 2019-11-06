@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+
 <script>
 $(document).ready(function(){
 	  $("div.admin_left_sub").hide();
@@ -20,7 +20,7 @@ $(document).ready(function(){
 		  window.open("http://localhost:9090/mainpage.jsp", "_blank");  
 	  });
 	  
-	  $("#admin_left_gohome").click(function(){
+	  $("div#admin_left_home").click(function(){
 		  location.href="http://localhost:9090/contents/admin/admin_main.jsp";
 	  });
 
@@ -94,7 +94,7 @@ aside#amdmin_left ul li>div a{
 </head>
 <body>
 <aside id="amdmin_left">
-<div>
+<div id="admin_left_home">
 	관리자 페이지
 </div>
 <div id="admin_left_gohome">홈페이지로</div>

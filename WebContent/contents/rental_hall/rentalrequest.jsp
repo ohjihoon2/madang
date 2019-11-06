@@ -10,6 +10,17 @@
 <link rel="stylesheet" href="http://localhost:9090/css/madangcss.css"/>
 <script>
 	$(document).ready(function(){
+		$('a#rt_con_requestform_down').click(function(e){
+            e.preventDefault(); //a의 href무력화
+             window.open('http://localhost:9090/upload/rental/madang_rental_concert.hwp');
+         });//공연신청폼다운
+
+ 		$('a#rt_exh_requestform_down').click(function(e){ 
+            e.preventDefault(); //a의 href무력화
+             window.open('http://localhost:9090/upload/rental/madang_rental_exhibition.hwp');
+         });//전시신청폼 다운
+		
+		
 		$("#rental_rq_btn").click(function(){
 			$.ajax({
 				url:"rentalrequest_proce.jsp",
@@ -104,11 +115,11 @@
 		border-collapse: collapse;
 	}
 	div#rental_request div.page_contents section table th{
-		width:200px;
+		width:100px;
 		border-right:1px solid rgb(155,155,155);
 	}
 	div#rental_request div.page_contents section table td{
-		width:400px;
+		width:500px;
 		padding:20px 0px 20px 0px;
 	
 	}
@@ -158,8 +169,8 @@
 				<tr>
 					<th>필수 서류</th>
 					<td>
-					공연대관 : &nbsp;&nbsp;2019_모짜르트홀_대관신청서.hwp <!-- 파일링크예정 -->
-					<br>전시대관 : &nbsp;&nbsp;2019_피카소관_대관신청서.hwp
+					공연대관 : &nbsp;&nbsp;<a href="#" id="rt_con_requestform_down">2019_모짜르트홀_대관신청서.hwp  (다운로드)</a>
+					<br>전시대관 : &nbsp;&nbsp;<a href="#" id="rt_exh_requestform_down">2019_피카소관_대관신청서.hwp  (다운로드)</a>
 					</td>
 				</tr>
 				<tr>
