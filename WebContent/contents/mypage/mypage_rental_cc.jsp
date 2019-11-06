@@ -129,7 +129,7 @@
 			
 			<div class="button">
 				<button type="button" id="out_btn" class="button_a">신청취소</button>
-				<a href="mypage_rental_details.jsp?rental_code=<%= vo.getRental_code() %>"><button type="button" id="out_btn" class="button_b">취소</button></a>
+				<a href="mypage_rental_details.jsp?rental_code=<%= vo.getRental_code() %>"><button type="button" class="button_b">취소</button></a>
 			</div>
 		</form>
 	

@@ -37,7 +37,10 @@ public class Rental_DAO {
 	public ArrayList<Rental_VO> getList(String id){
 		ArrayList<Rental_VO> list=new ArrayList<Rental_VO>();
 		
-		String sql="select r_case, rental_code, r_title, to_char(r_sdate, 'yyyy-mm-dd'), to_char(r_edate, 'yyyy-mm-dd'), r_place, r_status from rental where r_id=?";
+		String sql="select r_case, rental_code, r_title, \r\n" + 
+				"  to_char(r_sdate, 'yyyy-mm-dd'), to_char(r_edate, 'yyyy-mm-dd'), \r\n" + 
+				"  r_place, r_status, floor(sysdate-to_date(r_sdate,'yy/mm/dd')) startcount, floor(to_date(r_edate,'yy/mm/dd')-sysdate)+1 endcount \r\n" + 
+				"  from rental where r_id=?";
 		getPreparedStatement(sql);
 		
 		try {
@@ -54,6 +57,17 @@ public class Rental_DAO {
 				vo.setR_edate(rs.getString(5));
 				vo.setR_place(rs.getString(6));
 				vo.setR_status(rs.getString(7));
+				if(rs.getString(7).equals("신청완료")) {
+					if(rs.getInt(9)>=0) {
+						if(rs.getInt(8)<0) {
+							vo.setR_status2("예정");
+						} else {
+							vo.setR_status2("진행중");
+						}
+					} else {
+						vo.setR_status2("종료");
+					}
+				}
 				list.add(vo);
 			}
 		} catch (Exception e) {e.printStackTrace();}

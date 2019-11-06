@@ -51,7 +51,11 @@ document.write(<%= id %>);
 						<td><%= vo.getR_title() %></td>
 						<td><%= vo.getR_sdate() %> ~ <%= vo.getR_edate() %></td>
 						<td><%= vo.getR_place() %></td>
-						<td><%= vo.getR_status() %></td>
+						<% if(vo.getR_status().equals("신청완료")) { %>
+							<td><%= vo.getR_status2() %></td>
+						<% } else { %>
+							<td><%= vo.getR_status() %></td>
+						<% } %>
 					</tr>
 				<% } %>
 				
