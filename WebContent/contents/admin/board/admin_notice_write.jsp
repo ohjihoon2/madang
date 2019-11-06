@@ -106,7 +106,7 @@ $(document).ready(function(){
 	 	 }else if($("div#admin_notice_write textarea#ad_nt_contents").val() == ""){
 		 	alert("내용을 입력하세요");
 	 	 }else{
-	 		notice_write.submit();
+	 		notice_wirte.submit();
 	 	 }
 	 });
 });
@@ -117,7 +117,7 @@ $(document).ready(function(){
 <div id="admin_notice_write" class="admin_content">
 	<h1>공 지 사 항</h1>	
 	<section>
-		<form action="admin_board_multi_proce.jsp" mehtod="post" name="notice_wirte" enctype="multipart/form-data"/>
+		<form action="admin_notice_multi_proce.jsp" method="post" name="notice_wirte" enctype="multipart/form-data">
 		<input type="hidden" name="situation" value="notice_write"/>
 		<table>
 			<tr>
@@ -137,6 +137,7 @@ $(document).ready(function(){
 				<td><input type="file" name="nt_file"></td>
 			</tr>
 		</table>
+		</form>
 		<article>
 			<button type="button" id="adboard_writenotice_btn">작성완료</button>
 			<button type="button" id="adboard_cancel_notice_btn">작성취소</button>

@@ -106,6 +106,17 @@ div#admin_event_update section table tr:nth-child(5) td>div>img{
 	margin-bottom:10px;
 }
 
+
+div#admin_event_update section table span.event_file_dname,
+div#admin_event_update section table span.event_file_tname{
+    display: block;
+    position: relative;
+    width: 100%;
+    top: -27px;
+    left: 85px;
+    background: white;
+  } 
+    
 div#admin_event_update section article {
 	width:80%;
 	text-align :right;
@@ -119,14 +130,7 @@ div#admin_event_update section article button:first-child{
 	color:white;
 	background-color:rgb(5,135,94);
 	}
-.event_file_dname,
-.event_file_tname{
-    display: block;
-    position: relative;
-    width: 100%;
-    top: -27px;
-    left: 85px;
-    background: white;
+
 
 
 </style>

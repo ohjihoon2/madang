@@ -135,7 +135,7 @@ div#admin_event_contents section article a:first-child button{
 				<th>이벤트 기간</th>
 				<td><%=vo.getEv_sdate() %> ~ <%= vo.getEv_edate() %></td>
 				<th>상태</th>
-				<td>d</td>
+				<td><%=vo.getEv_status()%></td>
 			</tr>
 			<tr>	
 				<th>작성일자</th>

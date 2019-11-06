@@ -17,7 +17,7 @@
 	
 	div.page_contents2{
 		width:1000px;
-		height:3000px;
+		height:4000px;
 		margin:auto;
 	}
 	
@@ -104,6 +104,31 @@
    	 }
 	
 </style>
+<script>
+$(document).ready(function(){
+	$('a.rental_down_bylaw').click(function(e) {
+		e.preventDefault();
+	    window.location.href = 'http://localhost:9090/upload/rental/rent_bylaw.pdf';
+	});//대관규약서 다운로드
+	
+	$('a#rental_down_con_tools').click(function(e) {
+		e.preventDefault();
+	    window.location.href = 'http://localhost:9090/upload/rental/concert_tools_list.zip';
+	});	//무대장비목록 다운로드
+	
+	$('a#rental_down_con_stage').click(function(e) {
+		e.preventDefault();
+	    window.location.href = 'http://localhost:9090/upload/rental/concert_stage_plan.zip';
+	});	//무대도면다운로드
+	
+	$('a#rental_down_exh_stage').click(function(e) {
+		e.preventDefault();
+	    window.location.href = 'http://localhost:9090/upload/rental/exhibition_stage_plan.zip';
+	});	// 전시장 도면 다운로드
+});
+
+
+</script>
 </head>
 <body>
 	<jsp:include page="../../header.jsp"/>
@@ -140,11 +165,11 @@
 						<br>(담당자 상의)
 					</div>
 				<h3>대관규약</h3>
-						<div><a href="#">대관규약서 다운로드</a><!-- pdf다운로드 링크 걸 예정 -->
+						<div><a href="#" class="rental_down_bylaw">대관규약서<img src="http://localhost:9090/images/rental/pdf_icon.jpg"></a>
 						</div>					
 				<h3>무대기술자료</h3>
-					<div><a href="#">무대 장비 목록 다운로드 <img src="http://localhost:9090/images/ect/pdf_icon.jpg"></a>
-					<br><br><a href="#">무대 도면 다운로드<img src="http://localhost:9090/images/ect/pdf_icon.jpg"></a></div><!-- pdf다운로드 링크 걸 예정 -->
+					<div><a href="#" id="rental_down_con_tools">무대 장비 목록 다운로드 (.zip)</a>
+					<br><br><a href="#" id="rental_down_con_stage">무대 도면 다운로드 (.zip)</a></div><!-- pdf다운로드 링크 걸 예정 -->
 			</article>
 		</section>
 		<h2><span class="font_circle">●</span> 피카소관</h2>   <!-- http://theater.arko.or.kr/Pages/SpaceInfo/Space_04.aspx -->
@@ -167,11 +192,11 @@
 						<br>(담당자 상의)
 					</div>
 				<h3>대관규약</h3>
-						<div><a href="#">대관규약서 다운로드<img src="http://localhost:9090/images/ect/pdf_icon.jpg"></a><!-- pdf다운로드 링크 걸 예정 -->
+						<div><a href="#" class="rental_down_bylaw">대관규약서 <img src="http://localhost:9090/images/rental/pdf_icon.jpg"></a>
 						</div>					
-				<h3>무대기술자료</h3>
-					<div><a href="#">무대 장비 목록 다운로드<img src="http://localhost:9090/images/ect/pdf_icon.jpg"></a>
-					<br><br><a href="#">무대 도면 다운로드<img src="http://localhost:9090/images/ect/pdf_icon.jpg"></a></div><!-- pdf다운로드 링크 걸 예정 -->
+				<h3>전시장기술자료</h3>
+				<div><a href="#" id="rental_down_exh_tools">전시장 도면 다운로드 (.zip)</a>
+						
 			</article>
 		</section>		
 		<section>

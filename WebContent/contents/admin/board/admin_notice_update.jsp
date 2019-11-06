@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
+<%
+	String nt_code = request.getParameter("nt_code");
+	NoticeService service = new NoticeService();
+	NoticeVO vo = service.getNoticeContentsAdmin(nt_code);
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -63,6 +69,7 @@ div#admin_notice_update section form table input[type=file]{
 	border:none;
 	padding-left:10px;
 	box-sizing:border-box;
+	font-size:11pt;
 }
 div#admin_notice_update section form table tr:nth-child(3) td textarea{
   	margin-top:10px;
@@ -73,7 +80,17 @@ div#admin_notice_update section form table tr:nth-child(3) td textarea{
 	border:none;
 	padding:10px;
 	box-sizing:border-box;
+	font-size:11pt;
 }
+
+div#admin_notice_update section table span.notice_file_name{
+    display: block;
+    position: relative;
+    width: 100%;
+    top: -27px;
+    left: 90px;
+    background: white;
+  } 
 div#admin_notice_update section article {
 	width:80%;
 	text-align :right;
@@ -109,6 +126,13 @@ $(document).ready(function(){
 	 		notice_update.submit();
 	 	 }
 	 });
+	 
+	 $("#ad_nt_file").change(function() {
+		  if(window.FileReader){
+				$(".notice_file_name").text("").text($(this)[0].files[0].name);  //기존의 값을 지우고 새 값을 넣음  $(this)[0]첫번째 <input type=file>. 해당 배열은 웹브라우저에서 생성.files[0]:선택한 파일중에서 첫번 서서
+			}
+		});
+	 //파일선택시 이름 달라짐
 });
 </script>
 </head>
@@ -117,26 +141,35 @@ $(document).ready(function(){
 <div id="admin_notice_update" class="admin_content">
 	<h1>공 지 사 항</h1>	
 	<section>
-		<form action="admin_board_multi_proce.jsp" mehtod="post" name="notice_update" enctype="multipart/form-data"/>
+		<form action="admin_notice_multi_proce.jsp" method="post" name="notice_update" enctype="multipart/form-data">
 		<input type="hidden" name="situation" value="notice_update"/>
+		<input type="hidden" name="nt_code" value="<%=nt_code%>"/>
 		<table>
 			<tr>
 				<th>제목</th>
-				<td><input type="text" name="nt_title" id="ad_nt_title"/> </td>
+				<td><input type="text" name="nt_title" id="ad_nt_title" value="<%=vo.getNt_title()%>"/> </td>
 			</tr>
 			<tr>
 				<th colspan="2">내용</th>
 			</tr>
 			<tr>
 				<td colspan="2">
-				<textarea name="nt_contents" id="ad_nt_contents">ddd<%-- <%=vo.getBcontent() %> --%></textarea>
+				<textarea name="nt_contents" id="ad_nt_contents"><%=vo.getNt_contents() %></textarea>
 				</td>
 			</tr>
 			<tr>
 				<th>첨부파일</th>
-				<td><input type="file" name="nt_file"></td>
+				<td>
+					<input type="file" name="nt_file" id="ad_nt_file"/>
+						<%if(vo.getNt_file()!=null && vo.getNt_file() !=""){ %>
+							<span class="notice_file_name"><%=vo.getNt_file()%></span>
+						<%}else{ %>
+							<span class="notice_file_name">&nbsp;</span>
+						<%} %>
+				</td>
 			</tr>
 		</table>
+		</form>
 		<article>
 			<button type="button" id="adboard_upnotice_btn">수정완료</button>
 			<button type="button" id="adboard_cancel_notice_btn">수정취소</button>

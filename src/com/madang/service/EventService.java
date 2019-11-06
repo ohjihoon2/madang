@@ -8,7 +8,7 @@ public class EventService {
 	EventDAO dao = new EventDAO();
 
 	/** LIST*/
-	/** �̺�Ʈ ����Ʈ �������� */
+	/** 占싱븝옙트 占쏙옙占쏙옙트 占쏙옙占쏙옙占쏙옙占쏙옙 */
 	public ArrayList<EventVO> getResultList(){
 		ArrayList<EventVO> list = new ArrayList<EventVO>();
 		EventDAO dao = new EventDAO();		
@@ -17,7 +17,7 @@ public class EventService {
 		return list;
 	}
 	
-	/** ���� �������� �̺�Ʈ ����Ʈ �������� */
+	/** 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占싱븝옙트 占쏙옙占쏙옙트 占쏙옙占쏙옙占쏙옙占쏙옙 */
 	public ArrayList<EventVO> getResultIngList(){
 		ArrayList<EventVO> inglist = new ArrayList<EventVO>();
 		EventDAO dao = new EventDAO();
@@ -27,7 +27,7 @@ public class EventService {
 	}
 
 	/** CONTENT
-	/** �̺�Ʈ ���� VO �������� */
+	/** 占싱븝옙트 占쏙옙占쏙옙 VO 占쏙옙占쏙옙占쏙옙占쏙옙 */
 	public EventVO getResultContent(String ev_code) {
 		EventVO vo = new EventVO();
 		EventDAO dao = new EventDAO();
@@ -36,7 +36,7 @@ public class EventService {
 		return vo;	
 	}
 	
-	/** ��� ����Ʈ �������� **/
+	/** 占쏙옙占� 占쏙옙占쏙옙트 占쏙옙占쏙옙占쏙옙占쏙옙 **/
 	public ArrayList<EventReplyVO> getResultReplyList(String ev_code) {
 		ArrayList<EventReplyVO> rvo = new ArrayList<EventReplyVO>();
 		EventDAO dao = new EventDAO();
@@ -45,7 +45,7 @@ public class EventService {
 		return rvo;
 	}
 	
-	/** ��� ��� **/
+	/** 占쏙옙占� 占쏙옙占� **/
 	public int getResultReplyWrite(EventReplyVO vo) {
 		int result = 0;
 		EventDAO dao = new EventDAO();
@@ -55,7 +55,7 @@ public class EventService {
 	}
 	
 	
-	//관리자 이벤트 리스트 가져오기
+	//愿�由ъ옄 �씠踰ㅽ듃 由ъ뒪�듃 媛��졇�삤湲�
 	public ArrayList<EventVO> getResultListAdmin(){
 		ArrayList<EventVO> list = new ArrayList<EventVO>();
 		EventDAO dao = new EventDAO();		
@@ -65,7 +65,7 @@ public class EventService {
 		return list;
 	}
 	
-	//관리자-이벤트 작성
+	//愿�由ъ옄-�씠踰ㅽ듃 �옉�꽦
 	public boolean getResultWriteAdmin(EventVO vo) {
 		boolean result=false;
 		EventDAO dao = new EventDAO();		
@@ -75,7 +75,7 @@ public class EventService {
 		return result;
 	}
 	
-	//관리자 내용 가져오기
+	//愿�由ъ옄 �궡�슜 媛��졇�삤湲�
 	public EventVO getResultContentAdmin(String ev_code) {
 		EventVO vo = new EventVO();
 		EventDAO dao = new EventDAO();
@@ -85,14 +85,25 @@ public class EventService {
 	}
 	
 	
-	//관리자-이벤트 업데이트
-		public boolean getResultUpdateAdmin(EventVO vo) {
-			boolean result=false;
-			EventDAO dao = new EventDAO();		
-			result = dao.getResultUpdateAdmin(vo);
-			
-			dao.close();
-			return result;
-		}
+	//愿�由ъ옄-�씠踰ㅽ듃 �뾽�뜲�씠�듃
+	public boolean getResultUpdateAdmin(EventVO vo) {
+		boolean result=false;
+		EventDAO dao = new EventDAO();		
+		result = dao.getResultUpdateAdmin(vo);
+		
+		dao.close();
+		return result;
+	}
+
+	
+	//admin delete
+	public boolean getResultDeleteAdmin(String ev_code) {
+		boolean result=false;
+		EventDAO dao = new EventDAO();		
+		result = dao.getResultDeleteAdmin(ev_code);
+		
+		dao.close();
+		return result;
+	}
 	
 }

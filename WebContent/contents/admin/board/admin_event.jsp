@@ -44,13 +44,13 @@ div.admin_content h1{
 
 
 
-div#admin_notice section div{
+div#admin_event section div{
 	margin:30px 0px 20px 0px;
 	text-align:right;
 	width:80%;
 }
 
-div#admin_notice section div button{
+div#admin_event section div button{
 	background-color:rgb(5,135,94);
 	border:none;
 	width:150px;
@@ -58,42 +58,42 @@ div#admin_notice section div button{
 	color:white;
 }
 
-div#admin_notice section table{
+div#admin_event section table{
 	width:80%;
 	border-collapse: collapse;
 }
-div#admin_notice section table th{
+div#admin_event section table th{
 	background-color:rgb(195,195,195);
 	height:40px;
 }
-div#admin_notice section table tr td{
+div#admin_event section table tr td{
 	text-align:center;
 	border:1px solid lightgray;
 	height:40px;
 }
 
-div#admin_notice section table tr:last-child td{
+div#admin_event section table tr:last-child td{
 	border-bottom:hidden;
 	border-right:hidden;
 	border-left:hidden;
 	height:100px;
 }
-div#admin_notice section table td:first-child{
+div#admin_event section table td:first-child{
 	padding-left:20px;
 	border:1px solid lightgray;
 	width:60%;
 	text-align:left;
 }
-div#admin_notice section table td:first-child a{
+div#admin_event section table td:first-child a{
 	padding: 0px 10px 0px 6px;
 	text-decoration: none;
 	color: gray;
 }
 
-div#admin_notice section table td:first-child a:hover {
+div#admin_event section table td:first-child a:hover {
 	color: #282828;
 }
-div#admin_notice section table td:first-child span{
+div#admin_event section table td:first-child span{
 	border:1px solid green;
 	margin-left:20px;
 	
@@ -104,7 +104,7 @@ div#admin_notice section table td:first-child span{
 </head>
 <body>
 <jsp:include page="../admin_left_nav.jsp"/>
-<div id="admin_notice" class="admin_content">
+<div id="admin_event" class="admin_content">
 	<h1>이 벤 트</h1>	
 	<section>
 		<div>

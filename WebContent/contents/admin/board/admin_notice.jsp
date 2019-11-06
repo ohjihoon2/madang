@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
+<%
+	NoticeService service = new NoticeService();
+	ArrayList<NoticeVO> list = service.getNoticeListAdmin();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -54,17 +59,16 @@ div#admin_notice section div button{
 
 div#admin_notice section table{
 	width:80%;
-	height:500px; 
 	border-collapse: collapse;
 }
 div#admin_notice section table th{
 	background-color:rgb(195,195,195);
+	height:40px;
 }
-div#admin_notice section table td:nth-child(2),
-div#admin_notice section table td:nth-child(3),
-div#admin_notice section table tr:last-child td{
+div#admin_notice section table td{
 	text-align:center;
 	border:1px solid lightgray;
+	height:40px;
 }
 div#admin_notice section table tr:last-child td{
 	border-bottom:hidden;
@@ -76,8 +80,17 @@ div#admin_notice section table td:first-child{
 	padding-left:20px;
 	border:1px solid lightgray;
 	width:70%;
+	text-align:left;
+}
+div#admin_notice section table td:first-child a{
+	padding: 0px 10px 0px 6px;
+	text-decoration: none;
+	color: gray;
 }
 
+div#admin_notice section table td:first-child a:hover {
+	color: #282828;
+}
 
 </style>
 </head>
@@ -95,11 +108,11 @@ div#admin_notice section table td:first-child{
 				<th>작성일</th>
 				<th>조회수</th>
 			</tr>
-			<%for(int i=0; i<10;i++){ %>
+			<%for(NoticeVO vo : list){ %>
 				<tr>
-					<td><a href="admin_notice_contents.jsp">무료공지</a></td>
-					<td>20190906</td>
-					<td>3</td>
+					<td><a href="admin_notice_contents.jsp?nt_code=<%=vo.getNt_code()%>"><%=vo.getNt_title() %></a></td>
+					<td><%=vo.getNt_date() %></td>
+					<td><%=vo.getNt_hits() %></td>
 				</tr>	
 			<%} %>
 			<tr>

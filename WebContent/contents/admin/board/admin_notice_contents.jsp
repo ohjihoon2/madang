@@ -1,10 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
+<%
+	String nt_code = request.getParameter("nt_code");
+	NoticeService service = new NoticeService();
+	NoticeVO vo = service.getNoticeContentsAdmin(nt_code);
+%>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="http://localhost:9090/dycgv/js/jquery-3.4.1.min.js"></script>
 <style>
 *{
 	font-family:"나눔스퀘어라운드";
@@ -45,6 +53,7 @@ div#admin_notice_contents section table th{
 }
 div#admin_notice_contents section table tr td{
 	border:1px solid gray;
+	padding: 5px;
 }
 
 div#admin_notice_contents section table tr:nth-child(1) td:nth-child(2),
@@ -87,10 +96,16 @@ $(document).ready(function(){
 	$("#adnotice_del_btn").click(function(){
 		var del = confirm("삭제하시겠습니까?");
 		if(del == 1){
-			location.href="#";
+			location.href="admin_board_proce.jsp?situation=notice_del&nt_code=<%=nt_code%>";
 		}
 		
 	});//삭제하기 클릭
+	
+	$('#nt_file_dwn').click(function(e) {
+		e.preventDefault();
+	    window.location.href = 'http://localhost:9090/upload/notice/<%=vo.getNt_sfile()%>';
+	});//파일클릭 다운로드
+	
 });
 </script>
 </head>
@@ -102,33 +117,35 @@ $(document).ready(function(){
 		<table>
 			<tr>
 				<th>제목</th>
-				<td>d</td>
+				<td><%=vo.getNt_title()%></td>
 				<th>코드</th>
-				<td>d</td>
+				<td><%=nt_code %></td>
 			</tr>
 			<tr>
 				<th>작성일자</th>
-				<td>d</td>
+				<td><%=vo.getNt_date() %></td>
 				<th>조회수</th>
-				<td>d</td>
+				<td><%=vo.getNt_hits() %></td>
 			</tr>
 			<tr>
 				<th colspan="4">내용</th>
 			</tr>
 			<tr>
 				<td colspan="4">
-				<div>
-					dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-				</div>
+				<div><%=vo.getNt_contents() %></div>
 				</td>
 			</tr>
 			<tr>
 				<th>첨부파일</th>
-				<td colspan="3"><input type="file"></td>
+				<td colspan="3">
+					<%if(vo.getNt_file()!=null && vo.getNt_file()!=""){ %>
+						<a href="#" id="nt_file_dwn"><%=vo.getNt_file()%></a>
+					<%} %>
+				</td>
 			</tr>
 		</table>
 		<article>
-			<a href="admin_notice_update.jsp"><button type="button" style="background-color:rgb(5,135,94)">수정하기</button></a>
+			<a href="admin_notice_update.jsp?nt_code=<%=nt_code%>"><button type="button" style="background-color:rgb(5,135,94)">수정하기</button></a>
 			<button type="button" id="adnotice_del_btn">삭제하기</button>
 			<a href="admin_notice.jsp"><button type="button">목록으로</button></a>
 		</article>
