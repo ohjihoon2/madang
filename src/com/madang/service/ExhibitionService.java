@@ -2,8 +2,10 @@ package com.madang.service;
 
 import java.util.ArrayList;
 
+import com.madang.dao.ConcertDAO;
 import com.madang.dao.ExhibitionDAO;
 import com.madang.vo.ExhibitionVO;
+import com.madang.vo.General_mem_VO;
 
 public class ExhibitionService {
 
@@ -25,4 +27,12 @@ public class ExhibitionService {
 		
 		return list;
 	}
+	
+	public General_mem_VO getResultMemInfo(String id) {
+		ExhibitionDAO dao = new ExhibitionDAO();
+		General_mem_VO vo = dao.getResultMemInfo(id);
+		
+		return vo;
+	}
+	
 }

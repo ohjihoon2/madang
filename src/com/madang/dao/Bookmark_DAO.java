@@ -33,7 +33,6 @@ public class Bookmark_DAO {
 	}
 	
 	
-	/** °ø¿¬ ¸®½ºÆ® Ãâ·Â */
 	public ArrayList<Bookmark_VO> getConcertList(String id) {
 		ArrayList<Bookmark_VO> c_list=new ArrayList<Bookmark_VO>();
 		
@@ -63,7 +62,7 @@ public class Bookmark_DAO {
 	}
 	
 	
-	/** °ø¿¬ ºÏ¸¶Å© ¿©ºÎ */
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½Å© ï¿½ï¿½ï¿½ï¿½ */
 	public boolean getCheckConcertBmark(String concert_code, String id) {
 		boolean result=false;
 		
@@ -87,7 +86,7 @@ public class Bookmark_DAO {
 	}
 	
 	
-	/** °ø¿¬ ºÏ¸¶Å© ÄÚµå */
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½Å© ï¿½Úµï¿½ */
 	public String getConcertBmarkCode(String concert_code, String id) {
 		String bmark_code="";
 		
@@ -109,7 +108,7 @@ public class Bookmark_DAO {
 	}
 	
 	
-	/** Àü½Ã ¸®½ºÆ® Ãâ·Â */
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ */
 	public ArrayList<Bookmark_VO> getExhibitionList(String id) {
 		ArrayList<Bookmark_VO> list=new ArrayList<Bookmark_VO>();
 		
@@ -139,7 +138,7 @@ public class Bookmark_DAO {
 	}
 	
 	
-	/** Àü½Ã ºÏ¸¶Å© ¿©ºÎ */
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½Å© ï¿½ï¿½ï¿½ï¿½ */
 	public boolean getCheckExhibBmark(String exhib_code, String id) {
 		boolean result=false;
 		
@@ -154,7 +153,7 @@ public class Bookmark_DAO {
 	}
 	
 	
-	/** Àü½Ã ºÏ¸¶Å© ÄÚµå */
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½Å© ï¿½Úµï¿½ */
 	public String getExhibBmarkCode(String concert_code, String id) {
 		String bmark_code="";
 		
@@ -169,7 +168,7 @@ public class Bookmark_DAO {
 	}
 	
 	
-	/** µî·Ï */
+	/** ï¿½ï¿½ï¿½ */
 	public int getResultAdd(String concert_code, String id) {
 		int result=0;
 		
@@ -184,14 +183,14 @@ public class Bookmark_DAO {
 			
 		} catch (Exception e) {e.printStackTrace();}
 		
-		System.out.println("dao µî·Ï "+concert_code);
-		System.out.println("dao µî·Ï "+result);
+		System.out.println("dao ï¿½ï¿½ï¿½ "+concert_code);
+		System.out.println("dao ï¿½ï¿½ï¿½ "+result);
 		
 		return result;
 	}
 	
 	
-	/** »èÁ¦ */
+	/** ï¿½ï¿½ï¿½ï¿½ */
 	public int getResultDelete(String bmark_code, String id) {
 		int result=0;
 		
@@ -206,8 +205,8 @@ public class Bookmark_DAO {
 			
 		} catch (Exception e) {e.printStackTrace();}
 		
-		System.out.println("dao »èÁ¦ "+bmark_code);
-		System.out.println("dao »èÁ¦ "+result);
+		System.out.println("dao ï¿½ï¿½ï¿½ï¿½ "+bmark_code);
+		System.out.println("dao ï¿½ï¿½ï¿½ï¿½ "+result);
 		
 		return result;
 	}

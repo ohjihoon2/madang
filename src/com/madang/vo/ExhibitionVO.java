@@ -2,10 +2,22 @@ package com.madang.vo;
 
 public class ExhibitionVO {
 
-	String exhibition_code, e_title, e_sdate,   e_edate, e_etime, e_place, e_rating, e_genre, e_host, e_poster, e_sposter, e_info_poster, e_info_sposter, e_contact, sday,eday;          
+	String exhibition_code, e_title, e_sdate,   e_edate, e_etime, e_place, e_rating, e_genre, e_host, e_poster, e_sposter, e_info_poster, e_info_sposter, e_contact, sday,eday, snday,enday;          
 	int e_price;
 	
 	
+	public String getSnday() {
+		return snday;
+	}
+	public void setSnday(String snday) {
+		this.snday = snday;
+	}
+	public String getEnday() {
+		return enday;
+	}
+	public void setEnday(String enday) {
+		this.enday = enday;
+	}
 	public int getSday() {
 		return Integer.parseInt(sday);
 	}

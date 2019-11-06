@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.madang.vo.ConcertVO;
 import com.madang.vo.ExhibitionVO;
+import com.madang.vo.General_mem_VO;
 
 public class ExhibitionDAO {
 	String url ="jdbc:oracle:thin:@211.63.89.214:1521";
@@ -74,7 +75,7 @@ public class ExhibitionDAO {
 	 */
 	public ExhibitionVO getResultExhibition(String code) {
 		ExhibitionVO vo = new ExhibitionVO();
-		String sql = "select exhibition_code,e_title, e_sdate,  e_edate, e_etime, e_place, e_rating, e_genre, e_price, e_host, e_poster, e_sposter, e_info_poster, e_info_sposter, e_contact from exhibition where exhibition_code=?";
+		String sql = "select exhibition_code,e_title, e_sdate,  e_edate, e_etime, e_place, e_rating, e_genre, e_price, e_host, e_poster, e_sposter, e_info_poster, e_info_sposter, e_contact,TO_CHAR(E_SDATE, 'YYMMDD') as SDAY , TO_CHAR(E_EDATE, 'YYMMDD') as EDAY from exhibition where exhibition_code=?";
 		getPreparedStatement(sql);
 		
 		try {
@@ -97,6 +98,8 @@ public class ExhibitionDAO {
 				vo.setE_info_poster(rs.getString(13));
 				vo.setE_info_sposter(rs.getString(14));
 				vo.setE_contact(rs.getString(15));
+				vo.setSday(rs.getString(16));
+				vo.setEday(rs.getString(17));
 			}
 			
 		}catch(Exception e) {
@@ -104,6 +107,39 @@ public class ExhibitionDAO {
 		}
 		return vo;
 	}
+	
+	/**
+	 * getMemberInfo
+	 * @param id
+	 * @return
+	 */
+	public General_mem_VO getResultMemInfo(String id) {
+		General_mem_VO vo = new General_mem_VO();
+		String sql = "select id, name, to_char(birth, 'yymmdd') birth, phone1, phone2, phone3, email_addr from general_mem where id = ?";
+		
+		getPreparedStatement(sql);
+		try {
+			
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				vo.setId(rs.getString(1));
+				vo.setName(rs.getString(2));
+				vo.setBirth(rs.getString(3));
+				vo.setPhone1(rs.getString(4));
+				vo.setPhone2(rs.getString(5));
+				vo.setPhone3(rs.getString(6));
+				vo.setEmail_addr(rs.getString(7));
+				
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return vo;
+	}
+	
 	//6
 	public void close() {
 		try {

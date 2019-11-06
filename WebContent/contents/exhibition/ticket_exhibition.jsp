@@ -6,26 +6,12 @@
 	System.out.println(code);
 	String id = (String)session.getAttribute("generalID");
 	
-	ConcertService service = new ConcertService();
-	ConcertVO cvo = service.getConcertDetail(code);
-	String place =cvo.getC_place().trim();
-	String time = cvo.getC_stime();
-	String[] timelist = time.split(";");
+	ExhibitionService service = new ExhibitionService();
+	ExhibitionVO vo = service.getResultExhibition(code);
+	String place =vo.getE_place().trim();
 	
 	
 	
-	//티켓팅 날짜
-		
-	//티케팅 좌석
-/* 	String seat = tvo.getTc_cseat();
-	System.out.println("좌석 : "+seat);
-	
-	String[] seatlist = seat.split("석 /"); 
-	
-	for(int i =0; i<seatlist.length;i++){
-		System.out.println("좌석리스트 : "+seatlist[i]);
-	}
-	*/	
 	//로그인 계정 값 받아오기
 	General_mem_VO mvo = new General_mem_VO(); 
 	mvo = service.getResultMemInfo(id);
@@ -380,8 +366,8 @@
 </style>
 <script>
 	$(document).ready(function(){
-		var sd = <%=cvo.getSnday()%>;
-		var ed = <%=cvo.getEnday()%>; 
+		var sd = <%=vo.getSnday()%>;
+		var ed = <%=vo.getEnday()%>; 
 		<%-- var a = new Date(<%=cvo.getSnday()%>);
 		var b = new Date(<%=cvo.getEnday()%>);
 		alert(<%=cvo.getSnday()%>);
@@ -393,8 +379,7 @@
 		var countSum = 0;
 		var choiceCount = 0;
 		var cancelPrice = 0;
-		//선택 좌석 개수
-		var rows = 0;
+		
 		$("div#step1").css("display","block");
 		$("div#step2").css("display","none");
 		$("div#step3").css("display","none");
@@ -422,7 +407,7 @@
 		        /* ,minDate: new Date(sd) //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
 		        ,maxDate:new Date(ed) //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후) */
 		        ,minDate: new Date() //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
-		        ,maxDate:new Date('<%=cvo.getEnday()%>') //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
+		        ,maxDate:new Date('<%=vo.getEnday()%>') //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
 		  		,onSelect: function(dateText, inst) { //클릭시에 date value 값 !!!!!!!!!!!!
 		            var date = $(this).val();
 		            var picdate = date;    
@@ -462,72 +447,6 @@
 			timeText.append("<span class='timeSpan'>"+time+"</span>");
 		});//일시 - 시간 end
 	
-	      /**
-	      * 좌석 선택
-	      **/
-	      $(".seat_num").click(function(){
-	         var anum = $(this).attr("id");
-	         var seatText =$("table.myticket_t > tbody > tr:nth-child(2) > td");
-	         var seatPic = $("#"+anum);
-	         
-	         //선택을 안했을경우
-	         var flag = $("input#"+anum).val();
-	         
-	         var position1 = anum+"석 /";
-	         var position2 =seatText.html();
-	         var position3= position2.replace(position1,"");
-
-	         
-	         if(flag ==0){
-	            seatPic.css({"border-bottom" :"10px solid rgb(155,155,155 )"});
-	            $("input#"+anum).val("1"); 
-	            seatText.append(anum+"석 /");
-	         }else{
-	            seatPic.css({"border-bottom" :"10px solid rgb(34,34,34)"});
-	            $("input#"+anum).val("0"); 
-
-	            seatText.empty();
-	            seatText.text(position3);
-	         }
-	     	/**
-	 		* 선택 좌석 개수 구하기
-	 		**/
-			rows = seatText.text().split('석').length;
-		 	
-		});
-		
-	      $(".bseat_num").click(function(){
-		         var anum = $(this).attr("id");
-		         var seatText =$("table.myticket_t > tbody > tr:nth-child(2) > td");
-		         var seatPic = $("#"+anum);
-		         
-		         //선택을 안했을경우
-		         var flag = $("input#"+anum).val();
-		         
-		         var position1 = anum+"석 /";
-		         var position2 =seatText.html();
-		         var position3= position2.replace(position1,"");
-
-		         
-		         if(flag ==0){
-		            seatPic.css({"border-bottom" :"10px solid rgb(155,155,155 )"});
-		            $("input#"+anum).val("1"); 
-		            seatText.append(anum+"석 /");
-		         }else{
-		            seatPic.css({"border-bottom" :"10px solid rgb(34,34,34)"});
-		            $("input#"+anum).val("0"); 
-
-		            seatText.empty();
-		            seatText.text(position3);
-		         }
-		     	/**
-		 		* 선택 좌석 개수 구하기
-		 		**/
-				rows = seatText.text().split('석').length;
-			 	
-			});
-		
-		
   		/**
  		* step3 가격/할인 선택 validation
  		**/
@@ -616,23 +535,7 @@
 			var val = $(this).attr("id");
   		    if(status == 1){
   		    	//유효성 검사
-  		    	//if(일시에 날짜/시간이 두개다 적힌다면 다음페이지로 이동)
-  		    	if($("table.myticket_t > tbody > tr:nth-child(1) > td >span").length == 2){
-  		    		//CONCERT_CODE=? AND TC_CDATE
-  		    		var dateText = $("table.myticket_t > tbody > tr:nth-child(1) > td");
-  		    		var datetime = dateText.text();
-  		    		$.ajax({
-  		    			url :"ticket_concert_process.jsp?concert_code=<%=code%>&datetime="+datetime,
- 		    			success : function(data){
- 		    				var jsonObj = JSON.parse(data)
- 		    				//function을 사용하여서 ajax 밖에서 사용하기 
-  		    				seat_check(jsonObj);
-  		    			}
-  		    		});
-	   		  		status = 2;
-  		    	} else{
-  		    		alert("날짜와 시간을 선택해 주세요.");
-  		    	}
+   		  		status = 2;
    	 		}else if(status ==2){
    	 			if(val == "btn_back"){
    	 				status = 1;
@@ -731,7 +634,7 @@
 							tc_pays = 'wait';
 						}
 						$.ajax({
-							url :"ticket_process.jsp?code=<%=code%>&tc_cdate="+tc_cdate+"&tc_cplace=<%=place%>+&tc_cseat="+tc_cseat+"&tc_canceld="+tc_canceld+"&tc_cancelc="+tc_cancelc+"&tc_price="+tc_price+"&tc_recive="+tc_recive+"&tc_id=<%=mvo.getId() %>&tc_name=<%=mvo.getName() %>&tc_birth=<%=mvo.getBirth() %>&tc_phone1="+tc_phone1+"&tc_phone2="+tc_phone2+"&tc_phone3="+tc_phone3+"&tc_email="+tc_email+"&tc_paym="+tc_paym+"&tc_payw="+tc_payw+"&tc_pays="+tc_pays,
+							url :"exhibition_process.jsp?code=<%=code%>&tc_cdate="+tc_cdate+"&tc_cplace=<%=place%>+&tc_cseat="+tc_cseat+"&tc_canceld="+tc_canceld+"&tc_cancelc="+tc_cancelc+"&tc_price="+tc_price+"&tc_recive="+tc_recive+"&tc_id=<%=mvo.getId() %>&tc_name=<%=mvo.getName() %>&tc_birth=<%=mvo.getBirth() %>&tc_phone1="+tc_phone1+"&tc_phone2="+tc_phone2+"&tc_phone3="+tc_phone3+"&tc_email="+tc_email+"&tc_paym="+tc_paym+"&tc_payw="+tc_payw+"&tc_pays="+tc_pays,
 									
 							success : function(data){
 								data2 = $.trim(data) 
@@ -861,21 +764,15 @@
 				<li><img src="http://localhost:9090/images/ticketing/05_step_05_off.gif" id="step5" class="step"></li>
 			</ul>
 		</div>
+		<!-- #################################################### -->
 		<div class="ticketing_left" id="step1">
 			<div class="day_choice">
 				<span>관람일 선택</span>
 				<div class="calender">
 					<div id="datepicker"></div>
-					<script>
-						
-					</script>
 			    </div>
 			</div>
 			<div class="time_table">
-				<span>회차(관람시간)</span>
-				<%for(int i=0;i<timelist.length;i++){ %>
-				<div id="time1"><%=timelist[i]%></div>
-				<%} %>
 			</div>
 			<div class="ticketing_notice">
 				<div>유의사항</div>
@@ -893,104 +790,6 @@
 		
 		<!-- #################################################### -->
 		<div class="ticketing_left" id="step2">
-			<%if(place.equals("모짜르트홀")){ %>
-			<div class="concert_seats">
-				<img src="http://localhost:9090/images/concert_main/stage.png">
-			</div>
-			<div class="seat_all">
-				<div class="seat_section">
-					<span>A</span>
-					<%
-						int num =1;
-						int z =1;
-						while(z<7) {
-							for(int i=1; i<7;i++) { %>	
-					<a href=#>
-						<span class="seat_num" id="A<%=num%>"><%=num %></span>
-						<input type="hidden" id="A<%=num%>" class="seat_num_flag" value="0">
-					</a>
-					<%num++;
-							} %>
-							<br>
-				<%	z++;
-						} %>
-				</div>
-				<div class="seat_section">
-					<span>B</span>
-					<%
-						num =1;
-						z =1;
-						while(z<7) {
-							for(int i=1; i<10;i++) { %>
-					<a href=#>
-						<span class="seat_num" id="B<%=num%>" onclick=""><%=num %></span>
-						<input type="hidden" id="B<%=num%>" class="seat_num_flag" value="0">
-					</a>
-					<%num++;
-							} %>
-							<br>
-				<%	z++;
-						} %>
-				</div>
-				<div class="seat_section">
-					<span>C</span>
-					<%
-						num =1;
-						z =1;
-						while(z<7) {
-							for(int i=1; i<7;i++) { %>
-					<a href=#>
-						<span class="seat_num" id="C<%=num%>"><%=num %></span>
-						<input type="hidden" id="C<%=num%>" class="seat_num_flag" value="0">
-					</a>
-					<%num++;
-							} %>
-							<br>
-				<%	z++;
-						} %>
-				</div>
-			</div>
-			<%}else if(place.equals("베토벤홀")){ %>
-			<div class="concert_seats">
-				<img src="http://localhost:9090/images/concert_main/concert_front2.png">
-			</div>
-			<div class="seat_all_b">	
-				<div class="seat_section">
-					<span>A</span>
-					<%
-						int num =1;
-						int z =0;
-						while(z<14) {
-							for(int i=1; i<9;i++) { %>
-					<a href=#>
-						<span class="bseat_num" id="A<%=num%>"><%=num %></span>
-						<input type="hidden" id="A<%=num%>" class="seat_num_flag" value="0">
-					</a>
-					<%num++;
-							} %>
-							<br>
-				<%	z++;
-						} %>
-				</div>
-				<div class="seat_section">
-					<span>B</span>
-					<%
-						num =1;
-						z =0;
-						while(z<14) {
-							for(int i=1; i<9;i++) { %>
-					<a href=#>
-						<span class="bseat_num" id="B<%=num%>"><%=num %></span>
-						<input type="hidden" id="B<%=num%>" class="seat_num_flag" value="0">
-					</a>
-					<%num++;
-							} %>
-							<br>
-				<%	z++;
-						} %>
-				</div>
-			</div>
-		<%} %>
 		</div>
 		<!-- #################################################### -->
 		<div class="ticketing_left" id="step3">
@@ -1186,16 +985,15 @@
 		<div class="ticketing_info">
 			<div class="ticketing_info_choice">
 				<div class="ticketing_info_choice_img">
-					<img src="http://localhost:9090/images/concert_main/<%=cvo.getC_poster()	%>">
+					<img src="http://localhost:9090/images/concert_main/<%=vo.getE_poster()	%>">
 				</div>
 				<div class="ticketing_info_choice_text">
-					<span><%=cvo.getC_title() %></span>
+					<span><%=vo.getE_title() %></span>
 					<div id="text_space">		
 						<ul>
-                            <li><%=cvo.getC_sdate() %> ~ <%=cvo.getC_edate() %></li>
-                            <li><span title="예술의전당 CJ 토월극장"><%=cvo.getC_place() %></span></li>
-                            <li><%=cvo.getC_rating() %></li>
-                            <li>관람시간 : <%=cvo.getC_time() %></li>
+                            <li><%=vo.getE_sdate() %> ~ <%=vo.getE_edate() %></li>
+                            <li><span><%=vo.getE_place() %></span></li>
+                            <li><%=vo.getE_rating() %></li>
                         </ul>
 .					</div>
 				</div>
