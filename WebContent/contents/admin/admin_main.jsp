@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+
     pageEncoding="UTF-8"%>
 <%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
 <%
@@ -60,6 +60,7 @@ div#admin_main section:first-child article{
 		margin-right:40px;
 		
 	}
+	
 div#admin_main section:first-child article ul {
 		border:1px solid green;
 		list-style-position: inside;
@@ -69,6 +70,7 @@ div#admin_main section:first-child article ul {
 		overflow:auto;
 		border-radius:20px;
 	}
+	
 div#admin_main section:first-child article ul li span:first-child{
 	width:95%;
 	height:18px;
