@@ -3,13 +3,16 @@
 <%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
 <%
 	QandA_Service service = new QandA_Service();
-	ArrayList<QandA_VO> list = service.getMemberListAdmin();
+	ArrayList<QandA_VO> list = service.getQandAListAdmin();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<!-- 페이징처리 -->
+<script src=http://localhost:9090/js/am-pagination.js></script>
+<link rel="stylesheet" type="text/css" href="http://localhost:9090/css/am-pagination.css">
 <style>
 *{
 	font-family:"나눔스퀘어라운드";
@@ -71,7 +74,7 @@ div#admin_memberlist section table td{
 <body>
 <jsp:include page="../admin_left_nav.jsp"/>
 <div id="admin_memberlist" class="admin_content">
-	<h1>일 반 회 원 관 리</h1>	
+	<h1>1:1 상 담 관 리</h1>	
 	<section>
 		<table>
 			<tr>
@@ -84,12 +87,17 @@ div#admin_memberlist section table td{
 			</tr>
 			<%for(QandA_VO vo : list){ %>
 				<tr>
-					<td><%=vo.getRno() %></td>
-					<td><a href="admin_member_detail.jsp?id=<%=vo.getId()%>"><%=vo.getId() %></a></td>
-					<td><%=vo.getName() %></td>
-					<td><%=vo.getPhone1() %> - <%=vo.getPhone2() %> - <%=vo.getPhone3() %></td>
-					<td><%=vo.getEmail_id() %>@<%=vo.getEmail_addr() %></td>
-					<td><%=vo.getJoindate() %></td>
+					<td><%=vo.getRownum() %></td>
+					<td><a href="admin_QandA_detail.jsp?qa_code=<%=vo.getQa_code()%>"><%=vo.getQa_title() %></a></td>
+					<td><%=vo.getId() %></td>
+					<td><%=vo.getQa_date() %></td>
+					<%if(vo.getQa_adate()!=null && vo.getQa_adate()!=""){ %>
+						<td>Y</td>
+						<td><%=vo.getQa_adate()%></td>
+					<%}else{ %>
+						<td> </td>
+						<td> </td>
+					<%} %>
 				</tr>
 					
 			<%} %>

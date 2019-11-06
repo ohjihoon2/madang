@@ -103,7 +103,7 @@ $(document).ready(function(){
 	
 	$('#nt_file_dwn').click(function(e) {
 		e.preventDefault();
-	    window.location.href = 'http://localhost:9090/upload/notice/<%=vo.getNt_sfile()%>';
+	    window.open ('http://localhost:9090/upload/notice/<%=vo.getNt_sfile()%>');
 	});//파일클릭 다운로드
 	
 });

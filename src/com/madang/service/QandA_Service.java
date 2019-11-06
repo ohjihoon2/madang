@@ -41,4 +41,39 @@ public class QandA_Service {
 		dao.close();
 		return result;
 	}
+	
+	
+	//Admin list
+	public ArrayList<QandA_VO> getQandAListAdmin(){
+		QandA_DAO dao=new QandA_DAO();
+		ArrayList<QandA_VO> list = dao.getQandAListAdmin();
+		dao.close();
+		return list;
+	}
+	
+	//Admin contents
+	public QandA_VO getQnAContentsAdmin(String qa_code) {
+		QandA_DAO dao=new QandA_DAO();
+		QandA_VO vo = dao.getQnAContentsAdmin(qa_code);
+		dao.close();
+		return vo;
+	}
+	
+	//Admin replys
+	public boolean getResultReply(String qa_code, String qa_acontents) {
+		QandA_DAO dao=new QandA_DAO();
+		boolean result = dao.getResultReply(qa_code, qa_acontents);
+		dao.close();
+		return result;
+	}
+	
+	//Admin paging
+	public int execTotalCount(){
+		int result =0;
+		QandA_DAO dao = new QandA_DAO();
+		result = dao.execTotalCount();
+		return result;
+	}
+	
+	
 }

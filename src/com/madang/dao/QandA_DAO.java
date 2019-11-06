@@ -131,6 +131,88 @@ public class QandA_DAO {
 	}
 	
 	
+	//Admin list 
+	public ArrayList<QandA_VO> getQandAListAdmin(){
+		ArrayList<QandA_VO> list = new ArrayList<QandA_VO>();
+		String sql="select * from(select rownum, qa_code, qa_title, id, to_char(qa_date,'yyyy/mm/dd'), to_char(qa_adate,'yyyy/mm/dd') from(select * from  q_and_a order by qa_date desc))";
+		getPreparedStatement(sql);
+		try {
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				QandA_VO vo = new QandA_VO();
+				vo.setRownum(rs.getInt(1));
+				vo.setQa_code(rs.getString(2));
+				vo.setQa_title(rs.getString(3));
+				vo.setId(rs.getString(4));
+				vo.setQa_date(rs.getString(5));
+				vo.setQa_adate(rs.getString(6));
+				
+				list.add(vo);
+			}
+			
+		} catch (Exception e) {e.printStackTrace();}
+		return list;
+	}
+	
+	
+	//Admin contents
+	public QandA_VO getQnAContentsAdmin(String qa_code) {
+		QandA_VO vo = new QandA_VO();
+		String sql="select id, qa_title, to_char(qa_date,'yyyy/mm/dd'), qa_contents, qa_file, qa_sfile, qa_acontents, to_char(qa_adate,'yyyy/mm/dd') from Q_and_a where qa_code=?";
+		getPreparedStatement(sql);
+		try {
+			pstmt.setString(1, qa_code);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				vo.setId(rs.getString(1));
+				vo.setQa_title(rs.getString(2));
+				vo.setQa_date(rs.getString(3));
+				vo.setQa_contents(rs.getString(4));
+				vo.setQa_file(rs.getString(5));
+				vo.setQa_sfile(rs.getString(6));
+				vo.setQa_acontents(rs.getString(7));
+				vo.setQa_adate(rs.getString(8));
+			}
+		} catch (Exception e) {e.printStackTrace();}
+		return vo;
+	}
+	
+	//Admin reply
+	public boolean getResultReply(String qa_code, String qa_acontents) {
+		boolean result =false;
+		String sql="update q_and_a set qa_acontents=?, qa_adate=sysdate where qa_code=?";
+		getPreparedStatement(sql);
+		try {
+			pstmt.setString(1, qa_acontents);
+			pstmt.setString(2, qa_code);
+			
+			int val = pstmt.executeUpdate();
+			if(val!=0) {
+				result=true;
+			}
+		}catch (Exception e) {e.printStackTrace();}
+		return result;
+	}
+	
+	
+	//Admin paging
+	public int execTotalCount(){
+		int result =0;
+		try{
+			String sql = "select count(*) from dycgv_notice";
+			getPreparedStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				result = rs.getInt(1);
+			}
+		}catch(Exception e){e.printStackTrace();}
+		
+		return result;
+	}
+	
+	
+	
 	public void close() {
 		try {
 			if(rs!=null) rs.close();

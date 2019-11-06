@@ -19,6 +19,10 @@ $(document).ready(function(){
 	  $("aside#amdmin_left div#admin_left_gohome").click(function(){
 		  window.open("http://localhost:9090/mainpage.jsp", "_blank");  
 	  });
+	  
+	  $("#admin_left_gohome").click(function(){
+		  location.href="http://localhost:9090/contents/admin/admin_main.jsp";
+	  });
 
 	});
  </script>
@@ -68,7 +72,8 @@ aside#amdmin_left ul li{
 }
 
 
-aside#amdmin_left ul li a{
+aside#amdmin_left ul li a,
+aside#amdmin_left ul li:nth-child(4) article a{
   
   line-height:20px; 
   display:block; 
@@ -112,12 +117,10 @@ aside#amdmin_left ul li>div a{
 	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/member_counsel/admin_member_group.jsp">대관 회원</a></div>
   </li>
   <li>
-     <a href="#">1:1상담 관리</a>
+     <article><a href="http://localhost:9090/contents/admin/member_counsel/admin_QandA.jsp">1:1상담 관리</a></article>
   </li>
   <li>
-     <a href="#">대관관리</a>
-    <div class="admin_left_sub"><a href="#">공연대관</a></div>
-	<div class="admin_left_sub"><a href="#">전시대관</a></div>
+     <a href="http://localhost:9090/contents/admin/rental/admin_rental.jsp">대관관리</a>
   </li>
     <li>
      <a href="#">게시판 관리</a>
