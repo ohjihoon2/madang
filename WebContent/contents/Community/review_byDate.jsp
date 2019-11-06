@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@page import="com.madang.vo.*, com.madang.service.*, java.util.*" %>	
 <%
+	String id = (String)session.getAttribute("generalID");
 	String listOrder = request.getParameter("listOrder");
 	ReviewService service = new ReviewService();
 	
@@ -10,6 +11,7 @@
 		list = service.getResultListByDate(listOrder);
 	}
 %>	
+document.write(<%= id %>);
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +49,7 @@ $(document).ready(function(){
 					<button type="button" id="btnDByDate">최신날짜순</button>
 				<a href="http://localhost:9090/contents/Community/review_byDate.jsp?listOrder=byStar">
 					<button type="button" id="btnDByStar">평점높은순</button></a>				
-				<a href="http://localhost:9090/contents/Community/review_write.jsp">
+				<a href="http://localhost:9090/contents/Community/review_write.jsp?id=<%=id %>">
 					<button type="button" id="btnWriteReview">후기 작성</button></a>
 			</div>
 			<div class="table_div">
@@ -73,9 +75,9 @@ $(document).ready(function(){
 							<a href="#" class="on" >★</a>
 						<%} %>
 						</th>						
-					</tr>			
+					</tr>				
 				</table>
-				<input type="hidden" name="id" value="<%=vo.getId() %>">
+				<input type="hidden" name="id" value="<%=vo.getId() %>">		
 				</a>
 			<%}%>
 			</div>

@@ -1,3 +1,5 @@
 eclipse.preferences.version=1
 encoding//src/com/madang/dao/EventDAO.java=UTF-8
+encoding//src/com/madang/dao/NewsDAO.java=UTF-8
 encoding//src/com/madang/service/EventService.java=UTF-8
+encoding//src/com/madang/service/NewsService.java=UTF-8

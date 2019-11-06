@@ -18,7 +18,7 @@
 
 	ReviewService service = new ReviewService();	
 	boolean result = service.getResultWrite(vo);
-	
+System.out.println("wp"+vo.getId());	
 	if(result) response.sendRedirect("review_byDate.jsp");
 	else response.sendRedirect("../../errorPage.jsp"); 
 	

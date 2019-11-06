@@ -7,7 +7,7 @@ import com.madang.vo.NewsVO;
 
 public class NewsService {
 
-	//관리자-언론리스트 가져오기
+	//愿�由ъ옄-�뼵濡좊━�뒪�듃 媛��졇�삤湲�
 	
 	public ArrayList<NewsVO> getNewsListAdmin(){
 		NewsDAO dao = new NewsDAO();	
@@ -17,7 +17,7 @@ public class NewsService {
 	}
 	
 	
-	//관리자 업데이트_1.내용가져오기
+	//愿�由ъ옄 �뾽�뜲�씠�듃_1.�궡�슜媛��졇�삤湲�
 	public NewsVO getNewsContentAdmin(String nw_code) {
 		NewsDAO dao = new NewsDAO();	
 		NewsVO vo = dao.getNewsContentAdmin(nw_code);
@@ -25,7 +25,7 @@ public class NewsService {
 		return vo;
 	}
 	
-	//관리자 업데이트_2.내용수정하기
+	//愿�由ъ옄 �뾽�뜲�씠�듃_2.�궡�슜�닔�젙�븯湲�
 	public boolean getResultUpdate(NewsVO vo) {
 		boolean result = false;
 		NewsDAO dao = new NewsDAO();	
@@ -35,7 +35,7 @@ public class NewsService {
 	}
 	
 	
-	//관리자 등록하기
+	//愿�由ъ옄 �벑濡앺븯湲�
 	public boolean getResultWrite(NewsVO vo) {
 		boolean result = false;
 		NewsDAO dao = new NewsDAO();	
@@ -44,12 +44,20 @@ public class NewsService {
 		return result;
 	}
 	
-	//관리자 삭제하기
+	//愿�由ъ옄 �궘�젣�븯湲�
 	public boolean getResultDelete(String nw_code) {
 		boolean result = false;
 		NewsDAO dao = new NewsDAO();	
 		result = dao.getResultDelete(nw_code);
 		dao.close();
 		return result;
+	}
+	
+	public ArrayList<NewsVO> getResultNewsList(){
+		ArrayList<NewsVO> list = new ArrayList<NewsVO>();
+		NewsDAO dao = new NewsDAO();
+		list = dao.getResultNewsList();
+		dao.close();
+		return list;
 	}
 }

@@ -65,7 +65,7 @@ public class ReviewDAO {
 				vo.setRv_hits(rs.getInt(6));
 				vo.setC_poster(rs.getString(7));
 				vo.setRv_code(rs.getString(8));
-			
+				
 				list.add(vo);
 			}
 			
@@ -84,7 +84,6 @@ public class ReviewDAO {
 					" where r.concert_code = c.concert_code" + 
 					" order by rv_date desc";
 		getPreparedStatement(sql);
-		System.out.println("sql:"+sql);
 		try {
 			rs = pstmt.executeQuery();
 			
@@ -97,8 +96,7 @@ public class ReviewDAO {
 				vo.setRv_content(rs.getString(5));
 				vo.setRv_hits(rs.getInt(6));
 				vo.setC_poster(rs.getString(7));
-				vo.setRv_code(rs.getString(8));
-			
+				vo.setRv_code(rs.getString(8));			
 				list.add(vo);
 			}
 			
@@ -144,8 +142,7 @@ public class ReviewDAO {
 			pstmt.setInt(5, vo.getRv_staravg());
 			
 			int val = pstmt.executeUpdate();
-			if(val !=0 ) result = true;
-			
+			if(val !=0 ) result = true;		
 	
 		}catch(Exception e) {e.printStackTrace();}
 		
@@ -176,13 +173,6 @@ public class ReviewDAO {
 				vo.setId(rs.getString(5));				
 				vo.setRv_rp_date(rs.getString(6));				
 				vo.setRv_rp_id(rs.getString(7));				
-System.out.println("1."+vo.getRv_title());
-System.out.println("1."+vo.getRv_content());
-System.out.println("1."+vo.getC_title());
-System.out.println("1."+vo.getRv_code());
-System.out.println("1."+vo.getId());
-System.out.println("1."+vo.getRv_rp_date());
-System.out.println("2."+vo.getRv_rp_id());
 			}		
 			
 		}catch(Exception e) {e.printStackTrace();}
@@ -254,7 +244,7 @@ System.out.println("2."+vo.getRv_rp_id());
 	/** ∏Æ∫‰ ¥Ò±€ ∏ÆΩ∫∆Æ **/
 	public ArrayList<ReviewReplyVO> getReplyList(String rv_code){
 		ArrayList<ReviewReplyVO> list = new ArrayList<ReviewReplyVO>();
-		String sql = "select * from review_reply where rv_code=?";
+		String sql = "select rv_rp_code, rv_rp_content, rv_code, rv_rp_id, to_char(rv_rp_date,'yyyy.mm.dd.') from review_reply where rv_code=?";
 		getPreparedStatement(sql);
 		
 		try {
@@ -283,7 +273,7 @@ System.out.println("2."+vo.getRv_rp_id());
 	public boolean getResultReplyWrite(ReviewReplyVO vo) {
 		
 		boolean result = false;
-		String sql = "insert into review_reply values('rv'|| lpad(sequ_review.nextval, 4,'0'),?,?,?,sysdate)";
+		String sql = "insert into review_reply values('rvrp'|| lpad(sequ_review_reply.nextval, 4,'0'),?,?,?,sysdate)";
 		getPreparedStatement(sql);
 		try {
 			pstmt.setString(1, vo.getRv_rp_content());
@@ -294,6 +284,38 @@ System.out.println("2."+vo.getRv_rp_id());
 			if(val !=0 ) result = true;
 			
 	
+		}catch(Exception e) {e.printStackTrace();}
+		
+		return result;
+	}
+	
+	/** ∏Æ∫‰ ªË¡¶ **/
+	public boolean getResultDelete(String rv_code) {
+		boolean result = false;
+		String sql = "delete review where rv_code=?";
+		getPreparedStatement(sql);
+		try {
+			pstmt.setString(1, rv_code);
+			
+			int val = pstmt.executeUpdate();
+			if(val != 0) result = true;
+			
+		}catch(Exception e) {e.printStackTrace();}
+		
+		return result;
+	}
+	
+	/** ∏Æ∫‰ ¥Ò±€ ªË¡¶ **/
+	public boolean getResultReplyDelete(String rv_rp_code) {
+		boolean result = false;
+		String sql = "delete review_reply where rv_rp_code=?";
+		getPreparedStatement(sql);
+		try {
+			pstmt.setString(1, rv_rp_code);
+System.out.println("rv_rp_code:"+rv_rp_code);			
+			int val = pstmt.executeUpdate();
+			if(val != 0) result = true;
+System.out.println("result:"+result);				
 		}catch(Exception e) {e.printStackTrace();}
 		
 		return result;

@@ -95,6 +95,25 @@ public class ReviewService {
 		return result;
 	}
 	
+	//府轰 昏力
+	public boolean getResultDelete(String rv_code) {
+		boolean result = false;
+		ReviewDAO dao = new ReviewDAO();
+		result = dao.getResultDelete(rv_code);
+		
+		dao.close();
+		return result;
+	}
+	
+	//府轰 瘩臂 昏力
+	public boolean getResultReplyDelete(String rv_rp_code) {
+		boolean result = false;
+		ReviewDAO dao = new ReviewDAO();
+		result = dao.getResultReplyDelete(rv_rp_code);
+		
+		dao.close();
+		return result;
+	}
 	
 	
 	

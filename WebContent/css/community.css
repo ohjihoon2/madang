@@ -310,6 +310,7 @@ ul#event_ul {
 	border-bottom: 1px solid rgb(155, 155, 155);
 	margin: 10px;
 	padding: 10px;
+	list-style-type: none;
 }
 
 /* li {
@@ -324,6 +325,7 @@ li>span#li_id {
 }
 
 li>span#li_event_date, li#list_reply {
+	padding: 10px 40px 10px 10px;
 	color: gray;
 }
 
@@ -414,7 +416,7 @@ h1#review_title {
 	color: #9b9b9b;
 }
 
-textarea#review_contents {
+div#review_contents {
 	margin: 10px 20px 70px 20px;
 	border: 1px solid #9b9b9b;
 	border-radius: 10px;
@@ -422,7 +424,7 @@ textarea#review_contents {
 	height: 200px;
 	padding: 20px;
 	font-size: 13pt;
-	overflow-y:scroll;
+	overflow-y:auto;
 }
 
 textarea#comment {
@@ -431,9 +433,9 @@ textarea#comment {
 	border: 1px solid #9b9b9b;
 	border-radius: 10px;
 	width: 800px;
-	height: 30px;
+	height: 60px;
 	font-size: 11pt;
-	overflow-y:scroll;
+	overflow-y:auto;
 }
 
 button#btnNoticeList {
@@ -629,7 +631,7 @@ table#rv_write_tb{
  
 input#rv_title{
 	width:370px;
-	height:25px;
+	height:40px;
 	padding:7px;
 	font-size: 16pt;
 	border-radius:7px;
@@ -772,14 +774,16 @@ td.star_rating a.on {color:tomato;}
 	
 	div#btn1{
 		padding-bottom:20px;
+		padding:10px;
+		clear:both;
 	}
 	
-	div#btn1, div#btn2{
+	div#btn2{
 		clear:both;
 		padding:10px;
 	}
 	
-	button#btnRVUpdate, button#btnBackList{
+	button#btnRVUpdate, button#btnBackList, button#btnRVDelete{
 		border:1px solid rgb(5,135,94);
 		border-radius:10px;
 		color: rgb(5,135,94);
@@ -787,6 +791,7 @@ td.star_rating a.on {color:tomato;}
 		padding:10px 50px 10px 50px;
 		margin-right:20px;	
 		float:right;
+		
 	}
 	
 	button#btnWriteReply{

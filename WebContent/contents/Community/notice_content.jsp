@@ -24,7 +24,7 @@
 	<div id="notice_content">
 		<div id="sub_title">공지사항</div>
 			<h1 id="review_title">공지사항제목<span> 공지날짜  | 조회수 </span></h1>
-			<textarea id="review_contents" placeholder="공지사항 내용"></textarea>	
+			<div id="review_contents" placeholder="공지사항 내용"></div>	
 			<div>
 				<a href="notice_list.jsp"><button id="btnNoticeList" type="button">목록보기</button></a>
 			</div>

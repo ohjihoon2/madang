@@ -3,13 +3,12 @@
 <%@ page import="com.madang.dao.*,com.madang.service.*,com.madang.vo.*,java.util.*" %>
 <%
 	String rv_code = request.getParameter("rv_code"); 
-	String rv_rp_id = (String)session.getAttribute("generalID"); 
-
+	String id = (String)session.getAttribute("generalID"); 
+	
 	ReviewService service = new ReviewService();
 	ReviewVO vo = service.getResultContent(rv_code);
 	
-	ArrayList<ReviewReplyVO> list = service.getReplyList(rv_code);
-	
+	ArrayList<ReviewReplyVO> list = service.getReplyList(rv_code);	
 	
 
 	if(vo.getRv_title() != "" && vo.getRv_title() != null){
@@ -24,13 +23,63 @@
 	}
 	
 %>    
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+/* The Modal (background) */
+ .modal, .modal_rep {
+     display: none; /* Hidden by default */
+     position: fixed; /* Stay in place */
+     z-index: 1; /* Sit on top */
+     left: 0;
+     top: 0;
+     width: 100%; /* Full width */
+     height: 100%; /* Full height */
+     overflow: auto; /* Enable scroll if needed */
+     background-color: rgb(0,0,0); /* Fallback color */
+     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+ }
+
+ /* Modal Content/Box */
+ .modal-content, .modal_rep {
+     background-color: #fefefe;
+     margin: 15% auto; /* 15% from the top and centered */
+     padding: 20px;
+     border: 1px solid #888;
+     width: 30%; /* Could be more or less, depending on screen size */
+     height: 15%;
+     text-align:center;                         
+ }
+ /* The Close Button */
+ .close, .modal_rep {
+     color: #aaa;
+     float: right;
+     font-size: 28px;
+     font-weight: bold;
+ }
+ .close:hover, .modal_rep:hover
+ .close:focus, .modal_rep:focus {
+     color: black;
+     text-decoration: none;
+     cursor: pointer;
+ }
+ 
+ #btnDEL,#btnRplDEL{
+	border: 1px solid rgb(155, 155, 155);
+	border-radius: 10px;
+	color: rgb(5, 135, 94);
+	background: white;
+	padding: 10px 50px 10px 50px;
+	margin-top: 20px;
+ }
+
+
+</style>
 <script>
 	$(document).ready(function(){
 		$("#div_comment").hide();
@@ -73,7 +122,69 @@
 	  			}
 		  
 		  });
-	  	
+	  
+	$("button#btnRVDelete").click(function(){
+		/* 모달  */
+        // Get the modal
+        var modal = document.getElementById('myModal');
+ 
+        // Get the button that opens the modal
+        var btn = document.getElementById("btnRVDelete");
+       
+ 
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];                                          
+ 
+        // When the user clicks on the button, open the modal 
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+ 
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+ 
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+	});	  
+	
+	$("button#btnDE").click(function(){
+
+		/* 모달 */
+        // Get the modal
+        var modal_rep = document.getElementById("myModal_rep");
+        // Get the button that opens the modal
+        var btnDE = document.getElementById("btnDE");      
+        // Get the <span> element that closes the modal
+        var span_rep = document.getElementsByClassName("close_rep")[0];   
+        
+        // When the user clicks on the button, open the modal 
+        btnDE.onclick = function() {
+        	alert("4444");
+            modal_rep.style.display = "block";
+        }
+		
+        // When the user clicks on <span> (x), close the modal
+        span_rep.onclick = function() {
+        	alert("333");
+            modal_rep.style.display = "none";
+        }
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        	alert("2");
+            if (event.target == modal_rep) {
+            	alert("1");
+                modal_rep.style.display = "none";
+            }
+        }
+	});
+
+
 	  
 	});
 </script>
@@ -100,31 +211,71 @@
 				<div id="review_content"><%=vo.getRv_content() %></div>						
 		
 				<div id="btn1">
-					<a href="http://localhost:9090/contents/Community/review_update.jsp?rv_code=<%=rv_code%>"><button type="button" id="btnRVUpdate">수정하기</button></a>
-					<a href="http://localhost:9090/contents/Community/review_byDate.jsp"><button type="button" id="btnBackList">목록보기</button></a>
+					<%if(id.equals(vo.getId())){ %>
+					<a href="review_update.jsp?rv_code=<%=rv_code%>"><button type="button" id="btnRVUpdate">수정</button></a>
+					<button type="button" id="btnRVDelete">삭제</button>
+					<%} %>
+					<a href="review_byDate.jsp"><button type="button" id="btnBackList">목록</button></a>
 					<input type="hidden" id="rv_code" value="<%=rv_code%>">					
 				</div>
 				
-				<%//if(rv_rp_id != null){ %>
+				
+				<!-- Trigger/Open The Modal -->
+			 
+			    <!-- The Modal -->
+			    <div id="myModal" class="modal">
+			 
+			      <!-- Modal content -->
+			      <div class="modal-content">
+			        <span class="close">&times;</span>                                                               
+			        <p>다시 생각해도 삭제가 답입니까?</p>
+			        <a href="review_delete.jsp?rv_code=<%=rv_code%>"><button type="button" id="btnDEL"> 삭제 </button></a>
+			      </div>
+			 
+			    </div>
+
+
+				<%if(id != null) {%>
 				<div id="btn2">
-					<input type="hidden" id="rv_rp_id" value="<%=rv_rp_id%>">
+					<input type="hidden" id="rv_rp_id" value="<%=id %>">
 					<span id="sp_title">댓글</span><button type="button" id="btnWriteReply">댓글쓰기</button>
 					<div id="div_comment"><textarea id="comment" placeholder="댓글을 달아주세요."></textarea>
 					<button type="button" id="btnOK">등록</button></div>
 				</div>
-				<%//} %>
+				<%} %>
 				
 				<!-- 댓글리스트 -->
 				<%for(ReviewReplyVO rvo: list){ %>
 				<ul id="event_ul">
 					<li><span id="li_id"><%=rvo.getRv_rp_id() %></span><span id="li_event_date"><%=rvo.getRv_rp_date() %></span>
-					<a href="review_delete.jsp?rv_code=<%=rvo.getRv_rp_code()%>"><button type="button" id="btnDE">삭제</button></a>
+					<%if(id.equals(rvo.getRv_rp_id())){ %>
+					<%-- <a href="review_delete.jsp?rv_code=<%=rvo.getRv_rp_code()%>"> --%>
+					<button type="button" id="btnDE">댓글 삭제</button><!-- </a> -->
+					<%} %>
 					</li>
-					<li id="list_reply">댓글:<%=rvo.getRv_rp_content() %></li>					
+					<li id="list_reply"><%=rvo.getRv_rp_content() %></li>			
+					<input type="hidden" id="rv_rp_code" value="<%=rvo.getRv_rp_code() %>">		
 				</ul>
-				<%} %>
-				<%-- <input type="hidden" name="id" value="<%=vo.getRv_rp_id()%>"> --%>
-								
+				<%} 
+				String rv_rp_code = request.getParameter("rv_rp_code");
+				%>
+				
+						
+				
+ 				<!-- Trigger/Open The Modal -->
+			 
+			    <!-- The Modal -->
+			    <div id="myModal_rep" class="modal_rep">
+			 
+			      <!-- Modal content -->
+			      <div class="modal-content_rep">
+			        <span class="close_rep">&times;</span>                                                               
+			        <p>댓글은 많을 수록 좋은데...<br><br>그럼에도 불구하고<br><br>댓글을 삭제하시겠습니까?</p>
+			        <a href="review_reply_delete.jsp?rv_rp_code=<%=rv_rp_code %>"><button type="button" id="btnRplDEL"> 댓글 삭제 </button></a>
+			      </div>
+			 
+			    </div>
+					
 			
 				<div id="btnMore_div">
 					<button type="button" id="btnMore">

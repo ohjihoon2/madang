@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page import="com.madang.dao.*,com.madang.service.*,com.madang.vo.*,java.util.*" %>	
+<%
+	NewsService service = new NewsService();
+	ArrayList<NewsVO> list = service.getResultNewsList();
+%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,10 +30,12 @@
 		<div id="news_content">
 			<div id="sub_title">뉴스 & 이슈</div>
 			<%
-				for (int i = 1; i < 11; i++) {
+				for (NewsVO vo : list) {
 			%>
 			<div class="news_list">
-				<div id="news_title"><span id="sp_article">언론기사</span><a id="sp_title" href="https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=103&oid=031&aid=0000511937">“오페라 ‘카르멘’ 하이라이트로 가을 정취 만끽”</a><span id="sp_press">아이뉴스24</span><span id="sp_date">2019.10.15</span></div>				
+				<div id="news_title"><span id="sp_article">언론기사</span>
+				<a id="sp_title" href="<%=vo.getNw_url() %>">"<%=vo.getNw_title() %>>"</a><span id="sp_press"><%=vo.getNw_press() %></span>
+				<span id="sp_date"><%=vo.getNw_date() %></span></div>				
 			</div>
  			<%
 				}

@@ -4,6 +4,7 @@
 <%	
 
 	String rv_code = request.getParameter("rv_code"); 
+	
 	ReviewService service = new ReviewService();
 	ReviewVO vo = service.getResultContent(rv_code);
 %>
@@ -79,7 +80,7 @@
 	            	<button type="submit" id="btnRVUpdateOK">수정</button>
 	            	<button type="reset" id="btnRVCancel">취소</button>
 	            	<a href="review_byDate.jsp"><button type="button" id="btnRVList">목록</button></a>
-	            	<a href="review_content.jsp?rv_code=<%=rv_code%>"><button type="button" id="btnRVList">이전</button></a>
+	            	<a href="review_contents.jsp?rv_code=<%=rv_code%>"><button type="button" id="btnRVList">이전</button></a>
 	        	</div>
 <%-- 	        	<input type="hidden" name="id" value="<%=id%>"> --%>
 	       		</th>

@@ -3,6 +3,7 @@
 <%@ page import="com.madang.vo.*, com.madang.service.*, java.util.*" %>   
 <% request.setCharacterEncoding("utf-8"); %> 
 <%
+	String id = request.getParameter("id");
 	ReviewService service = new ReviewService();
 	ArrayList<ConcertVO> clist = service.getConcertList();
 /* 	String id = request.getParameter("id"); */ 
@@ -10,6 +11,7 @@
 /* 	String id = (String)session.getAttribute("generalID"); */
 
 %>
+document.write(<%= id %>);
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,6 +88,7 @@
 							<option value="<%=vo.getConcert_code() %>"><%=vo.getC_title() %></option>							
 						<%} %>				
 						</select>
+						<input type="hidden" name="id" value="<%=id %>">
 				</span></h1>
 			</tr>
 			<tr>	
@@ -114,7 +117,7 @@
 	        	</div>
 	       		</th>
 	       	</tr>	
-<%-- 	       	<input type="hidden" name="id" value="<%=id%>"> --%>
+			
         </table>    
 		</form>
 	</div>

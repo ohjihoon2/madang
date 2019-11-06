@@ -32,7 +32,7 @@ public class NewsDAO {
 			} catch (Exception e) {e.printStackTrace();}
 		}
 		
-		//愿�由ъ옄 -�뼵濡좊낫�룄 由ъ뒪�듃 媛��졇�삤湲�
+		//�꽴占썹뵳�딆쁽 -占쎈섧嚥≪쥓�궖占쎈즲 �뵳�딅뮞占쎈뱜 揶쏉옙占쎌죬占쎌궎疫뀐옙
 		public ArrayList<NewsVO> getNewsListAdmin(){
 			ArrayList<NewsVO> list = new ArrayList<NewsVO>();
 			String sql="select nw_code, nw_title, to_char(nw_date,'yyyy-mm-dd'), nw_press, nw_url from news";
@@ -130,6 +130,31 @@ public class NewsDAO {
 			return result;
 		}
 		
+		public ArrayList<NewsVO> getResultNewsList(){
+			ArrayList<NewsVO> list = new ArrayList<NewsVO>();
+			String sql = "select nw_code, nw_title, to_char(nw_date,'yyyy.mm.dd.'), nw_press, nw_url from news";
+			getPreparedStatement(sql);
+			try {
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					NewsVO vo = new NewsVO();
+					vo.setNw_code(rs.getString(1));
+					vo.setNw_title(rs.getString(2));
+					vo.setNw_date(rs.getString(3));
+					vo.setNw_press(rs.getString(4));
+					vo.setNw_url(rs.getString(5));
+					
+					list.add(vo);
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			return list;
+		}
+		
 		
 		public void close() {
 			try {
@@ -139,6 +164,6 @@ public class NewsDAO {
 			} catch (Exception e) {e.printStackTrace();}
 		}
 		
-		
+
 		
 }
