@@ -19,7 +19,14 @@
 <link rel="stylesheet" href="http://localhost:9090/css/cs.css"/>
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <script src="http://localhost:9090/js/madang.js"></script>
-
+<script>
+	$(document).ready(function(){
+		$('#qa_file_dwn').click(function(e){
+			e.preventDefault(); //e의 href무력화
+			window.open('http://localhost:9090/upload/q_and_a/<%=vo.getQa_sfile()%>');
+		});//파일클릭 다운로드
+	});
+</script>
 </head>
 <body>
 document.write(<%= vo.getQa_code() %>);
@@ -52,9 +59,16 @@ document.write(<%= vo.getQa_code() %>);
 				<tr>
 					<td>첨부파일</td>
 					<td>
-						<% if(vo.getQa_sfile()!="" && vo.getQa_sfile()!=null) { %>
-							<img src="http://localhost:9090/upload/<%= vo.getQa_sfile() %>"/>
-						<% } else { %> 파일 없음 <% } %>
+						<%if(vo.getQa_file()!=null && vo.getQa_file()!=""){ %>
+							<a href="#" id="qa_file_dwn"><%=vo.getQa_file()%></a>
+						<%}else{ %>
+							파일 없음
+						<%} %>
+						
+						<%-- <% if(vo.getQa_sfile()!="" && vo.getQa_sfile()!=null) { %>
+							<img style="width:100%" src="http://localhost:9090/upload/<%= vo.getQa_sfile() %>"/>
+						<% } else { %> 파일 없음 <% } %> --%>
+						
 					</td>
 				</tr>
 				

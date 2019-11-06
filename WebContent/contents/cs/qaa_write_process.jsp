@@ -5,7 +5,7 @@
 <%
 	String id=(String)session.getAttribute("generalID");
 	
-	String save_path=request.getServletContext().getRealPath("/upload");
+	String save_path=request.getServletContext().getRealPath("/upload/q_and_a");
 	int max_size=1024*1024*10;
 	MultipartRequest multi=new MultipartRequest(request, save_path, max_size, "utf-8", new DefaultFileRenamePolicy());
 	
