@@ -7,11 +7,11 @@ import com.madang.vo.ExhibitionVO;
 
 public class ExhibitionService {
 
-	public ExhibitionVO getResultExhibition() {
+	public ExhibitionVO getResultExhibition(String code) {
 		ExhibitionVO vo = new ExhibitionVO();
 		
 		ExhibitionDAO dao = new ExhibitionDAO();
-		vo = dao.getResultExhibition();
+		vo = dao.getResultExhibition(code);
 		
 		return vo;
 	}

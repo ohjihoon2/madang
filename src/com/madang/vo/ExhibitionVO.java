@@ -2,8 +2,28 @@ package com.madang.vo;
 
 public class ExhibitionVO {
 
-	String exhibition_code, e_title, e_sdate,   e_edate, e_etime, e_place, e_ration, e_genre, e_host, e_poster, e_sposter, e_info_poster, e_info_sposter;          
+	String exhibition_code, e_title, e_sdate,   e_edate, e_etime, e_place, e_rating, e_genre, e_host, e_poster, e_sposter, e_info_poster, e_info_sposter, e_contact, sday,eday;          
 	int e_price;
+	
+	
+	public int getSday() {
+		return Integer.parseInt(sday);
+	}
+	public void setSday(String sday) {
+		this.sday = sday;
+	}
+	public int getEday() {
+		return Integer.parseInt(eday);
+	}
+	public void setEday(String eday) {
+		this.eday = eday;
+	}
+	public String getE_contact() {
+		return e_contact;
+	}
+	public void setE_contact(String e_contact) {
+		this.e_contact = e_contact;
+	}
 	public String getExhibition_code() {
 		return exhibition_code;
 	}
@@ -40,11 +60,12 @@ public class ExhibitionVO {
 	public void setE_place(String e_place) {
 		this.e_place = e_place;
 	}
-	public String getE_ration() {
-		return e_ration;
+	
+	public String getE_rating() {
+		return e_rating;
 	}
-	public void setE_ration(String e_ration) {
-		this.e_ration = e_ration;
+	public void setE_rating(String e_rating) {
+		this.e_rating = e_rating;
 	}
 	public String getE_genre() {
 		return e_genre;

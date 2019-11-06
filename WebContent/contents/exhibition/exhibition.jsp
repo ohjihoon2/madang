@@ -1,11 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.madang.vo.*, com.madang.service.*, java.util.*"%>
+    pageEncoding="UTF-8" import="com.madang.vo.*, com.madang.service.*, java.util.*,java.util.Date, java.text.SimpleDateFormat"%>
 <%
+	String id = (String)session.getAttribute("generalID");
+
 	ExhibitionVO vo = new ExhibitionVO();
 	ExhibitionService service = new ExhibitionService();
 	/* vo = service.getResultExhibition() */;
 	ArrayList<ExhibitionVO> list = new ArrayList<ExhibitionVO>();
 	list = service.getResultExhibitionList();
+	
+	Date now = new Date();
+	//오늘 날짜	(년.월.일(요일))
+	SimpleDateFormat sf  = new SimpleDateFormat("yyyy.MM.dd.(E)");
+	String today = sf.format(now);
+
+	//오늘 날짜	(년월일)
+	sf = new SimpleDateFormat("yyMMdd");
+	String tday = sf.format(now);
+	System.out.println("tday : "+tday);
+	System.out.println("id : "+id);
 	
 %>
 <!DOCTYPE html>
@@ -110,7 +123,11 @@
 		border-radius: 5px;
 		
 	}
-	
+	div.exhibition_info_today > div > div > a > img{
+		width:230px; height:280px;
+		
+	}
+
 	div.last_exhibition_info{
 		width:1000px;
 		height:300px;
@@ -181,93 +198,68 @@
 	</div>
 	<div id="main_title">&nbsp&nbsp전시</div><br>
 	<div id="date_info">2019.10.02 (수) </div>
-	
-	<button type="button">이미지보기</button>
-	<button type="button">텍스트보기</button>
 	<br>
 	<div class="exhibition_area">
 		<div class="exhibition_info_today">
-			<%for(int i=0; i<list.size();i++){ %>
+			<%
+				for(int i=0; i<list.size();i++){ 
+					//오늘 날짜 int값
+					int td = Integer.parseInt(tday);
+					//공연 마지막 날짜 int값 
+					int ed = list.get(i).getEday();
+					//공연 시작 날짜 int값 
+					int sd = list.get(i).getSday();
+					//마지막 공연날이 오늘이전이면 concert list에서 보여지지 않음.
+					if(sd<=td  &&  td<=ed){
+			%>
 			<div class="exhibition_info">
 				<div class="exhibition_info_count">
-					<a href="#"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif"></a>
+					<a href="http://localhost:9090/contents/exhibition/exhibition_detail.jsp?exhibition_code=<%=list.get(i).getExhibition_code()%>"><img src="http://localhost:9090/images/exhibition/<%=list.get(i).getE_poster()%>"></a>
 					<div class="exhibition_info_text">
-						<h4><a href="#"><%=list.get(i).getExhibition_code() %></a></h4><br>
+						<h4><a href="http://localhost:9090/contents/exhibition/exhibition_detail.jsp?exhibition_code=<%=list.get(i).getExhibition_code()%>"><%=list.get(i).getE_title() %></a></h4><br>
 						<div>
-							<div>한가람미술관	</div>
-							<span>2019.10.02(수) ~ 2019.10.29(화)</span><br>
+							<div><%=list.get(i).getE_place() %></div>
+							<span><%=list.get(i).getE_sdate()%> ~ <%=list.get(i).getE_edate() %></span><br>
 							<a href="#">현장판매</a>
 						</div>
 					</div>
 				</div>
 			</div>
-			<%} %>
+			<%} 
+			}%>
 		</div>
 		<div class="last_exhibition">
 			<span class="last_exhibition_text">지난전시</span><br>
 			<hr>
 			<span class="last_exhibition_year">2019</span><br>
 			<div class="last_exhibition_info">
+				<%
+					for(int i=0;i<list.size();i++){ 
+						//오늘 날짜 int값
+						int td = Integer.parseInt(tday);
+						//공연 마지막 날짜 int값 
+						int ed = list.get(i).getEday();
+						if(ed<td){
+						//마지막 공연날이 오늘이전이면 concert list에서 보여지지 않음.
+				
+				%>
 				<div class="last_exhibition_info_content">
-					<a href="exhibition_detail.jsp"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif"></a>
+					<a href="http://localhost:9090/contents/exhibition/exhibition_detail.jsp?exhibition_code=<%=list.get(i).getExhibition_code()%>"><img src="http://localhost:9090/images/exhibition/<%=list.get(i).getE_poster()%>"></a>
 					<div>
-						<h3><a href="exhibition_detail.jsp">2019 연극 <늙은 부부이야기></a></h3>
+						<h3><a href="http://localhost:9090/contents/exhibition/exhibition_detail.jsp?exhibition_code=<%=list.get(i).getExhibition_code()%>"><%=list.get(i).getE_title() %></a></h3>
 						<div id="hide_space">
 							<span></span>
 						</div>
 						<div id="text_space">
 							<div>
-								<div>서울서예박물관 상설전시실 (3층)</div>
-								<span>2019.10.08(화) ~ 2019.10.15(화)</span>
+								<div><%=list.get(i).getE_place() %></div>
+								<span><%=list.get(i).getE_sdate()%> ~ <%=list.get(i).getE_edate() %></span>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="last_exhibition_info_content">
-					<a href="exhibition_detail.jsp"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif"></a>
-					<div>
-						<h3><a href="exhibition_detail.jsp">2019 연극 <늙은 부부이야기></a></h3>
-						<div id="hide_space">
-							<span></span>
-						</div>
-						<div id="text_space">
-							<div>
-								<div>서울서예박물관 상설전시실 (3층)</div>
-								<span>2019.10.08(화) ~ 2019.10.15(화)</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="last_exhibition_info_content">
-					<a href="exhibition_detail.jsp"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif"></a>
-					<div>
-						<h3><a href="exhibition_detail.jsp">2019 연극 <늙은 부부이야기></a></h3>
-						<div id="hide_space">
-							<span></span>
-						</div>
-						<div id="text_space">
-							<div>
-								<div>서울서예박물관 상설전시실 (3층)</div>
-								<span>2019.10.08(화) ~ 2019.10.15(화)</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="last_exhibition_info_content">
-					<a href="exhibition_detail.jsp"><img src="http://localhost:9090/images/concert_main/20190823151229P.gif"></a>
-					<div>
-						<h3><a href="exhibition_detail.jsp">2019 연극 <늙은 부부이야기></a></h3>
-						<div id="hide_space">
-							<span></span>
-						</div>
-						<div id="text_space">
-							<div>
-								<div>서울서예박물관 상설전시실 (3층)</div>
-								<span>2019.10.08(화) ~ 2019.10.15(화)</span>
-							</div>
-						</div>
-					</div>
-				</div>
+				<%}
+				}%>
 			</div>
 		</div>
 	</div>

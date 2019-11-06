@@ -210,7 +210,7 @@
 	%>
 	
 	<div class="concert_info">
-		<a href="concert_detail.jsp?concert_code=<%=list.get(i).getConcert_code()%>"><img src="http://localhost:9090/images/concert_main/<%=list.get(i).getC_poster()%>"></a>
+		<a href="http://localhost:9090/contents/concert/concert_detail.jsp?concert_code=<%=list.get(i).getConcert_code()%>"><img src="http://localhost:9090/images/concert_main/<%=list.get(i).getC_poster()%>"></a>
 		<div>
 			<h2><a href="concert_detail.jsp?concert_code=<%=list.get(i).getConcert_code()%>"><%=list.get(i).getC_title() %></a></h2>
 			<div id="hide_space">
