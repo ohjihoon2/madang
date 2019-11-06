@@ -2,22 +2,32 @@ package com.madang.vo;
 
 public class Concert_Reserv_VO {
 	//결제 정보
-	String p_code, te_code, tce_code, p_date, p_status, mem_id, tc_paym, tc_payw, tc_pays;
+	String p_code, mem_id, tce_code, p_status, tc_paym, tc_payw, tc_pays, p_date;
 	//공연 예매정보
-	String tc_code, concert_code, tc_cdate, tc_cseats, tc_cancelc, tc_canceld,
-		tc_price, tc_recive, tc_name, tc_birth, tc_phone, tc_email;
+	String tc_code, concert_code, tc_cdate, Tc_cseat, tc_cancelc, tc_canceld,
+		tc_price, tc_recive, tc_name, tc_birth, tc_phone, tc_email, tc_time;
+	//공연정보 reference
+	String c_title, c_place, c_sdate, c_edate, c_rating, c_time, c_stime, c_sposter;
 	
+	
+	
+	public String getC_sposter() {
+		return c_sposter;
+	}
+	public void setC_sposter(String c_sposter) {
+		this.c_sposter = c_sposter;
+	}
 	public String getP_code() {
 		return p_code;
 	}
 	public void setP_code(String p_code) {
 		this.p_code = p_code;
 	}
-	public String getTe_code() {
-		return te_code;
+	public String getMem_id() {
+		return mem_id;
 	}
-	public void setTe_code(String te_code) {
-		this.te_code = te_code;
+	public void setMem_id(String mem_id) {
+		this.mem_id = mem_id;
 	}
 	public String getTce_code() {
 		return tce_code;
@@ -25,23 +35,11 @@ public class Concert_Reserv_VO {
 	public void setTce_code(String tce_code) {
 		this.tce_code = tce_code;
 	}
-	public String getP_date() {
-		return p_date;
-	}
-	public void setP_date(String p_date) {
-		this.p_date = p_date;
-	}
 	public String getP_status() {
 		return p_status;
 	}
 	public void setP_status(String p_status) {
 		this.p_status = p_status;
-	}
-	public String getMem_id() {
-		return mem_id;
-	}
-	public void setMem_id(String mem_id) {
-		this.mem_id = mem_id;
 	}
 	public String getTc_paym() {
 		return tc_paym;
@@ -61,6 +59,12 @@ public class Concert_Reserv_VO {
 	public void setTc_pays(String tc_pays) {
 		this.tc_pays = tc_pays;
 	}
+	public String getP_date() {
+		return p_date;
+	}
+	public void setP_date(String p_date) {
+		this.p_date = p_date;
+	}
 	public String getTc_code() {
 		return tc_code;
 	}
@@ -79,11 +83,11 @@ public class Concert_Reserv_VO {
 	public void setTc_cdate(String tc_cdate) {
 		this.tc_cdate = tc_cdate;
 	}
-	public String getTc_cseats() {
-		return tc_cseats;
+	public String getTc_cseat() {
+		return Tc_cseat;
 	}
-	public void setTc_cseats(String tc_cseats) {
-		this.tc_cseats = tc_cseats;
+	public void setTc_cseat(String Tc_cseat) {
+		this.Tc_cseat = Tc_cseat;
 	}
 	public String getTc_cancelc() {
 		return tc_cancelc;
@@ -132,6 +136,54 @@ public class Concert_Reserv_VO {
 	}
 	public void setTc_email(String tc_email) {
 		this.tc_email = tc_email;
+	}
+	public String getTc_time() {
+		return tc_time;
+	}
+	public void setTc_time(String tc_time) {
+		this.tc_time = tc_time;
+	}
+	public String getC_title() {
+		return c_title;
+	}
+	public void setC_title(String c_title) {
+		this.c_title = c_title;
+	}
+	public String getC_place() {
+		return c_place;
+	}
+	public void setC_place(String c_place) {
+		this.c_place = c_place;
+	}
+	public String getC_sdate() {
+		return c_sdate;
+	}
+	public void setC_sdate(String c_sdate) {
+		this.c_sdate = c_sdate;
+	}
+	public String getC_edate() {
+		return c_edate;
+	}
+	public void setC_edate(String c_edate) {
+		this.c_edate = c_edate;
+	}
+	public String getC_rating() {
+		return c_rating;
+	}
+	public void setC_rating(String c_rating) {
+		this.c_rating = c_rating;
+	}
+	public String getC_time() {
+		return c_time;
+	}
+	public void setC_time(String c_time) {
+		this.c_time = c_time;
+	}
+	public String getC_stime() {
+		return c_stime;
+	}
+	public void setC_stime(String c_stime) {
+		this.c_stime = c_stime;
 	}
 	
 	

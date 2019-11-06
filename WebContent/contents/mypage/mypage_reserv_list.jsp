@@ -2,8 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="com.madang.service.Reservation_Service, com.madang.vo.*, java.util.ArrayList" %>
 <%
+	String id=(String)session.getAttribute("generalID");
+	Reservation_Service service=new Reservation_Service();
+	
+	ArrayList<Concert_Reserv_VO> clist=new ArrayList<Concert_Reserv_VO>();
+	clist=service.getConcertReservList(id);
 	
 %>
+document.write(<%= id %>);
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -35,20 +41,34 @@
 				<tr>
 					<th>예매일</th>
 					<th>예매번호</th>
-					<th>상품명</th>
+					<th>공연명</th>
 					<th>관람일</th>
 					<th>매수</th>
 					<th>현재상태</th>
 				</tr>
+				<!-- 
 				<tr onClick="location.href='mypage_reserv_details.jsp'">
-				<!-- 한 행 전체에 링크 확인~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				한 행 전체에 링크 확인~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 					<td>2019-09-30</td>
-					<td> <!--class="rnum">> <a href="mypage_reserv_details.jsp"> -->T45621<!-- </a> --></td>
+					<td> class="rnum">> <a href="mypage_reserv_details.jsp">T45621</a></td>
 					<td>bbbb</td>
 					<td>2019-11-30</td>
 					<td>2매</td>
 					<td>결제완료</td>
 				</tr>
+				 -->
+				<% for(Concert_Reserv_VO cvo:clist) { %>
+					<tr onClick="location.href='mypage_reserv_details.jsp?tc_code=<%= cvo.getTc_code() %>'">
+						<td><%= cvo.getTc_time() %></td>
+						<td><%= cvo.getTc_code() %></td>
+						<td><%= cvo.getC_title() %></td>
+						<td><%= cvo.getTc_cdate() %></td>
+						<% String seats=cvo.getTc_cseat(); String[] seat=seats.split(" /"); int num=seat.length;%>
+						<td><%= num %>매</td>
+						<td><%= cvo.getTc_pays() %></td> <!-- 이거 몇가진지 보고 한글로 바꾸기 -->
+					</tr>
+				<% } %>
+				
 			</table>
 		</div>
 		
@@ -59,7 +79,7 @@
 				<tr>
 					<th>예매일</th>
 					<th>예매번호</th>
-					<th>상품명</th>
+					<th>전시명</th>
 					<th>관람일</th>
 					<th>매수</th>
 					<th>현재상태</th>
