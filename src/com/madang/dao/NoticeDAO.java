@@ -34,7 +34,7 @@ public class NoticeDAO {
 	//bring the notice list
 	public ArrayList<NoticeVO> getNoticeListAdmin(){
 		ArrayList<NoticeVO> list = new ArrayList<NoticeVO>();
-		String sql="select nt_code, nt_title, to_char(nt_date,'yyyy-mm-dd'),nt_hits from notice order by nt_date desc";
+		String sql="select nt_code, nt_title, to_char(nt_date,'yyyy/mm/dd'),nt_hits from notice order by nt_date desc";
 		getPreparedStatement(sql);
 		try {
 			rs=pstmt.executeQuery();
@@ -134,7 +134,27 @@ public class NoticeDAO {
 		return result;
 	}
 			
-	
+	//admin main list
+	public ArrayList<NoticeVO> getListAdminMain(){
+		ArrayList<NoticeVO> list = new ArrayList<NoticeVO>();
+		String sql="select * from(select rownum rno, nt_code, nt_title, to_char(nt_date,'yyyy/mm/dd'), nt_hits from notice order by nt_date)where rno between 1 and 3";
+		getPreparedStatement(sql);
+		try {
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				NoticeVO vo = new NoticeVO();
+				vo.setRno(rs.getInt(1));
+				vo.setNt_code(rs.getString(2));
+				vo.setNt_title(rs.getString(3));
+				vo.setNt_date(rs.getString(4));
+				vo.setNt_hits(rs.getInt(5));
+				
+				list.add(vo);
+			}
+			
+		}catch(Exception e) {e.printStackTrace();}
+		return list;
+	}
 	
 	
 	public void close() {

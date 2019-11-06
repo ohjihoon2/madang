@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import com.madang.vo.NoticeVO;
 import com.madang.vo.Rental_VO;
 
 public class Rental_DAO {
@@ -148,7 +149,7 @@ public class Rental_DAO {
 	//rental request (insert)
 	public boolean getResultRentalRequest(Rental_VO vo) {
 		boolean result = false;
-		String sql = "insert into rental values('rt'||lpad(sequ_rental.nextval,4,0),?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into rental values('rt'||lpad(sequ_rental.nextval,4,0),?,?,?,?,?,?,?,?,?,?,?,?,sysdate)";
 		getPreparedStatement(sql);
 		System.out.println("daO"+vo.getR_place());
 		try {
@@ -165,9 +166,6 @@ public class Rental_DAO {
 			pstmt.setString(11, vo.getR_file());
 			pstmt.setString(12, vo.getR_sfile());
 			
-			
-			
-			
 			int val=pstmt.executeUpdate();
 			if(val!=0) result=true;
 		} catch (Exception e) {e.printStackTrace();}
@@ -177,7 +175,41 @@ public class Rental_DAO {
 	
 	
 	
-	
+	//admin main list
+	public ArrayList<Rental_VO> getListAdminMain(){
+		ArrayList<Rental_VO> list = new ArrayList<Rental_VO>();
+		String sql="select * from(select rownum rno, nt_code, nt_title, to_char(nt_date,'yyyy/mm/dd'), nt_hits from notice order by nt_date)where rno between 1 and 3";
+		getPreparedStatement(sql);
+		try {
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				Rental_VO vo = new Rental_VO();
+				vo.setRno(rs.getInt(1));
+				vo.setR_case(rs.getString(2));
+				vo.setR_title(rs.getString(3));
+				vo.setR_date(rs.getString(4));
+				if(rs.getString(5).equals("신청완료")) {
+					if(rs.getInt()>=0) { // 날짜차수 구하기
+						if(rs.getInt()<0) {
+							vo.setR_status("예정");
+						} else {
+							vo.setR_status("진행중");
+						}
+					} else {
+						vo.setR_status("종료");
+					}
+				}else {
+					vo.setR_status(rs.getString(5));
+				}
+				
+				
+				
+				list.add(vo);
+			}
+			
+		}catch(Exception e) {e.printStackTrace();}
+		return list;
+	}
 	
 	
 	public void close() {

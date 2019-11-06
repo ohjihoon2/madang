@@ -2,7 +2,7 @@ package com.madang.vo;
 
 public class NoticeVO {
 	String nt_code, nt_title, nt_contents, nt_file, nt_sfile, nt_date;
-	int nt_hits;
+	int nt_hits, rno;
 	public String getNt_code() {
 		return nt_code;
 	}
@@ -44,6 +44,12 @@ public class NoticeVO {
 	}
 	public void setNt_hits(int nt_hits) {
 		this.nt_hits = nt_hits;
+	}
+	public int getRno() {
+		return rno;
+	}
+	public void setRno(int rno) {
+		this.rno = rno;
 	}
 	
 	

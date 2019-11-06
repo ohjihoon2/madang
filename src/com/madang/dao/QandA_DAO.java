@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import com.madang.vo.NoticeVO;
 import com.madang.vo.QandA_VO;
 
 public class QandA_DAO {
@@ -129,6 +130,30 @@ public class QandA_DAO {
 		
 		return result;
 	}
+	
+	//admin main list
+	public ArrayList<QandA_VO> getListAdminMain(){
+		ArrayList<QandA_VO> list = new ArrayList<QandA_VO>();
+		String sql="select * from(select rownum rno, qa_code, qa_title, to_char(qa_date,'yyyy/mm/dd'),to_char(qa_adate,'yyyy/mm/dd')  from Q_AND_A order by qa_date)where rno between 1 and 3";
+		getPreparedStatement(sql);
+		try {
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				QandA_VO vo = new QandA_VO();
+				vo.setRownum(rs.getInt(1));
+				vo.setQa_code(rs.getString(2));
+				vo.setQa_title(rs.getString(3));
+				vo.setQa_date(rs.getString(4));
+				//작성여부까지만
+				vo.setQa_adate(rs.getString(5));
+				
+				list.add(vo);
+			}
+			
+		}catch(Exception e) {e.printStackTrace();}
+		return list;
+	}
+	
 	
 	
 	//Admin list 

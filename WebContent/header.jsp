@@ -204,7 +204,7 @@ header ul.dept02 li a:hover {
 						<li><a href="http://localhost:9090/contents/Usher/facility.jsp">시설안내</a></li>
 						<li><a href="http://localhost:9090/contents/Usher/utility_concert.jsp">편의시설</a></li>
 						<li><a href="http://localhost:9090/contents/Usher/etiquette_concert.jsp">관람매너</a></li>
-						<li><a href="http://localhost:9090/contents/ticket/respecting_ticket.jsp">우대안내</a></li>
+						<li><a href="http://localhost:9090/contents/Usher/respecting_ticket.jsp">우대안내</a></li>
 					</ul>
 				</li>
 				

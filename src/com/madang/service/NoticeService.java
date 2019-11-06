@@ -16,6 +16,14 @@ public class NoticeService {
 		return list;
 	}
 	
+	//admin main list
+	public ArrayList<NoticeVO> getListAdminMain(){
+		NoticeDAO dao = new NoticeDAO();
+		ArrayList<NoticeVO> list = dao.getListAdminMain();
+		dao.close();
+		return list;
+	}
+	
 	//insert new notice
 	public boolean getResultWriteAdmin(NoticeVO vo) {
 		boolean result=false;

@@ -2,8 +2,8 @@ package com.madang.vo;
 
 public class Rental_VO {
 	String rental_code, r_case, r_title, r_place, r_sdate, r_edate, r_opentime, r_time, r_rhtime, 
-			r_status, r_id, r_file, r_sfile, r_status2;
-	
+			r_status, r_id, r_file, r_sfile, r_status2,r_date;
+	int rno;
 	
 	
 	
@@ -117,6 +117,22 @@ public class Rental_VO {
 
 	public void setR_sfile(String r_sfile) {
 		this.r_sfile = r_sfile;
+	}
+
+	public int getRno() {
+		return rno;
+	}
+
+	public void setRno(int rno) {
+		this.rno = rno;
+	}
+
+	public String getR_date() {
+		return r_date;
+	}
+
+	public void setR_date(String r_date) {
+		this.r_date = r_date;
 	}
 	
 	

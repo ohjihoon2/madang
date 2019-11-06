@@ -19,6 +19,7 @@
 				<li><a href="facility.jsp">시설안내</a></li>
 				<li><a href="utility_concert.jsp">편의시설</a></li>
 				<li><a href="etiquette_concert.jsp">관람매너</a></li>
+				<li><a href="respecting_ticket.jsp">우대사항</a></li>
 			</ul>
 		</div>
 

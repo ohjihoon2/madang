@@ -22,7 +22,8 @@ if(r_case.equals("concert")){ //공연신청
 	Rental_VO vo = new Rental_VO();
 	//입력한 내용 vo에 넣기
 	vo.setR_title(multi.getParameter("r_title"));
-	vo.setR_case(multi.getParameter("r_case"));
+	//종류 한글로 변경
+	vo.setR_case("공연");
 	vo.setR_place(multi.getParameter("r_place"));
 	vo.setR_sdate(multi.getParameter("r_sdate"));
 	vo.setR_edate(multi.getParameter("r_edate"));
@@ -54,7 +55,7 @@ if(r_case.equals("concert")){ //공연신청
 	Rental_VO vo = new Rental_VO();
 	//입력한 내용 vo에 넣기
 		vo.setR_title(multi.getParameter("r_title"));
-		vo.setR_case(multi.getParameter("r_case"));
+		vo.setR_case("전시");
 		vo.setR_place(multi.getParameter("r_place"));
 		vo.setR_sdate(multi.getParameter("r_sdate"));
 		vo.setR_edate(multi.getParameter("r_edate"));

@@ -2,7 +2,9 @@ package com.madang.service;
 
 import java.util.ArrayList;
 
+import com.madang.dao.QandA_DAO;
 import com.madang.dao.Rental_DAO;
+import com.madang.vo.QandA_VO;
 import com.madang.vo.Rental_VO;
 
 public class Rental_Service {
@@ -32,6 +34,15 @@ public class Rental_Service {
 		dao.close();
 		return result;
 	}
+	
+	//admin main list
+	public ArrayList<Rental_VO> getListAdminMain(){
+		Rental_DAO dao = new Rental_DAO();
+		ArrayList<Rental_VO> list = dao.getListAdminMain();
+		dao.close();
+		return list;
+	}
+	
 	
 	//rental request (insert)
 	public boolean getResultRentalRequest(Rental_VO vo) {

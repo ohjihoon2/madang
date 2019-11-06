@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
+<%
+	NoticeService notice_service = new NoticeService();
+	ArrayList<NoticeVO> notice_list = notice_service.getListAdminMain();
+	
+	QandA_Service qna_service = new QandA_Service();
+	ArrayList<QandA_VO> qna_list = qna_service.getListAdminMain();
+	
+	Rental_Service rental_service = new Rental_Service();
+	ArrayList<Rental_VO> rental_list = rental_service.getListAdminMain();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -134,11 +145,12 @@ div#admin_main section table td:nth-child(2){
 		</section>
 		<section>
 	 		<h2>공지사항</h2>
-	 		<h5>더보기</h5>
+	 		<a href="http://localhost:9090/contents/admin/board/admin_notice.jsp"><h5>더보기</h5></a>
 	 		<table>
 	 			<tr>
 	 				<th>제목</th>
 	 				<th>작성일</th>
+	 				<th>조회수</th>
 	 			</tr>
 	 			<tr>
 	 				<td>오늘 무료공연에 대한 공지사항</td>
@@ -156,7 +168,7 @@ div#admin_main section table td:nth-child(2){
 	 	</section>
 	 	<section>
 	 		<h2>1:1상담</h2>
-	 		<h5>더보기</h5>
+	 		<a href="http://localhost:9090/contents/admin/member_counsel/admin_QandA.jsp"><h5>더보기</h5></a>
 	 		<table>
 	 			<tr>
 	 				<th>제목</th>
@@ -176,9 +188,9 @@ div#admin_main section table td:nth-child(2){
 	 			</tr>
 	 		</table>
 	 	</section>
-	 		 	<section>
+	 	<section>
 	 		<h2>대관신청</h2>
-	 		<h5>더보기</h5>
+	 		<a href="#"><h5>더보기</h5></a>
 	 		<table>
 	 			<tr>
 	 				<th>제목</th>

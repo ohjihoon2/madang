@@ -2,7 +2,9 @@ package com.madang.service;
 
 import java.util.ArrayList;
 
+import com.madang.dao.NoticeDAO;
 import com.madang.dao.QandA_DAO;
+import com.madang.vo.NoticeVO;
 import com.madang.vo.QandA_VO;
 
 public class QandA_Service {
@@ -40,6 +42,14 @@ public class QandA_Service {
 		result=dao.getResultDelete(qa_code);
 		dao.close();
 		return result;
+	}
+	
+	//admin main list
+	public ArrayList<QandA_VO> getListAdminMain(){
+		QandA_DAO dao = new QandA_DAO();
+		ArrayList<QandA_VO> list = dao.getListAdminMain();
+		dao.close();
+		return list;
 	}
 	
 	

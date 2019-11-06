@@ -34,7 +34,7 @@
       text-align:left;
    }
 	
-	/** 왼쪽 nav **/
+/** 왼쪽 nav **/
 	
 	#left_nav{
 		width:180px;
@@ -51,8 +51,8 @@
 		list-style-type:none;;		
 	}
 	div#left_nav>ul>li{
-		height:50px;
-	}
+      height:50px;
+   }
 	div#left_nav>ul>li:nth-child(1) {
 		font-size:20pt;
 		font-style: bold;
@@ -71,6 +71,7 @@
 	div#left_nav>ul>li>a:active {
 		color: rgb(155,155,155);
 	}
+	
 	
 /**우대사항안내폼 **/
 	div#respecting_ticket div.page_contents section h2{
@@ -126,8 +127,11 @@
 	<!-- <img src="#"/> -->
 	<div id="left_nav">
 		<ul>
-			<li><a href="#">티켓구매</a></li>
-			<li><a href="#">티켓예매</a></li>
+			<li><a href="location.jsp">이용안내</a></li>
+			<li><a href="location.jsp">오시는길</a></li>
+			<li><a href="facility.jsp">시설안내</a></li>
+			<li><a href="utility_concert.jsp">편의시설</a></li>
+			<li><a href="etiquette_concert.jsp">관람매너</a></li>
 			<li><a href="#" style="color:rgb(5,135,94)">우대사항</a></li>
 		</ul>
 	</div><!-- left_nav -->
