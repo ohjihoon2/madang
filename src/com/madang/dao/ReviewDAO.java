@@ -51,7 +51,7 @@ public class ReviewDAO {
 					" order by rv_staravg desc";
 		}
 		getPreparedStatement(sql);
-		System.out.println("sql:"+sql);
+		
 		try {
 			rs = pstmt.executeQuery();
 			

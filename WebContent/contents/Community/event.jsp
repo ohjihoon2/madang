@@ -38,21 +38,26 @@
 
 				  <!-- Indicators -->
 				  <ul class="carousel-indicators">
-<%-- 				  	<%for(int i=0; i<inglist.size();i++){ %> --%>
-				    <li data-target="#demo" data-slide-to="0" class="active"></li>		
-<%-- 				    <%} %>	 --%>	    
-				    <li data-target="#demo" data-slide-to="1"></li>
-				    <li data-target="#demo" data-slide-to="2"></li>
-
+					  	<%
+					  	for(int i=0; i<inglist.size();i++){ 
+					  		if(i==0){
+					  	%>
+					  			<li data-target="#demo" data-slide-to="<%=i %>" class="active"></li>	
+					  	<%	}else{ %>
+					  			<li data-target="#demo" data-slide-to="<%=i %>"></li>	
+					    <%
+					    	}
+					    }
+					    %> 
 				  </ul>
 				  
 				  <!-- The slideshow -->
 				  <div class="carousel-inner">
-<%-- 					<%for(EventVO vo: inglist){ %> --%>
+ 					<%for(EventVO vo: inglist){ %> 
 				    <div class="carousel-item active">
-				      <img src="http://localhost:9090/images/comm_usher_img/<%-- <%=vo.getEv_sthumbnail() %> --%>" alt="Los Angeles" width="700" height="250">
+				      <img src="http://localhost:9090/images/comm_usher_img/<%=vo.getEv_sthumbnail() %>" alt="Los Angeles" width="700" height="250">
 				    </div>
-<%-- 				    <%} %> --%>
+ 				    <%} %> 
 				  
 				  <!-- Left and right controls -->
 				  <a class="carousel-control-prev" href="#demo" data-slide="prev">
