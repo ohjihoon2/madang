@@ -24,4 +24,12 @@ public class Rental_Service {
 		return vo;
 	}
 	
+	/** 취소 신청 */
+	public boolean getResultcancel(String rental_code) {
+		boolean result=false;
+		Rental_DAO dao=new Rental_DAO();
+		result=dao.getResultcancel(rental_code);
+		dao.close();
+		return result;
+	}
 }

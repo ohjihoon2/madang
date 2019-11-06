@@ -30,8 +30,8 @@
 				} else {
 					
 					if(pw_msg=="비밀번호 확인이 완료되었습니다.") {
-						alert("d");
-						//mem_out_form.submit();
+						//alert("d");
+						location.href="rental_cc_process.jsp?rental_code=<%= rental_code %>";
 						
 					} else {
 						alert("비밀번호를 다시 입력해주세요")
@@ -121,7 +121,7 @@
 			<input type="checkbox" id="out"> 안내사항을 모두 확인하였으며, 이에 동의합니다.
 		</div>
 		
-		<form action="rental_cc_process.jsp" method="post" name="rental_cc_form">
+		<!-- <form action="rental_cc_process.jsp" method="post" name="rental_cc_form"> -->
 			<div id="out_pw_cfm">
 				<input type="password" name="out_pw_cfm" id="out_pw_cfm" placeholder="비밀번호를 입력해주세요">
 				<br><br><span id="pw_check_result"></span>
@@ -131,7 +131,7 @@
 				<button type="button" id="out_btn" class="button_a">신청취소</button>
 				<a href="mypage_rental_details.jsp?rental_code=<%= vo.getRental_code() %>"><button type="button" class="button_b">취소</button></a>
 			</div>
-		</form>
+		<!-- </form> -->
 	
 	</div>
 </body>

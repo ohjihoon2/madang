@@ -79,6 +79,17 @@
 					<td>신청서</td>
 					<td><%= vo.getR_file() %> 이건....어떻게해</td>
 				</tr>
+				<tr>
+					<td>현재상태</td>
+					<% if(vo.getR_status().equals("신청완료")) { %>
+						<td><%= vo.getR_status2() %></td>
+					<% } else { %>
+						<td><%= vo.getR_status() %></td>
+					<% } %>
+				</tr>
+				
+				
+				
 			</table>
 		</div>
 		
