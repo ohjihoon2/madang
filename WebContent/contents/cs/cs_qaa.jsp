@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="com.madang.vo.QandA_VO, java.util.ArrayList, com.madang.service.QandA_Service" %>
 <%
+	String id=(String)session.getAttribute("generalID");
 	QandA_Service service=new QandA_Service();
-	String id="test";
 	ArrayList<QandA_VO> list=service.getList(id);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

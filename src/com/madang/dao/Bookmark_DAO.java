@@ -35,7 +35,7 @@ public class Bookmark_DAO {
 	
 	/** 공연 리스트 출력 */
 	public ArrayList<Bookmark_VO> getConcertList(String id) {
-		ArrayList<Bookmark_VO> list=new ArrayList<Bookmark_VO>();
+		ArrayList<Bookmark_VO> c_list=new ArrayList<Bookmark_VO>();
 		
 		String sql="select bmark_code, bookmark.concert_code, c_title, to_char(c_sdate, 'yyyy.mm.dd'), to_char(c_edate, 'yyyy.mm.dd'), c_place, c_sposter from bookmark, concert\r\n" + 
 				"  where bookmark.concert_code = concert.concert_code and id=?";
@@ -54,37 +54,12 @@ public class Bookmark_DAO {
 				cvo.setC_edate(rs.getString(5));
 				cvo.setC_place(rs.getString(6));
 				cvo.setC_sposter(rs.getString(7));
-				list.add(cvo);
+				c_list.add(cvo);
 			}
 			
 		} catch (Exception e) {e.printStackTrace();}
 		
-		return list;
-	}
-	
-	
-	/** 전시 리스트 출력 */
-	public ArrayList<Bookmark_VO> getExhibitionList(String id) {
-		ArrayList<Bookmark_VO> list=new ArrayList<Bookmark_VO>();
-		
-		String sql="select bmark_code, bookmark.exhib_code, e_title, to_char(e_sdate, 'yyyy.mm.dd'), to_char(e_edate, 'yyyy.mm.dd'), e_place, e_sposter from bookmark, exhibition\r\n" + 
-				"   where bookmark.exhib_code = exhibition.exhibition_code and id=?";
-		getPreparedStatement(sql);
-		
-		try {
-			pstmt.setString(1, id);
-			rs=pstmt.executeQuery();
-			
-			while(rs.next()) {
-				Bookmark_VO evo=new Bookmark_VO();
-				
-				
-				list.add(evo);
-			}
-			
-		} catch (Exception e) {e.printStackTrace();}
-		
-		return list;
+		return c_list;
 	}
 	
 	
@@ -134,6 +109,36 @@ public class Bookmark_DAO {
 	}
 	
 	
+	/** 전시 리스트 출력 */
+	public ArrayList<Bookmark_VO> getExhibitionList(String id) {
+		ArrayList<Bookmark_VO> list=new ArrayList<Bookmark_VO>();
+		
+		String sql="select bmark_code, bookmark.exhib_code, e_title, to_char(e_sdate, 'yyyy.mm.dd'), to_char(e_edate, 'yyyy.mm.dd'), e_place, e_sposter from bookmark, exhibition\r\n" + 
+				"   where bookmark.exhib_code = exhibition.exhibition_code and id=?";
+		getPreparedStatement(sql);
+		
+		try {
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Bookmark_VO evo=new Bookmark_VO();
+				evo.setBmark_code(rs.getString(1));
+				evo.setExhib_code(rs.getString(2));
+				evo.setE_title(rs.getString(3));
+				evo.setE_sdate(rs.getString(4));
+				evo.setE_edate(rs.getString(5));
+				evo.setE_place(rs.getString(6));
+				evo.setE_sposter(rs.getString(7));
+				list.add(evo);
+			}
+			
+		} catch (Exception e) {e.printStackTrace();}
+		
+		return list;
+	}
+	
+	
 	/** 전시 북마크 여부 */
 	public boolean getCheckExhibBmark(String exhib_code, String id) {
 		boolean result=false;
@@ -179,6 +184,9 @@ public class Bookmark_DAO {
 			
 		} catch (Exception e) {e.printStackTrace();}
 		
+		System.out.println("dao 등록 "+concert_code);
+		System.out.println("dao 등록 "+result);
+		
 		return result;
 	}
 	
@@ -198,8 +206,8 @@ public class Bookmark_DAO {
 			
 		} catch (Exception e) {e.printStackTrace();}
 		
-		System.out.println("dao "+bmark_code);
-		System.out.println("dao "+result);
+		System.out.println("dao 삭제 "+bmark_code);
+		System.out.println("dao 삭제 "+result);
 		
 		return result;
 	}

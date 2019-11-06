@@ -8,20 +8,27 @@
 	
 	ConcertService service = new ConcertService();
 	ConcertVO cvo = service.getConcertDetail(code);
-	
-	
 	String place =cvo.getC_place().trim();
-	System.out.println("장소 = "+place);
-	
 	String time = cvo.getC_stime();
 	String[] timelist = time.split(";");
 	
-	System.out.println(cvo.getSnday());
-	System.out.println(cvo.getEnday());
 	
+	
+	//티켓팅 날짜
+		
+	//티케팅 좌석
+/* 	String seat = tvo.getTc_cseat();
+	System.out.println("좌석 : "+seat);
+	
+	String[] seatlist = seat.split("석 /"); 
+	
+	for(int i =0; i<seatlist.length;i++){
+		System.out.println("좌석리스트 : "+seatlist[i]);
+	}
+	*/	
+	//로그인 계정 값 받아오기
 	General_mem_VO mvo = new General_mem_VO(); 
 	mvo = service.getResultMemInfo(id);
-	
 	
 %>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -239,7 +246,7 @@
 		font-size:5pt;
 	}
 	.seat_all_b{
-		border:1px solid blue;
+		padding-left:35px;
 		display:inline-block;
 	}
 	.seat_all_b > .seat_section{
@@ -535,7 +542,7 @@
 		        ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 부분 텍스트
 		        /* ,minDate: new Date(sd) //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
 		        ,maxDate:new Date(ed) //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후) */
-		        ,minDate: new Date('<%=cvo.getSnday()%>') //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
+		        ,minDate: new Date() //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
 		        ,maxDate:new Date('<%=cvo.getEnday()%>') //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
 		  		,onSelect: function(dateText, inst) { //클릭시에 date value 값 !!!!!!!!!!!!
 		            var date = $(this).val();
@@ -551,7 +558,7 @@
 		  	       	var year = seldate.getFullYear();
 		            var canceldate = year+'년 '+month+'월 '+day+'일 ';
 		            
-		  			var dateText = $("table.myticket_t > tbody > tr:nth-child(1) > td");
+		            var dateText = $("table.myticket_t > tbody > tr:nth-child(1) > td");
 		  			var cancelText = $("table.myticket_t > tbody > tr:nth-child(5) > td");
 		  			
 		  			dateText.empty();
@@ -728,11 +735,21 @@
 		//버튼 클릭시 페이지 이동
 		$("button").click(function(){
 			var val = $(this).attr("id");
-			
   		    if(status == 1){
   		    	//유효성 검사
   		    	//if(일시에 날짜/시간이 두개다 적힌다면 다음페이지로 이동)
   		    	if($("table.myticket_t > tbody > tr:nth-child(1) > td >span").length == 2){
+  		    		//CONCERT_CODE=? AND TC_CDATE
+  		    		var dateText = $("table.myticket_t > tbody > tr:nth-child(1) > td");
+  		    		var datetime = dateText.text();
+  		    		$.ajax({
+  		    			url :"ticket_concert_process.jsp?concert_code=<%=code%>&datetime="+datetime,
+ 		    			success : function(data){
+ 		    				var jsonObj = JSON.parse(data)
+ 		    				//function을 사용하여서 ajax 밖에서 사용하기 
+  		    				seat_check(jsonObj);
+  		    			}
+  		    		});
 	   		  		status = 2;
   		    	} else{
   		    		alert("날짜와 시간을 선택해 주세요.");
@@ -835,7 +852,7 @@
 							tc_pays = 'wait';
 						}
 						$.ajax({
-							url :"ticket_process.jsp?code=<%=code%>&tc_cdate="+tc_cdate+"&tc_cseat="+tc_cseat+"&tc_canceld="+tc_canceld+"&tc_cancelc="+tc_cancelc+"&tc_price="+tc_price+"&tc_recive="+tc_recive+"&tc_name=<%=mvo.getName() %>&tc_birth=<%=mvo.getBirth() %>&tc_phone1="+tc_phone1+"&tc_phone2="+tc_phone2+"&tc_phone3="+tc_phone3+"&tc_email="+tc_email+"&tc_paym="+tc_paym+"&tc_payw="+tc_payw+"&tc_pays="+tc_pays,
+							url :"ticket_process.jsp?code=<%=code%>&tc_cdate="+tc_cdate+"&tc_cplace=<%=place%>+&tc_cseat="+tc_cseat+"&tc_canceld="+tc_canceld+"&tc_cancelc="+tc_cancelc+"&tc_price="+tc_price+"&tc_recive="+tc_recive+"&tc_id=<%=mvo.getId() %>&tc_name=<%=mvo.getName() %>&tc_birth=<%=mvo.getBirth() %>&tc_phone1="+tc_phone1+"&tc_phone2="+tc_phone2+"&tc_phone3="+tc_phone3+"&tc_email="+tc_email+"&tc_paym="+tc_paym+"&tc_payw="+tc_payw+"&tc_pays="+tc_pays,
 									
 							success : function(data){
 								data2 = $.trim(data) 
@@ -939,6 +956,14 @@
 			}
     	});  
   		
+		function seat_check(seat){
+			for(i=0;i<seat.length;i++){
+				$("#"+seat[i]).css("border-radius", "5px");
+				$("#"+seat[i]).css("border", "1px solid red");
+				$("#"+seat[i]).css("pointer-events", "none");
+				$("#"+seat[i]).css("border-bottom", "10px solid red");
+			}
+		}
 	});//document.ready() end
 	
 
@@ -1047,46 +1072,47 @@
 				</div>
 			</div>
 			<%}else if(place.equals("베토벤홀")){ %>
-			<!-- <div class="concert_seats">
-				<img src="http://localhost:9090/images/concert_main/stage.png">
-			</div> -->
+			<div class="concert_seats">
+				<img src="http://localhost:9090/images/concert_main/concert_front2.png">
+			</div>
 			<div class="seat_all_b">	
-			<div class="seat_section">
-				<span>A</span>
-				<%
-					int num =1;
-					int z =0;
-					while(z<14) {
-						for(int i=1; i<9;i++) { %>
-				<a href=#>
-					<span class="bseat_num" id="h<%=num%>"><%=num %></span>
-					<input type="hidden" id="A<%=num%>" class="seat_num_flag" value="0">
-				</a>
-				<%num++;
+				<div class="seat_section">
+					<span>A</span>
+					<%
+						int num =1;
+						int z =0;
+						while(z<14) {
+							for(int i=1; i<9;i++) { %>
+					<a href=#>
+						<span class="bseat_num" id="A<%=num%>"><%=num %></span>
+						<input type="hidden" id="A<%=num%>" class="seat_num_flag" value="0">
+					</a>
+					<%num++;
+							} %>
+							<br>
+				<%	z++;
 						} %>
-						<br>
-			<%	z++;
-					} %>
-			</div>
-			<div class="seat_section">
-				<span>B</span>
-				<%
-					num =1;
-					z =0;
-					while(z<14) {
-						for(int i=1; i<9;i++) { %>
-				<a href=#>
-					<span class="bseat_num" id="h<%=num%>"><%=num %></span>
-					<input type="hidden" id="B<%=num%>" class="seat_num_flag" value="0">
-				</a>
-				<%num++;
+				</div>
+				<div class="seat_section">
+					<span>B</span>
+					<%
+						num =1;
+						z =0;
+						while(z<14) {
+							for(int i=1; i<9;i++) { %>
+					<a href=#>
+						<span class="bseat_num" id="B<%=num%>"><%=num %></span>
+						<input type="hidden" id="B<%=num%>" class="seat_num_flag" value="0">
+					</a>
+					<%num++;
+							} %>
+							<br>
+				<%	z++;
 						} %>
-						<br>
-			<%	z++;
-					} %>
+				</div>
 			</div>
-		</div>
 		<%} %>
+		</div>
 		<!-- #################################################### -->
 		<div class="ticketing_left" id="step3">
 			<div class="price">
@@ -1318,7 +1344,6 @@
 						<th scope="row">취소기한</th>
 						<td></td>
 					</tr>
-					
 					<tr>
 						<th scope="row">취소수수료</th>
 						<td></td>
@@ -1333,7 +1358,6 @@
 				<button type="button" class="btn_next2" id="btn_next2">다음단계</button>
 				<button type="button" class="btn_payment" id="btn_payment">결제하기</button>
 			</div>
-			
 		</div>
 	</div>
 </body>

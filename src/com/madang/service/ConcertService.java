@@ -33,12 +33,19 @@ public class ConcertService {
 	}
 	
 	/**
-	 * Ticket_Concert 異붽��븯湲�
+	 * Ticket_Concert insert
 	 */
 	public boolean  getResultInsertTC(ConcertTicketVO vo) {
 		boolean result = false;
 		ConcertDAO dao = new ConcertDAO();
 		result = dao.getResultInsertTC(vo);
+		return result;
+	}
+	
+	public String getResultSeats(String code, String datetime) {
+		String result = "";
+		ConcertDAO dao = new ConcertDAO();
+		result = dao.getResultSeats(code, datetime);
 		return result;
 	}
 }

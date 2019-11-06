@@ -3,7 +3,7 @@
 <%@ page import="com.madang.vo.QandA_VO, com.madang.service.QandA_Service" %>
 <%@ page import="com.oreilly.servlet.*, com.oreilly.servlet.multipart.*, java.io.*" %>
 <%
-	String id="test";
+	String id=(String)session.getAttribute("generalID");
 	
 	String save_path=request.getServletContext().getRealPath("/upload");
 	int max_size=1024*1024*10;

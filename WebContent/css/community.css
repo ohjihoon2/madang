@@ -312,11 +312,11 @@ ul#event_ul {
 	padding: 10px;
 }
 
-li {
+/* li {
 	list-style-type: none;
 	padding: 10px;
 }
-
+ */
 li>span#li_id {
 	font-weight: bold;
 	font-size: 13pt;
@@ -817,10 +817,10 @@ td.star_rating a.on {color:tomato;}
 		padding:10px;		
 	}
 	
-	li{
+/* 	li{
 		list-style-type:none;
 		padding:10px;
-	}
+	} */
 	
 	li>span#li_id{
 		font-weight:bold;

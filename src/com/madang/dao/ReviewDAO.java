@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import com.madang.vo.ConcertVO;
+import com.madang.vo.ReviewReplyVO;
 import com.madang.vo.ReviewVO;
 
 public class ReviewDAO {
@@ -35,15 +36,25 @@ public class ReviewDAO {
 	
 	
 	/** 리뷰 리스트 출력 **/
-	public ArrayList<ReviewVO> getResultListByDate(){
+	public ArrayList<ReviewVO> getResultListByDate(String listOrder){
 		ArrayList<ReviewVO> list = new ArrayList<ReviewVO>();
-		String sql = "select to_char(rv_date,'yyyy.mm.dd.'), r.id, rv_staravg, rv_title, rv_content, rv_hits, c_poster, rv_code\r\n" + 
-					" from review r, concert c \r\n" + 
-					" where r.concert_code = c.concert_code\r\n" + 
+		String sql = "";
+		if(listOrder.equals("byDate")) {
+			sql = "select to_char(rv_date,'yyyy.mm.dd.'), r.id, rv_staravg, rv_title, rv_content, rv_hits, c_poster, rv_code" + 
+					" from review r, concert c" + 
+					" where r.concert_code = c.concert_code" + 
 					" order by rv_date desc";
+		}else if(listOrder.equals("byStar")){
+			sql = "select to_char(rv_date,'yyyy.mm.dd.'), r.id, rv_staravg, rv_title, rv_content, rv_hits, c_poster, rv_code" + 
+					" from review r, concert c" + 
+					" where r.concert_code = c.concert_code" + 
+					" order by rv_staravg desc";
+		}
 		getPreparedStatement(sql);
+		
 		try {
 			rs = pstmt.executeQuery();
+			
 			while(rs.next()) {
 				ReviewVO vo = new ReviewVO();
 				vo.setRv_date(rs.getString(1));				
@@ -66,14 +77,14 @@ public class ReviewDAO {
 	}
 	
 	/** 리뷰 리스트 출력 **/
-	public ArrayList<ReviewVO> getResultListByStar(){
+	public ArrayList<ReviewVO> getResultListByDate(){
 		ArrayList<ReviewVO> list = new ArrayList<ReviewVO>();
-		String sql = "select to_char(rv_date,'yyyy.mm.dd.'), r.id, rv_staravg, rv_title, rv_content, rv_hits, c_poster, rv_code\r\n" + 
-				" from review r, concert c \r\n" + 
-				" where r.concert_code = c.concert_code\r\n" + 
-				" order by rv_staravg desc";
+		String sql = "select to_char(rv_date,'yyyy.mm.dd.'), r.id, rv_staravg, rv_title, rv_content, rv_hits, c_poster, rv_code" + 
+					" from review r, concert c" + 
+					" where r.concert_code = c.concert_code" + 
+					" order by rv_date desc";
 		getPreparedStatement(sql);
-		
+		System.out.println("sql:"+sql);
 		try {
 			rs = pstmt.executeQuery();
 			
@@ -87,7 +98,7 @@ public class ReviewDAO {
 				vo.setRv_hits(rs.getInt(6));
 				vo.setC_poster(rs.getString(7));
 				vo.setRv_code(rs.getString(8));
-				
+			
 				list.add(vo);
 			}
 			
@@ -135,14 +146,52 @@ public class ReviewDAO {
 			int val = pstmt.executeUpdate();
 			if(val !=0 ) result = true;
 			
-
+	
 		}catch(Exception e) {e.printStackTrace();}
 		
 		return result;
 	}
+	 
+	/** 리뷰내용 불러오기 **/
+	public ReviewVO getResultContent(String rv_code) {
+		
+		ReviewVO vo = new ReviewVO();
+		String sql = "select rv_title, rv_content, c_title, r1.rv_code, r1.id, to_char(rv_rp_date,'yyyy.mm.dd.'), rv_rp_id\r\n" + 
+					" from (select rv_title, rv_content, c_title, rv_code, r.id\r\n" + 
+						" from review r, concert c\r\n" + 
+						" where r.concert_code = c.concert_code) r1, review_reply r2 \r\n" + 
+					" where r1.rv_code = r2.rv_code(+)\r\n" + 
+					" and r1.rv_code=?";
+		getPreparedStatement(sql);
+		
+		try {
+			pstmt.setString(1, rv_code);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				vo.setRv_title(rs.getString(1));
+				vo.setRv_content(rs.getString(2));
+				vo.setC_title(rs.getString(3));
+				vo.setRv_code(rs.getString(4));
+				vo.setId(rs.getString(5));				
+				vo.setRv_rp_date(rs.getString(6));				
+				vo.setRv_rp_id(rs.getString(7));				
+System.out.println("1."+vo.getRv_title());
+System.out.println("1."+vo.getRv_content());
+System.out.println("1."+vo.getC_title());
+System.out.println("1."+vo.getRv_code());
+System.out.println("1."+vo.getId());
+System.out.println("1."+vo.getRv_rp_date());
+System.out.println("2."+vo.getRv_rp_id());
+			}		
+			
+		}catch(Exception e) {e.printStackTrace();}
+		
+		return vo;
+	}
 	
 	
-	/** 후기내용 불러오기 **/
+/*	*//** 리뷰내용 불러오기 **//*
 	public ReviewVO getResultContent(String rv_code) {
 		ReviewVO vo = new ReviewVO();
 		String sql = "select rv_title, rv_content, c_title, r.id" + 
@@ -167,7 +216,7 @@ public class ReviewDAO {
 		}
 		
 		return vo;
-	}
+	}*/
 	
 	/** 조회수 업데이트 **/
 	public void getResultUpdateHits(String rv_code) {
@@ -197,10 +246,72 @@ public class ReviewDAO {
 			int val = pstmt.executeUpdate();
 			if(val != 0) result = true;
 			
-System.out.println("re:"+result);
 		}catch(Exception e) { e.printStackTrace();}
 		
 		return result;
+	}
+	
+	/** 리뷰 댓글 리스트 **/
+	public ArrayList<ReviewReplyVO> getReplyList(String rv_code){
+		ArrayList<ReviewReplyVO> list = new ArrayList<ReviewReplyVO>();
+		String sql = "select * from review_reply where rv_code=?";
+		getPreparedStatement(sql);
+		
+		try {
+			pstmt.setString(1, rv_code);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ReviewReplyVO vo = new ReviewReplyVO();
+				vo.setRv_rp_code(rs.getString(1));				
+				vo.setRv_rp_content(rs.getString(2));
+				vo.setRv_code(rs.getString(3));
+				vo.setRv_rp_id(rs.getString(4));
+				vo.setRv_rp_date(rs.getString(5));
+				
+				list.add(vo);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	/** 리뷰 댓글 글쓰기 **/
+	public boolean getResultReplyWrite(ReviewReplyVO vo) {
+		
+		boolean result = false;
+		String sql = "insert into review_reply values('rv'|| lpad(sequ_review.nextval, 4,'0'),?,?,?,sysdate)";
+		getPreparedStatement(sql);
+		try {
+			pstmt.setString(1, vo.getRv_rp_content());
+			pstmt.setString(2, vo.getRv_code());
+			pstmt.setString(3, vo.getRv_rp_id());
+			
+			int val = pstmt.executeUpdate();
+			if(val !=0 ) result = true;
+			
+	
+		}catch(Exception e) {e.printStackTrace();}
+		
+		return result;
+	}
+	
+	
+	/** 종료 **/
+	public void close() {
+		
+		try {				
+			if(rs != null) rs.close();
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 	
 }

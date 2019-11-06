@@ -2,11 +2,15 @@
 	pageEncoding="UTF-8"%>
 <%@page import="com.madang.vo.*, com.madang.service.*, java.util.*" %>	
 <%
-	
+	String listOrder = request.getParameter("listOrder");
 	ReviewService service = new ReviewService();
-	ArrayList<ReviewVO> list = service.getResultListByDate();	
+	
+	ArrayList<ReviewVO> list = service.getResultListByDate();
+	if(listOrder != null) {
+		list = service.getResultListByDate(listOrder);
+	}
 %>	
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,12 +19,9 @@
 <script src="http://localhost:9090/MyJSP/jquery/jquery-3.4.1.min.js"></script>
 <script>
 $(document).ready(function(){
-	$( "th.star_rating a" ).click(function() {
-	    $(this).parent().children("a").removeClass("on");
-	    $(this).addClass("on").prevAll("a").addClass("on");
-	    return false;
-	});
+	$(this).addClass("on").prevAll("a").addClass("on");
 });
+
 </script>
 
 </head>
@@ -42,14 +43,15 @@ $(document).ready(function(){
 		<div id="content">
 			
 			<div id="sub_rtitle">
-				<a href="http://localhost:9090/contents/Community/review_byDate.jsp">
-					<button type="button" id="btnDByDate">최신날짜순</button></a>
-				<a href="http://localhost:9090/contents/Community/review_byStar.jsp">
+				<a href="http://localhost:9090/contents/Community/review_byDate.jsp?listOrder=byDate">
+					<button type="button" id="btnDByDate">최신날짜순</button>
+				<a href="http://localhost:9090/contents/Community/review_byDate.jsp?listOrder=byStar">
 					<button type="button" id="btnDByStar">평점높은순</button></a>				
 				<a href="http://localhost:9090/contents/Community/review_write.jsp">
 					<button type="button" id="btnWriteReview">후기 작성</button></a>
 			</div>
 			<div class="table_div">
+			
 			
 			<%for(ReviewVO vo: list){ %>
 				<a href="http://localhost:9090/contents/Community/review_contents.jsp?rv_code=<%=vo.getRv_code() %>">
@@ -73,6 +75,7 @@ $(document).ready(function(){
 						</th>						
 					</tr>			
 				</table>
+				<input type="hidden" name="id" value="<%=vo.getId() %>">
 				</a>
 			<%}%>
 			</div>

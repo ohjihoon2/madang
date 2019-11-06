@@ -226,9 +226,9 @@ input#id, input#name, input#birth, input#company, input#cname, input#licsnum { /
 } */
 
 
-div.out_box { /* 회원탈퇴 유의사항, 예매취소 유의사항 */
+div.out_box { /* 회원탈퇴 유의사항, 예매취소 유의사항, 대관취소 유의사항 */
 	border:1px solid #9b9b9b;
-	width:700px; height:200px;
+	width:700px; height:150px;
 	/* width:810px; height:200px; */
 	padding:20px;
 	margin-top:50px;

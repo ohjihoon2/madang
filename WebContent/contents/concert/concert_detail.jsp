@@ -24,10 +24,8 @@
 		val="off";
 	}
 	
-	
 	String bmark_code="";
 	bmark_code=b_service.getConcertBmarkCode(vo.getConcert_code(), id);
-	
 	
 %>
 document.write(<%= bmark_code %>);
@@ -39,6 +37,56 @@ document.write(<%= code %>);
 <title>Insert title here</title>
 <link rel="stylesheet" href="http://localhost:9090/css/mypage.css"/> <!-- 찜하기 버튼 -->
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<!-- <script src="http://localhost:9090/js/mypage.js"></script> --> <!-- 찜하기 jquery -->
+<script>
+$(document).ready(function(){
+	
+	$("img.bmark_heart").click(function(){
+		
+		var c_bmark_code=$(this).attr("id");
+		//alert("code:"+c_bmark_code);
+		
+		var bmark_val=$(this).attr("value");
+		//alert("value:"+bmark_val);
+		
+		if(bmark_val=="on") {
+			//삭제
+			$.ajax({
+				url:"../mypage/bookmark_delete_process.jsp?flag=detail&content_code=<%= code %>&bmark_code="+c_bmark_code,
+				success:function(result) {
+					//alert(result); 1이면 성공
+					if(result!=0) {
+						//$("img.bmark_heart").attr("src", "http://localhost:9090/images/bookmark/off.png");
+						alert("찜 목록에서 삭제되었습니다.");
+					} else {
+						alert("실패");
+					}
+				}
+				
+			});
+			
+		} else if (bmark_val=="off") {
+			//등록
+			$.ajax({
+				url:"../mypage/bookmark_add_process.jsp?concert_code=<%= vo.getConcert_code() %>",
+				success:function(result) {
+					//alert(result); 1이면 성공
+					if(result!=0) {
+						//$("img.bmark_heart").attr("src", "http://localhost:9090/images/bookmark/on.png");
+						alert("찜 목록에 등록되었습니다.");
+					} else {
+						alert("실패");
+					}
+				}
+			});
+			
+		}
+		
+		location.reload();
+	});
+	
+});
+</script>
 <style>
 	*{
 		font-family:"나눔스퀘어라운드";
@@ -187,89 +235,6 @@ document.write(<%= code %>);
 	}
 	
 </style>
-
-<script>
-$(document).ready(function(){
-	
-	$("img.bmark_heart").click(function(){
-		//alert("click");
-		
-		
-		var c_bmark_code=$(this).attr("id");
-			
-		alert("code:"+c_bmark_code);
-		
-		
-		var bmark_val=$(this).attr("value");
-		
-		alert("value:"+bmark_val);
-		
-		/* 
-		if(bmark_val=="on") {
-			$(this).attr("src", "http://localhost:9090/images/bookmark/off.png");
-			$(this).attr("value", "off");
-			
-		} else if(bmark_val=="off") {
-			$(this).attr("src", "http://localhost:9090/images/bookmark/on.png");
-			$(this).attr("value", "on");
-			
-		}
-		 */
-		
-		
-		if(bmark_val=="on") {
-			//삭제
-			//alert(c_bmark_code);
-			<%-- location.href="http://localhost:9090/contents/mypage/bookmark_delete_process.jsp?flag=detail&concert_code=<%= code %>&bmark_code="+c_bmark_code; --%>
-			
-			$.ajax({
-				url:"../mypage/bookmark_delete_process.jsp?flag=detail&content_code=<%= code %>&bmark_code="+c_bmark_code,
-				success:function(result) {
-					//alert(result); 1이면 성공
-					
-					System.out.println("detail "+bmark_code);
-					System.out.println("detail "+result);
-					
-					if(result==0) {
-						alert("실패")
-					} else {
-						$("img.bmark_heart").attr("src", "http://localhost:9090/images/bookmark/off.png");
-						
-						alert("찜 목록에서 삭제되었습니다.");
-					}
-				}
-				
-			});
-			
-			$(this).attr("value", "off");
-			
-			
-		} else if (bmark_val=="off") {
-			//등록
-			<%-- location.href="http://localhost:9090/contents/mypage/bookmark_add_process.jsp?concert_code=<%= vo.getConcert_code() %>"; --%>
-			
-			$.ajax({
-				url:"../mypage/bookmark_add_process.jsp?concert_code=<%= vo.getConcert_code() %>",
-				success:function(result) {
-					//alert(result); 1이면 성공
-					if(result==0) {
-						alert("실패")
-					} else {
-						$("img.bmark_heart").attr("src", "http://localhost:9090/images/bookmark/on.png");
-						
-						alert("찜 목록에 등록되었습니다.");
-					}
-				}
-			});
-			
-			$(this).attr("value", "on");
-			
-			
-		}
-		
-	});
-});
-</script>
 
 </head>
 <body>
