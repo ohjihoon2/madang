@@ -1,10 +1,10 @@
-<%@page import="com.madang.vo.ConcertTicketVO"%>
+<%@page import="com.madang.vo.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import = "com.madang.service.*"%>
     
 <%
 
-
+	
 	String code = request.getParameter("code");
 	String tc_cdate = request.getParameter("tc_cdate");
 	String tc_cplace= request.getParameter("tc_cplace");
@@ -40,6 +40,7 @@
 	System.out.println(tc_phone2);
 	System.out.println(tc_phone3);
 	System.out.println(tc_email);
+	
 	System.out.println(tc_paym);
 	System.out.println(tc_payw);
 	System.out.println(tc_pays);
@@ -62,17 +63,24 @@
 	vo.setTc_phone2(tc_phone2);
 	vo.setTc_phone3(tc_phone3);
 	vo.setTc_email(tc_email);
-	vo.setTc_paym(tc_paym);
-	vo.setTc_payw(tc_payw);
-	vo.setTc_pays(tc_pays);
+	
+	System.out.println("컨첸츠 코드 = " +vo.getConcert_code());
+	PurchaseVO cvo = new PurchaseVO();
+	
+	cvo.setMem_id(tc_id);
+	cvo.setCe_code(code);
+	cvo.setTce_cdate(tc_cdate);
+	cvo.setTce_paym(tc_paym);
+	cvo.setTce_payw(tc_payw);
+	cvo.setTce_pays(tc_pays);
 	
 	
-	
- 	 boolean result = service.getResultInsertTC(vo);	
-	 if(result){
-		 out.write("true");
-	 }else{
-		 out.write("false");
-	 }
+	Boolean resultP = service.getResultInsertPurchase(cvo);
+ 	boolean resultT = service.getResultInsertTC(vo);	
+	if(resultT){
+		out.write("true");
+	}else{
+		out.write("false");
+	}
  	
 %>

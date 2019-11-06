@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import com.madang.vo.ConcertTicketVO;
 import com.madang.vo.ConcertVO;
 import com.madang.vo.General_mem_VO;
+import com.madang.vo.PurchaseVO;
 
 public class ConcertDAO {
 
@@ -179,7 +180,13 @@ public class ConcertDAO {
 	 */
 	public boolean getResultInsertTC(ConcertTicketVO vo) {
 		boolean result = false;
-		String sql = "insert into ticket_concert values( 'tc_'||LPAD(to_char(SQU_TICKET_CONCERT_CODE.NEXTVAL),3,'0' ),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,'p_'||LPAD(to_char(SQU_PURCHASE_CODE.NEXTVAL),3,'0' ),?,?,?)";
+		String sql = "insert all"
+				+ "			into ticket_concert values( 'tc_'||LPAD(to_char(SQU_TICKET_CONCERT_CODE.NEXTVAL),3,'0' ),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,p_code)"
+				+ "			select rownum rno, p_code"
+				+ "			from (SELECT * FROM PURCHASE"
+				+"			WHERE TCE_CODE=? "  
+				+"			ORDER BY P_CODE DESC)" 
+				+"			where rownum=1";
 		
 		getPreparedStatement(sql);
 		
@@ -199,9 +206,7 @@ public class ConcertDAO {
 			pstmt.setString(13, vo.getTc_phone2());
 			pstmt.setString(14, vo.getTc_phone3());
 			pstmt.setString(15, vo.getTc_email());
-			pstmt.setString(16, vo.getTc_paym());
-			pstmt.setString(17, vo.getTc_payw());
-			pstmt.setString(18, vo.getTc_pays());
+			pstmt.setString(16, vo.getConcert_code());
 			
 			int val = pstmt.executeUpdate();
 			
@@ -216,6 +221,36 @@ public class ConcertDAO {
 		return result;
 	}
 	
+	/**
+	 * Purchase insert
+	 * @param cvo
+	 * @return
+	 */
+	public Boolean getResultInsertPurchase(PurchaseVO cvo) {
+		Boolean result = false;
+		String sql = "insert into purchase values('p_'||LPAD(to_char(SQU_PURCHASE_CODE.NEXTVAL),3,'0'),?,?,?,?,?,?,SYSDATE)";
+		
+		getPreparedStatement(sql);
+		
+		try {
+			pstmt.setString(1, cvo.getMem_id());
+			pstmt.setString(2, cvo.getCe_code());
+			pstmt.setString(3, cvo.getTce_cdate());
+			pstmt.setString(4, cvo.getTce_paym());
+			pstmt.setString(5, cvo.getTce_payw());
+			pstmt.setString(6, cvo.getTce_pays());
+			
+			int val = pstmt.executeUpdate();
+			if(val !=0) {
+				result = true;
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 	
 	
 	//6

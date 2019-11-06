@@ -4,6 +4,7 @@ import com.madang.dao.ConcertDAO;
 import com.madang.vo.ConcertTicketVO;
 import com.madang.vo.ConcertVO;
 import com.madang.vo.General_mem_VO;
+import com.madang.vo.PurchaseVO;
 
 public class ConcertService {
 
@@ -46,6 +47,18 @@ public class ConcertService {
 		String result = "";
 		ConcertDAO dao = new ConcertDAO();
 		result = dao.getResultSeats(code, datetime);
+		return result;
+	}
+	
+	/**
+	 * insert Purchase
+	 * @return
+	 */
+	public Boolean  getResultInsertPurchase(PurchaseVO cvo) {
+		Boolean result = false;
+		ConcertDAO dao = new ConcertDAO();
+		result = dao.getResultInsertPurchase(cvo);
+		
 		return result;
 	}
 }
