@@ -139,7 +139,7 @@ document.write(대관 <%= group_id %>);
 			<input type="checkbox" id="out1"> 탈퇴 후 개인의 데이터를 복구할 수 없으며, 남아있는 게시물을 삭제할 수 없습니다.
 		</div> -->
 		
-		<div  class="out_cfm">
+		<div class="out_cfm">
 			<input type="checkbox" id="out"> 안내사항을 모두 확인하였으며, 이에 동의합니다.
 		</div>
 		
