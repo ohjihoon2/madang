@@ -26,6 +26,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>
 <style>
 	
 	*{
@@ -188,7 +190,6 @@
 </head>
 <body>
 	<jsp:include page="../../header.jsp"/>
-	<img src="http://localhost:9090/images/concert_main/concert_main.png">
 	<div id="left_nav">
 		<ul>
 			<li><a href="exhibition.jsp">전시</a></li>
@@ -197,7 +198,7 @@
 		</ul>
 	</div>
 	<div id="main_title">&nbsp&nbsp전시</div><br>
-	<div id="date_info">2019.10.02 (수) </div>
+	<div id="date_info"><%=today%>오늘의 전시입니다.</div>
 	<br>
 	<div class="exhibition_area">
 		<div class="exhibition_info_today">

@@ -25,6 +25,7 @@
 <head>
 <meta charset="UTF-8">
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>
 <title>Insert title here</title>
 <script>
 	
@@ -186,7 +187,6 @@
 </head>
 <body>
 	<jsp:include page="../../header.jsp"/>
-	<img src="http://localhost:9090/images/concert_main/concert_main.png">
 	<div id="left_nav">
 		<ul>
 			<li><a href="concert.jsp">공연</a></li>

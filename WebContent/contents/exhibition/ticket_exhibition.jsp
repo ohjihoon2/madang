@@ -404,133 +404,12 @@
 		$(".btn_next2").hide();
 		$(".btn_payment").hide();
 
-		
-		/* $(".step").click(function(){
-			var step = $(this).attr("id");
-			
-			 if(step =='step1'){
-				 status=1;
-			}else if(step == 'step2'){
-				//step2 tab 클릭시 step3의 티켓 개수 초기화
-				$(".SeatCount").empty();
-				 status=2;
-			}else if(step == 'step3'){
-				 status=3;
-			}else if(step == 'step4'){
-				 status=4;
-			}else if(step == 'step5'){
-				 status=5;
-			} 
-		
-
-			if(status ==1){
-				$("div#step1").css("display","block");
-				$("div#step2").css("display","none");
-				$("div#step3").css("display","none");
-				$("div#step4").css("display","none");
-				$("div#step5").css("display","none");
-			}else if( status ==2){
-				$("div#step1").css("display","none");
-				$("div#step2").css("display","block");
-				$("div#step3").css("display","none");
-				$("div#step4").css("display","none");
-				$("div#step5").css("display","none");
-				
-			}else if(status ==3){
-				$("div#step1").css("display","none");
-				$("div#step2").css("display","none");
-				$("div#step3").css("display","block");
-				$("div#step4").css("display","none");
-				$("div#step5").css("display","none");
-			}else if(status ==4){
-				$("div#step1").css("display","none");
-				$("div#step2").css("display","none");
-				$("div#step3").css("display","none");
-				$("div#step4").css("display","block");
-				$("div#step5").css("display","none");
-			}else if(status ==5){
-				$("div#step1").css("display","none");
-				$("div#step2").css("display","none");
-				$("div#step3").css("display","none");
-				$("div#step4").css("display","none");
-				$("div#step5").css("display","block");
-			}
-				
-	}); */
-	
-		
-
-		
-		/**
-		*클릭시 이미지 변경 
-		*/
-	   /*  $(".step").click(function () {
-	    	var func = $(this).attr('id'); 
-	    	
-	    	if(func == "step1"){
-    			$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_on.gif");	
-    			$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
-    			$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
-    			$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
-    			$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_off.gif");
-    			$(".btn_next1").show();
-    			$(".btn_back").hide();
-    			$(".btn_next2").hide();
-    			$(".btn_payment").hide();
-    			
-    			
-	    	}else if(func =="step2"){
-	    		$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_off.gif");	
-    			$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_on.gif");	
-    			$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
-    			$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
-    			$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_off.gif");	
-    			$(".btn_next1").hide();
-    			$(".btn_back").show();
-    			$(".btn_next2").show();
-    			$(".btn_payment").hide();
-    			
-	    	}else if(func =="step3"){
-	    		$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_off.gif");	
-    			$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
-    			$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_on.gif");	
-    			$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
-    			$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_off.gif");	
-    			$(".btn_next1").hide();
-    			$(".btn_back").show();
-    			$(".btn_next2").show();
-    			$(".btn_payment").hide();
-    			
-	    	}else if(func =="step4"){
-	    		$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_off.gif");	
-    			$("#step2").attr("src", "http://llocalhost9090/images/ticketing/05_step_02_off.gif");	
-    			$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
-    			$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_on.gif");	
-    			$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_off.gif");	
-    			$(".btn_next1").hide();
-    			$(".btn_back").show();
-    			$(".btn_next2").show();
-    			$(".btn_payment").hide();
-    			
-	    	}else if(func =="step5"){
-	    		$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_off.gif");	
-    			$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
-    			$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
-    			$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
-    			$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_on.gif");	
-    			$(".btn_next1").hide();
-    			$(".btn_back").hide();
-    			$(".btn_next2").hide();
-    			$(".btn_payment").show();
-	    	} 
-        }); */
-		
 		/**
 		* datepicker 
 		**/
 	    $( function() {
 	  		$("#datepicker").datepicker({
-	      		dateFormat: 'yy년 mm월 dd일 ' //Input Display Format 변경
+	      		dateFormat: 'yy- mm- dd ' //Input Display Format 변경
 		        ,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
 		        ,showMonthAfterYear:true //년도 먼저 나오고, 뒤에 월 표시
 		        ,showOn: "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시  
@@ -556,7 +435,7 @@
 		  	        var  month = (seldate.getMonth() + 1);
 		  	        var day = seldate.getDate();
 		  	       	var year = seldate.getFullYear();
-		            var canceldate = year+'년 '+month+'월 '+day+'일 ';
+		            var canceldate = year+'- '+month+'- '+day+' ';
 		            
 		            var dateText = $("table.myticket_t > tbody > tr:nth-child(1) > td");
 		  			var cancelText = $("table.myticket_t > tbody > tr:nth-child(5) > td");
