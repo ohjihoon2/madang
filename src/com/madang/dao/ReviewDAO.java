@@ -312,10 +312,10 @@ System.out.println("code: "+vo.getRv_rp_code());
 		getPreparedStatement(sql);
 		try {
 			pstmt.setString(1, rv_rp_code);
-System.out.println("rv_rp_code:"+rv_rp_code);			
+		
 			int val = pstmt.executeUpdate();
 			if(val != 0) result = true;
-System.out.println("result:"+result);				
+			
 		}catch(Exception e) {e.printStackTrace();}
 		
 		return result;
