@@ -67,13 +67,12 @@ rv_cost	number					평점
 create table review(
 rv_code	varchar2(20)	primary key,	
 rv_title	varchar2(50)	not null,	
-rv_contents	nvarchar2(300),	
-rv_file	varchar2(100),					
-rv_sfile	varchar2(100),		
+rv_content	nvarchar2(500) not null,	
+concert_code	varchar2(100),
 rv_date	date	not null,					
 rv_hits	number not null,	
 id	varchar2(20),			
-rv_cost	number				
+rv_staravg	number				
 );
 
 create sequence sequ_review
@@ -92,14 +91,17 @@ nt_sfile	varchar2(100)					첨부파일 서버 저장용
 nt_date	date	nn				작성일자		
 nt_hits	number					조회수		
 */
-create table notice(
-nt_code	varchar2(20)	primary key,		
-nt_title	varchar2(50)	not null,				
-nt_contents	nvarchar2(300),					
-nt_file	varchar2(100),				
-nt_sfile	varchar2(100),						
-nt_date	date	not null,					
-nt_hits	number	
+create table event(
+ev_code varchar2(20)	primary key,						
+ev_title	varchar2(200)	not null,
+ev_thumbnail  varchar2(300),
+ev_sthumbnail varchar2(300),
+ev_detail varchar2(300),							
+ev_sdetail	varchar2(300),					
+ev_date date not null,	
+ev_sdate  date not null,
+ev_edate  date not null,
+ev_hits	number	
 );
 
 create sequence sequ_notice
@@ -144,11 +146,11 @@ rv_rp_date	date	nn				작성일자
 rv_rp_depth	varchar2(20)					부모아이디	
 */
 create table review_reply(
-  rv_rp_code varchar2(20),
+  rv_rp_code varchar2(20) primary key,
   rv_rp_content	nvarchar2(200),
-  id	varchar2(20)	CONSTRAINT review_reply_id_fk REFERENCES group_mem(id) ,
-  rv_rp_date	date	not null,
-  rv_rp_depth	varchar2(20)
+  rv_code varchar2(20) CONSTRAINT review_reply_rv_code_fk REFERENCES review(rv_code)  on delete cascade,
+  rv_rp_id varchar2(20) CONSTRAINT review_reply_rv_rp_id_fk REFERENCES general_mem(id),
+  rv_rp_date	date	not null
 );
 
 
