@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.madang.dao.General_mem_DAO;
 import com.madang.dao.Group_mem_DAO;
+import com.madang.dao.QandA_DAO;
 import com.madang.vo.General_mem_VO;
 import com.madang.vo.Group_mem_VO;
 
@@ -37,9 +38,9 @@ public class Group_mem_Service {
 	}
 	
 	//Admin_list
-		public ArrayList<Group_mem_VO> getMembergpListAdmin(){
+		public ArrayList<Group_mem_VO> getMembergpListAdmin(int startCount, int endCount){
 			Group_mem_DAO dao=new Group_mem_DAO();
-			ArrayList<Group_mem_VO> list = dao.getMembergpListAdmin();
+			ArrayList<Group_mem_VO> list = dao.getMembergpListAdmin(startCount, endCount);
 			dao.close();
 			return list;
 		}
@@ -49,5 +50,13 @@ public class Group_mem_Service {
 		Group_mem_VO vo = dao.getMembergpContentsAdmin(id);
 		dao.close();
 		return vo;
+	}
+	
+	//Admin paging
+	public int execTotalCount(){
+		int result =0;
+		Group_mem_DAO dao=new Group_mem_DAO();
+		result = dao.execTotalCount();
+		return result;
 	}
 }

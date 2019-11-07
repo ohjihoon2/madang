@@ -3,6 +3,7 @@
 <%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
 <%
 	String nt_code = request.getParameter("nt_code");
+	String rpage = request.getParameter("page");
 	NoticeService service = new NoticeService();
 	NoticeVO vo = service.getNoticeContentsAdmin(nt_code);
 %>
@@ -147,7 +148,7 @@ $(document).ready(function(){
 		<article>
 			<a href="admin_notice_update.jsp?nt_code=<%=nt_code%>"><button type="button" style="background-color:rgb(5,135,94)">수정하기</button></a>
 			<button type="button" id="adnotice_del_btn">삭제하기</button>
-			<a href="admin_notice.jsp"><button type="button">목록으로</button></a>
+			<a href="admin_notice.jsp?page=<%=rpage%>"><button type="button">목록으로</button></a>
 		</article>
 	</section>
 </div>

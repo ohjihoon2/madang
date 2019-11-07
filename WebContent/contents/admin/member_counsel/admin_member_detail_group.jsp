@@ -4,6 +4,7 @@
 <%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
 <%
 	String id = request.getParameter("id");
+	String rpage = request.getParameter("page");
 	Group_mem_Service service = new Group_mem_Service();
 	Group_mem_VO vo = service.getMembergpContentsAdmin(id);
 %>
@@ -132,7 +133,7 @@ div#admin_member_detail_group > article button{
 		</table>
 	</section>
 	<article>
-			<a href="admin_member_group"><button type="button">목록으로</button></a>
+			<a href="admin_member_group.jsp?page=<%=rpage%>"><button type="button">목록으로</button></a>
 	</article>
 </body>
 </html>

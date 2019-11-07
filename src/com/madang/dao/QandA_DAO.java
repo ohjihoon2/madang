@@ -184,6 +184,22 @@ public class QandA_DAO {
 	}
 	
 	
+	//Admin paging
+		public int execTotalCount(){
+			int result =0;
+			try{
+				String sql = "select count(*) from q_and_a";
+				getPreparedStatement(sql);
+				
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					result = rs.getInt(1);
+				}
+			}catch(Exception e){e.printStackTrace();}
+			
+			return result;
+		}
+	
 	//Admin contents
 	public QandA_VO getQnAContentsAdmin(String qa_code) {
 		QandA_VO vo = new QandA_VO();
@@ -224,21 +240,7 @@ public class QandA_DAO {
 	}
 	
 	
-	//Admin paging
-	public int execTotalCount(){
-		int result =0;
-		try{
-			String sql = "select count(*) from q_and_a";
-			getPreparedStatement(sql);
-			
-			rs = pstmt.executeQuery();
-			if(rs.next()){
-				result = rs.getInt(1);
-			}
-		}catch(Exception e){e.printStackTrace();}
-		
-		return result;
-	}
+	
 	
 	
 	

@@ -4,6 +4,8 @@
 <%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
 <%
 	String qa_code = request.getParameter("qa_code");
+	String rpage = request.getParameter("page");
+	
 	QandA_Service service = new QandA_Service();
 	QandA_VO vo = service.getQnAContentsAdmin(qa_code);
 %>
@@ -99,7 +101,7 @@ div#admin_QnA_detail_re > article> button#adcoun_qna_reply_btn{
 		$("#adcoun_qna_cancle_btn").click(function(){
 			 var cancel = confirm("답변을 취소하시겠습니까?");
 			 if(cancel==1){
-				 location.replace("admin_QandA.jsp");
+				 location.replace("admin_QandA.jsp?page=<%=rpage%>");
 			 }
 		 });//작성취소 클릭
 		 

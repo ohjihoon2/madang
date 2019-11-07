@@ -217,12 +217,15 @@ public class General_mem_DAO {
 	}
 	
 	//Admin_list
-	public ArrayList<General_mem_VO> getMemberListAdmin(){
+	public ArrayList<General_mem_VO> getMemberListAdmin(int startCount, int endCount){
 		ArrayList<General_mem_VO> list = new ArrayList<General_mem_VO>();
-		String sql="select * from (select rownum rno, id, name, phone1,phone2,phone3, email_id, email_addr, to_char(joindate,'yyyy/mm/dd') from(select * from general_mem order by joindate desc))";
+		String sql="select * from (select rownum rno, id, name, phone1,phone2,phone3, email_id, email_addr, to_char(joindate,'yyyy/mm/dd') from(select * from general_mem order by joindate desc))where rno between ? and ?";
 		getPreparedStatement(sql);
 		
 		try {
+			pstmt.setInt(1, startCount);
+			pstmt.setInt(2, endCount);
+			
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				General_mem_VO vo = new General_mem_VO();
@@ -243,6 +246,22 @@ public class General_mem_DAO {
 		return list;
 	}
 	
+	
+	//Admin paging
+		public int execTotalCount(){
+			int result =0;
+			try{
+				String sql = "select count(*) from general_mem";
+				getPreparedStatement(sql);
+				
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					result = rs.getInt(1);
+				}
+			}catch(Exception e){e.printStackTrace();}
+			
+			return result;
+		}
 	
 	//Admin_contents
 		public General_mem_VO getMemberContentsAdmin(String id) {

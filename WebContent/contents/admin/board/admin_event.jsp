@@ -3,6 +3,32 @@
 <%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
 <%
 	EventService service = new EventService();
+	String rpage = request.getParameter("page"); 
+	
+	//페이징 처리 - startCount, endCount 구하기
+		int startCount = 0;
+		int endCount = 0;
+		int pageSize = 5;	//한페이지당 게시물 수
+		int reqPage = 1;	//요청페이지 	
+		int pageCount = 1;	//전체 페이지 수                        //))처음초기화작업인가봄
+		int dbCount = service.execTotalCount();	//DB에서 가져온 전체 행수
+		
+		//총 페이지 수 계산 ((페이지 나누기 위해서)) 전체페이지의 수: db에서 가져온 전체개수/pageSize))
+		if(dbCount % pageSize == 0){
+			pageCount = dbCount/pageSize;
+		}else{ //))살짝 넘치는 양이면 페이지 한장 더 추가 (6개의 게시글, pageSize=5 => 페이지 한장 더 추가해야 함
+			pageCount = dbCount/pageSize+1;
+		}
+
+		//요청 페이지 계산
+		if(rpage != null){ 
+			reqPage = Integer.parseInt(rpage);//넘어오는 것이 String
+			startCount = (reqPage-1) * pageSize+1; 
+	 		endCount = reqPage *pageSize;
+		}else{ 
+			startCount = 1;
+			endCount = pageSize;
+		}
 	ArrayList<EventVO> list = service.getResultListAdmin();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,7 +36,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="http://localhost:9090/dycgv/js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://localhost:9090/css/am-pagination.css">
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/am-pagination.js"></script>
 <style>
 *{
 	font-family:"나눔스퀘어라운드";
@@ -44,7 +72,7 @@ div.admin_content h1{
 
 
 
-div#admin_event section div{
+div#admin_event section div.admin_write_btn{
 	margin:30px 0px 20px 0px;
 	text-align:right;
 	width:80%;
@@ -100,14 +128,38 @@ div#admin_event section table td:first-child span{
 }
 
 </style>
-
+<script>
+	$(document).ready(function(){	
+		var pager = jQuery('#ampaginationsm').pagination({
+			
+		    maxSize: 7,	    		// max page size
+		    totals: <%=dbCount%>,	// total pages	
+		    page: <%=rpage%>,		// initial page		
+		    pageSize: <%=pageSize%>,			// max number items per page
+		
+		    // custom labels		
+		    lastText: '&raquo;&raquo;', 		
+		    firstText: '&laquo;&laquo;',		
+		    prevText: '&laquo;',		
+		    nextText: '&raquo;',
+				     
+		    btnSize:'sm'	// 'sm'  or 'lg'		
+		});
+		
+		jQuery('#ampaginationsm').on('am.pagination.change',function(e){
+			   jQuery('.showlabelsm').text('The selected page no: '+e.page);
+	           $(location).attr('href', "http://localhost:9090/contents/admin/board/admin_event.jsp?page="+e.page);         
+	    });
+		
+	});
+</script>
 </head>
 <body>
 <jsp:include page="../admin_left_nav.jsp"/>
 <div id="admin_event" class="admin_content">
 	<h1>이 벤 트</h1>	
 	<section>
-		<div>
+		<div class="admin_write_btn">
 			<a href="admin_event_write.jsp"><button type="button">작성하기</button></a>
 		</div>
 		<table>
@@ -119,14 +171,14 @@ div#admin_event section table td:first-child span{
 			</tr>
 			<%for(EventVO vo : list){ %>
 				<tr>
-					<td><a href="admin_event_contents.jsp?ev_code=<%=vo.getEv_code()%>"><%=vo.getEv_title()%></a><span><%=vo.getEv_status() %></span></td>
+					<td><a href="admin_event_contents.jsp?ev_code=<%=vo.getEv_code()%>&page=<%=reqPage%>"><%=vo.getEv_title()%></a><span><%=vo.getEv_status() %></span></td>
 					<td><%=vo.getEv_sdate() %> ~ <%=vo.getEv_edate() %></td>
 					<td><%=vo.getEv_date() %></td>
 					<td><%=vo.getEv_hits() %></td>
 				</tr>	
 			<%} %>
 			<tr>
-				<td colspan="3">이전   1 2 3 4   다음</td>
+				<td colspan=6><div id="ampaginationsm"></div></td>
 			</tr>
 		</table>
 	</section>

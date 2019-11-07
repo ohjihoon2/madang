@@ -155,6 +155,52 @@ public class NewsDAO {
 			return list;
 		}
 		
+		//Admin list
+		public ArrayList<NewsVO> getResultNewsListAdmin(int startCount, int endCount){
+			ArrayList<NewsVO> list = new ArrayList<NewsVO>();
+			String sql = "select * from (select rownum rno, nw_code, nw_title, to_char(nw_date,'yyyy/mm/dd'), nw_press, nw_url from (select * from news order by nw_date) order by rno) where rno between ? and ?";
+			getPreparedStatement(sql);
+			try {
+				
+				pstmt.setInt(1, startCount);
+				pstmt.setInt(2, endCount);
+				
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					NewsVO vo = new NewsVO();
+					vo.setRno(rs.getInt(1));
+					vo.setNw_code(rs.getString(2));
+					vo.setNw_title(rs.getString(3));
+					vo.setNw_date(rs.getString(4));
+					vo.setNw_press(rs.getString(5));
+					vo.setNw_url(rs.getString(6));
+					
+					list.add(vo);
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			return list;
+		}
+		
+		//Admin paging
+		public int execTotalCount(){
+			int result =0;
+			try{
+				String sql = "select count(*) from news";
+				getPreparedStatement(sql);
+				
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					result = rs.getInt(1);
+				}
+			}catch(Exception e){e.printStackTrace();}
+			
+			return result;
+		}
 		
 		public void close() {
 			try {

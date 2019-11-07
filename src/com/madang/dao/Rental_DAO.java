@@ -178,7 +178,7 @@ public class Rental_DAO {
 	//admin main list
 	public ArrayList<Rental_VO> getListAdminMain(){
 		ArrayList<Rental_VO> list = new ArrayList<Rental_VO>();
-		String sql="select * from(select rownum rno, rental_code, r_case, r_title, r_date, r_status, floor(sysdate-to_date(r_sdate,'yy/mm/dd')) startcount, floor(to_date(r_edate,'yy/mm/dd')-sysdate)+1 endcount from(select*from rental order by r_date desc)order by rno desc)where rno between 1 and 3 order by rno";
+		String sql="select * from(select rownum rno, rental_code, r_case, r_title, to_char(r_date,'yyyy/mm/dd'), r_status, floor(sysdate-to_date(r_sdate,'yy/mm/dd')) startcount, floor(to_date(r_edate,'yy/mm/dd')-sysdate)+1 endcount from(select*from rental order by r_date desc)order by rno desc)where rno between 1 and 3 order by rno";
 		getPreparedStatement(sql);
 		try {
 			rs=pstmt.executeQuery();
@@ -186,12 +186,12 @@ public class Rental_DAO {
 				Rental_VO vo = new Rental_VO();
 				vo.setRno(rs.getInt(1));
 				vo.setRental_code(rs.getString(2));
-				vo.setR_case(rs.getString(2));
-				vo.setR_title(rs.getString(3));
-				vo.setR_date(rs.getString(4));
-				if(rs.getString(5).equals("신청완료")) {
-					if(rs.getInt(7)>=0) { // 날짜차수 구하기
-						if(rs.getInt(6)<0) {
+				vo.setR_case(rs.getString(3));
+				vo.setR_title(rs.getString(4));
+				vo.setR_date(rs.getString(5));
+				if(rs.getString(6).equals("신청완료")) {
+					if(rs.getInt(8)>=0) { // 날짜차수 구하기
+						if(rs.getInt(7)<0) {
 							vo.setR_status("예정");
 						} else {
 							vo.setR_status("진행중");
@@ -200,7 +200,7 @@ public class Rental_DAO {
 						vo.setR_status("종료");
 					}
 				}else {
-					vo.setR_status(rs.getString(5));
+					vo.setR_status(rs.getString(6));
 				}
 				
 				

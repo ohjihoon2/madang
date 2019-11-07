@@ -4,17 +4,28 @@ import java.util.ArrayList;
 
 import com.madang.dao.EventDAO;
 import com.madang.dao.NoticeDAO;
+import com.madang.dao.QandA_DAO;
 import com.madang.vo.NoticeVO;
+import com.madang.vo.QandA_VO;
 
 public class NoticeService {
 
 	//bring the notice list
-	public ArrayList<NoticeVO> getNoticeListAdmin(){
+	public ArrayList<NoticeVO> getNoticeListAdmin(int startCount, int endCount){
 		NoticeDAO dao = new NoticeDAO();
-		ArrayList<NoticeVO> list = dao.getNoticeListAdmin();
+		ArrayList<NoticeVO> list = dao.getNoticeListAdmin(startCount, endCount);
 		dao.close();
 		return list;
 	}
+	
+	//Admin paging
+	public int execTotalCount(){
+		int result =0;
+		NoticeDAO dao = new NoticeDAO();
+		result = dao.execTotalCount();
+		return result;
+	}
+	
 	
 	//admin main list
 	public ArrayList<NoticeVO> getListAdminMain(){

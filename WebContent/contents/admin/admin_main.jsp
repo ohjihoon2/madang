@@ -1,4 +1,4 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
 <%
@@ -82,35 +82,45 @@ div#admin_main section:first-child article ul li span:first-child{
 	div#admin_main section:first-child article ul li{
 		margin:5px 0px 15px 0px;
 	}
-div#admin_main section table{
+	
+	
+/*게시글 미리보기 테이블*/
+div#admin_main section > a h5{
+	text-align:right;
+	width:80%;
+	margin:10px 0px 10px 0px;
+}
+
+div#admin_main section > table{
 		width:80%;
 		height:150px;
 		border-collapse: collapse;
 	}
-div#admin_main section table th{
-		width:60%;
+div#admin_main section > table th{
 		background-color:lightgray;
 		border-bottom:1px solid gray;
-	}
-
-div#admin_main section table th:nth-child(2),
-div#admin_main section table th:last-child{
-		width:20%;
-		background-color:lightgray;
-		border-bottom:1px solid gray;
-		border-left:1px solid gray;
-	}
-		
-div#admin_main section table td:first-child{
-		border-bottom:1px solid gray;
-		padding-left:10px;
-	}
-div#admin_main section table td:last-child,
-div#admin_main section table td:nth-child(2){
-		border-bottom:1px solid gray;
-		border-left:1px solid gray;
+		border-right:1px solid gray;
 		text-align:center;
 	}
+div#admin_main section > table td{
+	border-bottom:1px solid lightgray;
+	border-right:1px solid lightgray;
+	text-align:center;
+	padding:0px 5px 0px 5px;
+}
+div#admin_main section > table td:last-child,
+div#admin_main section > table th:last-child{
+	border-right:none;
+}
+div#admin_main section > table td:first-child,
+div#admin_main section:nth-child(2) > table td:last-child{
+	width:50px;
+}
+div#admin_main section > table td:nth-child(2){
+	text-align:left;
+	width:600px;
+}
+
 	
 </style>
 
@@ -148,24 +158,25 @@ div#admin_main section table td:nth-child(2){
 		<section>
 	 		<h2>공지사항</h2>
 	 		<a href="http://localhost:9090/contents/admin/board/admin_notice.jsp"><h5>더보기</h5></a>
-	 		<table>
+			<table>
 	 			<tr>
+	 				<th>번호</th>
 	 				<th>제목</th>
-	 				<th>작성일</th>
+	 				<th>작성일자</th>
 	 				<th>조회수</th>
 	 			</tr>
-	 			<tr>
-	 				<td>오늘 무료공연에 대한 공지사항</td>
-	 				<td>2019-10-20</td>
-	 			</tr>
-	 			<tr>
-	 				<td>오늘 무료공연에 대한 공지사항</td>
-	 				<td>2019-10-20</td>
-	 			</tr>
-	 			<tr>
-	 				<td>오늘 무료공연에 대한 공지사항</td>
-	 				<td>2019-10-20</td>
-	 			</tr>
+	 			<%for(int i=0 ; i<3 ; i++){ 
+	 				if(qna_list.get(i) != null){%>
+	 				<tr>
+	 					<td><%=notice_list.get(i).getRno()%></td>
+	 					<td><a href="http://localhost:9090/contents/admin/board/admin_notice_contents.jsp?nt_code=<%=notice_list.get(i).getNt_code()%>"><%=notice_list.get(i).getNt_title() %></a></td>
+	 					<td><%=notice_list.get(i).getNt_date() %></td>
+	 					<td><%=notice_list.get(i).getNt_hits() %></td>
+	 				</tr>
+	 			<%}else{ %>
+	 				<tr><td> </td></tr>
+	 				<%}//if
+	 			}//for%>
 	 		</table>
 	 	</section>
 	 	<section>
@@ -173,21 +184,23 @@ div#admin_main section table td:nth-child(2){
 	 		<a href="http://localhost:9090/contents/admin/member_counsel/admin_QandA.jsp"><h5>더보기</h5></a>
 	 		<table>
 	 			<tr>
+	 				<th>번호</th>
 	 				<th>제목</th>
-	 				<th>작성일</th>
+	 				<th>질문일자</th>
+	 				<th>답변일자</th>
 	 			</tr>
-	 			<tr>
-	 				<td>환불안하세요?!!??</td>
-	 				<td>2019-10-20</td>
-	 			</tr>
-	 			<tr>
-	 				<td>환불안하세요?!!??</td>
-	 				<td>2019-10-20</td>
-	 			</tr>
-	 			<tr>
-	 				<td>환불안하세요?!!??</td>
-	 				<td>2019-10-20</td>
-	 			</tr>
+	 			<%for(int i=0 ; i<3 ; i++){ 
+	 				if(qna_list.get(i) != null){%>
+	 				<tr>
+	 					<td><%=qna_list.get(i).getRownum() %></td>
+	 					<td><a href="http://localhost:9090/contents/admin/member_counsel/admin_QandA_detail.jsp?qa_code=<%=qna_list.get(i).getQa_code()%>"><%=qna_list.get(i).getQa_title() %></a></td>
+	 					<td><%=qna_list.get(i).getQa_date() %></td>
+	 					<td><%=qna_list.get(i).getQa_adate() %></td>
+	 				</tr>
+	 			<%}else{ %>
+	 				<tr><td> </td></tr>
+	 				<%}//if
+	 			}//for%>
 	 		</table>
 	 	</section>
 	 	<section>
@@ -195,25 +208,25 @@ div#admin_main section table td:nth-child(2){
 	 		<a href="#"><h5>더보기</h5></a>
 	 		<table>
 	 			<tr>
-	 				<th>제목</th>
-	 				<th>장소</th>
+	 				<th>번호</th>
+	 				<th>타이틀</th>
+	 				<th>종류</th>
 	 				<th>신청일</th>
+	 				<th>상태</th>
 	 			</tr>
-	 			<tr>
-	 				<td>나때는 말이야 이런 파티는 생각도 못했어</td>
-	 				<td>베토벤 홀</td>
-	 				<td>2019-10-20</td>
-	 			</tr>
-	 			<tr>
-	 				<td>요즘 세상 참 좋아졌다?</td>
-	 				<td>베토벤 홀</td>
-	 				<td>2019-10-20</td>
-	 			</tr>
-	 			<tr>
-	 				<td>환불안하세요?!!??</td>
-	 				<td>베토벤 홀</td>
-	 				<td>2019-10-20</td>
-	 			</tr>
+	 			<%for(int i=0 ; i<3 ; i++){ 
+	 				if(qna_list.get(i) != null){%>
+	 				<tr>
+	 					<td><%=rental_list.get(i).getRno() %></td>
+	 					<td><a href="<%=rental_list.get(i).getRental_code()%>"><%=rental_list.get(i).getR_title() %></a></td>
+	 					<td><%=rental_list.get(i).getR_case() %></td>
+	 					<td><%=rental_list.get(i).getR_date() %></td>
+	 					<td><%=rental_list.get(i).getR_status() %></td>
+	 				</tr>
+	 			<%}else{ %>
+	 				<tr><td> </td></tr>
+	 				<%}//if
+	 			}//for%>
 	 		</table>
 	 	</section>
 	</div>

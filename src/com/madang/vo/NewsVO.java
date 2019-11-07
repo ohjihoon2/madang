@@ -2,7 +2,8 @@ package com.madang.vo;
 
 public class NewsVO {
 	String nw_code, nw_title, nw_date, nw_press, nw_url;
-
+	int rno;
+	
 	public String getNw_code() {
 		return nw_code;
 	}
@@ -41,6 +42,14 @@ public class NewsVO {
 
 	public void setNw_url(String nw_url) {
 		this.nw_url = nw_url;
+	}
+
+	public int getRno() {
+		return rno;
+	}
+
+	public void setRno(int rno) {
+		this.rno = rno;
 	}
 	
 	

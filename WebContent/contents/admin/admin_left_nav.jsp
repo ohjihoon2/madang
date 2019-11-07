@@ -8,11 +8,11 @@
 
 <script>
 $(document).ready(function(){
-	  $("div.admin_left_sub").hide();
+	  $("aside#amdmin_left div.admin_left_sub").hide();
 	  // $("ul > li:first-child a").next().show();
-	  $("ul>li>a:first-child").click(function(){
+	  $("aside#amdmin_left ul>li>a:first-child").click(function(){
 	    $(this).siblings().slideToggle(300);
-	    $("ul li a").not(this).siblings().slideUp(300);
+	    $("aside#amdmin_left ul li a").not(this).siblings().slideUp(300);
 	    return false;
 	  });
 	  
@@ -20,7 +20,7 @@ $(document).ready(function(){
 		  window.open("http://localhost:9090/mainpage.jsp", "_blank");  
 	  });
 	  
-	  $("div#admin_left_home").click(function(){
+	  $("aside#amdmin_left > div#admin_left_home").click(function(){
 		  location.href="http://localhost:9090/contents/admin/admin_main.jsp";
 	  });
 
@@ -94,10 +94,10 @@ aside#amdmin_left ul li>div a{
 </head>
 <body>
 <aside id="amdmin_left">
-<div id="admin_left_home">
-	관리자 페이지
-</div>
-<div id="admin_left_gohome">홈페이지로</div>
+	<div id="admin_left_home">
+		관리자 페이지
+	</div>
+	<div id="admin_left_gohome">홈페이지로</div>
 <ul>
   <li>
     <a href="#">공연관리</a><!-- 상영중 -->
@@ -128,7 +128,7 @@ aside#amdmin_left ul li>div a{
 	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/board/admin_notice.jsp">공지사항</a></div>
 	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/board/admin_news.jsp">언론보도</a></div>
 	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/board/admin_event.jsp">이벤트</a></div>
-  </li>
+  	</li>
   </ul>
 </aside>
 </body>

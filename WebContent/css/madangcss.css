@@ -2,7 +2,9 @@
 공통적용, 기타 공통적용
 로그인 (login.jsp login_group.jsp)
 회원가입 (join0.jsp ~ join3.jsp)
-
+==
+관리자 공통적용
+Q&A(admin_QandA.jsp)
 */
 
 /*****************공통부분 및 기타 공통 부분************************/
@@ -458,3 +460,23 @@
  		border:none;
  		margin:0px 100px 0px 100px;
    	}
+   	
+   	
+   	
+   	
+/* ========================================================================================== */
+/******************관리자 공통적용***************/
+div.admin_content{
+	width:70%;
+	height:1400px;
+	margin:auto;
+	float:left;
+	padding:130px 0px 0px 100px;
+}
+
+
+div.admin_content h1{
+	font-size:40pt;
+}
+
+/*Q&A(admin_QandA.jsp)*/

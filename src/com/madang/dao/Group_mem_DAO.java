@@ -225,12 +225,15 @@ public class Group_mem_DAO {
 	
 	
 	//Admin_list
-		public ArrayList<Group_mem_VO> getMembergpListAdmin(){
+		public ArrayList<Group_mem_VO> getMembergpListAdmin(int startCount, int endCount){
 			ArrayList<Group_mem_VO> list = new ArrayList<Group_mem_VO>();
-			String sql="select * from (select rownum rno, id, name, phone1,phone2,phone3,company, to_char(joindate,'yyyy/mm/dd') from(select * from group_mem order by joindate desc))";
+			String sql="select * from (select rownum rno, id, name, phone1,phone2,phone3,company, to_char(joindate,'yyyy/mm/dd') from(select * from group_mem order by joindate desc))where rno between ? and ?";
 			getPreparedStatement(sql);
 			
 			try {
+				pstmt.setInt(1, startCount);
+				pstmt.setInt(2, endCount);
+				
 				rs=pstmt.executeQuery();
 				while(rs.next()) {
 					Group_mem_VO vo = new Group_mem_VO();
@@ -249,6 +252,23 @@ public class Group_mem_DAO {
 			}catch (Exception e) {e.printStackTrace();}
 			return list;
 		}
+		
+		//Admin paging
+		public int execTotalCount(){
+			int result =0;
+			try{
+				String sql = "select count(*) from group_mem";
+				getPreparedStatement(sql);
+				
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					result = rs.getInt(1);
+				}
+			}catch(Exception e){e.printStackTrace();}
+			
+			return result;
+		}
+
 		
 		//Admin_contents
 		public Group_mem_VO getMembergpContentsAdmin(String id) {

@@ -32,19 +32,62 @@ public class NoticeDAO {
 	
 	
 	//bring the notice list
-	public ArrayList<NoticeVO> getNoticeListAdmin(){
+	public ArrayList<NoticeVO> getNoticeListAdmin(int startCount, int endCount){
 		ArrayList<NoticeVO> list = new ArrayList<NoticeVO>();
-		String sql="select nt_code, nt_title, to_char(nt_date,'yyyy/mm/dd'),nt_hits from notice order by nt_date desc";
+		String sql="select * from (select rownum rno, nt_code, nt_title, to_char(nt_date,'yyyy/mm/dd'),nt_hits from (select * from notice order by nt_date desc) order by rno)where rno between ? and ?";
+		getPreparedStatement(sql);
+		try {
+			
+			pstmt.setInt(1, startCount);
+			pstmt.setInt(2, endCount);
+			
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				NoticeVO vo = new NoticeVO();
+				
+				vo.setRno(rs.getInt(1));
+				vo.setNt_code(rs.getString(2));
+				vo.setNt_title(rs.getString(3));
+				vo.setNt_date(rs.getString(4));
+				vo.setNt_hits(rs.getInt(5));
+				
+				list.add(vo);
+			}
+			
+		}catch(Exception e) {e.printStackTrace();}
+		return list;
+	}
+	
+	//Admin paging
+	public int execTotalCount(){
+		int result =0;
+		try{
+			String sql = "select count(*) from notice";
+			getPreparedStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				result = rs.getInt(1);
+			}
+		}catch(Exception e){e.printStackTrace();}
+		
+		return result;
+	}
+	
+	//admin main list
+	public ArrayList<NoticeVO> getListAdminMain(){
+		ArrayList<NoticeVO> list = new ArrayList<NoticeVO>();
+		String sql="select * from(select rownum rno, nt_code, nt_title, to_char(nt_date,'yyyy/mm/dd'), nt_hits from notice order by nt_date)where rno between 1 and 3";
 		getPreparedStatement(sql);
 		try {
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				NoticeVO vo = new NoticeVO();
-				
-				vo.setNt_code(rs.getString(1));
-				vo.setNt_title(rs.getString(2));
-				vo.setNt_date(rs.getString(3));
-				vo.setNt_hits(rs.getInt(4));
+				vo.setRno(rs.getInt(1));
+				vo.setNt_code(rs.getString(2));
+				vo.setNt_title(rs.getString(3));
+				vo.setNt_date(rs.getString(4));
+				vo.setNt_hits(rs.getInt(5));
 				
 				list.add(vo);
 			}
@@ -134,27 +177,7 @@ public class NoticeDAO {
 		return result;
 	}
 			
-	//admin main list
-	public ArrayList<NoticeVO> getListAdminMain(){
-		ArrayList<NoticeVO> list = new ArrayList<NoticeVO>();
-		String sql="select * from(select rownum rno, nt_code, nt_title, to_char(nt_date,'yyyy/mm/dd'), nt_hits from notice order by nt_date)where rno between 1 and 3";
-		getPreparedStatement(sql);
-		try {
-			rs=pstmt.executeQuery();
-			while(rs.next()) {
-				NoticeVO vo = new NoticeVO();
-				vo.setRno(rs.getInt(1));
-				vo.setNt_code(rs.getString(2));
-				vo.setNt_title(rs.getString(3));
-				vo.setNt_date(rs.getString(4));
-				vo.setNt_hits(rs.getInt(5));
-				
-				list.add(vo);
-			}
-			
-		}catch(Exception e) {e.printStackTrace();}
-		return list;
-	}
+
 	
 	
 	public void close() {

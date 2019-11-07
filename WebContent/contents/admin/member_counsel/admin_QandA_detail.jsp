@@ -4,6 +4,8 @@
 <%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
 <%
 	String qa_code = request.getParameter("qa_code");
+	String rpage = request.getParameter("page");
+
 	QandA_Service service = new QandA_Service();
 	QandA_VO vo = service.getQnAContentsAdmin(qa_code);
 %>
@@ -166,7 +168,7 @@ div#admin_QnA_detail > article> button#adboard_qna_reply{
 	</section>
 	<article>
 			<button type="button" id="adcoun_qna_reply_btn">답변하기</button>			
-			<a href="admin_QandA.jsp"><button type="button">목록으로</button></a>
+			<a href="admin_QandA.jsp?page=<%=rpage%>"><button type="button">목록으로</button></a>
 	</article>
 </body>
 </html>
