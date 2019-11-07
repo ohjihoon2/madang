@@ -8,7 +8,7 @@
 	ReviewService service = new ReviewService();
 	boolean result = service.getResultReviewUpdate(vo);
 	
-	if(result) response.sendRedirect("http://211.63.89.214:9090/contents/Community/review_contents.jsp?rv_code="+vo.getRv_code());
+	if(result) response.sendRedirect("../Community/review_contents.jsp?rv_code="+vo.getRv_code());
 	else response.sendRedirect("../../errorPage.jsp");
 	
 %>

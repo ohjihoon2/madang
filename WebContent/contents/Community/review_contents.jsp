@@ -3,7 +3,7 @@
 <%@ page import="com.madang.dao.*,com.madang.service.*,com.madang.vo.*,java.util.*" %>
 <%
 	String rv_code = request.getParameter("rv_code"); 
-	String id = request.getParameter("id");
+	String id = (String)session.getAttribute("generalID");
 	ReviewService service = new ReviewService();
 	ReviewVO vo = service.getResultContent(rv_code);
 	
@@ -68,7 +68,7 @@
      cursor: pointer;
  }
  
- #btnDEL,#btnRplDEL{
+ #btnDEL,#btnRplDEL,#btnDEL_ev{
 	border: 1px solid rgb(155, 155, 155);
 	border-radius: 10px;
 	color: rgb(5, 135, 94);
@@ -210,9 +210,9 @@
 				<div id="review_content"><%=vo.getRv_content() %></div>						
 		
 				<div id="btn1">				
-					<%
-					if(id != null){
-					if(id.equals(vo.getId())){ %>
+					
+					<%if(id != "" && id != null){ %>
+					<%if(id.equals(vo.getId())){ %>
 					<a href="review_update.jsp?rv_code=<%=rv_code%>"><button type="button" id="btnRVUpdate">수정</button></a>
 					<button type="button" id="btnRVDelete">삭제</button>
 					<%} 

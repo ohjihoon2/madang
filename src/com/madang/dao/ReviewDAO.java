@@ -244,7 +244,7 @@ public class ReviewDAO {
 	/** ¸®ºä ´ñ±Û ¸®½ºÆ® **/
 	public ArrayList<ReviewReplyVO> getReplyList(String rv_code){
 		ArrayList<ReviewReplyVO> list = new ArrayList<ReviewReplyVO>();
-		String sql = "select rv_rp_code, rv_rp_content, rv_code, rv_rp_id, to_char(rv_rp_date,'yyyy.mm.dd.') from review_reply where rv_code=?";
+		String sql = "select rv_rp_code, rv_rp_content, rv_code, rv_rp_id, to_char(rv_rp_date,'yyyy.mm.dd.') from review_reply where rv_code=? order by rv_rp_date desc";
 		getPreparedStatement(sql);
 		
 		try {

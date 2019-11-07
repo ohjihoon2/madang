@@ -16,8 +16,58 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>
-<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>	
+<link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+/* The Modal (background) */
+ .modal {
+     display: none; /* Hidden by default */
+     position: fixed; /* Stay in place */
+     z-index: 1; /* Sit on top */
+     left: 0;
+     top: 0;
+     width: 100%; /* Full width */
+     height: 100%; /* Full height */
+     overflow: auto; /* Enable scroll if needed */
+     background-color: rgb(0,0,0); /* Fallback color */
+     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+ }
+
+ /* Modal Content/Box */
+ .modal-content {
+     background-color: #fefefe;
+     margin: 15% auto; /* 15% from the top and centered */
+     padding: 20px;
+     border: 1px solid #888;
+     width: 30%; /* Could be more or less, depending on screen size */
+     height: 15%;
+     text-align:center;                         
+ }
+ /* The Close Button */
+ .close {
+     color: #aaa;
+     float: right;
+     font-size: 28px;
+     font-weight: bold;
+ }
+ .close:hover,
+ .close:focus {
+     color: black;
+     text-decoration: none;
+     cursor: pointer;
+ }
+ 
+ #btnEvDEL{
+	border: 1px solid rgb(155, 155, 155);
+	border-radius: 10px;
+	color: rgb(5, 135, 94);
+	background: white;
+	padding: 10px 50px 10px 50px;
+	margin-top: 20px;
+ }
+
+
+</style>
 <script>
 	$(document).ready(function(){
 		$("div#reply_div").hide();
@@ -110,6 +160,57 @@
 			$("#replyEmpty").hide();
 		});
 		
+		$("button#btnEvDE").click(function(){
+			
+			$.ajax({
+				url:"event_reply_update.jsp?ev_rp_code="+ev_rp_code+"&ev_rp_content="+new_content,
+				success:function(result){
+					if(result){
+						alert("댓글이 수정되었습니다.");
+						$("#div_comment").hide();
+						$("#btnWriteReply").text("댓글쓰기");
+						location.reload();		
+						
+					}else{
+						alert("댓글등록에 실패했습니다.")
+					}
+	
+				}
+			});	
+		});
+		
+		
+		$("button#btnEvDE").click(function(){
+			/* 모달  */
+	        // Get the modal
+	        var modal = document.getElementById('myModal');
+	 
+	        // Get the button that opens the modal
+	        var btn = document.getElementById("btnEvDE");
+	       
+	 
+	        // Get the <span> element that closes the modal
+	        var span = document.getElementsByClassName("close")[0];                                          
+	 
+	        // When the user clicks on the button, open the modal 
+	        btn.onclick = function() {
+	            modal.style.display = "block";
+	        }
+	 
+	        // When the user clicks on <span> (x), close the modal
+	        span.onclick = function() {
+	            modal.style.display = "none";
+	        }
+	 
+	        // When the user clicks anywhere outside of the modal, close it
+	        window.onclick = function(event) {
+	            if (event.target == modal) {
+	                modal.style.display = "none";
+	            }
+	        }
+		});
+		
+		
 	});
 </script>
 </head>
@@ -152,7 +253,7 @@
 				<li><span id="li_id"><%=rvo.getEv_rp_id() %></span><span id="li_event_date"><%=rvo.getEv_rp_date() %></span>
 				<%if(id.equals(rvo.getEv_rp_id())){ %>
 				<button type="button" id="btnRE">수정</button>
-				<button type="button" id="btnDE">삭제</button></li>
+				<button type="button" id="btnEvDE">삭제</button></li>
 				<%} %>
 				<li id="li_content"><%=rvo.getEv_rp_content() %></li>	
 				<input type="hidden" id="ev_rp_content" value="<%=rvo.getEv_rp_content() %>">			
@@ -161,8 +262,22 @@
 			</ul>
 			<%}%>
 		</div>	
-
 		
+		
+			<!-- Trigger/Open The Modal -->
+			 
+			    <!-- The Modal -->
+			    <div id="myModal" class="modal">
+			 
+			      <!-- Modal content -->
+			      <div class="modal-content">
+			        <span class="close">&times;</span>                                                               
+			        <p>삭제 시 해당 이벤트 참여에 불이익을 받을 수 있습니다.<br>그래도 삭제하시겠습니까?</p>
+			        <a href="event_reply_delete.jsp?ev_rp_code=<%=ev_rp_code%>"><button type="button" id="btnEvDEL"> 삭제 </button></a>
+			      </div>
+			 
+			    </div>
+
 		
 		<div id="btnMore_div">
 			<button type="button" id="btnMore">
