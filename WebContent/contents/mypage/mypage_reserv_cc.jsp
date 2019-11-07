@@ -21,7 +21,7 @@
 		
 		var pw_msg="";
 		
-		//대관취소 체크박스/비밀번호 체크
+		//예매취소 체크박스/비밀번호 체크
 		$("button#cc_btn").click(function(){
 			if($("input:checkbox[id='out']").is(":checked")) {
 				if($("input#out_pw_cfm").val()=="") {
