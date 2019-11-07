@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
 <%
+	ConcertService concert_service = new ConcertService();
+	ArrayList<ConcertVO> concert_list = concert_service.getListAdminMain();
+
 	NoticeService notice_service = new NoticeService();
 	ArrayList<NoticeVO> notice_list = notice_service.getListAdminMain();
 	
@@ -57,7 +60,7 @@ div#admin_main section:first-child article{
 		display : inline-block;
 		width:450px;
 		height:250px;
-		margin-right:40px;
+		margin-right:120px;
 		
 	}
 	

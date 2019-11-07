@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <style>
 *{
 	margin: 0px;
@@ -52,7 +53,34 @@ div#admin_login > section form button{
 }
 
 </style>
-
+<script>
+	$(document).ready(function(){
+		$("#adminloginbtn").click(function(){
+			//유효성 검사
+			if($("#adminlogin_id1").val()==""){
+				alert("아이디를 입력하세요.");
+				$("#adminlogin_id1").focus();
+			}else if($("#adminlogin_pw1").val()==""){
+				alert("패스워드를 입력하세요.");
+				$("#adminlogin_pw1").focus();
+			}else{
+				//회원인지 검사
+				var login = $("form#adminloginform").serialize();
+				$.ajax({
+					url:"admin_login_proce.jsp?"+login,
+					success:function(result){
+						loginresult=result.trim();
+						alert(loginresult);
+						if(loginresult=="관리자 로그인에 성공했습니다."){
+							location.href="http://localhost:9090/contents/admin/admin_main.jsp";
+						}
+					}//success
+				});
+			}
+			
+		});
+	});
+</script>
 
 </head>
 <body>
@@ -60,11 +88,11 @@ div#admin_login > section form button{
 	<h1>관리자 로그인</h1>
 	<section>
 		<div>
-			<form action="#" method="post" name="admin_login">
-				<input type="text" placeholder="아이디"/>
-				<input type="password"  placeholder="패스워드"/>
+			<form method="post" name="admin_login" id="adminloginform">
+				<input type="text" name="id" placeholder="아이디" id="adminlogin_id1"/>
+				<input type="password" name="pw" placeholder="패스워드" id="adminlogin_pw1"/>
 				
-			<a href="admin_main.jsp"><button type="button">로그인</button></a>
+			<button type="button" id="adminloginbtn">로그인</button>
 			</form>
 		</div>
 	</section>

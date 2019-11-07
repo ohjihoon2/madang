@@ -176,7 +176,7 @@ $(document).ready(function(){
 			<table>
 				<tr>
 					<th>신청 담당자</th>
-					<td><%=gvo.getName()%> (<%=rvo.getR_id() %>)</td>
+					<td><%=gvo.getName()%> (<a href="http://localhost:9090/contents/admin/member_counsel/admin_member_detail_group.jsp?id=<%=rvo.getR_id() %>"><%=rvo.getR_id() %></a>)</td>
 					<th>담당자 연락처</th>
 					<td><%=gvo.getPhone1()%>-<%=gvo.getPhone2()%>-<%=gvo.getPhone3()%></td>
 				</tr>

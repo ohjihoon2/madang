@@ -119,7 +119,7 @@ div#admin_member_detail_group > article button{
 					<th>사업자번호</th>
 					<td><%=vo.getC_number() %></td>
 					<th>대표번호</th>
-					<td><%=vo.getC_phone1() %> - <%=vo.getC_phone2() %> - <%=vo.getC_phone3() %></td>
+					<td><%=vo.getC_phone1()%> - <%=vo.getC_phone2() %> - <%=vo.getC_phone3() %></td>
 				</tr>
 				<tr>
 					<th>회사 우편번호</th>
@@ -133,6 +133,7 @@ div#admin_member_detail_group > article button{
 		</table>
 	</section>
 	<article>
+			<%if (rpage) %>
 			<a href="admin_member_group.jsp?page=<%=rpage%>"><button type="button">목록으로</button></a>
 	</article>
 </body>
