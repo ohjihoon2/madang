@@ -157,6 +157,23 @@ public class EventDAO {
 		return vo;
 	}
 	
+	/** 리뷰 댓글 삭제 **/
+	public boolean getEventtReplyDelete(String ev_rp_code) {
+		boolean result = false;
+		String sql = "delete event_reply where ev_rp_code=?";
+		getPreparedStatement(sql);
+		try {
+			pstmt.setString(1, ev_rp_code);
+		
+			int val = pstmt.executeUpdate();
+			if(val != 0) result = true;
+			
+		}catch(Exception e) {e.printStackTrace();}
+		
+		return result;
+	}
+	
+	
 	/**  占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈뱜 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占�  **/
 	public ArrayList<EventReplyVO> getResultReplyList(String ev_code){
 		

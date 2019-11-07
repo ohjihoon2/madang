@@ -48,7 +48,7 @@ public class EventService {
 		EventVO vo = new EventVO();
 		EventDAO dao = new EventDAO();
 		vo = dao.getResultVO(ev_code);
-		
+		System.out.println("title"+vo.getEv_title());			
 		return vo;	
 	}
 	
@@ -121,5 +121,16 @@ public class EventService {
 		dao.close();
 		return result;
 	}
+	
+	//리뷰 댓글 삭제
+	public boolean getEventReplyDelete(String ev_rp_code) {
+		boolean result = false;
+		EventDAO dao = new EventDAO();
+		result = dao.getEventtReplyDelete(ev_rp_code);
+		
+		dao.close();
+		return result;
+	}
+	
 	
 }

@@ -21,7 +21,7 @@
 		response.sendRedirect("../../errorPage.jsp");
 	}
 	
-%>    
+%>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,8 +31,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
 /* The Modal (background) */
- .modal, .modal_rep {
-     display: none; /* Hidden by default */
+ .modal {
+     display: none;  /* Hidden by default */
+     position: fixed; /* Stay in place */
+     z-index: 1; /* Sit on top */
+     left: 0;
+     top: 0;
+     width: 100%; /* Full width */
+     height: 100%; /* Full height */
+     overflow: auto; /* Enable scroll if needed */
+     background-color: rgb(0,0,0); /* Fallback color */
+     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+ }
+ .modal_rep {
      position: fixed; /* Stay in place */
      z-index: 1; /* Sit on top */
      left: 0;
@@ -76,6 +87,61 @@
 	padding: 10px 50px 10px 50px;
 	margin-top: 20px;
  }
+
+
+
+
+/* 삭제 모달창 */
+div#content div#modal1 {      /* 모달창 바깥에 불투명 배경 부분 */
+   position: fixed;
+   z-index: 1;
+   left: 0; top: 0;
+   width: 100%; height: 100%;
+   background-color: rgb(0,0,0); /* Fallback color */
+   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+div#content div#modal1>div#modal-content {
+   background-color: white;
+   border-radius: 15px;
+   width: 400px; height: 250px;
+   position: fixed;
+   text-align:center;
+   left: 50%;
+   top: 50%;
+   margin: -125px 0px 0px -200px;
+}
+div#content div#modal1>div#modal-content>div:nth-child(2) {font-size: 11pt; padding-top: 80px;}
+div#content div#modal1>div#modal-content>div:last-child {padding-top: 20px;}
+div#content div#modal1>div#modal-content>div:last-child button {
+/*    width: 50px; height: 30px;
+   background-color: #0a346f;
+   color: white;
+   border: none;
+   font-size: 10pt;
+   margin-right: 5px; */
+   	border: 1px solid rgb(155, 155, 155);
+	border-radius: 10px;
+	color: rgb(5, 135, 94);
+	background: white;
+	padding: 7px 20px 7px 20px;
+	margin-right: 20px;
+}
+
+/* X(닫기) 버튼 */
+div#content div#modal1>div#modal-content>span#close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+div#content div#modal1>div#modal-content>span#close:hover,
+div#content div#modal1>div#modal-content>span#close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 
 </style>
@@ -152,9 +218,9 @@
         }
 	});	  
 	
-	$("button#btnDE").click(function(){
+	/* $("button#btnDE").click(function(){
 
-		/* 모달 */
+		 모달 
         // Get the modal
         var modal_rep = document.getElementById("myModal_rep");
         // Get the button that opens the modal
@@ -181,7 +247,22 @@
                 modal_rep.style.display = "none";
             }
         }
-	});
+	}); */
+    $("div#modal1").hide();
+    
+    $("#btnDE").click(function() {
+       $("div#modal1").show();
+    });
+    
+    $("span#close").click(function() {
+       $("div#modal1").hide();
+    });
+    
+    $("button#close").click(function() {
+       $("div#modal1").hide();
+    });      
+     
+
 
 
 	  
@@ -260,30 +341,27 @@
 					<%} 
 					}%>
 					</li>
-					<li id="list_reply"><%=rvo.getRv_rp_content() %></li>			
-					<input type="hidden" id="rv_rp_code" value="<%=rvo.getRv_rp_code() %>">		
+					<li id="list_reply"><%=rvo.getRv_rp_content() %></li>
+					
+				<div id="modal1">
+            		<div id="modal-content">
+               		<span id="close">&times;</span>
+              		 <div>
+                  		삭제한 문의는 복구하실 수 없습니다.<br>정말 삭제하시겠습니까?
+               		</div>
+               		<div>
+	                  <a href="review_reply_delete.jsp?rv_rp_code=<%=rvo.getRv_rp_code() %>&rv_code=<%=rv_code %>"><button type="button" id="btnRplDEL"> 댓글삭제 </button></a>
+	                  <button type="button" id="close">취소</button>
+               		</div>
+            		</div>
+         		</div>		
+							
 				</ul>
 				<%}
-				
-					String rv_rp_code = request.getParameter("rv_rp_code");
 				%>
 				
 						
-				
- 				<!-- Trigger/Open The Modal -->
-			 
-			    <!-- The Modal -->
-			    <div id="myModal_rep" class="modal_rep">
-			 
-			      <!-- Modal content -->
-			      <div class="modal-content_rep">
-			        <span class="close_rep">&times;</span>                                                               
-			        <p>댓글은 많을 수록 좋은데...<br><br>그럼에도 불구하고<br><br>댓글을 삭제하시겠습니까?</p>
-			        <a href="review_reply_delete.jsp?rv_rp_code=<%=rv_rp_code %>"><button type="button" id="btnRplDEL"> 댓글 삭제 </button></a>
-			      </div>
-			 
-			    </div>
-					
+
 			
 				<div id="btnMore_div">
 					<button type="button" id="btnMore">

@@ -19,52 +19,66 @@
 <link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
-/* The Modal (background) */
- .modal {
-     display: none; /* Hidden by default */
-     position: fixed; /* Stay in place */
-     z-index: 1; /* Sit on top */
-     left: 0;
-     top: 0;
-     width: 100%; /* Full width */
-     height: 100%; /* Full height */
-     overflow: auto; /* Enable scroll if needed */
-     background-color: rgb(0,0,0); /* Fallback color */
-     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
- }
+/* 삭제 모달창 */
+div#modalEV {      /* 모달창 바깥에 불투명 배경 부분 */
+   position: fixed;
+   z-index: 1;
+   left: 0; top: 0;
+   width: 100%; height: 100%;
+   background-color: rgb(0,0,0); /* Fallback color */
+   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+div#modalEV>div#modal-contentEV {
+   background-color: white;
+   border-radius: 15px;
+   width: 400px; height: 250px;
+   position: fixed;
+   text-align:center;
+   left: 50%;
+   top: 50%;
+   margin: -125px 0px 0px -200px;
+}
+div#modalEV>div#modal-contentEV>div:nth-child(2) {font-size: 11pt; padding-top: 80px;}
+div#modalEV>div#modal-contentEV>div:last-child {padding-top: 20px;}
+div#modalEV>div#modal-contentEV>div:last-child button {
+/*    width: 50px; height: 30px;
+   background-color: #0a346f;
+   color: white;
+   border: none;
+   font-size: 10pt;
+   margin-right: 5px; */
+   	border: 1px solid rgb(155, 155, 155);
+	border-radius: 10px;
+	color: rgb(5, 135, 94);
+	background: white;
+	padding: 7px 20px 7px 20px;
+	margin-right: 20px;
+}
 
- /* Modal Content/Box */
- .modal-content {
-     background-color: #fefefe;
-     margin: 15% auto; /* 15% from the top and centered */
-     padding: 20px;
-     border: 1px solid #888;
-     width: 30%; /* Could be more or less, depending on screen size */
-     height: 15%;
-     text-align:center;                         
- }
- /* The Close Button */
- .close {
-     color: #aaa;
-     float: right;
-     font-size: 28px;
-     font-weight: bold;
- }
- .close:hover,
- .close:focus {
-     color: black;
-     text-decoration: none;
-     cursor: pointer;
- }
+/* X(닫기) 버튼 */
+div#modalEV>div#modal-contentEV>span#closeEV {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+div#modalEV>div#modal-contentEV>span#closeEV:hover,
+div#modalEV>div#modal-contentEV>span#closeEV:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
  
- #btnEvDEL{
+/*  #btnEvDEL{
 	border: 1px solid rgb(155, 155, 155);
 	border-radius: 10px;
 	color: rgb(5, 135, 94);
 	background: white;
 	padding: 10px 50px 10px 50px;
 	margin-top: 20px;
- }
+ } */
 
 
 </style>
@@ -160,7 +174,7 @@
 			$("#replyEmpty").hide();
 		});
 		
-		$("button#btnEvDE").click(function(){
+		$("button#btnRE").click(function(){
 			
 			$.ajax({
 				url:"event_reply_update.jsp?ev_rp_code="+ev_rp_code+"&ev_rp_content="+new_content,
@@ -180,36 +194,22 @@
 		});
 		
 		
-		$("button#btnEvDE").click(function(){
-			/* 모달  */
-	        // Get the modal
-	        var modal = document.getElementById('myModal');
-	 
-	        // Get the button that opens the modal
-	        var btn = document.getElementById("btnEvDE");
-	       
-	 
-	        // Get the <span> element that closes the modal
-	        var span = document.getElementsByClassName("close")[0];                                          
-	 
-	        // When the user clicks on the button, open the modal 
-	        btn.onclick = function() {
-	            modal.style.display = "block";
-	        }
-	 
-	        // When the user clicks on <span> (x), close the modal
-	        span.onclick = function() {
-	            modal.style.display = "none";
-	        }
-	 
-	        // When the user clicks anywhere outside of the modal, close it
-	        window.onclick = function(event) {
-	            if (event.target == modal) {
-	                modal.style.display = "none";
-	            }
-	        }
-		});
 		
+		
+	    $("div#modalEV").hide();
+	    
+	    $("#btnEvDE").click(function() {
+	    	alert("aa");
+	       $("div#modalEV").show();
+	    });
+	    
+	    $("span#closeEV").click(function() {
+	       $("div#modalEV").hide();
+	    });
+	    
+	    $("button#closeEV").click(function() {
+	       $("div#modalEV").hide();
+	    });   
 		
 	});
 </script>
@@ -260,23 +260,25 @@
 				<input type="hidden" id="ev_rp_code" value="<%=rvo.getEv_rp_code() %>">			
 							
 			</ul>
+			
+			<div id="modalEV">
+            		<div id="modal-contentEV">
+               		<span id="closeEV">&times;</span>
+              		 <div>
+                  		삭제한 문의는 복구하실 수 없습니다.<br>정말 삭제하시겠습니까?
+               		</div>
+               		<div>
+	                  <a href="event_reply_delete_process.jsp?ev_rp_code=<%=rvo.getEv_rp_code() %>&ev_code=<%=ev_code %>"><button type="button" id="btnRplDEL"> 댓글삭제 </button></a>
+	                  <button type="button" id="closeEV">취소</button>
+               		</div>
+            		</div>
+         		</div>
+			
 			<%}%>
 		</div>	
 		
 		
-			<!-- Trigger/Open The Modal -->
-			 
-			    <!-- The Modal -->
-			    <div id="myModal" class="modal">
-			 
-			      <!-- Modal content -->
-			      <div class="modal-content">
-			        <span class="close">&times;</span>                                                               
-			        <p>삭제 시 해당 이벤트 참여에 불이익을 받을 수 있습니다.<br>그래도 삭제하시겠습니까?</p>
-			        <a href="event_reply_delete.jsp?ev_rp_code=<%=ev_rp_code%>"><button type="button" id="btnEvDEL"> 삭제 </button></a>
-			      </div>
-			 
-			    </div>
+
 
 		
 		<div id="btnMore_div">

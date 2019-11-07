@@ -258,7 +258,7 @@ public class ReviewDAO {
 				vo.setRv_code(rs.getString(3));
 				vo.setRv_rp_id(rs.getString(4));
 				vo.setRv_rp_date(rs.getString(5));
-				
+System.out.println("code: "+vo.getRv_rp_code());				
 				list.add(vo);
 			}
 			
