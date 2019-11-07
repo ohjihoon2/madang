@@ -28,6 +28,26 @@
 <title>Insert title here</title>
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <script src="http://localhost:9090/js/madang.js"></script>
+<script>
+
+	$(document).ready(function(){
+		var id = '<%=id%>';
+		alert(id);
+		//팝업창 
+		$('.ticketing_popup').click(function(){
+			var code = $('.'+$(this).attr("id")).val();
+			alert(code);
+			//예매 팝업 validation
+			 if(id ==null){
+				alert("로그인시 이용가능합니다. 로그인 페이지로 이동합니다.");
+				location.replace("http://localhost:9090/contents/login/login.jsp");
+			}else{
+		  		window.open("ticket_exhibition.jsp?exhibition_code="+code, "window팝업", "width=1000, height=700, left=400, top=200");
+			} 
+			return false;
+		});
+	});
+</script>
 <style>
 	
 	*{
@@ -114,8 +134,8 @@
 	.exhibition_info_text>div{
 		font-size: 11pt;
 	} 
-		
-	div.exhibition_info_text>div>a{
+	
+	.ticketing_popup{
 		display:inline-block;
 		color:#e5002c;
 		border:1px solid #e5002c;
@@ -221,7 +241,8 @@
 						<div>
 							<div><%=list.get(i).getE_place() %></div>
 							<span><%=list.get(i).getE_sdate()%> ~ <%=list.get(i).getE_edate() %></span><br>
-							<a href="#">현장판매</a>
+							<input type="hidden" value="<%=list.get(i).getExhibition_code()%>" class="code<%=i%>"/>
+							<input type="button" value="예매" class="ticketing_popup" id="code<%=i%>"/>
 						</div>
 					</div>
 				</div>

@@ -2,11 +2,11 @@
     pageEncoding="UTF-8" import="com.madang.vo.*, com.madang.service.*"%>
 <%@ page import="com.madang.vo.Bookmark_VO, com.madang.service.Bookmark_Service" %>
 <%
-	String code = request.getParameter("exhibition_code");
-	out.write(code);
+	String exhibitioCode = request.getParameter("exhibition_code");
+	out.write(exhibitioCode);
 	ExhibitionService service = new ExhibitionService();
 	ExhibitionVO vo = new ExhibitionVO();
-	vo =service.getResultExhibition(code);
+	vo =service.getResultExhibition(exhibitioCode);
 
 %>
 <% /* 찜 등록/삭제 */
@@ -32,9 +32,6 @@
 	String bmark_code="";
 	bmark_code=b_service.getExhibBmarkCode(vo.getExhibition_code(), id);
 %>
-document.write(<%= bmark_code %>);
-document.write(<%= code %>);
-document.write(<%= vo.getExhibition_code() %>);
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,7 +66,7 @@ $(document).ready(function(){
 			} else if (bmark_val=="off") {
 				//등록
 				$.ajax({
-					url:"../mypage/bookmark_add_process.jsp?exhib_code=<%= code %>",
+					url:"../mypage/bookmark_add_process.jsp?exhib_code=<%= exhibitioCode %>",
 					success:function(result) {
 						//alert(result); 1이면 성공
 						if(result!=0) {
@@ -316,10 +313,6 @@ $(document).ready(function(){
 					</tr>
 				</table>
 				<a href="#">예매하기</a>
-				
-				<!-- 찜 등록/삭제 버튼 -->
-				<img id="<%= bmark_code %>" src="http://localhost:9090/images/bookmark/<%= on_off %>.png" class="bmark_heart" value="<%= val %>" />
-				
 			</div>
 			<div class="exhibitition_text">
 				<img src="http://localhost:9090/images/exhibition/<%=vo.getE_info_poster() %>" id="content_image">

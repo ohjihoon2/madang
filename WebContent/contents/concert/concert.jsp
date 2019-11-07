@@ -30,16 +30,17 @@
 <script>
 	
 	$(document).ready(function(){
-		var id = "<%=id%>";
+		var id = '<%=id%>';
+		alert(id);
 		//팝업창 
 		$('.ticketing_popup').click(function(){
 			var code = $('.'+$(this).attr("id")).val();
 			//예매 팝업 validation
-			 if(id ==null || id==" "){
+			 if(id ==null){
 				alert("로그인시 이용가능합니다. 로그인 페이지로 이동합니다.");
 				location.replace("http://localhost:9090/contents/login/login.jsp");
 			}else{
-		  		window.open("ticket.jsp?code="+code, "window팝업", "width=1000, height=700, left=400, top=200");
+		  		window.open("ticket_concert.jsp?code="+code, "window팝업", "width=1000, height=700, left=400, top=200");
 			} 
 			return false;
 		});

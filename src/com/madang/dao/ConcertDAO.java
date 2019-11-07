@@ -179,7 +179,7 @@ public class ConcertDAO {
 	public boolean getResultInsertTC(ConcertTicketVO vo) {
 		boolean result = false;
 		String sql = "insert all"
-				+ "			into ticket_concert values( 'tc_'||LPAD(to_char(SQU_TICKET_CONCERT_CODE.NEXTVAL),3,'0' ),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,p_code,sysdate)"
+				+ "			into ticket_concert values( 'tc_'||LPAD(to_char(SQU_TICKET_CONCERT_CODE.NEXTVAL),3,'0' ),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,p_code,sysdate,?)"
 				+ "			select rownum rno, p_code"
 				+ "			from (SELECT * FROM PURCHASE"
 				+"			WHERE TCE_CODE=? "  
@@ -204,7 +204,8 @@ public class ConcertDAO {
 			pstmt.setString(13, vo.getTc_phone2());
 			pstmt.setString(14, vo.getTc_phone3());
 			pstmt.setString(15, vo.getTc_email());
-			pstmt.setString(16, vo.getConcert_code());
+			pstmt.setString(16, vo.getTc_d());
+			pstmt.setString(17, vo.getConcert_code());
 			
 			int val = pstmt.executeUpdate();
 			

@@ -530,7 +530,7 @@
 		**/
 	    $( function() {
 	  		$("#datepicker").datepicker({
-	      		dateFormat: 'yy- mm- dd ' //Input Display Format 변경
+	      		dateFormat: 'yy-mm-dd ' //Input Display Format 변경
 		        ,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
 		        ,showMonthAfterYear:true //년도 먼저 나오고, 뒤에 월 표시
 		        ,showOn: "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시  
@@ -548,15 +548,14 @@
 		            var date = $(this).val();
 		            var picdate = date;    
 		            var yyyy = picdate.substr(0,4);
-		            var mm = picdate.substr(6,2);
-		            var dd = picdate.substr(10,2); 
+		            var mm = picdate.substr(5,2);
+		            var dd = picdate.substr(8,2); 
+		  			var seldate = new Date(yyyy, mm-1, dd);
 
-		  			var seldate = new Date(yyyy, mm-1, dd-1);
-
-		  	        var  month = (seldate.getMonth() + 1);
-		  	        var day = seldate.getDate();
+		  	        var month = (seldate.getMonth() + 1);
+		  	        var day = (seldate.getDate()-1);
 		  	       	var year = seldate.getFullYear();
-		            var canceldate = year+'- '+month+'- '+day+' ';
+		            var canceldate = year+'-'+month+'-'+day+' ';
 		            
 		            var dateText = $("table.myticket_t > tbody > tr:nth-child(1) > td");
 		  			var cancelText = $("table.myticket_t > tbody > tr:nth-child(5) > td");
@@ -614,9 +613,11 @@
 	 		* 선택 좌석 개수 구하기
 	 		**/
 			rows = seatText.text().split('석').length;
+			$("#step3 > div > p > span").empty();
+			$("#step3 > div > p > span").append((rows-1));
+			
 		 	
 		});
-		
 	      $(".bseat_num").click(function(){
 		         var anum = $(this).attr("id");
 		         var seatText =$("table.myticket_t > tbody > tr:nth-child(2) > td");
@@ -646,9 +647,10 @@
 		 		**/
 				rows = seatText.text().split('석').length;
 			 	
+				   				
 			});
-		
-		
+	      
+	    
   		/**
  		* step3 가격/할인 선택 validation
  		**/
@@ -660,6 +662,8 @@
 			
 			countSum = genCount+disCount1+disCount2;
 			choiceCount = rows-1;
+			
+			
 			
 			//콤마풀기
 			function uncomma(str) {
@@ -729,7 +733,17 @@
 			} 
 		});
 		
-
+		var tc_payw = '62';
+		$("#DiscountCard").click(function(){
+			tc_payw = 	$('#DiscountCard option:selected').val();
+		});
+		$("#Payment_1").click(function(){
+			tc_payw = 	$('#DiscountCard option:selected').val();
+		});
+		
+		$("#Payment_2").click(function(){
+			tc_payw = 	$('#Account option:selected').val();
+		});
 
 		
 		//버튼 클릭시 페이지 이동
@@ -843,7 +857,7 @@
 						//결제방식
 						var tc_paym = $(':radio[name="Payment"]:checked').val();
 						//결제수단
-						var tc_payw = $('#DiscountCard option:selected').val();
+						var tc_d = $("div.ticketing_info_my_ticket > table > tbody > tr:nth-child(1) > td > span:nth-child(1)").text();
 						var tc_pays = '';
 						//결제상태
 						if(tc_paym == 1){
@@ -852,11 +866,10 @@
 							tc_pays = 'wait';
 						}
 						$.ajax({
-							url :"ticket_process.jsp?code=<%=code%>&tc_cdate="+tc_cdate+"&tc_cplace=<%=place%>+&tc_cseat="+tc_cseat+"&tc_canceld="+tc_canceld+"&tc_cancelc="+tc_cancelc+"&tc_price="+tc_price+"&tc_recive="+tc_recive+"&tc_id=<%=mvo.getId() %>&tc_name=<%=mvo.getName() %>&tc_birth=<%=mvo.getBirth() %>&tc_phone1="+tc_phone1+"&tc_phone2="+tc_phone2+"&tc_phone3="+tc_phone3+"&tc_email="+tc_email+"&tc_paym="+tc_paym+"&tc_payw="+tc_payw+"&tc_pays="+tc_pays,
+							url :"ticket_process.jsp?code=<%=code%>&tc_cdate="+tc_cdate+"&tc_cplace=<%=place%>+&tc_cseat="+tc_cseat+"&tc_canceld="+tc_canceld+"&tc_cancelc="+tc_cancelc+"&tc_price="+tc_price+"&tc_recive="+tc_recive+"&tc_id=<%=mvo.getId() %>&tc_name=<%=mvo.getName() %>&tc_birth=<%=mvo.getBirth() %>&tc_phone1="+tc_phone1+"&tc_phone2="+tc_phone2+"&tc_phone3="+tc_phone3+"&tc_email="+tc_email+"&tc_paym="+tc_paym+"&tc_payw="+tc_payw+"&tc_pays="+tc_pays+"&tc_d="+tc_d,
 									
 							success : function(data){
 								data2 = $.trim(data) 
-								alert(data2);
 								if(data2 == 'true'){
 									alert("예매가 완료 되었습니다.")
 									window.close();									
@@ -888,7 +901,7 @@
 				$(".btn_back").hide();
 				$(".btn_next2").hide();
 				$(".btn_payment").hide();
-			}else if( status ==2){
+			}else if( status ==2){	
 				$("div#step1").css("display","none");
 				$("div#step2").css("display","block");
 				$("div#step3").css("display","none");
@@ -1116,14 +1129,14 @@
 		<!-- #################################################### -->
 		<div class="ticketing_left" id="step3">
 			<div class="price">
-            	<p class="stit"><span class="col1">좌석 1매</span>를 선택하셨습니다.</p>
+            	<p class="stit">좌석을 <span class="col1"></span> 매 선택하셨습니다.</p>
 	            <table class="Tb_price_Wp">
 	                	<tr>
 		                    <th>
 		                    	기본가<span class="pt"></span>
 		                    </th>
 	                   		<td>일반</td>
-                            <td class="taR" id="taR1">90,000원</td>
+                            <td class="taR" id="taR1"><%=cvo.getC_price() %> 원</td>
                             <td class="taL">
 								<select name="SeatCount" class="SeatCount" id="SeatCount1">
                                     <!-- <option value="0">0매</option><option value="1">1매</option> -->
@@ -1135,7 +1148,7 @@
 		                    	기본할인<span class="pt"></span>
 		                    </th>
 	                   		<td>장애인 할인(동반1인까지)50%</td>
-                            <td class="taR" id="taR2">45,000원</td>
+                            <td class="taR" id="taR2"><%=cvo.getC_price()/2 %> 원</td>
                             <td class="taL">
 								<select name="SeatCount" class="SeatCount" id="SeatCount2">
                                     <!-- <option value="0">0매</option><option value="1">1매</option> -->
@@ -1147,7 +1160,7 @@
 		                    	기본할인<span class="pt"></span>
 		                    </th>
 	                   		<td>국가유공자 할인(동반1인까지)50%</td>
-                            <td class="taR" id="taR3">45,000원</td>
+                            <td class="taR" id="taR3"><%=cvo.getC_price() %> 원</td>
                             <td class="taL">
 								<select name="SeatCount" class="SeatCount" id="SeatCount3">
                                     <!-- <option value="0">0매</option><option value="1">1매</option> -->
@@ -1229,13 +1242,13 @@
 	                	</tr>
 	                	<tr>
 	                		<td>
-			                 	<input type="radio" checked="checked" name="PaymentSelect" id="PaymentSelect" value="C1" >       
+			                 	<input type="radio" checked="checked" name="PaymentSelect1" id="PaymentSelect" value="C1" >       
 			                 	<label for="">일반신용카드</label>       
-			                 	<select id="DiscountCard" onchange="fnCardSelect(this.value);"><option value="62">KB국민카드</option><option value="67">BC카드</option><option value="65">삼성카드</option><option value="26006">현대카드</option><option value="26010">신한카드</option><option value="26008">롯데카드</option><option value="26011">하나카드</option><option value="63">외환카드</option><option value="26013">NH카드</option><option value="64">우리카드</option><option value="53">씨티카드</option><option value="73">수협카드</option><option value="37">전북카드</option><option value="34">광주카드</option><option value="35">제주카드</option><option value="26016">문화누리카드</option></select> <div id="divCardDetail01"></div>
+			                 	<select id="DiscountCard"><option value="62">KB국민카드</option><option value="67">BC카드</option><option value="65">삼성카드</option><option value="26006">현대카드</option><option value="26010">신한카드</option><option value="26008">롯데카드</option><option value="26011">하나카드</option><option value="63">외환카드</option><option value="26013">NH카드</option><option value="64">우리카드</option><option value="53">씨티카드</option><option value="73">수협카드</option><option value="37">전북카드</option><option value="34">광주카드</option><option value="35">제주카드</option><option value="26016">문화누리카드</option></select> <div id="divCardDetail01"></div>
 	                		</td>
 	                	</tr>
 	                	<tr>
-	                		<td>결제금액 : 150,000원</td>
+	                		<td>결제금액 : <%=cvo.getC_price() %> 원</td>
 	                	</tr>
                  	</table>
                	</div>
@@ -1243,7 +1256,8 @@
 
             <!-- //무통장입금   -->
             <div class="input" style="display: none;" id="PaymentArea_2">
-                <p class="stit">무통장입금</p>
+            	<input type="radio" checked="checked" name="PaymentSelect2" id="PaymentSelect" value="C1" >
+               	<select id="Account"><option value="0">무통장입금</option></select>
                 <div id="accountNum">
       				농협은행(123-02-037411, 예금주 : 예술의마당(주))<br>
       				우리은행(156-04-124510, 예금주 : 예술의마당(주))<br>

@@ -2,12 +2,13 @@
     pageEncoding="UTF-8" import="com.madang.service.*, com.madang.vo.*, com.madang.dao.*"%>
     
 <%
-	String code = request.getParameter("code");
-	System.out.println(code);
+	String code = request.getParameter("exhibition_code");
+	System.out.println("code = "+code);
 	String id = (String)session.getAttribute("generalID");
 	
 	ExhibitionService service = new ExhibitionService();
 	ExhibitionVO vo = service.getResultExhibition(code);
+	System.out.println("etime = "+vo.getE_etime());
 	String place =vo.getE_place().trim();
 	
 	
@@ -146,7 +147,7 @@
 	.ticketing_info_choice_text>div#text_space>ul>li{
 		list-style-type:none;
 		margin-left:-30px;
-		font-size:10pt;
+		font-size:12pt;
 	}
 	.ticketing_info_choice_img>img{
 		width:120px;
@@ -375,7 +376,7 @@
 		alert(b); --%>
 		//화면 상태 값 
 		var status = 1;
-		
+		var tcount = 0;
 		var countSum = 0;
 		var choiceCount = 0;
 		var cancelPrice = 0;
@@ -384,7 +385,6 @@
 		$("div#step2").css("display","none");
 		$("div#step3").css("display","none");
 		$("div#step4").css("display","none");
-		$("div#step5").css("display","none");
 	 	$(".btn_back").hide();
 		$(".btn_next2").hide();
 		$(".btn_payment").hide();
@@ -408,47 +408,27 @@
 		        ,maxDate:new Date(ed) //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후) */
 		        ,minDate: new Date() //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
 		        ,maxDate:new Date('<%=vo.getEnday()%>') //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
-		  		,onSelect: function(dateText, inst) { //클릭시에 date value 값 !!!!!!!!!!!!
-		            var date = $(this).val();
-		            var picdate = date;    
-		            var yyyy = picdate.substr(0,4);
-		            var mm = picdate.substr(6,2);
-		            var dd = picdate.substr(10,2); 
-
-		  			var seldate = new Date(yyyy, mm-1, dd-1);
-
-		  	        var  month = (seldate.getMonth() + 1);
-		  	        var day = seldate.getDate();
-		  	       	var year = seldate.getFullYear();
-		            var canceldate = year+'- '+month+'- '+day+' ';
-		            
-		            var dateText = $("table.myticket_t > tbody > tr:nth-child(1) > td");
-		  			var cancelText = $("table.myticket_t > tbody > tr:nth-child(5) > td");
-		  			
-		  			dateText.empty();
-		  			cancelText.empty();
-		  			
-		  			$("table.myticket_t > tbody > tr:nth-child(1) > td >span:nth-child(2)").empty();
-		  			dateText.append("<span>"+date+"</span>");
-		  			$("table.myticket_t > tbody > tr:nth-child(5) > td >span:nth-child(2)").empty();
-		  			cancelText.append("<span>"+canceldate+"23:59 </span>");
-		          
-		       }
       		});    
 		});//datepicker end 
 		
-		/**
-		* 일시 - 시간 
-		**/
-		$(".time_table>div").click(function(){
-			var time = $(this).text(); 
-			var timeText =$("table.myticket_t > tbody > tr:nth-child(1) > td");
-			$("table.myticket_t > tbody > tr:nth-child(1) > td > span.timeSpan").empty();
-			timeText.append("<span class='timeSpan'>"+time+"</span>");
-		});//일시 - 시간 end
-	
+		//취소 기한 추가하기
+		var edate = new Date('<%=vo.getEnday()%>');
+        var month = (edate.getMonth() + 1);
+        var day = (edate.getDate()-1);
+       	var year = edate.getFullYear();
+        var canceldate = year+'-'+month+'-'+day+' ';
+        
+        var cancelText = $("table.myticket_t > tbody > tr:nth-child(4) > td");
+        cancelText.append("<span>"+canceldate+"23:59 </span>");
+        
+    	$("#ticketCount").click(function(){
+			tcount = $("#ticketCount option:selected").val();
+			$("#step2 > div > p > span").empty();
+			$("#step2 > div > p > span").append(tcount);
+		});
+    	
   		/**
- 		* step3 가격/할인 선택 validation
+ 		* step2 가격/할인 선택 validation
  		**/
  		
 		$(".SeatCount").click(function(){
@@ -457,7 +437,7 @@
 			var disCount2 = Number($("#SeatCount3").val());
 			
 			countSum = genCount+disCount1+disCount2;
-			choiceCount = rows-1;
+			choiceCount = Number(tcount);
 			
 			//콤마풀기
 			function uncomma(str) {
@@ -482,10 +462,10 @@
 			var cancelPrice = sumPrice* 0.1;
 			
 			//금액이 찍히는 selector
-			var price_text = $("table.myticket_t > tbody > tr:nth-child(3) > td");
-			var discount_text = $("table.myticket_t > tbody > tr:nth-child(4) > td");
-			var cancel_price = $("table.myticket_t > tbody > tr:nth-child(6) > td");
-			var final_price = $("table.myticket_t > tbody > tr:nth-child(7) > td");
+			var price_text = $("table.myticket_t > tbody > tr:nth-child(2) > td");
+			var discount_text = $("table.myticket_t > tbody > tr:nth-child(3) > td");
+			var cancel_price = $("table.myticket_t > tbody > tr:nth-child(5) > td");
+			var final_price = $("table.myticket_t > tbody > tr:nth-child(6) > td");
 			
 			// 티켓 선택 갯수 validation
 			if(countSum > choiceCount){
@@ -511,7 +491,7 @@
 		});
   		
 		/**
-		* step5
+		* step4
 		**/
 		
 		$('input[name="Payment"]').change(function() {
@@ -527,45 +507,73 @@
 			} 
 		});
 		
+		
+		$(".seat_num").click(function(){
+	         var anum = $(this).attr("id");
+	         var seatText =$("table.myticket_t > tbody > tr:nth-child(2) > td");	
+	         var seatPic = $("#"+anum);
+	         
+	         //선택을 안했을경우
+	         var flag = $("input#"+anum).val();
+	         
+	         var position1 = anum+"석 /";
+	         var position2 =seatText.html();
+	         var position3= position2.replace(position1,"");
 
+	         
+	         if(flag ==0){
+	            seatPic.css({"border-bottom" :"10px solid rgb(155,155,155 )"});
+	            $("input#"+anum).val("1"); 
+	            seatText.append(anum+"석 /");
+	         }else{
+	            seatPic.css({"border-bottom" :"10px solid rgb(34,34,34)"});
+	            $("input#"+anum).val("0"); 
 
+	            seatText.empty();
+	            seatText.text(position3);
+	         }
+	     	/**
+	 		* 선택 좌석 개수 구하기
+	 		**/
+			rows = seatText.text().split('석').length;
+			$("#step3 > div > p > span").empty();
+			$("#step3 > div > p > span").append((rows-1));
+			
+		 	
+		});
 		
 		//버튼 클릭시 페이지 이동
 		$("button").click(function(){
 			var val = $(this).attr("id");
   		    if(status == 1){
-  		    	//유효성 검사
-   		  		status = 2;
+  		    	if($("#ticketCount").val() != 0){
+	   	 			for(i = 0;i<Number(tcount)+1;i++){
+	   	 		 		$(".SeatCount").append("<option value="+i+" class='optionCheck'>"+i+"매</option>");
+	   	 	 		}
+		   			status = 3;
+   	 			}
+  		    	if($("#ticketCount").val() != 0){
+  		    		
+	   		  		status = 2;
+  		    	}else{
+  		    		alert("구매하실 티켓 매수를 선택해주세요.")
+  		    	}
    	 		}else if(status ==2){
    	 			if(val == "btn_back"){
-   	 				status = 1;
-   	 			}else{
-   	 				//validation 
-	   	 			 if($("table.myticket_t > tbody > tr:nth-child(2) > td").text().length >= 5){
-		   	 			for(i = 0;i<rows;i++){
-		   	 		 		$(".SeatCount").append("<option value="+i+" class='optionCheck'>"+i+"매</option>");
-		   	 	 		}
-			   			status = 3;
-	   	 			}else{
-	   	 				alert("좌석을 선택해주세요.");
-	   	 			}
-   	 			}
-    	  	}else if(status ==3){
-   	 			if(val == "btn_back"){
    	 				$(".SeatCount").empty();
-   	 				status = 2;
+   	 				status = 1;
    	 			}else{
    	 				 if(countSum != 0){
    	 					if(countSum == choiceCount){
-			   			status = 4;
+			   			status = 3;
    	 					}
    	 				}else{
    	 					alert("티켓의 가격/할인을 선택해주세요.");
    	 				}
    	 			}
-    	  	}else if(status ==4){
+    	  	}else if(status ==3){
    	 			if(val == "btn_back"){
-					status = 3;
+					status = 4;
    	 			}else{
    	 			
    	 				// 이메일 유효성 정규식검사 
@@ -590,55 +598,48 @@
 	   	 					&& $("#HpNo1").val()!="" 
 	   	 					&& $("#HpNo2").val()!="" 
 	   	 					&& $("#HpNo3").val()!=""){
-				   			status = 5;
+				   			status = 4;
 		   	 		}else{
 		   	 				alert("주문자 정보를 빠짐없이 입력하세요.");
 		   	 		}
    	 			}
-    	  	}else if(status ==5){
+    	  	}else if(status ==4){
     	  		if(val == "btn_back"){
-   	 				status = 4;
+   	 				status = 3;
    	 			}else{
  					if($("input:checkbox[id='CancelAgree']").is(":checked")){
- 						//DB연결 !!!!!
- 						<%--  window.location = "ticket_process.jsp?code=<%=code%>"; --%> 
-						<%-- <%response.sendRedirect("ticket_process.jsp");%> --%>
-						<%-- //var concert_code = <%=code%>; --%> 
-						//선택관람일
-						var tc_cdate= $("table.myticket_t > tbody > tr:nth-child(1) > td").text();
-						//선택좌석
-						var tc_cseat= $("table.myticket_t > tbody > tr:nth-child(2) > td").text();
+						//선택티켓매수
+						var te_cticket= $("#ticketCount").val();
 						//취소기한
-						var tc_canceld= $("table.myticket_t > tbody > tr:nth-child(5) > td").text();
+						var te_canceld= $("table.myticket_t > tbody > tr:nth-child(4) > td").text();
 						//취소수수료
-						var tc_cancelc= $("table.myticket_t > tbody > tr:nth-child(6) > td").text();
+						var te_cancelc= $("table.myticket_t > tbody > tr:nth-child(5) > td").text();
 						//총결제금액
-						var tc_price= $("table.myticket_t > tbody > tr:nth-child(7) > td").text();
+						var te_price= $("table.myticket_t > tbody > tr:nth-child(6) > td").text();
 						//티켓 수령방법
-						var tc_recive = $(':radio[name="ticket_recive"]:checked').val();
+						var te_recive = $(':radio[name="ticket_recive"]:checked').val();
 						//휴대폰
-						var tc_phone1 = $("#HpNo1").val();
-						var tc_phone2 = $("#HpNo2").val();
-						var tc_phone3 = $("#HpNo3").val();
+						var te_phone1 = $("#HpNo1").val();
+						var te_phone2 = $("#HpNo2").val();
+						var te_phone3 = $("#HpNo3").val();
 						//이메일
-						var tc_email = $("#Email").val();
+						var te_email = $("#Email").val();
 						//결제방식
-						var tc_paym = $(':radio[name="Payment"]:checked').val();
+						var te_paym = $(':radio[name="Payment"]:checked').val();
 						//결제수단
-						var tc_payw = $('#DiscountCard option:selected').val();
-						var tc_pays = '';
+						var te_payw = $('#DiscountCard option:selected').val();
+						var te_pays = '';
 						//결제상태
-						if(tc_paym == 1){
-							tc_pays ='complete';
+						if(te_paym == 1){
+							te_pays ='complete';
 						}else{
-							tc_pays = 'wait';
+							te_pays = 'wait';
 						}
 						$.ajax({
-							url :"exhibition_process.jsp?code=<%=code%>&tc_cdate="+tc_cdate+"&tc_cplace=<%=place%>+&tc_cseat="+tc_cseat+"&tc_canceld="+tc_canceld+"&tc_cancelc="+tc_cancelc+"&tc_price="+tc_price+"&tc_recive="+tc_recive+"&tc_id=<%=mvo.getId() %>&tc_name=<%=mvo.getName() %>&tc_birth=<%=mvo.getBirth() %>&tc_phone1="+tc_phone1+"&tc_phone2="+tc_phone2+"&tc_phone3="+tc_phone3+"&tc_email="+tc_email+"&tc_paym="+tc_paym+"&tc_payw="+tc_payw+"&tc_pays="+tc_pays,
+							url :"ticket_exhibition_process.jsp?code=<%=code%>&te_cplace=<%=place%>+&te_cticket="+te_cticket+"&te_canceld="+te_canceld+"&te_cancelc="+te_cancelc+"&te_price="+te_price+"&te_recive="+te_recive+"&te_id=<%=mvo.getId() %>&te_name=<%=mvo.getName() %>&te_birth=<%=mvo.getBirth() %>&te_phone1="+te_phone1+"&te_phone2="+te_phone2+"&te_phone3="+te_phone3+"&te_email="+te_email+"&te_paym="+te_paym+"&te_payw="+te_payw+"&te_pays="+te_pays,
 									
 							success : function(data){
 								data2 = $.trim(data) 
-								alert(data2);
 								if(data2 == 'true'){
 									alert("예매가 완료 되었습니다.")
 									window.close();									
@@ -659,13 +660,11 @@
 				$("div#step2").css("display","none");
 				$("div#step3").css("display","none");
 				$("div#step4").css("display","none");
-				$("div#step5").css("display","none");
 				
 				$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_on.gif");	
 				$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
 				$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
 				$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
-				$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_off.gif");
 				$(".btn_next1").show();
 				$(".btn_back").hide();
 				$(".btn_next2").hide();
@@ -675,13 +674,11 @@
 				$("div#step2").css("display","block");
 				$("div#step3").css("display","none");
 				$("div#step4").css("display","none");
-				$("div#step5").css("display","none");
 				
 				$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_off.gif");	
 				$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_on.gif");	
 				$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
 				$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
-				$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_off.gif");	
 				$(".btn_next1").hide();
 				$(".btn_back").show();
 				$(".btn_next2").show();
@@ -692,13 +689,11 @@
 				$("div#step2").css("display","none");
 				$("div#step3").css("display","block");
 				$("div#step4").css("display","none");
-				$("div#step5").css("display","none");
 				
 				$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_off.gif");	
 				$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
 				$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_on.gif");	
 				$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
-				$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_off.gif");	
 				$(".btn_next1").hide();
 				$(".btn_back").show();
 				$(".btn_next2").show();
@@ -708,29 +703,11 @@
 				$("div#step2").css("display","none");
 				$("div#step3").css("display","none");
 				$("div#step4").css("display","block");
-				$("div#step5").css("display","none");
 				
 				$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_off.gif");	
 				$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
 				$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
 				$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_on.gif");	
-				$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_off.gif");	
-				$(".btn_next1").hide();
-				$(".btn_back").show();
-				$(".btn_next2").show();
-				$(".btn_payment").hide();
-			}else if(status ==5){
-				$("div#step1").css("display","none");
-				$("div#step2").css("display","none");
-				$("div#step3").css("display","none");
-				$("div#step4").css("display","none");
-				$("div#step5").css("display","block");
-				
-				$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_off.gif");	
-				$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
-				$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
-				$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
-				$("#step5").attr("src", "http://localhost:9090/images/ticketing/05_step_05_on.gif");	
 				$(".btn_next1").hide();
 				$(".btn_back").show();
 				$(".btn_next2").hide();
@@ -738,14 +715,6 @@
 			}
     	});  
   		
-		function seat_check(seat){
-			for(i=0;i<seat.length;i++){
-				$("#"+seat[i]).css("border-radius", "5px");
-				$("#"+seat[i]).css("border", "1px solid red");
-				$("#"+seat[i]).css("pointer-events", "none");
-				$("#"+seat[i]).css("border-bottom", "10px solid red");
-			}
-		}
 	});//document.ready() end
 	
 
@@ -761,18 +730,31 @@
 				<li><img src="http://localhost:9090/images/ticketing/05_step_02_off.gif" id="step2" class="step"></li>
 				<li><img src="http://localhost:9090/images/ticketing/05_step_03_off.gif" id="step3" class="step"></li>
 				<li><img src="http://localhost:9090/images/ticketing/05_step_04_off.gif" id="step4" class="step"></li>
-				<li><img src="http://localhost:9090/images/ticketing/05_step_05_off.gif" id="step5" class="step"></li>
 			</ul>
 		</div>
 		<!-- #################################################### -->
 		<div class="ticketing_left" id="step1">
 			<div class="day_choice">
-				<span>관람일 선택</span>
+				<span>관람 가능일짜</span>
 				<div class="calender">
 					<div id="datepicker"></div>
 			    </div>
 			</div>
 			<div class="time_table">
+			<span>티켓 개수</span>
+				<select name="ticketCount" class="ticketCount" id="ticketCount">
+                                   	<option value="0">0매</option>
+									<option value="1">1매</option>
+									<option value="2">2매</option>
+									<option value="3">3매</option>
+									<option value="4">4매</option>
+									<option value="5">5매</option>
+									<option value="6">6매</option>
+									<option value="7">7매</option>
+									<option value="8">8매</option>
+									<option value="9">9매</option>
+									<option value="10">10매</option>
+                   </select>
 			</div>
 			<div class="ticketing_notice">
 				<div>유의사항</div>
@@ -787,21 +769,17 @@
 				</ul>
 			</div>
 		</div>
-		
 		<!-- #################################################### -->
 		<div class="ticketing_left" id="step2">
-		</div>
-		<!-- #################################################### -->
-		<div class="ticketing_left" id="step3">
 			<div class="price">
-            	<p class="stit"><span class="col1">좌석 1매</span>를 선택하셨습니다.</p>
+            	<p class="stit">전시 티켓 <span class="col1"></span> 매를 선택하셨습니다.</p>
 	            <table class="Tb_price_Wp">
 	                	<tr>
 		                    <th>
 		                    	기본가<span class="pt"></span>
 		                    </th>
 	                   		<td>일반</td>
-                            <td class="taR" id="taR1">90,000원</td>
+                            <td class="taR" id="taR1"><%=vo.getE_price() %> 원</td>
                             <td class="taL">
 								<select name="SeatCount" class="SeatCount" id="SeatCount1">
                                     <!-- <option value="0">0매</option><option value="1">1매</option> -->
@@ -813,7 +791,7 @@
 		                    	기본할인<span class="pt"></span>
 		                    </th>
 	                   		<td>장애인 할인(동반1인까지)50%</td>
-                            <td class="taR" id="taR2">45,000원</td>
+                            <td class="taR" id="taR2"><%=vo.getE_price()/2 %> 원</td>
                             <td class="taL">
 								<select name="SeatCount" class="SeatCount" id="SeatCount2">
                                     <!-- <option value="0">0매</option><option value="1">1매</option> -->
@@ -825,7 +803,7 @@
 		                    	기본할인<span class="pt"></span>
 		                    </th>
 	                   		<td>국가유공자 할인(동반1인까지)50%</td>
-                            <td class="taR" id="taR3">45,000원</td>
+                            <td class="taR" id="taR3"><%=vo.getE_price()/2 %> 원</td>
                             <td class="taL">
 								<select name="SeatCount" class="SeatCount" id="SeatCount3">
                                     <!-- <option value="0">0매</option><option value="1">1매</option> -->
@@ -836,7 +814,7 @@
         	</div>
 		</div>
 		<!-- #################################################### -->
-		<div class="ticketing_left" id="step4">
+		<div class="ticketing_left" id="step3">
 			<div class="recive_method">
 				<div>티켓수령방법</div>
 				<input type="radio" name="ticket_recive" value="1" checked="checked" class="ticket_recive"><span>현장수령</span>
@@ -882,7 +860,7 @@
 		</div>
 		
 		<!-- #################################################### -->
-		<div class="ticketing_left" id="step5">
+		<div class="ticketing_left" id="step4">
 			<div class="payment_L">
 				<div>결제방식선택</div>
 	            <table class="paymentT">
@@ -985,17 +963,17 @@
 		<div class="ticketing_info">
 			<div class="ticketing_info_choice">
 				<div class="ticketing_info_choice_img">
-					<img src="http://localhost:9090/images/concert_main/<%=vo.getE_poster()	%>">
+					<img src="http://localhost:9090/images/exhibition/<%=vo.getE_poster()	%>">
 				</div>
 				<div class="ticketing_info_choice_text">
 					<span><%=vo.getE_title() %></span>
 					<div id="text_space">		
 						<ul>
-                            <li><%=vo.getE_sdate() %> ~ <%=vo.getE_edate() %></li>
+                            <li><%=vo.getSnday()%> ~ <%=vo.getEnday()%></li>
                             <li><span><%=vo.getE_place() %></span></li>
                             <li><%=vo.getE_rating() %></li>
                         </ul>
-.					</div>
+					</div>
 				</div>
 			</div>
 			<div class="ticketing_info_my_ticket">
@@ -1003,15 +981,13 @@
 				<table class="myticket_t">
 					<tr>
 						<th scope="row">일시</th>
-						<td></td>
-					</tr>
-					<tr>
-						<th scope="row">선택좌석</th>
-						<td></td>
+						<td>
+							<%=vo.getSnday()%> ~ <%=vo.getEnday()%>
+						</td>
 					</tr>
 					<tr>
 						<th scope="row">티켓금액</th>
-						<td></td>
+						<td> 원</td>
 					</tr>
 					<tr>
 						<th scope="row">할인</th>

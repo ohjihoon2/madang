@@ -23,6 +23,7 @@
 	String tc_paym= request.getParameter("tc_paym");
 	String tc_payw= request.getParameter("tc_payw");
 	String tc_pays= request.getParameter("tc_pays");
+	String tc_d = request.getParameter("tc_d");
 	
 	
 	System.out.println(code);
@@ -44,6 +45,7 @@
 	System.out.println(tc_paym);
 	System.out.println(tc_payw);
 	System.out.println(tc_pays);
+	System.out.println(tc_d);
 	
 	ConcertService service = new ConcertService();
 	ConcertTicketVO vo = new ConcertTicketVO();
@@ -63,6 +65,7 @@
 	vo.setTc_phone2(tc_phone2);
 	vo.setTc_phone3(tc_phone3);
 	vo.setTc_email(tc_email);
+	vo.setTc_d(tc_d);
 	
 	System.out.println("컨첸츠 코드 = " +vo.getConcert_code());
 	PurchaseVO cvo = new PurchaseVO();
