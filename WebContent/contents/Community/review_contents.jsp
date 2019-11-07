@@ -3,8 +3,7 @@
 <%@ page import="com.madang.dao.*,com.madang.service.*,com.madang.vo.*,java.util.*" %>
 <%
 	String rv_code = request.getParameter("rv_code"); 
-	String id = (String)session.getAttribute("generalID"); 
-	
+	String id = request.getParameter("id");
 	ReviewService service = new ReviewService();
 	ReviewVO vo = service.getResultContent(rv_code);
 	
@@ -210,11 +209,14 @@
 				<h1 id="review_title">제목:<%=vo.getRv_title() %><span> <%=vo.getC_title() %> | <%=vo.getId() %> </span></h1>
 				<div id="review_content"><%=vo.getRv_content() %></div>						
 		
-				<div id="btn1">
-					<%if(id.equals(vo.getId())){ %>
+				<div id="btn1">				
+					<%
+					if(id != null){
+					if(id.equals(vo.getId())){ %>
 					<a href="review_update.jsp?rv_code=<%=rv_code%>"><button type="button" id="btnRVUpdate">수정</button></a>
 					<button type="button" id="btnRVDelete">삭제</button>
-					<%} %>
+					<%} 
+					}%>
 					<a href="review_byDate.jsp"><button type="button" id="btnBackList">목록</button></a>
 					<input type="hidden" id="rv_code" value="<%=rv_code%>">					
 				</div>
@@ -235,7 +237,9 @@
 			    </div>
 
 
-				<%if(id != null) {%>
+				<%
+				
+				if(id != null) {%>
 				<div id="btn2">
 					<input type="hidden" id="rv_rp_id" value="<%=id %>">
 					<span id="sp_title">댓글</span><button type="button" id="btnWriteReply">댓글쓰기</button>
@@ -248,16 +252,20 @@
 				<%for(ReviewReplyVO rvo: list){ %>
 				<ul id="event_ul">
 					<li><span id="li_id"><%=rvo.getRv_rp_id() %></span><span id="li_event_date"><%=rvo.getRv_rp_date() %></span>
-					<%if(id.equals(rvo.getRv_rp_id())){ %>
+					<%
+					if(id != null){
+					if(id.equals(rvo.getRv_rp_id())){ %>
 					<%-- <a href="review_delete.jsp?rv_code=<%=rvo.getRv_rp_code()%>"> --%>
 					<button type="button" id="btnDE">댓글 삭제</button><!-- </a> -->
-					<%} %>
+					<%} 
+					}%>
 					</li>
 					<li id="list_reply"><%=rvo.getRv_rp_content() %></li>			
 					<input type="hidden" id="rv_rp_code" value="<%=rvo.getRv_rp_code() %>">		
 				</ul>
-				<%} 
-				String rv_rp_code = request.getParameter("rv_rp_code");
+				<%}
+				
+					String rv_rp_code = request.getParameter("rv_rp_code");
 				%>
 				
 						

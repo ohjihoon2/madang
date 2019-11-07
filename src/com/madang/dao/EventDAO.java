@@ -143,7 +143,7 @@ public class EventDAO {
 	public ArrayList<EventReplyVO> getResultReplyList(String ev_code){
 		
 		ArrayList<EventReplyVO> rlist = new ArrayList<EventReplyVO>();
-		String sql = "select ev_rp_id, ev_rp_content, ev_rp_date from event_reply"
+		String sql = "select ev_rp_id, ev_rp_content, to_char(ev_rp_date,'yyyy.mm.dd.') from event_reply"
 				+ " where ev_code=?"
 				+ " order by ev_rp_date desc";
 		getPreparedStatement(sql);
@@ -168,18 +168,17 @@ public class EventDAO {
 	}
 
 	/** 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� **/
-	public int getResultReplyWrite(EventReplyVO rvo) {
-		int result = 0;
+	public boolean getResultReplyWrite(EventReplyVO rvo) {
+		boolean result = false;
 		String sql = "insert into event_reply values('evrp'|| lpad(sequ_event_reply.nextval, 4,'0'),?,?,?, sysdate)";
 		getPreparedStatement(sql);
-		
 		try {
 			pstmt.setString(1, rvo.getEv_rp_content());
 			pstmt.setString(2, rvo.getEv_code());
 			pstmt.setString(3, rvo.getEv_rp_id());
-			
+		
 			int val = pstmt.executeUpdate();
-			if(val != 0) result = 1;
+			if(val != 0) result = true;
 
 		}catch(Exception e) {e.printStackTrace();}
 		

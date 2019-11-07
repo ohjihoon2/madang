@@ -11,7 +11,6 @@
 		list = service.getResultListByDate(listOrder);
 	}
 %>	
-document.write(<%= id %>);
 <!DOCTYPE html>
 <html>
 <head>

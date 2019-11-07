@@ -53,8 +53,8 @@ public class EventService {
 	}
 	
 	/** 占쏙옙占� 占쏙옙占� **/
-	public int getResultReplyWrite(EventReplyVO vo) {
-		int result = 0;
+	public boolean getResultReplyWrite(EventReplyVO vo) {
+		boolean result = false;
 		EventDAO dao = new EventDAO();
 		result = dao.getResultReplyWrite(vo);
 		

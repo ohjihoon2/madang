@@ -2,10 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="com.madang.dao.*,com.madang.service.*,com.madang.vo.*,java.util.*" %>
 <%
+	
 	EventService service = new EventService();
 	ArrayList<EventVO> list = service.getResultList();
 	ArrayList<EventVO> inglist = service.getResultIngList();
 %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -55,7 +57,7 @@
 				  <div class="carousel-inner">
  					<%for(EventVO vo: inglist){ %> 
 				    <div class="carousel-item active">
-				      <img src="http://localhost:9090/images/event/<%=vo.getEv_sthumbnail() %>" alt="Los Angeles" width="700" height="250">
+				      <img src="http://localhost:9090/images/event/<%=vo.getEv_sthumbnail() %>" alt="eventImg" width="700" height="250">
 				    </div>
  				    <%} %> 
 				  
