@@ -15,14 +15,16 @@ public class Bookmark_Service {
 		return c_list;
 	}
 	
+	
 	/** 공연 북마크 여부 */
-	public boolean getCheckBmark(String concert_code, String id) {
+	public boolean getCheckConcertBmark(String concert_code, String id) {
 		boolean result=false;
 		Bookmark_DAO dao=new Bookmark_DAO();
 		result=dao.getCheckConcertBmark(concert_code, id);
 		dao.close();
 		return result;
 	}
+	
 	
 	/** 공연 북마크 코드 */
 	public String getConcertBmarkCode(String concert_code, String id) {
@@ -43,22 +45,43 @@ public class Bookmark_Service {
 		return e_list;
 	}
 	
+	
 	/** 전시 북마크 여부 */
+	public boolean getCheckExhibBmark(String exhib_code, String id) {
+		boolean result=false;
+		Bookmark_DAO dao=new Bookmark_DAO();
+		result=dao.getCheckExhibBmark(exhib_code, id);
+		dao.close();
+		return result;
+	}
 	
 	
 	/** 전시 북마크 코드 */
+	public String getExhibBmarkCode(String exhib_code, String id) {
+		String result="";
+		Bookmark_DAO dao=new Bookmark_DAO();
+		result=dao.getExhibBmarkCode(exhib_code, id);
+		dao.close();
+		return result;
+	}
 	
 	
-	
-	
-	/** 등록 */
-	public int getResultAdd(String concert_code, String id) {
+	/** 공연 등록 */
+	public int getResultConcertAdd(String concert_code, String id) {
 		int result=0;
 		Bookmark_DAO dao=new Bookmark_DAO();
-		result=dao.getResultAdd(concert_code, id);
+		result=dao.getResultConcertAdd(concert_code, id);
 		dao.close();
-		System.out.println("dao 등록 "+concert_code);
-		System.out.println("dao 등록 "+result);
+		return result;
+	}
+	
+	
+	/** 전시 등록 */
+	public int getResultExhibAdd(String exhib_code, String id) {
+		int result=0;
+		Bookmark_DAO dao=new Bookmark_DAO();
+		result=dao.getResultExhibAdd(exhib_code, id);
+		dao.close();
 		return result;
 	}
 	
@@ -69,8 +92,6 @@ public class Bookmark_Service {
 		Bookmark_DAO dao=new Bookmark_DAO();
 		result=dao.getResultDelete(bmark_code, id);
 		dao.close();
-		System.out.println("service 삭제 "+bmark_code);
-		System.out.println("service 삭제 "+result);
 		return result;
 	}
 }

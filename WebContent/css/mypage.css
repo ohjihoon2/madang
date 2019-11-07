@@ -502,7 +502,7 @@ div.button button.button_a { /* 초록색 rgb(5,135,94) */
 
 
 /* 공연/전시 상세내역 css */
-
+div.exhibition_detail_info img.bmark_heart,
 div.concert_detail_info img.bmark_heart { /* ♡ 버튼 */
 	border:1px solid #e5002c;
 	border-radius: 5px;

@@ -5,14 +5,14 @@
 	String id=(String)session.getAttribute("generalID");
 	String bmark_code=request.getParameter("bmark_code");
 	
-	String concert_code=request.getParameter("concert_code");
+//	String concert_code=request.getParameter("concert_code");
 	String flag=request.getParameter("flag");
 	
 	int result=0;
 	Bookmark_Service service=new Bookmark_Service();
 	result=service.getResultDelete(bmark_code, id);
 	
-	System.out.println("process "+concert_code);
+//	System.out.println("process "+concert_code);
 	System.out.println("process "+bmark_code);
 	System.out.println("process "+result);
 	

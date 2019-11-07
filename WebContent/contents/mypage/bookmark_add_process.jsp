@@ -4,11 +4,24 @@
 <%
 	String id=(String)session.getAttribute("generalID");
 	String concert_code=request.getParameter("concert_code");
-	
+	String exhib_code=request.getParameter("exhib_code");
+	 
 	Bookmark_Service service=new Bookmark_Service();
 	int result=0;
-	result=service.getResultAdd(concert_code, id);
 	
+	if(concert_code!=null && exhib_code==null) { //공연 등록
+		System.out.println("add proc 공연등록");
+		System.out.println(id);
+		System.out.println(concert_code);
+		result=service.getResultConcertAdd(concert_code, id);
+	} else if(exhib_code!=null && concert_code==null) { //전시 등록
+		System.out.println("add proc 전시등록");
+		System.out.println(id);
+		System.out.println(exhib_code);
+		result=service.getResultExhibAdd(exhib_code, id);
+	}
+	
+	System.out.println("add proc "+result);
 	out.write(result);
 	
 	/* 

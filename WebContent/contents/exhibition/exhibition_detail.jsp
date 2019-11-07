@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.madang.vo.*, com.madang.service.*"%>
+<%@ page import="com.madang.vo.Bookmark_VO, com.madang.service.Bookmark_Service" %>
 <%
 	String code = request.getParameter("exhibition_code");
 	out.write(code);
@@ -8,11 +9,91 @@
 	vo =service.getResultExhibition(code);
 
 %>
+<% /* 찜 등록/삭제 */
+	String id=(String)session.getAttribute("generalID");
+	
+	//기등록 여부 확인
+	boolean b_check=false;
+	Bookmark_Service b_service=new Bookmark_Service();
+	b_check=b_service.getCheckExhibBmark(vo.getExhibition_code(), id);
+	
+	String on_off;
+	String val;
+	
+	if(b_check) {
+		on_off="on";
+		val="on";
+	} else {
+		on_off="off";
+		val="off";
+	}
+	
+	//DB 북마크 코드 연동
+	String bmark_code="";
+	bmark_code=b_service.getExhibBmarkCode(vo.getExhibition_code(), id);
+%>
+document.write(<%= bmark_code %>);
+document.write(<%= code %>);
+document.write(<%= vo.getExhibition_code() %>);
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="http://localhost:9090/css/mypage.css"/> <!-- 찜하기 버튼 -->
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+	$("img.bmark_heart").click(function(){
+		
+		var e_bmark_code=$(this).attr("id");
+		//alert("code:"+e_bmark_code);
+		
+		var bmark_val=$(this).attr("value");
+		//alert("value:"+bmark_val);
+		
+		if(bmark_val=="on") {
+			//삭제
+			$.ajax({
+				url:"../mypage/bookmark_delete_process.jsp?flag=detail&bmark_code="+e_bmark_code,
+				success:function(result) {
+					//alert(result); 1이면 성공
+					if(result!=0) {
+						//$("img.bmark_heart").attr("src", "http://localhost:9090/images/bookmark/off.png");
+						alert("찜 목록에서 삭제되었습니다.");
+					} else {
+						alert("실패");
+					}
+				}
+				
+			});
+			
+		} else if (bmark_val=="off") {
+			//등록
+			$.ajax({
+				url:"../mypage/bookmark_add_process.jsp?exhib_code=<%= code %>",
+				success:function(result) {
+					//alert(result);
+					
+					//alert(result); 1이면 성공
+					if(result!=0) {
+						//$("img.bmark_heart").attr("src", "http://localhost:9090/images/bookmark/on.png");
+						alert("찜 목록에 등록되었습니다.");
+					} else {
+						alert("실패");
+					}
+					
+				}
+			});
+			
+		}
+		
+		location.reload();
+	});
+	
+});
+</script>
 <style>
 	*{
 		font-family:"나눔스퀘어라운드";
@@ -236,6 +317,10 @@
 					</tr>
 				</table>
 				<a href="#">예매하기</a>
+				
+				<!-- 찜 등록/삭제 버튼 -->
+				<img id="<%= bmark_code %>" src="http://localhost:9090/images/bookmark/<%= on_off %>.png" class="bmark_heart" value="<%= val %>" />
+				
 			</div>
 			<div class="exhibitition_text">
 				<img src="http://localhost:9090/images/exhibition/<%=vo.getE_info_poster() %>" id="content_image">

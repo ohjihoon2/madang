@@ -33,6 +33,7 @@ public class Bookmark_DAO {
 	}
 	
 	
+	/** °ø¿¬ ¸®½ºÆ® Ãâ·Â */
 	public ArrayList<Bookmark_VO> getConcertList(String id) {
 		ArrayList<Bookmark_VO> c_list=new ArrayList<Bookmark_VO>();
 		
@@ -62,7 +63,7 @@ public class Bookmark_DAO {
 	}
 	
 	
-	/** ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½Å© ï¿½ï¿½ï¿½ï¿½ */
+	/** °ø¿¬ ºÏ¸¶Å© ¿©ºÎ */
 	public boolean getCheckConcertBmark(String concert_code, String id) {
 		boolean result=false;
 		
@@ -86,7 +87,7 @@ public class Bookmark_DAO {
 	}
 	
 	
-	/** ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½Å© ï¿½Úµï¿½ */
+	/** °ø¿¬ ºÏ¸¶Å© ÄÚµå */
 	public String getConcertBmarkCode(String concert_code, String id) {
 		String bmark_code="";
 		
@@ -108,7 +109,7 @@ public class Bookmark_DAO {
 	}
 	
 	
-	/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ */
+	/** Àü½Ã ¸®½ºÆ® Ãâ·Â */
 	public ArrayList<Bookmark_VO> getExhibitionList(String id) {
 		ArrayList<Bookmark_VO> list=new ArrayList<Bookmark_VO>();
 		
@@ -138,14 +139,22 @@ public class Bookmark_DAO {
 	}
 	
 	
-	/** ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½Å© ï¿½ï¿½ï¿½ï¿½ */
+	/** Àü½Ã ºÏ¸¶Å© ¿©ºÎ */
 	public boolean getCheckExhibBmark(String exhib_code, String id) {
 		boolean result=false;
 		
-		String sql="";
+		String sql="select count(*) from bookmark, exhibition where bookmark.exhib_code = exhibition.exhibition_code \r\n" + 
+				"  and id=? and exhibition.exhibition_code=?";
 		getPreparedStatement(sql);
 		
 		try {
+			pstmt.setString(1, id);
+			pstmt.setString(2, exhib_code);
+			rs=pstmt.executeQuery();
+			
+			int val=0;
+			if(rs.next()) val=rs.getInt(1);
+			if(val!=0) result=true;
 			
 		} catch (Exception e) {e.printStackTrace();}
 		
@@ -153,14 +162,20 @@ public class Bookmark_DAO {
 	}
 	
 	
-	/** ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½Å© ï¿½Úµï¿½ */
-	public String getExhibBmarkCode(String concert_code, String id) {
+	/** Àü½Ã ºÏ¸¶Å© ÄÚµå */
+	public String getExhibBmarkCode(String exhib_code, String id) {
 		String bmark_code="";
 		
-		String sql="";
+		String sql="select bmark_code from bookmark, exhibition where bookmark.exhib_code = exhibition.exhibition_code \r\n" + 
+				"  and id=? and exhibition.exhibition_code=?";
 		getPreparedStatement(sql);
 		
 		try {
+			pstmt.setString(1, id);
+			pstmt.setString(2, exhib_code);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) bmark_code=rs.getString(1);
 			
 		} catch (Exception e) {e.printStackTrace();}
 		
@@ -168,8 +183,8 @@ public class Bookmark_DAO {
 	}
 	
 	
-	/** ï¿½ï¿½ï¿½ */
-	public int getResultAdd(String concert_code, String id) {
+	/** °ø¿¬ µî·Ï */
+	public int getResultConcertAdd(String concert_code, String id) {
 		int result=0;
 		
 		String sql="insert into bookmark values(('bm'||lpad(sequ_bookmark.nextval,4,'0')), ?, ?, null)";
@@ -183,14 +198,29 @@ public class Bookmark_DAO {
 			
 		} catch (Exception e) {e.printStackTrace();}
 		
-		System.out.println("dao ï¿½ï¿½ï¿½ "+concert_code);
-		System.out.println("dao ï¿½ï¿½ï¿½ "+result);
+		return result;
+	}
+	
+	/** Àü½Ã µî·Ï */
+	public int getResultExhibAdd(String exhib_code, String id) {
+		int result=0;
+		
+		String sql="insert into bookmark values(('bm'||lpad(sequ_bookmark.nextval,4,'0')), ?, null, ?)";
+		getPreparedStatement(sql);
+		
+		try {
+			pstmt.setString(1, id);
+			pstmt.setString(2, exhib_code);
+			
+			result=pstmt.executeUpdate();
+			
+		} catch (Exception e) {e.printStackTrace();}
 		
 		return result;
 	}
 	
 	
-	/** ï¿½ï¿½ï¿½ï¿½ */
+	/** »èÁ¦ */
 	public int getResultDelete(String bmark_code, String id) {
 		int result=0;
 		
@@ -204,9 +234,6 @@ public class Bookmark_DAO {
 			result=pstmt.executeUpdate();
 			
 		} catch (Exception e) {e.printStackTrace();}
-		
-		System.out.println("dao ï¿½ï¿½ï¿½ï¿½ "+bmark_code);
-		System.out.println("dao ï¿½ï¿½ï¿½ï¿½ "+result);
 		
 		return result;
 	}

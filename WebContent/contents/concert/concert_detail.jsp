@@ -6,12 +6,13 @@
  	ConcertService service = new ConcertService();
  	ConcertVO vo = service.getConcertDetail(code);
  %>
-<%
+<% /* 찜 등록/삭제 */
 	String id=(String)session.getAttribute("generalID");
 	
+	//기등록 여부 확인
 	boolean b_check=false;
 	Bookmark_Service b_service=new Bookmark_Service();
-	b_check=b_service.getCheckBmark(vo.getConcert_code(), id);
+	b_check=b_service.getCheckConcertBmark(vo.getConcert_code(), id);
 	
 	String on_off;
 	String val;
@@ -24,12 +25,13 @@
 		val="off";
 	}
 	
+	//DB 북마크 코드 연동
 	String bmark_code="";
 	bmark_code=b_service.getConcertBmarkCode(vo.getConcert_code(), id);
-	
 %>
 document.write(<%= bmark_code %>);
 document.write(<%= code %>);
+document.write(<%= vo.getConcert_code() %>);
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,22 +39,19 @@ document.write(<%= code %>);
 <title>Insert title here</title>
 <link rel="stylesheet" href="http://localhost:9090/css/mypage.css"/> <!-- 찜하기 버튼 -->
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
-<!-- <script src="http://localhost:9090/js/mypage.js"></script> --> <!-- 찜하기 jquery -->
+<!-- <script src="http://localhost:9090/js/mypage.js"></script> 찜하기 jquery -->
 <script>
 $(document).ready(function(){
 	
 	$("img.bmark_heart").click(function(){
-		
 		var c_bmark_code=$(this).attr("id");
-		//alert("code:"+c_bmark_code);
 		
 		var bmark_val=$(this).attr("value");
-		//alert("value:"+bmark_val);
 		
 		if(bmark_val=="on") {
 			//삭제
 			$.ajax({
-				url:"../mypage/bookmark_delete_process.jsp?flag=detail&content_code=<%= code %>&bmark_code="+c_bmark_code,
+				url:"../mypage/bookmark_delete_process.jsp?flag=detail&bmark_code="+c_bmark_code,
 				success:function(result) {
 					//alert(result); 1이면 성공
 					if(result!=0) {
@@ -68,7 +67,7 @@ $(document).ready(function(){
 		} else if (bmark_val=="off") {
 			//등록
 			$.ajax({
-				url:"../mypage/bookmark_add_process.jsp?concert_code=<%= vo.getConcert_code() %>",
+				url:"../mypage/bookmark_add_process.jsp?concert_code=<%= code %>",
 				success:function(result) {
 					//alert(result); 1이면 성공
 					if(result!=0) {
@@ -297,9 +296,8 @@ $(document).ready(function(){
 				</table>
 				<a href="#">예매하기</a>
 				
-				
+				<!-- 찜 등록/삭제 버튼 -->
 				<img id="<%= bmark_code %>" src="http://localhost:9090/images/bookmark/<%= on_off %>.png" class="bmark_heart" value="<%= val %>" />
-				
 				
 			</div>
 			

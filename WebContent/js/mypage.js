@@ -61,27 +61,16 @@ $(document).ready(function(){
 	
 	
 	
+	//찜 등록/삭제
+	/* 여기로 옮겨오면 등록이 안됨..
 	
-	
-	
-	//찜목록 - 등록/삭제
-	
-	
-	
-	
-	
-	
-	
-	/* 여기로 옮겨오면 <%= vo.getConcert_code() %> 안됨 열받아
-	
-	//공연 상세내역 - 등록/삭제
 	$("img.bmark_heart").click(function(){
 		
 		var c_bmark_code=$(this).attr("id");
-		alert("code:"+c_bmark_code);
+		//alert("code:"+c_bmark_code);
 		
 		var bmark_val=$(this).attr("value");
-		alert("value:"+bmark_val);
+		//alert("value:"+bmark_val);
 		
 		if(bmark_val=="on") {
 			//삭제
@@ -102,15 +91,16 @@ $(document).ready(function(){
 		} else if (bmark_val=="off") {
 			//등록
 			$.ajax({
-				url:"../mypage/bookmark_add_process.jsp?concert_code=<%= vo.getConcert_code() %>",
+				url:"../mypage/bookmark_add_process.jsp?concert_code=<%= code %>",
 				success:function(result) {
+					alert(result);
 					//alert(result); 1이면 성공
-					if(result!=0) {
+					 if(result!=0) {
 						//$("img.bmark_heart").attr("src", "http://localhost:9090/images/bookmark/on.png");
 						alert("찜 목록에 등록되었습니다.");
 					} else {
 						alert("실패");
-					}
+					} 
 				}
 			});
 			
@@ -120,7 +110,5 @@ $(document).ready(function(){
 	});
 	
 	*/
-	
-	//전시 상세내역 - 등록/삭제
 	
 });

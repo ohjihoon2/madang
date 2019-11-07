@@ -6,7 +6,7 @@
 	
 	Bookmark_Service service=new Bookmark_Service();
 	ArrayList<Bookmark_VO> c_list=service.getConcertList(id); //공연
-	ArrayList<Bookmark_VO> e_list=service.getConcertList(id); //전시
+	ArrayList<Bookmark_VO> e_list=service.getExhibitionList(id); //전시
 %>
 document.write(<%= id %>);
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -21,12 +21,8 @@ document.write(<%= id %>);
 	$(document).ready(function(){
 		
 		$("img.bmark_heart").click(function(){
-			//alert("click");
 			
 			var bmark_code=$(this).attr("id");
-			
-			//alert(bmark_code);
-			
 			
 			var bmark_val=$(this).attr("value");
 			
@@ -45,11 +41,7 @@ document.write(<%= id %>);
 				$(this).attr("value", "on");
 				
 				//insert 여기서는 안함
-				
 			} */
-			
-			
-			
 			
 		});
 	});
@@ -91,7 +83,6 @@ document.write(<%= id %>);
 		
 		</div>
 		
-		
 		<div class="bmark">
 		<h2>전시</h2>
 		<br>
@@ -99,12 +90,12 @@ document.write(<%= id %>);
 		<% for(Bookmark_VO evo : e_list) { %>
 			<% if(evo.getExhib_code()!=null && evo.getExhib_code()!="") { %>
 				<div class="bmark_list">
-					<a href="http://localhost:9090/contents/concert/concert_detail.jsp?concert_code=<%= evo.getExhib_code() %>">
+					<a href="http://localhost:9090/contents/exhibition/exhibition_detail.jsp?exhibition_code=<%= evo.getExhib_code() %>">
 						<img src="http://localhost:9090/images/exhibition/<%= evo.getE_sposter() %>" class="bmark_poster">
 					</a>
 					<div class="bmark_info">
 						<img id="<%= evo.getBmark_code() %>" src="http://localhost:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
-						<p><a href="http://localhost:9090/contents/concert/concert_detail.jsp?concert_code=<%= evo.getExhib_code() %>"><%= evo.getE_title() %></a></p>
+						<p><a href="http://localhost:9090/contents/exhibition/exhibition_detail.jsp?exhibition_code=<%= evo.getExhib_code() %>"><%= evo.getE_title() %></a></p>
 						<p><%= evo.getE_sdate() %> ~ <%= evo.getE_edate() %></p>
 						<p><%= evo.getE_place() %></p>
 					</div>
@@ -112,7 +103,6 @@ document.write(<%= id %>);
 			<% } %>
 		<% } %>	
 		</div>
-		
 		
 	</div>
 </body>
