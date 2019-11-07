@@ -21,7 +21,6 @@
 		result=service.getResultExhibAdd(exhib_code, id);
 	}
 	
-	System.out.println("add proc "+result);
 	out.write(result);
 	
 	/* 
