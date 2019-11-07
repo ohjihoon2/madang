@@ -322,9 +322,16 @@ div.ticket_box_0 table td.rnum a:hover {
 	color:#05875e;
 } */
 
+div.rental_box_0 table th:nth-child(1),
+div.rental_box_0 table th:nth-child(2),
+div.rental_box_0 table th:nth-child(6),
 div.rental_box_0 table td:nth-child(1),
 div.rental_box_0 table td:nth-child(2),
 div.rental_box_0 table td:nth-child(6),
+div.ticket_box_0 table th:nth-child(1),
+div.ticket_box_0 table th:nth-child(2),
+div.ticket_box_0 table th:nth-child(5),
+div.ticket_box_0 table th:nth-child(6),
 div.ticket_box_0 table td:nth-child(1),
 div.ticket_box_0 table td:nth-child(2),
 div.ticket_box_0 table td:nth-child(5),
@@ -332,8 +339,11 @@ div.ticket_box_0 table td:nth-child(6) {
 	width:10%;
 }
 
+div.rental_box_0 table th:nth-child(4),
+div.rental_box_0 table th:nth-child(5),
 div.rental_box_0 table td:nth-child(4),
 div.rental_box_0 table td:nth-child(5),
+div.ticket_box_0 table th:nth-child(4),
 div.ticket_box_0 table td:nth-child(4) {
 	width:20%;
 }
