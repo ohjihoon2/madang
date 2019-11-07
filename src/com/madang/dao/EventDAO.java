@@ -32,6 +32,19 @@ public class EventDAO {
 		}catch(Exception e) {e.printStackTrace();}
 	}
 	
+	//add eventContent hits
+	public void getResultUpdateHits(String ev_code) {
+		String sql = "update event set ev_hits= ev_hits+1 where ev_code=?";
+		getPreparedStatement(sql);
+		try {
+			pstmt.setString(1, ev_code);
+			pstmt.executeUpdate();
+			
+		}catch(Exception e) {e.printStackTrace();}
+		
+	}
+	
+	
 	/** 占쎈쐻占쎈뼓�뇡�빘�굲占쎈뱜 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈뱜 占쎈쐻占쎈짗占쎌굲筌ｏ옙 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� **/
 	public ArrayList<EventVO> getResultList(){
 		ArrayList<EventVO> list = new ArrayList<EventVO>();
@@ -130,7 +143,7 @@ public class EventDAO {
 	public ArrayList<EventReplyVO> getResultReplyList(String ev_code){
 		
 		ArrayList<EventReplyVO> rlist = new ArrayList<EventReplyVO>();
-		String sql = "select id, ev_rp_content, ev_rp_date from event_reply"
+		String sql = "select ev_rp_id, ev_rp_content, ev_rp_date from event_reply"
 				+ " where ev_code=?"
 				+ " order by ev_rp_date desc";
 		getPreparedStatement(sql);
@@ -142,7 +155,7 @@ public class EventDAO {
 			while(rs.next()) {
 				EventReplyVO rvo = new EventReplyVO();
 				
-				rvo.setId(rs.getString(1));
+				rvo.setEv_rp_id(rs.getString(1));
 				rvo.setEv_rp_content(rs.getString(2));
 				rvo.setEv_rp_date(rs.getString(3));				
 
@@ -157,13 +170,13 @@ public class EventDAO {
 	/** 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� **/
 	public int getResultReplyWrite(EventReplyVO rvo) {
 		int result = 0;
-		String sql = "insert into event_reply values('ev_rp_'|| lpad(sequ_event_reply.nextval, 4,'0'),?,?,?, sysdate)";
+		String sql = "insert into event_reply values('evrp'|| lpad(sequ_event_reply.nextval, 4,'0'),?,?,?, sysdate)";
 		getPreparedStatement(sql);
 		
 		try {
 			pstmt.setString(1, rvo.getEv_rp_content());
 			pstmt.setString(2, rvo.getEv_code());
-			pstmt.setString(3, rvo.getId());
+			pstmt.setString(3, rvo.getEv_rp_id());
 			
 			int val = pstmt.executeUpdate();
 			if(val != 0) result = 1;
@@ -194,6 +207,7 @@ public class EventDAO {
 				if(rs.getInt(8)>=0) {
 					if(rs.getInt(7)<0) {
 						vo.setEv_status("예정");
+						
 					}else {
 						vo.setEv_status("진행중");
 					}

@@ -14,7 +14,14 @@ public class EventService {
 		EventDAO dao = new EventDAO();		
 		list = dao.getResultList();	
 		
+		dao.close();
 		return list;
+	}
+	
+	//add hits
+	public void getResultUpdateHits(String ev_code) {
+		EventDAO dao = new EventDAO();
+		dao.getResultUpdateHits(ev_code);
 	}
 	
 	/** 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占싱븝옙트 占쏙옙占쏙옙트 占쏙옙占쏙옙占쏙옙占쏙옙 */

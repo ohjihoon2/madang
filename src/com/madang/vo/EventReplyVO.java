@@ -2,7 +2,8 @@ package com.madang.vo;
 
 public class EventReplyVO {	
 	//field
-	String ev_rp_code, ev_rp_content, ev_code, id, ev_rp_date;
+	String ev_rp_code, ev_rp_content, ev_code, ev_rp_id, ev_rp_date;
+	
 	//setter, getter
 	public String getEv_rp_code() {
 		return ev_rp_code;
@@ -28,12 +29,12 @@ public class EventReplyVO {
 		this.ev_code = ev_code;
 	}
 
-	public String getId() {
-		return id;
+	public String getEv_rp_id() {
+		return ev_rp_id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setEv_rp_id(String ev_rp_id) {
+		this.ev_rp_id = ev_rp_id;
 	}
 
 	public String getEv_rp_date() {
@@ -50,6 +51,6 @@ public class EventReplyVO {
 EV_RP_CODE    NOT NULL VARCHAR2(20)   
 EV_RP_CONTENT NOT NULL NVARCHAR2(200) 
 EV_CODE       FK       VARCHAR2(20)   
-ID            FK       VARCHAR2(20)   
+EV_RP_ID      FK       VARCHAR2(20)   
 EV_RP_DATE    NOT NULL DATE    
  */

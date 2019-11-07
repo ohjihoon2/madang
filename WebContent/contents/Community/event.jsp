@@ -55,7 +55,7 @@
 				  <div class="carousel-inner">
  					<%for(EventVO vo: inglist){ %> 
 				    <div class="carousel-item active">
-				      <img src="http://localhost:9090/images/comm_usher_img/<%=vo.getEv_sthumbnail() %>" alt="Los Angeles" width="700" height="250">
+				      <img src="http://localhost:9090/images/event/<%=vo.getEv_sthumbnail() %>" alt="Los Angeles" width="700" height="250">
 				    </div>
  				    <%} %> 
 				  
@@ -77,10 +77,11 @@
 		<div class="evnet">
 		<%for(EventVO vo: inglist){ %>
 			<div id="event">
-				<a href="event_content.jsp?ev_code=<%=vo.getEv_code() %>"><img src="http://localhost:9090/images/comm_usher_img/<%=vo.getEv_sthumbnail() %>"/></a>
+				<a href="event_content.jsp?ev_code=<%=vo.getEv_code() %>"><img src="http://localhost:9090/images/event/<%=vo.getEv_sthumbnail() %>"/></a>
 				<p id="event_title"><%=vo.getEv_title() %></p>
 				<p id="event_term">이벤트 기간 | <%=vo.getEv_sdate() %> ~ <%=vo.getEv_edate() %></p>
 			</div>
+			<input type="hidden" name="ev_code" value="<%=vo.getEv_code() %>">
 		<%} %>			
 <!-- 		<div id="event">
 				<a href="#"><img src="http://localhost:9090/MyJSP/sns_icon/event2.gif"/></a>
@@ -96,8 +97,8 @@
 
 		<%for (EventVO vo: list) { %>
 		<div class="all_event_list">
-			<div id="all_event_title"><%=vo.getEv_title() %><span>조회수:<%=vo.getEv_hits() %></span></div>
-			<div id="all_event_date">이벤트 기간:<%=vo.getEv_sdate() %> ~ <%=vo.getEv_edate() %></div>		
+			<div id="all_event_title"><a style="text-decoration:none;color:black;"href="http://localhost:9090/contents/Community/event_content.jsp?ev_code=<%=vo.getEv_code() %>"><%=vo.getEv_title() %></a><span>조회수:<%=vo.getEv_hits() %></span></div>
+			<div id="all_event_date" style="color:gray">이벤트 기간:<%=vo.getEv_sdate() %> ~ <%=vo.getEv_edate() %></div>
 		</div>
 		<%}%>
 		

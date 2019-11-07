@@ -248,7 +248,7 @@ textarea#reply_area{
 	padding:10px;
 	margin:5px;
 	text-align:left;
-	overflow-y:scroll;
+	overflow-y:auto;
 }
 
 div#event_content {
@@ -296,7 +296,7 @@ button#btnReply,button#btnList {
 }
 
 
-button#btnRE, button#btnDE {
+button#btnRE, button#btnEvRE, button#btnDE, button#btnEvDE {
 	border: 1px solid rgb(155, 155, 155);
 	border-radius: 10px;
 	color: rgb(5, 135, 94);
@@ -650,7 +650,7 @@ textarea#rv_content{
 	height:200px;
 	padding:20px;
 	font-size:13pt;
-	overflow-y:scroll;
+	overflow-y:auto;
 }
 
 select#rv_op_title{
