@@ -133,8 +133,11 @@ div#admin_member_detail_group > article button{
 		</table>
 	</section>
 	<article>
-			<%if (rpage) %>
-			<a href="admin_member_group.jsp?page=<%=rpage%>"><button type="button">목록으로</button></a>
+			<%if (rpage == null){ %>
+				<a href="admin_member_group.jsp"><button type="button">목록으로</button></a>
+			<%}else{ %>
+				<a href="admin_member_group.jsp?page=<%=rpage%>"><button type="button">목록으로</button></a>
+			<%} %>
 	</article>
 </body>
 </html>

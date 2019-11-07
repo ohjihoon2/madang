@@ -71,15 +71,25 @@ public class EventService {
 	}
 	
 	
-	//愿�由ъ옄 �씠踰ㅽ듃 由ъ뒪�듃 媛��졇�삤湲�
-	public ArrayList<EventVO> getResultListAdmin(){
+	//Admin list
+	public ArrayList<EventVO> getResultListAdmin(int startCount, int endCount){
 		ArrayList<EventVO> list = new ArrayList<EventVO>();
 		EventDAO dao = new EventDAO();		
-		list = dao.getResultListAdmin();	
+		list = dao.getResultListAdmin(startCount, endCount);	
 		dao.close();
 		
 		return list;
 	}
+	
+	
+	//Admin paging
+	public int execTotalCount(){
+		int result =0;
+		EventDAO dao = new EventDAO();
+		result = dao.execTotalCount();
+		return result;
+	}
+	
 	
 	//愿�由ъ옄-�씠踰ㅽ듃 �옉�꽦
 	public boolean getResultWriteAdmin(EventVO vo) {

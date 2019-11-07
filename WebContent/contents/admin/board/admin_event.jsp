@@ -29,7 +29,7 @@
 			startCount = 1;
 			endCount = pageSize;
 		}
-	ArrayList<EventVO> list = service.getResultListAdmin();
+		ArrayList<EventVO> list = service.getResultListAdmin(startCount, endCount); 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -106,22 +106,22 @@ div#admin_event section table tr:last-child td{
 	border-left:hidden;
 	height:100px;
 }
-div#admin_event section table td:first-child{
+div#admin_event section table td:nth-child(2){
 	padding-left:20px;
 	border:1px solid lightgray;
 	width:60%;
 	text-align:left;
 }
-div#admin_event section table td:first-child a{
+div#admin_event section table td:nth-child(2) a{
 	padding: 0px 10px 0px 6px;
 	text-decoration: none;
 	color: gray;
 }
 
-div#admin_event section table td:first-child a:hover {
+div#admin_event section table td:nth-child(2) a:hover {
 	color: #282828;
 }
-div#admin_event section table td:first-child span{
+div#admin_event section table td:nth-child(2) span{
 	border:1px solid green;
 	margin-left:20px;
 	
@@ -164,6 +164,7 @@ div#admin_event section table td:first-child span{
 		</div>
 		<table>
 			<tr>
+				<th>번호</th>
 				<th>제목</th>
 				<th>기간</th>
 				<th>작성일</th>
@@ -171,6 +172,7 @@ div#admin_event section table td:first-child span{
 			</tr>
 			<%for(EventVO vo : list){ %>
 				<tr>
+					<td><%=vo.getRno() %></td>
 					<td><a href="admin_event_contents.jsp?ev_code=<%=vo.getEv_code()%>&page=<%=reqPage%>"><%=vo.getEv_title()%></a><span><%=vo.getEv_status() %></span></td>
 					<td><%=vo.getEv_sdate() %> ~ <%=vo.getEv_edate() %></td>
 					<td><%=vo.getEv_date() %></td>
@@ -178,7 +180,7 @@ div#admin_event section table td:first-child span{
 				</tr>	
 			<%} %>
 			<tr>
-				<td colspan=6><div id="ampaginationsm"></div></td>
+				<td colspan="5"><div id="ampaginationsm"></div></td>
 			</tr>
 		</table>
 	</section>

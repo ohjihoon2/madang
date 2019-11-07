@@ -3,7 +3,7 @@ package com.madang.vo;
 public class EventVO {
 	//field
 	String ev_code,ev_title,ev_thumbnail,ev_sthumbnail,ev_detail,ev_sdetail,ev_date,ev_sdate,ev_edate,ev_status;
-	int ev_hits;
+	int ev_hits, rno;
 	//method
 	public String getEv_code() {
 		return ev_code;
@@ -72,6 +72,13 @@ public class EventVO {
 	public void setEv_hits(int ev_hits) {
 		this.ev_hits = ev_hits;
 	}
+	public int getRno() {
+		return rno;
+	}
+	public void setRno(int rno) {
+		this.rno = rno;
+	}
+	
 	
 }
 /**

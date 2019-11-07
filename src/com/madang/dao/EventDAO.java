@@ -222,25 +222,30 @@ public class EventDAO {
 	}
 
 //�꽴占썹뵳�딆쁽 占쎌뵠甕겹끋�뱜 筌뤴뫖以� 揶쏉옙占쎌죬占쎌궎疫뀐옙
-	public ArrayList<EventVO> getResultListAdmin(){
+	public ArrayList<EventVO> getResultListAdmin(int startCount, int endCount){
 		ArrayList<EventVO> list = new ArrayList<EventVO>();
-		String sql = "select ev_code, ev_title, to_char(ev_sdate,'yyyy.mm.dd'),to_char(ev_edate,'yyyy.mm.dd'), to_char(ev_date,'yyyy.mm.dd'), ev_hits, floor(sysdate-to_date(ev_sdate,'yy/mm/dd')) startcount,floor(to_date(ev_edate,'yy/mm/dd')-sysdate)+1 endcount from event order by ev_date desc";
+		String sql = "select * from (select rownum rno, ev_code, ev_title, to_char(ev_sdate,'yyyy/mm/dd'),to_char(ev_edate,'yyyy/mm/dd'), to_char(ev_date,'yyyy/mm/dd'), "
+				+ "ev_hits, floor(sysdate-ev_sdate) startcount, floor(ev_edate-sysdate)+1 endcount "
+				+ "from(select * from  event order by ev_date desc))where rno between ? and ?";
 		getPreparedStatement(sql);
 		
 		try {
+			
+			pstmt.setInt(1, startCount);
+			pstmt.setInt(2, endCount);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
 				EventVO vo = new EventVO();
-				
-				vo.setEv_code(rs.getString(1));
-				vo.setEv_title(rs.getString(2));
-				vo.setEv_sdate(rs.getString(3));
-				vo.setEv_edate(rs.getString(4));
-				vo.setEv_date(rs.getString(5));
-				vo.setEv_hits(rs.getInt(6));
-				if(rs.getInt(8)>=0) {
-					if(rs.getInt(7)<0) {
+				vo.setRno(rs.getInt(1));
+				vo.setEv_code(rs.getString(2));
+				vo.setEv_title(rs.getString(3));
+				vo.setEv_sdate(rs.getString(4));
+				vo.setEv_edate(rs.getString(5));
+				vo.setEv_date(rs.getString(6));
+				vo.setEv_hits(rs.getInt(7));
+				if(rs.getInt(9)>=0) {
+					if(rs.getInt(8)<0) {
 						vo.setEv_status("예정");
 						
 					}else {
@@ -255,6 +260,22 @@ public class EventDAO {
 		}catch(Exception e) {e.printStackTrace();}
 		
 		return list;
+	}
+	
+	//Admin paging
+	public int execTotalCount(){
+		int result =0;
+		try{
+			String sql = "select count(*) from event";
+			getPreparedStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				result = rs.getInt(1);
+			}
+		}catch(Exception e){e.printStackTrace();}
+		
+		return result;
 	}
 	
 	//�꽴占썹뵳�딆쁽 -占쎌뵠甕겹끋�뱜 占쎄땀占쎌뒠 癰귣떯由�
