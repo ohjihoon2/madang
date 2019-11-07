@@ -2,9 +2,8 @@ package com.madang.service;
 
 import java.util.ArrayList;
 
-import com.madang.dao.QandA_DAO;
 import com.madang.dao.Rental_DAO;
-import com.madang.vo.QandA_VO;
+import com.madang.vo.Group_mem_VO;
 import com.madang.vo.Rental_VO;
 
 public class Rental_Service {
@@ -44,6 +43,69 @@ public class Rental_Service {
 	}
 	
 	
+	
+	
+	
+///////////////////////////////////////////////////////////////////concert	
+	//admin list_concert
+	public ArrayList<Rental_VO> getListAdminConcert(int startCount, int endCount){
+		Rental_DAO dao = new Rental_DAO();
+		ArrayList<Rental_VO> list = dao.getListAdminConcert(startCount, endCount);
+		dao.close();
+		return list;
+	}
+	
+	
+	//Admin paging_concert
+	public int execTotalCountConcert(){
+		int result =0;
+		Rental_DAO dao = new Rental_DAO();
+		result = dao.execTotalCountConcert();
+		dao.close();
+		return result;
+	}
+
+	
+	//Admin bring the contents
+	public Rental_VO getRentalContents_con_Admin(String retal_code) {
+		Rental_DAO dao = new Rental_DAO();
+		Rental_VO vo = dao.getRentalContents_con_Admin(retal_code);
+		return vo;
+	}
+		
+	
+
+//////////////////////////////////////////////////////////////////////////////exhibition
+	//admin list_exhibition
+	public ArrayList<Rental_VO> getListAdminExhibition(int startCount, int endCount){
+		Rental_DAO dao = new Rental_DAO();
+		ArrayList<Rental_VO> list = dao.getListAdminExhibition(startCount, endCount);
+		dao.close();
+		return list;
+	}
+	
+	
+	//Admin paging_exhibition
+	public int execTotalCountExhibition(){
+		int result =0;
+		Rental_DAO dao = new Rental_DAO();
+		result = dao.execTotalCountExhibition();
+		dao.close();
+		return result;
+	}
+	
+	
+	//Admin bring the contents
+	public Rental_VO getRentalContents_exh_Admin(String retal_code) {
+		Rental_DAO dao = new Rental_DAO();
+		Rental_VO vo = dao.getRentalContents_exh_Admin(retal_code);
+		return vo;
+	}
+	
+	
+	
+	
+////////////////////////////////////////////////////////////////	
 	//rental request (insert)
 	public boolean getResultRentalRequest(Rental_VO vo) {
 		System.out.println("service"+vo.getR_place());
@@ -53,4 +115,26 @@ public class Rental_Service {
 		dao.close();
 		return result;
 	}
+	
+	
+	//+) detail - rental applicant info
+		public Group_mem_VO getRentalApplicantInfoAdmin(String r_id) {
+			Rental_DAO dao = new Rental_DAO();
+			Group_mem_VO vo = dao.getRentalApplicantInfoAdmin(r_id);
+			return vo;
+		}
+		
+		//detail accept request
+		public boolean getResultUpdate(String rental_code) {
+			Rental_DAO dao = new Rental_DAO();
+			boolean result = dao.getResultUpdate(rental_code);
+			return result;
+		}
+		
+		//detail cancel request
+		public boolean getResultCancel(String rental_code) {
+			Rental_DAO dao = new Rental_DAO();
+			boolean result = dao.getResultCancel(rental_code);
+			return result;
+		}
 }

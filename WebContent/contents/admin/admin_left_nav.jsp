@@ -113,14 +113,16 @@ aside#amdmin_left ul li>div a{
   </li>
   <li>
     <a href="#">회원관리</a>  <!-- 일반회원 -->
-    <div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/member_counsel/admin_member.jsp">일반 회원</a></div>
-	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/member_counsel/admin_member_group.jsp">대관 회원</a></div>
+    <div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/member_counsel/admin_member.jsp">일반회원</a></div>
+	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/member_counsel/admin_member_group.jsp">대관회원</a></div>
   </li>
   <li>
      <article><a href="http://localhost:9090/contents/admin/member_counsel/admin_QandA.jsp">1:1상담 관리</a></article>
   </li>
   <li>
      <a href="http://localhost:9090/contents/admin/rental/admin_rental.jsp">대관관리</a>
+     <div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/rental/admin_rental_con.jsp">공연대관</a></div>
+	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/rental/admin_rental_exh.jsp">전시대관</a></div>
   </li>
     <li>
      <a href="#">게시판 관리</a>

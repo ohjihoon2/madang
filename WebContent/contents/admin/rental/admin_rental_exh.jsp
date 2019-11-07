@@ -12,7 +12,7 @@
 	int pageSize = 5;	//한페이지당 게시물 수
 	int reqPage = 1;	//요청페이지 	
 	int pageCount = 1;	//전체 페이지 수                        //))처음초기화작업인가봄
-	int dbCount = service.execTotalCountConcert();	//DB에서 가져온 전체 행수
+	int dbCount = service.execTotalCountExhibition();	//DB에서 가져온 전체 행수
 	
 	//총 페이지 수 계산 ((페이지 나누기 위해서)) 전체페이지의 수: db에서 가져온 전체개수/pageSize))
 	if(dbCount % pageSize == 0){
@@ -31,7 +31,7 @@
 		endCount = pageSize;
 	}
 
-	ArrayList<Rental_VO> list = service.getListAdminConcert(startCount, endCount);
+	ArrayList<Rental_VO> list = service.getListAdminExhibition(startCount, endCount);
 	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -134,7 +134,7 @@ div#admin_rnetal_con section table tr:last-child td{
 		
 		jQuery('#ampaginationsm').on('am.pagination.change',function(e){
 			   jQuery('.showlabelsm').text('The selected page no: '+e.page);
-	           $(location).attr('href', "http://localhost:9090/contents/admin/member_counsel/admin_rental_con.jsp?page="+e.page);         
+	           $(location).attr('href', "http://localhost:9090/contents/admin/member_counsel/admin_rental_exh.jsp?page="+e.page);         
 	    });
 		
 	});
@@ -143,12 +143,12 @@ div#admin_rnetal_con section table tr:last-child td{
 <body>
 <jsp:include page="../admin_left_nav.jsp"/>
 <div id="admin_rnetal_con" class="admin_content">
-	<h1>공연대관</h1>	
+	<h1>전시대관</h1>	
 	<section>
 		<table>
 			<tr>
 				<th>번호</th>
-				<th>공연제목</th>
+				<th>전시제목</th>
 				<th>대관일</th>
 				<th>신청자</th>
 				<th>신청일</th>
@@ -157,7 +157,7 @@ div#admin_rnetal_con section table tr:last-child td{
 			<%for(Rental_VO vo : list){ %>
 				<tr>
 					<td><%=vo.getRno() %></td>
-					<td><a href="admin_rental_con_detail.jsp?rental_code=<%=vo.getRental_code()%>&page=<%=reqPage%>"><%=vo.getR_title() %></a></td>
+					<td><a href="admin_rental_exh_detail.jsp?rental_code=<%=vo.getRental_code()%>&page=<%=reqPage%>"><%=vo.getR_title() %></a></td>
 					<td><%=vo.getR_sdate()%> ~ <%=vo.getR_edate()%></td>
 					<td><%=vo.getR_id() %></td>
 					<td><%=vo.getR_date() %></td>

@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.madang.vo.*, com.madang.service.*,java.util.*" %>
+<%
+	ArrayList<EventVO> eventvo = new ArrayList<EventVO>();
+	EventService eventservice = new EventService();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -75,23 +80,21 @@
 				</article>
 				<!--이벤트 -->
 				<article id="main_switch_event">
+					
 					<div>
 						<img src="http://localhost:9090/images/mainpage/eventThumb_02.gif">
 						<br>
 						<span><a href="#">국립오페라단 《호프만의 이야기》 미리보기</a></span>
-						<span><br>이벤트 기간 ㅣ 2019.09.24(화) ~ 10.07(월)<br>담첨자 발표 ㅣ 2019.10.09(수)</span>
 					</div>
 					<div>
 						<img src="http://localhost:9090/images/mainpage/eventThumb_02.gif">
 						<br>
 						<span><a href="#">국립오페라단 《호프만의 이야기》 미리보기</a></span>
-						<span><br>이벤트 기간 ㅣ 2019.09.24(화) ~ 10.07(월)<br>담첨자 발표 ㅣ 2019.10.09(수)</span>
 					</div>
 					<div>
 						<img src="http://localhost:9090/images/mainpage/eventThumb_02.gif">
 						<br>
 						<span><a href="#">국립오페라단 《호프만의 이야기》 미리보기</a></span>
-						<span><br>이벤트 기간 ㅣ 2019.09.24(화) ~ 10.07(월)<br>담첨자 발표 ㅣ 2019.10.09(수)</span>
 					</div>
 				<!-- 전시,공연 예정된 썸네일. select 랭크,이미지,코드,시작일 from(select 이미지,코드,from 전시,공연 where 시작일 between sysdate and sysdate+30일 oder by 시작일)랭크between 1and3 -->
 				</article>
@@ -99,20 +102,17 @@
 					<div>
 						<img src="http://localhost:9090/images/mainpage/bigfish_thumbnail.gif">
 						<br>
-						<span><a href="#">뮤지컬<빅 피쉬>한국 초연 2차오픈</a></span>
-						<span><br>- 10/30(수) 11AM 1차 오픈<br>- 10/30(수) 2PM 2차 오픈</span>
+						<span><a href="#">뮤지컬<빅 피쉬>한국 초연 2차오픈2</a></span>
 					</div>
 					<div>
 						<img src="http://localhost:9090/images/mainpage/bigfish_thumbnail.gif">
 						<br>
-						<span><a href="#">뮤지컬<빅 피쉬>한국 초연 2차오픈</a></span>
-						<span><br>- 10/30(수) 11AM 1차 오픈<br>- 10/30(수) 2PM 2차 오픈</span>
+						<span><a href="#">뮤지컬<빅 피쉬>한국 초연 2차오픈2</a></span>
 					</div>
 					<div>
 						<img src="http://localhost:9090/images/mainpage/bigfish_thumbnail.gif">
 						<br>
-						<span><a href="#">뮤지컬<빅 피쉬>한국 초연 2차오픈</a></span>
-						<span><br>- 10/30(수) 11AM 1차 오픈<br>- 10/30(수) 2PM 2차 오픈</span>
+						<span><a href="#">뮤지컬<빅 피쉬>한국 초연 2차오픈2</a></span>
 					</div>
 					</article>
 			</section>
@@ -123,7 +123,6 @@
 				<article><a href='http://localhost:9090/contents/Usher/utility_concert.jsp'><img src="http://localhost:9090/images/mainpage/icon_etc.png"><span>편의시설</span></a></article>
 				<article><a href='http://localhost:9090/contents/Usher/etiquette_concert.jsp'><img src="http://localhost:9090/images/mainpage/icon_manner.png"><span>관람매너</span></a></article>
 				<article><a href='http://localhost:9090/contents/cs/cs_qaa.jsp'><img src="http://localhost:9090/images/mainpage/icon_Q_A.png"><span>1:1문의</span></a></article>
-				<article><a href='#'><img src="http://localhost:9090/images/mainpage/icon_map.png"><span>일정보기</span></a></article>
 				
 			</section>
 		</div>

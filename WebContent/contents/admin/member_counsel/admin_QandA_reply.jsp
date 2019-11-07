@@ -98,7 +98,7 @@ div#admin_QnA_detail_re > article> button#adcoun_qna_reply_btn{
 </style>
 <script>
 	$(document).ready(function(){
-		$("#adcoun_qna_cancle_btn").click(function(){
+		$("#adcoun_qna_cancel_btn").click(function(){
 			 var cancel = confirm("답변을 취소하시겠습니까?");
 			 if(cancel==1){
 				 location.replace("admin_QandA.jsp?page=<%=rpage%>");
@@ -172,7 +172,7 @@ div#admin_QnA_detail_re > article> button#adcoun_qna_reply_btn{
 	</section>
 	<article>
 			<button type="button" id="adcoun_qna_reply_btn">답변하기</button>			
-			<button type="button" id="adcoun_qna_cancle_btn">답변취소</button></a>
+			<button type="button" id="adcoun_qna_cancel_btn">답변취소</button></a>
 	</article>
 	</div>
 </body>

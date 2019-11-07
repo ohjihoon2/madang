@@ -6,7 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import com.madang.vo.Group_mem_VO;
 import com.madang.vo.NoticeVO;
+import com.madang.vo.QandA_VO;
 import com.madang.vo.Rental_VO;
 
 public class Rental_DAO {
@@ -209,10 +211,299 @@ public class Rental_DAO {
 			}
 			
 		}catch(Exception e) {e.printStackTrace();}
+		return list; 
+	}
+	
+///////////////////////////////////////////////////////////////////////////////////////////concert	admin
+	//Admin list _concert
+	public ArrayList<Rental_VO> getListAdminConcert(int startCount, int endCount){
+		ArrayList<Rental_VO> list = new ArrayList<Rental_VO>();
+		String sql="select * from(select rownum rno, rental_code, r_title, " + 
+				"to_char(r_date,'yyyy/mm/dd'), to_char(r_sdate,'yyyy/mm/dd'),to_char(r_edate,'yyyy/mm/dd'), " + 
+				"r_id, " + 
+				"floor(sysdate-r_sdate) startcount, " + 
+				"floor(r_edate-sysdate)+1 endcount, " + 
+				"r_status " + 
+				"from(select*from rental where r_case='공연' order by r_date desc)order by rno desc) " + 
+				"where rno  between ? and ?";
+		getPreparedStatement(sql);
+		try {
+			
+			pstmt.setInt(1, startCount);
+			pstmt.setInt(2, endCount);
+			
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				Rental_VO vo = new Rental_VO();
+				
+				vo.setRno(rs.getInt(1));
+				vo.setRental_code(rs.getString(2));
+				vo.setR_title(rs.getString(3));
+				vo.setR_date(rs.getString(4));
+				vo.setR_sdate(rs.getString(5));
+				vo.setR_edate(rs.getString(6));
+				vo.setR_id(rs.getString(7));
+				if(rs.getString(10).equals("신청완료")) {
+					if(rs.getInt(9)>=0) { // 날짜차수 구하기
+						if(rs.getInt(8)<0) {
+							vo.setR_status("예정");
+						} else {
+							vo.setR_status("진행중");
+						}
+					} else {
+						vo.setR_status("종료");
+					}
+				}else {
+					vo.setR_status(rs.getString(10));
+				}
+				
+				list.add(vo);
+			}
+			
+		} catch (Exception e) {e.printStackTrace();}
 		return list;
 	}
 	
 	
+	//Admin paging_concert
+		public int execTotalCountConcert(){
+			int result =0;
+			try{
+				String sql = "select count(*) from rental where r_case='공연'";
+				getPreparedStatement(sql);
+				
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					result = rs.getInt(1);
+				}
+			}catch(Exception e){e.printStackTrace();}
+			
+			return result;
+		}
+		
+		
+		//Admin bring the contents
+		public Rental_VO getRentalContents_con_Admin(String retal_code) {
+			Rental_VO vo = new Rental_VO();
+			String sql="select r_title, r_place,to_char(r_sdate,'yyyy/mm/dd'), "
+					+ "to_char(r_edate,'yyyy/mm/dd'), r_opentime, r_time, r_rhtime, "
+					+ "floor(sysdate-r_sdate) startcount, floor(r_edate-sysdate)+1 endcount, r_status, "
+					+ "r_file, r_sfile, r_id, r_date from rental "
+					+ "where r_case='공연' and rental_code=?";
+			getPreparedStatement(sql);
+			try {
+				
+				pstmt.setString(1, retal_code);
+				
+				rs=pstmt.executeQuery();
+				if(rs.next()) {
+					vo.setR_title(rs.getString(1));
+					vo.setR_place(rs.getString(2));
+					vo.setR_sdate(rs.getString(3));
+					vo.setR_edate(rs.getString(4));
+					vo.setR_opentime(rs.getString(5));
+					vo.setR_time(rs.getString(6));
+					vo.setR_rhtime(rs.getString(7));
+					
+					if(rs.getString(10).equals("신청완료")) {
+						if(rs.getInt(9)>=0) { // 날짜차수 구하기
+							if(rs.getInt(8)<0) {
+								vo.setR_status("예정");
+							} else {
+								vo.setR_status("진행중");
+							}
+						} else {
+							vo.setR_status("종료");
+						}
+					}else {
+						vo.setR_status(rs.getString(10));
+					}
+					
+					vo.setR_file(rs.getString(11));
+					vo.setR_sfile(rs.getString(12));
+					vo.setR_id(rs.getString(13));
+					vo.setR_date(rs.getString(14));
+				}
+				
+			}catch(Exception e){e.printStackTrace();}
+			return vo;
+		}
+		
+
+		
+		
+
+		
+////////////////////////////////////////////////////////////////////////////////////exhibiton admin		
+		//Admin list _Exhibition
+		public ArrayList<Rental_VO> getListAdminExhibition(int startCount, int endCount){
+			ArrayList<Rental_VO> list = new ArrayList<Rental_VO>();
+			String sql="select * from(select rownum rno, rental_code, r_title, " + 
+					"to_char(r_date,'yyyy/mm/dd'), to_char(r_sdate,'yyyy/mm/dd'),to_char(r_edate,'yyyy/mm/dd'), " + 
+					"r_id, " + 
+					"floor(sysdate-r_sdate) startcount, " + 
+					"floor(r_edate-sysdate)+1 endcount, " + 
+					"r_status " + 
+					"from(select*from rental where r_case='전시' order by r_date desc)order by rno desc) " + 
+					"where rno  between ? and ?";
+			getPreparedStatement(sql);
+			try {
+				
+				pstmt.setInt(1, startCount);
+				pstmt.setInt(2, endCount);
+				
+				rs=pstmt.executeQuery();
+				while(rs.next()) {
+					Rental_VO vo = new Rental_VO();
+					
+					vo.setRno(rs.getInt(1));
+					vo.setRental_code(rs.getString(2));
+					vo.setR_title(rs.getString(3));
+					vo.setR_date(rs.getString(4));
+					vo.setR_sdate(rs.getString(5));
+					vo.setR_edate(rs.getString(6));
+					vo.setR_id(rs.getString(7));
+					if(rs.getString(10).equals("신청완료")) {
+						if(rs.getInt(9)>=0) { // 날짜차수 구하기
+							if(rs.getInt(8)<0) {
+								vo.setR_status("예정");
+							} else {
+								vo.setR_status("진행중");
+							}
+						} else {
+							vo.setR_status("종료");
+						}
+					}else {
+						vo.setR_status(rs.getString(10));
+					}
+					
+					list.add(vo);
+				}
+				
+			} catch (Exception e) {e.printStackTrace();}
+			return list;
+		}
+		
+		
+		//Admin paging_exhibition
+			public int execTotalCountExhibition(){
+				int result =0;
+				try{
+					String sql = "select count(*) from rental where r_case='전시'";
+					getPreparedStatement(sql);
+					
+					rs = pstmt.executeQuery();
+					if(rs.next()){
+						result = rs.getInt(1);
+					}
+				}catch(Exception e){e.printStackTrace();}
+				
+				return result;
+			}		
+			
+			
+			//Admin bring the contents
+			public Rental_VO getRentalContents_exh_Admin(String retal_code) {
+				Rental_VO vo = new Rental_VO();
+				String sql="select r_title, r_place,to_char(r_sdate,'yyyy/mm/dd'), "
+						+ "to_char(r_edate,'yyyy/mm/dd'), r_opentime, r_time, "
+						+ "floor(sysdate-r_sdate) startcount, floor(r_edate-sysdate)+1 endcount, r_status, "
+						+ "r_file, r_sfile, r_id, r_date from rental "
+						+ "where r_case='전시' and rental_code=?";
+				getPreparedStatement(sql);
+				try {
+					
+					pstmt.setString(1, retal_code);
+					
+					rs=pstmt.executeQuery();
+					if(rs.next()) {
+						vo.setR_title(rs.getString(1));
+						vo.setR_place(rs.getString(2));
+						vo.setR_sdate(rs.getString(3));
+						vo.setR_edate(rs.getString(4));
+						vo.setR_opentime(rs.getString(5));
+						vo.setR_time(rs.getString(6));
+						
+						if(rs.getString(9).equals("신청완료")) {
+							if(rs.getInt(8)>=0) { // 날짜차수 구하기
+								if(rs.getInt(7)<0) {
+									vo.setR_status("예정");
+								} else {
+									vo.setR_status("진행중");
+								}
+							} else {
+								vo.setR_status("종료");
+							}
+						}else {
+							vo.setR_status(rs.getString(9));
+						}
+						
+						vo.setR_file(rs.getString(10));
+						vo.setR_sfile(rs.getString(11));
+						vo.setR_id(rs.getString(12));
+						vo.setR_date(rs.getString(13));
+					}
+					
+				}catch(Exception e){e.printStackTrace();}
+				return vo;
+			}
+/////////////////////////////////////////////////////////////////////////////////////////
+			
+		//+) detail - rental applicant info
+		public Group_mem_VO getRentalApplicantInfoAdmin(String r_id) {
+			Group_mem_VO vo = new Group_mem_VO();
+			String sql="select name, phone1, phone2, phone3, company from group_mem where id=?";
+			getPreparedStatement(sql);
+			try {
+				pstmt.setString(1, r_id);
+				
+				rs=pstmt.executeQuery();
+				if(rs.next()) {
+					vo.setName(rs.getString(1));
+					vo.setPhone1(rs.getString(2));
+					vo.setPhone2(rs.getString(3));
+					vo.setPhone3(rs.getString(4));
+					vo.setCompany(rs.getString(5));
+					
+				}
+			}catch(Exception e){e.printStackTrace();}
+			return vo;
+		}
+		
+		//detail accept request
+		public boolean getResultUpdate(String rental_code) {
+			boolean result=false;
+			String sql = "update rental set r_status='신청완료' where rental_code=?";
+			getPreparedStatement(sql);
+			try{
+				pstmt.setString(1, rental_code);
+				
+				int val = pstmt.executeUpdate();
+				if(val!=0) {
+					result = true;
+				}
+			}catch(Exception e){e.printStackTrace();}
+			return result;
+		}
+		
+		//detail cancel request
+		public boolean getResultCancel(String rental_code) {
+			boolean result=false;
+			String sql = "update rental set r_status='취소완료' where rental_code=?";
+			getPreparedStatement(sql);
+			try{
+				pstmt.setString(1, rental_code);
+				
+				int val = pstmt.executeUpdate();
+				if(val!=0) {
+					result = true;
+				}
+			}catch(Exception e){e.printStackTrace();}
+			return result;
+		}
+		
+		
+		
 	public void close() {
 		try {
 			if(rs!=null) rs.close();
