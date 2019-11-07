@@ -2,8 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
 <%
-	ConcertService concert_service = new ConcertService();
-	ArrayList<ConcertVO> concert_list = concert_service.getListAdminMain();
+ 	ExhibitionService exhibition_service = new ExhibitionService();
+	ArrayList<ExhibitionVO> exhibition_list = exhibition_service.getListAdminMain(); 
+	int exhibition_count = 
 
 	NoticeService notice_service = new NoticeService();
 	ArrayList<NoticeVO> notice_list = notice_service.getListAdminMain();
@@ -133,19 +134,6 @@ div#admin_main section > table td:nth-child(2){
 	<div id="admin_main" class="admin_content">
 		<section>
 		 	<article>
-		 		
-		 		<h2>진행중인 전시 </h2>
-		 		<h5>더보기</h5>
-		 		<ul>
-		 			<li>
-		 				<span>자바란 무엇인가 자바자바 잇럽미 자바자바 잇럽미!!!</span><br><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(20190901~20190810)</span>
-		 			</li>
-		 			<li>
-		 				<span>자바란 무엇인가</span><br><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(20190901~20190810)</span>
-		 			</li>
-		 		</ul> 
-		 	</article>
-		 	<article>
 		 		<h2>진행중인 공연 </h2>
 		 		<h5>더보기</h5>
 		 		<ul>
@@ -155,6 +143,18 @@ div#admin_main section > table td:nth-child(2){
 		 			<li>
 		 				공연장에서 실시하는 전시회 (20190901~20190810)
 		 			</li>
+		 		</ul> 
+		 	</article>
+		 			 	<article>
+		 		
+		 		<h2>진행중인 전시 </h2>
+		 		<h5>더보기</h5>
+		 		<ul>
+		 			<%for(int i=0; i<2; i++){ %>
+		 			<li>
+		 				<span><%=exhibition_list.get(i).getE_title()%></span><br><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<%=exhibition_list.get(i).getE_sdate()%>~<%=exhibition_list.get(i).getE_edate()%>)</span>
+		 			</li>
+		 			<%} %>
 		 		</ul> 
 		 	</article>
 		</section>

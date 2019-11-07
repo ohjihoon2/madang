@@ -97,7 +97,7 @@
 			</article>
 			<div>동의합니다. <input type="checkbox" value="Y" name="join_geral1_agree3"></div>
 		</div>
-		<h2><span class="font_circle">●</span> 휴대전화 인증</h2>
+<!-- 		<h2><span class="font_circle">●</span> 휴대전화 인증</h2>
 		<div id="join_general1_table">
 				<table>
 					<tr>
@@ -135,7 +135,7 @@
 					</tr>
 				</table>
 				</div>
-		</form>
+		</form> -->
 		<div class="joinbtn">
 		<a href="join0.jsp"><button type="button" class="join_prv">이전으로</button></a>
 		<button type="button" class="join_next"  id="join_g1next_btn">다음으로</button>

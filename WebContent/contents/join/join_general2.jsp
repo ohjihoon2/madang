@@ -56,6 +56,7 @@ $(document).ready(function(){
 		}
 	});//회원가입 버튼클릭
 	/*이메일주소 선택*/
+	
 	$("#join_g2_email_addr2").change(function(){
 		if($("#join_g2_email_addr2").val()!="선택하세요"){
 			$("#join_g2_email_addr").val($("#join_g2_email_addr2").val());			
@@ -160,7 +161,7 @@ $(document).ready(function(){
 			</li>
 			<li>
 				<label>생년월일*</label>	<!-- join_general1.jsp에서 입력한 정보가 미리 작성되어있겠끔 -->
-				<input type="date" name=birth placeholder="2019-10-10" id="join_g2_birth">
+				<input type="date" name=birth id="join_g2_birth">
 			</li>
 			<li>
 				<label>연락처*</label>			<!-- join_general1.jsp에서 입력한 연락처가 미리 작성되어있겠끔 -->
@@ -169,11 +170,15 @@ $(document).ready(function(){
 				<input type="radio" name="p_comp" value="LGU+" class="join_g2_p_comp">LGU+
 				<br>
 				<label> </label>	
-				<input type="text" name="phone1" placeholder="010" maxlength="4" id="join_g2_phon1">
+				<select name="phone1">
+					<option>010</option>
+					<option>011</option>
+					<option>070</option>
+				</select>
 				<span> - </span>
-				<input type="text" name="phone2" placeholder="1234" maxlength="4" id="join_g2_phon2">
+				<input type="text" name="phone2" maxlength="4" id="join_g2_phon2">
 				<span> - </span>
-				<input type="text" name="phone3" placeholder="5648" maxlength="4" id="join_g2_phon3">	
+				<input type="text" name="phone3" maxlength="4" id="join_g2_phon3">	
 			</li>			
 			<li>
 				<label>이메일*</label>

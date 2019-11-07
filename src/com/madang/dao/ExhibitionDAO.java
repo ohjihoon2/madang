@@ -213,6 +213,26 @@ public class ExhibitionDAO {
 		return result;
 	}
 	
+	
+	//Admin main list
+	public ArrayList<ExhibitionVO> getListAdminMain(){
+		ArrayList<ExhibitionVO> list = new ArrayList<ExhibitionVO>();
+		String sql="select * from(select * from (select exhibition_code, e_title, to_char(e_sdate,'yyyy/mm/dd'), to_char(e_edate,'yyyy/mm/dd'), floor(sysdate-e_sdate)  startcount, floor(e_edate - sysdate) endcount from exhibition order by e_sdate desc) where  endcount>=0 )where startcount>=0";
+		getPreparedStatement(sql);
+		try {
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				ExhibitionVO vo = new ExhibitionVO();
+				vo.setExhibition_code(rs.getString(1));
+				vo.setE_title(rs.getString(2));
+				vo.setE_sdate(rs.getString(3));
+				vo.setE_edate(rs.getString(4));
+				list.add(vo);
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		return list;
+	}
+	
 	//6
 	public void close() {
 		try {

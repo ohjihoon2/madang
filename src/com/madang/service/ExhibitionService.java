@@ -2,7 +2,6 @@ package com.madang.service;
 
 import java.util.ArrayList;
 
-import com.madang.dao.ConcertDAO;
 import com.madang.dao.ExhibitionDAO;
 import com.madang.vo.ExhibitionTicketVO;
 import com.madang.vo.ExhibitionVO;
@@ -50,6 +49,12 @@ public class ExhibitionService {
 		result = dao.getResultInsertTE(vo);
 		return result;
 	}
-	
+	//Admin main list
+	public ArrayList<ExhibitionVO> getListAdminMain(){
+		ExhibitionDAO dao = new ExhibitionDAO();
+		ArrayList<ExhibitionVO> list = dao.getListAdminMain();
+		dao.close();
+		return list;
+	}
 	
 }
