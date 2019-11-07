@@ -7,6 +7,11 @@
 	String rpage = request.getParameter("page");
 	General_mem_Service service = new General_mem_Service();
 	General_mem_VO vo = service.getMemberContentsAdmin(id);
+	
+	
+	ArrayList<ConcertTicketVO> concert = new ArrayList<ConcertTicketVO>();
+	
+	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -48,6 +53,7 @@ div#admin_notice_contents section h3{
 div#admin_notice_contents section table{
 	width:70%;
 	border-collapse: collapse;
+	margin-bott
 }
 
 div#admin_notice_contents section table th{
@@ -142,40 +148,23 @@ div#admin_notice_contents > article button{
 		</table>
 	</section>
 	<section>
-		<h3>공연 예매내역</h3>
+		<h3>예매내역</h3>
 		<table>
 			<tr>
-				<th>예매번호</th>
-				<th>공연명</th>
+				<th>번호</th>
+				<th>관람종류</th>
+				<th>예매코드</th>
+				<th>제목</th>
 				<th>예매일</th>
-				<th>관람일</th>
-			</tr>
-				<%for(int i=0;i<5;i++){ %>
-			<tr>
-				<td>dd</td>
-				<td>dd</td>
-				<td>dd</td>
-				<td>dd</td>
-			</tr>
-			<%} %>
-		</table>
-	</section>
-	<section>	
-		<h3>전시 예매내역</h3>
-		<table>
-			<tr>
-				<th>예매번호</th>
-				<th>전시명</th>
-				<th>예매일</th>
-				<th>관람기간</th>
+				<th>관람일</th> <!-- 전시면 시작일 ~ 종료일 -->
 			</tr>
 			<%for(int i=0;i<5;i++){ %>
-			<tr>
-				<td>dd</td>
-				<td>dd</td>
-				<td>dd</td>
-				<td>dd</td>
-			</tr>
+				<tr>
+					<td>dd</td>
+					<td>dd</td>
+					<td>dd</td>
+					<td>dd</td>
+				</tr>
 			<%} %>
 		</table>
 	</section>

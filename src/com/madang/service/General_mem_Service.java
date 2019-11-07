@@ -3,8 +3,8 @@ package com.madang.service;
 import java.util.ArrayList;
 
 import com.madang.dao.General_mem_DAO;
-import com.madang.dao.QandA_DAO;
 import com.madang.vo.General_mem_VO;
+import com.madang.vo.NoticeVO;
 
 public class General_mem_Service {
 	
@@ -59,4 +59,19 @@ public class General_mem_Service {
 		result = dao.execTotalCount();
 		return result;
 	}
+	
+	
+	
+	
+	public ArrayList<NoticeVO> tempmethod(){
+		ArrayList<NoticeVO> list = new ArrayList<NoticeVO>();
+		for(int i =0 ; i<20; i++) {
+			NoticeVO vo = new NoticeVO();
+			vo.setNt_code("code"+i);
+			vo.setNt_title("notice title");
+			list.add(vo);
+		}
+		return list;
+	}
+	
 }

@@ -19,7 +19,17 @@
 				$("#login_pw1").focus();
 			}else{
 				//회원인지 검사
-				loginform.submit();
+				var login = $("div#login form").serialize();
+				$.ajax({
+					url:"login_proce.jsp?"+login,
+					success:function(result){
+						loginresult=result.trim();
+						alert(loginresult);
+						if(loginresult=="로그인에 성공했습니다."){
+							location.href="http://localhost:9090/mainpage.jsp";
+						}
+					}//success
+				});
 			}
 			
 		});
@@ -34,7 +44,7 @@
 <div id="login" class="page_contents1">
 	<h1 class="page_title">로그인</h1>
 	<div>
-		<form action="login_proce.jsp" method="post" name="loginform">
+		<form method="post" name="loginform">
 			<input type="text" id="login_id1" name="id" placeholder="아이디">
 			<br>
 			<input type="password" id="login_pw1" name="pw" placeholder="패스워드">

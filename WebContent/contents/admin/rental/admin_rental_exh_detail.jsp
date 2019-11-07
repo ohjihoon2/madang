@@ -123,7 +123,7 @@ $(document).ready(function(){
 <body>
 <jsp:include page="../admin_left_nav.jsp"/>
 <div id="admin_rental_exh_d" class="admin_content">
-	<h1>전 시 관 리</h1>	
+	<h1>전 시 대 관</h1>	
 	<section>
 		<table>
 			<tr>

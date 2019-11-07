@@ -6,18 +6,19 @@
 	String distinguish = request.getParameter("distinguish");
 	if(distinguish.equals("general")){
 		General_mem_DAO dao = new General_mem_DAO();
-%>
-		<jsp:useBean id="vo" class="com.madang.vo.General_mem_VO"></jsp:useBean>
-		<<jsp:setProperty property="*" name="vo"/>
-<%
+		General_mem_VO vo = new General_mem_VO();
+		
+		vo.setId(request.getParameter("id"));
+		vo.setPw(request.getParameter("pw"));
+		
 		boolean result = dao.getResultLogin(vo);
 		dao.close();
 		if(result){
 			//로그인 성공 : 세션에 아이디를 넣고, 메인페이지로 이동
 			session.setAttribute("generalID",vo.getId());
-			response.sendRedirect("http://localhost:9090/mainpage.jsp");
+			out.write("로그인에 성공했습니다.");
 		}else{//로그인 실패
-			response.sendRedirect("http://localhost:9090/errorPage.jsp");	
+			out.write("아이디/패스워드가 잘못되었습니다.");
 		}
 		
 		
