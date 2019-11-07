@@ -176,7 +176,6 @@
 	#text_space > div >div{
 		margin: 10px 0px 10px 0px;
 	}
-		
 /* 	div#concertInfo>div>#textSpace>div>div{
 	border:1px solid gray;
 	}
@@ -232,3 +231,7 @@
 	<%
 		} 
 	}%>
+	<jsp:include page="../../footer.jsp"/>
+	</body>
+</html>
+	

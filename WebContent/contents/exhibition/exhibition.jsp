@@ -118,7 +118,7 @@
 	/** 중앙 exhibition contents **/
 	.exhibition_area{
 		width:1000px;
-		height:3000px;
+		height:1500px;
 		margin:auto;
 	}
 	.exhibition_info_today{
@@ -285,5 +285,6 @@
 			</div>
 		</div>
 	</div>
+	<jsp:include page="../../footer.jsp"/>
 </body>
 </html>

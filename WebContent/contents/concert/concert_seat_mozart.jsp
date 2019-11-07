@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>
 <title>Insert title here</title>
 <style>
 	*{
@@ -94,7 +96,11 @@
 		padding:8px;
 		margin:auto;
 	}
-	
+	div.concert_seat_guide{
+		width:1000px;
+		height:1000px;
+		margin:auto;
+	}
 	div.concert_seat_guide>img{
 		display:block;
 		margin:auto;
@@ -131,5 +137,6 @@
 		</div>
 		<img src="http://localhost:9090/images/concert_main/소극장_seat.gif" class ="theater_seat">
 	</div>
+	<jsp:include page="../../footer.jsp"/>
 </body>
 </html>

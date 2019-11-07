@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>
 <title>Insert title here</title>
 <style>
 	*{
@@ -85,7 +87,7 @@
 	}
 	div.concert_seat_guide{
 		width:1000px;
-		height:300px;
+		height:1600px;
 		margin:auto;
 	}
 	
@@ -118,14 +120,15 @@
 	</div>
 	<div class="concert_seat_guide">
 		<h1>베토벤 홀</h1>
-		<img src="http://localhost:9090/images/concert_main/챔버홀_전경.gif">
+		<img src="http://localhost:9090/images/concert_main/concert_seat2_pic.jpg">
 		<div>
 			<h2>공연장 좌석배치도<br>
 					각 좌석도에서 좌석 버튼을 클릭하시면 해당 좌석에서 촬영한 무대시각선을 보실 수 있습니다.<br>
 					촬영 시야(VIEW)이기 때문에 실제 눈으로 보는 것과는 약간의 차이가 있을 수 있습니다.<br>
 			</h2>
 		</div>
-		<img src="http://localhost:9090/images/concert_main/챔버홀.gif">
+		<img src="http://localhost:9090/images/concert_main/concert_seat2.gif">
 	</div>
+	<jsp:include page="../../footer.jsp"/>
 </body>
 </html>

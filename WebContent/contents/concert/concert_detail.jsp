@@ -29,9 +29,6 @@
 	String bmark_code="";
 	bmark_code=b_service.getConcertBmarkCode(vo.getConcert_code(), id);
 %>
-document.write(<%= bmark_code %>);
-document.write(<%= code %>);
-document.write(<%= vo.getConcert_code() %>);
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,8 +86,26 @@ $(document).ready(function(){
 		
 	});
 	
+	var id = '<%=id%>';
+	alert(id);
+	//팝업창 
+	$('.ticketing_popup').click(function(){
+		var code = $('.'+$(this).attr("id")).val();
+		//예매 팝업 validation
+		 if(id ==null){
+			alert("로그인시 이용가능합니다. 로그인 페이지로 이동합니다.");
+			location.replace("http://localhost:9090/contents/login/login.jsp");
+		}else{
+	  		window.open("ticket_concert.jsp?code="+code, "window팝업", "width=1000, height=700, left=400, top=200");
+		} 
+		return false;
+	});
 });
+
+
+
 </script>
+	
 <style>
 	*{
 		font-family:"나눔스퀘어라운드";
@@ -160,7 +175,7 @@ $(document).ready(function(){
 	/** 중앙 concert contents **/
 	div.concert_detail_info{
 		width:1000px;
-		height:15000px;
+		height:3000px;
 		margin:auto;
 		margin-top:100px;
 	}
@@ -198,7 +213,7 @@ $(document).ready(function(){
 		text-align:left;
 		margin-left:10px;
 	}
-	div.concert_detail_info>div>#text_space>div>a{
+	#c_001{
 		display:inline-block;	
 		color:#e5002c;
 		border:1px solid #e5002c;
@@ -299,7 +314,10 @@ $(document).ready(function(){
 						<td><%=vo.getC_contact() %></td>
 					</tr>
 				</table>
-				<a href="#">예매하기</a>
+				
+				<input type="hidden" value="<%=vo.getConcert_code()%>" class="<%=vo.getConcert_code()%>"/>
+					
+				<input type="button" value="예매" class="ticketing_popup" id="<%=vo.getConcert_code()%>"/>
 				
 				<!-- 찜 등록/삭제 버튼 -->
 				<img id="<%= bmark_code %>" src="http://localhost:9090/images/bookmark/<%= on_off %>.png" class="bmark_heart" value="<%= val %>" />

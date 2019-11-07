@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>
 <title>Insert title here</title>
 <style>
 	*{
@@ -122,5 +124,6 @@
 		<img src="http://localhost:9090/images/exhibition/hangaram_1.gif">
 		<img src="http://localhost:9090/images/exhibition/hangaram_map_1.png">
 	</div>
+	<jsp:include page="../../footer.jsp"/>
 </body>
 </html>
