@@ -31,7 +31,7 @@
 					
 					if(pw_msg=="비밀번호 확인이 완료되었습니다.") {
 						//alert("d");
-						location.href="reserv_cc_process.jsp?tc_code=";
+						location.href="reserv_cc_process.jsp?p_code=<%= cvo.getP_code() %>";
 						
 					} else {
 						alert("비밀번호를 다시 입력해주세요")

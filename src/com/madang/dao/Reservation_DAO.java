@@ -115,15 +115,15 @@ public class Reservation_DAO {
 	
 	
 	/** 공연 예매취소 */
-	public boolean getConcertReservDelete(String id, String tc_code) {
+	public boolean getConcertReservDelete(String id, String p_code) {
 		boolean result=false;
 		
-		String sql="delete from ticket_concert where tc_id=? and tc_code=?";
+		String sql="delete from purchase where mem_id=? and p_code=?";
 		getPreparedStatement(sql);
 		
 		try {
 			pstmt.setString(1, id);
-			pstmt.setString(2, tc_code);
+			pstmt.setString(2, p_code);
 			
 			int val=pstmt.executeUpdate();
 			if(val!=0) result=true;
