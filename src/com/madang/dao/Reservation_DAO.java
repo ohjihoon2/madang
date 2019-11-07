@@ -71,7 +71,8 @@ public class Reservation_DAO {
 		
 		String sql="select p_date, tc_payw, tc_pays, tc_price, p.p_code, c.concert_code, \r\n" + 
 				"  tc_code, tc_time, t.tc_cdate, tc_cseat, tc_name, tc_phone1, tc_phone2, tc_phone3, tc_recive, tc_canceld, \r\n" + 
-				"  c_sposter, c_title, c_place\r\n" + 
+				"  c_sposter, c_title, c_place,\r\n" + 
+				"  floor(sysdate-to_date(tc_time))\r\n" + 
 				"  from purchase p, ticket_concert t, concert c \r\n" + 
 				"  where p.p_code=t.p_code and t.concert_code=c.concert_code\r\n" + 
 				"    and t.tc_cdate is not null\r\n" + 
@@ -87,7 +88,7 @@ public class Reservation_DAO {
 				vo.setP_date(rs.getString(1));
 				vo.setTc_payw(rs.getString(2));
 				vo.setTc_pays(rs.getString(3));
-				vo.setTc_price(rs.getString(4));
+				vo.setTc_price2(rs.getInt(4));
 				vo.setP_code(rs.getString(5));
 				vo.setConcert_code(rs.getString(6));
 				
@@ -103,6 +104,8 @@ public class Reservation_DAO {
 				vo.setC_sposter(rs.getString(17));
 				vo.setC_title(rs.getString(18));
 				vo.setC_place(rs.getString(19));
+				
+				vo.setStatus(rs.getInt(20));
 			}
 			
 		} catch (Exception e) {e.printStackTrace();}
@@ -112,14 +115,18 @@ public class Reservation_DAO {
 	
 	
 	/** 공연 예매취소 */
-	public boolean getConcertReservDelete() {
+	public boolean getConcertReservDelete(String id, String tc_code) {
 		boolean result=false;
 		
-		String sql="";
+		String sql="delete from ticket_concert where tc_id=? and tc_code=?";
 		getPreparedStatement(sql);
 		
 		try {
+			pstmt.setString(1, id);
+			pstmt.setString(2, tc_code);
 			
+			int val=pstmt.executeUpdate();
+			if(val!=0) result=true;
 		} catch (Exception e) {e.printStackTrace();}
 		
 		return result;
@@ -132,11 +139,11 @@ public class Reservation_DAO {
 	
 	
 	
-	/** 공연 예매 상세내역 */
+	/** 전시 예매 상세내역 */
 	
 	
 	
-	/** 공연 예매취소 */
+	/** 전시 예매취소 */
 	
 	
 	

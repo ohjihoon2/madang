@@ -63,9 +63,22 @@ document.write(<%= id %>);
 						<td><%= cvo.getTc_code() %></td>
 						<td><%= cvo.getC_title() %></td>
 						<td><%= cvo.getTc_cdate() %></td>
+						
+						<!-- 좌석 매수 -->
 						<% String seats=cvo.getTc_cseat(); String[] seat=seats.split(" /"); int num=seat.length;%>
 						<td><%= num %>매</td>
-						<td><%= cvo.getTc_pays() %></td> <!-- 이거 몇가진지 보고 한글로 바꾸기 -->
+						
+						<!-- 현재상태 -->
+						<% if(cvo.getTc_pays().equals("wait")) { %>
+							<td>결제대기</td>
+						<% } else if(cvo.getTc_pays().equals("complete")) { %>
+						<% if(cvo.getStatus()<1) { %> <!-- 관람 당일까지 -->
+							<td>예매완료</td>
+						<% } else if(cvo.getStatus()>=1) { %> <!-- 관람일 이후 -->
+							<td>관람완료</td>
+						<% } %>
+						
+					<% } %>
 					</tr>
 				<% } %>
 				

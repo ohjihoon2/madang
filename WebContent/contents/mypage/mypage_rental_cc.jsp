@@ -22,7 +22,7 @@
 		var pw_msg="";
 		
 		//대관취소 체크박스/비밀번호 체크
-		$("button#out_btn").click(function(){
+		$("button#cc_btn").click(function(){
 			if($("input:checkbox[id='out']").is(":checked")) {
 				if($("input#out_pw_cfm").val()=="") {
 					alert("비밀번호를 입력해주세요");
@@ -128,7 +128,7 @@
 			</div>
 			
 			<div class="button">
-				<button type="button" id="out_btn" class="button_a">신청취소</button>
+				<button type="button" id="cc_btn" class="button_a">신청취소</button>
 				<a href="mypage_rental_details.jsp?rental_code=<%= vo.getRental_code() %>"><button type="button" class="button_b">취소</button></a>
 			</div>
 		<!-- </form> -->

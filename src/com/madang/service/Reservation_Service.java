@@ -27,9 +27,11 @@ public class Reservation_Service {
 	
 	
 	/** 공연 예매취소 */
-	public boolean getConcertReservDelete() {
+	public boolean getConcertReservDelete(String id, String tc_code) {
 		boolean result=false;
 		Reservation_DAO dao=new Reservation_DAO();
+		result=dao.getConcertReservDelete(id, tc_code);
+		dao.close();
 		return result;
 	}
 	

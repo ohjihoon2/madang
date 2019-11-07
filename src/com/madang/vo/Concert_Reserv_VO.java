@@ -5,12 +5,26 @@ public class Concert_Reserv_VO {
 	String p_code, mem_id, tce_code, p_status, tc_paym, tc_payw, tc_pays, p_date;
 	//공연 예매정보
 	String tc_code, concert_code, tc_cdate, Tc_cseat, tc_cancelc, tc_canceld,
-		tc_price, tc_recive, tc_name, tc_birth, tc_phone, tc_email, tc_time;
+		tc_recive, tc_name, tc_birth, tc_phone, tc_email, tc_time;
+	int tc_price2;
 	//공연정보 reference
 	String c_title, c_place, c_sdate, c_edate, c_rating, c_time, c_stime, c_sposter;
+	//예매완료 가공
+	int status;
 	
 	
-	
+	public int getTc_price2() {
+		return tc_price2;
+	}
+	public void setTc_price2(int tc_price2) {
+		this.tc_price2 = tc_price2;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
 	public String getC_sposter() {
 		return c_sposter;
 	}
@@ -101,12 +115,12 @@ public class Concert_Reserv_VO {
 	public void setTc_canceld(String tc_canceld) {
 		this.tc_canceld = tc_canceld;
 	}
-	public String getTc_price() {
+	/*public String getTc_price() {
 		return tc_price;
 	}
 	public void setTc_price(String tc_price) {
 		this.tc_price = tc_price;
-	}
+	}*/
 	public String getTc_recive() {
 		return tc_recive;
 	}

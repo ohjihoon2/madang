@@ -361,7 +361,7 @@ div.ticket_box_2 table tr td:nth-child(4) {
 	width:30%;
 }
 
-div.ticket_box_3 div#poster {
+div.ticket_box_3 img#poster {
 	border:1px solid gray;
 	display:inline-block;
 	width:230px; height:265px;
