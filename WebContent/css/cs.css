@@ -289,7 +289,13 @@ div.qaa_table_2 tr:last-child span {
 	margin-top:3px;
 }
 
+div.qaa_table_1 table tr td a#qa_file_dwn { /* 첨부파일 파일명 */
+	color:black;
+}
 
+div.qaa_table_1 table tr td a#qa_file_dwn:hover {
+	color:#05875e;
+}
 
 
 /** 하단 */

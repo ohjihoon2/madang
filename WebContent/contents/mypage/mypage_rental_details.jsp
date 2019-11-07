@@ -16,7 +16,14 @@
 <link rel="stylesheet" href="http://localhost:9090/css/mypage.css"/>
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <script src="http://localhost:9090/js/madang.js"></script>
-
+<script>
+	$(document).ready(function(){
+		$('#rt_file_dwn').click(function(e){
+			e.preventDefault(); //e의 href무력화
+			window.open('http://localhost:9090/upload/q_and_a/<%=vo.getR_sfile()%>');
+		});//파일클릭 다운로드
+	});
+</script>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />
@@ -77,7 +84,14 @@
 				</tr>
 				<tr>
 					<td>신청서</td>
-					<td><%= vo.getR_file() %> 이건....어떻게해</td>
+					<td>
+						<%if(vo.getR_file()!=null && vo.getR_file()!=""){ %>
+							<a href="#" id="rt_file_dwn"><%=vo.getR_file()%></a>
+						<%}else{ %>
+							파일 없음
+						<%} %>
+						<%-- <%= vo.getR_file() %> 이건....어떻게해 --%>
+					</td>
 				</tr>
 				<tr>
 					<td>현재상태</td>

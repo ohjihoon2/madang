@@ -449,6 +449,15 @@ img.bmark_heart { /* ♡ 버튼 */
 }
 
 
+/** 대관내역 */
+div.ticket_box_1 table tr td a#rt_file_dwn { /* 신청서 파일명 */
+	color:black;
+}
+
+div.ticket_box_1 table tr td a#rt_file_dwn:hover {
+	color:#05875e;
+}
+
 /** 하단 */
 
 
