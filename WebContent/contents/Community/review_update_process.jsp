@@ -6,7 +6,7 @@
 <jsp:setProperty name="vo" property="*"></jsp:setProperty>
 <%
 	ReviewService service = new ReviewService();
-	Boolean result = service.getResultReviewUpdate(vo);
+	boolean result = service.getResultReviewUpdate(vo);
 	
 	if(result) response.sendRedirect("http://211.63.89.214:9090/contents/Community/review_contents.jsp?rv_code="+vo.getRv_code());
 	else response.sendRedirect("../../errorPage.jsp");

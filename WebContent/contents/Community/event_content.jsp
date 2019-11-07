@@ -3,6 +3,7 @@
 <%@ page import="com.madang.dao.*,com.madang.service.*,com.madang.vo.*,java.util.*" %>    
 <%
 	String ev_code = request.getParameter("ev_code");
+	String ev_rp_code = request.getParameter("ev_rp_code");
 	String id = (String)session.getAttribute("generalID");
 	
 	EventService service = new EventService();
@@ -28,13 +29,13 @@
 				var ev_rp_content = $("textarea#reply_area").val();
 				
 				if(rep_btn == "댓글쓰기"){
-					var str = "<div id='reply_div'><textarea id='reply_area' placeholder='여기에 댓글을 써주세요.'></textarea></div>";
-					$("div#sub_title2").after(str);
+					
+					var str = "<textarea id='reply_area' placeholder='여기에 댓글을 써주세요.'></textarea>";
+					$("div#replyEmpty").append(str);
 					$("button#btnReply").text("댓글완료");
 					
-				}else{			
-					if(ev_rp_content == "" && ev_rp_content == null){
-						
+				}else if(rep_btn == "댓글완료"){			
+					if(ev_rp_content == "" || ev_rp_content == null){
 						alert("200자 이내로 댓글을 작성하세요.");
 						$("textarea#reply_area").focus();
 						
@@ -52,7 +53,7 @@
 									if(result) {
 										alert("댓글이 등록되었습니다.");
 										$("#reply_div").hide();
-										$("#btnReply").text("댓글 쓰기");
+										$("#btnReply").text("댓글쓰기");
 										location.reload();
 										
 									}else{
@@ -64,6 +65,26 @@
 
 					}
 					
+				}else if(rep_btn == "댓글수정"){
+					var new_content = $("#UpdateReply").val();
+					var ev_rp_code= $("#ev_rp_code").val();
+					
+					alert("수정완료버튼");
+					$.ajax({
+						url:"event_reply_update.jsp?ev_rp_code="+ev_rp_code+"&ev_rp_content="+new_content,
+						success:function(result){
+							if(result){
+								alert("댓글이 수정되었습니다.");
+								$("#div_comment").hide();
+								$("#btnWriteReply").text("댓글쓰기");
+								location.reload();		
+								
+							}else{
+								alert("댓글등록에 실패했습니다.")
+							}
+			
+						}
+					});	
 				}
 
 				
@@ -71,7 +92,23 @@
 				alert("로그인 후 댓글을 쓸 수 있습니다.");
 			}
 		});
+		
+		$("button#btnRE").click(function(){
+			$("#replyEmpty").empty();
+			var origin_content = $("#ev_rp_content").val();
+			var rep_btn = $("button#btnReply").text();
+			var str = "<textarea id='UpdateReply'>"+origin_content+"</textarea>";
+	
+			$("div#sub_title2").after(str);
+			$("button#btnReply").text("댓글수정");
+			$("button#btnCancel").text("수정취소");	
 
+			
+		});
+		
+		$("button#btnCancel").click(function(){
+			$("#replyEmpty").hide();
+		});
 		
 	});
 </script>
@@ -102,22 +139,29 @@
 			
 			<div id="sub_title2">		
 				<span>댓글이벤트</span>
+				<button type="button" id="btnCancel">취소</button>
 				<button type="button" id="btnReply">댓글쓰기</button>
 				<a href="http://localhost:9090/contents/Community/event.jsp"><button type="button" id="btnList">목록보기</button></a>
 			<br><br>
 			</div>
+			<div id="replyEmpty"></div>
 			
 			<br><br><br><br>
 			<%for(EventReplyVO rvo : rlist){ %>
 			<ul id="event_ul">
 				<li><span id="li_id"><%=rvo.getEv_rp_id() %></span><span id="li_event_date"><%=rvo.getEv_rp_date() %></span>
-				<button type="button" id="btnRE">수정</button><button type="button" id="btnDE">삭제</button></li>
+				<%if(id.equals(rvo.getEv_rp_id())){ %>
+				<button type="button" id="btnRE">수정</button>
+				<button type="button" id="btnDE">삭제</button></li>
+				<%} %>
 				<li id="li_content"><%=rvo.getEv_rp_content() %></li>	
-				<input type="hidden" name="ev_rp_content" value="<%=rvo.getEv_rp_content() %>">			
-				<input type="hidden" name="ev_rp_id" value="<%=id%>">			
+				<input type="hidden" id="ev_rp_content" value="<%=rvo.getEv_rp_content() %>">			
+				<input type="hidden" id="ev_rp_code" value="<%=rvo.getEv_rp_code() %>">			
+							
 			</ul>
 			<%}%>
 		</div>	
+
 		
 		
 		<div id="btnMore_div">

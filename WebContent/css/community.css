@@ -241,7 +241,7 @@ div#reply_div{
 	margin:auto;
 }
 
-textarea#reply_area{
+textarea#reply_area,textarea#UpdateReply{
 	border-radius:10px;
 	width:96%;
 	height: 80px;
@@ -285,7 +285,7 @@ div#sub_title2>span {
 	font-size: 15pt;
 }
 
-button#btnReply,button#btnList {
+button#btnReply,button#btnList,button#btnCancel{
 	border: 1px solid rgb(5, 135, 94);
 	border-radius: 10px;
 	color: rgb(5, 135, 94);

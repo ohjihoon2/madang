@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import com.madang.vo.EventReplyVO;
 import com.madang.vo.EventVO;
+import com.madang.vo.ReviewVO;
 
 public class EventDAO {
 	//field
@@ -74,6 +75,23 @@ public class EventDAO {
 		return list;
 	}
 	
+	//eventReplyUpdate
+	public boolean getResultEventReplyUpdate(String ev_rp_content, String ev_rp_code) {
+		boolean result = false;
+		String sql = "update event_reply set ev_rp_content=? where ev_rp_code=?";
+		
+		getPreparedStatement(sql);
+		try {
+			pstmt.setString(1, ev_rp_content);
+			pstmt.setString(2, ev_rp_code);
+
+			int val = pstmt.executeUpdate();
+			if(val != 0) result = true;
+			
+		}catch(Exception e) { e.printStackTrace();}
+		System.out.println("result: "+ result);		
+		return result;
+	}
 	
 	
 	
@@ -143,7 +161,7 @@ public class EventDAO {
 	public ArrayList<EventReplyVO> getResultReplyList(String ev_code){
 		
 		ArrayList<EventReplyVO> rlist = new ArrayList<EventReplyVO>();
-		String sql = "select ev_rp_id, ev_rp_content, to_char(ev_rp_date,'yyyy.mm.dd.') from event_reply"
+		String sql = "select ev_rp_id, ev_rp_content, to_char(ev_rp_date,'yyyy.mm.dd.'),ev_rp_code from event_reply"
 				+ " where ev_code=?"
 				+ " order by ev_rp_date desc";
 		getPreparedStatement(sql);
@@ -158,6 +176,7 @@ public class EventDAO {
 				rvo.setEv_rp_id(rs.getString(1));
 				rvo.setEv_rp_content(rs.getString(2));
 				rvo.setEv_rp_date(rs.getString(3));				
+				rvo.setEv_rp_code(rs.getString(4));				
 
 				rlist.add(rvo);
 			}

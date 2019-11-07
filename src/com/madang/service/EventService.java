@@ -24,6 +24,15 @@ public class EventService {
 		dao.getResultUpdateHits(ev_code);
 	}
 	
+	//reply update
+	public boolean getResultEventReplyUpdate(String ev_rp_content, String ev_rp_code) {
+		boolean result = false;
+		EventDAO dao = new EventDAO();
+		dao.getResultEventReplyUpdate(ev_rp_content, ev_rp_code);
+		
+		return result;
+	}
+	
 	/** 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占싱븝옙트 占쏙옙占쏙옙트 占쏙옙占쏙옙占쏙옙占쏙옙 */
 	public ArrayList<EventVO> getResultIngList(){
 		ArrayList<EventVO> inglist = new ArrayList<EventVO>();
