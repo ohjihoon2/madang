@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-
+  
 footer, div {
 	margin: 0px;
 	padding: 0px;
