@@ -31,7 +31,6 @@
 	
 	$(document).ready(function(){
 		var id = '<%=id%>';
-		alert(id);
 		//팝업창 
 		$('.ticketing_popup').click(function(){
 			var code = $('.'+$(this).attr("id")).val();

@@ -36,13 +36,13 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="http://localhost:9090/css/mypage.css"/> <!-- 찜하기 버튼 -->
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
-<!-- <script src="http://localhost:9090/js/mypage.js"></script> 찜하기 jquery -->
+<script src="http://localhost:9090/js/mypage.js"></script>
 <script>
 $(document).ready(function(){
 	
 	$("img.bmark_heart").click(function(){
 		
-		if(<%= id %>!=null) {
+		
 			var c_bmark_code=$(this).attr("id");
 			var bmark_val=$(this).attr("value");
 			
@@ -60,34 +60,25 @@ $(document).ready(function(){
 						}
 					}
 				});
-				
 			} else if (bmark_val=="off") {
 				//등록
 				$.ajax({
 					url:"../mypage/bookmark_add_process.jsp?concert_code=<%= code %>",
 					success:function(result) {
 						//alert(result); 1이면 성공
-						if(result==1) {
+						if(result!=0) {
 							//$("img.bmark_heart").attr("src", "http://localhost:9090/images/bookmark/on.png");
 							alert("찜 목록에 등록되었습니다.");
 						} else {
-							alert("로그인 후 이용해주세요");
+							alert("실패");
 						}
 					}
 				});
 			}
-			
 			location.reload();
-			
-		} else {
-			alert("로그인 후 이용 가능한 서비스입니다.");
-		}
-		
-		
 	});
 	
 	var id = '<%=id%>';
-	alert(id);
 	//팝업창 
 	$('.ticketing_popup').click(function(){
 		var code = $('.'+$(this).attr("id")).val();
@@ -213,7 +204,7 @@ $(document).ready(function(){
 		text-align:left;
 		margin-left:10px;
 	}
-	#c_001{
+	div.concert_detail_info>div>#text_space>div>a{
 		display:inline-block;	
 		color:#e5002c;
 		border:1px solid #e5002c;
@@ -228,7 +219,7 @@ $(document).ready(function(){
 		margin:30px 0px 20px 250px;
 		text-align: left;
 	}
-	div.concert_detail_info>div>div#content_detail_right>a{ /* 예매하기 */
+	.ticketing_popup{ /* 예매하기 */
 		display:inline-block;
 		background:#e5002c;
 		color:white;
@@ -258,7 +249,6 @@ $(document).ready(function(){
 </head>
 <body>
 	<jsp:include page="../../header.jsp"/>
-	<img src="http://localhost:9090/images/concert_main/concert_main.png">
 	<div id="left_nav">
 		<ul>
 			<li><a href="concert.jsp">공연</a></li>
