@@ -232,9 +232,9 @@ div#admin_main section a:hover {
 	 				<tr>
 	 					<td><%=rental_list.get(i).getRno() %></td>
 	 					<%if(rental_list.get(i).getR_case().equals("공연")){ %>
-	 						<td><a href="http://211.63.89.214:9090/contents/admin/rental/admin_rental_con_detail.jsp?rental_code=<%=rental_list.get(i).getRental_code()%>"><%=rental_list.get(i).getR_title() %></a></td>
+	 						<td><a href="http://211.63.89.213:9090/contents/admin/rental/admin_rental_con_detail.jsp?rental_code=<%=rental_list.get(i).getRental_code()%>"><%=rental_list.get(i).getR_title() %></a></td>
 	 					<%}else if(rental_list.get(i).getR_case().equals("전시")){ %>
-	 						<td><a href="http://211.63.89.214:9090/contents/admin/rental/admin_rental_exh_detail.jsp?rental_code=<%=rental_list.get(i).getRental_code()%>"><%=rental_list.get(i).getR_title() %></a></td>
+	 						<td><a href="http://211.63.89.213:9090/contents/admin/rental/admin_rental_exh_detail.jsp?rental_code=<%=rental_list.get(i).getRental_code()%>"><%=rental_list.get(i).getR_title() %></a></td>
 	 					<%} %>
 	 					<td><%=rental_list.get(i).getR_case() %></td>
 	 					<td><%=rental_list.get(i).getR_date() %></td>
