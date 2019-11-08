@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.madang.dao.Reservation_DAO;
 import com.madang.vo.Concert_Reserv_VO;
+import com.madang.vo.Exhib_Reserv_VO;
 
 public class Reservation_Service {
 	/** 공연 예매내역 리스트 */
@@ -26,11 +27,11 @@ public class Reservation_Service {
 	}
 	
 	
-	/** 공연 예매취소 */
-	public boolean getConcertReservDelete(String id, String p_code) {
+	/** 예매취소 */
+	public boolean getReservDelete(String id, String p_code) {
 		boolean result=false;
 		Reservation_DAO dao=new Reservation_DAO();
-		result=dao.getConcertReservDelete(id, p_code);
+		result=dao.getReservDelete(id, p_code);
 		dao.close();
 		return result;
 	}
@@ -39,12 +40,24 @@ public class Reservation_Service {
 	
 	
 	/** 전시 예매내역 리스트 */
+	public ArrayList<Exhib_Reserv_VO> getExhibReservList(String id) {
+		ArrayList<Exhib_Reserv_VO> list=new ArrayList<Exhib_Reserv_VO>();
+		Reservation_DAO dao=new Reservation_DAO();
+		list=dao.getExhibReservList(id);
+		dao.close();
+		return list;
+	}
 	
 	
 	
-	/** 공연 예매 상세내역 */
+	/** 전시 예매 상세내역 */
+	public Exhib_Reserv_VO getExhibReservContent(String id, String te_code) {
+		Exhib_Reserv_VO vo=new Exhib_Reserv_VO();
+		Reservation_DAO dao=new Reservation_DAO();
+		vo=dao.getExhibReservContent(id, te_code);
+		dao.close();
+		return vo;	
+	}
 	
 	
-	
-	/** 공연 예매취소 */
 }

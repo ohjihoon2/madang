@@ -147,7 +147,7 @@
 		
 		<div class="button">
 			<button type="button" id="cc_btn" class="button_a">예매취소</button>
-			<a href="mypage_reserv_details.jsp?tc_code=<%= cvo.getTc_code() %>"><button type="button" id="out_btn" class="button_b">취소</button></a>
+			<a href="mypage_reserv_details_c.jsp?tc_code=<%= cvo.getTc_code() %>"><button type="button" id="out_btn" class="button_b">취소</button></a>
 		</div>
 
 	</div>

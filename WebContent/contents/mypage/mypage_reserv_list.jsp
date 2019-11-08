@@ -8,6 +8,9 @@
 	ArrayList<Concert_Reserv_VO> clist=new ArrayList<Concert_Reserv_VO>();
 	clist=service.getConcertReservList(id);
 	
+	ArrayList<Exhib_Reserv_VO> elist=new ArrayList<Exhib_Reserv_VO>();
+	elist=service.getExhibReservList(id);
+	
 %>
 document.write(<%= id %>);
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -58,7 +61,7 @@ document.write(<%= id %>);
 				</tr>
 				 -->
 				<% for(Concert_Reserv_VO cvo:clist) { %>
-					<tr onClick="location.href='mypage_reserv_details.jsp?tc_code=<%= cvo.getTc_code() %>'">
+					<tr onClick="location.href='mypage_reserv_details_c.jsp?tc_code=<%= cvo.getTc_code() %>'">
 						<td><%= cvo.getTc_time() %></td>
 						<td><%= cvo.getTc_code() %></td>
 						<td><%= cvo.getC_title() %></td>
@@ -72,13 +75,12 @@ document.write(<%= id %>);
 						<% if(cvo.getTc_pays().equals("wait")) { %>
 							<td>결제대기</td>
 						<% } else if(cvo.getTc_pays().equals("complete")) { %>
-						<% if(cvo.getStatus()<1) { %> <!-- 관람 당일까지 -->
-							<td>예매완료</td>
-						<% } else if(cvo.getStatus()>=1) { %> <!-- 관람일 이후 -->
-							<td>관람완료</td>
+							<% if(cvo.getStatus()<1) { %> <!-- 관람 당일까지 -->
+								<td>예매완료</td>
+							<% } else if(cvo.getStatus()>=1) { %> <!-- 관람일 이후 -->
+								<td>관람완료</td>
+							<% } %>
 						<% } %>
-						
-					<% } %>
 					</tr>
 				<% } %>
 				
@@ -97,14 +99,28 @@ document.write(<%= id %>);
 					<th>매수</th>
 					<th>현재상태</th>
 				</tr>
-				<tr>
-					<td>2019-09-25</td>
-					<td>T12211</td>
-					<td>ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄴㄴㄴㄴ15</td>
-					<td>2019-11-16 ~ 2019-11-16</td>
-					<td>1매</td>
-					<td>예약완료</td>
-				</tr>
+				
+				<% for(Exhib_Reserv_VO evo : elist) { %>
+					<tr onClick="location.href='mypage_reserv_details_e.jsp?te_code=<%= evo.getTe_code() %>'">
+						<td><%= evo.getTe_time() %></td>
+						<td><%= evo.getTe_code() %></td>
+						<td><%= evo.getE_title() %></td>
+						<td><%= evo.getE_sdate() %> ~ <%= evo.getE_edate() %></td>
+						<td><%= evo.getTe_cticket() %>매</td>
+						
+						<!-- 현재상태 -->
+						<% if(evo.getTc_pays().equals("wait")) { %>
+							<td>결제대기</td>
+						<% } else if(evo.getTc_pays().equals("complete")) { %>
+							<% if(evo.getStatus()<1) { %> <!-- 관람 당일까지 -->
+								<td>예매완료</td>
+							<% } else if(evo.getStatus()>=1) { %> <!-- 관람일 이후 -->
+								<td>관람완료</td>
+							<% } %>
+						<% } %>
+					</tr>
+				<% } %>
+				
 			</table>
 		</div>
 		

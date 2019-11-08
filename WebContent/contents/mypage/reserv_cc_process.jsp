@@ -6,7 +6,7 @@
 	String p_code=request.getParameter("p_code");
 	
 	Reservation_Service service=new Reservation_Service();
-	boolean result=service.getConcertReservDelete(id, p_code);
+	boolean result=service.getReservDelete(id, p_code);
 	
 	if(result) {
 		out.println("<script>alert('예매 취소가 완료되었습니다.'); "
