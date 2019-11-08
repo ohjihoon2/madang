@@ -16,6 +16,7 @@
 	Bookmark_Service b_service=new Bookmark_Service();
 	b_check=b_service.getCheckExhibBmark(vo.getExhibition_code(), id);
 	
+	
 	String on_off;
 	String val;
 	
@@ -80,6 +81,19 @@ $(document).ready(function(){
 		
 		location.reload();
 		
+	});
+	//팝업창
+	var id = '<%=id%>';
+	$('.ticketing_popup').click(function(){
+		var code = $('.'+$(this).attr("id")).val();
+		//예매 팝업 validation
+		 if(id ==null){
+			alert("로그인시 이용가능합니다. 로그인 페이지로 이동합니다.");
+			location.replace("http://localhost:9090/contents/login/login.jsp");
+		}else{
+	  		window.open("http://localhost:9090/contents/exhibition/ticket_exhibition.jsp?exhibition_code="+code, "window팝업", "width=1000, height=700, left=400, top=200");
+		} 
+		return false;
 	});
 	
 });
@@ -219,6 +233,17 @@ $(document).ready(function(){
 		padding:5px 55px 5px 55px;
 		border-radius: 5px;
 	}
+	.ticketing_popup{ /* 예매하기 */
+		display:inline-block;
+		background:#e5002c;
+		color:white;
+		border:1px solid #e5002c;
+		text-decoration:none;
+		margin:20px 20px 0px 250px;
+		padding:5px 55px 5px 55px;
+		border-radius: 5px;
+		
+	}
 	th{
 		width:100px;
 	}
@@ -305,8 +330,8 @@ $(document).ready(function(){
 						<td><%=vo.getE_contact() %></td>
 					</tr>
 				</table>
-				<a href="#">예매하기</a>
-				
+				<input type="hidden" value="<%=vo.getExhibition_code()%>" class="<%=vo.getExhibition_code()%>"/>
+				<input type="button" value="예매" class="ticketing_popup" id="<%=vo.getExhibition_code()%>"/>
 				<!-- 찜 등록/삭제 버튼 -->
 				<img id="<%= bmark_code %>" src="http://localhost:9090/images/bookmark/<%= on_off %>.png" class="bmark_heart" value="<%= val %>" />
 				

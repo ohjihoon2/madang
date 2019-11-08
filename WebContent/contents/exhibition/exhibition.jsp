@@ -239,8 +239,8 @@
 						<div>
 							<div><%=list.get(i).getE_place() %></div>
 							<span><%=list.get(i).getE_sdate()%> ~ <%=list.get(i).getE_edate() %></span><br>
-							<input type="hidden" value="<%=list.get(i).getExhibition_code()%>" class="code<%=i%>"/>
-							<input type="button" value="예매" class="ticketing_popup" id="code<%=i%>"/>
+							<input type="hidden" value="<%=list.get(i).getExhibition_code()%>" class="<%=list.get(i).getExhibition_code()%>"/>
+							<input type="button" value="예매" class="ticketing_popup" id="<%=list.get(i).getExhibition_code()%>"/>
 						</div>
 					</div>
 				</div>

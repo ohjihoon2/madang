@@ -573,7 +573,7 @@
    	 			}
     	  	}else if(status ==3){
    	 			if(val == "btn_back"){
-					status = 4;
+					status = 2;
    	 			}else{
    	 			
    	 				// 이메일 유효성 정규식검사 
@@ -891,7 +891,7 @@
 	                		</td>
 	                	</tr>
 	                	<tr>
-	                		<td>결제금액 : 150,000원</td>
+	                		<td>결제금액 : <%=vo.getE_price() %>원</td>
 	                	</tr>
                  	</table>
                	</div>
@@ -987,7 +987,7 @@
 					</tr>
 					<tr>
 						<th scope="row">티켓금액</th>
-						<td> 원</td>
+						<td> </td>
 					</tr>
 					<tr>
 						<th scope="row">할인</th>
@@ -1003,7 +1003,7 @@
 					</tr>
 					<tr>
 						<th scope="row">총 결제 금액</th>
-						<td>0원</td>
+						<td></td>
 					</tr>
 				</table>
 				<button type="button" class="btn_next1" id="btn_next1">다음단계</button>
