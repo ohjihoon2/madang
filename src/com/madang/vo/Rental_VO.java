@@ -2,7 +2,7 @@ package com.madang.vo;
 
 public class Rental_VO {
 	String rental_code, r_case, r_title, r_place, r_sdate, r_edate, r_opentime, r_time, r_rhtime, 
-			r_status, r_id, r_file, r_sfile, r_status2,r_date;
+			r_status, r_id, r_file, r_sfile, r_status2, r_date;
 	int rno;
 	
 	

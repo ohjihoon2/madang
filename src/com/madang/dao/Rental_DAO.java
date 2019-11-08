@@ -86,7 +86,7 @@ public class Rental_DAO {
 		
 		String sql="select rental_code, r_case, r_title, r_place, \r\n" + 
 				"  to_char(r_sdate, 'yyyy-mm-dd')||' ('||to_char(r_sdate, 'dy')||')', to_char(r_edate, 'yyyy-mm-dd')||' ('||to_char(r_sdate, 'dy')||')', \r\n" + 
-				"  r_opentime, r_time, r_rhtime, r_status, r_id, r_file, r_sfile, \r\n" + 
+				"  r_opentime, r_time, r_rhtime, r_status, r_id, r_file, r_sfile, r_date, \r\n" + 
 				"  floor(sysdate-to_date(r_sdate,'yy/mm/dd')) startcount, floor(to_date(r_edate,'yy/mm/dd')-sysdate)+1 endcount \r\n" + 
 				"  from rental where rental_code=? and r_id=?";
 		getPreparedStatement(sql);
@@ -122,6 +122,7 @@ public class Rental_DAO {
 						vo.setR_status2("종료");
 					}
 				}
+				vo.setR_date(rs.getString(14));
 			}
 			
 		} catch (Exception e) {e.printStackTrace();}
@@ -134,7 +135,7 @@ public class Rental_DAO {
 	public boolean getResultcancel(String rental_code) {
 		boolean result=false;
 		
-		String sql="update rental set r_status='취소' where rental_code=?";
+		String sql="update rental set r_status='취소신청' where rental_code=?";
 		getPreparedStatement(sql);
 		
 		try {

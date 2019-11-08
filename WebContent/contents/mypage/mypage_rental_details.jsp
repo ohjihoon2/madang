@@ -49,6 +49,10 @@
 					<td><%= vo.getRental_code() %></td>
 				</tr>
 				<tr>
+					<td>대관 신청일</td>
+					<td><%= vo.getR_date() %></td>
+				</tr>
+				<tr>
 					<td>유형</td>
 					<td><%= vo.getR_case() %></td>
 				</tr>
