@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page import="com.madang.dao.*,com.madang.service.*,com.madang.vo.*,java.util.*" %>
+<%
+	String nt_code = request.getParameter("nt_code");
+	NoticeService service = new NoticeService();
+	NoticeVO vo = service.getResultNoticeContent(nt_code);
+%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -23,8 +29,16 @@
 
 	<div id="notice_content">
 		<div id="sub_title">공지사항</div>
-			<h1 id="review_title">공지사항제목<span> 공지날짜  | 조회수 </span></h1>
-			<div id="review_contents" placeholder="공지사항 내용"></div>	
+			<h1 id="review_title"><%=vo.getNt_title() %><span> <%=vo.getNt_date() %> || 조회수:<%=vo.getNt_hits() %> </span></h1>
+			<div id="review_contents"><%=vo.getNt_contents() %></div>	
+			<div id="notice_sfile">
+				<div id="not_sfile">파일</div>
+				<%if(vo.getNt_sfile()==null) {
+					vo.setNt_sfile("파일 없음");%>
+				
+				<%=vo.getNt_sfile() %>
+				<%} %>
+			</div>	
 			<div>
 				<a href="notice_list.jsp"><button id="btnNoticeList" type="button">목록보기</button></a>
 			</div>

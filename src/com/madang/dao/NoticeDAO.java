@@ -31,7 +31,7 @@ public class NoticeDAO {
 	}
 	
 	
-	//bring the notice list
+	//bring the notice list admin
 	public ArrayList<NoticeVO> getNoticeListAdmin(int startCount, int endCount){
 		ArrayList<NoticeVO> list = new ArrayList<NoticeVO>();
 		String sql="select * from (select rownum rno, nt_code, nt_title, to_char(nt_date,'yyyy/mm/dd'),nt_hits from (select * from notice order by nt_date desc) order by rno)where rno between ? and ?";
@@ -55,6 +55,32 @@ public class NoticeDAO {
 			}
 			
 		}catch(Exception e) {e.printStackTrace();}
+		return list;
+	}
+	
+	//bring the notice list
+	public ArrayList<NoticeVO> getResultNoticeList(){
+		ArrayList<NoticeVO> list = new ArrayList<NoticeVO>();
+		String sql="select nt_code, nt_title, nt_contents, nt_file, nt_sfile, to_char(nt_date,'yyyy.mm.dd.'), nt_hits from notice";
+		getPreparedStatement(sql);
+		try {
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				NoticeVO vo = new NoticeVO();
+				
+				vo.setNt_code(rs.getString(1));
+				vo.setNt_title(rs.getString(2));
+				vo.setNt_contents(rs.getString(3));
+				vo.setNt_file(rs.getString(4));
+				vo.setNt_sfile(rs.getString(5));
+				vo.setNt_date(rs.getString(6));
+				vo.setNt_hits(rs.getInt(7));
+				
+				list.add(vo);
+			}
+			
+		}catch(Exception e) {e.printStackTrace();}
+		
 		return list;
 	}
 	
@@ -119,6 +145,27 @@ public class NoticeDAO {
 	
 	//bring 
 	public NoticeVO getNoticeContentsAdmin(String nt_code){
+		NoticeVO vo = new NoticeVO();
+		String sql="select nt_title, nt_contents, nt_file, nt_sfile, nt_date from notice where nt_code=?";
+		getPreparedStatement(sql);
+		try {
+			pstmt.setString(1, nt_code);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				vo.setNt_title(rs.getString(1));
+				vo.setNt_contents(rs.getString(2));
+				vo.setNt_file(rs.getString(3));
+				vo.setNt_sfile(rs.getString(4));
+				vo.setNt_date(rs.getString(5));
+			}
+			
+		}catch(Exception e) {e.printStackTrace();}
+		return vo;
+	}
+	
+	
+	//bring 
+	public NoticeVO getResultNoticeContent(String nt_code){
 		NoticeVO vo = new NoticeVO();
 		String sql="select nt_title, nt_contents, nt_file, nt_sfile, nt_date from notice where nt_code=?";
 		getPreparedStatement(sql);

@@ -13,8 +13,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://localhost:9090/MyJSP/contents/Community/index_carousel.css">
+<link rel="stylesheet" href="http://localhost:9090/css/caleshall.css">
 <link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />
@@ -33,8 +36,8 @@
 	<div class="event_contents">
 		<div id="main_title">이벤트</div>
 		
-		<!-- <h1>캐러셀 추가 부분</h1>
-				<img src="http://localhost:9090/dycgv/images/15675941245740.jpg" /> -->
+ 		<!-- <h1>캐러셀 추가 부분</h1> -->
+				
 				<article>
 				<div id="demo" class="carousel slide" data-ride="carousel">
 
@@ -55,11 +58,19 @@
 				  
 				  <!-- The slideshow -->
 				  <div class="carousel-inner">
- 					<%for(EventVO vo: inglist){ %> 
-				    <div class="carousel-item active">
-				      <img src="http://localhost:9090/images/event/<%=vo.getEv_sthumbnail() %>" alt="eventImg" width="700" height="250">
-				    </div>
- 				    <%} %> 
+ 					<%for(int i=0; i< inglist.size(); i++ ){
+ 						EventVO vo = new EventVO();
+ 						vo = inglist.get(i);
+ 						if(i ==0 ) {%> 
+						    <div class="carousel-item active">
+						      <img src="http://localhost:9090/upload/event/<%=vo.getEv_sthumbnail() %>" alt="eventImg" width="700" height="250">
+						    </div>
+	 				    <%} else { %>
+	 				    	<div class="carousel-item">
+	 					      <img src="http://localhost:9090/upload/event/<%=vo.getEv_sthumbnail() %>" alt="eventImg" width="700" height="250">
+	 					    </div>
+	 				    <%} 
+	 				    } %>  
 				  
 				  <!-- Left and right controls -->
 				  <a class="carousel-control-prev" href="#demo" data-slide="prev">
@@ -71,7 +82,9 @@
 				</div>
 				</article>
 				<br>
-		<!-- 캐러셀 끝 -->	
+		<!-- 캐러셀 끝 -->
+		
+
 		
 		
 <!-- 이벤트 -->		

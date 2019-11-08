@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page import="com.madang.vo.*, com.madang.service.*,java.util.*" %>	
+<%
+	NoticeService service = new NoticeService();
+	ArrayList<NoticeVO> list = service.getResultNoticeList();
+%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,11 +30,11 @@
 		<div>
 			<div id="year">2019</div>
 			<%
-				for (int i = 1; i < 11; i++) {
+				for (NoticeVO vo : list) {
 			%>
 			<div class="notice_list">
-				<div id="notice_title"><a href="">음악당 대관공고 및 접수일정<span>조회수</span></a></div>
-				<div id="notice_date">2019.10.15~2019.10.30</div>				
+				<div id="notice_title"><a href="notice_content.jsp?nt_code=<%=vo.getNt_code()%>"><%=vo.getNt_title() %><span id="NtHits"><%=vo.getNt_hits() %></span></a></div>
+				<div id="notice_date"><%=vo.getNt_date() %></div>				
 			</div>
  			<%
 				}

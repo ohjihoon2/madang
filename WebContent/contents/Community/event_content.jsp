@@ -3,7 +3,6 @@
 <%@ page import="com.madang.dao.*,com.madang.service.*,com.madang.vo.*,java.util.*" %>    
 <%
 	String ev_code = request.getParameter("ev_code");
-	String ev_rp_code = request.getParameter("ev_rp_code");
 	String id = (String)session.getAttribute("generalID");
 	
 	EventService service = new EventService();
@@ -251,10 +250,12 @@ div#modalEV>div#modal-contentEV>span#closeEV:focus {
 			<%for(EventReplyVO rvo : rlist){ %>
 			<ul id="event_ul">
 				<li><span id="li_id"><%=rvo.getEv_rp_id() %></span><span id="li_event_date"><%=rvo.getEv_rp_date() %></span>
+				<%if(id!=null){ %>
 				<%if(id.equals(rvo.getEv_rp_id())){ %>
 				<button type="button" id="btnRE">수정</button>
 				<button type="button" id="btnEvDE">삭제</button></li>
-				<%} %>
+				<%} 
+				}%>
 				<li id="li_content"><%=rvo.getEv_rp_content() %></li>	
 				<input type="hidden" id="ev_rp_content" value="<%=rvo.getEv_rp_content() %>">			
 				<input type="hidden" id="ev_rp_code" value="<%=rvo.getEv_rp_code() %>">			

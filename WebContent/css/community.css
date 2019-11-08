@@ -417,7 +417,7 @@ h1#review_title {
 }
 
 div#review_contents {
-	margin: 10px 20px 70px 20px;
+	margin: 10px 20px 20px 20px;
 	border: 1px solid #9b9b9b;
 	border-radius: 10px;
 	width: 700px;
@@ -425,6 +425,25 @@ div#review_contents {
 	padding: 20px;
 	font-size: 13pt;
 	overflow-y:auto;
+}
+div#notice_sfile {
+	border: 1px solid #9b9b9b;
+	border-radius: 10px;
+	margin: 10px 20px 70px 20px;
+	width: 700px;
+	height: 40px;
+	padding:5px;
+	
+}
+
+div#not_sfile{
+	display:inline-block;
+	border: 1px solid #9b9b9b;
+	border-radius: 10px;
+	padding:7px;
+	margin-top:4px;
+	margin-left:10px;
+	margin-right:10px;
 }
 
 textarea#comment {
@@ -469,18 +488,25 @@ div.notice_list {
 	width: 900px;
 }
 
-div#notice_title {
+div.notice_list>div#notice_title {
 	margin: auto;
 	font-weight: bold;
-	font-size: 12pt;
-	margin: 5px 0px 5px 0px;
+	font-size: 14pt;
+	margin: 7px 0px 7px 20px;
 }
 
-div#notice_title>span {
+div.notice_list>div#notice_title  a{
+	text-decoration:none;
+	color:black;
+}
+
+div.notice_list>div#notice_title span#NtHits {
 	float: right;
+	padding-right:20px;
 }
 
 div#notice_date {
+	padding-left:30px;
 	font-size: 10pt;
 	padding-bottom: 5px;
 	color: #9b9b9b;

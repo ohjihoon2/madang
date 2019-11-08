@@ -10,10 +10,19 @@ import com.madang.vo.QandA_VO;
 
 public class NoticeService {
 
-	//bring the notice list
+	//bring the notice list admin
 	public ArrayList<NoticeVO> getNoticeListAdmin(int startCount, int endCount){
 		NoticeDAO dao = new NoticeDAO();
 		ArrayList<NoticeVO> list = dao.getNoticeListAdmin(startCount, endCount);
+		dao.close();
+		return list;
+	}
+	
+	//bring the notice list
+	public ArrayList<NoticeVO> getResultNoticeList(){
+		NoticeDAO dao = new NoticeDAO();
+		ArrayList<NoticeVO> list = dao.getResultNoticeList();
+		
 		dao.close();
 		return list;
 	}
@@ -49,6 +58,14 @@ public class NoticeService {
 	public NoticeVO getNoticeContentsAdmin(String nt_code){
 		NoticeDAO dao = new NoticeDAO();
 		NoticeVO vo = dao.getNoticeContentsAdmin(nt_code);
+		dao.close();
+		return vo;
+	}
+	
+	//bring
+	public NoticeVO getResultNoticeContent(String nt_code){
+		NoticeDAO dao = new NoticeDAO();
+		NoticeVO vo = dao.getResultNoticeContent(nt_code);
 		dao.close();
 		return vo;
 	}
