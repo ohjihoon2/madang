@@ -17,6 +17,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>
 <style>
 /* 삭제 모달창 */
 div#modalEV {      /* 모달창 바깥에 불투명 배경 부분 */
@@ -231,7 +232,7 @@ div#modalEV>div#modal-contentEV>span#closeEV:focus {
 			<div id="sub_title">진행중인 이벤트</div>
 			<h1 id="event_title"><%=vo.getEv_title() %></h1>
 			<h3 id="event_term"><%=vo.getEv_title()%></h3>
-			<img id="event_poster" src="http://localhost:9090/images/event/<%= vo.getEv_sdetail()%>"/>
+			<img id="event_poster" src="http://localhost:9090/upload/event/<%= vo.getEv_sdetail()%>"/>
 			<input type="hidden" id="id" value="<%=id%>">
 			<input type="hidden" id="ev_code" value="<%=ev_code%>">
 

@@ -29,6 +29,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>
 <style>
 /* The Modal (background) */
  .modal {

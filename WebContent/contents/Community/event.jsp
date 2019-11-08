@@ -18,6 +18,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="http://localhost:9090/js/madang.js"></script>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />
@@ -92,7 +93,7 @@
 		<div class="evnet">
 		<%for(EventVO vo: inglist){ %>
 			<div id="event">
-				<a href="event_content.jsp?ev_code=<%=vo.getEv_code() %>"><img src="http://localhost:9090/images/event/<%=vo.getEv_sthumbnail() %>"/></a>
+				<a href="event_content.jsp?ev_code=<%=vo.getEv_code() %>"><img src="http://localhost:9090/upload/event/<%=vo.getEv_sthumbnail() %>"/></a>
 				<p id="event_title"><%=vo.getEv_title() %></p>
 				<p id="event_term">이벤트 기간 | <%=vo.getEv_sdate() %> ~ <%=vo.getEv_edate() %></p>
 			</div>
