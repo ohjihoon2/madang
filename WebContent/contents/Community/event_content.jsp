@@ -290,5 +290,7 @@ div#modalEV>div#modal-contentEV>span#closeEV:focus {
 		</div>
 	
 	</div>	
+	
+		<jsp:include page="../../footer.jsp"/>	
 </body>
 </html>

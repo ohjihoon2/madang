@@ -215,5 +215,7 @@
 				
 	</div> <!-- class=page_contents -->
 	</div> <!-- rental_info -->
+	
+	<jsp:include page="../../footer.jsp"/>		
 </body>
 </html>

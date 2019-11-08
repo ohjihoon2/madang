@@ -59,6 +59,8 @@
 			<div>
 				<a href="notice_list.jsp"><button id="btnNoticeList" type="button">목록보기</button></a>
 			</div>
-	</div>	
+	</div>
+	
+	<jsp:include page="../../footer.jsp"/>			
 </body>
 </html>

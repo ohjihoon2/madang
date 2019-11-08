@@ -24,6 +24,7 @@
 		</div>
 
 		<div id="main_title">오시는길</div>
+		<div>
 
 		<div id="location_path">예술의 마당 오시는 길</div>
 		<div id="location_addr_div">
@@ -45,5 +46,7 @@
 			<img src="http://localhost:9090/images/comm_usher_img/etiquette_bottom.PNG" />
 		</div>
 	</div>
+	
+	<jsp:include page="../../footer.jsp"/>	
 </body>
 </html>

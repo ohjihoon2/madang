@@ -77,5 +77,7 @@ $(document).ready(function(){
 			<p class="parkingfee">각 전시장 입구 대여소</p>
 		</div>
 	</div>
+	
+	<jsp:include page="../../footer.jsp"/>		
 </body>
 </html>

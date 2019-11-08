@@ -55,5 +55,7 @@
 				src="http://localhost:9090/images/comm_usher_img/etiquette_bottom.PNG" />
 		</div>
 	</div>
+	
+	<jsp:include page="../../footer.jsp"/>	
 </body>
 </html>
