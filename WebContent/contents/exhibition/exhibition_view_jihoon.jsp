@@ -124,6 +124,6 @@
 		<img src="http://localhost:9090/images/exhibition/seoye_3.gif">
 		<img src="http://localhost:9090/images/exhibition/seoye_map_2.png">
 	</div>
-	<jsp:include page="../../footer.jsp"/>
+	<%-- <jsp:include page="../../footer.jsp"/> --%>
 </body>
 </html>

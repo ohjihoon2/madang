@@ -124,6 +124,6 @@
 		<img src="http://localhost:9090/images/exhibition/han_design_1.gif">
 		<img src="http://localhost:9090/images/exhibition/han_design_map.png">
 	</div>
-	<jsp:include page="../../footer.jsp"/>
+	<%-- <jsp:include page="../../footer.jsp"/> --%>
 </body>
 </html>

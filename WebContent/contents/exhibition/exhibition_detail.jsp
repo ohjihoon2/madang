@@ -254,12 +254,11 @@ $(document).ready(function(){
 </head>
 <body>
 	<jsp:include page="../../header.jsp"/>
-	<img src="http://localhost:9090/images/concert_main/concert_main.png">
 	<div id="left_nav">
 		<ul>
 			<li><a href="exhibition.jsp">전시</a></li>
 			<li><a href="exhibition.jsp" style="color:rgb(5,135,94)">전시일정</a></li>
-			<li><a href="concert_seat_beethoven.jsp">전시장안내</a></li>
+			<li><a href="http://localhost:9090/contents/exhibition/exhibition_view_picasso.jsp">전시장안내</a></li>
 		</ul>
 	</div>
 	<div class="exhibition_detail_info">
@@ -318,6 +317,6 @@ $(document).ready(function(){
 			
 		</div>
 	</div>
-	<jsp:include page="../../footer.jsp"/>
+	<%-- <jsp:include page="../../footer.jsp"/> --%>
 </body>
 </html>

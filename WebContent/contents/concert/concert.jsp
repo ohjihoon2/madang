@@ -39,7 +39,7 @@
 				alert("로그인시 이용가능합니다. 로그인 페이지로 이동합니다.");
 				location.replace("http://localhost:9090/contents/login/login.jsp");
 			}else{
-		  		window.open("ticket_concert.jsp?code="+code, "window팝업", "width=1000, height=700, left=400, top=200");
+		  		window.open("http://localhost:9090/contents/concert/ticket_concert.jsp?code="+code, "window팝업", "width=1000, height=700, left=400, top=200");
 			} 
 			return false;
 		});
@@ -188,9 +188,9 @@
 	<jsp:include page="../../header.jsp"/>
 	<div id="left_nav">
 		<ul>
-			<li><a href="concert.jsp">공연</a></li>
-			<li><a href="concert.jsp" style="color:rgb(5,135,94)">공연일정</a></li>
-			<li><a href="concert_seat_beethoven.jsp">객석안내</a></li>
+			<li><a href="http://localhost:9090/contents/concert/concert.jsp">공연</a></li>
+			<li><a href="http://localhost:9090/contents/concert/concert.jsp" style="color:rgb(5,135,94)">공연일정</a></li>
+			<li><a href="http://localhost:9090/contents/concert/concert_seat_beethoven.jsp">객석안내</a></li>
 		</ul>
 	</div>
 	<div id="main_title">&nbsp&nbsp공연</div><br>
@@ -211,7 +211,7 @@
 	<div class="concert_info">
 		<a href="http://localhost:9090/contents/concert/concert_detail.jsp?concert_code=<%=list.get(i).getConcert_code()%>"><img src="http://localhost:9090/images/concert_main/<%=list.get(i).getC_poster()%>"></a>
 		<div>
-			<h2><a href="concert_detail.jsp?concert_code=<%=list.get(i).getConcert_code()%>"><%=list.get(i).getC_title() %></a></h2>
+			<h2><a href="http://localhost:9090/contents/concert/concert_detail.jsp?concert_code=<%=list.get(i).getConcert_code()%>"><%=list.get(i).getC_title() %></a></h2>
 			<div id="hide_space">
 				<span></span>
 			</div>

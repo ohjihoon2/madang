@@ -251,9 +251,9 @@ $(document).ready(function(){
 	<jsp:include page="../../header.jsp"/>
 	<div id="left_nav">
 		<ul>
-			<li><a href="concert.jsp">공연</a></li>
-			<li><a href="concert.jsp" style="color:rgb(5,135,94)">공연일정</a></li>
-			<li><a href="concert_seat_beethoven.jsp">객석안내</a></li>
+			<li><a href="http://localhost:9090/contents/concert/concert.jsp">공연</a></li>
+			<li><a href="http://localhost:9090/contents/concert/concert.jsp" style="color:rgb(5,135,94)">공연일정</a></li>
+			<li><a href="http://localhost:9090/contents/concert/concert_seat_beethoven.jsp">객석안내</a></li>
 		</ul>
 	</div>
 	<div class="concert_detail_info">
