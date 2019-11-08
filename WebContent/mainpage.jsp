@@ -15,10 +15,10 @@
 <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="http://localhost:9090/slick/slick.min.js"></script>
+<script type="text/javascript" src="http://211.63.89.214:9090/slick/slick.min.js"></script>
 		
-<script src="http://localhost:9090/js/madang.js"></script>	
-<link rel="stylesheet" href="http://localhost:9090/css/madangcss.css"/>
+<script src="http://211.63.89.214:9090/js/madang.js"></script>	
+<link rel="stylesheet" href="http://211.63.89.214:9090/css/madangcss.css"/>
 <script>
 	$(document).ready(function(){
 		$("button#main_switch_t").click(function(){
@@ -40,10 +40,10 @@
 <div id="main_page">
 	<div id="main_title_img">
 		<div class="autoplay">
-			<div><img src="http://localhost:9090/images/mainpage/main_FarewellMyConcubine.png" alt="FarewellMyConcubine" ></a> </div>
-			<div><img src="http://localhost:9090/images/mainpage/main_SAC_CUBE2019.JPG" alt="SAC_CUBE2019"></a> </div>
-			<div><img src="http://localhost:9090/images/mainpage/main_TheStoryOfOldCouple.JPG" alt="TheStoryOfOldCouple" ></a> </div>
-			<div><img src="http://localhost:9090/images/mainpage/main_TracesOfBlackSand.JPG" alt="TracesOfBlackSand" ></a> </div>
+			<div><img src="http://211.63.89.214:9090/images/mainpage/main_FarewellMyConcubine.png" alt="FarewellMyConcubine" ></a> </div>
+			<div><img src="http://211.63.89.214:9090/images/mainpage/main_SAC_CUBE2019.JPG" alt="SAC_CUBE2019"></a> </div>
+			<div><img src="http://211.63.89.214:9090/images/mainpage/main_TheStoryOfOldCouple.JPG" alt="TheStoryOfOldCouple" ></a> </div>
+			<div><img src="http://211.63.89.214:9090/images/mainpage/main_TracesOfBlackSand.JPG" alt="TracesOfBlackSand" ></a> </div>
 		</div>
 	</div>
 	<div id="main_content">
@@ -52,10 +52,10 @@
 				<div class="parallelogram"><h1>진행중인 공연</h1></div>
 				<article>
 				 	<div class="center">
-						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/20190711113234P.gif"></div></a>
-						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div></a>
-						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/20190823151229P.gif"></div></a>
-						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div></a>
+						<a href="http://211.63.89.214:9090/contents/concert/concert_detail.jsp"><div><img src="http://211.63.89.214:9090/images/mainpage/20190711113234P.gif"></div></a>
+						<a href="http://211.63.89.214:9090/contents/concert/concert_detail.jsp"><div><img src="http://211.63.89.214:9090/images/mainpage/poster_37309.gif"></div></a>
+						<a href="http://211.63.89.214:9090/contents/concert/concert_detail.jsp"><div><img src="http://211.63.89.214:9090/images/mainpage/20190823151229P.gif"></div></a>
+						<a href="http://211.63.89.214:9090/contents/concert/concert_detail.jsp"><div><img src="http://211.63.89.214:9090/images/mainpage/poster_37309.gif"></div></a>
 					</div>
 				</article>
 			</section>
@@ -64,10 +64,10 @@
 				<div class="parallelogram"><h1>진행중인 전시</h1></div>
 				<article>
 					<div class="center">
-						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/20190711113234P.gif"></div></a>
-						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div></a>
-						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/20190823151229P.gif"></div></a>
-						<a href="http://localhost:9090/contents/concert/concert_detail.jsp"><div><img src="http://localhost:9090/images/mainpage/poster_37309.gif"></div></a>
+						<a href="http://211.63.89.214:9090/contents/concert/concert_detail.jsp"><div><img src="http://211.63.89.214:9090/images/mainpage/20190711113234P.gif"></div></a>
+						<a href="http://211.63.89.214:9090/contents/concert/concert_detail.jsp"><div><img src="http://211.63.89.214:9090/images/mainpage/poster_37309.gif"></div></a>
+						<a href="http://211.63.89.214:9090/contents/concert/concert_detail.jsp"><div><img src="http://211.63.89.214:9090/images/mainpage/20190823151229P.gif"></div></a>
+						<a href="http://211.63.89.214:9090/contents/concert/concert_detail.jsp"><div><img src="http://211.63.89.214:9090/images/mainpage/poster_37309.gif"></div></a>
 				</div>
 				</article>
 			</section>
@@ -82,17 +82,17 @@
 				<article id="main_switch_event">
 					
 					<div>
-						<img src="http://localhost:9090/images/mainpage/eventThumb_02.gif">
+						<img src="http://211.63.89.214:9090/images/mainpage/eventThumb_02.gif">
 						<br>
 						<span><a href="#">국립오페라단 《호프만의 이야기》 미리보기</a></span>
 					</div>
 					<div>
-						<img src="http://localhost:9090/images/mainpage/eventThumb_02.gif">
+						<img src="http://211.63.89.214:9090/images/mainpage/eventThumb_02.gif">
 						<br>
 						<span><a href="#">국립오페라단 《호프만의 이야기》 미리보기</a></span>
 					</div>
 					<div>
-						<img src="http://localhost:9090/images/mainpage/eventThumb_02.gif">
+						<img src="http://211.63.89.214:9090/images/mainpage/eventThumb_02.gif">
 						<br>
 						<span><a href="#">국립오페라단 《호프만의 이야기》 미리보기</a></span>
 					</div>
@@ -100,17 +100,17 @@
 				</article>
 				<article id="main_switch_teaser">
 					<div>
-						<img src="http://localhost:9090/images/mainpage/bigfish_thumbnail.gif">
+						<img src="http://211.63.89.214:9090/images/mainpage/bigfish_thumbnail.gif">
 						<br>
 						<span><a href="#">뮤지컬<빅 피쉬>한국 초연 2차오픈2</a></span>
 					</div>
 					<div>
-						<img src="http://localhost:9090/images/mainpage/bigfish_thumbnail.gif">
+						<img src="http://211.63.89.214:9090/images/mainpage/bigfish_thumbnail.gif">
 						<br>
 						<span><a href="#">뮤지컬<빅 피쉬>한국 초연 2차오픈2</a></span>
 					</div>
 					<div>
-						<img src="http://localhost:9090/images/mainpage/bigfish_thumbnail.gif">
+						<img src="http://211.63.89.214:9090/images/mainpage/bigfish_thumbnail.gif">
 						<br>
 						<span><a href="#">뮤지컬<빅 피쉬>한국 초연 2차오픈2</a></span>
 					</div>
@@ -119,10 +119,10 @@
 		</div>
 		<div>
 			<section>
-				<article><a href='http://localhost:9090/contents/Usher/location.jsp'><img src="http://localhost:9090/images/mainpage/icon_map.png"><span>오시는길</span></a></article>
-				<article><a href='http://localhost:9090/contents/Usher/utility_concert.jsp'><img src="http://localhost:9090/images/mainpage/icon_etc.png"><span>편의시설</span></a></article>
-				<article><a href='http://localhost:9090/contents/Usher/etiquette_concert.jsp'><img src="http://localhost:9090/images/mainpage/icon_manner.png"><span>관람매너</span></a></article>
-				<article><a href='http://localhost:9090/contents/cs/cs_qaa.jsp'><img src="http://localhost:9090/images/mainpage/icon_Q_A.png"><span>1:1문의</span></a></article>
+				<article><a href='http://211.63.89.214:9090/contents/Usher/location.jsp'><img src="http://211.63.89.214:9090/images/mainpage/icon_map.png"><span>오시는길</span></a></article>
+				<article><a href='http://211.63.89.214:9090/contents/Usher/utility_concert.jsp'><img src="http://211.63.89.214:9090/images/mainpage/icon_etc.png"><span>편의시설</span></a></article>
+				<article><a href='http://211.63.89.214:9090/contents/Usher/etiquette_concert.jsp'><img src="http://211.63.89.214:9090/images/mainpage/icon_manner.png"><span>관람매너</span></a></article>
+				<article><a href='http://211.63.89.214:9090/contents/cs/cs_qaa.jsp'><img src="http://211.63.89.214:9090/images/mainpage/icon_Q_A.png"><span>1:1문의</span></a></article>
 				
 			</section>
 		</div>

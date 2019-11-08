@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="http://localhost:9090/css/usher.css"/>
-<script src="http://localhost:9090/js/madang.js"></script>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.214:9090/css/usher.css"/>
+<script src="http://211.63.89.214:9090/js/madang.js"></script>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />
@@ -25,34 +25,34 @@
 		<div id="main_title">관람매너</div>
 		<br>
 		<div id="Sub_btn">
-		<a href="http://localhost:9090/contents/Usher/etiquette_exhibition.jsp"><span style="color:rgb(5, 135, 94);background:white" id="EE">전시매너</span></a>
-			<a href="http://localhost:9090/contents/Usher/etiquette_concert.jsp"><span style="color:white;background:rgb(5, 135, 94)" id="CE">관람매너</span></a>
+		<a href="http://211.63.89.214:9090/contents/Usher/etiquette_exhibition.jsp"><span style="color:rgb(5, 135, 94);background:white" id="EE">전시매너</span></a>
+			<a href="http://211.63.89.214:9090/contents/Usher/etiquette_concert.jsp"><span style="color:white;background:rgb(5, 135, 94)" id="CE">관람매너</span></a>
 			
 		</div>
 
 		<div id="sub_title">공연장 오기 전</div>
 		<div class="etti_content">
 			<img class="etiquette_img"
-				src="http://localhost:9090/images/comm_usher_img/etiquette_before_consert.PNG" />
+				src="http://211.63.89.214:9090/images/comm_usher_img/etiquette_before_consert.PNG" />
 		</div>
 
 
 		<div id="sub_title">공연장에서</div>
 		<div class="etti_content">
 			<img class="etiquette_img"
-				src="http://localhost:9090/images/comm_usher_img/etiquette_in_consert.PNG" />
+				src="http://211.63.89.214:9090/images/comm_usher_img/etiquette_in_consert.PNG" />
 		</div>
 
 
 		<div id="sub_title">박수매너</div>
 		<div class="etti_content">
 			<img class="etiquette_img"
-				src="http://localhost:9090/images/comm_usher_img/etiquette_applauds.PNG" />
+				src="http://211.63.89.214:9090/images/comm_usher_img/etiquette_applauds.PNG" />
 		</div>
 
 		<div class="etti_content">
 			<img class="etiquette_img"
-				src="http://localhost:9090/images/comm_usher_img/etiquette_bottom.PNG" />
+				src="http://211.63.89.214:9090/images/comm_usher_img/etiquette_bottom.PNG" />
 		</div>
 	</div>
 	

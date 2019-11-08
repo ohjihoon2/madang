@@ -10,7 +10,7 @@
 	
 	if(result) {
 		out.println("<script>alert('예매 취소가 완료되었습니다.'); "
-				+"location.href='http://localhost:9090/contents/mypage/mypage_reserv_list.jsp';</script>");
+				+"location.href='http://211.63.89.214:9090/contents/mypage/mypage_reserv_list.jsp';</script>");
 	} else {
 		response.sendRedirect("../../errorPage.jsp");
 	}

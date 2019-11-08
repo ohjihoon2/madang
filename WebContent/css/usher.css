@@ -1,5 +1,5 @@
 /* 
-<link rel="stylesheet" type="text/css" href="http://localhost:9090/css/usher.css"/>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.214:9090/css/usher.css"/>
  */
 
 	*{
@@ -168,7 +168,7 @@ div.img_div {
 	width: 1000px;
 	height: 950px;
 	margin: auto;
-	background-image:url("http://localhost:9090/images/comm_usher_img/facility_map.PNG");
+	background-image:url("http://211.63.89.214:9090/images/comm_usher_img/facility_map.PNG");
 	background-repeat:no-repeat;
 }
 

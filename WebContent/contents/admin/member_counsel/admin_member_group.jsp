@@ -38,9 +38,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="http://localhost:9090/css/am-pagination.css">
-<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
-<script src="http://localhost:9090/js/am-pagination.js"></script>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.214:9090/css/am-pagination.css">
+<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://211.63.89.214:9090/js/am-pagination.js"></script>
 <style>
 *{
 	font-family:"나눔스퀘어라운드";
@@ -140,7 +140,7 @@ div#admin_memberlist_group section table tr:last-child td{
 		
 		jQuery('#ampaginationsm').on('am.pagination.change',function(e){
 			   jQuery('.showlabelsm').text('The selected page no: '+e.page);
-	           $(location).attr('href', "http://localhost:9090/contents/admin/member_counsel/admin_member_group.jsp?page="+e.page);         
+	           $(location).attr('href', "http://211.63.89.214:9090/contents/admin/member_counsel/admin_member_group.jsp?page="+e.page);         
 	    });
 		
 	});

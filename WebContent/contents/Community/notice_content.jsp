@@ -27,8 +27,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>
-<script src="http://localhost:9090/js/madang.js"></script>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.214:9090/css/community.css"/>
+<script src="http://211.63.89.214:9090/js/madang.js"></script>
 </head>
 <body>
 <jsp:include page="../../header.jsp" />

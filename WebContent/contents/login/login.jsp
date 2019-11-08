@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
-<link rel="stylesheet" href="http://localhost:9090/css/madangcss.css">
+<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="http://211.63.89.214:9090/css/madangcss.css">
 <script>
 	$(document).ready(function(){
 		$("#btnlonin").click(function(){
@@ -26,7 +26,7 @@
 						loginresult=result.trim();
 						alert(loginresult);
 						if(loginresult=="로그인에 성공했습니다."){
-							location.href="http://localhost:9090/mainpage.jsp";
+							location.href="http://211.63.89.214:9090/mainpage.jsp";
 						}
 					}//success
 				});
@@ -57,7 +57,7 @@
 		<section>
 			<a href="#"><span>아이디/패스워드 찾기</span></a>
 			<div> </div>
-			<a href="http://localhost:9090/contents/join/join0.jsp"><span>회원가입</span></a>
+			<a href="http://211.63.89.214:9090/contents/join/join0.jsp"><span>회원가입</span></a>
 		</section>
 	</div>
 

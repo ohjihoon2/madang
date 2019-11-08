@@ -60,7 +60,7 @@ if(situation.equals("event_wirte")){ //작성하기
 }	
 //페이지 이동
 if(result){
-	out.println("<script>alert('게시글이 처리되었습니다.'); location.href='http://localhost:9090/contents/admin/board/admin_event.jsp';</script>");
+	out.println("<script>alert('게시글이 처리되었습니다.'); location.href='http://211.63.89.214:9090/contents/admin/board/admin_event.jsp';</script>");
 }else{
 	response.sendRedirect("../admin_error.jsp");
 }

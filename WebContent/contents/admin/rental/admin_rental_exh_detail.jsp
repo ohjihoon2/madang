@@ -14,7 +14,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
 <style>
 *{
 	font-family:"나눔스퀘어라운드";
@@ -87,7 +87,7 @@ div#admin_rental_exh_d > article button{
 $(document).ready(function(){
 	$('#r_con_file_dwn').click(function(e) {
 		e.preventDefault();
-	    window.open ('http://localhost:9090/upload/rental/<%=rvo.getR_sfile()%>');
+	    window.open ('http://211.63.89.214:9090/upload/rental/<%=rvo.getR_sfile()%>');
 	});//파일클릭 다운로드
 	
 	$('button#admin_rentalexh_d_accept_btn').click(function(){
@@ -172,7 +172,7 @@ $(document).ready(function(){
 			<table>
 				<tr>
 					<th>신청 담당자</th>
-					<td><%=gvo.getName()%> (<a href="http://localhost:9090/contents/admin/member_counsel/admin_member_detail_group.jsp?id=<%=rvo.getR_id() %>"><%=rvo.getR_id() %></a>)</td>
+					<td><%=gvo.getName()%> (<a href="http://211.63.89.214:9090/contents/admin/member_counsel/admin_member_detail_group.jsp?id=<%=rvo.getR_id() %>"><%=rvo.getR_id() %></a>)</td>
 					<th>담당자 연락처</th>
 					<td><%=gvo.getPhone1()%>-<%=gvo.getPhone2()%>-<%=gvo.getPhone3()%></td>
 				</tr>

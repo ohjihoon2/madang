@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
-<script src="http://localhost:9090/js/madang.js"></script>	
-<link rel="stylesheet" href="http://localhost:9090/css/madangcss.css"/>
+<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://211.63.89.214:9090/js/madang.js"></script>	
+<link rel="stylesheet" href="http://211.63.89.214:9090/css/madangcss.css"/>
 <style>
 	*{
 		font-family:"나눔스퀘어라운드";
@@ -141,7 +141,7 @@
 			<h2><span class="font_circle">●</span> 장애인 · 국가유공자 우대 안내</h2>
 			<table>
 				<tr>
-					<th rowspan="2"><img src="http://localhost:9090/images/ect/respecting_ticket.png"/></th>
+					<th rowspan="2"><img src="http://211.63.89.214:9090/images/ect/respecting_ticket.png"/></th>
 					<td><h3>장애인과 국가유공자의 공연전시 관람 시 <br>다음과 같은 우대 할인 혜택을 제공합니다.</h3></td>
 				</tr>
 				<tr>

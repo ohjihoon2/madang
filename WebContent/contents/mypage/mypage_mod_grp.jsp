@@ -23,10 +23,10 @@ String group_id=(String)session.getAttribute("groupID");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://localhost:9090/css/mypage.css"/>
-<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
-<script src="http://localhost:9090/js/madang.js"></script>
-<script src="http://localhost:9090/js/mypage.js"></script>
+<link rel="stylesheet" href="http://211.63.89.214:9090/css/mypage.css"/>
+<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://211.63.89.214:9090/js/madang.js"></script>
+<script src="http://211.63.89.214:9090/js/mypage.js"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> <!-- 주소 API -->
 
 </head>

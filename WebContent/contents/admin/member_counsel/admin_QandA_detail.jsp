@@ -15,7 +15,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<script src="http://localhost:9090/dycgv/js/jquery-3.4.1.min.js"></script>
+<script src="http://211.63.89.214:9090/dycgv/js/jquery-3.4.1.min.js"></script>
 <style>
 *{
 	font-family:"나눔스퀘어라운드";
@@ -105,7 +105,7 @@ div#admin_QnA_detail > article> button#adboard_qna_reply{
 		
 		 $('#qa_file_dwn').click(function(e){
 				e.preventDefault();
-			    window.open('http://localhost:9090/upload/q_and_a/<%=vo.getQa_sfile()%>');
+			    window.open('http://211.63.89.214:9090/upload/q_and_a/<%=vo.getQa_sfile()%>');
 			});//파일클릭 다운로드
 	});
 </script>
@@ -124,7 +124,7 @@ div#admin_QnA_detail > article> button#adboard_qna_reply{
 				</tr>
 				<tr>
 					<th>작성자</th>
-					<td><a href="http://localhost:9090/contents/admin/member_counsel/admin_member_detail.jsp?id=<%=vo.getId()%>"><%=vo.getId()%></a></td>
+					<td><a href="http://211.63.89.214:9090/contents/admin/member_counsel/admin_member_detail.jsp?id=<%=vo.getId()%>"><%=vo.getId()%></a></td>
 					<th>질문일자</th>
 					<td><%=vo.getQa_date()%></td>
 				</tr>

@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
 <style>
 *{
 	margin: 0px;
@@ -72,7 +72,7 @@ div#admin_login > section form button{
 						loginresult=result.trim();
 						alert(loginresult);
 						if(loginresult=="관리자 로그인에 성공했습니다."){
-							location.href="http://localhost:9090/contents/admin/admin_main.jsp";
+							location.href="http://211.63.89.214:9090/contents/admin/admin_main.jsp";
 						}
 					}//success
 				});

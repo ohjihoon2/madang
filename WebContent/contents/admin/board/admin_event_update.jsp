@@ -14,7 +14,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="http://localhost:9090/dycgv/js/jquery-3.4.1.min.js"></script>
+<script src="http://211.63.89.214:9090/dycgv/js/jquery-3.4.1.min.js"></script>
 <style>
 *{
 	font-family:"나눔스퀘어라운드";
@@ -226,7 +226,7 @@ div#admin_event_update section article button:first-child{
 				<td colspan="2"><div>
 				
 							<%if(vo.getEv_sdetail()!=null && vo.getEv_sdetail() !=""){ %>
-								<img src="http://localhost:9090/upload/event/<%=vo.getEv_sdetail() %>" id="ad_ev_udetail_img"/>
+								<img src="http://211.63.89.214:9090/upload/event/<%=vo.getEv_sdetail() %>" id="ad_ev_udetail_img"/>
 							<%}else{ %>
 								 <img src="#" id="ad_ev_udetail_img"/>
 							<%} %>
@@ -246,7 +246,7 @@ div#admin_event_update section article button:first-child{
 			<tr>
 				<td colspan="2"><div>
 						<%if(vo.getEv_sthumbnail()!=null && vo.getEv_sthumbnail() !=""){ %>
-							<img src="http://localhost:9090/upload/event/<%=vo.getEv_sthumbnail() %>" id="ad_ev_uthumbnail_img"/>
+							<img src="http://211.63.89.214:9090/upload/event/<%=vo.getEv_sthumbnail() %>" id="ad_ev_uthumbnail_img"/>
 						<%}else{ %>
 							<img src="#" id="ad_ev_uthumbnail_img"/> 
 						<%} %>				
