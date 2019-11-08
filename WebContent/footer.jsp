@@ -45,7 +45,7 @@ footer>div:nth-child(2) {
 	height: 110px;
 	border: 1px solid #f3f3f3;
 }
-
+  
 footer>div:nth-child(2)>div>label {
 	padding: 0px 10px 0px 20px;
 	font-weight: bold;
