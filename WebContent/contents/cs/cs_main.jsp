@@ -23,6 +23,8 @@
 
 		<div id="main_title">고객센터</div>
 		
+		<div class="body">
+		
 		<div class="faq_icon">
 			<a href="cs_faq.jsp">
 				<div>
@@ -47,7 +49,10 @@
 			</div>
 		</a>
 		</div>
+		
+		</div>
 
 	</div>
+	<jsp:include page="../../footer.jsp" />
 </body>
 </html>

@@ -70,7 +70,12 @@ div#left_nav>ul>li>a:active {
 }
 
 /** 중앙 concert contents **/
-
+div.body {
+	width:1000px;
+	/* border:1px solid red; */
+	margin:auto;
+	margin-bottom:300px;
+}
 
 /** 메인 */
 div.mod_icon, div.reserv_icon, div.bmark_icon { /* 버튼 */
@@ -123,6 +128,7 @@ div.reserv_icon > a >  div:last-child span {
 /** 정보수정 */
 div#mypage_table {
 	width:850px;
+	margin:auto;
 	margin-top:40px;
 }
 
@@ -231,6 +237,7 @@ div.out_box { /* 회원탈퇴 유의사항, 예매취소 유의사항, 대관취소 유의사항 */
 	width:700px; height:150px;
 	/* width:810px; height:200px; */
 	padding:20px;
+	margin:auto;
 	margin-top:50px;
 	margin-bottom:20px;
 	font-size:13pt;
@@ -268,6 +275,7 @@ div.ticket_box_3,
 div.ticket_box_2,
 div.ticket_box_1 {
 	width:850px;
+	margin:auto;
 	margin-top:40px;
 }
 
@@ -395,6 +403,7 @@ div.clear {
 div.bmark {
 	/* border:1px solid cyan; */
 	width:950px;
+	margin:auto;
 	margin-top:40px;
 }
 
@@ -472,6 +481,7 @@ div.out_cfm /* 회원탈퇴 확인 */,
 div.out_cfm /* 예매취소 확인 */ {
 	/* border:1px solid blue; */
 	width:38%;
+	margin:auto;
 	margin-bottom:10px;
 }
 

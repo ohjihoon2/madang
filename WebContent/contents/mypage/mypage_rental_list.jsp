@@ -29,6 +29,8 @@
 		
 		<div id="main_title">대관 확인</div>
 		
+		<div class="body">
+		
 		<div class="rental_box_0">
 			<h2>대관 신청 내역</h2>
 			<br>
@@ -61,7 +63,9 @@
 			</table>
 		</div>
 		
+		</div>
 		
 	</div>
+	<jsp:include page="../../footer.jsp" />
 </body>
 </html>

@@ -25,7 +25,7 @@
 			
 			var bmark_val=$(this).attr("value");
 			
-			alert(bmark_val);
+			//alert(bmark_val);
 			
 			if(bmark_val=="on") {
 				$(this).attr("src", "http://localhost:9090/images/bookmark/off.png");
@@ -59,6 +59,8 @@
 		</div>
 		
 		<div id="main_title">찜한 공연/전시</div>
+		
+		<div class="body">
 		
 		<div class="bmark">
 		<h2>공연</h2>
@@ -103,6 +105,8 @@
 		<% } %>	
 		</div>
 		
+		</div>
 	</div>
+	<jsp:include page="../../footer.jsp" />
 </body>
 </html>

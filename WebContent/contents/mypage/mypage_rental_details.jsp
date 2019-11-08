@@ -38,6 +38,8 @@
 
 		<div id="main_title">대관 신청 내역</div>
 		
+		<div class="body">
+		
 		<div class="ticket_box_1">
 			<h2>대관 정보</h2>
 			<br>
@@ -112,6 +114,9 @@
 			<a href="mypage_rental_cc.jsp?rental_code=<%= vo.getRental_code() %>"><button type="button" id="out_btn" class="button_b">신청취소</button></a>
 		</div>
 		
+		</div>
+		
 	</div>
+	<jsp:include page="../../footer.jsp" />
 </body>
 </html>

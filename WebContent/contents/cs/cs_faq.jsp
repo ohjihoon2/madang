@@ -25,7 +25,7 @@
 
 		<div id="main_title">FAQ 자주 묻는 질문</div>
 			
-		
+		<div class="body">
 		
 		<div id="faq_list">
 			<ul>
@@ -233,7 +233,10 @@
 			<input type="text" name="faq_search" placeholder="검색어를 입력해주세요">
 			<a href="#"><img src="http://localhost:9090/images/search.png"></a>
 		</div> -->
+		
+		</div>
 
 	</div>
+	<jsp:include page="../../footer.jsp" />
 </body>
 </html>

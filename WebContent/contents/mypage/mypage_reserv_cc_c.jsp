@@ -83,6 +83,8 @@
 
 		<div id="main_title">예매 취소</div>
 		
+		<div class="body">
+		
 		<div class="ticket_box_2">
 			<h2>티켓정보</h2>
 			<br>
@@ -149,7 +151,10 @@
 			<button type="button" id="cc_btn" class="button_a">예매취소</button>
 			<a href="mypage_reserv_details_c.jsp?tc_code=<%= cvo.getTc_code() %>"><button type="button" id="out_btn" class="button_b">취소</button></a>
 		</div>
+		
+		</div>
 
 	</div>
+	<jsp:include page="../../footer.jsp" />
 </body>
 </html>

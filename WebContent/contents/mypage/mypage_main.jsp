@@ -39,6 +39,8 @@
 
 		<div id="main_title">마이페이지</div>
 		
+		<div class="body">
+		
 		<!-- 일반회원 로그인 -->
 		<% if(general_id!=null && group_id==null) { %>
 		<div class="mod_icon">
@@ -103,6 +105,10 @@
 		</a>
 		</div>
 		<% } %>
+		
+		</div>
+		
 	</div>
+	<jsp:include page="../../footer.jsp" />
 </body>
 </html>

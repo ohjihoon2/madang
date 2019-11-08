@@ -41,6 +41,8 @@
 
 		<div id="main_title">Q&A 1:1 상담</div>
 		
+		<div class="body">
+		
 		<div class="qaa_table_1">
 			<table border=1>
 				<tr>
@@ -87,6 +89,9 @@
 			</div>
 		</div>
 		
+		</div>
+		
 	</div>
+	<jsp:include page="../../footer.jsp" />
 </body>
 </html>

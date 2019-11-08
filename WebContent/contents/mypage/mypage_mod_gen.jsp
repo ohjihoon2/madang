@@ -40,6 +40,8 @@
 
 		<div id="main_title">회원정보 수정</div>
 		
+		<div class="body">
+		
 		<div id="mypage_table">
 			<form action="mod_gen_update_process.jsp" method="post" name="mypage_mod_form">
 				<table border=1>
@@ -142,6 +144,8 @@
 			</form>
 		</div>
 	
+		</div>
 	</div>
+	<jsp:include page="../../footer.jsp" />
 </body>
 </html>

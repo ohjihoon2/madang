@@ -70,6 +70,12 @@ div#left_nav>ul>li>a:active {
 }
 
 /** 중앙 concert contents **/
+div.body {
+	width:1000px;
+	/* border:1px solid red; */
+	margin:auto;
+	margin-bottom:300px;
+}
 
 /** 메인 */
 div.faq_icon, div.qaa_icon { /* FAQ Q&A 버튼 */
@@ -118,6 +124,7 @@ div.qaa_icon > a >  div:last-child { /* FAQ 설명, Q&A 설명 */
 div#faq_list {
 	/* border:1px solid red; */
 	width:850px; /* height:600px; */
+	margin:auto;
 	margin-top:40px;
 }
 
@@ -193,6 +200,7 @@ div.qaa_table,
 div.qaa_table_1,
 div.qaa_table_2 {
 	width:850px;
+	margin:auto;
 	margin-top:40px;
 }
 

@@ -122,6 +122,8 @@
 
 		<div id="main_title">회원탈퇴</div>
 		
+		<div class="body">
+		
 		<div class="out_box">
 			<h2>예술의 마당 회원 탈퇴</h2>
 			회원 탈퇴 전 안내사항을 꼭 확인해주세요.
@@ -166,6 +168,9 @@
 			</div>
 		</form>
 		
+		</div>
+		
 	</div>
+	<jsp:include page="../../footer.jsp" />
 </body>
 </html>

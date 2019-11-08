@@ -32,6 +32,8 @@
 
 		<div id="main_title">예매내역 확인</div>
 		
+		<div class="body">
+		
 		<div class="ticket_box_3">
 			<h2>공연정보</h2>
 			<br>
@@ -149,6 +151,9 @@
 			<a href="mypage_reserv_cc_c.jsp?tc_code=<%= cvo.getTc_code() %>"><button type="button" id="out_btn" class="button_b">예매취소</button></a>
 		</div>
 		
+		</div>
+		
 	</div>
+	<jsp:include page="../../footer.jsp" />
 </body>
 </html>

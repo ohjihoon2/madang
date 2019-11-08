@@ -36,6 +36,8 @@
 
 		<div id="main_title">예매내역 확인</div>
 		
+		<div class="body">
+		
 		<div class="ticket_box_0">
 			<h2>공연</h2>
 			<br>
@@ -123,6 +125,9 @@
 			</table>
 		</div>
 		
+		</div>
+		
 	</div>
+	<jsp:include page="../../footer.jsp" />
 </body>
 </html>
