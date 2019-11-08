@@ -15,12 +15,12 @@
 <script>
 $(document).ready(function(){
 	var isIdCheck = false;
+	var isC_numCheck = false;
 	//유효성검사
 	$("#join_gp2next_btn").click(function(){
 		if($("#join_gp2_id").val()==""){
 			alert("아이디를 입력해 주세요");
 			$("#join_gp2_id").focus();
-			alert(isIdCheck);
 		}else if($("#join_gp2_pw").val()==""){
 			alert("패스워드 입력해 주세요");
 			$("#join_gp2_pw").focus();
@@ -45,7 +45,7 @@ $(document).ready(function(){
 		}else if($("#join_gp2_c_name").val()==""){
 			alert("대표자명을 입력해 주세요");
 			$("#join_gp2_c_name").focus();
-		}else if($("#join_gp2_c_number").val()==""){
+		}else if($("#join_gp2_c_number1").val()==""||$("#join_gp2_c_number2").val()==""||$("#join_gp2_c_number3").val()==""||$("#join_gp2_c_number4").val()==""){
 			alert("사업자 번호를 입력해 주세요");
 			$("#join_gp2_c_number").focus();
 		}else if($("#join_gp2_c_phone1").val()==""||$("#join_gp2_c_phone2").val()==""|| $("#join_gp2_c_phone3").val()==""){
@@ -54,7 +54,17 @@ $(document).ready(function(){
 		}else if(isIdCheck==false){
 			alert("아이디 중복확인을 해주세요")
 			$("#join_gp2_idchk").focus();
+		}else if(isC_numCheck==false){
+			alert("사업자번호 중복확인을 해주세요")
+			$("#join_gp2_c_number1").focus();
 		}else{
+			var c_num1=$("#join_gp2_c_number1").val()
+			var c_num2=$("#join_gp2_c_number2").val()
+			var c_num3=$("#join_gp2_c_number3").val()
+			var c_num4=$("#join_gp2_c_number4").val()
+			var c_numr=c_num1+"-"+c_num2+"-"+c_num3+"-"+c_num4;
+			$("#join_gp2_c_number_r").attr("value",c_numr);
+			
 			join_group2_form.submit();
 		}
 	});//회원가입 버튼클릭
@@ -102,6 +112,33 @@ $(document).ready(function(){
 		});
 		
 		
+		//사업자번호 공백제거
+		$("#join_gp2_c_number1").focusout(function(){
+			var resultId=$("#join_gp2_c_number1").val().trim();
+			var resultId=resultId.replace(/ /g,"");
+			
+			$("#join_gp2_c_number1").val(resultId);
+		});
+		$("#join_gp2_c_number2").focusout(function(){
+			var resultId=$("#join_gp2_c_number2").val().trim();
+			var resultId=resultId.replace(/ /g,"");
+			
+			$("#join_gp2_c_number2").val(resultId);
+		});
+		$("#join_gp2_c_number3").focusout(function(){
+			var resultId=$("#join_gp2_c_number3").val().trim();
+			var resultId=resultId.replace(/ /g,"");
+			
+			$("#join_gp2_c_number3").val(resultId);
+		});
+		$("#join_gp2_c_number4").focusout(function(){
+			var resultId=$("#join_gp2_c_number4").val().trim();
+			var resultId=resultId.replace(/ /g,"");
+			
+			$("#join_gp2_c_number4").val(resultId);
+		});
+		
+		
 		
 		//중복아이디 체크
 		$("#join_gp2_idchk").click(function(){
@@ -110,7 +147,7 @@ $(document).ready(function(){
 				alert("아이디를 입력해주세요");
 			}else{
 				$.ajax({
-					url:"join_group2_proce.jsp?nid="+nid,
+					url:"join_group2_proce.jsp?situation=checkId&nid="+nid,
 					success:function(result){  //true=중복, false=중복X
 						var cheresult= result.trim();
 						if(cheresult == "overlap"){
@@ -126,6 +163,44 @@ $(document).ready(function(){
 				});	
 			}
 		});//아이디 중복
+		
+		
+		
+		
+		//중복사업자번호 체크
+		$("#join_gp2_cnumchk").click(function(){
+			var nid = $("#join_gp2_id").val();
+			var c_num1=$("#join_gp2_c_number1").val()
+			var c_num2=$("#join_gp2_c_number2").val()
+			var c_num3=$("#join_gp2_c_number3").val()
+			var c_num4=$("#join_gp2_c_number4").val()
+			var c_numr=c_num1+"-"+c_num2+"-"+c_num3+"-"+c_num4;
+			$("#join_gp2_c_number_r").attr("value",c_numr);
+			
+			
+			if(c_num1==""||c_num2==""||c_num3==""||c_num4==""){
+				alert("사업자번호를 입력해주세요");
+			}else{
+				$.ajax({
+					url:"join_group2_proce.jsp?situation=checkCnum&c_numr="+c_numr,
+					success:function(result){  //true=중복, false=중복X
+						var cheresult= result.trim();
+						if(cheresult == "overlap"){
+							alert("사업자번호가 중복됩니다.");
+							$("#join_gp2_c_number1").val("");
+							$("#join_gp2_c_number2").val("");
+							$("#join_gp2_c_number3").val("");
+							$("#join_gp2_c_number4").val("");
+							$("#join_gp2_c_number1").focus();
+							
+						}else{
+							alert("확인되었습니다.");
+							isC_numCheck=true;
+						}
+					}
+				});	
+			}
+		});//사업자번호 중복
 });
 </script>
 </head>	
@@ -133,13 +208,14 @@ $(document).ready(function(){
 <jsp:include page="../../header.jsp"/>
 
 <div id="join_group2" class="page_contents">
-<h1 class="page_title">회원가입</h1>
+<h1 class="page_title">회원가입 - 대관자 전용</h1>
 <h2><span class="font_circle">●</span> 회원 정보 입력</h2>
 	<form action="join_group2_proce.jsp" method="post" name="join_group2_form">
+	<input type="hidden" name="situation" value="join_group"/>
 		<ul>
 			<li>
 				<label>아이디*</label>
-				<input type="text" name="id" id="join_gp2_id" onkeyup="test(this)">
+				<input type="text" name="id" id="join_gp2_id">
 				<button type="button" id="join_gp2_idchk">중복확인</button>
 			</li>
 			<li>
@@ -192,9 +268,16 @@ $(document).ready(function(){
 				<input type="text" name="c_name" id="join_gp2_c_name">
 			</li>
 			<li>
-				<label>사업자번호('-'제외)*</label>
-				<input type="text" name="c_number" id="join_gp2_c_number">
-				<button type="button">중복확인</button>
+				<label>사업자번호*</label>
+				<input type="text" id="join_gp2_c_number1" maxlength="3" style="width:40px; padding-left:3px">
+				<span> - </span>
+				<input type="text" id="join_gp2_c_number2" maxlength="2" style="width:30px; padding-left:3px">
+				<span> - </span>
+				<input type="text" id="join_gp2_c_number3" maxlength="4" style="width:50px; padding-left:3px">
+				<span>&nbsp;&nbsp;</span>
+				<input type="text" id="join_gp2_c_number4" maxlength="1" style="width:20px; padding-left:3px; margin-right:40px">
+				<input type="hidden" name ="c_number" id="join_gp2_c_number_r" value="0"/>
+				<button type="button" id="join_gp2_cnumchk">중복확인</button>
 			</li>
 			<li>
 				<label>대표번호*</label>

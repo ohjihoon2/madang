@@ -165,6 +165,28 @@ public class Group_mem_DAO {
 		return result;
 	}
 	
+	//회원가입시  사업자 중복 체크
+	public boolean IsOverlapC_num(String c_num) {
+		boolean result=false;
+		int val=0;
+		String sql="select count(*) from group_mem where c_number=?";
+		getPreparedStatement(sql);
+		try {
+			pstmt.setString(1, c_num);
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				val = rs.getInt(1);
+			}
+			if(val != 0){
+				result = true;
+			}		
+		}catch(Exception e) {e.printStackTrace();}
+		return result;
+	}	
+	
+	
+	
+	
 	//로그인 확인
 	public boolean getResultLogin(Group_mem_VO vo) {
 		boolean result=false;

@@ -224,7 +224,7 @@ public class Rental_DAO {
 				"floor(sysdate-r_sdate) startcount, " + 
 				"floor(r_edate-sysdate)+1 endcount, " + 
 				"r_status " + 
-				"from(select*from rental where r_case='공연' order by r_date desc)order by rno desc) " + 
+				"from(select*from rental where r_case='공연' order by r_date desc)) " + 
 				"where rno  between ? and ?";
 		getPreparedStatement(sql);
 		try {
@@ -344,7 +344,7 @@ public class Rental_DAO {
 					"floor(sysdate-r_sdate) startcount, " + 
 					"floor(r_edate-sysdate)+1 endcount, " + 
 					"r_status " + 
-					"from(select*from rental where r_case='전시' order by r_date desc)order by rno desc) " + 
+					"from(select*from rental where r_case='전시' order by r_date desc)) " + 
 					"where rno  between ? and ?";
 			getPreparedStatement(sql);
 			try {

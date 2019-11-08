@@ -143,7 +143,7 @@ div#admin_rnetal_con section table tr:last-child td{
 <body>
 <jsp:include page="../admin_left_nav.jsp"/>
 <div id="admin_rnetal_con" class="admin_content">
-	<h1>공연대관</h1>	
+	<h1>공 연 대 관</h1>	
 	<section>
 		<table>
 			<tr>

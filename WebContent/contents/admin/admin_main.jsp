@@ -218,7 +218,7 @@ div#admin_main section a:hover {
 	 	</section>
 	 	<section>
 	 		<h2>대관신청</h2>
-	 		<a href="#"><h5>더보기</h5></a>
+	 		<a href="http://localhost:9090/contents/admin/rental/admin_rental_con.jsp"><h5>더보기</h5></a>
 	 		<table>
 	 			<tr>
 	 				<th>번호</th>
@@ -231,7 +231,11 @@ div#admin_main section a:hover {
 	 				if(qna_list.get(i) != null){%>
 	 				<tr>
 	 					<td><%=rental_list.get(i).getRno() %></td>
-	 					<td><a href="<%=rental_list.get(i).getRental_code()%>"><%=rental_list.get(i).getR_title() %></a></td>
+	 					<%if(rental_list.get(i).getR_case().equals("공연")){ %>
+	 						<td><a href="http://localhost:9090/contents/admin/rental/admin_rental_con_detail.jsp?rental_code=<%=rental_list.get(i).getRental_code()%>"><%=rental_list.get(i).getR_title() %></a></td>
+	 					<%}else if(rental_list.get(i).getR_case().equals("전시")){ %>
+	 						<td><a href="http://localhost:9090/contents/admin/rental/admin_rental_exh_detail.jsp?rental_code=<%=rental_list.get(i).getRental_code()%>"><%=rental_list.get(i).getR_title() %></a></td>
+	 					<%} %>
 	 					<td><%=rental_list.get(i).getR_case() %></td>
 	 					<td><%=rental_list.get(i).getR_date() %></td>
 	 					<td><%=rental_list.get(i).getR_status() %></td>

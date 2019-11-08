@@ -148,7 +148,11 @@ $(document).ready(function(){
 		<article>
 			<a href="admin_notice_update.jsp?nt_code=<%=nt_code%>"><button type="button" style="background-color:rgb(5,135,94)">수정하기</button></a>
 			<button type="button" id="adnotice_del_btn">삭제하기</button>
-			<a href="admin_notice.jsp?page=<%=rpage%>"><button type="button">목록으로</button></a>
+			<% if(rpage==null || rpage.equals(null)){ %>
+				<a href="admin_notice.jsp"><button type="button">목록으로</button></a>
+			<%}else{ %>
+				<a href="admin_notice.jsp?page=<%=rpage%>"><button type="button">목록으로</button></a>
+			<%} %>
 		</article>
 	</section>
 </div>

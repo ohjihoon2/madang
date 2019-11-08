@@ -196,7 +196,11 @@ $(document).ready(function(){
 		</table>
 	</section>
 	<article>
-			<a href="admin_rental_con.jsp?page=<%=rpage%>"><button type="button">목록으로</button></a>
+			<% if(rpage==null || rpage.equals(null)){ %>
+				<a href="admin_rental_con.jsp"><button type="button">목록으로</button></a>
+			<%}else{ %>
+				<a href="admin_rental_con.jsp?page=<%=rpage%>"><button type="button">목록으로</button></a>
+			<%} %>
 	</article>
 </body>
 </html>

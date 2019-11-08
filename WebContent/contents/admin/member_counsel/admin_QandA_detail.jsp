@@ -168,7 +168,11 @@ div#admin_QnA_detail > article> button#adboard_qna_reply{
 	</section>
 	<article>
 			<button type="button" id="adcoun_qna_reply_btn">답변하기</button>			
-			<a href="admin_QandA.jsp?page=<%=rpage%>"><button type="button">목록으로</button></a>
+			<% if(rpage==null || rpage.equals(null)){ %>
+				<a href="admin_QandA.jsp"><button type="button">목록으로</button></a>
+			<%}else{ %>
+				<a href="admin_QandA.jsp?page=<%=rpage%>"><button type="button">목록으로</button></a>
+			<%} %>
 	</article>
 </body>
 </html>
