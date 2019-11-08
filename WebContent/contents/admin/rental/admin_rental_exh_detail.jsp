@@ -143,7 +143,7 @@ $(document).ready(function(){
 						<%=rvo.getR_status() %>
 						<%if(rvo.getR_status().equals("신청중")){ %>
 							<button type="button" id="admin_rentalexh_d_accept_btn">신청완료</button>
-						<%}else if(rvo.getR_status().equals("취소")){ %>
+						<%}else if(rvo.getR_status().equals("취소신청")){ %>
 							<button type="button" id="admin_rentalexh_d_cancel_btn">취소완료</button>
 						<%} %>
 					</td>
