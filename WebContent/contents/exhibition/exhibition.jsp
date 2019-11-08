@@ -120,7 +120,7 @@
 		margin:auto;
 	}
 	.exhibition_info_today{
-		width:1000px;
+		width:1100px;
 		height:450px;
 		margin:auto;
 	}

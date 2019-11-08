@@ -317,6 +317,6 @@ $(document).ready(function(){
 			<img src="http://localhost:9090/images/concert_main/<%=vo.getC_info_poster() %>" id="content_image">
 		</div>
 	</div>
-	<jsp:include page="../../footer.jsp"/>
+	<%-- <jsp:include page="../../footer.jsp"/> --%>
 </body>
 </html>

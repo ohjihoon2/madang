@@ -661,10 +661,10 @@
 				$("div#step3").css("display","none");
 				$("div#step4").css("display","none");
 				
-				$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_on.gif");	
-				$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
-				$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
-				$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
+				$("#step1").attr("src", "http://localhost:9090/images/ticketing/1on.png");	
+				$("#step2").attr("src", "http://localhost:9090/images/ticketing/2off.png");	
+				$("#step3").attr("src", "http://localhost:9090/images/ticketing/3off.png");	
+				$("#step4").attr("src", "http://localhost:9090/images/ticketing/4off.png");	
 				$(".btn_next1").show();
 				$(".btn_back").hide();
 				$(".btn_next2").hide();
@@ -675,10 +675,10 @@
 				$("div#step3").css("display","none");
 				$("div#step4").css("display","none");
 				
-				$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_off.gif");	
-				$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_on.gif");	
-				$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
-				$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
+				$("#step1").attr("src", "http://localhost:9090/images/ticketing/1off.png");	
+				$("#step2").attr("src", "http://localhost:9090/images/ticketing/2on.png");	
+				$("#step3").attr("src", "http://localhost:9090/images/ticketing/3off.png");	
+				$("#step4").attr("src", "http://localhost:9090/images/ticketing/4off.png");	
 				$(".btn_next1").hide();
 				$(".btn_back").show();
 				$(".btn_next2").show();
@@ -690,10 +690,10 @@
 				$("div#step3").css("display","block");
 				$("div#step4").css("display","none");
 				
-				$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_off.gif");	
-				$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
-				$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_on.gif");	
-				$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_off.gif");	
+				$("#step1").attr("src", "http://localhost:9090/images/ticketing/1off.png");	
+				$("#step2").attr("src", "http://localhost:9090/images/ticketing/2off.png");	
+				$("#step3").attr("src", "http://localhost:9090/images/ticketing/3on.png");	
+				$("#step4").attr("src", "http://localhost:9090/images/ticketing/4off.png");	
 				$(".btn_next1").hide();
 				$(".btn_back").show();
 				$(".btn_next2").show();
@@ -704,10 +704,10 @@
 				$("div#step3").css("display","none");
 				$("div#step4").css("display","block");
 				
-				$("#step1").attr("src", "http://localhost:9090/images/ticketing/05_step_01_off.gif");	
-				$("#step2").attr("src", "http://localhost:9090/images/ticketing/05_step_02_off.gif");	
-				$("#step3").attr("src", "http://localhost:9090/images/ticketing/05_step_03_off.gif");	
-				$("#step4").attr("src", "http://localhost:9090/images/ticketing/05_step_04_on.gif");	
+				$("#step1").attr("src", "http://localhost:9090/images/ticketing/1off.png");	
+				$("#step2").attr("src", "http://localhost:9090/images/ticketing/2off.png");	
+				$("#step3").attr("src", "http://localhost:9090/images/ticketing/3off.png");	
+				$("#step4").attr("src", "http://localhost:9090/images/ticketing/4on.png");	
 				$(".btn_next1").hide();
 				$(".btn_back").show();
 				$(".btn_next2").hide();
@@ -726,10 +726,10 @@
 		<div class="ticketing_step">
 			<span>예술의마당 티켓 예매</span>
 			<ul class=tab>
-				<li><img src="http://localhost:9090/images/ticketing/05_step_01_on.gif" id="step1" class="step"></li>
-				<li><img src="http://localhost:9090/images/ticketing/05_step_02_off.gif" id="step2" class="step"></li>
-				<li><img src="http://localhost:9090/images/ticketing/05_step_03_off.gif" id="step3" class="step"></li>
-				<li><img src="http://localhost:9090/images/ticketing/05_step_04_off.gif" id="step4" class="step"></li>
+				<li><img src="http://localhost:9090/images/ticketing/1on.png" id="step1" class="step"></li>
+				<li><img src="http://localhost:9090/images/ticketing/2off.png" id="step2" class="step"></li>
+				<li><img src="http://localhost:9090/images/ticketing/3off.png" id="step3" class="step"></li>
+				<li><img src="http://localhost:9090/images/ticketing/4off.png" id="step4" class="step"></li>
 			</ul>
 		</div>
 		<!-- #################################################### -->
