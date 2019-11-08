@@ -5,6 +5,22 @@
 	String nt_code = request.getParameter("nt_code");
 	NoticeService service = new NoticeService();
 	NoticeVO vo = service.getResultNoticeContent(nt_code);
+	
+	if(vo.getNt_title()!="" && vo.getNt_title()!=null){
+		service.getResultUpdateNthits(nt_code);/* 제목이 있으면 조회수 1증가 */		
+		
+		if(vo.getNt_contents()!="" && vo.getNt_contents()!=null){/* 내용이 있으면 내용 엔터까지 바꿔서 화면에 보여주기 */
+			vo.setNt_contents(vo.getNt_contents().replace("\r\n","<br>"));
+
+		
+		}else{
+			vo.setNt_contents("내용이 없습니다.");
+		}
+		
+	}else{ 
+		response.sendRedirect("../errorPage.jsp");
+	}
+	
 %>
 <!DOCTYPE html>
 <html>

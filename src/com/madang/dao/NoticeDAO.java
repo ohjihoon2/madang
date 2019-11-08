@@ -30,6 +30,17 @@ public class NoticeDAO {
 		}catch(Exception e) {e.printStackTrace();}
 	}
 	
+	//add eventContent hits
+	public void getResultUpdateNthits(String nt_code) {
+		String sql = "update notice set nt_hits= nt_hits+1 where nt_code=?";
+		getPreparedStatement(sql);
+		try {
+			pstmt.setString(1, nt_code);
+			pstmt.executeUpdate();
+			
+		}catch(Exception e) {e.printStackTrace();}
+		
+	}
 	
 	//bring the notice list admin
 	public ArrayList<NoticeVO> getNoticeListAdmin(int startCount, int endCount){

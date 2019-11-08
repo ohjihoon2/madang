@@ -80,6 +80,12 @@ public class NoticeService {
 		return result;	
 	}
 	
+	//add hits
+	public void getResultUpdateNthits(String nt_code) {
+		NoticeDAO dao = new NoticeDAO();
+		dao.getResultUpdateNthits(nt_code);
+	}
+	
 	//admin delete
 		public boolean getResultDeleteAdmin(String nt_code) {
 			boolean result=false;
