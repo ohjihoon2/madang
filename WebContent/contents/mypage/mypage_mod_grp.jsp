@@ -113,7 +113,7 @@ document.write(대관 <%= group_id %>);
 						<td>
 							<!-- <input type="text" name="addr" id="addr">
 							<button type="button" id="addr_btn">주소찾기</button> -->
-							<input type="text" name="c_post_num" id="sample6_postcode" placeholder="우편번호" value=<%= vo.getC_post_num() %>>
+							<input type="text" name="c_post_num" id="sample6_postcode" maxlength="5" placeholder="우편번호" value=<%= vo.getC_post_num() %>>
 							<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기 " id="addr_btn">
 							<br><input type="text" name="c_addr" id="sample6_address" placeholder="주소" class="addr" value=<%= vo.getC_addr() %>>
 							<br><input type="text" name="c_addr_d" placeholder="상세주소" class="addr" value=<%= vo.getC_addr_d() %>><br>
