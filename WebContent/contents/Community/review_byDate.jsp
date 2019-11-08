@@ -48,9 +48,11 @@ $(document).ready(function(){
 				<a href="http://localhost:9090/contents/Community/review_byDate.jsp?listOrder=byDate">
 					<button type="button" id="btnDByDate">최신날짜순</button>
 				<a href="http://localhost:9090/contents/Community/review_byDate.jsp?listOrder=byStar">
-					<button type="button" id="btnDByStar">평점높은순</button></a>				
+					<button type="button" id="btnDByStar">평점높은순</button></a>	
+				<%if(id != null) {%>				
 				<a href="http://localhost:9090/contents/Community/review_write.jsp?id=<%=id %>">
 					<button type="button" id="btnWriteReview">후기 작성</button></a>
+				<%} %>	
 			</div>
 			<div class="table_div">
 			
