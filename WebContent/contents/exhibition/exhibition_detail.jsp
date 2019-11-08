@@ -3,7 +3,6 @@
 <%@ page import="com.madang.vo.Bookmark_VO, com.madang.service.Bookmark_Service" %>
 <%
 	String exhibitioCode = request.getParameter("exhibition_code");
-	out.write(exhibitioCode);
 	ExhibitionService service = new ExhibitionService();
 	ExhibitionVO vo = new ExhibitionVO();
 	vo =service.getResultExhibition(exhibitioCode);

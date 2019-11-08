@@ -8,7 +8,6 @@
 	ArrayList<Bookmark_VO> c_list=service.getConcertList(id); //공연
 	ArrayList<Bookmark_VO> e_list=service.getExhibitionList(id); //전시
 %>
-document.write(<%= id %>);
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>

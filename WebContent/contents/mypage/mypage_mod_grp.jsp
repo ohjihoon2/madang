@@ -18,9 +18,6 @@ String group_id=(String)session.getAttribute("groupID");
 	if(vo.getC_addr()=="" || vo.getC_addr()==null) vo.setC_addr("");
 	if(vo.getC_addr_d()=="" || vo.getC_addr_d()==null) vo.setC_addr_d("");
 %>
-document.write(<%= id %>);
-document.write(개인 <%= general_id %>);
-document.write(대관 <%= group_id %>);
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>

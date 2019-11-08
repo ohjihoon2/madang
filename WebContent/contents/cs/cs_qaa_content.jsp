@@ -29,7 +29,6 @@
 </script>
 </head>
 <body>
-document.write(<%= vo.getQa_code() %>);
 	<jsp:include page="../../header.jsp" />
 	<div>
 		<div id="left_nav">
