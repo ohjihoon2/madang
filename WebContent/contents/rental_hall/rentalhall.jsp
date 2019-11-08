@@ -121,7 +121,7 @@ $(document).ready(function(){
 	    window.location.href = 'http://localhost:9090/upload/rental/concert_stage_plan.zip';
 	});	//무대도면다운로드
 	
-	$('a#rental_down_exh_stage').click(function(e) {
+	$('a#rental_down_exh_tools').click(function(e) {
 		e.preventDefault();
 	    window.location.href = 'http://localhost:9090/upload/rental/exhibition_stage_plan.zip';
 	});	// 전시장 도면 다운로드
