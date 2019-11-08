@@ -4,7 +4,6 @@
 <%
  	ExhibitionService exhibition_service = new ExhibitionService();
 	ArrayList<ExhibitionVO> exhibition_list = exhibition_service.getListAdminMain(); 
-	int exhibition_count = 
 
 	NoticeService notice_service = new NoticeService();
 	ArrayList<NoticeVO> notice_list = notice_service.getListAdminMain();
@@ -125,6 +124,15 @@ div#admin_main section > table td:nth-child(2){
 	width:600px;
 }
 
+div#admin_main section a{
+	padding: 0px 10px 0px 6px;
+	text-decoration: none;
+	color: gray;
+}
+
+div#admin_main section a:hover {
+	color: #282828;
+}
 	
 </style>
 
@@ -150,10 +158,12 @@ div#admin_main section > table td:nth-child(2){
 		 		<h2>진행중인 전시 </h2>
 		 		<h5>더보기</h5>
 		 		<ul>
-		 			<%for(int i=0; i<2; i++){ %>
-		 			<li>
-		 				<span><%=exhibition_list.get(i).getE_title()%></span><br><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<%=exhibition_list.get(i).getE_sdate()%>~<%=exhibition_list.get(i).getE_edate()%>)</span>
-		 			</li>
+		 			<%for(int i=0; i<3; i++){ 
+		 				if(!exhibition_list.get(i).getExhibition_code().equals("")){%>
+				 			<li>
+				 				<span><%=exhibition_list.get(i).getE_title()%></span><br><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<%=exhibition_list.get(i).getE_sdate()%>~<%=exhibition_list.get(i).getE_edate()%>)</span>
+				 			</li>
+				 		<%} %>
 		 			<%} %>
 		 		</ul> 
 		 	</article>

@@ -54,6 +54,17 @@ public class ExhibitionService {
 		ExhibitionDAO dao = new ExhibitionDAO();
 		ArrayList<ExhibitionVO> list = dao.getListAdminMain();
 		dao.close();
+		
+		if(list.size()<3) {
+			for(int i=list.size(); i<3;i++) {
+				ExhibitionVO vo = new ExhibitionVO();
+				vo.setExhibition_code("");
+				vo.setE_title("");
+				vo.setE_sdate("");
+				vo.setE_edate("");
+				list.add(vo);
+			}
+		}
 		return list;
 	}
 	
