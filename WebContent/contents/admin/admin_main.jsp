@@ -218,7 +218,7 @@ div#admin_main section a:hover {
 	 	</section>
 	 	<section>
 	 		<h2>대관신청</h2>
-	 		<a href="http://211.63.89.214:9090/contents/admin/rental/admin_rental_con.jsp"><h5>더보기</h5></a>
+	 		<a href="http://211.63.89.213:9090/contents/admin/rental/admin_rental_con.jsp"><h5>더보기</h5></a>
 	 		<table>
 	 			<tr>
 	 				<th>번호</th>
