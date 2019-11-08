@@ -179,7 +179,7 @@ div#admin_main section a:hover {
 	 				<th>조회수</th>
 	 			</tr>
 	 			<%for(int i=0 ; i<3 ; i++){ 
-	 				if(qna_list.get(i) != null){%>
+	 				if(notice_list.get(i) != null){%>
 	 				<tr>
 	 					<td><%=notice_list.get(i).getRno()%></td>
 	 					<td><a href="http://localhost:9090/contents/admin/board/admin_notice_contents.jsp?nt_code=<%=notice_list.get(i).getNt_code()%>"><%=notice_list.get(i).getNt_title() %></a></td>
