@@ -2,13 +2,14 @@ package com.madang.service;
 
 import java.util.ArrayList;
 
+import com.madang.dao.ExhibitionDAO;
 import com.madang.dao.NoticeDAO;
 import com.madang.dao.QandA_DAO;
 import com.madang.vo.NoticeVO;
 import com.madang.vo.QandA_VO;
 
 public class QandA_Service {
-	/** µî·Ï */
+	/** ï¿½ï¿½ï¿½ */
 	public boolean getResultWrite(QandA_VO vo) {
 		boolean result=false;
 		QandA_DAO dao=new QandA_DAO();
@@ -17,7 +18,7 @@ public class QandA_Service {
 		return result;
 	}
 	
-	/** ³»¿ë Ãâ·Â */
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
 	public QandA_VO getContent(String qa_code) {
 		QandA_DAO dao=new QandA_DAO();
 		QandA_VO vo=new QandA_VO();
@@ -26,7 +27,7 @@ public class QandA_Service {
 		return vo;
 	}
 	
-	/** ÀüÃ¼ ¸®½ºÆ® */
+	/** ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½Æ® */
 	public ArrayList<QandA_VO> getList(String id) {
 		ArrayList<QandA_VO> list=new ArrayList<QandA_VO>();
 		QandA_DAO dao=new QandA_DAO();
@@ -35,7 +36,7 @@ public class QandA_Service {
 		return list;
 	}
 	
-	/** »èÁ¦ */
+	/** ï¿½ï¿½ï¿½ï¿½ */
 	public boolean getResultDelete(String qa_code) {
 		boolean result=false;
 		QandA_DAO dao=new QandA_DAO();
@@ -52,6 +53,13 @@ public class QandA_Service {
 		return list;
 	}
 	
+	//Admin main list count
+	public int getAdminMainCount() {
+		QandA_DAO dao = new QandA_DAO();
+		int count = dao.getAdminMainCount();
+		dao.close();
+		return count;
+	}
 	
 	//Admin list
 	public ArrayList<QandA_VO> getQandAListAdmin(int startCount, int endCount){

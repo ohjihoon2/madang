@@ -99,6 +99,7 @@
 				<!-- 전시,공연 예정된 썸네일. select 랭크,이미지,코드,시작일 from(select 이미지,코드,from 전시,공연 where 시작일 between sysdate and sysdate+30일 oder by 시작일)랭크between 1and3 -->
 				</article>
 				<article id="main_switch_teaser">
+				<!-- 아무것도 없다면 '티켓예정작이 없습니다' -->
 					<div>
 						<img src="http://211.63.89.214:9090/images/mainpage/bigfish_thumbnail.gif">
 						<br>

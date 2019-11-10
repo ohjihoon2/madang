@@ -120,9 +120,9 @@ aside#amdmin_left ul li>div a{
      <article><a href="http://211.63.89.214:9090/contents/admin/member_counsel/admin_QandA.jsp">1:1상담 관리</a></article>
   </li>
   <li>
-     <a href="http://211.63.89.213:9090/contents/admin/rental/admin_rental.jsp">대관관리</a>
-     <div class="admin_left_sub"><a href="http://211.63.89.213:9090/contents/admin/rental/admin_rental_con.jsp">공연대관</a></div>
-	<div class="admin_left_sub"><a href="http://211.63.89.213:9090/contents/admin/rental/admin_rental_exh.jsp">전시대관</a></div>
+     <a href="http://211.63.89.214:9090/contents/admin/rental/admin_rental.jsp">대관관리</a>
+     <div class="admin_left_sub"><a href="http://211.63.89.214:9090/contents/admin/rental/admin_rental_con.jsp">공연대관</a></div>
+	<div class="admin_left_sub"><a href="http://211.63.89.214:9090/contents/admin/rental/admin_rental_exh.jsp">전시대관</a></div>
   </li>
     <li>
      <a href="#">게시판 관리</a>

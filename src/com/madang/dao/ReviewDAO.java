@@ -35,7 +35,7 @@ public class ReviewDAO {
 	}
 	
 	
-	/** ¸®ºä ¸®½ºÆ® Ãâ·Â **/
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ **/
 	public ArrayList<ReviewVO> getResultListByDate(String listOrder){
 		ArrayList<ReviewVO> list = new ArrayList<ReviewVO>();
 		String sql = "";
@@ -76,7 +76,7 @@ public class ReviewDAO {
 		return list;
 	}
 	
-	/** ¸®ºä ¸®½ºÆ® Ãâ·Â **/
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ **/
 	public ArrayList<ReviewVO> getResultListByDate(){
 		ArrayList<ReviewVO> list = new ArrayList<ReviewVO>();
 		String sql = "select to_char(rv_date,'yyyy.mm.dd.'), r.id, rv_staravg, rv_title, rv_content, rv_hits, c_poster, rv_code" + 
@@ -107,7 +107,7 @@ public class ReviewDAO {
 		return list;
 	}
 	
-	/** °ø¿¬ Å¸ÀÌÆ² ºÒ·¯¿À±â **/
+	/** ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½Æ² ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ **/
 	public ArrayList<ConcertVO> getConcertList(){
 		ArrayList<ConcertVO> clist = new ArrayList<ConcertVO>();
 		String sql="select c_title, concert_code from concert";
@@ -128,7 +128,7 @@ public class ReviewDAO {
 		return clist;
 	}
 	
-	/** ÈÄ±â ±Û¾²±â **/
+	/** ï¿½Ä±ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ **/
 	public boolean getResultWrite(ReviewVO vo) {
 		
 		boolean result = false;
@@ -149,7 +149,7 @@ public class ReviewDAO {
 		return result;
 	}
 	 
-	/** ¸®ºä³»¿ë ºÒ·¯¿À±â **/
+	/** ï¿½ï¿½ï¿½ä³»ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ **/
 	public ReviewVO getResultContent(String rv_code) {
 		
 		ReviewVO vo = new ReviewVO();
@@ -181,7 +181,7 @@ public class ReviewDAO {
 	}
 	
 	
-/*	*//** ¸®ºä³»¿ë ºÒ·¯¿À±â **//*
+/*	*//** ï¿½ï¿½ï¿½ä³»ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ **//*
 	public ReviewVO getResultContent(String rv_code) {
 		ReviewVO vo = new ReviewVO();
 		String sql = "select rv_title, rv_content, c_title, r.id" + 
@@ -208,7 +208,7 @@ public class ReviewDAO {
 		return vo;
 	}*/
 	
-	/** Á¶È¸¼ö ¾÷µ¥ÀÌÆ® **/
+	/** ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® **/
 	public void getResultUpdateHits(String rv_code) {
 
 		String sql = "update review set rv_hits= rv_hits+1 where rv_code=?";
@@ -222,7 +222,7 @@ public class ReviewDAO {
 
 	}
 	
-	/** ¸®ºä ¾÷µ¥ÀÌÆ® **/
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® **/
 	public boolean getResultReviewUpdate(ReviewVO vo) {
 		boolean result = false;
 		String sql = "update review set rv_title=?, rv_content=?, rv_staravg=? where rv_code=?";
@@ -241,7 +241,7 @@ public class ReviewDAO {
 		return result;
 	}
 	
-	/** ¸®ºä ´ñ±Û ¸®½ºÆ® **/
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® **/
 	public ArrayList<ReviewReplyVO> getReplyList(String rv_code){
 		ArrayList<ReviewReplyVO> list = new ArrayList<ReviewReplyVO>();
 		String sql = "select rv_rp_code, rv_rp_content, rv_code, rv_rp_id, to_char(rv_rp_date,'yyyy.mm.dd.') from review_reply where rv_code=? order by rv_rp_date desc";
@@ -269,7 +269,7 @@ System.out.println("code: "+vo.getRv_rp_code());
 		return list;
 	}
 	
-	/** ¸®ºä ´ñ±Û ±Û¾²±â **/
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ **/
 	public boolean getResultReplyWrite(ReviewReplyVO vo) {
 		
 		boolean result = false;
@@ -289,7 +289,7 @@ System.out.println("code: "+vo.getRv_rp_code());
 		return result;
 	}
 	
-	/** ¸®ºä »èÁ¦ **/
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ **/
 	public boolean getResultDelete(String rv_code) {
 		boolean result = false;
 		String sql = "delete review where rv_code=?";
@@ -305,7 +305,7 @@ System.out.println("code: "+vo.getRv_rp_code());
 		return result;
 	}
 	
-	/** ¸®ºä ´ñ±Û »èÁ¦ **/
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ **/
 	public boolean getResultReplyDelete(String rv_rp_code) {
 		boolean result = false;
 		String sql = "delete review_reply where rv_rp_code=?";
@@ -322,7 +322,7 @@ System.out.println("code: "+vo.getRv_rp_code());
 	}
 	
 	
-	/** Á¾·á **/
+	/** ï¿½ï¿½ï¿½ï¿½ **/
 	public void close() {
 		
 		try {				

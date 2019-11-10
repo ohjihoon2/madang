@@ -35,7 +35,7 @@ public class Reservation_DAO {
 	}
 	
 	
-	/** °ø¿¬ ¿¹¸Å³»¿ª ¸®½ºÆ® */
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® */
 	public ArrayList<Concert_Reserv_VO> getConcertReservList(String id) {
 		ArrayList<Concert_Reserv_VO> list=new ArrayList<Concert_Reserv_VO>();
 		
@@ -68,7 +68,7 @@ public class Reservation_DAO {
 	}
 	
 	
-	/** °ø¿¬ ¿¹¸Å »ó¼¼³»¿ª */
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ó¼¼³ï¿½ï¿½ï¿½ */
 	public Concert_Reserv_VO getConcertReservContent(String id, String tc_code) {
 		Concert_Reserv_VO vo=new Concert_Reserv_VO();
 		
@@ -117,7 +117,7 @@ public class Reservation_DAO {
 	}
 	
 	
-	/** Àü½Ã ¿¹¸Å³»¿ª ¸®½ºÆ® */
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® */
 	public ArrayList<Exhib_Reserv_VO> getExhibReservList(String id) {
 		ArrayList<Exhib_Reserv_VO> list=new ArrayList<Exhib_Reserv_VO>();
 		
@@ -152,7 +152,7 @@ public class Reservation_DAO {
 	
 	
 	
-	/** Àü½Ã ¿¹¸Å »ó¼¼³»¿ª */
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ó¼¼³ï¿½ï¿½ï¿½ */
 	public Exhib_Reserv_VO getExhibReservContent(String id, String te_code) {
 		Exhib_Reserv_VO vo=new Exhib_Reserv_VO();
 		
@@ -207,7 +207,7 @@ public class Reservation_DAO {
 	}
 
 	
-	/** ¿¹¸ÅÃë¼Ò */
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 	public boolean getReservDelete(String id, String p_code) {
 		boolean result=false;
 		

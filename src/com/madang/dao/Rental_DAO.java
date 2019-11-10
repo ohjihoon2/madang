@@ -36,7 +36,7 @@ public class Rental_DAO {
 		} catch (Exception e) {e.printStackTrace();}
 	}
 	
-	/** ¸®½ºÆ® Ãâ·Â */
+	/** ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ */
 	public ArrayList<Rental_VO> getList(String id){
 		ArrayList<Rental_VO> list=new ArrayList<Rental_VO>();
 		
@@ -60,15 +60,15 @@ public class Rental_DAO {
 				vo.setR_edate(rs.getString(5));
 				vo.setR_place(rs.getString(6));
 				vo.setR_status(rs.getString(7));
-				if(rs.getString(7).equals("½ÅÃ»¿Ï·á")) {
+				if(rs.getString(7).equals("ï¿½ï¿½Ã»ï¿½Ï·ï¿½")) {
 					if(rs.getInt(9)>=0) {
 						if(rs.getInt(8)<0) {
-							vo.setR_status2("¿¹Á¤");
+							vo.setR_status2("ï¿½ï¿½ï¿½ï¿½");
 						} else {
-							vo.setR_status2("ÁøÇàÁß");
+							vo.setR_status2("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 						}
 					} else {
-						vo.setR_status2("Á¾·á");
+						vo.setR_status2("ï¿½ï¿½ï¿½ï¿½");
 					}
 				}
 				list.add(vo);
@@ -80,7 +80,7 @@ public class Rental_DAO {
 	
 	
 	
-	/** »ó¼¼³»¿ª Ãâ·Â */
+	/** ï¿½ó¼¼³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
 	public Rental_VO getContent(String rental_code, String id) {
 		Rental_VO vo=new Rental_VO();
 		
@@ -111,15 +111,15 @@ public class Rental_DAO {
 				vo.setR_id(rs.getString(11));
 				vo.setR_file(rs.getString(12));
 				vo.setR_sfile(rs.getString(13));
-				if(rs.getString(10).equals("½ÅÃ»¿Ï·á")) {
+				if(rs.getString(10).equals("ï¿½ï¿½Ã»ï¿½Ï·ï¿½")) {
 					if(rs.getInt(15)>=0) {
 						if(rs.getInt(14)<0) {
-							vo.setR_status2("¿¹Á¤");
+							vo.setR_status2("ï¿½ï¿½ï¿½ï¿½");
 						} else {
-							vo.setR_status2("ÁøÇàÁß");
+							vo.setR_status2("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 						}
 					} else {
-						vo.setR_status2("Á¾·á");
+						vo.setR_status2("ï¿½ï¿½ï¿½ï¿½");
 					}
 				}
 				vo.setR_date(rs.getString(14));
@@ -131,11 +131,11 @@ public class Rental_DAO {
 	}
 	
 	
-	/** Ãë¼Ò ½ÅÃ» */
+	/** ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» */
 	public boolean getResultcancel(String rental_code) {
 		boolean result=false;
 		
-		String sql="update rental set r_status='Ãë¼Ò½ÅÃ»' where rental_code=?";
+		String sql="update rental set r_status='ï¿½ï¿½Ò½ï¿½Ã»' where rental_code=?";
 		getPreparedStatement(sql);
 		
 		try {
@@ -192,15 +192,15 @@ public class Rental_DAO {
 				vo.setR_case(rs.getString(3));
 				vo.setR_title(rs.getString(4));
 				vo.setR_date(rs.getString(5));
-				if(rs.getString(6).equals("½ÅÃ»¿Ï·á")) {
-					if(rs.getInt(8)>=0) { // ³¯Â¥Â÷¼ö ±¸ÇÏ±â
+				if(rs.getString(6).equals("ï¿½ï¿½Ã»ï¿½Ï·ï¿½")) {
+					if(rs.getInt(8)>=0) { // ï¿½ï¿½Â¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
 						if(rs.getInt(7)<0) {
-							vo.setR_status("¿¹Á¤");
+							vo.setR_status("ï¿½ï¿½ï¿½ï¿½");
 						} else {
-							vo.setR_status("ÁøÇàÁß");
+							vo.setR_status("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 						}
 					} else {
-						vo.setR_status("Á¾·á");
+						vo.setR_status("ï¿½ï¿½ï¿½ï¿½");
 					}
 				}else {
 					vo.setR_status(rs.getString(6));
@@ -215,6 +215,30 @@ public class Rental_DAO {
 		return list; 
 	}
 	
+	
+	
+	//Admin main list count
+	public int getAdminMainCount() {
+		int count =0;
+		String sql = "select count(*) from rental";
+		getPreparedStatement(sql);
+		try {
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				count=rs.getInt(1);
+				if(count>3) {
+					count=3;
+				}
+			}
+			
+		}catch(Exception e) {e.printStackTrace();}
+		return count;
+		
+	}
+	
+	
+	
 ///////////////////////////////////////////////////////////////////////////////////////////concert	admin
 	//Admin list _concert
 	public ArrayList<Rental_VO> getListAdminConcert(int startCount, int endCount){
@@ -225,7 +249,7 @@ public class Rental_DAO {
 				"floor(sysdate-r_sdate) startcount, " + 
 				"floor(r_edate-sysdate)+1 endcount, " + 
 				"r_status " + 
-				"from(select*from rental where r_case='°ø¿¬' order by r_date desc)) " + 
+				"from(select*from rental where r_case='ï¿½ï¿½ï¿½ï¿½' order by r_date desc)) " + 
 				"where rno  between ? and ?";
 		getPreparedStatement(sql);
 		try {
@@ -244,15 +268,15 @@ public class Rental_DAO {
 				vo.setR_sdate(rs.getString(5));
 				vo.setR_edate(rs.getString(6));
 				vo.setR_id(rs.getString(7));
-				if(rs.getString(10).equals("½ÅÃ»¿Ï·á")) {
-					if(rs.getInt(9)>=0) { // ³¯Â¥Â÷¼ö ±¸ÇÏ±â
+				if(rs.getString(10).equals("ï¿½ï¿½Ã»ï¿½Ï·ï¿½")) {
+					if(rs.getInt(9)>=0) { // ï¿½ï¿½Â¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
 						if(rs.getInt(8)<0) {
-							vo.setR_status("¿¹Á¤");
+							vo.setR_status("ï¿½ï¿½ï¿½ï¿½");
 						} else {
-							vo.setR_status("ÁøÇàÁß");
+							vo.setR_status("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 						}
 					} else {
-						vo.setR_status("Á¾·á");
+						vo.setR_status("ï¿½ï¿½ï¿½ï¿½");
 					}
 				}else {
 					vo.setR_status(rs.getString(10));
@@ -270,7 +294,7 @@ public class Rental_DAO {
 		public int execTotalCountConcert(){
 			int result =0;
 			try{
-				String sql = "select count(*) from rental where r_case='°ø¿¬'";
+				String sql = "select count(*) from rental where r_case='ï¿½ï¿½ï¿½ï¿½'";
 				getPreparedStatement(sql);
 				
 				rs = pstmt.executeQuery();
@@ -290,7 +314,7 @@ public class Rental_DAO {
 					+ "to_char(r_edate,'yyyy/mm/dd'), r_opentime, r_time, r_rhtime, "
 					+ "floor(sysdate-r_sdate) startcount, floor(r_edate-sysdate)+1 endcount, r_status, "
 					+ "r_file, r_sfile, r_id, r_date from rental "
-					+ "where r_case='°ø¿¬' and rental_code=?";
+					+ "where r_case='ï¿½ï¿½ï¿½ï¿½' and rental_code=?";
 			getPreparedStatement(sql);
 			try {
 				
@@ -306,15 +330,15 @@ public class Rental_DAO {
 					vo.setR_time(rs.getString(6));
 					vo.setR_rhtime(rs.getString(7));
 					
-					if(rs.getString(10).equals("½ÅÃ»¿Ï·á")) {
-						if(rs.getInt(9)>=0) { // ³¯Â¥Â÷¼ö ±¸ÇÏ±â
+					if(rs.getString(10).equals("ï¿½ï¿½Ã»ï¿½Ï·ï¿½")) {
+						if(rs.getInt(9)>=0) { // ï¿½ï¿½Â¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
 							if(rs.getInt(8)<0) {
-								vo.setR_status("¿¹Á¤");
+								vo.setR_status("ï¿½ï¿½ï¿½ï¿½");
 							} else {
-								vo.setR_status("ÁøÇàÁß");
+								vo.setR_status("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 							}
 						} else {
-							vo.setR_status("Á¾·á");
+							vo.setR_status("ï¿½ï¿½ï¿½ï¿½");
 						}
 					}else {
 						vo.setR_status(rs.getString(10));
@@ -345,7 +369,7 @@ public class Rental_DAO {
 					"floor(sysdate-r_sdate) startcount, " + 
 					"floor(r_edate-sysdate)+1 endcount, " + 
 					"r_status " + 
-					"from(select*from rental where r_case='Àü½Ã' order by r_date desc)) " + 
+					"from(select*from rental where r_case='ï¿½ï¿½ï¿½ï¿½' order by r_date desc)) " + 
 					"where rno  between ? and ?";
 			getPreparedStatement(sql);
 			try {
@@ -364,15 +388,15 @@ public class Rental_DAO {
 					vo.setR_sdate(rs.getString(5));
 					vo.setR_edate(rs.getString(6));
 					vo.setR_id(rs.getString(7));
-					if(rs.getString(10).equals("½ÅÃ»¿Ï·á")) {
-						if(rs.getInt(9)>=0) { // ³¯Â¥Â÷¼ö ±¸ÇÏ±â
+					if(rs.getString(10).equals("ï¿½ï¿½Ã»ï¿½Ï·ï¿½")) {
+						if(rs.getInt(9)>=0) { // ï¿½ï¿½Â¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
 							if(rs.getInt(8)<0) {
-								vo.setR_status("¿¹Á¤");
+								vo.setR_status("ï¿½ï¿½ï¿½ï¿½");
 							} else {
-								vo.setR_status("ÁøÇàÁß");
+								vo.setR_status("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 							}
 						} else {
-							vo.setR_status("Á¾·á");
+							vo.setR_status("ï¿½ï¿½ï¿½ï¿½");
 						}
 					}else {
 						vo.setR_status(rs.getString(10));
@@ -390,7 +414,7 @@ public class Rental_DAO {
 			public int execTotalCountExhibition(){
 				int result =0;
 				try{
-					String sql = "select count(*) from rental where r_case='Àü½Ã'";
+					String sql = "select count(*) from rental where r_case='ï¿½ï¿½ï¿½ï¿½'";
 					getPreparedStatement(sql);
 					
 					rs = pstmt.executeQuery();
@@ -410,7 +434,7 @@ public class Rental_DAO {
 						+ "to_char(r_edate,'yyyy/mm/dd'), r_opentime, r_time, "
 						+ "floor(sysdate-r_sdate) startcount, floor(r_edate-sysdate)+1 endcount, r_status, "
 						+ "r_file, r_sfile, r_id, r_date from rental "
-						+ "where r_case='Àü½Ã' and rental_code=?";
+						+ "where r_case='ï¿½ï¿½ï¿½ï¿½' and rental_code=?";
 				getPreparedStatement(sql);
 				try {
 					
@@ -425,15 +449,15 @@ public class Rental_DAO {
 						vo.setR_opentime(rs.getString(5));
 						vo.setR_time(rs.getString(6));
 						
-						if(rs.getString(9).equals("½ÅÃ»¿Ï·á")) {
-							if(rs.getInt(8)>=0) { // ³¯Â¥Â÷¼ö ±¸ÇÏ±â
+						if(rs.getString(9).equals("ï¿½ï¿½Ã»ï¿½Ï·ï¿½")) {
+							if(rs.getInt(8)>=0) { // ï¿½ï¿½Â¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
 								if(rs.getInt(7)<0) {
-									vo.setR_status("¿¹Á¤");
+									vo.setR_status("ï¿½ï¿½ï¿½ï¿½");
 								} else {
-									vo.setR_status("ÁøÇàÁß");
+									vo.setR_status("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 								}
 							} else {
-								vo.setR_status("Á¾·á");
+								vo.setR_status("ï¿½ï¿½ï¿½ï¿½");
 							}
 						}else {
 							vo.setR_status(rs.getString(9));
@@ -474,7 +498,7 @@ public class Rental_DAO {
 		//detail accept request
 		public boolean getResultUpdate(String rental_code) {
 			boolean result=false;
-			String sql = "update rental set r_status='½ÅÃ»¿Ï·á' where rental_code=?";
+			String sql = "update rental set r_status='ï¿½ï¿½Ã»ï¿½Ï·ï¿½' where rental_code=?";
 			getPreparedStatement(sql);
 			try{
 				pstmt.setString(1, rental_code);
@@ -490,7 +514,7 @@ public class Rental_DAO {
 		//detail cancel request
 		public boolean getResultCancel(String rental_code) {
 			boolean result=false;
-			String sql = "update rental set r_status='Ãë¼Ò¿Ï·á' where rental_code=?";
+			String sql = "update rental set r_status='ï¿½ï¿½Ò¿Ï·ï¿½' where rental_code=?";
 			getPreparedStatement(sql);
 			try{
 				pstmt.setString(1, rental_code);

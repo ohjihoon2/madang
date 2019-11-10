@@ -3,6 +3,7 @@ package com.madang.service;
 import java.util.ArrayList;
 
 import com.madang.dao.EventDAO;
+import com.madang.dao.ExhibitionDAO;
 import com.madang.dao.NoticeDAO;
 import com.madang.dao.QandA_DAO;
 import com.madang.vo.NoticeVO;
@@ -41,11 +42,20 @@ public class NoticeService {
 		NoticeDAO dao = new NoticeDAO();
 		ArrayList<NoticeVO> list = dao.getListAdminMain();
 		dao.close();
-		System.out.println("¼­ºñ½º");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½");
 		for(int i=0; i<list.size();i++) {
 			list.get(i).getRno();
 		}
 		return list;
+	}
+	
+	//Admin main list count
+	public int getAdminMainCount() {
+		NoticeDAO dao = new NoticeDAO();
+		int count = dao.getAdminMainCount();
+		dao.close();
+		System.out.println("service"+count);
+		return count;
 	}
 	
 	//insert new notice
@@ -80,7 +90,7 @@ public class NoticeService {
 		NoticeDAO dao = new NoticeDAO();
 		result = dao.getResultUpdateAdmin(vo);
 		dao.close();
-		System.out.println("¾÷µ¥ÀÌÆ®"+result);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®"+result);
 		return result;	
 	}
 	

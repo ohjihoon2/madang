@@ -236,7 +236,25 @@ public class NoticeDAO {
 	}
 			
 
-	
+	//Admin main list count
+	public int getAdminMainCount() {
+		int count =0;
+		String sql = "select count(*) from notice";
+		getPreparedStatement(sql);
+		try {
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				count=rs.getInt(1);
+				if(count>3) {
+					count=3;
+				}
+			}
+			
+		}catch(Exception e) {e.printStackTrace();}
+		return count;
+		
+	}
 	
 	public void close() {
 		try {

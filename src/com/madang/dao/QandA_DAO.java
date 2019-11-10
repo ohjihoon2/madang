@@ -35,7 +35,7 @@ public class QandA_DAO {
 		} catch (Exception e) {e.printStackTrace();}
 	}
 	
-	/** µî·Ï */
+	/** ï¿½ï¿½ï¿½ */
 	public boolean getResultWrite(QandA_VO vo) {
 		boolean result=false;
 		
@@ -57,7 +57,7 @@ public class QandA_DAO {
 	}
 	
 	
-	/** ³»¿ë Ãâ·Â */
+	/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
 	public QandA_VO getContent(String qa_code) {
 		QandA_VO vo=new QandA_VO();
 		
@@ -84,7 +84,7 @@ public class QandA_DAO {
 	}
 	
 	
-	/** ÀüÃ¼ ¸®½ºÆ® */
+	/** ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½Æ® */
 	public ArrayList<QandA_VO> getList(String id) {
 		ArrayList<QandA_VO> list=new ArrayList<QandA_VO>();
 		
@@ -114,7 +114,7 @@ public class QandA_DAO {
 	}
 	
 	
-	/** »èÁ¦ */
+	/** ï¿½ï¿½ï¿½ï¿½ */
 	public boolean getResultDelete(String qa_code) {
 		boolean result=false;
 		
@@ -144,7 +144,7 @@ public class QandA_DAO {
 				vo.setQa_code(rs.getString(2));
 				vo.setQa_title(rs.getString(3));
 				vo.setQa_date(rs.getString(4));
-				//ÀÛ¼º¿©ºÎ±îÁö¸¸
+				//ï¿½Û¼ï¿½ï¿½ï¿½ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½
 				vo.setQa_adate(rs.getString(5));
 				
 				list.add(vo);
@@ -239,7 +239,25 @@ public class QandA_DAO {
 		return result;
 	}
 	
-	
+	//Admin main list count
+	public int getAdminMainCount() {
+		int count =0;
+		String sql = "select count(*) from q_and_a";
+		getPreparedStatement(sql);
+		try {
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				count=rs.getInt(1);
+				if(count>3) {
+					count=3;
+				}
+			}
+			
+		}catch(Exception e) {e.printStackTrace();}
+		return count;
+		
+	}
 	
 	
 	

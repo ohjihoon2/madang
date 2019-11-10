@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.madang.vo.ConcertTicketVO;
 import com.madang.vo.ConcertVO;
+import com.madang.vo.ExhibitionVO;
 import com.madang.vo.General_mem_VO;
 import com.madang.vo.PurchaseVO;
 
@@ -251,6 +252,48 @@ public class ConcertDAO {
 		return result;
 	}
 	
+	
+	
+	
+	//Admin main list
+	public ArrayList<ConcertVO> getListAdminMain(){
+		ArrayList<ConcertVO> list = new ArrayList<ConcertVO>();
+		String sql="select * from(select * from (select exhibition_code, e_title, to_char(e_sdate,'yyyy/mm/dd'), to_char(e_edate,'yyyy/mm/dd'), floor(sysdate-e_sdate)  startcount, floor(e_edate - sysdate) endcount from exhibition order by e_sdate desc) where  endcount>=0 )where startcount>=0";
+		getPreparedStatement(sql);
+		try {
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				ConcertVO vo = new ConcertVO();
+				vo.setConcert_code(rs.getString(1));
+				vo.setC_title(rs.getString(2));
+				vo.setC_sdate(rs.getString(3));
+				vo.setC_edate(rs.getString(4));
+				list.add(vo);
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		return list;
+	}
+	
+	
+	//Admin main list count
+	public int getAdminMainCount() {
+		int count =0;
+		String sql = "select count(*) from concert";
+		getPreparedStatement(sql);
+		try {
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				count=rs.getInt(1);
+				if(count>3) {
+					count=3;
+				}
+			}
+			
+		}catch(Exception e) {e.printStackTrace();}
+		return count;
+		
+	}
 	
 	//6
 	public void close() {

@@ -1,5 +1,7 @@
 package com.madang.service;
 
+import java.util.ArrayList;
+
 import com.madang.dao.ConcertDAO;
 import com.madang.vo.ConcertTicketVO;
 import com.madang.vo.ConcertVO;
@@ -61,4 +63,23 @@ public class ConcertService {
 		
 		return result;
 	}
+	
+	
+	//Admin main list
+	public ArrayList<ConcertVO> getListAdminMain(){
+		ConcertDAO dao = new ConcertDAO();
+		ArrayList<ConcertVO> list = dao.getListAdminMain();
+		dao.close();
+		return list;
+	}
+	
+	
+	//Admin main list count
+	public int getAdminMainCount() {
+		ConcertDAO dao = new ConcertDAO();
+		int count = dao.getAdminMainCount();
+		dao.close();
+		return count;
+	}
+	
 }

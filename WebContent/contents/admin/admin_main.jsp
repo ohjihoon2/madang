@@ -2,17 +2,25 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
 <%
+	ConcertService concert_service = new ConcertService();
+	ArrayList<ConcertVO> concert_list = concert_service.getListAdminMain(); 
+	int concert = concert_service.getAdminMainCount();
+
  	ExhibitionService exhibition_service = new ExhibitionService();
 	ArrayList<ExhibitionVO> exhibition_list = exhibition_service.getListAdminMain(); 
+	int exhibition = exhibition_service.getAdminMainCount();
 
 	NoticeService notice_service = new NoticeService();
 	ArrayList<NoticeVO> notice_list = notice_service.getListAdminMain();
+	int notice = notice_service.getAdminMainCount();
 	
 	QandA_Service qna_service = new QandA_Service();
 	ArrayList<QandA_VO> qna_list = qna_service.getListAdminMain();
+	int qna = qna_service.getAdminMainCount();
 	
 	Rental_Service rental_service = new Rental_Service();
 	ArrayList<Rental_VO> rental_list = rental_service.getListAdminMain();
+	int rental = rental_service.getAdminMainCount();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -144,13 +152,16 @@ div#admin_main section a:hover {
 		 	<article>
 		 		<h2>진행중인 공연 </h2>
 		 		<h5>더보기</h5>
-		 		<ul>
-		 			<li>
-		 				어 컵- 어 컵 어컵!!! (20190901~20190810)
-		 			</li>
-		 			<li>
-		 				공연장에서 실시하는 전시회 (20190901~20190810)
-		 			</li>
+				<ul>
+		 		<%if(concert!=0){ %>
+		 			<%for(int i=0; i<concert; i++){%> 
+		 				<li>
+			 				<span><%=concert_list.get(i).getC_title()%></span><br><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<%=concert_list.get(i).getC_sdate()%>~<%=concert_list.get(i).getC_edate()%>)</span>
+			 			</li>
+		 			<%} %>
+		 		<%}else{ %>
+		 			<li>진행중인 공연이 없습니다.</li>
+		 		<%} %>
 		 		</ul> 
 		 	</article>
 		 			 	<article>
@@ -158,13 +169,15 @@ div#admin_main section a:hover {
 		 		<h2>진행중인 전시 </h2>
 		 		<h5>더보기</h5>
 		 		<ul>
-		 			<%for(int i=0; i<3; i++){ 
-		 				if(!exhibition_list.get(i).getExhibition_code().equals("")){%>
-				 			<li>
-				 				<span><%=exhibition_list.get(i).getE_title()%></span><br><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<%=exhibition_list.get(i).getE_sdate()%>~<%=exhibition_list.get(i).getE_edate()%>)</span>
-				 			</li>
-				 		<%} %>
+		 		<%if(exhibition!=0){ %>
+		 			<%for(int i=0; i<exhibition; i++){%> 
+		 				<li>
+			 				<span><%=exhibition_list.get(i).getE_title()%></span><br><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<%=exhibition_list.get(i).getE_sdate()%>~<%=exhibition_list.get(i).getE_edate()%>)</span>
+			 			</li>
 		 			<%} %>
+		 		<%}else{ %>
+		 			<li>진행중인 전시가 없습니다.</li>
+		 		<%} %>
 		 		</ul> 
 		 	</article>
 		</section>
@@ -178,18 +191,23 @@ div#admin_main section a:hover {
 	 				<th>작성일자</th>
 	 				<th>조회수</th>
 	 			</tr>
-	 			<%for(int i=0 ; i<3 ; i++){ 
-	 				if(notice_list.get(i) != null){%>
-	 				<tr>
-	 					<td><%=notice_list.get(i).getRno()%></td>
-	 					<td><a href="http://211.63.89.214:9090/contents/admin/board/admin_notice_contents.jsp?nt_code=<%=notice_list.get(i).getNt_code()%>"><%=notice_list.get(i).getNt_title() %></a></td>
-	 					<td><%=notice_list.get(i).getNt_date() %></td>
-	 					<td><%=notice_list.get(i).getNt_hits() %></td>
-	 				</tr>
-	 			<%}else{ %>
-	 				<tr><td> </td></tr>
-	 				<%}//if
-	 			}//for%>
+	 			<%if(notice!=0){
+	 					System.out.println(notice);%>
+		 			<%for(int i=0 ; i<notice ; i++){ %>
+		 				<tr>
+		 					<td><%=notice_list.get(i).getRno()%></td>
+		 					<td><a href="http://211.63.89.214:9090/contents/admin/board/admin_notice_contents.jsp?nt_code=<%=notice_list.get(i).getNt_code()%>">
+		 						<%=notice_list.get(i).getNt_title()%></a>
+		 					</td>
+		 					<td><%=notice_list.get(i).getNt_date() %></td>
+		 					<td><%=notice_list.get(i).getNt_hits() %></td>
+		 				</tr>
+					<%}//for%>
+				<%}else{ %>
+					<tr>
+						<td colspan="4">공지사항이 없습니다.</td>
+					</tr>
+				<%} %>
 	 		</table>
 	 	</section>
 	 	<section>
@@ -202,23 +220,25 @@ div#admin_main section a:hover {
 	 				<th>질문일자</th>
 	 				<th>답변일자</th>
 	 			</tr>
-	 			<%for(int i=0 ; i<3 ; i++){ 
-	 				if(qna_list.get(i) != null){%>
+	 			<%if(qna !=0){ %>
+	 			<%for(int i=0 ; i<qna ; i++){ %>
 	 				<tr>
 	 					<td><%=qna_list.get(i).getRownum() %></td>
 	 					<td><a href="http://211.63.89.214:9090/contents/admin/member_counsel/admin_QandA_detail.jsp?qa_code=<%=qna_list.get(i).getQa_code()%>"><%=qna_list.get(i).getQa_title() %></a></td>
 	 					<td><%=qna_list.get(i).getQa_date() %></td>
 	 					<td><%=qna_list.get(i).getQa_adate() %></td>
 	 				</tr>
+	 			<% }//for%>
 	 			<%}else{ %>
-	 				<tr><td> </td></tr>
-	 				<%}//if
-	 			}//for%>
+					<tr>
+						<td colspan="4">상담이 없습니다.</td>
+					</tr>
+				<%} %>
 	 		</table>
 	 	</section>
 	 	<section>
 	 		<h2>대관신청</h2>
-	 		<a href="http://211.63.89.213:9090/contents/admin/rental/admin_rental_con.jsp"><h5>더보기</h5></a>
+	 		<a href="http://211.63.89.214:9090/contents/admin/rental/admin_rental_con.jsp"><h5>더보기</h5></a>
 	 		<table>
 	 			<tr>
 	 				<th>번호</th>
@@ -227,23 +247,32 @@ div#admin_main section a:hover {
 	 				<th>신청일</th>
 	 				<th>상태</th>
 	 			</tr>
-	 			<%for(int i=0 ; i<3 ; i++){ 
-	 				if(qna_list.get(i) != null){%>
-	 				<tr>
-	 					<td><%=rental_list.get(i).getRno() %></td>
-	 					<%if(rental_list.get(i).getR_case().equals("공연")){ %>
-	 						<td><a href="http://211.63.89.213:9090/contents/admin/rental/admin_rental_con_detail.jsp?rental_code=<%=rental_list.get(i).getRental_code()%>"><%=rental_list.get(i).getR_title() %></a></td>
-	 					<%}else if(rental_list.get(i).getR_case().equals("전시")){ %>
-	 						<td><a href="http://211.63.89.213:9090/contents/admin/rental/admin_rental_exh_detail.jsp?rental_code=<%=rental_list.get(i).getRental_code()%>"><%=rental_list.get(i).getR_title() %></a></td>
-	 					<%} %>
-	 					<td><%=rental_list.get(i).getR_case() %></td>
-	 					<td><%=rental_list.get(i).getR_date() %></td>
-	 					<td><%=rental_list.get(i).getR_status() %></td>
-	 				</tr>
+	 			<%if(rental!=0){ %>
+		 			<%for(int i=0 ; i<rental ; i++){ %>
+		 				<tr>
+		 					<td><%=rental_list.get(i).getRno() %></td>
+		 					<%if(rental_list.get(i).getR_case().equals("공연")){ %>
+		 						<td>
+		 							<a href="http://211.63.89.214:9090/contents/admin/rental/admin_rental_con_detail.jsp?rental_code=<%=rental_list.get(i).getRental_code()%>">
+		 								<%=rental_list.get(i).getR_title() %>
+		 							</a>
+		 						</td>`
+		 					<%}else if(rental_list.get(i).getR_case().equals("전시")){ %>
+		 						<td><a href="http://211.63.89.214:9090/contents/admin/rental/admin_rental_exh_detail.jsp?rental_code=<%=rental_list.get(i).getRental_code()%>">
+		 							<%=rental_list.get(i).getR_title() %>
+		 							</a>
+		 						</td>
+		 					<%} %>
+		 					<td><%=rental_list.get(i).getR_case() %></td>
+		 					<td><%=rental_list.get(i).getR_date() %></td>
+		 					<td><%=rental_list.get(i).getR_status() %></td>
+		 				</tr>
+		 			<%}//for%>
 	 			<%}else{ %>
-	 				<tr><td> </td></tr>
-	 				<%}//if
-	 			}//for%>
+					<tr>
+						<td colspan="5">대관신청이 없습니다.</td>
+					</tr>
+				<%} %>
 	 		</table>
 	 	</section>
 	</div>

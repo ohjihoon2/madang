@@ -2,12 +2,13 @@ package com.madang.service;
 
 import java.util.ArrayList;
 
+import com.madang.dao.ExhibitionDAO;
 import com.madang.dao.Rental_DAO;
 import com.madang.vo.Group_mem_VO;
 import com.madang.vo.Rental_VO;
 
 public class Rental_Service {
-	/** ¸®½ºÆ® Ãâ·Â */
+	/** ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ */
 	public ArrayList<Rental_VO> getList(String id){
 		ArrayList<Rental_VO> list=new ArrayList<Rental_VO>();
 		Rental_DAO dao=new Rental_DAO();
@@ -16,7 +17,7 @@ public class Rental_Service {
 		return list;
 	}
 	
-	/** »ó¼¼³»¿ª Ãâ·Â */
+	/** ï¿½ó¼¼³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
 	public Rental_VO getContent(String rental_code, String id) {
 		Rental_VO vo=new Rental_VO();
 		Rental_DAO dao=new Rental_DAO();
@@ -25,7 +26,7 @@ public class Rental_Service {
 		return vo;
 	}
 	
-	/** Ãë¼Ò ½ÅÃ» */
+	/** ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» */
 	public boolean getResultcancel(String rental_code) {
 		boolean result=false;
 		Rental_DAO dao=new Rental_DAO();
@@ -43,7 +44,13 @@ public class Rental_Service {
 	}
 	
 	
-	
+	//Admin main list count
+	public int getAdminMainCount() {
+		Rental_DAO dao = new Rental_DAO();
+		int count = dao.getAdminMainCount();
+		dao.close();
+		return count;
+	}
 	
 	
 ///////////////////////////////////////////////////////////////////concert	
