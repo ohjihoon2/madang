@@ -14,7 +14,7 @@
 	System.out.println(qa_code+"and~"+result);
 	
 	if(result){
-		out.println("<script>alert('답변이 등록되었습니다'); location.href='http://211.63.89.214:9090/contents/admin/member_counsel/admin_QandA.jsp';</script>");
+		out.println("<script>alert('답변이 등록되었습니다'); location.href='http://localhost:9090/contents/admin/member_counsel/admin_QandA.jsp';</script>");
 	}else{
 		response.sendRedirect("../admin_error.jsp");
 	}

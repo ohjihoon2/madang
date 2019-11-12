@@ -3,10 +3,12 @@ package com.madang.service;
 import java.util.ArrayList;
 
 import com.madang.dao.ConcertDAO;
+import com.madang.dao.QandA_DAO;
 import com.madang.vo.ConcertTicketVO;
 import com.madang.vo.ConcertVO;
 import com.madang.vo.General_mem_VO;
 import com.madang.vo.PurchaseVO;
+import com.madang.vo.ConcertVO;
 
 public class ConcertService {
 
@@ -80,6 +82,22 @@ public class ConcertService {
 		int count = dao.getAdminMainCount();
 		dao.close();
 		return count;
+	}
+
+	//Admin list
+	public ArrayList<ConcertVO> getConcertListAdmin(int startCount, int endCount){
+		ConcertDAO dao=new ConcertDAO();
+		ArrayList<ConcertVO> list = dao.getConcertListAdmin(startCount, endCount);
+		dao.close();
+		return list;
+	}
+	
+	//Admin paging
+	public int execTotalCount(){
+		int result =0;
+		ConcertDAO dao = new ConcertDAO();
+		result = dao.execTotalCount();
+		return result;
 	}
 	
 }

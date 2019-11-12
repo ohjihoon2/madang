@@ -17,11 +17,11 @@ $(document).ready(function(){
 	  });
 	  
 	  $("aside#amdmin_left div#admin_left_gohome").click(function(){
-		  window.open("http://211.63.89.214:9090/mainpage.jsp", "_blank");  
+		  window.open("http://localhost:9090/mainpage.jsp", "_blank");  
 	  });
 	  
 	  $("aside#amdmin_left > div#admin_left_home").click(function(){
-		  location.href="http://211.63.89.214:9090/contents/admin/admin_main.jsp";
+		  location.href="http://localhost:9090/contents/admin/admin_main.jsp";
 	  });
 
 	});
@@ -113,23 +113,23 @@ aside#amdmin_left ul li>div a{
   </li>
   <li>
     <a href="#">회원관리</a>  <!-- 일반회원 -->
-    <div class="admin_left_sub"><a href="http://211.63.89.214:9090/contents/admin/member_counsel/admin_member.jsp">일반회원</a></div>
-	<div class="admin_left_sub"><a href="http://211.63.89.214:9090/contents/admin/member_counsel/admin_member_group.jsp">대관회원</a></div>
+    <div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/member_counsel/admin_member.jsp">일반회원</a></div>
+	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/member_counsel/admin_member_group.jsp">대관회원</a></div>
   </li>
   <li>
-     <article><a href="http://211.63.89.214:9090/contents/admin/member_counsel/admin_QandA.jsp">1:1상담 관리</a></article>
+     <article><a href="http://localhost:9090/contents/admin/member_counsel/admin_QandA.jsp">1:1상담 관리</a></article>
   </li>
   <li>
-     <a href="http://211.63.89.214:9090/contents/admin/rental/admin_rental.jsp">대관관리</a>
-     <div class="admin_left_sub"><a href="http://211.63.89.214:9090/contents/admin/rental/admin_rental_con.jsp">공연대관</a></div>
-	<div class="admin_left_sub"><a href="http://211.63.89.214:9090/contents/admin/rental/admin_rental_exh.jsp">전시대관</a></div>
+     <a href="http://localhost:9090/contents/admin/rental/admin_rental.jsp">대관관리</a>
+     <div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/rental/admin_rental_con.jsp">공연대관</a></div>
+	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/rental/admin_rental_exh.jsp">전시대관</a></div>
   </li>
     <li>
      <a href="#">게시판 관리</a>
     <div class="admin_left_sub"><a href="#">관람후기</a></div>
-	<div class="admin_left_sub"><a href="http://211.63.89.214:9090/contents/admin/board/admin_notice.jsp">공지사항</a></div>
-	<div class="admin_left_sub"><a href="http://211.63.89.214:9090/contents/admin/board/admin_news.jsp">언론보도</a></div>
-	<div class="admin_left_sub"><a href="http://211.63.89.214:9090/contents/admin/board/admin_event.jsp">이벤트</a></div>
+	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/board/admin_notice.jsp">공지사항</a></div>
+	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/board/admin_news.jsp">언론보도</a></div>
+	<div class="admin_left_sub"><a href="http://localhost:9090/contents/admin/board/admin_event.jsp">이벤트</a></div>
   	</li>
   </ul>
 </aside>

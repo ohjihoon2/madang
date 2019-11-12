@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 import com.madang.vo.ConcertTicketVO;
 import com.madang.vo.ConcertVO;
-import com.madang.vo.ExhibitionVO;
 import com.madang.vo.General_mem_VO;
 import com.madang.vo.PurchaseVO;
 
@@ -258,7 +257,7 @@ public class ConcertDAO {
 	//Admin main list
 	public ArrayList<ConcertVO> getListAdminMain(){
 		ArrayList<ConcertVO> list = new ArrayList<ConcertVO>();
-		String sql="select * from(select * from (select exhibition_code, e_title, to_char(e_sdate,'yyyy/mm/dd'), to_char(e_edate,'yyyy/mm/dd'), floor(sysdate-e_sdate)  startcount, floor(e_edate - sysdate) endcount from exhibition order by e_sdate desc) where  endcount>=0 )where startcount>=0";
+		String sql="select * from (select concert_code, c_title, to_char(c_sdate,'yyyy/mm/dd'), to_char(c_edate,'yyyy/mm/dd'), floor(sysdate-c_sdate)  startcount, floor(c_edate - sysdate) endcount from concert order by c_sdate desc) where  endcount>=0 and startcount>=0";
 		getPreparedStatement(sql);
 		try {
 			rs=pstmt.executeQuery();
@@ -294,6 +293,54 @@ public class ConcertDAO {
 		return count;
 		
 	}
+	
+	//Admin list 
+	public ArrayList<ConcertVO> getConcertListAdmin(int startCount, int endCount){
+		ArrayList<ConcertVO> list = new ArrayList<ConcertVO>();
+		String sql="select * from(select  rownum rno, concert_code, c_title, c_sposter, to_char(c_sdate,'yyyy/mm/dd'), to_char(c_edate,'yyyy/mm/dd'), startcount, endcount from" + 
+				" (select concert_code, c_title, c_sposter,c_sdate,c_edate, floor(sysdate-c_sdate)  startcount, floor(c_edate - sysdate) endcount from concert order by c_sdate desc)" + 
+				" where startcount>0 and endcount>0) where rno between ? and ?";
+		getPreparedStatement(sql);
+		try {
+			
+			pstmt.setInt(1, startCount);
+			pstmt.setInt(2, endCount);
+			
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				ConcertVO vo = new ConcertVO();
+				vo.setConcert_code(rs.getString(1));
+				vo.setC_sposter(rs.getString(2));
+				vo.setC_title(rs.getString(3));
+				vo.setC_sdate(rs.getString(4));
+				vo.setC_edate(rs.getString(5));
+				list.add(vo);
+			}
+			
+		} catch (Exception e) {e.printStackTrace();}
+		return list;
+	}
+	
+	
+	//Admin paging
+		public int execTotalCount(){
+			int result =0;
+			try{
+				String sql = "select count(*) from (select  floor(sysdate-c_sdate)  startcount, floor(c_edate - sysdate) endcount from concert)where startcount>0 and endcount>0";
+				getPreparedStatement(sql);
+				
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					result = rs.getInt(1);
+				}
+			}catch(Exception e){e.printStackTrace();}
+			
+			return result;
+		}
+	
+	
+	
+	
 	
 	//6
 	public void close() {

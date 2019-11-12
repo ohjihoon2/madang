@@ -14,7 +14,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <style>
 *{
 	font-family:"나눔스퀘어라운드";
@@ -147,7 +147,7 @@ div#admin_event_contents section article a:first-child button{
 				<th colspan="4">게시글 페이지</th>
 			</tr>
 			<tr>
-				<td colspan="4"><a href="http://211.63.89.214:9090/contents/Community/event_content.jsp?ev_code=<%=ev_code%>">http://211.63.89.214:9090/contents/Community/event_content.jsp?ev_code=<%=ev_code%></a></td>
+				<td colspan="4"><a href="http://localhost:9090/contents/Community/event_content.jsp?ev_code=<%=ev_code%>">http://localhost:9090/contents/Community/event_content.jsp?ev_code=<%=ev_code%></a></td>
 			</tr>
 			<tr>
 				<th colspan="4">내용</th>
@@ -157,7 +157,7 @@ div#admin_event_contents section article a:first-child button{
 					<!-- 이미지 부터 출력 -->
 					<div>
 						<% if(vo.getEv_sdetail()!="" && vo.getEv_sdetail()!=null){ %>
-								<img src="http://211.63.89.214:9090/upload/event/<%=vo.getEv_sdetail() %>" width="300px"/>
+								<img src="http://localhost:9090/upload/event/<%=vo.getEv_sdetail() %>" width="300px"/>
 						<%} %>
 					</div>
 				</td>
@@ -166,7 +166,7 @@ div#admin_event_contents section article a:first-child button{
 				<th>썸네일 이미지</th>
 				<td colspan="3">
 					<% if(vo.getEv_sthumbnail()!="" && vo.getEv_sthumbnail()!=null){ %>
-								<img src="http://211.63.89.214:9090/upload/event/<%=vo.getEv_sthumbnail() %>" width="300px"/>
+								<img src="http://localhost:9090/upload/event/<%=vo.getEv_sthumbnail() %>" width="300px"/>
 						<%} %>
 				</td>
 			</tr>

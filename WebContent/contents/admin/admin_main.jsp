@@ -27,7 +27,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <style>
 
 *{
@@ -183,7 +183,7 @@ div#admin_main section a:hover {
 		</section>
 		<section>
 	 		<h2>공지사항</h2>
-	 		<a href="http://211.63.89.214:9090/contents/admin/board/admin_notice.jsp"><h5>더보기</h5></a>
+	 		<a href="http://localhost:9090/contents/admin/board/admin_notice.jsp"><h5>더보기</h5></a>
 			<table>
 	 			<tr>
 	 				<th>번호</th>
@@ -196,7 +196,7 @@ div#admin_main section a:hover {
 		 			<%for(int i=0 ; i<notice ; i++){ %>
 		 				<tr>
 		 					<td><%=notice_list.get(i).getRno()%></td>
-		 					<td><a href="http://211.63.89.214:9090/contents/admin/board/admin_notice_contents.jsp?nt_code=<%=notice_list.get(i).getNt_code()%>">
+		 					<td><a href="http://localhost:9090/contents/admin/board/admin_notice_contents.jsp?nt_code=<%=notice_list.get(i).getNt_code()%>">
 		 						<%=notice_list.get(i).getNt_title()%></a>
 		 					</td>
 		 					<td><%=notice_list.get(i).getNt_date() %></td>
@@ -212,7 +212,7 @@ div#admin_main section a:hover {
 	 	</section>
 	 	<section>
 	 		<h2>1:1상담</h2>
-	 		<a href="http://211.63.89.214:9090/contents/admin/member_counsel/admin_QandA.jsp"><h5>더보기</h5></a>
+	 		<a href="http://localhost:9090/contents/admin/member_counsel/admin_QandA.jsp"><h5>더보기</h5></a>
 	 		<table>
 	 			<tr>
 	 				<th>번호</th>
@@ -224,7 +224,7 @@ div#admin_main section a:hover {
 	 			<%for(int i=0 ; i<qna ; i++){ %>
 	 				<tr>
 	 					<td><%=qna_list.get(i).getRownum() %></td>
-	 					<td><a href="http://211.63.89.214:9090/contents/admin/member_counsel/admin_QandA_detail.jsp?qa_code=<%=qna_list.get(i).getQa_code()%>"><%=qna_list.get(i).getQa_title() %></a></td>
+	 					<td><a href="http://localhost:9090/contents/admin/member_counsel/admin_QandA_detail.jsp?qa_code=<%=qna_list.get(i).getQa_code()%>"><%=qna_list.get(i).getQa_title() %></a></td>
 	 					<td><%=qna_list.get(i).getQa_date() %></td>
 	 					<td><%=qna_list.get(i).getQa_adate() %></td>
 	 				</tr>
@@ -238,7 +238,7 @@ div#admin_main section a:hover {
 	 	</section>
 	 	<section>
 	 		<h2>대관신청</h2>
-	 		<a href="http://211.63.89.214:9090/contents/admin/rental/admin_rental_con.jsp"><h5>더보기</h5></a>
+	 		<a href="http://localhost:9090/contents/admin/rental/admin_rental_con.jsp"><h5>더보기</h5></a>
 	 		<table>
 	 			<tr>
 	 				<th>번호</th>
@@ -253,12 +253,12 @@ div#admin_main section a:hover {
 		 					<td><%=rental_list.get(i).getRno() %></td>
 		 					<%if(rental_list.get(i).getR_case().equals("공연")){ %>
 		 						<td>
-		 							<a href="http://211.63.89.214:9090/contents/admin/rental/admin_rental_con_detail.jsp?rental_code=<%=rental_list.get(i).getRental_code()%>">
+		 							<a href="http://localhost:9090/contents/admin/rental/admin_rental_con_detail.jsp?rental_code=<%=rental_list.get(i).getRental_code()%>">
 		 								<%=rental_list.get(i).getR_title() %>
 		 							</a>
 		 						</td>`
 		 					<%}else if(rental_list.get(i).getR_case().equals("전시")){ %>
-		 						<td><a href="http://211.63.89.214:9090/contents/admin/rental/admin_rental_exh_detail.jsp?rental_code=<%=rental_list.get(i).getRental_code()%>">
+		 						<td><a href="http://localhost:9090/contents/admin/rental/admin_rental_exh_detail.jsp?rental_code=<%=rental_list.get(i).getRental_code()%>">
 		 							<%=rental_list.get(i).getR_title() %>
 		 							</a>
 		 						</td>

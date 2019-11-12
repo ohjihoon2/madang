@@ -33,7 +33,7 @@
 	
 	
 	if(result){ //true - 정상처리
-		out.println("<script>alert('게시글이 처리되었습니다.'); location.href='http://211.63.89.214:9090/contents/admin/board/admin_news.jsp';</script>");
+		out.println("<script>alert('게시글이 처리되었습니다.'); location.href='http://localhost:9090/contents/admin/board/admin_news.jsp';</script>");
 	}else{ //false - 에러발생
 		response.sendRedirect("../admin_error.jsp");
 	}	

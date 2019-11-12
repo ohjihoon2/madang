@@ -51,7 +51,7 @@ if(situation.equals("notice_write")){ //작성하기
 }	
 //페이지 이동
 if(result){
-	out.println("<script>alert('게시글이 처리되었습니다.'); location.href='http://211.63.89.214:9090/contents/admin/board/admin_notice.jsp';</script>");
+	out.println("<script>alert('게시글이 처리되었습니다.'); location.href='http://localhost:9090/contents/admin/board/admin_notice.jsp';</script>");
 }else{
 	response.sendRedirect("../admin_error.jsp");
 }

@@ -2,15 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.madang.service.*, com.madang.vo.*,java.util.*" %>
 <%
-	NoticeService service = new NoticeService();
+	ConcertService service = new ConcertService();
 	String rpage = request.getParameter("page"); 
 	
 	//페이징 처리 - startCount, endCount 구하기
 		int startCount = 0;
 		int endCount = 0;
-		int pageSize = 5;	//한페이지당 게시물 수
+		int pageSize = 3;	//한페이지당 게시물 수
 		int reqPage = 1;	//요청페이지 	
-		int pageCount = 1;	//전체 페이지 수                        //))처음초기화작업인가봄
+		int pageCount = 1;	//전체 페이지 수                         //))처음초기화작업인가봄
 		int dbCount = service.execTotalCount();	//DB에서 가져온 전체 행수
 		
 		//총 페이지 수 계산 ((페이지 나누기 위해서)) 전체페이지의 수: db에서 가져온 전체개수/pageSize))
@@ -31,7 +31,7 @@
 		}
 		
 		
-	ArrayList<NoticeVO> list = service.getNoticeListAdmin(startCount, endCount);
+	ArrayList<ConcertVO> list = service.getConcertListAdmin(startCount, endCount); 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -74,13 +74,13 @@ div.admin_content h1{
 
 
 
-div#admin_notice section div.admin_write_btn{
+div#admin_concert section div.admin_write_btn{
 	margin:30px 0px 20px 0px;
 	text-align:right;
 	width:80%;
 }
 
-div#admin_notice section div button{
+div#admin_concert section div button{
 	background-color:rgb(5,135,94);
 	border:none;
 	width:150px;
@@ -88,38 +88,38 @@ div#admin_notice section div button{
 	color:white;
 }
 
-div#admin_notice section table{
+div#admin_concert section table{
 	width:80%;
 	border-collapse: collapse;
 }
-div#admin_notice section table th{
-	background-color:rgb(195,195,195);
-	height:40px;
-}
-div#admin_notice section table td{
-	text-align:center;
+div#admin_concert section table td{
+	text-align:left;
 	border:1px solid lightgray;
-	height:40px;
+	width:600px;
+	padding:3px;
 }
-div#admin_notice section table tr:last-child td{
-	border-bottom:hidden;
-	border-right:hidden;
-	border-left:hidden;
-}
-div#admin_notice section table td:nth-child(2){
+
+div#admin_concert section table td.admin_concert_poster{
 	padding-left:20px;
 	border:1px solid lightgray;
-	width:70%;
-	text-align:left;
+	width:150px;
+	height:280px;
 }
-div#admin_notice section table td:nth-child(2) a{
+div#admin_concert section table td:nth-child(2){
+	text-align:right;
+}
+div#admin_concert section table td a{
 	padding: 0px 10px 0px 6px;
 	text-decoration: none;
 	color: gray;
 }
 
-div#admin_notice section table td:nth-child(2) a:hover {
+div#admin_concert section table td a:hover {
 	color: #282828;
+}
+div#admin_concert section div#ampaginationsm{
+	text-align:center;
+	width:80%;
 }
 
 </style>
@@ -127,7 +127,7 @@ div#admin_notice section table td:nth-child(2) a:hover {
 	$(document).ready(function(){	
 		var pager = jQuery('#ampaginationsm').pagination({
 			
-		    maxSize: 7,	    		// max page size
+		    maxSize: 10,	    		// max page size
 		    totals: <%=dbCount%>,	// total pages	
 		    page: <%=rpage%>,		// initial page		
 		    pageSize: <%=pageSize%>,			// max number items per page
@@ -143,7 +143,7 @@ div#admin_notice section table td:nth-child(2) a:hover {
 		
 		jQuery('#ampaginationsm').on('am.pagination.change',function(e){
 			   jQuery('.showlabelsm').text('The selected page no: '+e.page);
-	           $(location).attr('href', "http://localhost:9090/contents/admin/board/admin_notice.jsp?page="+e.page);         
+	           $(location).attr('href', "http://localhost:9090/contents/admin/concert_exhibition/admin_concert.jsp?page="+e.page);         
 	    });
 		
 	});
@@ -151,31 +151,26 @@ div#admin_notice section table td:nth-child(2) a:hover {
 </head>
 <body>
 <jsp:include page="../admin_left_nav.jsp"/>
-<div id="admin_notice" class="admin_content">
-	<h1>공 지 사 항</h1>	
+<div id="admin_concert" class="admin_content">
+	<h1>진 행 중 인  공 연</h1>	
 	<section>
 		<div class="admin_write_btn">
-			<a href="admin_notice_write.jsp"><button type="button">작성하기</button></a>
+			<a href="admin_concert_write.jsp"><button type="button">작성하기</button></a>
 		</div>
 		<table>
+		<%for(ConcertVO vo : list){ %>
 			<tr>
-				<th>번호</th>
-				<th>제목</th>
-				<th>작성일</th>
-				<th>조회수</th>
+				<td rowspan="3" class="admin_concert_poster"><a href="#">포스터</a></td>
+				<td><a href="#">(<%=vo.getConcert_code() %>)</a></td>
 			</tr>
-			<%for(NoticeVO vo : list){ %>
-				<tr>
-					<td><%=vo.getRno() %></td>
-					<td><a href="admin_notice_contents.jsp?nt_code=<%=vo.getNt_code()%>&page=<%=reqPage%>"><%=vo.getNt_title() %></a></td>
-					<td><%=vo.getNt_date() %></td>
-					<td><%=vo.getNt_hits() %></td>
-				</tr>	
-			<%} %>
-			<tr>
-				<td colspan=4><div id="ampaginationsm"></div></td>
-			</tr>
+			<tr><td><a href="#"><%=vo.getC_title() %></a></td></tr>
+			<tr><td><%=vo.getC_sdate() %> ~ <%=vo.getC_edate() %></td></tr>
+			
+		<%} %>
 		</table>
+		<%if(list.size()>4){ %>
+			<div id="ampaginationsm"></div>
+		<%} %>
 	</section>
 </div>
 </body>
