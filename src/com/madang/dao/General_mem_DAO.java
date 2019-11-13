@@ -35,7 +35,7 @@ public class General_mem_DAO {
 	}
 	
 	
-	/** È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½) */
+	/** È¸¿øÁ¤º¸ ¼öÁ¤ Àü ¼ÂÆÃ(ÀüÃ¼ Ãâ·Â) */
 	public General_mem_VO getContent(String id) {
 		
 		General_mem_VO vo=new General_mem_VO();
@@ -74,7 +74,7 @@ public class General_mem_DAO {
 	}
 	
 	
-	/** È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+	/** È¸¿øÁ¤º¸ ¼öÁ¤ */
 	public boolean getResultUpdate(General_mem_VO vo) {
 		boolean result=false;
 		
@@ -106,7 +106,7 @@ public class General_mem_DAO {
 		return result;
 	}
 	
-	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ dbï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//È¸¿ø°¡ÀÔ db¿¡ È¸¿øÁ¤º¸»ðÀÔ
 	public boolean getResultJoin(General_mem_VO vo) {
 		boolean result=false;
 		String sql="insert into general_mem values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,sysdate)";
@@ -138,7 +138,7 @@ public class General_mem_DAO {
 	}
 	
 	
-	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ßºï¿½ Ã¼Å©
+	//È¸¿ø°¡ÀÔ½Ã ¾ÆÀÌµð Áßº¹ Ã¼Å©
 		public boolean IsOverlapId(String nid) {
 			boolean result=false;
 			int val=0;
@@ -159,7 +159,7 @@ public class General_mem_DAO {
 		}
 		
 
-		//ï¿½Î±ï¿½ï¿½ï¿½ È®ï¿½ï¿½
+		//·Î±×ÀÎ È®ÀÎ
 			public boolean getResultLogin(General_mem_VO vo) {
 				boolean result=false;
 				int val = 0;
@@ -177,7 +177,7 @@ public class General_mem_DAO {
 			}
 
 
-	/** È¸ï¿½ï¿½ Å»ï¿½ï¿½ ï¿½ï¿½Ð¹ï¿½È£ È®ï¿½ï¿½ */
+	/** È¸¿ø Å»Åð ºñ¹Ð¹øÈ£ È®ÀÎ */
 	public int getResultPw(String id, String u_pw) {
 		int result=0;
 		
@@ -198,7 +198,7 @@ public class General_mem_DAO {
 	}
 	
 	
-	/** È¸ï¿½ï¿½ Å»ï¿½ï¿½ */
+	/** È¸¿ø Å»Åð */
 	public boolean getResultOut(String id, String pw) {
 		boolean result=false;
 		

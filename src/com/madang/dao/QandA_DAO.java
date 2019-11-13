@@ -35,7 +35,7 @@ public class QandA_DAO {
 		} catch (Exception e) {e.printStackTrace();}
 	}
 	
-	/** ï¿½ï¿½ï¿½ */
+	/** µî·Ï */
 	public boolean getResultWrite(QandA_VO vo) {
 		boolean result=false;
 		
@@ -57,7 +57,7 @@ public class QandA_DAO {
 	}
 	
 	
-	/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
+	/** ³»¿ë Ãâ·Â */
 	public QandA_VO getContent(String qa_code) {
 		QandA_VO vo=new QandA_VO();
 		
@@ -84,7 +84,7 @@ public class QandA_DAO {
 	}
 	
 	
-	/** ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½Æ® */
+	/** ÀüÃ¼ ¸®½ºÆ® */
 	public ArrayList<QandA_VO> getList(String id) {
 		ArrayList<QandA_VO> list=new ArrayList<QandA_VO>();
 		
@@ -114,7 +114,7 @@ public class QandA_DAO {
 	}
 	
 	
-	/** ï¿½ï¿½ï¿½ï¿½ */
+	/** »èÁ¦ */
 	public boolean getResultDelete(String qa_code) {
 		boolean result=false;
 		
@@ -144,7 +144,7 @@ public class QandA_DAO {
 				vo.setQa_code(rs.getString(2));
 				vo.setQa_title(rs.getString(3));
 				vo.setQa_date(rs.getString(4));
-				//ï¿½Û¼ï¿½ï¿½ï¿½ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½
+				//ÀÛ¼º¿©ºÎ±îÁö¸¸
 				vo.setQa_adate(rs.getString(5));
 				
 				list.add(vo);
