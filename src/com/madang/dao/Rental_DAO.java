@@ -36,7 +36,7 @@ public class Rental_DAO {
 		} catch (Exception e) {e.printStackTrace();}
 	}
 	
-	/** ����Ʈ ��� */
+	/** 占쏙옙占쏙옙트 占쏙옙占� */
 	public ArrayList<Rental_VO> getList(String id){
 		ArrayList<Rental_VO> list=new ArrayList<Rental_VO>();
 		
@@ -60,15 +60,15 @@ public class Rental_DAO {
 				vo.setR_edate(rs.getString(5));
 				vo.setR_place(rs.getString(6));
 				vo.setR_status(rs.getString(7));
-				if(rs.getString(7).equals("��û�Ϸ�")) {
+				if(rs.getString(7).equals("신청완료")) {
 					if(rs.getInt(9)>=0) {
 						if(rs.getInt(8)<0) {
-							vo.setR_status2("����");
+							vo.setR_status2("예정");
 						} else {
-							vo.setR_status2("������");
+							vo.setR_status2("진행중");
 						}
 					} else {
-						vo.setR_status2("����");
+						vo.setR_status2("종료");
 					}
 				}
 				list.add(vo);
@@ -80,7 +80,7 @@ public class Rental_DAO {
 	
 	
 	
-	/** �󼼳��� ��� */
+	/** 占쏢세놂옙占쏙옙 占쏙옙占� */
 	public Rental_VO getContent(String rental_code, String id) {
 		Rental_VO vo=new Rental_VO();
 		
@@ -111,15 +111,15 @@ public class Rental_DAO {
 				vo.setR_id(rs.getString(11));
 				vo.setR_file(rs.getString(12));
 				vo.setR_sfile(rs.getString(13));
-				if(rs.getString(10).equals("��û�Ϸ�")) {
+				if(rs.getString(10).equals("신청완료")) {
 					if(rs.getInt(15)>=0) {
 						if(rs.getInt(14)<0) {
-							vo.setR_status2("����");
+							vo.setR_status2("예정");
 						} else {
-							vo.setR_status2("������");
+							vo.setR_status2("진행중");
 						}
 					} else {
-						vo.setR_status2("����");
+						vo.setR_status2("종료");
 					}
 				}
 				vo.setR_date(rs.getString(14));
@@ -131,11 +131,11 @@ public class Rental_DAO {
 	}
 	
 	
-	/** ��� ��û */
+	/** 占쏙옙占� 占쏙옙청 */
 	public boolean getResultcancel(String rental_code) {
 		boolean result=false;
 		
-		String sql="update rental set r_status='��ҽ�û' where rental_code=?";
+		String sql="update rental set r_status='취소신청' where rental_code=?";
 		getPreparedStatement(sql);
 		
 		try {
@@ -192,15 +192,15 @@ public class Rental_DAO {
 				vo.setR_case(rs.getString(3));
 				vo.setR_title(rs.getString(4));
 				vo.setR_date(rs.getString(5));
-				if(rs.getString(6).equals("��û�Ϸ�")) {
-					if(rs.getInt(8)>=0) { // ��¥���� ���ϱ�
+				if(rs.getString(6).equals("신청완료")) {
+					if(rs.getInt(8)>=0) { // 占쏙옙짜占쏙옙占쏙옙 占쏙옙占싹깍옙
 						if(rs.getInt(7)<0) {
-							vo.setR_status("����");
+							vo.setR_status("예정");
 						} else {
-							vo.setR_status("������");
+							vo.setR_status("진행중");
 						}
 					} else {
-						vo.setR_status("����");
+						vo.setR_status("종료");
 					}
 				}else {
 					vo.setR_status(rs.getString(6));
@@ -249,7 +249,7 @@ public class Rental_DAO {
 				"floor(sysdate-r_sdate) startcount, " + 
 				"floor(r_edate-sysdate)+1 endcount, " + 
 				"r_status " + 
-				"from(select*from rental where r_case='����' order by r_date desc)) " + 
+				"from(select*from rental where r_case='공연' order by r_date desc)) " + 
 				"where rno  between ? and ?";
 		getPreparedStatement(sql);
 		try {
@@ -268,15 +268,15 @@ public class Rental_DAO {
 				vo.setR_sdate(rs.getString(5));
 				vo.setR_edate(rs.getString(6));
 				vo.setR_id(rs.getString(7));
-				if(rs.getString(10).equals("��û�Ϸ�")) {
-					if(rs.getInt(9)>=0) { // ��¥���� ���ϱ�
+				if(rs.getString(10).equals("신청완료")) {
+					if(rs.getInt(9)>=0) { // 占쏙옙짜占쏙옙占쏙옙 占쏙옙占싹깍옙
 						if(rs.getInt(8)<0) {
-							vo.setR_status("����");
+							vo.setR_status("예정");
 						} else {
-							vo.setR_status("������");
+							vo.setR_status("진행중");
 						}
 					} else {
-						vo.setR_status("����");
+						vo.setR_status("종료");
 					}
 				}else {
 					vo.setR_status(rs.getString(10));
@@ -294,7 +294,7 @@ public class Rental_DAO {
 		public int execTotalCountConcert(){
 			int result =0;
 			try{
-				String sql = "select count(*) from rental where r_case='����'";
+				String sql = "select count(*) from rental where r_case='공연'";
 				getPreparedStatement(sql);
 				
 				rs = pstmt.executeQuery();
@@ -314,7 +314,7 @@ public class Rental_DAO {
 					+ "to_char(r_edate,'yyyy/mm/dd'), r_opentime, r_time, r_rhtime, "
 					+ "floor(sysdate-r_sdate) startcount, floor(r_edate-sysdate)+1 endcount, r_status, "
 					+ "r_file, r_sfile, r_id, r_date from rental "
-					+ "where r_case='����' and rental_code=?";
+					+ "where r_case='공연' and rental_code=?";
 			getPreparedStatement(sql);
 			try {
 				
@@ -330,15 +330,15 @@ public class Rental_DAO {
 					vo.setR_time(rs.getString(6));
 					vo.setR_rhtime(rs.getString(7));
 					
-					if(rs.getString(10).equals("��û�Ϸ�")) {
-						if(rs.getInt(9)>=0) { // ��¥���� ���ϱ�
+					if(rs.getString(10).equals("신청완료")) {
+						if(rs.getInt(9)>=0) { // 占쏙옙짜占쏙옙占쏙옙 占쏙옙占싹깍옙
 							if(rs.getInt(8)<0) {
-								vo.setR_status("����");
+								vo.setR_status("예정");
 							} else {
-								vo.setR_status("������");
+								vo.setR_status("진행중");
 							}
 						} else {
-							vo.setR_status("����");
+							vo.setR_status("종료");
 						}
 					}else {
 						vo.setR_status(rs.getString(10));
@@ -369,7 +369,7 @@ public class Rental_DAO {
 					"floor(sysdate-r_sdate) startcount, " + 
 					"floor(r_edate-sysdate)+1 endcount, " + 
 					"r_status " + 
-					"from(select*from rental where r_case='����' order by r_date desc)) " + 
+					"from(select*from rental where r_case='전시' order by r_date desc)) " + 
 					"where rno  between ? and ?";
 			getPreparedStatement(sql);
 			try {
@@ -388,15 +388,15 @@ public class Rental_DAO {
 					vo.setR_sdate(rs.getString(5));
 					vo.setR_edate(rs.getString(6));
 					vo.setR_id(rs.getString(7));
-					if(rs.getString(10).equals("��û�Ϸ�")) {
-						if(rs.getInt(9)>=0) { // ��¥���� ���ϱ�
+					if(rs.getString(10).equals("신청완료")) {
+						if(rs.getInt(9)>=0) { // 占쏙옙짜占쏙옙占쏙옙 占쏙옙占싹깍옙
 							if(rs.getInt(8)<0) {
-								vo.setR_status("����");
+								vo.setR_status("예정");
 							} else {
-								vo.setR_status("������");
+								vo.setR_status("진행중");
 							}
 						} else {
-							vo.setR_status("����");
+							vo.setR_status("종료");
 						}
 					}else {
 						vo.setR_status(rs.getString(10));
@@ -414,7 +414,7 @@ public class Rental_DAO {
 			public int execTotalCountExhibition(){
 				int result =0;
 				try{
-					String sql = "select count(*) from rental where r_case='����'";
+					String sql = "select count(*) from rental where r_case='전시'";
 					getPreparedStatement(sql);
 					
 					rs = pstmt.executeQuery();
@@ -434,7 +434,7 @@ public class Rental_DAO {
 						+ "to_char(r_edate,'yyyy/mm/dd'), r_opentime, r_time, "
 						+ "floor(sysdate-r_sdate) startcount, floor(r_edate-sysdate)+1 endcount, r_status, "
 						+ "r_file, r_sfile, r_id, r_date from rental "
-						+ "where r_case='����' and rental_code=?";
+						+ "where r_case='전시' and rental_code=?";
 				getPreparedStatement(sql);
 				try {
 					
@@ -449,15 +449,15 @@ public class Rental_DAO {
 						vo.setR_opentime(rs.getString(5));
 						vo.setR_time(rs.getString(6));
 						
-						if(rs.getString(9).equals("��û�Ϸ�")) {
-							if(rs.getInt(8)>=0) { // ��¥���� ���ϱ�
+						if(rs.getString(9).equals("신청완료")) {
+							if(rs.getInt(8)>=0) { // 占쏙옙짜占쏙옙占쏙옙 占쏙옙占싹깍옙
 								if(rs.getInt(7)<0) {
-									vo.setR_status("����");
+									vo.setR_status("예정");
 								} else {
-									vo.setR_status("������");
+									vo.setR_status("진행중");
 								}
 							} else {
-								vo.setR_status("����");
+								vo.setR_status("종료");
 							}
 						}else {
 							vo.setR_status(rs.getString(9));
@@ -498,7 +498,7 @@ public class Rental_DAO {
 		//detail accept request
 		public boolean getResultUpdate(String rental_code) {
 			boolean result=false;
-			String sql = "update rental set r_status='��û�Ϸ�' where rental_code=?";
+			String sql = "update rental set r_status='신청완료' where rental_code=?";
 			getPreparedStatement(sql);
 			try{
 				pstmt.setString(1, rental_code);
@@ -514,7 +514,7 @@ public class Rental_DAO {
 		//detail cancel request
 		public boolean getResultCancel(String rental_code) {
 			boolean result=false;
-			String sql = "update rental set r_status='��ҿϷ�' where rental_code=?";
+			String sql = "update rental set r_status='취소신청' where rental_code=?";
 			getPreparedStatement(sql);
 			try{
 				pstmt.setString(1, rental_code);

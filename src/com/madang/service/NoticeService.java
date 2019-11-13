@@ -42,7 +42,7 @@ public class NoticeService {
 		NoticeDAO dao = new NoticeDAO();
 		ArrayList<NoticeVO> list = dao.getListAdminMain();
 		dao.close();
-		System.out.println("ï¿½ï¿½ï¿½ï¿½");
+		System.out.println("¼­ºñ½º");
 		for(int i=0; i<list.size();i++) {
 			list.get(i).getRno();
 		}

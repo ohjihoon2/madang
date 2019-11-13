@@ -115,7 +115,7 @@ div#admin_rnetal_con section table tr:last-child td{
 
 </style>
 <script>
-	$(document).ready(function(){	
+	$(document).ready(function(){
 		var pager = jQuery('#ampaginationsm').pagination({
 			
 		    maxSize: 7,	    		// max page size

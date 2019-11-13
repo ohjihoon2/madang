@@ -21,7 +21,7 @@
 				//회원인지 검사
 				var login = $("div#login form#login_form").serialize();
 				$.ajax({
-					url:"login_proce.jsp?"+login,
+					url:"login_proce.jsp?distinguish=general&"+login,
 					success:function(result){
 						loginresult=result.trim();
 						alert(loginresult);

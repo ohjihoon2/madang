@@ -143,7 +143,6 @@ div#admin_main section a:hover {
 }
 	
 </style>
-
 </head>
 <body>
 <jsp:include page="admin_left_nav.jsp"/>
@@ -164,7 +163,7 @@ div#admin_main section a:hover {
 		 		<%} %>
 		 		</ul> 
 		 	</article>
-		 			 	<article>
+			 <article>
 		 		
 		 		<h2>진행중인 전시 </h2>
 		 		<h5>더보기</h5>
@@ -172,7 +171,12 @@ div#admin_main section a:hover {
 		 		<%if(exhibition!=0){ %>
 		 			<%for(int i=0; i<exhibition; i++){%> 
 		 				<li>
-			 				<span><%=exhibition_list.get(i).getE_title()%></span><br><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<%=exhibition_list.get(i).getE_sdate()%>~<%=exhibition_list.get(i).getE_edate()%>)</span>
+			 				<span><%=exhibition_list.get(i).getE_title()%>
+			 				</span>
+			 				<br>
+			 				<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<%=exhibition_list.get(i).getE_sdate()%>
+			 				~<%=exhibition_list.get(i).getE_edate()%>)
+			 				</span>
 			 			</li>
 		 			<%} %>
 		 		<%}else{ %>
