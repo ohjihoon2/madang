@@ -13,9 +13,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://211.63.89.214:9090/css/mypage.css"/>
-<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
-<script src="http://211.63.89.214:9090/js/madang.js"></script>
+<link rel="stylesheet" href="http://localhost:9090/css/mypage.css"/>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>
 <script>
 	$(document).ready(function(){
 		
@@ -28,15 +28,15 @@
 			//alert(bmark_val);
 			
 			if(bmark_val=="on") {
-				$(this).attr("src", "http://211.63.89.214:9090/images/bookmark/off.png");
+				$(this).attr("src", "http://localhost:9090/images/bookmark/off.png");
 				$(this).attr("value", "off");
 				
 				//delete
-				location.href="http://211.63.89.214:9090/contents/mypage/bookmark_delete_process.jsp?flag=bmark&bmark_code="+bmark_code;
+				location.href="http://localhost:9090/contents/mypage/bookmark_delete_process.jsp?flag=bmark&bmark_code="+bmark_code;
 				
 				
 			} /* else if(bmark_val=="off") {
-				$(this).attr("src", "http://211.63.89.214:9090/images/bookmark/on.png");
+				$(this).attr("src", "http://localhost:9090/images/bookmark/on.png");
 				$(this).attr("value", "on");
 				
 				//insert 여기서는 안함
@@ -69,12 +69,12 @@
 		<% for(Bookmark_VO cvo : c_list) { %>
 			<% if(cvo.getConcert_code()!=null && cvo.getConcert_code()!="") { %>
 				<div class="bmark_list">
-					<a href="http://211.63.89.214:9090/contents/concert/concert_detail.jsp?concert_code=<%= cvo.getConcert_code() %>">
-						<img src="http://211.63.89.214:9090/images/concert_main/<%= cvo.getC_sposter() %>" class="bmark_poster">
+					<a href="http://localhost:9090/contents/concert/concert_detail.jsp?concert_code=<%= cvo.getConcert_code() %>">
+						<img src="http://localhost:9090/images/concert_main/<%= cvo.getC_sposter() %>" class="bmark_poster">
 					</a>
 					<div class="bmark_info">
-						<img id="<%= cvo.getBmark_code() %>" src="http://211.63.89.214:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
-						<p><a href="http://211.63.89.214:9090/contents/concert/concert_detail.jsp?concert_code=<%= cvo.getConcert_code() %>"><%= cvo.getC_title() %></a></p>
+						<img id="<%= cvo.getBmark_code() %>" src="http://localhost:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
+						<p><a href="http://localhost:9090/contents/concert/concert_detail.jsp?concert_code=<%= cvo.getConcert_code() %>"><%= cvo.getC_title() %></a></p>
 						<p><%= cvo.getC_sdate() %> ~ <%= cvo.getC_edate() %></p>
 						<p><%= cvo.getC_place() %></p>
 					</div>
@@ -91,12 +91,12 @@
 		<% for(Bookmark_VO evo : e_list) { %>
 			<% if(evo.getExhib_code()!=null && evo.getExhib_code()!="") { %>
 				<div class="bmark_list">
-					<a href="http://211.63.89.214:9090/contents/exhibition/exhibition_detail.jsp?exhibition_code=<%= evo.getExhib_code() %>">
-						<img src="http://211.63.89.214:9090/images/exhibition/<%= evo.getE_sposter() %>" class="bmark_poster">
+					<a href="http://localhost:9090/contents/exhibition/exhibition_detail.jsp?exhibition_code=<%= evo.getExhib_code() %>">
+						<img src="http://localhost:9090/images/exhibition/<%= evo.getE_sposter() %>" class="bmark_poster">
 					</a>
 					<div class="bmark_info">
-						<img id="<%= evo.getBmark_code() %>" src="http://211.63.89.214:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
-						<p><a href="http://211.63.89.214:9090/contents/exhibition/exhibition_detail.jsp?exhibition_code=<%= evo.getExhib_code() %>"><%= evo.getE_title() %></a></p>
+						<img id="<%= evo.getBmark_code() %>" src="http://localhost:9090/images/bookmark/on.png" class="bmark_heart" value="on" />
+						<p><a href="http://localhost:9090/contents/exhibition/exhibition_detail.jsp?exhibition_code=<%= evo.getExhib_code() %>"><%= evo.getE_title() %></a></p>
 						<p><%= evo.getE_sdate() %> ~ <%= evo.getE_edate() %></p>
 						<p><%= evo.getE_place() %></p>
 					</div>

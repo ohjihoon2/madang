@@ -5,19 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
-<script src="http://211.63.89.214:9090/js/madang.js"></script>	
-<link rel="stylesheet" href="http://211.63.89.214:9090/css/madangcss.css"/>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>	
+<link rel="stylesheet" href="http://localhost:9090/css/madangcss.css"/>
 <script>
 	$(document).ready(function(){
 		$('a#rt_con_requestform_down').click(function(e){
             e.preventDefault(); //a의 href무력화
-             window.open('http://211.63.89.214:9090/upload/rental/madang_rental_concert.hwp');
+             window.open('http://localhost:9090/upload/rental/madang_rental_concert.hwp');
          });//공연신청폼다운
 
  		$('a#rt_exh_requestform_down').click(function(e){ 
             e.preventDefault(); //a의 href무력화
-             window.open('http://211.63.89.214:9090/upload/rental/madang_rental_exhibition.hwp');
+             window.open('http://localhost:9090/upload/rental/madang_rental_exhibition.hwp');
          });//전시신청폼 다운
 		
 		

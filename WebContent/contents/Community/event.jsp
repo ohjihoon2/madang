@@ -13,12 +13,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://211.63.89.214:9090/css/caleshall.css">
-<link rel="stylesheet" type="text/css" href="http://211.63.89.214:9090/css/community.css"/>
+<link rel="stylesheet" href="http://localhost:9090/css/caleshall.css">
+<link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="http://211.63.89.214:9090/js/madang.js"></script>
+  <script src="http://localhost:9090/js/madang.js"></script>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />
@@ -64,11 +64,11 @@
  						vo = inglist.get(i);
  						if(i ==0 ) {%> 
 						    <div class="carousel-item active">
-						      <img src="http://211.63.89.214:9090/upload/event/<%=vo.getEv_sthumbnail() %>" alt="eventImg" width="700" height="250">
+						      <img src="http://localhost:9090/upload/event/<%=vo.getEv_sthumbnail() %>" alt="eventImg" width="700" height="250">
 						    </div>
 	 				    <%} else { %>
 	 				    	<div class="carousel-item">
-	 					      <img src="http://211.63.89.214:9090/upload/event/<%=vo.getEv_sthumbnail() %>" alt="eventImg" width="700" height="250">
+	 					      <img src="http://localhost:9090/upload/event/<%=vo.getEv_sthumbnail() %>" alt="eventImg" width="700" height="250">
 	 					    </div>
 	 				    <%} 
 	 				    } %>  
@@ -93,14 +93,14 @@
 		<div class="evnet">
 		<%for(EventVO vo: inglist){ %>
 			<div id="event">
-				<a href="event_content.jsp?ev_code=<%=vo.getEv_code() %>"><img src="http://211.63.89.214:9090/upload/event/<%=vo.getEv_sthumbnail() %>"/></a>
+				<a href="event_content.jsp?ev_code=<%=vo.getEv_code() %>"><img src="http://localhost:9090/upload/event/<%=vo.getEv_sthumbnail() %>"/></a>
 				<p id="event_title"><%=vo.getEv_title() %></p>
 				<p id="event_term">이벤트 기간 | <%=vo.getEv_sdate() %> ~ <%=vo.getEv_edate() %></p>
 			</div>
 			<input type="hidden" name="ev_code" value="<%=vo.getEv_code() %>">
 		<%} %>			
 <!-- 		<div id="event">
-				<a href="#"><img src="http://211.63.89.214:9090/MyJSP/sns_icon/event2.gif"/></a>
+				<a href="#"><img src="http://localhost:9090/MyJSP/sns_icon/event2.gif"/></a>
 				<p id="event_title">[회원이벤트] 국립현대무용단 검은돌:모래의 기억</p>
 				<p id="event_term">이벤트 기간 | 2019.10.14(월) ~ 2019.10.27(일)</p>
 			</div>
@@ -113,7 +113,7 @@
 
 		<%for (EventVO vo: list) { %>
 		<div class="all_event_list">
-			<div id="all_event_title"><a style="text-decoration:none;color:black;"href="http://211.63.89.214:9090/contents/Community/event_content.jsp?ev_code=<%=vo.getEv_code() %>"><%=vo.getEv_title() %></a><span>조회수:<%=vo.getEv_hits() %></span></div>
+			<div id="all_event_title"><a style="text-decoration:none;color:black;"href="http://localhost:9090/contents/Community/event_content.jsp?ev_code=<%=vo.getEv_code() %>"><%=vo.getEv_title() %></a><span>조회수:<%=vo.getEv_hits() %></span></div>
 			<div id="all_event_date" style="color:gray">이벤트 기간:<%=vo.getEv_sdate() %> ~ <%=vo.getEv_edate() %></div>
 		</div>
 		<%}%>

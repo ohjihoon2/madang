@@ -36,12 +36,12 @@
 			</ul>
 		</div>
 
-		<div id="main_title">대관 신청 내역</div>
+		<div id="main_title">대1111관 신청 내역</div>
 		
 		<div class="body">
 		
 		<div class="ticket_box_1">
-			<h2>대관 정보</h2>
+			<h2>대관22222 정보</h2>
 			<br>
 			<table border=1>
 				<tr>
@@ -86,7 +86,10 @@
 				</tr>
 				<tr>
 					<td>리허설 시간</td>
-					<td><%= vo.getR_rhtime() %></td>
+					
+					<%if( vo.getR_rhtime() ==null){%>
+						<td> - </td>
+						<%} %>
 				</tr>
 				<tr>
 					<td>신청서</td>

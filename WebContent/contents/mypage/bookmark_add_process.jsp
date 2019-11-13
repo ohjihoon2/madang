@@ -26,7 +26,7 @@
 	/* 
 	if(result) {
 		out.println("<script>alert('찜 목록에 등록되었습니다.'); "
-					+"location.href='http://211.63.89.214:9090/contents/concert/concert_detail.jsp?concert_code="+concert_code+"';</script>");
+					+"location.href='http://localhost:9090/contents/concert/concert_detail.jsp?concert_code="+concert_code+"';</script>");
 		
 	} else {
 		response.sendRedirect("../../errorPage.jsp");

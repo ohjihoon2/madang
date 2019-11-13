@@ -16,9 +16,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="http://211.63.89.214:9090/css/community.css"/>
-<script src="http://211.63.89.214:9090/MyJSP/jquery/jquery-3.4.1.min.js"></script>
-<script src="http://211.63.89.214:9090/js/madang.js"></script>
+<link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>
+<script src="http://localhost:9090/MyJSP/jquery/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>
 <script>
 $(document).ready(function(){
 	$(this).addClass("on").prevAll("a").addClass("on");
@@ -45,12 +45,12 @@ $(document).ready(function(){
 		<div id="content">
 			
 			<div id="sub_rtitle">
-				<a href="http://211.63.89.214:9090/contents/Community/review_byDate.jsp?listOrder=byDate">
+				<a href="http://localhost:9090/contents/Community/review_byDate.jsp?listOrder=byDate">
 					<button type="button" id="btnDByDate">최신날짜순</button>
-				<a href="http://211.63.89.214:9090/contents/Community/review_byDate.jsp?listOrder=byStar">
+				<a href="http://localhost:9090/contents/Community/review_byDate.jsp?listOrder=byStar">
 					<button type="button" id="btnDByStar">평점높은순</button></a>	
 				<%if(id != null) {%>				
-				<a href="http://211.63.89.214:9090/contents/Community/review_write.jsp?id=<%=id %>">
+				<a href="http://localhost:9090/contents/Community/review_write.jsp?id=<%=id %>">
 					<button type="button" id="btnWriteReview">후기 작성</button></a>
 				<%} %>	
 			</div>
@@ -58,12 +58,12 @@ $(document).ready(function(){
 			
 			
 			<%for(ReviewVO vo: list){ %>
-				<a href="http://211.63.89.214:9090/contents/Community/review_contents.jsp?rv_code=<%=vo.getRv_code() %>">
+				<a href="http://localhost:9090/contents/Community/review_contents.jsp?rv_code=<%=vo.getRv_code() %>">
 				<table class="review_table">				
 					<tr>
 						<th><%=vo.getRv_date() %></th>
 					<td rowspan=3><img class="poster"
-							src="http://211.63.89.214:9090/images/concert_main/<%=vo.getC_poster() %>" /></td>
+							src="http://localhost:9090/images/concert_main/<%=vo.getC_poster() %>" /></td>
 						<td id="title"><%=vo.getRv_title() %><span id="hits">조회수: <%=vo.getRv_hits() %></span></td>
 					</tr>
 					<tr>
@@ -86,13 +86,13 @@ $(document).ready(function(){
 	
 			<div id="btnMore_div">
 				<button type="button" id="btnMore">
-					<img src="http://211.63.89.214:9090/images/comm_usher_img/plus_more.png" />더보기
+					<img src="http://localhost:9090/images/comm_usher_img/plus_more.png" />더보기
 				</button>
 			</div>
 			
 			<div id="faq_search">
 	       		<input type="text" name="faq_search" placeholder="검색어를 입력해주세요">
-	            <a href="#"><img src="http://211.63.89.214:9090/images/search.png"></a>
+	            <a href="#"><img src="http://localhost:9090/images/search.png"></a>
 	     	</div>
      	
 		</div>

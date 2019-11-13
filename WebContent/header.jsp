@@ -132,29 +132,29 @@ header ul.dept02 li a:hover {
 <body>
 	<header>
 	<div>
-		<a href="http://211.63.89.214:9090/mainpage.jsp"><img src="http://211.63.89.214:9090/images/index_logo.png"></a>
+		<a href="http://localhost:9090/mainpage.jsp"><img src="http://localhost:9090/images/index_logo.png"></a>
 	</div>
 	
 	<div class="header_nav">
 		<nav>
 		<!-- 로그인 안했을때 -->
 		<% if(generalId==null && groupId==null){ %>
-			<li><a href="#"><img src="http://211.63.89.214:9090/images/search.png"></a></li>
-			<li><a href="http://211.63.89.214:9090/contents/login/login.jsp">로그인</a></li>
-			<li><a href="http://211.63.89.214:9090/contents/join/join0.jsp">회원가입</a></li>
-			<li><a href="http://211.63.89.214:9090/contents/cs/cs_main.jsp">고객센터</a></li>
+			<li><a href="#"><img src="http://localhost:9090/images/search.png"></a></li>
+			<li><a href="http://localhost:9090/contents/login/login.jsp">로그인</a></li>
+			<li><a href="http://localhost:9090/contents/join/join0.jsp">회원가입</a></li>
+			<li><a href="http://localhost:9090/contents/cs/cs_main.jsp">고객센터</a></li>
 		<!-- 일반회원 로그인 -->
 		<%}else if(generalId!=null && groupId==null){ %>		
-			<li><a href="#"><img src="http://211.63.89.214:9090/images/search.png"></a></li>
-			<li><a href="http://211.63.89.214:9090/contents/login/logout_proce.jsp">로그아웃</a></li>
-			<li><a href="http://211.63.89.214:9090/contents/mypage/mypage_main.jsp">마이페이지</a></li>
-			<li><a href="http://211.63.89.214:9090/contents/cs/cs_main.jsp">고객센터</a></li>
+			<li><a href="#"><img src="http://localhost:9090/images/search.png"></a></li>
+			<li><a href="http://localhost:9090/contents/login/logout_proce.jsp">로그아웃</a></li>
+			<li><a href="http://localhost:9090/contents/mypage/mypage_main.jsp">마이페이지</a></li>
+			<li><a href="http://localhost:9090/contents/cs/cs_main.jsp">고객센터</a></li>
 		<!-- 대관자회원 로그인 -->
 		<%}else if(generalId==null && groupId!=null){ %>
-			<li><a href="#"><img src="http://211.63.89.214:9090/images/search.png"></a></li>
-			<li><a href="http://211.63.89.214:9090/contents/login/logout_proce.jsp">로그아웃</a></li>
-			<li><a href="http://211.63.89.214:9090/contents/mypage/mypage_main.jsp">마이페이지</a></li>
-			<li><a href="http://211.63.89.214:9090/contents/cs/cs_main.jsp">고객센터</a></li>
+			<li><a href="#"><img src="http://localhost:9090/images/search.png"></a></li>
+			<li><a href="http://localhost:9090/contents/login/logout_proce.jsp">로그아웃</a></li>
+			<li><a href="http://localhost:9090/contents/mypage/mypage_main.jsp">마이페이지</a></li>
+			<li><a href="http://localhost:9090/contents/cs/cs_main.jsp">고객센터</a></li>
 		<%} %>
 		</nav>
 	</div>
@@ -164,55 +164,55 @@ header ul.dept02 li a:hover {
 			<ul class="dept01">
 			
 				<li class="concert">
-					<a href="http://211.63.89.214:9090/contents/concert/concert.jsp">공연<i class='fa fa-angle-down'></i></a>
+					<a href="http://localhost:9090/contents/concert/concert.jsp">공연<i class='fa fa-angle-down'></i></a>
 					 <ul class="dept02">
-						<li><a href="http://211.63.89.214:9090/contents/concert/concert.jsp">공연일정</a></li>
-						<li><a href="http://211.63.89.214:9090/contents/concert/concert_seat_beethoven.jsp">객석안내</a></li>
-						<li><a href="http://211.63.89.214:9090/contents/concert/concert_seat_beethoven.jsp">- 베토벤홀</a></li>
-						<li><a href="http://211.63.89.214:9090/contents/concert/concert_seat_mozart.jsp">- 모짜르트홀</a></li>
+						<li><a href="http://localhost:9090/contents/concert/concert.jsp">공연일정</a></li>
+						<li><a href="http://localhost:9090/contents/concert/concert_seat_beethoven.jsp">객석안내</a></li>
+						<li><a href="http://localhost:9090/contents/concert/concert_seat_beethoven.jsp">- 베토벤홀</a></li>
+						<li><a href="http://localhost:9090/contents/concert/concert_seat_mozart.jsp">- 모짜르트홀</a></li>
 					</ul>
 				</li>
 				
 				<li class="exhibition">
-					<a href="http://211.63.89.214:9090/contents/exhibition/exhibition.jsp"> 전시 <i class='fa fa-angle-down'></i></a>
+					<a href="http://localhost:9090/contents/exhibition/exhibition.jsp"> 전시 <i class='fa fa-angle-down'></i></a>
 					<ul class="dept02">
-						<li><a href="http://211.63.89.214:9090/contents/exhibition/exhibition.jsp">전시일정</a></li>
-						<li><a href="http://211.63.89.214:9090/contents/exhibition/exhibition_view_picasso.jsp">전시장안내</a></li>
-						<li><a href="http://211.63.89.214:9090/contents/exhibition/exhibition_view_picasso.jsp">- 피카소관</a></li>
-						<li><a href="http://211.63.89.214:9090/contents/exhibition/exhibition_view_davinci.jsp">- 다빈치관</a></li>
-						<li><a href="http://211.63.89.214:9090/contents/exhibition/exhibition_view_jihoon.jsp">- 오지훈특별관</a></li>
+						<li><a href="http://localhost:9090/contents/exhibition/exhibition.jsp">전시일정</a></li>
+						<li><a href="http://localhost:9090/contents/exhibition/exhibition_view_picasso.jsp">전시장안내</a></li>
+						<li><a href="http://localhost:9090/contents/exhibition/exhibition_view_picasso.jsp">- 피카소관</a></li>
+						<li><a href="http://localhost:9090/contents/exhibition/exhibition_view_davinci.jsp">- 다빈치관</a></li>
+						<li><a href="http://localhost:9090/contents/exhibition/exhibition_view_jihoon.jsp">- 오지훈특별관</a></li>
 					</ul>
 				</li>
 				
 				<li class="reservation">
-					<a href="http://211.63.89.214:9090/contents/rental_hall/rentalInfo.jsp"> 대관 <i class='fa fa-angle-down'></i></a>
+					<a href="http://localhost:9090/contents/rental_hall/rentalInfo.jsp"> 대관 <i class='fa fa-angle-down'></i></a>
 					<ul class="dept02">
-						<li><a href="http://211.63.89.214:9090/contents/rental_hall/rentalInfo.jsp">대관안내</a></li>
-						<li><a href="http://211.63.89.214:9090/contents/rental_hall/rentalhall.jsp">대관시설</a></li>
-						<li><a href="http://211.63.89.214:9090/contents/rental_hall/rentalrequest.jsp">대관신청</a></li>
+						<li><a href="http://localhost:9090/contents/rental_hall/rentalInfo.jsp">대관안내</a></li>
+						<li><a href="http://localhost:9090/contents/rental_hall/rentalhall.jsp">대관시설</a></li>
+						<li><a href="http://localhost:9090/contents/rental_hall/rentalrequest.jsp">대관신청</a></li>
 					</ul>
 				</li>
 				
 				<li class="utilize">
-					<a href="http://211.63.89.214:9090/contents/Usher/location.jsp">이용안내<i class='fa fa-angle-down'></i></a>
+					<a href="http://localhost:9090/contents/Usher/location.jsp">이용안내<i class='fa fa-angle-down'></i></a>
 					<ul class="dept02">
-						<li><a href="http://211.63.89.214:9090/contents/Usher/location.jsp">오시는길</a></li>
-						<li><a href="http://211.63.89.214:9090/contents/Usher/facility.jsp">시설안내</a></li>
-						<li><a href="http://211.63.89.214:9090/contents/Usher/utility_concert.jsp">편의시설</a></li>
-						<li><a href="http://211.63.89.214:9090/contents/Usher/etiquette_concert.jsp">관람매너</a></li>
-						<li><a href="http://211.63.89.214:9090/contents/Usher/respecting_ticket.jsp">우대안내</a></li>
+						<li><a href="http://localhost:9090/contents/Usher/location.jsp">오시는길</a></li>
+						<li><a href="http://localhost:9090/contents/Usher/facility.jsp">시설안내</a></li>
+						<li><a href="http://localhost:9090/contents/Usher/utility_concert.jsp">편의시설</a></li>
+						<li><a href="http://localhost:9090/contents/Usher/etiquette_concert.jsp">관람매너</a></li>
+						<li><a href="http://localhost:9090/contents/Usher/respecting_ticket.jsp">우대안내</a></li>
 					</ul>
 				</li>
 				
 	
 				
 				<li class="community">
-					<a href="http://211.63.89.214:9090/contents/Community/review_byDate.jsp">커뮤니티<i class='fa fa-angle-down'></i></a>
+					<a href="http://localhost:9090/contents/Community/review_byDate.jsp">커뮤니티<i class='fa fa-angle-down'></i></a>
 					<ul class="dept02">
-						<li><a href="http://211.63.89.214:9090/contents/Community/review_byDate.jsp">관람후기</a></li>
-						<li><a href="http://211.63.89.214:9090/contents/Community/event.jsp">이벤트</a></li>
-						<li><a href="http://211.63.89.214:9090/contents/Community/notice_list.jsp">공지사항</a></li>
-						<li><a href="http://211.63.89.214:9090/contents/Community/news.jsp">언론보도</a></li>
+						<li><a href="http://localhost:9090/contents/Community/review_byDate.jsp">관람후기</a></li>
+						<li><a href="http://localhost:9090/contents/Community/event.jsp">이벤트</a></li>
+						<li><a href="http://localhost:9090/contents/Community/notice_list.jsp">공지사항</a></li>
+						<li><a href="http://localhost:9090/contents/Community/news.jsp">언론보도</a></li>
 					</ul>
 				</li>
 				

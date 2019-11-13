@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
-<script src="http://211.63.89.214:9090/js/madang.js"></script>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>
 <title>Insert title here</title>
 <style>
 	*{
@@ -105,7 +105,7 @@
 </head>
 <body>
 	<jsp:include page="../../header.jsp"/>
-	<img src="http://211.63.89.214:9090/images/concert_main/people-2590551_1920_1.jpg">
+	<img src="http://localhost:9090/images/concert_main/people-2590551_1920_1.jpg">
 	<div id="left_nav">
 		<ul>
 			<li><a href="exhibition.jsp">전시</a></li>
@@ -121,8 +121,8 @@
 	</div>
 		<div class="exhibition_view">
 		<h1>오지훈 홀</h1>
-		<img src="http://211.63.89.214:9090/images/exhibition/seoye_3.gif">
-		<img src="http://211.63.89.214:9090/images/exhibition/seoye_map_2.png">
+		<img src="http://localhost:9090/images/exhibition/seoye_3.gif">
+		<img src="http://localhost:9090/images/exhibition/seoye_map_2.png">
 	</div>
 	<%-- <jsp:include page="../../footer.jsp"/> --%>
 </body>

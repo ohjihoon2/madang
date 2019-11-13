@@ -260,7 +260,7 @@ div#admin_main section a:hover {
 		 							<a href="http://localhost:9090/contents/admin/rental/admin_rental_con_detail.jsp?rental_code=<%=rental_list.get(i).getRental_code()%>">
 		 								<%=rental_list.get(i).getR_title() %>
 		 							</a>
-		 						</td>`
+		 						</td>
 		 					<%}else if(rental_list.get(i).getR_case().equals("전시")){ %>
 		 						<td><a href="http://localhost:9090/contents/admin/rental/admin_rental_exh_detail.jsp?rental_code=<%=rental_list.get(i).getRental_code()%>">
 		 							<%=rental_list.get(i).getR_title() %>

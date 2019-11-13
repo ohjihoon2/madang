@@ -37,9 +37,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
-<script src="http://211.63.89.214:9090/js/madang.js"></script>
-<link rel="stylesheet" href="http://211.63.89.214:9090/css/mypage.css"/> <!-- 찜하기 버튼 -->
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>
+<link rel="stylesheet" href="http://localhost:9090/css/mypage.css"/> <!-- 찜하기 버튼 -->
 <script>
 $(document).ready(function(){
 	
@@ -55,7 +55,7 @@ $(document).ready(function(){
 				success:function(result) {
 					//alert(result); 1이면 성공
 					if(result!=0) {
-						//$("img.bmark_heart").attr("src", "http://211.63.89.214:9090/images/bookmark/off.png");
+						//$("img.bmark_heart").attr("src", "http://localhost:9090/images/bookmark/off.png");
 						alert("찜 목록에서 삭제되었습니다.");
 					} else {
 						alert("실패");
@@ -70,7 +70,7 @@ $(document).ready(function(){
 				success:function(result) {
 					//alert(result); 1이면 성공
 					if(result!=0) {
-						//$("img.bmark_heart").attr("src", "http://211.63.89.214:9090/images/bookmark/on.png");
+						//$("img.bmark_heart").attr("src", "http://localhost:9090/images/bookmark/on.png");
 						alert("찜 목록에 등록되었습니다.");
 					} else {
 						alert("실패");
@@ -89,9 +89,9 @@ $(document).ready(function(){
 		//예매 팝업 validation
 		 if(id ==null){
 			alert("로그인시 이용가능합니다. 로그인 페이지로 이동합니다.");
-			location.replace("http://211.63.89.214:9090/contents/login/login.jsp");
+			location.replace("http://localhost:9090/contents/login/login.jsp");
 		}else{
-	  		window.open("http://211.63.89.214:9090/contents/exhibition/ticket_exhibition.jsp?exhibition_code="+code, "window팝업", "width=1000, height=700, left=400, top=200");
+	  		window.open("http://localhost:9090/contents/exhibition/ticket_exhibition.jsp?exhibition_code="+code, "window팝업", "width=1000, height=700, left=400, top=200");
 		} 
 		return false;
 	});
@@ -283,11 +283,11 @@ $(document).ready(function(){
 		<ul>
 			<li><a href="exhibition.jsp">전시</a></li>
 			<li><a href="exhibition.jsp" style="color:rgb(5,135,94)">전시일정</a></li>
-			<li><a href="http://211.63.89.214:9090/contents/exhibition/exhibition_view_picasso.jsp">전시장안내</a></li>
+			<li><a href="http://localhost:9090/contents/exhibition/exhibition_view_picasso.jsp">전시장안내</a></li>
 		</ul>
 	</div>
 	<div class="exhibition_detail_info">
-		<a href=#><img src="http://211.63.89.214:9090/images/exhibition/<%=vo.getE_poster() %>" class="Info_img"></a>
+		<a href=#><img src="http://localhost:9090/images/exhibition/<%=vo.getE_poster() %>" class="Info_img"></a>
 		<div>
 			<h2><%=vo.getE_title() %></h2>
 			<div id="exhibition_detail_right">
@@ -333,11 +333,11 @@ $(document).ready(function(){
 				<input type="hidden" value="<%=vo.getExhibition_code()%>" class="<%=vo.getExhibition_code()%>"/>
 				<input type="button" value="예매" class="ticketing_popup" id="<%=vo.getExhibition_code()%>"/>
 				<!-- 찜 등록/삭제 버튼 -->
-				<img id="<%= bmark_code %>" src="http://211.63.89.214:9090/images/bookmark/<%= on_off %>.png" class="bmark_heart" value="<%= val %>" />
+				<img id="<%= bmark_code %>" src="http://localhost:9090/images/bookmark/<%= on_off %>.png" class="bmark_heart" value="<%= val %>" />
 				
 			</div>
 			<div class="exhibitition_text">
-				<img src="http://211.63.89.214:9090/images/exhibition/<%=vo.getE_info_poster() %>" id="content_image">
+				<img src="http://localhost:9090/images/exhibition/<%=vo.getE_info_poster() %>" id="content_image">
 			</div>
 			
 		</div>

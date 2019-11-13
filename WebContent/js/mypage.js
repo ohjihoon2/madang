@@ -79,7 +79,7 @@ $(document).ready(function(){
 				success:function(result) {
 					//alert(result); 1이면 성공
 					if(result!=0) {
-						//$("img.bmark_heart").attr("src", "http://211.63.89.214:9090/images/bookmark/off.png");
+						//$("img.bmark_heart").attr("src", "http://localhost:9090/images/bookmark/off.png");
 						alert("찜 목록에서 삭제되었습니다.");
 					} else {
 						alert("실패");
@@ -96,7 +96,7 @@ $(document).ready(function(){
 					alert(result);
 					//alert(result); 1이면 성공
 					 if(result!=0) {
-						//$("img.bmark_heart").attr("src", "http://211.63.89.214:9090/images/bookmark/on.png");
+						//$("img.bmark_heart").attr("src", "http://localhost:9090/images/bookmark/on.png");
 						alert("찜 목록에 등록되었습니다.");
 					} else {
 						alert("실패");

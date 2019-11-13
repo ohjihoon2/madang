@@ -19,14 +19,14 @@
 	if(flag.equals("bmark")) {
 		if(result!=0) {
 			out.println("<script>alert('찜 목록에서 삭제되었습니다.'); "
-					+"location.href='http://211.63.89.214:9090/contents/mypage/mypage_bookmark.jsp';</script>");
+					+"location.href='http://localhost:9090/contents/mypage/mypage_bookmark.jsp';</script>");
 		} else {
 			response.sendRedirect("../../errorPage.jsp");
 		}
 		
 	} else if(flag.equals("detail")) {
 		//out.println("<script>alert('찜 목록에서 삭제되었습니다.'); "
-		//		+"location.href='http://211.63.89.214:9090/contents/concert/concert_detail.jsp?concert_code="+concert_code+"';</script>");
+		//		+"location.href='http://localhost:9090/contents/concert/concert_detail.jsp?concert_code="+concert_code+"';</script>");
 		
 		out.write(result);
 	}
@@ -38,11 +38,11 @@
 		
 		if(flag.equals("bmark")) {
 			out.println("<script>alert('찜 목록에서 삭제되었습니다.'); "
-					+"location.href='http://211.63.89.214:9090/contents/mypage/mypage_bookmark.jsp';</script>");
+					+"location.href='http://localhost:9090/contents/mypage/mypage_bookmark.jsp';</script>");
 			
 		} else if(flag.equals("detail")) {
 			out.println("<script>alert('찜 목록에서 삭제되었습니다.'); "
-					+"location.href='http://211.63.89.214:9090/contents/concert/concert_detail.jsp?concert_code="+concert_code+"';</script>");
+					+"location.href='http://localhost:9090/contents/concert/concert_detail.jsp?concert_code="+concert_code+"';</script>");
 		}
 		
 	} else {

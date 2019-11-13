@@ -10,7 +10,7 @@
 	
 	if(result) {
 		out.println("<script>alert('취소 신청이 완료되었습니다.'); "
-				+"location.href='http://211.63.89.214:9090/contents/mypage/mypage_rental_details.jsp?rental_code="+rental_code+"';</script>");
+				+"location.href='http://localhost:9090/contents/mypage/mypage_rental_details.jsp?rental_code="+rental_code+"';</script>");
 	} else {
 		response.sendRedirect("../../errorPage.jsp");
 	}

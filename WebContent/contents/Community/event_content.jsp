@@ -15,9 +15,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="http://211.63.89.214:9090/css/community.css"/>	
+<link rel="stylesheet" type="text/css" href="http://localhost:9090/css/community.css"/>	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="http://211.63.89.214:9090/js/madang.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>
 <style>
 /* 삭제 모달창 */
 div#modalEV {      /* 모달창 바깥에 불투명 배경 부분 */
@@ -232,7 +232,7 @@ div#modalEV>div#modal-contentEV>span#closeEV:focus {
 			<div id="sub_title">진행중인 이벤트</div>
 			<h1 id="event_title"><%=vo.getEv_title() %></h1>
 			<h3 id="event_term"><%=vo.getEv_title()%></h3>
-			<img id="event_poster" src="http://211.63.89.214:9090/upload/event/<%= vo.getEv_sdetail()%>"/>
+			<img id="event_poster" src="http://localhost:9090/upload/event/<%= vo.getEv_sdetail()%>"/>
 			<input type="hidden" id="id" value="<%=id%>">
 			<input type="hidden" id="ev_code" value="<%=ev_code%>">
 
@@ -242,7 +242,7 @@ div#modalEV>div#modal-contentEV>span#closeEV:focus {
 				<span>댓글이벤트</span>
 				<button type="button" id="btnCancel">취소</button>
 				<button type="button" id="btnReply">댓글쓰기</button>
-				<a href="http://211.63.89.214:9090/contents/Community/event.jsp"><button type="button" id="btnList">목록보기</button></a>
+				<a href="http://localhost:9090/contents/Community/event.jsp"><button type="button" id="btnList">목록보기</button></a>
 			<br><br>
 			</div>
 			<div id="replyEmpty"></div>
@@ -285,7 +285,7 @@ div#modalEV>div#modal-contentEV>span#closeEV:focus {
 		
 		<div id="btnMore_div">
 			<button type="button" id="btnMore">
-				<img src="http://211.63.89.214:9090/images/comm_usher_img/plus_more.png" />더보기
+				<img src="http://localhost:9090/images/comm_usher_img/plus_more.png" />더보기
 			</button>
 		</div>
 	

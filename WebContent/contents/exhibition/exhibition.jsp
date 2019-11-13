@@ -26,8 +26,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
-<script src="http://211.63.89.214:9090/js/madang.js"></script>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>
 <script>
 
 	$(document).ready(function(){
@@ -38,7 +38,7 @@
 			//예매 팝업 validation
 			 if(id ==null){
 				alert("로그인시 이용가능합니다. 로그인 페이지로 이동합니다.");
-				location.replace("http://211.63.89.214:9090/contents/login/login.jsp");
+				location.replace("http://localhost:9090/contents/login/login.jsp");
 			}else{
 		  		window.open("ticket_exhibition.jsp?exhibition_code="+code, "window팝업", "width=1000, height=700, left=400, top=200");
 			} 
@@ -233,9 +233,9 @@
 			%>
 			<div class="exhibition_info">
 				<div class="exhibition_info_count">
-					<a href="http://211.63.89.214:9090/contents/exhibition/exhibition_detail.jsp?exhibition_code=<%=list.get(i).getExhibition_code()%>"><img src="http://211.63.89.214:9090/images/exhibition/<%=list.get(i).getE_poster()%>"></a>
+					<a href="http://localhost:9090/contents/exhibition/exhibition_detail.jsp?exhibition_code=<%=list.get(i).getExhibition_code()%>"><img src="http://localhost:9090/images/exhibition/<%=list.get(i).getE_poster()%>"></a>
 					<div class="exhibition_info_text">
-						<h4><a href="http://211.63.89.214:9090/contents/exhibition/exhibition_detail.jsp?exhibition_code=<%=list.get(i).getExhibition_code()%>"><%=list.get(i).getE_title() %></a></h4><br>
+						<h4><a href="http://localhost:9090/contents/exhibition/exhibition_detail.jsp?exhibition_code=<%=list.get(i).getExhibition_code()%>"><%=list.get(i).getE_title() %></a></h4><br>
 						<div>
 							<div><%=list.get(i).getE_place() %></div>
 							<span><%=list.get(i).getE_sdate()%> ~ <%=list.get(i).getE_edate() %></span><br>
@@ -264,9 +264,9 @@
 				
 				%>
 				<div class="last_exhibition_info_content">
-					<a href="http://211.63.89.214:9090/contents/exhibition/exhibition_detail.jsp?exhibition_code=<%=list.get(i).getExhibition_code()%>"><img src="http://211.63.89.214:9090/images/exhibition/<%=list.get(i).getE_poster()%>"></a>
+					<a href="http://localhost:9090/contents/exhibition/exhibition_detail.jsp?exhibition_code=<%=list.get(i).getExhibition_code()%>"><img src="http://localhost:9090/images/exhibition/<%=list.get(i).getE_poster()%>"></a>
 					<div>
-						<h3><a href="http://211.63.89.214:9090/contents/exhibition/exhibition_detail.jsp?exhibition_code=<%=list.get(i).getExhibition_code()%>"><%=list.get(i).getE_title() %></a></h3>
+						<h3><a href="http://localhost:9090/contents/exhibition/exhibition_detail.jsp?exhibition_code=<%=list.get(i).getExhibition_code()%>"><%=list.get(i).getE_title() %></a></h3>
 						<div id="hide_space">
 							<span></span>
 						</div>

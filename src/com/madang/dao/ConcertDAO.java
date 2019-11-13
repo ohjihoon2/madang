@@ -277,7 +277,7 @@ public class ConcertDAO {
 	//Admin main list count
 	public int getAdminMainCount() {
 		int count =0;
-		String sql = "select count(*) from (select floor(sysdate-e_sdate)  startcount, floor(e_edate - sysdate) endcount from concert) where startcount>=0 and endcount>=0";
+		String sql = "select count(*) from (select floor(sysdate-c_sdate)  startcount, floor(c_edate - sysdate) endcount from concert) where startcount>=0 and endcount>=0";
 		getPreparedStatement(sql);
 		try {
 			
