@@ -36,7 +36,7 @@ public class Rental_DAO {
 		} catch (Exception e) {e.printStackTrace();}
 	}
 	
-	/** 占쏙옙占쏙옙트 占쏙옙占� */
+	/** 리스트 출력 */
 	public ArrayList<Rental_VO> getList(String id){
 		ArrayList<Rental_VO> list=new ArrayList<Rental_VO>();
 		
@@ -80,7 +80,7 @@ public class Rental_DAO {
 	
 	
 	
-	/** 占쏢세놂옙占쏙옙 占쏙옙占� */
+	/** 상세내역 출력 */
 	public Rental_VO getContent(String rental_code, String id) {
 		Rental_VO vo=new Rental_VO();
 		
@@ -131,7 +131,7 @@ public class Rental_DAO {
 	}
 	
 	
-	/** 占쏙옙占� 占쏙옙청 */
+	/** 취소 신청 */
 	public boolean getResultcancel(String rental_code) {
 		boolean result=false;
 		

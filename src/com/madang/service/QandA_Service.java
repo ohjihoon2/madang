@@ -9,7 +9,7 @@ import com.madang.vo.NoticeVO;
 import com.madang.vo.QandA_VO;
 
 public class QandA_Service {
-	/** ï¿½ï¿½ï¿½ */
+	/** µî·Ï */
 	public boolean getResultWrite(QandA_VO vo) {
 		boolean result=false;
 		QandA_DAO dao=new QandA_DAO();
@@ -18,7 +18,7 @@ public class QandA_Service {
 		return result;
 	}
 	
-	/** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
+	/** ³»¿ë Ãâ·Â */
 	public QandA_VO getContent(String qa_code) {
 		QandA_DAO dao=new QandA_DAO();
 		QandA_VO vo=new QandA_VO();
@@ -27,7 +27,7 @@ public class QandA_Service {
 		return vo;
 	}
 	
-	/** ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½Æ® */
+	/** ÀüÃ¼ ¸®½ºÆ® */
 	public ArrayList<QandA_VO> getList(String id) {
 		ArrayList<QandA_VO> list=new ArrayList<QandA_VO>();
 		QandA_DAO dao=new QandA_DAO();
@@ -36,7 +36,7 @@ public class QandA_Service {
 		return list;
 	}
 	
-	/** ï¿½ï¿½ï¿½ï¿½ */
+	/** »èÁ¦ */
 	public boolean getResultDelete(String qa_code) {
 		boolean result=false;
 		QandA_DAO dao=new QandA_DAO();

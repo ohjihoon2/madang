@@ -8,7 +8,7 @@ import com.madang.vo.Group_mem_VO;
 import com.madang.vo.Rental_VO;
 
 public class Rental_Service {
-	/** ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ */
+	/** ¸®½ºÆ® Ãâ·Â */
 	public ArrayList<Rental_VO> getList(String id){
 		ArrayList<Rental_VO> list=new ArrayList<Rental_VO>();
 		Rental_DAO dao=new Rental_DAO();
@@ -17,7 +17,7 @@ public class Rental_Service {
 		return list;
 	}
 	
-	/** ï¿½ó¼¼³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
+	/** »ó¼¼³»¿ª Ãâ·Â */
 	public Rental_VO getContent(String rental_code, String id) {
 		Rental_VO vo=new Rental_VO();
 		Rental_DAO dao=new Rental_DAO();
@@ -26,7 +26,7 @@ public class Rental_Service {
 		return vo;
 	}
 	
-	/** ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» */
+	/** Ãë¼Ò ½ÅÃ» */
 	public boolean getResultcancel(String rental_code) {
 		boolean result=false;
 		Rental_DAO dao=new Rental_DAO();
