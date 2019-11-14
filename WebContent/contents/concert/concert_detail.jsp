@@ -42,7 +42,7 @@ $(document).ready(function(){
 	
 	$("img.bmark_heart").click(function(){
 		
-		
+		if('<%= id %>' != 'null') {
 			var c_bmark_code=$(this).attr("id");
 			var bmark_val=$(this).attr("value");
 			
@@ -76,6 +76,12 @@ $(document).ready(function(){
 				});
 			}
 			location.reload();
+			
+		} else {
+			alert("개인 회원 로그인 후 이용 가능한 서비스입니다.");
+		}
+		
+			
 	});
 	
 	var id = '<%=id%>';

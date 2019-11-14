@@ -14,7 +14,17 @@
 <link rel="stylesheet" href="http://localhost:9090/css/cs.css"/>
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <script src="http://localhost:9090/js/madang.js"></script>
-
+<script>
+	$(document).ready(function(){
+		$("button#qaa_write").click(function(){
+			if('<%= id %>' != 'null') {
+				location.href="cs_qaa_write.jsp";
+			} else {
+				alert("개인 회원 로그인 후 이용 가능한 서비스입니다.");
+			}
+		});
+	});
+</script>
 </head>
 <body>
 	<jsp:include page="../../header.jsp" />
@@ -53,7 +63,7 @@
 				</table>
 				
 				<div class="button">
-					<a href="cs_qaa_write.jsp"><button type="button" id="qaa_write" class="button_a">작성</button></a>
+					<button type="button" id="qaa_write" class="button_a">작성</button>
 				</div>
 			</form>
 		</div>

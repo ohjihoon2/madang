@@ -45,41 +45,47 @@ $(document).ready(function(){
 	
 	$("img.bmark_heart").click(function(){
 		
-		var e_bmark_code=$(this).attr("id");
-		var bmark_val=$(this).attr("value");
-		
-		if(bmark_val=="on") {
-			//삭제
-			$.ajax({
-				url:"../mypage/bookmark_delete_process.jsp?flag=detail&bmark_code="+e_bmark_code,
-				success:function(result) {
-					//alert(result); 1이면 성공
-					if(result!=0) {
-						//$("img.bmark_heart").attr("src", "http://localhost:9090/images/bookmark/off.png");
-						alert("찜 목록에서 삭제되었습니다.");
-					} else {
-						alert("실패");
-					}
-				}
-			});
+		if('<%= id %>' != 'null') {
+			var e_bmark_code=$(this).attr("id");
+			var bmark_val=$(this).attr("value");
 			
-		} else if (bmark_val=="off") {
-			//등록
-			$.ajax({
-				url:"../mypage/bookmark_add_process.jsp?exhib_code=<%= exhibitioCode %>",
-				success:function(result) {
-					//alert(result); 1이면 성공
-					if(result!=0) {
-						//$("img.bmark_heart").attr("src", "http://localhost:9090/images/bookmark/on.png");
-						alert("찜 목록에 등록되었습니다.");
-					} else {
-						alert("실패");
+			if(bmark_val=="on") {
+				//삭제
+				$.ajax({
+					url:"../mypage/bookmark_delete_process.jsp?flag=detail&bmark_code="+e_bmark_code,
+					success:function(result) {
+						//alert(result); 1이면 성공
+						if(result!=0) {
+							//$("img.bmark_heart").attr("src", "http://localhost:9090/images/bookmark/off.png");
+							alert("찜 목록에서 삭제되었습니다.");
+						} else {
+							alert("실패");
+						}
 					}
-				}
-			});
+				});
+				
+			} else if (bmark_val=="off") {
+				//등록
+				$.ajax({
+					url:"../mypage/bookmark_add_process.jsp?exhib_code=<%= exhibitioCode %>",
+					success:function(result) {
+						//alert(result); 1이면 성공
+						if(result!=0) {
+							//$("img.bmark_heart").attr("src", "http://localhost:9090/images/bookmark/on.png");
+							alert("찜 목록에 등록되었습니다.");
+						} else {
+							alert("실패");
+						}
+					}
+				});
+			}
+			location.reload();
+			
+		} else {
+			alert("개인 회원 로그인 후 이용 가능한 서비스입니다.");
 		}
 		
-		location.reload();
+		
 		
 	});
 	//팝업창

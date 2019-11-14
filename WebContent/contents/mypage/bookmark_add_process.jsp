@@ -21,7 +21,7 @@
 		result=service.getResultExhibAdd(exhib_code, id);
 	}
 	
-	out.write(result);
+	out.write(String.valueOf(result));
 	
 	/* 
 	if(result) {

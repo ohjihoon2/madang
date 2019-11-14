@@ -32,11 +32,11 @@
 				<table border=1>
 					<tr>
 						<td>제목</td>
-						<td><input type="text" name="qa_title" id="qaa_title"></td>
+						<td><input type="text" name="qa_title" id="qaa_title" placeholder="50자 이내로 작성해주세요"></td>
 					</tr>
 					<tr>
 						<td>내용</td>
-						<td><textarea name="qa_contents" id="qaa_contents"></textarea></td>
+						<td><textarea name="qa_contents" id="qaa_contents" placeholder="300자 이내로 작성해주세요"></textarea></td>
 					</tr>
 					<tr>
 						<td>첨부파일</td>
