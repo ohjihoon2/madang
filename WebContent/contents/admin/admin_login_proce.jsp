@@ -9,7 +9,7 @@
 	vo.setId(request.getParameter("id"));
 	vo.setPw(request.getParameter("pw"));
 	
-	boolean result = dao.getResultLogin(vo);
+	boolean result = dao.getResultLoginAdmin(vo);
 	dao.close();
 	if(result){
 		//로그인 성공 : 관리자는 세션저장하지 않는다.

@@ -52,7 +52,6 @@
 			<a href="login_group.jsp"><span>대관자는 이쪽으로</span></a>
 			<br>
 			<button type="button" id="btnlonin">로그인</button>
-			<input type="hidden" name = "distinguish" value="general"/>
 		</form>
 		<section>
 			<a href="#"><span>아이디/패스워드 찾기</span></a>

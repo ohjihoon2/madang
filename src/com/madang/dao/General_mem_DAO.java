@@ -163,7 +163,7 @@ public class General_mem_DAO {
 			public boolean getResultLogin(General_mem_VO vo) {
 				boolean result=false;
 				int val = 0;
-				String sql="select count(*) from (select id, pw from general_mem where id='admin')where id=? and pw=?";
+				String sql="select count(*) from general_mem where id=? and pw=?";
 				getPreparedStatement(sql);
 				try {
 					pstmt.setString(1,vo.getId());
@@ -176,7 +176,22 @@ public class General_mem_DAO {
 				return result;
 			}
 
-
+			//관리자 로그인 확인
+			public boolean getResultLoginAdmin(General_mem_VO vo) {
+				boolean result=false;
+				int val = 0;
+				String sql="select count(*) from (select id, pw from general_mem where id='admin')where id=? and pw=?";
+				getPreparedStatement(sql);
+				try {
+					pstmt.setString(1,vo.getId());
+					pstmt.setString(2,vo.getPw());
+					rs=pstmt.executeQuery();
+					
+					if(rs.next()) val=rs.getInt(1);
+					if(val!=0) result=true;
+				}catch(Exception e) {e.printStackTrace();}
+				return result;
+			}
 	/** 회원 탈퇴 비밀번호 확인 */
 	public int getResultPw(String id, String u_pw) {
 		int result=0;
