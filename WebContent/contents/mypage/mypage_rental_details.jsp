@@ -13,9 +13,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://211.63.89.214:9090/css/mypage.css"/>
-<script src="http://211.63.89.214:9090/js/jquery-3.4.1.min.js"></script>
-<script src="http://211.63.89.214:9090/js/madang.js"></script>
+<link rel="stylesheet" href="http://localhost:9090/css/mypage.css"/>
+<script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
+<script src="http://localhost:9090/js/madang.js"></script>
 <script>
 	$(document).ready(function(){
 		$('#rt_file_dwn').click(function(e){
@@ -36,12 +36,12 @@
 			</ul>
 		</div>
 
-		<div id="main_title">대1111관 신청 내역</div>
+		<div id="main_title">대관 신청 내역</div>
 		
 		<div class="body">
 		
 		<div class="ticket_box_1">
-			<h2>대관22222 정보</h2>
+			<h2>대관 정보</h2>
 			<br>
 			<table border=1>
 				<tr>
@@ -84,13 +84,12 @@
 					<td>공연 시간</td>
 					<td><%= vo.getR_time() %></td>
 				</tr>
-				<tr>
-					<td>리허설 시간</td>
-					
-					<%if( vo.getR_rhtime() ==null){%>
-						<td> - </td>
-						<%} %>
-				</tr>
+				<% if(vo.getR_case().equals("공연")) { %>
+					<tr>
+						<td>리허설 시간</td>
+						<td><%= vo.getR_rhtime() %></td>
+					</tr>
+				<% } %>
 				<tr>
 					<td>신청서</td>
 					<td>
@@ -99,7 +98,6 @@
 						<%}else{ %>
 							파일 없음
 						<%} %>
-						<%-- <%= vo.getR_file() %> 이건....어떻게해 --%>
 					</td>
 				</tr>
 				<tr>
@@ -110,8 +108,6 @@
 						<td><%= vo.getR_status() %></td>
 					<% } %>
 				</tr>
-				
-				
 				
 			</table>
 		</div>
