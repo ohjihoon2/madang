@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.madang.vo.Concert_Reserv_VO;
 import com.madang.vo.Exhib_Reserv_VO;
+import com.madang.vo.ReservationVO;
 
 public class Reservation_DAO {
 	//Field
@@ -35,7 +36,7 @@ public class Reservation_DAO {
 	}
 	
 	
-	/** ���� ���ų��� ����Ʈ */
+	/** 占쏙옙占쏙옙 占쏙옙占신놂옙占쏙옙 占쏙옙占쏙옙트 */
 	public ArrayList<Concert_Reserv_VO> getConcertReservList(String id) {
 		ArrayList<Concert_Reserv_VO> list=new ArrayList<Concert_Reserv_VO>();
 		
@@ -68,7 +69,7 @@ public class Reservation_DAO {
 	}
 	
 	
-	/** ���� ���� �󼼳��� */
+	/** 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏢세놂옙占쏙옙 */
 	public Concert_Reserv_VO getConcertReservContent(String id, String tc_code) {
 		Concert_Reserv_VO vo=new Concert_Reserv_VO();
 		
@@ -117,7 +118,7 @@ public class Reservation_DAO {
 	}
 	
 	
-	/** ���� ���ų��� ����Ʈ */
+	/** 占쏙옙占쏙옙 占쏙옙占신놂옙占쏙옙 占쏙옙占쏙옙트 */
 	public ArrayList<Exhib_Reserv_VO> getExhibReservList(String id) {
 		ArrayList<Exhib_Reserv_VO> list=new ArrayList<Exhib_Reserv_VO>();
 		
@@ -152,7 +153,7 @@ public class Reservation_DAO {
 	
 	
 	
-	/** ���� ���� �󼼳��� */
+	/** 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏢세놂옙占쏙옙 */
 	public Exhib_Reserv_VO getExhibReservContent(String id, String te_code) {
 		Exhib_Reserv_VO vo=new Exhib_Reserv_VO();
 		
@@ -207,7 +208,7 @@ public class Reservation_DAO {
 	}
 
 	
-	/** ������� */
+	/** 占쏙옙占쏙옙占쏙옙占� */
 	public boolean getReservDelete(String id, String p_code) {
 		boolean result=false;
 		
@@ -225,6 +226,30 @@ public class Reservation_DAO {
 		return result;
 	}
 	
+	
+	
+	//Admin per memeber reservation
+	public ArrayList<ReservationVO> AdminPerMemList(String memid) {
+		ArrayList<ReservationVO> list = new ArrayList<ReservationVO>();
+		String sql="select * from(select rownum rno, ticket_code, title, code, tc_time from(select * from(select tc_code ticket_code,con.c_title title,tc.concert_code code,tc_time, tc_id memid from ticket_concert tc, concert con where tc.concert_code=con.concert_code union select te_code,exh.e_title, te.exhibition_code, te_time, te_id from ticket_exhibition te, exhibition exh where te.exhibition_code=exh.EXHIBITION_CODE) where memid =? order by tc_time desc)" + 
+				" )order by rno";
+		getPreparedStatement(sql);
+		try {
+			pstmt.setString(1, memid);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				ReservationVO vo = new ReservationVO();
+				vo.setRno(rs.getInt(1));
+				vo.setTicket_code(rs.getString(2));
+				vo.setTitle(rs.getString(3));
+				vo.setCode(rs.getString(4));
+				vo.setTime(rs.getString(5));
+				list.add(vo);
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		
+		return list;
+	}
 	
 	public void close() {
 		try {

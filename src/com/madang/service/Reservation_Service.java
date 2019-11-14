@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.madang.dao.Reservation_DAO;
 import com.madang.vo.Concert_Reserv_VO;
 import com.madang.vo.Exhib_Reserv_VO;
+import com.madang.vo.ReservationVO;
 
 public class Reservation_Service {
 	/** 공연 예매내역 리스트 */
@@ -59,5 +60,11 @@ public class Reservation_Service {
 		return vo;	
 	}
 	
+	//Admin per Mem List
+	public ArrayList<ReservationVO> AdminPerMemList(String memid) {
+		Reservation_DAO dao=new Reservation_DAO();
+		ArrayList<ReservationVO> list = dao.AdminPerMemList(memid);
+		return list;
+	}
 	
 }

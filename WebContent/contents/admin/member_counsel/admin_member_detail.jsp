@@ -6,7 +6,9 @@
 	String id = request.getParameter("id");
 	String rpage = request.getParameter("page");
 	General_mem_Service service = new General_mem_Service();
+	Reservation_Service rservice = new Reservation_Service();
 	General_mem_VO vo = service.getMemberContentsAdmin(id);
+	ArrayList<ReservationVO> rlist = rservice.AdminPerMemList(id);
 	
 	
 	ArrayList<ConcertTicketVO> concert = new ArrayList<ConcertTicketVO>();
@@ -67,11 +69,10 @@ div#admin_notice_contents section table tr td{
 	border:1px solid gray;
 }
 
-div#admin_notice_contents section:nth-child(3) table tr td:nth-child(2),
-div#admin_notice_contents section:nth-child(4) table tr td:nth-child(2){
-	width:500px;
-}
 
+div#admin_notice_contents section:nth-child(3) table.gernalmem_reserve_List tr th:nth-child(4){
+	width:65%;
+}
 div#admin_notice_contents article {
 	margin-top:50px;
 	width:70%;
@@ -149,23 +150,25 @@ div#admin_notice_contents > article button{
 	</section>
 	<section>
 		<h3>예매내역</h3>
-		<table>
+		<table class="gernalmem_reserve_List">
 			<tr>
 				<th>번호</th>
 				<th>관람종류</th>
 				<th>예매코드</th>
 				<th>제목</th>
 				<th>예매일</th>
-				<th>관람일</th> <!-- 전시면 시작일 ~ 종료일 -->
 			</tr>
-			<%for(int i=0;i<5;i++){ %>
+			<%for(ReservationVO rvo : rlist){ %>
 				<tr>
-					<td>dd</td>
-					<td>dd</td>
-					<td>dd</td>
-					<td>dd</td>
-					<td>dd</td>
-					<td>dd</td>
+					<td><%=rvo.getRno() %></td>
+					<% if(rvo.getTicket_code().substring(0, 2).equals("tc")){ %>
+						<td>공연</td>
+					<%}else{ %>
+						<td>전시</td>
+					<%} %>
+					<td><%=rvo.getTicket_code() %></td>
+					<td><%=rvo.getTitle() %>  (<%=rvo.getCode() %>)</td>
+					<td><%=rvo.getTime() %></td>
 				</tr>
 			<%} %>
 		</table>

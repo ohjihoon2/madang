@@ -103,7 +103,7 @@ public class NoticeService {
 	//admin delete
 		public boolean getResultDeleteAdmin(String nt_code) {
 			boolean result=false;
-			EventDAO dao = new EventDAO();		
+			NoticeDAO dao = new NoticeDAO();		
 			result = dao.getResultDeleteAdmin(nt_code);
 			System.out.println("ser"+nt_code + result);
 			dao.close();

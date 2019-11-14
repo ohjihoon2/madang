@@ -4,6 +4,7 @@ encoding//src/com/madang/dao/ConcertDAO.java=UTF-8
 encoding//src/com/madang/dao/EventDAO.java=UTF-8
 encoding//src/com/madang/dao/NewsDAO.java=UTF-8
 encoding//src/com/madang/dao/Rental_DAO.java=UTF-8
+encoding//src/com/madang/dao/Reservation_DAO.java=UTF-8
 encoding//src/com/madang/service/ConcertService.java=UTF-8
 encoding//src/com/madang/service/EventService.java=UTF-8
 encoding//src/com/madang/service/NewsService.java=UTF-8
