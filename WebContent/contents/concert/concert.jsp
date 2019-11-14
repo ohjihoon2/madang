@@ -30,12 +30,15 @@
 <script>
 	
 	$(document).ready(function(){
-		var id = '<%=id%>';
+		var id = <%=id%>;
+		var aa = zz;
+		alert(id);
 		//팝업창 
 		$('.ticketing_popup').click(function(){
 			var code = $('.'+$(this).attr("id")).val();
 			//예매 팝업 validation
-			 if(id ==null){
+			alert(id);
+			 if(id == null){
 				alert("로그인시 이용가능합니다. 로그인 페이지로 이동합니다.");
 				location.replace("http://localhost:9090/contents/login/login.jsp");
 			}else{

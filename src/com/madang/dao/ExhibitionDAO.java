@@ -188,7 +188,7 @@ public class ExhibitionDAO {
 			pstmt.setString(2, vo.getTe_cplace());
 			pstmt.setInt(3, vo.getTe_cticket());
 			pstmt.setInt(4, vo.getTe_cancelc());
-			pstmt.setString(5, vo.getTe_canceld());
+			pstmt.setString(5, vo.getTe_canceld());	
 			pstmt.setInt(6, vo.getTe_price());
 			pstmt.setString(7, vo.getTe_recive());
 			pstmt.setString(8, vo.getTe_id());
