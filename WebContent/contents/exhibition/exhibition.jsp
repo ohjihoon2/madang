@@ -2,6 +2,9 @@
     pageEncoding="UTF-8" import="com.madang.vo.*, com.madang.service.*, java.util.*,java.util.Date, java.text.SimpleDateFormat"%>
 <%
 	String id = (String)session.getAttribute("generalID");
+	if(id == null){
+		id ="";
+	}
 
 	ExhibitionVO vo = new ExhibitionVO();
 	ExhibitionService service = new ExhibitionService();
@@ -36,7 +39,7 @@
 		$('.ticketing_popup').click(function(){
 			var code = $('.'+$(this).attr("id")).val();
 			//예매 팝업 validation
-			 if(id ==null){
+			 if(id ==''){
 				alert("로그인시 이용가능합니다. 로그인 페이지로 이동합니다.");
 				location.replace("http://localhost:9090/contents/login/login.jsp");
 			}else{

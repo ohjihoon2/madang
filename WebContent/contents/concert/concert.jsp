@@ -4,6 +4,9 @@
 
 <%
 	String id = (String)session.getAttribute("generalID");
+	if(id == null){
+		id = "";
+	}
 
 	ConcertDAO dao = new ConcertDAO();
 	ArrayList<ConcertVO>list = dao.getConcertInfo();	
@@ -30,15 +33,13 @@
 <script>
 	
 	$(document).ready(function(){
-		var id = <%=id%>;
-		var aa = zz;
-		alert(id);
+		var id = '<%=id%>';
+		
 		//팝업창 
 		$('.ticketing_popup').click(function(){
 			var code = $('.'+$(this).attr("id")).val();
 			//예매 팝업 validation
-			alert(id);
-			 if(id == null){
+			 if(id == ''){
 				alert("로그인시 이용가능합니다. 로그인 페이지로 이동합니다.");
 				location.replace("http://localhost:9090/contents/login/login.jsp");
 			}else{
