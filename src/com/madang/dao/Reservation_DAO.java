@@ -36,7 +36,7 @@ public class Reservation_DAO {
 	}
 	
 	
-	/** 占쏙옙占쏙옙 占쏙옙占신놂옙占쏙옙 占쏙옙占쏙옙트 */
+	/** 공연 예매내역 리스트 */
 	public ArrayList<Concert_Reserv_VO> getConcertReservList(String id) {
 		ArrayList<Concert_Reserv_VO> list=new ArrayList<Concert_Reserv_VO>();
 		
@@ -45,7 +45,8 @@ public class Reservation_DAO {
 				"  from purchase p, ticket_concert t, concert c \r\n" + 
 				"  where p.p_code=t.p_code and t.concert_code=c.concert_code\r\n" + 
 				"    and p.tc_cdate is not null\r\n" + 
-				"    and mem_id=?";
+				"    and mem_id=?\r\n" + 
+				"  order by tc_code desc";
 		getPreparedStatement(sql);
 		
 		try {
@@ -69,7 +70,7 @@ public class Reservation_DAO {
 	}
 	
 	
-	/** 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏢세놂옙占쏙옙 */
+	/** 공연 예매 상세내역 */
 	public Concert_Reserv_VO getConcertReservContent(String id, String tc_code) {
 		Concert_Reserv_VO vo=new Concert_Reserv_VO();
 		
@@ -118,7 +119,7 @@ public class Reservation_DAO {
 	}
 	
 	
-	/** 占쏙옙占쏙옙 占쏙옙占신놂옙占쏙옙 占쏙옙占쏙옙트 */
+	/** 전시 예매내역 리스트 */
 	public ArrayList<Exhib_Reserv_VO> getExhibReservList(String id) {
 		ArrayList<Exhib_Reserv_VO> list=new ArrayList<Exhib_Reserv_VO>();
 		
@@ -127,7 +128,8 @@ public class Reservation_DAO {
 				"  from purchase p, ticket_exhibition t, exhibition e \r\n" + 
 				"  where p.p_code=t.p_code and t.exhibition_code=e.exhibition_code\r\n" + 
 				"    and p.tc_cdate is null\r\n" + 
-				"    and mem_id=?";
+				"    and mem_id=?\r\n" + 
+				"  order by te_code desc";
 		getPreparedStatement(sql);
 		
 		try {
@@ -143,6 +145,7 @@ public class Reservation_DAO {
 				vo.setE_edate(rs.getString(5));
 				vo.setTe_cticket(rs.getInt(6));
 				vo.setTc_pays(rs.getString(7));
+				vo.setStatus(rs.getInt(8));
 				list.add(vo);
 			}
 			
@@ -153,7 +156,7 @@ public class Reservation_DAO {
 	
 	
 	
-	/** 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏢세놂옙占쏙옙 */
+	/** 전시 예매 상세내역 */
 	public Exhib_Reserv_VO getExhibReservContent(String id, String te_code) {
 		Exhib_Reserv_VO vo=new Exhib_Reserv_VO();
 		
@@ -208,7 +211,7 @@ public class Reservation_DAO {
 	}
 
 	
-	/** 占쏙옙占쏙옙占쏙옙占� */
+	/** 예매취소 */
 	public boolean getReservDelete(String id, String p_code) {
 		boolean result=false;
 		
