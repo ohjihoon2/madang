@@ -37,7 +37,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>관리자-예술의마당</title>
 <link rel="stylesheet" type="text/css" href="http://localhost:9090/css/am-pagination.css">
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <script src="http://localhost:9090/js/am-pagination.js"></script>

@@ -54,7 +54,9 @@
 					vo.setNt_sfile("파일 없음");%>
 				
 				<%=vo.getNt_sfile() %>
-				<%} %>
+				<%}else{%>
+					<%=vo.getNt_sfile() %>
+				<% }%>
 			</div>	
 			<div>
 				<a href="notice_list.jsp"><button id="btnNoticeList" type="button">목록보기</button></a>

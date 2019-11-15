@@ -46,9 +46,9 @@ public class QandA_Service {
 	}
 	
 	//admin main list
-	public ArrayList<QandA_VO> getListAdminMain(){
+	public ArrayList<QandA_VO> getListAdminMain(int qna){
 		QandA_DAO dao = new QandA_DAO();
-		ArrayList<QandA_VO> list = dao.getListAdminMain();
+		ArrayList<QandA_VO> list = dao.getListAdminMain(qna);
 		dao.close();
 		return list;
 	}

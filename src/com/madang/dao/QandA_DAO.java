@@ -132,11 +132,12 @@ public class QandA_DAO {
 	}
 	
 	//admin main list
-	public ArrayList<QandA_VO> getListAdminMain(){
+	public ArrayList<QandA_VO> getListAdminMain(int qna){
 		ArrayList<QandA_VO> list = new ArrayList<QandA_VO>();
-		String sql="select * from(select rownum rno, qa_code, qa_title, to_char(qa_date,'yyyy/mm/dd'),to_char(qa_adate,'yyyy/mm/dd')  from Q_AND_A order by qa_date)where rno between 1 and 3";
+		String sql="select * from(select rownum rno, qa_code, qa_title, to_char(qa_date,'yyyy/mm/dd'),to_char(qa_adate,'yyyy/mm/dd')  from(select * from Q_AND_A order by qa_date desc))where rno between 1 and ?";
 		getPreparedStatement(sql);
 		try {
+			pstmt.setInt(1, qna);
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				QandA_VO vo = new QandA_VO();

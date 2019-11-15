@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>관리자-예술의마당</title>
 
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <style>
@@ -167,7 +167,7 @@ div#admin_QnA_detail > article> button#adboard_qna_reply{
 		</table>
 	</section>
 	<article>
-			<button type="button" id="adcoun_qna_reply_btn">답변하기</button>			
+			<button type="button" id="adcoun_qna_reply_btn" style="background-color:rgb(5,135,94)">답변하기</button>			
 			<% if(rpage==null || rpage.equals(null)){ %>
 				<a href="admin_QandA.jsp"><button type="button">목록으로</button></a>
 			<%}else{ %>

@@ -15,8 +15,8 @@
 	int notice = notice_service.getAdminMainCount();
 	
 	QandA_Service qna_service = new QandA_Service();
-	ArrayList<QandA_VO> qna_list = qna_service.getListAdminMain();
 	int qna = qna_service.getAdminMainCount();
+	ArrayList<QandA_VO> qna_list = qna_service.getListAdminMain(qna);
 	
 	Rental_Service rental_service = new Rental_Service();
 	ArrayList<Rental_VO> rental_list = rental_service.getListAdminMain();
@@ -26,7 +26,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>관리자-예술의마당</title>
 <script src="http://localhost:9090/js/jquery-3.4.1.min.js"></script>
 <style>
 
@@ -230,7 +230,11 @@ div#admin_main section a:hover {
 	 					<td><%=qna_list.get(i).getRownum() %></td>
 	 					<td><a href="http://localhost:9090/contents/admin/member_counsel/admin_QandA_detail.jsp?qa_code=<%=qna_list.get(i).getQa_code()%>"><%=qna_list.get(i).getQa_title() %></a></td>
 	 					<td><%=qna_list.get(i).getQa_date() %></td>
-	 					<td><%=qna_list.get(i).getQa_adate() %></td>
+	 					<%if(qna_list.get(i).getQa_adate()!=null){ %>
+	 						<td><%=qna_list.get(i).getQa_adate() %></td>
+	 					<%}else{ %>
+	 						<td>미답변</td>
+	 					<%} %>
 	 				</tr>
 	 			<% }//for%>
 	 			<%}else{ %>

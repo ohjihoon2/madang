@@ -130,7 +130,7 @@ footer>div:last-child>div>div>span {
 					<li><a href="#">이용약관/정책</a></li>
 					<li><a href="#">개인정보처리방침</a></li>
 					<li><a href="#">홈페이지저작권보호정책</a></li>
-					<li><a href="http://211.63.89.214:9090/contents/admin/admin_login.jsp">Admin</a></li>
+					<li><a href="http://localhost:9090/contents/admin/admin_login.jsp">Admin</a></li>
 				</ul>
 			</div>
 		</div>
