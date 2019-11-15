@@ -547,16 +547,28 @@
 		  		,onSelect: function(dateText, inst) { //클릭시에 date value 값 !!!!!!!!!!!!
 		            var date = $(this).val();
 		            var picdate = date;    
-		            var yyyy = picdate.substr(0,4);
+		            /* var yyyy = picdate.substr(0,4);
 		            var mm = picdate.substr(5,2);
-		            var dd = picdate.substr(8,2); 
-		  			var seldate = new Date(yyyy, mm-1, dd);
+		            var dd = picdate.substr(8,2); */ 
+		  			var seldate = new Date(picdate);
+		  			alert(seldate);
+					var cancelDate = new Date(seldate.setDate(seldate.getDate()-1));					
+					alert(cancelDate);
+					var year = cancelDate.getFullYear();
+				    var month = cancelDate.getMonth()+1
+				    var day = cancelDate.getDate();
+				    
+				    if(month < 10){
+				        month = "0"+month;
+				    }
+				    if(day < 10){
+				        day = "0"+day;
+				    }
+				 
+				    var cancelday = year+"-"+month+"-"+day;
 
-		  	        var month = (seldate.getMonth() + 1);
-		  	        var day = (seldate.getDate()-1);
-		  	       	var year = seldate.getFullYear();
-		            var canceldate = year+'-'+month+'-'+day+' ';
-		            
+
+					
 		            var dateText = $("table.myticket_t > tbody > tr:nth-child(1) > td");
 		  			var cancelText = $("table.myticket_t > tbody > tr:nth-child(5) > td");
 		  			
@@ -566,7 +578,7 @@
 		  			$("table.myticket_t > tbody > tr:nth-child(1) > td >span:nth-child(2)").empty();
 		  			dateText.append("<span>"+date+"</span>");
 		  			$("table.myticket_t > tbody > tr:nth-child(5) > td >span:nth-child(2)").empty();
-		  			cancelText.append("<span>"+canceldate+"23:59 </span>");
+		  			cancelText.append("<span>"+cancelday+" 23:59 </span>");
 		          
 		       }
       		});    
